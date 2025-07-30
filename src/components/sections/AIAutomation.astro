@@ -1,0 +1,382 @@
+---
+// Características de la automatización con IA
+const features = [
+  {
+    icon: "🧠",
+    text: "Clasificación inteligente"
+  },
+  {
+    icon: "💡",
+    text: "Detección de ahorros"
+  },
+  {
+    icon: "🔔",
+    text: "Alertas predictivas"
+  },
+  {
+    icon: "📈",
+    text: "Análisis de tendencias"
+  },
+  {
+    icon: "⚡",
+    text: "70% menos tiempo manual"
+  },
+  {
+    icon: "🎯",
+    text: "Recomendaciones personalizadas"
+  }
+];
+
+// Alertas de IA que mostraremos en el mockup
+const aiAlerts = [
+  "15 gastos sin clasificar",
+  "Posible deducción de $12,500",
+  "Recomendación: Cambio de régimen"
+];
+---
+
+<section class="ai-automation" id="automatizacion">
+  <div class="container">
+    <div class="content-grid">
+      <div class="visual-content fade-in-up">
+        <div class="ai-mockup">
+          <h4 class="mockup-title">Asistente IA Contable</h4>
+          
+          <div class="ai-alerts-card">
+            <div class="ai-header">
+              <span class="ai-icon">🤖</span>
+              <div class="ai-detection-title">IA Detectó:</div>
+            </div>
+            
+            <div class="ai-alerts-list">
+              {aiAlerts.map(alert => (
+                <div class="ai-alert-item">• {alert}</div>
+              ))}
+            </div>
+          </div>
+          
+          <div class="ai-stats-card">
+            <div class="ai-stat">
+              <span class="ai-stat-icon">⚡</span>
+              <span>Procesos automatizados: 23 este mes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-content">
+        <h2 class="section-title fade-in-up">Automatización con<br>Inteligencia Artificial</h2>
+        <p class="section-lead fade-in-up">
+          Elimina tareas repetitivas con IA que aprende de tu negocio. 
+          Clasificación automática de gastos, detección de deducciones y alertas inteligentes.
+        </p>
+        
+        <div class="features-grid fade-in-up">
+          {features.map((feature, index) => (
+            <div class="feature-item" style={`animation-delay: ${index * 0.1}s`}>
+              <div class="feature-icon">{feature.icon}</div>
+              <span class="feature-text">{feature.text}</span>
+            </div>
+          ))}
+        </div>
+
+        <div class="cta-buttons fade-in-up">
+          <a href="#contacto" class="btn btn-accent btn-lg">Activar IA</a>
+          <a href="#servicios" class="btn btn-outline btn-lg">Incluido en Premium</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ai-automation {
+    background: var(--bg-warm);
+    padding: var(--space-24) 0;
+    overflow: hidden;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+    align-items: center;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: var(--font-size-5xl);
+    font-weight: 800;
+    color: var(--neutral-900);
+    margin-bottom: var(--space-6);
+    line-height: 1.1;
+  }
+
+  .section-lead {
+    font-size: var(--font-size-lg);
+    color: var(--neutral-600);
+    margin-bottom: var(--space-8);
+    line-height: 1.6;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+    margin-bottom: var(--space-8);
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    transition: all var(--transition-normal);
+  }
+
+  .feature-item:hover {
+    transform: translateX(5px);
+  }
+
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--orange-100);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-lg);
+    flex-shrink: 0;
+    transition: all var(--transition-normal);
+  }
+
+  .feature-item:hover .feature-icon {
+    background: var(--orange-300);
+    transform: scale(1.1);
+  }
+
+  .feature-text {
+    font-weight: 600;
+    color: var(--neutral-800);
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--space-4);
+    margin-top: var(--space-8);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3) var(--space-6);
+    font-family: var(--font-display);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    border-radius: var(--border-radius-md);
+    border: 2px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all var(--transition-normal);
+  }
+
+  .btn-lg {
+    padding: var(--space-4) var(--space-8);
+    font-size: var(--font-size-lg);
+    border-radius: var(--border-radius-lg);
+  }
+
+  .btn-accent {
+    background: var(--orange-600);
+    color: white;
+    border-color: var(--orange-600);
+  }
+
+  .btn-accent:hover {
+    background: var(--orange-700);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(234, 88, 12, 0.3);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--primary-600);
+    border-color: var(--primary-600);
+  }
+
+  .btn-outline:hover {
+    background: var(--primary-600);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  .visual-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ai-mockup {
+    background: var(--bg-primary);
+    border-radius: var(--border-radius-2xl);
+    padding: var(--space-6);
+    width: 100%;
+    max-width: 380px;
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-slow);
+  }
+
+  .ai-mockup:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .mockup-title {
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--neutral-900);
+    margin-bottom: var(--space-4);
+  }
+
+  .ai-alerts-card {
+    background: var(--orange-50);
+    padding: var(--space-4);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--orange-200);
+    margin-bottom: var(--space-4);
+    transition: all var(--transition-normal);
+  }
+
+  .ai-alerts-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(234, 88, 12, 0.15);
+  }
+
+  .ai-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+
+  .ai-icon {
+    font-size: var(--font-size-lg);
+  }
+
+  .ai-detection-title {
+    font-weight: 600;
+    color: var(--orange-800);
+  }
+
+  .ai-alerts-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .ai-alert-item {
+    font-size: var(--font-size-sm);
+    color: var(--orange-700);
+  }
+
+  .ai-stats-card {
+    background: var(--green-50);
+    padding: var(--space-3);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--green-200);
+    transition: all var(--transition-normal);
+  }
+
+  .ai-stats-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(22, 163, 74, 0.15);
+  }
+
+  .ai-stat {
+    font-size: var(--font-size-sm);
+    color: var(--green-700);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .ai-stat-icon {
+    font-size: var(--font-size-base);
+  }
+
+  /* Animaciones */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+  }
+
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      text-align: center;
+    }
+
+    .features-grid {
+      justify-content: center;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons {
+      justify-content: center;
+    }
+
+    .section-title {
+      font-size: var(--font-size-4xl);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+
+    .feature-item {
+      justify-content: center;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      gap: var(--space-4);
+      align-items: center;
+    }
+
+    .ai-mockup {
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .section-lead {
+      font-size: var(--font-size-base);
+    }
+
+    .btn-lg {
+      width: 100%;
+    }
+  }
+</style>

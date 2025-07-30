@@ -1,16 +1,51 @@
 ---
+// src/pages/index.astro
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/ui/Navbar.astro';
+import Hero from '../components/sections/Hero.astro';
+import ValueProps from '../components/sections/ValueProps.astro';
+import Services from '../components/sections/Services.astro';
+import OnlineAdvice from '../components/sections/OnlineAdvice.astro';
+import AIAutomation from '../components/sections/AIAutomation.astro';
+import Stats from '../components/sections/Stats.astro';
+import CallToAction from '../components/sections/CallToAction.astro';
+import Footer from '../components/ui/Footer.astro';
 
+// Importar los estilos globales
+import '../styles/reset.css';
+import '../styles/design-system.css';
+import '../styles/global.css';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Todoconta - Servicios Contables y Software XMLSAT para Empresarios" 
+  description="Servicios contables integrales desde $4,200/mes. Software XMLSAT para gestión de facturas electrónicas. Tranquilidad fiscal garantizada para tu empresa.">
+  
+  <Navbar />
+  <Hero />
+  <ValueProps />
+  <Services />
+  <OnlineAdvice />
+  <AIAutomation />
+  <Stats />
+  <CallToAction />
+  <Footer />
+  
+  <script>
+    // Script para las animaciones
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      document.querySelectorAll('.fade-in-up, .fade-in-left, .scale-in')
+        .forEach(el => observer.observe(el));
+    });
+  </script>
+</Layout>

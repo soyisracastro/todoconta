@@ -1,0 +1,404 @@
+---
+// src/components/sections/OnlineAdvice.astro
+
+// Características de la asesoría online
+const features = [
+  {
+    icon: "👨‍💼",
+    text: "Contadores certificados"
+  },
+  {
+    icon: "⏰",
+    text: "Disponible 9am-6pm"
+  },
+  {
+    icon: "📹",
+    text: "Videollamada o chat"
+  },
+  {
+    icon: "📋",
+    text: "Reporte por escrito"
+  },
+  {
+    icon: "💰",
+    text: "Desde $1,500/hora"
+  },
+  {
+    icon: "📱",
+    text: "Sin instalaciones"
+  }
+];
+---
+
+<section class="online-advice" id="asesoria">
+  <div class="container">
+    <div class="content-grid">
+      <div class="text-content">
+        <h2 class="section-title fade-in-up">Asesoría Fiscal<br>100% Online</h2>
+        <p class="section-lead fade-in-up">
+          Consultas especializadas por videollamada con contadores certificados. 
+          Resuelve dudas fiscales específicas sin comprometerte a un plan mensual.
+        </p>
+        
+        <div class="features-grid fade-in-up">
+          {features.map((feature, index) => (
+            <div class="feature-item" style={`animation-delay: ${index * 0.1}s`}>
+              <div class="feature-icon">{feature.icon}</div>
+              <span class="feature-text">{feature.text}</span>
+            </div>
+          ))}
+        </div>
+
+        <div class="cta-buttons fade-in-up">
+          <a href="#contacto" class="btn btn-primary btn-lg">Agendar Consulta</a>
+          <a href="#servicios" class="btn btn-outline btn-lg">Ver Planes Mensuales</a>
+        </div>
+      </div>
+      
+      <div class="visual-content fade-in-left">
+        <div class="advice-mockup">
+          <h4 class="mockup-title">Consulta Online</h4>
+          
+          <div class="consultant-card">
+            <div class="consultant-avatar">CL</div>
+            <div class="consultant-info">
+              <div class="consultant-name">Carlos López, CPC</div>
+              <div class="consultant-status">🟢 Disponible ahora</div>
+            </div>
+            <div class="consultant-message">
+              "¿Necesitas ayuda con tu situación fiscal específica?"
+            </div>
+          </div>
+          
+          <div class="availability-card">
+            <div class="availability-label">
+              ⏰ Próxima disponibilidad:
+            </div>
+            <div class="availability-time">
+              Hoy 2:00 PM - 4:00 PM
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .online-advice {
+    background: var(--bg-primary);
+    padding: var(--space-24) 0;
+    overflow: hidden;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+    align-items: center;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: var(--font-size-5xl);
+    font-weight: 800;
+    color: var(--neutral-900);
+    margin-bottom: var(--space-6);
+    line-height: 1.1;
+  }
+
+  .section-lead {
+    font-size: var(--font-size-lg);
+    color: var(--neutral-600);
+    margin-bottom: var(--space-8);
+    line-height: 1.6;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+    margin-bottom: var(--space-8);
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    transition: all var(--transition-normal);
+  }
+
+  .feature-item:hover {
+    transform: translateX(5px);
+  }
+
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--orange-100);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-lg);
+    flex-shrink: 0;
+    transition: all var(--transition-normal);
+  }
+
+  .feature-item:hover .feature-icon {
+    background: var(--orange-200);
+    transform: scale(1.1);
+  }
+
+  .feature-text {
+    font-weight: 600;
+    color: var(--neutral-800);
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--space-4);
+    margin-top: var(--space-8);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3) var(--space-6);
+    font-family: var(--font-display);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    border-radius: var(--border-radius-md);
+    border: 2px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all var(--transition-normal);
+  }
+
+  .btn-lg {
+    padding: var(--space-4) var(--space-8);
+    font-size: var(--font-size-lg);
+    border-radius: var(--border-radius-lg);
+  }
+
+  .btn-primary {
+    background: var(--primary-600);
+    color: white;
+    border-color: var(--primary-600);
+  }
+
+  .btn-primary:hover {
+    background: var(--primary-700);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(2, 132, 199, 0.3);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--primary-600);
+    border-color: var(--primary-600);
+  }
+
+  .btn-outline:hover {
+    background: var(--primary-600);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  .visual-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .advice-mockup {
+    background: var(--neutral-100);
+    border-radius: var(--border-radius-2xl);
+    padding: var(--space-6);
+    width: 100%;
+    max-width: 380px;
+    box-shadow: var(--shadow-lg);
+    transform: rotate(2deg);
+    transition: all var(--transition-slow);
+  }
+
+  .advice-mockup:hover {
+    transform: rotate(0deg) scale(1.02);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .mockup-title {
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--neutral-900);
+    margin-bottom: var(--space-4);
+  }
+
+  .consultant-card {
+    background: var(--green-50);
+    padding: var(--space-4);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--green-200);
+    margin-bottom: var(--space-4);
+    transition: all var(--transition-normal);
+  }
+
+  .consultant-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(22, 163, 74, 0.15);
+  }
+
+  .consultant-avatar {
+    width: 40px;
+    height: 40px;
+    background: var(--green-500);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-family: var(--font-display);
+    margin-bottom: var(--space-3);
+    float: left;
+    margin-right: var(--space-3);
+  }
+
+  .consultant-info {
+    margin-bottom: var(--space-3);
+    overflow: hidden;
+  }
+
+  .consultant-name {
+    font-weight: 600;
+    color: var(--neutral-900);
+    margin-bottom: var(--space-1);
+  }
+
+  .consultant-status {
+    font-size: var(--font-size-sm);
+    color: var(--green-700);
+  }
+
+  .consultant-message {
+    font-size: var(--font-size-sm);
+    color: var(--green-800);
+    clear: both;
+    margin-top: var(--space-3);
+    font-style: italic;
+  }
+
+  .availability-card {
+    background: var(--primary-50);
+    padding: var(--space-4);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--primary-200);
+    transition: all var(--transition-normal);
+  }
+
+  .availability-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(14, 165, 233, 0.15);
+  }
+
+  .availability-label {
+    font-size: var(--font-size-sm);
+    color: var(--primary-700);
+    margin-bottom: var(--space-2);
+  }
+
+  .availability-time {
+    font-weight: 600;
+    color: var(--primary-800);
+  }
+
+  /* Animaciones */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+  }
+
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.6s ease;
+  }
+
+  .fade-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      text-align: center;
+    }
+
+    .features-grid {
+      justify-content: center;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons {
+      justify-content: center;
+    }
+
+    .visual-content {
+      order: -1;
+    }
+
+    .section-title {
+      font-size: var(--font-size-4xl);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+
+    .feature-item {
+      justify-content: center;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      gap: var(--space-4);
+      align-items: center;
+    }
+
+    .advice-mockup {
+      width: 90%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .section-lead {
+      font-size: var(--font-size-base);
+    }
+
+    .btn-lg {
+      width: 100%;
+    }
+  }
+</style>

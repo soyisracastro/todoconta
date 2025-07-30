@@ -1,0 +1,250 @@
+/*
+  Todoconta Design System Variables
+  Versión 4.0 - Julio 2025
+  Este archivo define todas las variables del sistema de diseño
+  para mantener una apariencia consistente en todo el sitio.
+*/
+
+:root {
+    /* Primary Brand Colors */
+    --primary-50: #f0f9ff;
+    --primary-100: #e0f2fe;
+    --primary-200: #bae6fd;
+    --primary-300: #7dd3fc;
+    --primary-400: #38bdf8;
+    --primary-500: #0ea5e9;
+    --primary-600: #0284c7;
+    --primary-700: #0369a1;
+    --primary-800: #075985;
+    --primary-900: #0c4a6e;
+  
+    /* Green Financial */
+    --green-50: #f0fdf4;
+    --green-100: #dcfce7;
+    --green-200: #bbf7d0;
+    --green-300: #86efac;
+    --green-400: #4ade80;
+    --green-500: #22c55e;
+    --green-600: #16a34a;
+    --green-700: #15803d;
+    --green-800: #166534;
+    --green-900: #14532d;
+  
+    /* Orange Energetic */
+    --orange-50: #fff7ed;
+    --orange-100: #ffedd5;
+    --orange-200: #fed7aa;
+    --orange-300: #fdba74;
+    --orange-400: #fb923c;
+    --orange-500: #f97316;
+    --orange-600: #ea580c;
+    --orange-700: #c2410c;
+    --orange-800: #9a3412;
+    --orange-900: #7c2d12;
+  
+    /* Red Alert */
+    --red-50: #fef2f2;
+    --red-100: #fee2e2;
+    --red-200: #fecaca;
+    --red-300: #fca5a5;
+    --red-400: #f87171;
+    --red-500: #ef4444;
+    --red-600: #dc2626;
+    --red-700: #b91c1c;
+    --red-800: #991b1b;
+    --red-900: #7f1d1d;
+  
+    /* Warm Neutrals */
+    --neutral-50: #fafaf9;
+    --neutral-100: #f5f5f4;
+    --neutral-200: #e7e5e4;
+    --neutral-300: #d6d3d1;
+    --neutral-400: #a8a29e;
+    --neutral-500: #78716c;
+    --neutral-600: #57534e;
+    --neutral-700: #44403c;
+    --neutral-800: #292524;
+    --neutral-900: #1c1917;
+  
+    /* System Colors */
+    --success: var(--green-500);
+    --warning: var(--orange-500);
+    --error: var(--red-500);
+    --info: var(--primary-500);
+  
+    /* Backgrounds */
+    --bg-primary: #ffffff;
+    --bg-secondary: var(--neutral-50);
+    --bg-accent: var(--orange-50);
+    --bg-success: var(--green-50);
+    --bg-warning: var(--orange-50);
+    --bg-error: var(--red-50);
+    --bg-info: var(--primary-50);
+    --bg-hero: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%);
+    --bg-warm: linear-gradient(135deg, #fef7f0 0%, #fbf2e6 100%);
+    --bg-glass: rgba(255, 255, 255, 0.85);
+    --bg-glass-dark: rgba(0, 0, 0, 0.75);
+  
+    /* Typography */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+  
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-base: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 20px;
+    --font-size-2xl: 24px;
+    --font-size-3xl: 30px;
+    --font-size-4xl: 36px;
+    --font-size-5xl: 48px;
+    --font-size-6xl: 60px;
+    --font-size-7xl: 72px;
+  
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+  
+    /* Spacing */
+    --space-1: 0.25rem;  /* 4px */
+    --space-2: 0.5rem;   /* 8px */
+    --space-3: 0.75rem;  /* 12px */
+    --space-4: 1rem;     /* 16px */
+    --space-5: 1.25rem;  /* 20px */
+    --space-6: 1.5rem;   /* 24px */
+    --space-8: 2rem;     /* 32px */
+    --space-10: 2.5rem;  /* 40px */
+    --space-12: 3rem;    /* 48px */
+    --space-16: 4rem;    /* 64px */
+    --space-20: 5rem;    /* 80px */
+    --space-24: 6rem;    /* 96px */
+    --space-32: 8rem;    /* 128px */
+    --space-40: 10rem;   /* 160px */
+    --space-48: 12rem;   /* 192px */
+  
+    /* Borders & Radii - Valores más redondeados */
+    --border-radius-sm: 8px;     /* Aumentado para más redondez */
+    --border-radius-md: 12px;    /* Aumentado para más redondez */
+    --border-radius-lg: 16px;    /* Aumentado para más redondez */
+    --border-radius-xl: 24px;    /* Aumentado para más redondez */
+    --border-radius-2xl: 32px;   /* Aumentado para más redondez */
+    --border-radius-full: 9999px;
+  
+    --border-width-thin: 1px;
+    --border-width-normal: 2px;
+    --border-width-thick: 3px;
+  
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+    
+    /* Sombras con colores */
+    --shadow-primary: 0 12px 30px -10px rgba(2, 132, 199, 0.3);
+    --shadow-success: 0 12px 30px -10px rgba(22, 163, 74, 0.3);
+    --shadow-warning: 0 12px 30px -10px rgba(234, 88, 12, 0.3);
+    --shadow-error: 0 12px 30px -10px rgba(220, 38, 38, 0.3);
+    
+    /* Elevaciones - Para efectos de hover */
+    --elevation-hover: translateY(-8px);
+    --elevation-active: translateY(-2px);
+    --elevation-float: translateY(-12px);
+  
+    /* Transitions - Mejoradas para movimientos más fluidos */
+    --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+    /* Z-Index */
+    --z-negative: -1;
+    --z-elevate: 1;
+    --z-sticky: 100;
+    --z-drawer: 200;
+    --z-dropdown: 300;
+    --z-modal: 400;
+    --z-popover: 500;
+    --z-tooltip: 600;
+    --z-toast: 700;
+    --z-highest: 9999;
+  
+    /* Focus */
+    --focus-ring-color: rgba(14, 165, 233, 0.3);
+    --focus-ring-width: 3px;
+    --focus-ring-offset: 2px;
+    
+    /* Animation */
+    --animation-duration-fast: 150ms;
+    --animation-duration-normal: 300ms;
+    --animation-duration-slow: 500ms;
+    --animation-timing-ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --animation-timing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+    /* Glassmorphism */
+    --glass-blur: 12px;
+    --glass-saturation: 180%;
+    --glass-opacity: 0.85;
+    --glass-border-opacity: 0.2;
+    
+    /* Container Widths */
+    --container-sm: 640px;
+    --container-md: 768px;
+    --container-lg: 1024px;
+    --container-xl: 1280px;
+    --container-2xl: 1536px;
+    
+    /* Breakpoints */
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+    --breakpoint-2xl: 1536px;
+  }
+  
+  /* Media query helper variables */
+  @media (max-width: 640px) {
+    :root {
+      --container-padding: var(--space-4);
+    }
+  }
+  
+  @media (min-width: 641px) and (max-width: 1024px) {
+    :root {
+      --container-padding: var(--space-6);
+    }
+  }
+  
+  @media (min-width: 1025px) {
+    :root {
+      --container-padding: var(--space-8);
+    }
+  }
+  
+  /* Modo oscuro (opcional) - solo incluir si planeas implementar un switch de tema */
+  @media (prefers-color-scheme: dark) {
+    :root.dark-theme {
+      --bg-primary: var(--neutral-900);
+      --bg-secondary: var(--neutral-800);
+      --bg-accent: rgba(234, 88, 12, 0.15);
+      --bg-success: rgba(22, 163, 74, 0.15);
+      --bg-hero: linear-gradient(135deg, #075985 0%, #0c4a6e 100%);
+      --bg-warm: linear-gradient(135deg, #451a03 0%, #3f1f05 100%);
+      
+      /* Inversión de colores de texto */
+      --text-primary: var(--neutral-50);
+      --text-secondary: var(--neutral-200);
+      --text-tertiary: var(--neutral-400);
+      
+      /* Ajustes de sombreado para modo oscuro */
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+    }
+  }

@@ -1,0 +1,328 @@
+---
+// Definimos los planes de servicio
+const servicePlans = [
+  {
+    title: "Plan Básico",
+    price: "4,200",
+    badge: "IDEAL PARA EMPEZAR",
+    description: "Perfecto para profesionistas independientes y pequeños empresarios sin empleados.",
+    features: [
+      "Contabilidad mensual completa",
+      "Declaraciones de ISR e IVA",
+      "Estados financieros básicos",
+      "Gestión SAT esencial",
+      "Actualización de obligaciones fiscales",
+      "Soporte telefónico y email"
+    ],
+    featured: false,
+    ctaText: "Contratar Plan",
+    ctaHref: "#contacto"
+  },
+  {
+    title: "Plan Premium",
+    price: "7,800",
+    badge: "EL MÁS COMPLETO",
+    description: "Solución integral para empresarios con empleados. Incluye hasta 15 trabajadores.",
+    features: [
+      "Todo lo del Plan Básico",
+      "Nómina completa (hasta 15 empleados)",
+      "Gestión IMSS / INFONAVIT",
+      "Contratos laborales y finiquitos",
+      "🤖 Automatización IA incluida",
+      "Asesoría fiscal avanzada",
+      "Representación en auditorías",
+      "2 horas de consulta online/mes"
+    ],
+    featured: true,
+    ctaText: "Contratar Plan",
+    ctaHref: "#contacto"
+  },
+  {
+    title: "Plan Empresarial",
+    price: "14,500",
+    badge: "CORPORATIVO",
+    description: "Para empresas establecidas con operaciones complejas. Hasta 50 trabajadores.",
+    features: [
+      "Todo lo del Plan Premium",
+      "Contabilidad corporativa avanzada",
+      "🤖 IA avanzada + análisis predictivo",
+      "Análisis de costos y reportes gerenciales",
+      "Planeación fiscal estratégica",
+      "Contador senior asignado",
+      "4 horas de consulta online/mes",
+      "Reuniones trimestrales ejecutivas"
+    ],
+    featured: false,
+    ctaText: "Contratar Plan",
+    ctaHref: "#contacto"
+  }
+];
+---
+
+<section class="services" id="servicios">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title fade-in-up">Planes que se Adaptan a tu Empresa</h2>
+      <p class="section-subtitle fade-in-up">
+        Desde profesionistas independientes hasta empresas con empleados. Encuentra el plan perfecto para ti.
+      </p>
+    </div>
+    
+    <div class="services-grid">
+      {servicePlans.map((plan, index) => (
+        <div class={`service-card ${plan.featured ? 'featured' : ''} fade-in-up`} style={`animation-delay: ${index * 0.2}s`}>
+          <div class="service-badge">{plan.badge}</div>
+          <h3 class="service-title">{plan.title}</h3>
+          <div class="service-price">${plan.price}</div>
+          <div class="service-period">/mes</div>
+          <p class="service-description">{plan.description}</p>
+          
+          <ul class="service-features">
+            {plan.features.map(feature => (
+              <li>{feature}</li>
+            ))}
+          </ul>
+          
+          <a href={plan.ctaHref} class={`btn service-cta ${plan.featured ? 'btn-secondary' : 'btn-outline'}`}>
+            {plan.ctaText}
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    background: var(--bg-warm);
+    padding: var(--space-24) 0;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: var(--font-size-5xl);
+    font-weight: 800;
+    color: var(--neutral-900);
+    margin-bottom: var(--space-4);
+  }
+
+  .section-subtitle {
+    font-size: var(--font-size-xl);
+    color: var(--neutral-600);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+  }
+
+  .service-card {
+    background: var(--bg-primary);
+    border-radius: var(--border-radius-2xl);
+    padding: var(--space-8);
+    border: 2px solid var(--neutral-200);
+    transition: all var(--transition-slow);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card.featured {
+    border-color: var(--green-500);
+    background: var(--green-50);
+    transform: scale(1.05);
+    z-index: 1;
+  }
+
+  .service-card.featured::before {
+    content: '🏆 MÁS POPULAR';
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    background: var(--green-500);
+    color: white;
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-300);
+  }
+
+  .service-card.featured:hover {
+    transform: scale(1.05) translateY(-8px);
+  }
+
+  .service-badge {
+    display: inline-block;
+    background: var(--primary-100);
+    color: var(--primary-800);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+  }
+
+  .service-card.featured .service-badge {
+    background: var(--green-200);
+    color: var(--green-800);
+  }
+
+  .service-title {
+    font-family: var(--font-display);
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--neutral-900);
+    margin-bottom: var(--space-3);
+  }
+
+  .service-price {
+    font-family: var(--font-display);
+    font-size: var(--font-size-4xl);
+    font-weight: 800;
+    color: var(--primary-600);
+    margin-bottom: var(--space-2);
+  }
+
+  .service-card.featured .service-price {
+    color: var(--green-600);
+  }
+
+  .service-period {
+    color: var(--neutral-500);
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-6);
+  }
+
+  .service-description {
+    color: var(--neutral-600);
+    margin-bottom: var(--space-6);
+    line-height: 1.6;
+  }
+
+  .service-features {
+    list-style: none;
+    margin-bottom: var(--space-8);
+  }
+
+  .service-features li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+    color: var(--neutral-700);
+    font-size: var(--font-size-sm);
+    position: relative;
+    padding-left: var(--space-6);
+  }
+
+  .service-features li::before {
+    content: '✅';
+    font-size: var(--font-size-base);
+    position: absolute;
+    left: 0;
+  }
+
+  .service-cta {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3) var(--space-6);
+    font-family: var(--font-display);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    border-radius: var(--border-radius-md);
+    border: 2px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all var(--transition-normal);
+  }
+
+  .btn-secondary {
+    background: var(--green-600);
+    color: white;
+    border-color: var(--green-600);
+  }
+
+  .btn-secondary:hover {
+    background: var(--green-700);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(22, 163, 74, 0.3);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--primary-600);
+    border-color: var(--primary-600);
+  }
+
+  .btn-outline:hover {
+    background: var(--primary-600);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  /* Animaciones */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+  }
+
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .service-card.featured {
+      transform: none;
+      order: -1;
+    }
+
+    .service-card.featured:hover {
+      transform: translateY(-8px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: var(--font-size-4xl);
+    }
+    
+    .section-subtitle {
+      font-size: var(--font-size-lg);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .service-card {
+      padding: var(--space-6);
+    }
+    
+    .service-price {
+      font-size: var(--font-size-3xl);
+    }
+  }
+</style>

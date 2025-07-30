@@ -1,0 +1,246 @@
+/* src/styles/reset.css */
+
+/*
+  Todoconta Reset CSS
+  Este archivo normaliza los estilos base y establece una base consistente
+  para todos los navegadores modernos
+*/
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding */
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: var(--font-primary, system-ui, sans-serif);
+  color: var(--neutral-700, #44403c);
+  background-color: var(--bg-secondary, #fafaf9);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove list styles on ul, ol elements */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* Remove default button styles */
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--primary-500, #0ea5e9);
+  outline-offset: 2px;
+}
+
+/* Set default anchor styles */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* Remove Chrome's autofill background color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--neutral-800, #292524);
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Smooth scrolling - only if not reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Fix iOS font sizing anomaly */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Set base font-size for rem calculations */
+html {
+  font-size: 16px;
+}
+
+/* Full-height app layout */
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main content should fill available space */
+main {
+  flex: 1;
+}
+
+/* Remove margin from first/last children in major sections */
+section > *:first-child {
+  margin-top: 0;
+}
+
+section > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Selection style */
+::selection {
+  background-color: var(--primary-100, #e0f2fe);
+  color: var(--primary-800, #075985);
+}
+
+/* Hidden elements (accessible for screen readers) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Fix inconsistencies with form elements */
+button,
+input,
+select,
+textarea {
+  margin: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* Prevent zooming on focus for mobile */
+@media (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px;
+  }
+}
+
+/* Consistent default button styling */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+/* Add small delay to hover effects for smoother UX */
+button,
+a {
+  transition-delay: 0.05s;
+}
+
+/* Global container style */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-6, 1.5rem);
+  padding-right: var(--space-6, 1.5rem);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: var(--space-4, 1rem);
+    padding-right: var(--space-4, 1rem);
+  }
+}
+
+/* Utility classes for hiding elements based on screen size */
+.hide-on-mobile {
+  display: initial;
+}
+
+.show-on-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none;
+  }
+  
+  .show-on-mobile {
+    display: initial;
+  }
+}
