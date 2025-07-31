@@ -10,7 +10,7 @@ export interface Props {
 
 const {
   title = "Tranquilidad Fiscal Garantizada para tu Empresa",
-  subtitle = "Servicios contables integrales desde $4,200/mes. Asesorías fiscales en línea y automatización con IA. <strong>Si no cumplimos, cubrimos las multas</strong>.",
+  subtitle = "Servicios contables integrales y asesorías fiscales especializadas. <strong>Si no cumplimos, cubrimos las multas</strong>.",
   showStats = true
 } = Astro.props;
 
@@ -40,8 +40,8 @@ const stats = [
         <p class="hero-subtitle fade-in-up" set:html={subtitle}></p>
         
         <div class="hero-cta fade-in-up">
-          <a href="#servicios" class="btn btn-accent btn-xl">Ver Planes</a>
-          <a href="#asesoria" class="btn btn-outline btn-xl">Asesoría Online</a>
+          <a href="#asesoria" class="btn btn-accent btn-xl">Consulta Online</a>
+          <a href="#servicios" class="btn btn-outline btn-xl">Ver Planes</a>
         </div>
         
         {showStats && (
@@ -59,13 +59,14 @@ const stats = [
       <div class="hero-visual fade-in-left">
         <div class="hero-mockup">
           <div class="mockup-content">
-            <h4>Dashboard Contable IA</h4>
-            <p class="mockup-feature">🤖 Automatización de procesos</p>
-            <p class="mockup-feature">📊 Análisis inteligente de gastos</p>
-            <p class="mockup-feature">💡 Recomendaciones fiscales personalizadas</p>
+            <h4>Tranquilidad Fiscal Total</h4>
+            <p class="mockup-feature">📊 Contabilidad completa</p>
+            <p class="mockup-feature">📋 Declaraciones fiscales</p>
+            <p class="mockup-feature">👨‍💼 Asesoría especializada</p>
+            <p class="mockup-feature">🛡️ Garantía de cumplimiento</p>
             <div class="mockup-badge">
               <span class="mockup-badge-dot"></span>
-              <span>Actualizado en tiempo real</span>
+              <span>Servicio profesional confiable</span>
             </div>
           </div>
         </div>
@@ -180,15 +181,15 @@ const stats = [
   }
 
   .btn-accent {
-    background: var(--orange-600);
+    background: var(--green-600);
     color: white;
-    border-color: var(--orange-600);
+    border-color: var(--green-600);
   }
 
   .btn-accent:hover {
-    background: var(--orange-700);
+    background: var(--green-700);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(234, 88, 12, 0.3);
+    box-shadow: 0 8px 25px rgba(22, 163, 74, 0.3);
   }
 
   .btn-outline {
@@ -256,101 +257,63 @@ const stats = [
     padding: var(--space-8);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    transform: rotate(3deg);
-    transition: transform var(--transition-slow);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform: rotate(-2deg);
+    transition: all var(--transition-slow);
+    max-width: 350px;
+    width: 100%;
   }
 
   .hero-mockup:hover {
-    transform: rotate(0deg) scale(1.05);
-  }
-
-  .mockup-content {
-    background: var(--bg-primary);
-    border-radius: var(--border-radius-lg);
-    padding: var(--space-6);
-    color: var(--neutral-700);
-    box-shadow: var(--shadow-xl);
+    transform: rotate(0deg) scale(1.02);
   }
 
   .mockup-content h4 {
     font-family: var(--font-display);
-    font-size: var(--font-size-lg);
-    font-weight: 700;
-    color: var(--neutral-900);
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: white;
     margin-bottom: var(--space-4);
-    padding-bottom: var(--space-3);
-    border-bottom: 1px solid var(--neutral-200);
   }
 
   .mockup-feature {
-    margin-bottom: var(--space-3);
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-  }
-
-  .mockup-feature:last-of-type {
-    margin-bottom: var(--space-6);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--space-2);
+    font-size: var(--font-size-sm);
   }
 
   .mockup-badge {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: var(--space-2);
-    background: var(--green-50);
-    color: var(--green-700);
+    margin-top: var(--space-4);
     padding: var(--space-2) var(--space-3);
-    border-radius: var(--border-radius-md);
-    font-size: var(--font-size-xs);
-    font-weight: 600;
-    margin-top: var(--space-2);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.9);
   }
 
   .mockup-badge-dot {
     width: 8px;
     height: 8px;
-    background: var(--green-500);
+    background: var(--green-400);
     border-radius: 50%;
-    display: block;
-    position: relative;
-  }
-
-  .mockup-badge-dot::after {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    border-radius: 50%;
-    background: var(--green-500);
-    opacity: 0.5;
-    animation: pulse 2s infinite;
+    animation: pulse 2s ease-in-out infinite;
   }
 
   @keyframes pulse {
-    0% {
-      transform: scale(1);
-      opacity: 0.5;
-    }
-    70% {
-      transform: scale(2);
-      opacity: 0;
-    }
-    100% {
-      transform: scale(1);
-      opacity: 0;
-    }
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
   }
 
-  /* Wave separator */
   .hero-wave {
     position: absolute;
-    bottom: -1px;
+    bottom: 0;
     left: 0;
-    right: 0;
+    width: 100%;
     height: 120px;
-    overflow: hidden;
-    line-height: 0;
-    z-index: 2;
+    z-index: 1;
   }
 
   .hero-wave svg {
@@ -358,114 +321,24 @@ const stats = [
     height: 100%;
   }
 
-  /* Animations */
-  .fade-in-up {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
-  }
-
-  .fade-in-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .fade-in-left {
-    opacity: 0;
-    transform: translateX(-30px);
-    transition: all 0.6s ease;
-  }
-
-  .fade-in-left.visible {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
   /* Responsive */
-  @media (max-width: 1024px) {
+  @media (max-width: 768px) {
     .hero-content {
       grid-template-columns: 1fr;
-      gap: var(--space-8);
       text-align: center;
     }
 
     .hero-title {
-      font-size: var(--font-size-5xl);
-    }
-
-    .hero-cta {
-      justify-content: center;
-    }
-
-    .hero-stats {
-      justify-content: center;
-    }
-
-    .hero {
-      padding: var(--space-20) 0 var(--space-32);
-    }
-  }
-
-  @media (max-width: 768px) {
-    .hero-title {
       font-size: var(--font-size-4xl);
     }
 
-    .hero-subtitle {
-      font-size: var(--font-size-lg);
-    }
-
     .hero-cta {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .btn-xl {
-      width: 100%;
-      max-width: 300px;
+      justify-content: center;
     }
 
     .hero-stats {
-      flex-direction: column;
-      gap: var(--space-6);
-    }
-
-    .hero-stat::before {
-      display: none;
-    }
-
-    .hero-mockup {
-      max-width: 90%;
-      margin: 0 auto;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .hero-title {
-      font-size: var(--font-size-3xl);
-    }
-
-    .hero {
-      padding: var(--space-16) 0 var(--space-24);
+      justify-content: center;
+      flex-wrap: wrap;
     }
   }
 </style>
-
-<script>
-  // Script para las animaciones
-  document.addEventListener('DOMContentLoaded', () => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    });
-
-    // Observar elementos con animación
-    document.querySelectorAll('.fade-in-up, .fade-in-left').forEach(el => observer.observe(el));
-  });
-</script>
