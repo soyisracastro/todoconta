@@ -1,5 +1,5 @@
 ---
-// Definimos los planes de servicio
+// Definimos los planes de servicio (sin IA)
 const servicePlans = [
   {
     title: "Plan Básico",
@@ -28,7 +28,6 @@ const servicePlans = [
       "Nómina completa (hasta 15 empleados)",
       "Gestión IMSS / INFONAVIT",
       "Contratos laborales y finiquitos",
-      "🤖 Automatización IA incluida",
       "Asesoría fiscal avanzada",
       "Representación en auditorías",
       "2 horas de consulta online/mes"
@@ -45,7 +44,6 @@ const servicePlans = [
     features: [
       "Todo lo del Plan Premium",
       "Contabilidad corporativa avanzada",
-      "🤖 IA avanzada + análisis predictivo",
       "Análisis de costos y reportes gerenciales",
       "Planeación fiscal estratégica",
       "Contador senior asignado",
@@ -89,13 +87,29 @@ const servicePlans = [
         </div>
       ))}
     </div>
+
+    <div class="services-guarantee fade-in-up">
+      <div class="guarantee-content">
+        <div class="guarantee-icon">🛡️</div>
+        <div class="guarantee-text">
+          <h3>Garantía de Cumplimiento</h3>
+          <p>Si no cumplimos con alguna obligación fiscal por nuestra responsabilidad, cubrimos las multas y recargos correspondientes.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <style>
   .services {
-    background: var(--bg-warm);
-    padding: var(--space-24) 0;
+    background: var(--bg-secondary);
+    padding: var(--space-20) 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
   }
 
   .section-header {
@@ -105,23 +119,26 @@ const servicePlans = [
 
   .section-title {
     font-family: var(--font-display);
-    font-size: var(--font-size-5xl);
-    font-weight: 800;
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
     color: var(--neutral-900);
     margin-bottom: var(--space-4);
+    line-height: 1.2;
   }
 
   .section-subtitle {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-lg);
     color: var(--neutral-600);
     max-width: 600px;
     margin: 0 auto;
+    line-height: 1.6;
   }
 
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: var(--space-8);
+    margin-bottom: var(--space-16);
   }
 
   .service-card {
@@ -131,7 +148,8 @@ const servicePlans = [
     border: 2px solid var(--neutral-200);
     transition: all var(--transition-slow);
     position: relative;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
 
   .service-card.featured {
@@ -139,20 +157,7 @@ const servicePlans = [
     background: var(--green-50);
     transform: scale(1.05);
     z-index: 1;
-  }
-
-  .service-card.featured::before {
-    content: '🏆 MÁS POPULAR';
-    position: absolute;
-    top: var(--space-4);
-    right: var(--space-4);
-    background: var(--green-500);
-    color: white;
-    padding: var(--space-1) var(--space-3);
-    border-radius: var(--border-radius-sm);
-    font-size: var(--font-size-xs);
-    font-weight: 700;
-    letter-spacing: 0.05em;
+    box-shadow: var(--shadow-lg);
   }
 
   .service-card:hover {
@@ -216,6 +221,7 @@ const servicePlans = [
   .service-features {
     list-style: none;
     margin-bottom: var(--space-8);
+    flex-grow: 1;
   }
 
   .service-features li {
@@ -230,10 +236,12 @@ const servicePlans = [
   }
 
   .service-features li::before {
-    content: '✅';
-    font-size: var(--font-size-base);
+    content: '✓';
+    color: var(--green-600);
+    font-weight: bold;
     position: absolute;
     left: 0;
+    font-size: var(--font-size-base);
   }
 
   .service-cta {
@@ -241,25 +249,25 @@ const servicePlans = [
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: var(--space-3) var(--space-6);
+    padding: var(--space-4) var(--space-6);
     font-family: var(--font-display);
     font-size: var(--font-size-base);
     font-weight: 600;
-    border-radius: var(--border-radius-md);
-    border: 2px solid transparent;
-    cursor: pointer;
+    border-radius: var(--border-radius-lg);
     text-decoration: none;
     transition: all var(--transition-normal);
+    margin-top: auto;
   }
 
   .btn-secondary {
     background: var(--green-600);
     color: white;
-    border-color: var(--green-600);
+    border: 2px solid var(--green-600);
   }
 
   .btn-secondary:hover {
     background: var(--green-700);
+    border-color: var(--green-700);
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(22, 163, 74, 0.3);
   }
@@ -267,61 +275,76 @@ const servicePlans = [
   .btn-outline {
     background: transparent;
     color: var(--primary-600);
-    border-color: var(--primary-600);
+    border: 2px solid var(--primary-600);
   }
 
   .btn-outline:hover {
     background: var(--primary-600);
     color: white;
     transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
   }
 
-  /* Animaciones */
-  .fade-in-up {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
+  .services-guarantee {
+    background: var(--neutral-900);
+    color: white;
+    padding: var(--space-8);
+    border-radius: var(--border-radius-2xl);
+    margin-top: var(--space-8);
   }
 
-  .fade-in-up.visible {
-    opacity: 1;
-    transform: translateY(0);
+  .guarantee-content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .guarantee-icon {
+    font-size: var(--font-size-4xl);
+    flex-shrink: 0;
+  }
+
+  .guarantee-text h3 {
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: white;
+    margin-bottom: var(--space-2);
+  }
+
+  .guarantee-text p {
+    color: var(--neutral-300);
+    line-height: 1.6;
+    margin: 0;
   }
 
   /* Responsive */
-  @media (max-width: 1024px) {
+  @media (max-width: 768px) {
     .services-grid {
       grid-template-columns: 1fr;
-      max-width: 600px;
-      margin: 0 auto;
     }
 
     .service-card.featured {
       transform: none;
-      order: -1;
     }
 
     .service-card.featured:hover {
       transform: translateY(-8px);
     }
-  }
 
-  @media (max-width: 768px) {
     .section-title {
-      font-size: var(--font-size-4xl);
+      font-size: var(--font-size-3xl);
     }
-    
-    .section-subtitle {
-      font-size: var(--font-size-lg);
-    }
-  }
 
-  @media (max-width: 480px) {
-    .service-card {
-      padding: var(--space-6);
+    .guarantee-content {
+      flex-direction: column;
+      text-align: center;
+      gap: var(--space-4);
     }
-    
-    .service-price {
+
+    .guarantee-icon {
       font-size: var(--font-size-3xl);
     }
   }
