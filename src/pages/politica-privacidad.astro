@@ -1,0 +1,747 @@
+---
+// src/pages/politica-privacidad.astro
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/ui/Navbar.astro';
+import Footer from '../components/ui/Footer.astro';
+
+// Importar los estilos globales
+import '../styles/reset.css';
+import '../styles/design-system.css';
+import '../styles/global.css';
+---
+
+<Layout 
+  title="Política de Privacidad - TodoConta" 
+  description="Conoce cómo TodoConta protege y maneja tus datos personales. Cumplimos con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.">
+  
+  <Navbar />
+  
+  <!-- Legal Page Header -->
+  <section class="legal-header">
+    <div class="container">
+      <div class="header-content">
+        <h1 class="legal-title fade-in-up">Política de Privacidad</h1>
+        <p class="legal-subtitle fade-in-up">
+          En TodoConta, la protección de tus datos personales es una prioridad. 
+          Conoce cómo manejamos tu información de manera segura y transparente.
+        </p>
+        <div class="legal-meta fade-in-up">
+          <span class="meta-item">
+            <span class="meta-icon">📅</span>
+            <span>Última actualización: 31 de julio de 2025</span>
+          </span>
+          <span class="meta-item">
+            <span class="meta-icon">⚖️</span>
+            <span>Cumplimiento LFPDPPP</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Legal Content -->
+  <section class="legal-content">
+    <div class="container">
+      <div class="content-grid">
+        <!-- Table of Contents -->
+        <aside class="legal-sidebar">
+          <div class="toc-container">
+            <h3 class="toc-title">Contenido</h3>
+            <nav class="toc-nav">
+              <a href="#responsable" class="toc-link">1. Responsable</a>
+              <a href="#finalidades" class="toc-link">2. Finalidades del Tratamiento</a>
+              <a href="#datos-solicitados" class="toc-link">3. Datos Solicitados</a>
+              <a href="#transferencias" class="toc-link">4. Transferencia de Datos</a>
+              <a href="#derechos-arco" class="toc-link">5. Derechos ARCO</a>
+              <a href="#cookies" class="toc-link">6. Cookies</a>
+              <a href="#seguridad" class="toc-link">7. Medidas de Seguridad</a>
+              <a href="#conservacion" class="toc-link">8. Conservación</a>
+              <a href="#cambios" class="toc-link">9. Cambios</a>
+              <a href="#contacto" class="toc-link">10. Contacto</a>
+            </nav>
+            
+            <div class="contact-card">
+              <h4>¿Tienes dudas?</h4>
+              <p>Contáctanos para cualquier consulta sobre privacidad</p>
+              <a href="mailto:privacidad@todoconta.com" class="contact-btn">
+                privacidad@todoconta.com
+              </a>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="legal-main">
+          <div class="legal-intro">
+            <p class="intro-text">
+              En cumplimiento con la <strong>Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</strong>, 
+              hacemos de tu conocimiento cómo tratamos y protegemos tu información personal.
+            </p>
+          </div>
+
+          <!-- Section 1: Responsable -->
+          <section id="responsable" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">1.</span>
+              Identidad y Domicilio del Responsable
+            </h2>
+            <div class="content-card">
+              <div class="company-info">
+                <h3>TodoConta</h3>
+                <div class="info-grid">
+                  <div class="info-item">
+                    <span class="info-label">📍 Domicilio:</span>
+                    <span>Calle 15 de mayo #9, San Jerónimo, Michoacán, México, CP 61993</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="info-label">📞 Teléfono:</span>
+                    <span>(55) 4475-3602</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="info-label">✉️ Email:</span>
+                    <span>privacidad@todoconta.com</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="info-label">🕒 Horario:</span>
+                    <span>Lunes a viernes de 9:00 a 18:00 hrs</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 2: Finalidades -->
+          <section id="finalidades" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">2.</span>
+              Finalidades del Tratamiento de Datos
+            </h2>
+            
+            <div class="content-card">
+              <h3 class="subsection-title">Finalidades Primarias (necesarias para el servicio)</h3>
+              <ul class="feature-list">
+                <li>Proveer servicios contables y fiscales solicitados</li>
+                <li>Elaborar estados financieros y declaraciones fiscales</li>
+                <li>Gestionar nóminas y trámites ante IMSS/INFONAVIT</li>
+                <li>Responder consultas y brindar soporte técnico</li>
+                <li>Facturación y cobranza de servicios</li>
+                <li>Cumplir obligaciones legales y regulatorias</li>
+              </ul>
+            </div>
+
+            <div class="content-card secondary">
+              <h3 class="subsection-title">Finalidades Secundarias (opcionales, requieren consentimiento)</h3>
+              <ul class="feature-list">
+                <li>Enviar información sobre productos, promociones y actualizaciones</li>
+                <li>Realizar encuestas de satisfacción</li>
+                <li>Invitaciones a eventos y capacitaciones</li>
+                <li>Análisis estadísticos para mejorar servicios</li>
+              </ul>
+              <div class="notice-box">
+                <span class="notice-icon">ℹ️</span>
+                <p>Puedes oponerte al uso de tus datos para finalidades secundarias en cualquier momento.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 3: Datos Solicitados -->
+          <section id="datos-solicitados" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">3.</span>
+              Datos Personales Solicitados
+            </h2>
+            
+            <div class="data-types-grid">
+              <div class="data-type-card">
+                <h3>🆔 Datos de Identificación</h3>
+                <ul>
+                  <li>Nombre completo</li>
+                  <li>Correo electrónico</li>
+                  <li>Teléfono (fijo y móvil)</li>
+                  <li>Fecha de nacimiento</li>
+                  <li>CURP</li>
+                </ul>
+              </div>
+              
+              <div class="data-type-card">
+                <h3>📧 Datos de Contacto</h3>
+                <ul>
+                  <li>Dirección particular</li>
+                  <li>Dirección fiscal</li>
+                  <li>Código postal</li>
+                </ul>
+              </div>
+              
+              <div class="data-type-card">
+                <h3>💰 Datos Fiscales y Financieros</h3>
+                <ul>
+                  <li>RFC</li>
+                  <li>Régimen fiscal</li>
+                  <li>Datos bancarios</li>
+                  <li>Información contable</li>
+                  <li>Facturas y comprobantes</li>
+                </ul>
+              </div>
+              
+              <div class="data-type-card">
+                <h3>👔 Datos Laborales</h3>
+                <ul>
+                  <li>Puesto de trabajo</li>
+                  <li>Salario (para nóminas)</li>
+                  <li>Datos de empleados</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="warning-box">
+              <span class="warning-icon">🔐</span>
+              <p><strong>Nota importante:</strong> Los datos financieros para pagos son procesados a través de proveedores autorizados como PayPal, Stripe o bancos, quienes tienen sus propias políticas de privacidad.</p>
+            </div>
+          </section>
+
+          <!-- Section 4: Transferencias -->
+          <section id="transferencias" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">4.</span>
+              Transferencia de Datos
+            </h2>
+            
+            <div class="content-card">
+              <p class="emphasis-text">
+                Tus datos personales <strong>no serán compartidos con terceros</strong> sin tu consentimiento expreso, 
+                salvo en los siguientes casos:
+              </p>
+              
+              <div class="transfer-types">
+                <div class="transfer-type">
+                  <h3>⚖️ Transferencias Autorizadas por Ley</h3>
+                  <ul>
+                    <li>Autoridades fiscales (SAT, IMSS, INFONAVIT) según requerimientos legales</li>
+                    <li>Autoridades judiciales mediante orden judicial</li>
+                    <li>Proveedores de servicios de pago para procesar transacciones</li>
+                  </ul>
+                </div>
+                
+                <div class="transfer-type">
+                  <h3>✅ Transferencias con Consentimiento</h3>
+                  <ul>
+                    <li>Instituciones bancarias para depósitos</li>
+                    <li>Proveedores de servicios tecnológicos (hosting, email)</li>
+                    <li>Socios comerciales para servicios complementarios</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 5: Derechos ARCO -->
+          <section id="derechos-arco" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">5.</span>
+              Ejercicio de Derechos ARCO
+            </h2>
+            
+            <div class="arco-rights">
+              <div class="right-card">
+                <h3>📋 Acceder</h3>
+                <p>A tus datos personales que tenemos en nuestros archivos</p>
+              </div>
+              <div class="right-card">
+                <h3>✏️ Rectificar</h3>
+                <p>Datos incorrectos, incompletos o no actualizados</p>
+              </div>
+              <div class="right-card">
+                <h3>🗑️ Cancelar</h3>
+                <p>El uso de tus datos cuando ya no sean necesarios</p>
+              </div>
+              <div class="right-card">
+                <h3>🚫 Oponerte</h3>
+                <p>Al uso de tus datos personales para fines específicos</p>
+              </div>
+            </div>
+
+            <div class="content-card">
+              <h3>📝 Procedimiento para Ejercer tus Derechos</h3>
+              <ol class="procedure-list">
+                <li><strong>Envía una solicitud a:</strong> privacidad@todoconta.com</li>
+                <li><strong>Incluye:</strong>
+                  <ul>
+                    <li>Nombre completo del titular</li>
+                    <li>Correo electrónico registrado</li>
+                    <li>Descripción clara del derecho que deseas ejercer</li>
+                    <li>Documentos que acrediten tu identidad (INE, pasaporte)</li>
+                  </ul>
+                </li>
+                <li><strong>Plazos:</strong>
+                  <ul>
+                    <li>Respuesta: Máximo 20 días hábiles</li>
+                    <li>Ejecución: Máximo 15 días hábiles posteriores</li>
+                  </ul>
+                </li>
+              </ol>
+            </div>
+          </section>
+
+          <!-- Section 6: Cookies -->
+          <section id="cookies" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">6.</span>
+              Uso de Cookies y Tecnologías Similares
+            </h2>
+            
+            <div class="cookies-grid">
+              <div class="cookie-type">
+                <h3>🔧 Cookies Esenciales</h3>
+                <ul>
+                  <li>Autenticación y sesión de usuario</li>
+                  <li>Preferencias de idioma y configuración</li>
+                  <li>Proceso de contratación</li>
+                </ul>
+              </div>
+              
+              <div class="cookie-type">
+                <h3>📊 Cookies Analíticas</h3>
+                <ul>
+                  <li>Google Analytics (análisis de tráfico web)</li>
+                  <li>Métricas de rendimiento del sitio</li>
+                  <li>Patrones de uso y navegación</li>
+                </ul>
+              </div>
+              
+              <div class="cookie-type">
+                <h3>📢 Cookies de Marketing</h3>
+                <ul>
+                  <li>Publicidad personalizada</li>
+                  <li>Redes sociales (Facebook, LinkedIn)</li>
+                  <li>Retargeting y remarketing</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 7: Seguridad -->
+          <section id="seguridad" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">7.</span>
+              Medidas de Seguridad
+            </h2>
+            
+            <div class="security-measures">
+              <div class="measure-category">
+                <h3>🔧 Medidas Técnicas</h3>
+                <ul>
+                  <li>Cifrado SSL/TLS en todas las comunicaciones</li>
+                  <li>Firewalls y sistemas de detección de intrusos</li>
+                  <li>Respaldos encriptados y seguros</li>
+                  <li>Autenticación de dos factores</li>
+                </ul>
+              </div>
+              
+              <div class="measure-category">
+                <h3>🏢 Medidas Físicas</h3>
+                <ul>
+                  <li>Instalaciones con acceso controlado</li>
+                  <li>Cámaras de seguridad y vigilancia</li>
+                  <li>Archivos físicos en áreas restringidas</li>
+                </ul>
+              </div>
+              
+              <div class="measure-category">
+                <h3>👥 Medidas Administrativas</h3>
+                <ul>
+                  <li>Personal capacitado en protección de datos</li>
+                  <li>Acuerdos de confidencialidad</li>
+                  <li>Auditorías periódicas de seguridad</li>
+                  <li>Políticas internas de manejo de datos</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 8: Conservación -->
+          <section id="conservacion" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">8.</span>
+              Conservación de Datos
+            </h2>
+            
+            <div class="retention-periods">
+              <div class="retention-item">
+                <h3>👥 Datos de Clientes Activos</h3>
+                <p>Durante la relación comercial vigente + 5 años después de la terminación (obligaciones fiscales)</p>
+              </div>
+              
+              <div class="retention-item">
+                <h3>🎯 Datos de Prospectos</h3>
+                <p>Máximo 2 años sin actividad comercial. Se eliminarán automáticamente salvo solicitud expresa</p>
+              </div>
+              
+              <div class="retention-item">
+                <h3>📄 Documentos Fiscales</h3>
+                <p>5 años (según legislación fiscal mexicana). 10 años para documentos de nómina e IMSS</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 9: Cambios -->
+          <section id="cambios" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">9.</span>
+              Cambios en la Política de Privacidad
+            </h2>
+            
+            <div class="content-card">
+              <h3>📢 Notificación de Cambios</h3>
+              <ul class="feature-list">
+                <li><strong>Cambios sustanciales:</strong> Notificación por correo electrónico y banner en el sitio web</li>
+                <li><strong>Cambios menores:</strong> Actualización en el sitio web con nueva fecha</li>
+                <li><strong>Período de gracia:</strong> 30 días para ejercer derechos antes de que los cambios entren en vigor</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Section 10: Contacto -->
+          <section id="contacto" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">10.</span>
+              Contacto y Quejas
+            </h2>
+            
+            <div class="contact-grid">
+              <div class="contact-option">
+                <h3>📧 Para Consultas sobre Privacidad</h3>
+                <div class="contact-details">
+                  <p><strong>Email:</strong> privacidad@todoconta.com</p>
+                  <p><strong>Teléfono:</strong> (55) 4475-3602</p>
+                  <p><strong>Horario:</strong> Lunes a viernes, 9:00 a 18:00 hrs</p>
+                </div>
+              </div>
+              
+              <div class="contact-option">
+                <h3>⚖️ Para Quejas ante Autoridades</h3>
+                <div class="contact-details">
+                  <p><strong>INAI</strong> (Instituto Nacional de Transparencia)</p>
+                  <p><strong>Web:</strong> www.inai.org.mx</p>
+                  <p><strong>Teléfono:</strong> 01 800 835 4324</p>
+                  <p><strong>Email:</strong> atencion@inai.org.mx</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Consent Notice -->
+          <div class="consent-notice">
+            <h3>✅ Consentimiento</h3>
+            <p>
+              <strong>Al utilizar nuestros servicios, aceptas el tratamiento de tus datos conforme a esta Política de Privacidad.</strong>
+              Para revocar tu consentimiento, contacta a privacidad@todoconta.com en cualquier momento.
+            </p>
+          </div>
+
+          <!-- Footer Info -->
+          <div class="legal-footer">
+            <div class="company-signature">
+              <h4>TodoConta - Tranquilidad Fiscal Garantizada</h4>
+              <p>Calle 15 de mayo #9, San Jerónimo, Michoacán, México, CP 61993</p>
+              <p>Teléfono: (55) 4475-3602 | Email: hola@todoconta.com</p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+  
+  <script>
+    // Smooth scrolling for TOC links
+    document.addEventListener('DOMContentLoaded', () => {
+      // TOC navigation
+      const tocLinks = document.querySelectorAll('.toc-link');
+      const sections = document.querySelectorAll('.legal-section');
+      
+      tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('href');
+          const targetSection = document.querySelector(targetId);
+          
+          if (targetSection) {
+            targetSection.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+            
+            // Update active state
+            tocLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+          }
+        });
+      });
+
+      // Scroll spy for TOC
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '-100px 0px -50% 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            const activeLink = document.querySelector(`.toc-link[href="#${id}"]`);
+            
+            tocLinks.forEach(link => link.classList.remove('active'));
+            if (activeLink) {
+              activeLink.classList.add('active');
+            }
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+
+      // Animations
+      const animationObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      document.querySelectorAll('.fade-in-up').forEach(el => {
+        animationObserver.observe(el);
+      });
+    });
+  </script>
+</Layout>
+
+<style>
+  /* Legal Page Specific Styles */
+  .legal-header {
+    background: var(--bg-hero);
+    color: white;
+    padding: calc(var(--space-20) + var(--space-8)) 0 var(--space-16);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .legal-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)" /></svg>');
+    pointer-events: none;
+  }
+
+  .header-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .legal-title {
+    font-family: var(--font-display);
+    font-size: var(--font-size-5xl);
+    font-weight: 800;
+    margin-bottom: var(--space-6);
+    color: white;
+    line-height: 1.1;
+  }
+
+  .legal-subtitle {
+    font-size: var(--font-size-lg);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--space-8);
+    line-height: 1.6;
+  }
+
+  .legal-meta {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-8);
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: var(--font-size-sm);
+  }
+
+  .legal-content {
+    padding: var(--space-20) 0;
+    background: var(--bg-secondary);
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: var(--space-16);
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  /* Sidebar */
+  .legal-sidebar {
+    position: sticky;
+    top: var(--space-8);
+  }
+
+  .toc-container {
+    background: var(--bg-primary);
+    border-radius: var(--border-radius-xl);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-md);
+  }
+
+  .toc-title {
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--neutral-900);
+    margin-bottom: var(--space-4);
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    margin-bottom: var(--space-6);
+  }
+
+  .toc-link {
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--border-radius-md);
+    text-decoration: none;
+    color: var(--neutral-600);
+    font-size: var(--font-size-sm);
+    transition: all var(--transition-normal);
+    border-left: 3px solid transparent;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    background: var(--primary-50);
+    color: var(--primary-700);
+    border-left-color: var(--primary-600);
+  }
+
+  .contact-card {
+    background: var(--green-50);
+    padding: var(--space-4);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--green-200);
+  }
+
+  .contact-card h4 {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--green-900);
+    margin-bottom: var(--space-2);
+  }
+
+  .contact-card p {
+    font-size: var(--font-size-sm);
+    color: var(--green-700);
+    margin-bottom: var(--space-3);
+  }
+
+  .contact-btn {
+    display: block;
+    background: var(--green-600);
+    color: white;
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--border-radius-md);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    text-align: center;
+    transition: all var(--transition-normal);
+  }
+
+  .contact-btn:hover {
+    background: var(--green-700);
+    transform: translateY(-1px);
+  }
+
+  /* Main Content */
+  .legal-main {
+    max-width: none;
+  }
+
+  .legal-intro {
+    background: var(--bg-primary);
+    padding: var(--space-8);
+    border-radius: var(--border-radius-xl);
+    margin-bottom: var(--space-12);
+    box-shadow: var(--shadow-md);
+  }
+
+  .intro-text {
+    font-size: var(--font-size-lg);
+    color: var(--neutral-700);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .legal-section {
+    margin-bottom: var(--space-16);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--neutral-900);
+    margin-bottom: var(--space-8);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .section-number {
+    background: var(--primary-600);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-lg);
+    font-weight: 800;
+  }
+
+  .content-card {
+    background: var(--bg-primary);
+    padding: var(--space-8);
+    border-radius: var(--border-radius-xl);
+    margin-bottom: var(--space-6);
+    box-shadow: var(--shadow-md);
+  }
+
+  .content-card.secondary {
+    background: var(--orange-50);
+    border: 1px solid var(--orange-200);
+  }
+
+  .subsection-title {
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
+  }
+</style>
