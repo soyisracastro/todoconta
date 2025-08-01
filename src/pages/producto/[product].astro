@@ -1,0 +1,134 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import LandingLayout from '../../layouts/LandingLayout.astro';
+import Hero from '../../components/landing/Hero.astro';
+import Features from '../../components/landing/Features.astro';
+import Benefits from '../../components/landing/Benefits.astro';
+import Pricing from '../../components/landing/Pricing.astro';
+import Demo from '../../components/landing/Demo.astro';
+import FAQ from '../../components/landing/FAQ.astro';
+import CTA from '../../components/landing/CTA.astro';
+
+// Importar los estilos globales
+import '../../styles/reset.css';
+import '../../styles/design-system.css';
+import '../../styles/global.css';
+import '../../styles/landing.css';
+
+// Genera rutas para cada producto
+export async function getStaticPaths() {
+  const products = await getCollection('products');
+  
+  return products.map(product => ({
+    params: { product: product.slug },
+    props: { product }
+  }));
+}
+
+const { product } = Astro.props;
+const { 
+  title, 
+  description, 
+  price, 
+  pricePeriod, 
+  badge, 
+  heroImage,
+  demoUrl,
+  buyUrl,
+  features,
+  benefits,
+  pricing,
+  faqs,
+  formId
+} = product.data;
+
+// Prepara los datos para los componentes
+const heroProps = {
+  title,
+  subtitle: description,
+  badge,
+  primaryCta: {
+    text: "Comprar Ahora",
+    url: "#pricing"
+  },
+  secondaryCta: demoUrl ? {
+    text: "Descargar Demo",
+    url: "#demo"
+  } : undefined,
+  image: heroImage
+};
+
+const featuresProps = {
+  title: "Funciones Principales",
+  subtitle: `${title} ofrece potentes herramientas para optimizar tu trabajo.`,
+  features
+};
+
+const benefitsProps = {
+  title: "Beneficios para tu Negocio",
+  subtitle: `${title} está diseñado para optimizar tus procesos.`,
+  benefits
+};
+
+const pricingProps = {
+  price,
+  pricePeriod,
+  features: pricing.features,
+  ctaUrl: buyUrl || "#",
+  highlighted: true
+};
+
+const demoProps = demoUrl && formId ? {
+  demoUrl,
+  formId
+} : null;
+
+const ctaProps = {
+  title: `¿Listo para optimizar tu trabajo con ${title}?`,
+  description: "Únete a miles de profesionales que confían en nuestras soluciones para gestionar sus procesos de manera eficiente.",
+  primaryCta: {
+    text: "Comprar Ahora",
+    url: buyUrl || "#pricing"
+  },
+  secondaryCta: demoUrl ? {
+    text: "Probar Demo Gratis",
+    url: "#demo"
+  } : undefined
+};
+
+// Keywords para SEO
+const keywords = [
+  title.split(' ').join(', '),
+  ...features.map(f => f.title),
+  ...benefits.map(b => b.title),
+  'Todoconta', 'software contable', 'herramientas fiscales'
+];
+---
+
+<LandingLayout 
+  title={title} 
+  description={description}
+  keywords={keywords}
+  ogImage={heroImage}
+>
+  <!-- Hero Section -->
+  <Hero {...heroProps} />
+  
+  <!-- Features Section -->
+  <Features {...featuresProps} />
+  
+  <!-- Benefits Section -->
+  <Benefits {...benefitsProps} />
+  
+  <!-- Pricing Section -->
+  <Pricing {...pricingProps} />
+  
+  <!-- Demo Section (if available) -->
+  {demoProps && <Demo {...demoProps} />}
+  
+  <!-- FAQ Section (if available) -->
+  {faqs && faqs.length > 0 && <FAQ faqs={faqs} />}
+  
+  <!-- Call to Action -->
+  <CTA {...ctaProps} />
+</LandingLayout>

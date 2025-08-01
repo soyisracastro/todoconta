@@ -1,0 +1,78 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  keywords?: string[];
+  ogImage?: string;
+}
+
+const { title, description, keywords, ogImage } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    {keywords && keywords.length > 0 && (
+      <meta name="keywords" content={keywords.join(', ')} />
+    )}
+    
+    <!-- Importar estilos del design system -->
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/design-system.css">
+    <link rel="stylesheet" href="/styles/landing.css">
+  </head>
+  <body>
+    <slot />
+    
+    <!-- Script para animaciones y funcionalidad -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Smooth scroll para enlaces de anclaje
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop,
+                behavior: 'smooth'
+              });
+            }
+          });
+        });
+
+        // Inicializar animaciones
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('.animate-fade-in-up')
+          .forEach(el => observer.observe(el));
+      });
+    </script>
+  </body>
+</html>

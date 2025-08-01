@@ -1,0 +1,208 @@
+---
+export interface Props {
+  title: string;
+  subtitle: string;
+  badge?: string;
+  primaryCta: {
+    text: string;
+    url: string;
+  };
+  secondaryCta?: {
+    text: string;
+    url: string;
+  };
+  image?: string;
+}
+
+const { 
+  title, 
+  subtitle, 
+  badge,
+  primaryCta,
+  secondaryCta,
+  image = "https://placehold.co/800x450/075985/FFFFFF/png?text=Product+Image"
+} = Astro.props;
+---
+
+<section class="hero">
+  <div class="landing-container">
+    <div class="hero-content">
+      {badge && <span class="product-badge animate-fade-in-up">{badge}</span>}
+      <h1 class="hero-title animate-fade-in-up delay-100">{title}</h1>
+      <p class="hero-subtitle animate-fade-in-up delay-200">{subtitle}</p>
+      <div class="hero-buttons animate-fade-in-up delay-300">
+        <a href={primaryCta.url} class="btn btn-primary">{primaryCta.text}</a>
+        {secondaryCta && (
+          <a href={secondaryCta.url} class="btn btn-secondary">{secondaryCta.text}</a>
+        )}
+      </div>
+    </div>
+    <div class="hero-image-container animate-fade-in-up delay-400">
+      <img src={image} alt="Visualización del producto" class="hero-image">
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-800) 100%);
+    color: white;
+    padding: var(--space-16) 0;
+    overflow: hidden;
+    border-radius: 0 0 var(--border-radius-3xl) var(--border-radius-3xl);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' fill='none'%3E%3Ccircle cx='25' cy='25' r='4' fill='rgba(255, 255, 255, 0.1)'/%3E%3Ccircle cx='75' cy='75' r='4' fill='rgba(255, 255, 255, 0.1)'/%3E%3Ccircle cx='75' cy='25' r='4' fill='rgba(255, 255, 255, 0.1)'/%3E%3Ccircle cx='25' cy='75' r='4' fill='rgba(255, 255, 255, 0.1)'/%3E%3C/svg%3E");
+    opacity: 0.2;
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .product-badge {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: var(--border-radius-full);
+    padding: var(--space-2) var(--space-4);
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    color: white;
+    margin-bottom: var(--space-6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: var(--font-size-5xl);
+    font-weight: 800;
+    margin-bottom: var(--space-6);
+    line-height: 1.1;
+  }
+
+  .hero-subtitle {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-8);
+    max-width: 600px;
+    opacity: 0.9;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: var(--space-4);
+    margin-bottom: var(--space-10);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 600;
+    padding: var(--space-4) var(--space-8);
+    border-radius: var(--border-radius-lg);
+    transition: all var(--transition-normal);
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background-color: white;
+    color: var(--primary-700);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .btn-secondary {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+  }
+
+  .hero-image-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    transform: translateY(80px);
+  }
+
+  .hero-image {
+    border-radius: var(--border-radius-2xl);
+    box-shadow: var(--shadow-xl);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: auto;
+  }
+
+  /* Animaciones */
+  .animate-fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .animate-fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .delay-100 { transition-delay: 100ms; }
+  .delay-200 { transition-delay: 200ms; }
+  .delay-300 { transition-delay: 300ms; }
+  .delay-400 { transition-delay: 400ms; }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: var(--font-size-4xl);
+    }
+
+    .hero-subtitle {
+      font-size: var(--font-size-lg);
+    }
+
+    .hero-buttons {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .btn {
+      width: 100%;
+    }
+    
+    .hero-image-container {
+      transform: translateY(40px);
+    }
+    
+    .hero {
+      border-radius: 0 0 var(--border-radius-2xl) var(--border-radius-2xl);
+    }
+  }
+</style>

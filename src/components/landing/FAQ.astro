@@ -1,0 +1,196 @@
+---
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  faqs: Array<{
+    question: string;
+    answer: string;
+  }>;
+}
+
+const { 
+  title = "Preguntas Frecuentes",
+  subtitle = "Resolvemos tus dudas más comunes",
+  faqs
+} = Astro.props;
+---
+
+<section class="faq-section" id="faq">
+  <div class="landing-container">
+    <div class="faq-header">
+      <h2 class="section-title animate-fade-in-up">{title}</h2>
+      {subtitle && <p class="section-subtitle animate-fade-in-up delay-100">{subtitle}</p>}
+    </div>
+    
+    <div class="faq-container">
+      {faqs.map((faq, index) => (
+        <div class={`faq-item animate-fade-in-up delay-${(index % 4) * 100 + 200}`}>
+          <button class="faq-question" aria-expanded="false">
+            <span class="question-text">{faq.question}</span>
+            <span class="question-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="answer-content">
+              {faq.answer}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Accordion functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        const expanded = question.getAttribute('aria-expanded') === 'true' || false;
+        
+        // Close all other questions
+        faqQuestions.forEach(q => {
+          if (q !== question) {
+            q.setAttribute('aria-expanded', 'false');
+            q.nextElementSibling.style.maxHeight = '0';
+          }
+        });
+        
+        // Toggle current question
+        question.setAttribute('aria-expanded', !expanded);
+        const answer = question.nextElementSibling;
+        
+        if (!expanded) {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        } else {
+          answer.style.maxHeight = '0';
+        }
+        
+        // Toggle icon
+        const icon = question.querySelector('.question-icon');
+        icon.textContent = !expanded ? '−' : '+';
+      });
+    });
+    
+    // Auto-open first FAQ item
+    if (faqQuestions.length > 0) {
+      setTimeout(() => {
+        faqQuestions[0].click();
+      }, 500);
+    }
+  });
+</script>
+
+<style>
+  .faq-section {
+    padding: var(--space-16) 0;
+  }
+  
+  .faq-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--space-10);
+  }
+  
+  .section-title {
+    font-family: var(--font-display);
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--neutral-900);
+    margin-bottom: var(--space-4);
+  }
+  
+  .section-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--neutral-600);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .faq-item {
+    border-bottom: 1px solid var(--neutral-200);
+    overflow: hidden;
+  }
+  
+  .faq-question {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: var(--space-5) 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: var(--font-size-lg);
+    color: var(--neutral-900);
+    transition: color var(--transition-normal);
+  }
+  
+  .faq-question:hover {
+    color: var(--primary-600);
+  }
+  
+  .question-icon {
+    font-size: var(--font-size-2xl);
+    color: var(--primary-600);
+    font-weight: 400;
+    line-height: 1;
+    margin-left: var(--space-4);
+    transition: transform var(--transition-normal);
+  }
+  
+  .faq-question[aria-expanded="true"] .question-icon {
+    transform: rotate(180deg);
+  }
+  
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  
+  .answer-content {
+    color: var(--neutral-600);
+    padding-bottom: var(--space-5);
+    line-height: 1.6;
+  }
+  
+  /* Animaciones */
+  .animate-fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .animate-fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .delay-100 { transition-delay: 100ms; }
+  .delay-200 { transition-delay: 200ms; }
+  .delay-300 { transition-delay: 300ms; }
+  .delay-400 { transition-delay: 400ms; }
+  .delay-500 { transition-delay: 500ms; }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: var(--font-size-2xl);
+    }
+    
+    .faq-question {
+      font-size: var(--font-size-base);
+      padding: var(--space-4) 0;
+    }
+  }
+</style>
