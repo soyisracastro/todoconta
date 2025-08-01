@@ -1,0 +1,236 @@
+---
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  demoUrl: string;
+  formId: string;
+  bgColor?: string;
+  buttonColor?: string;
+  fields?: Array<{
+    name: string;
+    type: string;
+    placeholder: string;
+    required: boolean;
+  }>;
+}
+
+const { 
+  title = "Prueba Gratis",
+  subtitle = "Descarga la versión de prueba con todas las funciones activadas",
+  demoUrl,
+  formId,
+  bgColor = "var(--neutral-100)",
+  buttonColor = "var(--green-600)",
+  fields = [
+    {
+      name: "name",
+      type: "text",
+      placeholder: "Nombre completo",
+      required: true
+    },
+    {
+      name: "email",
+      type: "email",
+      placeholder: "Correo electrónico",
+      required: true
+    },
+    {
+      name: "company",
+      type: "text",
+      placeholder: "Empresa (opcional)",
+      required: false
+    }
+  ]
+} = Astro.props;
+---
+
+<section class="demo-section" id="demo" style={`--demo-bg-color: ${bgColor}; --demo-button-color: ${buttonColor};`}>
+  <div class="landing-container">
+    <div class="demo-content">
+      <h2 class="section-title animate-fade-in-up">{title}</h2>
+      <p class="section-subtitle animate-fade-in-up delay-100">{subtitle}</p>
+      
+      <form class="demo-form animate-fade-in-up delay-200" action="https://sendy.todoconta.com/subscribe" method="POST" id={formId}>
+        <input type="hidden" name="list" value="YOUR_LIST_ID">
+        <input type="hidden" name="redirect" value={demoUrl}>
+        
+        {fields.map((field, index) => (
+          <div class="form-group">
+            <input 
+              type={field.type} 
+              name={field.name} 
+              class="form-input" 
+              placeholder={field.placeholder} 
+              required={field.required}
+            >
+          </div>
+        ))}
+        
+        <div class="form-group">
+          <button type="submit" class="form-button">Descargar Demo</button>
+        </div>
+      </form>
+      
+      <p class="form-disclaimer animate-fade-in-up delay-300">
+        Al descargar, aceptas recibir información sobre actualizaciones y ofertas especiales. 
+        Puedes darte de baja en cualquier momento.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ formId, demoUrl }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById(formId);
+    
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Recolectar datos del formulario
+        const formData = new FormData(form);
+        
+        // Simular envío a Sendy (en un entorno real, esto sería una petición fetch real)
+        setTimeout(() => {
+          // Redirigir a la URL de descarga
+          window.location.href = demoUrl;
+        }, 1000);
+        
+        // Mostrar un mensaje de éxito
+        const button = form.querySelector('.form-button');
+        if (button) {
+          const originalText = button.textContent;
+          button.textContent = '¡Redirigiendo a la descarga!';
+          button.disabled = true;
+          
+          // Opcional: restaurar el botón después de un tiempo
+          setTimeout(() => {
+            button.textContent = originalText;
+            button.disabled = false;
+          }, 3000);
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+  .demo-section {
+    background-color: var(--demo-bg-color);
+    padding: var(--space-16) 0;
+    border-radius: var(--border-radius-3xl);
+    margin: var(--space-16) 0;
+  }
+  
+  .demo-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .section-title {
+    font-family: var(--font-display);
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--neutral-900);
+    margin-bottom: var(--space-4);
+  }
+  
+  .section-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--neutral-600);
+    margin-bottom: var(--space-8);
+  }
+  
+  .demo-form {
+    width: 100%;
+    max-width: 450px;
+    background-color: white;
+    padding: var(--space-8);
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-lg);
+    margin-bottom: var(--space-6);
+  }
+  
+  .form-group {
+    margin-bottom: var(--space-4);
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: var(--space-4);
+    border: 1px solid var(--neutral-300);
+    border-radius: var(--border-radius-lg);
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    transition: border-color var(--transition-fast);
+  }
+  
+  .form-input:focus {
+    outline: none;
+    border-color: var(--primary-400);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
+  }
+  
+  .form-button {
+    width: 100%;
+    padding: var(--space-4);
+    background-color: var(--demo-button-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-lg);
+    font-family: var(--font-display);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+  }
+  
+  .form-button:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(22, 163, 74, 0.3);
+  }
+  
+  .form-disclaimer {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-500);
+    max-width: 450px;
+  }
+  
+  /* Animaciones */
+  .animate-fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .animate-fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .delay-100 { transition-delay: 100ms; }
+  .delay-200 { transition-delay: 200ms; }
+  .delay-300 { transition-delay: 300ms; }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: var(--font-size-2xl);
+    }
+    
+    .demo-section {
+      border-radius: var(--border-radius-2xl);
+      margin: var(--space-10) 0;
+      padding: var(--space-10) 0;
+    }
+    
+    .demo-form {
+      padding: var(--space-6);
+    }
+  }
+</style>

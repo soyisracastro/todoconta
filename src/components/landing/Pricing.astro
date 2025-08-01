@@ -1,0 +1,221 @@
+---
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  price: number;
+  currency?: string;
+  pricePeriod?: string;
+  features: string[];
+  ctaText?: string;
+  ctaUrl: string;
+  highlighted?: boolean;
+}
+
+const { 
+  title = "Precio y Licencia",
+  subtitle = "Obtén acceso completo a todas las funcionalidades",
+  price,
+  currency = "MXN",
+  pricePeriod,
+  features,
+  ctaText = "Comprar Ahora",
+  ctaUrl,
+  highlighted = false
+} = Astro.props;
+
+// Formatear el precio
+const formattedPrice = new Intl.NumberFormat('es-MX', {
+  style: 'currency',
+  currency: currency,
+  maximumFractionDigits: 0
+}).format(price);
+---
+
+<section class="pricing-section" id="pricing">
+  <div class="landing-container">
+    <div class="pricing-header">
+      <h2 class="section-title animate-fade-in-up">{title}</h2>
+      {subtitle && <p class="section-subtitle animate-fade-in-up delay-100">{subtitle}</p>}
+    </div>
+    
+    <div class={`price-card animate-fade-in-up delay-200 ${highlighted ? 'highlighted' : ''}`}>
+      <div class="price-content">
+        <h3 class="price-title">{title}</h3>
+        
+        <div class="price-amount">
+          <span class="amount">{formattedPrice}</span>
+          {pricePeriod && <span class="period">{pricePeriod}</span>}
+        </div>
+        
+        <div class="price-features">
+          {features.map((feature) => (
+            <div class="price-feature">
+              <span class="feature-icon">✓</span>
+              <span class="feature-text">{feature}</span>
+            </div>
+          ))}
+        </div>
+        
+        <a href={ctaUrl} class="price-button">{ctaText}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing-section {
+    padding: var(--space-16) 0;
+    text-align: center;
+  }
+  
+  .pricing-header {
+    max-width: 800px;
+    margin: 0 auto var(--space-10);
+  }
+  
+  .section-title {
+    font-family: var(--font-display);
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--neutral-900);
+    margin-bottom: var(--space-4);
+  }
+  
+  .section-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--neutral-600);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .price-card {
+    background-color: white;
+    border-radius: var(--border-radius-2xl);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-lg);
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--neutral-200);
+    transition: transform var(--transition-normal);
+  }
+  
+  .price-card.highlighted {
+    border: 2px solid var(--primary-500);
+    transform: scale(1.02);
+  }
+  
+  .price-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--primary-500), var(--green-500));
+  }
+  
+  .price-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .price-title {
+    font-family: var(--font-display);
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--neutral-900);
+    margin-bottom: var(--space-6);
+  }
+  
+  .price-amount {
+    margin-bottom: var(--space-6);
+  }
+  
+  .amount {
+    font-family: var(--font-display);
+    font-size: var(--font-size-4xl);
+    font-weight: 800;
+    color: var(--primary-700);
+  }
+  
+  .period {
+    display: block;
+    color: var(--neutral-500);
+    font-size: var(--font-size-sm);
+    margin-top: var(--space-1);
+  }
+  
+  .price-features {
+    text-align: left;
+    margin-bottom: var(--space-8);
+    border-top: 1px solid var(--neutral-200);
+    padding-top: var(--space-6);
+  }
+  
+  .price-feature {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+    color: var(--neutral-700);
+  }
+  
+  .feature-icon {
+    color: var(--green-500);
+    font-weight: bold;
+  }
+  
+  .price-button {
+    display: inline-block;
+    width: 100%;
+    padding: var(--space-4);
+    font-size: var(--font-size-lg);
+    background-color: var(--primary-600);
+    color: white;
+    border-radius: var(--border-radius-lg);
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-weight: 600;
+    transition: all var(--transition-normal);
+    text-decoration: none;
+  }
+  
+  .price-button:hover {
+    background-color: var(--primary-700);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(2, 132, 199, 0.3);
+  }
+  
+  /* Animaciones */
+  .animate-fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .animate-fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .delay-100 { transition-delay: 100ms; }
+  .delay-200 { transition-delay: 200ms; }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: var(--font-size-2xl);
+    }
+    
+    .price-card {
+      padding: var(--space-6);
+    }
+    
+    .amount {
+      font-size: var(--font-size-3xl);
+    }
+  }
+</style>
