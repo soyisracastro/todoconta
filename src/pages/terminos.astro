@@ -1,0 +1,2068 @@
+---
+// src/pages/terminos-servicio.astro
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/ui/Navbar.astro';
+import Footer from '../components/ui/Footer.astro';
+
+// Importar los estilos globales
+import '../styles/reset.css';
+import '../styles/design-system.css';
+import '../styles/global.css';
+---
+
+<Layout 
+  title="Términos de Servicio - TodoConta" 
+  description="Conoce los términos y condiciones que rigen la prestación de servicios contables, fiscales y de asesoría de TodoConta. Transparencia y profesionalismo garantizados.">
+  
+  <Navbar />
+  
+  <!-- Legal Page Header -->
+  <section class="legal-header">
+    <div class="container">
+      <div class="header-content">
+        <h1 class="legal-title fade-in-up">Términos de Servicio</h1>
+        <p class="legal-subtitle fade-in-up">
+          Estos términos establecen las condiciones bajo las cuales TodoConta presta sus servicios contables, 
+          fiscales y de asesoría, garantizando transparencia y profesionalismo en nuestra relación.
+        </p>
+        <div class="legal-meta fade-in-up">
+          <span class="meta-item">
+            <span class="meta-icon">📅</span>
+            <span>Última actualización: 31 de julio de 2025</span>
+          </span>
+          <span class="meta-item">
+            <span class="meta-icon">📋</span>
+            <span>Acuerdo Legal Vinculante</span>
+          </span>
+          <span class="meta-item">
+            <span class="meta-icon">🛡️</span>
+            <span>Garantía de Cumplimiento Incluida</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Legal Content -->
+  <section class="legal-content">
+    <div class="container">
+      <div class="content-grid">
+        <!-- Table of Contents -->
+        <aside class="legal-sidebar">
+          <div class="toc-container">
+            <h3 class="toc-title">Contenido</h3>
+            <nav class="toc-nav">
+              <a href="#empresa" class="toc-link">1. Información de la Empresa</a>
+              <a href="#servicios" class="toc-link">2. Servicios Ofrecidos</a>
+              <a href="#contratacion" class="toc-link">3. Contratación y Vigencia</a>
+              <a href="#obligaciones-cliente" class="toc-link">4. Obligaciones del Cliente</a>
+              <a href="#obligaciones-todoconta" class="toc-link">5. Obligaciones de TodoConta</a>
+              <a href="#precios" class="toc-link">6. Precios y Pagos</a>
+              <a href="#garantias" class="toc-link">7. Garantías</a>
+              <a href="#confidencialidad" class="toc-link">8. Confidencialidad</a>
+              <a href="#terminacion" class="toc-link">9. Terminación</a>
+              <a href="#controversias" class="toc-link">10. Controversias</a>
+              <a href="#disposiciones" class="toc-link">11. Disposiciones Generales</a>
+            </nav>
+            
+            <div class="contact-card">
+              <h4>📞 Consultas Legales</h4>
+              <p>Para dudas sobre estos términos</p>
+              <a href="mailto:legal@todoconta.com" class="contact-btn">
+                legal@todoconta.com
+              </a>
+            </div>
+
+            <div class="guarantee-highlight">
+              <div class="guarantee-icon">🛡️</div>
+              <h4>Garantía de Cumplimiento</h4>
+              <p>Si no cumplimos por nuestra responsabilidad, cubrimos las multas fiscales</p>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="legal-main">
+          <div class="legal-intro">
+            <p class="intro-text">
+              Estos Términos de Servicio constituyen un <strong>acuerdo legal vinculante</strong> entre usted (el "Cliente") 
+              y TodoConta. Al contratar nuestros servicios, usted acepta cumplir con estos términos.
+            </p>
+          </div>
+
+          <!-- Section 1: Empresa -->
+          <section id="empresa" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">1.</span>
+              Información de la Empresa
+            </h2>
+            <div class="content-card">
+              <div class="company-info">
+                <h3>TodoConta</h3>
+                <div class="info-grid">
+                  <div class="info-item">
+                    <span class="info-label">🏢 Razón Social:</span>
+                    <span>TodoConta</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="info-label">📍 Domicilio:</span>
+                    <span>Calle 15 de mayo #9, San Jerónimo, Michoacán, México, CP 61993</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="info-label">📞 Teléfono:</span>
+                    <span>(55) 4475-3602</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="info-label">✉️ Email:</span>
+                    <span>hola@todoconta.com</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="info-label">🌐 Sitio web:</span>
+                    <span>www.todoconta.com</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 2: Servicios -->
+          <section id="servicios" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">2.</span>
+              Servicios Ofrecidos
+            </h2>
+            
+            <!-- Servicios Mensuales -->
+            <div class="content-card">
+              <h3 class="subsection-title">📊 Servicios Contables Mensuales</h3>
+              
+              <div class="services-grid">
+                <div class="service-detail-card">
+                  <div class="service-badge basic">PLAN BÁSICO</div>
+                  <div class="service-price">$4,200/mes</div>
+                  <h4>Ideal para empezar</h4>
+                  <p>Perfecto para profesionistas independientes y pequeños empresarios sin empleados.</p>
+                  <ul class="service-features-list">
+                    <li>Contabilidad mensual completa</li>
+                    <li>Declaraciones de ISR e IVA</li>
+                    <li>Estados financieros básicos</li>
+                    <li>Gestión SAT esencial</li>
+                    <li>Actualización de obligaciones fiscales</li>
+                    <li>Soporte telefónico y email</li>
+                  </ul>
+                </div>
+
+                <div class="service-detail-card featured">
+                  <div class="service-badge premium">PLAN PREMIUM</div>
+                  <div class="service-price">$7,800/mes</div>
+                  <h4>El más completo</h4>
+                  <p>Solución integral para empresarios con empleados. Incluye hasta 15 trabajadores.</p>
+                  <ul class="service-features-list">
+                    <li>Todo lo del Plan Básico</li>
+                    <li>Nómina completa (hasta 15 empleados)</li>
+                    <li>Gestión IMSS / INFONAVIT</li>
+                    <li>Contratos laborales y finiquitos</li>
+                    <li>Asesoría fiscal avanzada</li>
+                    <li>Representación en auditorías</li>
+                    <li>2 horas de consulta online/mes</li>
+                  </ul>
+                </div>
+
+                <div class="service-detail-card">
+                  <div class="service-badge corporate">PLAN EMPRESARIAL</div>
+                  <div class="service-price">$14,500/mes</div>
+                  <h4>Corporativo</h4>
+                  <p>Para empresas establecidas con operaciones complejas. Hasta 50 trabajadores.</p>
+                  <ul class="service-features-list">
+                    <li>Todo lo del Plan Premium</li>
+                    <li>Contabilidad corporativa avanzada</li>
+                    <li>Análisis de costos y reportes gerenciales</li>
+                    <li>Planeación fiscal estratégica</li>
+                    <li>Contador senior asignado</li>
+                    <li>4 horas de consulta online/mes</li>
+                    <li>Reuniones trimestrales ejecutivas</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Asesoría Online -->
+            <div class="content-card secondary">
+              <h3 class="subsection-title">💻 Asesoría Fiscal Online</h3>
+              <div class="advice-details">
+                <div class="advice-info">
+                  <ul class="feature-list">
+                    <li>Consultas especializadas por videollamada</li>
+                    <li>Tarifa: $1,500 por hora</li>
+                    <li>Disponible de lunes a viernes, 9:00 AM - 6:00 PM</li>
+                    <li>Reporte por escrito incluido</li>
+                    <li>Sin compromiso a largo plazo</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Servicios Adicionales -->
+            <div class="content-card">
+              <h3 class="subsection-title">🔧 Servicios Adicionales</h3>
+              <div class="additional-services">
+                <div class="additional-service">
+                  <span class="service-icon">📋</span>
+                  <span>Inscripción al RFC</span>
+                </div>
+                <div class="additional-service">
+                  <span class="service-icon">🔄</span>
+                  <span>Cambio de régimen fiscal</span>
+                </div>
+                <div class="additional-service">
+                  <span class="service-icon">🔐</span>
+                  <span>Trámite de e.firma y CSD</span>
+                </div>
+                <div class="additional-service">
+                  <span class="service-icon">📊</span>
+                  <span>Declaración anual personas físicas</span>
+                </div>
+                <div class="additional-service">
+                  <span class="service-icon">✅</span>
+                  <span>Opinión de cumplimiento fiscal</span>
+                </div>
+                <div class="additional-service">
+                  <span class="service-icon">⚖️</span>
+                  <span>Regularización fiscal</span>
+                </div>
+                <div class="additional-service">
+                  <span class="service-icon">🎓</span>
+                  <span>Talleres y capacitación</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 3: Contratación -->
+          <section id="contratacion" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">3.</span>
+              Contratación y Vigencia
+            </h2>
+            
+            <div class="content-card">
+              <h3 class="subsection-title">📝 Proceso de Contratación</h3>
+              <div class="process-steps">
+                <div class="process-step">
+                  <div class="step-number">1</div>
+                  <div class="step-content">
+                    <h4>Solicitud de Consulta</h4>
+                    <p>Contacto inicial para entender sus necesidades específicas</p>
+                  </div>
+                </div>
+                <div class="process-step">
+                  <div class="step-number">2</div>
+                  <div class="step-content">
+                    <h4>Propuesta Comercial</h4>
+                    <p>Cotización personalizada según sus requerimientos</p>
+                  </div>
+                </div>
+                <div class="process-step">
+                  <div class="step-number">3</div>
+                  <div class="step-content">
+                    <h4>Aceptación y Firma</h4>
+                    <p>Revisión y firma del contrato específico de servicios</p>
+                  </div>
+                </div>
+                <div class="process-step">
+                  <div class="step-number">4</div>
+                  <div class="step-content">
+                    <h4>Pago Inicial</h4>
+                    <p>Liquidación del primer mes o anticipo según el servicio</p>
+                  </div>
+                </div>
+                <div class="process-step">
+                  <div class="step-number">5</div>
+                  <div class="step-content">
+                    <h4>Inicio de Servicios</h4>
+                    <p>Arranque formal de la prestación de servicios contratados</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="content-card">
+              <h3 class="subsection-title">⏰ Vigencia del Contrato</h3>
+              <div class="contract-types">
+                <div class="contract-type">
+                  <h4>📅 Servicios Mensuales</h4>
+                  <p>Vigencia indefinida con renovación automática mensual</p>
+                </div>
+                <div class="contract-type">
+                  <h4>💻 Asesorías Online</h4>
+                  <p>Por sesión individual sin compromiso a largo plazo</p>
+                </div>
+                <div class="contract-type">
+                  <h4>🔧 Servicios Adicionales</h4>
+                  <p>Por proyecto específico con plazo determinado</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="trial-period">
+              <h3>🆓 Período de Prueba</h3>
+              <p>Ofrecemos un período de prueba de <strong>30 días</strong> para nuevos clientes en planes mensuales, durante el cual cualquier parte puede terminar el contrato sin penalización.</p>
+            </div>
+          </section>
+
+          <!-- Section 4: Obligaciones Cliente -->
+          <section id="obligaciones-cliente" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">4.</span>
+              Obligaciones del Cliente
+            </h2>
+            
+            <div class="obligations-grid">
+              <div class="obligation-card">
+                <div class="obligation-icon">📄</div>
+                <h3>Información y Documentación</h3>
+                <ul>
+                  <li>Proporcionar información veraz, completa y actualizada</li>
+                  <li>Entregar documentación requerida en tiempo y forma</li>
+                  <li>Informar cambios relevantes en su situación fiscal</li>
+                  <li>Mantener organizada la documentación contable</li>
+                </ul>
+              </div>
+
+              <div class="obligation-card">
+                <div class="obligation-icon">💰</div>
+                <h3>Pago de Honorarios</h3>
+                <ul>
+                  <li>Realizar pagos puntualmente según lo acordado</li>
+                  <li>Cubrir gastos adicionales previamente autorizados</li>
+                  <li>Informar cualquier problema de pago con anticipación</li>
+                  <li>Mantener métodos de pago actualizados</li>
+                </ul>
+              </div>
+
+              <div class="obligation-card">
+                <div class="obligation-icon">🤝</div>
+                <h3>Colaboración</h3>
+                <ul>
+                  <li>Designar una persona responsable para la comunicación</li>
+                  <li>Responder consultas y requerimientos oportunamente</li>
+                  <li>Participar activamente en el proceso de asesoría</li>
+                  <li>Facilitar el acceso a información necesaria</li>
+                </ul>
+              </div>
+
+              <div class="obligation-card">
+                <div class="obligation-icon">⚖️</div>
+                <h3>Cumplimiento Legal</h3>
+                <ul>
+                  <li>Mantener en regla sus obligaciones fiscales</li>
+                  <li>Cumplir con las recomendaciones proporcionadas</li>
+                  <li>Informar sobre requerimientos de autoridades</li>
+                  <li>Actuar de buena fe en todo momento</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 5: Obligaciones TodoConta -->
+          <section id="obligaciones-todoconta" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">5.</span>
+              Obligaciones de TodoConta
+            </h2>
+            
+            <div class="obligations-grid">
+              <div class="obligation-card todoconta">
+                <div class="obligation-icon">⭐</div>
+                <h3>Prestación de Servicios</h3>
+                <ul>
+                  <li>Proporcionar servicios profesionales de calidad</li>
+                  <li>Cumplir con los plazos acordados</li>
+                  <li>Mantener actualización constante en normatividad</li>
+                  <li>Asignar personal calificado y certificado</li>
+                </ul>
+              </div>
+
+              <div class="obligation-card todoconta">
+                <div class="obligation-icon">🔒</div>
+                <h3>Confidencialidad</h3>
+                <ul>
+                  <li>Proteger la información confidencial del Cliente</li>
+                  <li>No divulgar información sin autorización expresa</li>
+                  <li>Implementar medidas de seguridad adecuadas</li>
+                  <li>Cumplir con legislación de protección de datos</li>
+                </ul>
+              </div>
+
+              <div class="obligation-card todoconta">
+                <div class="obligation-icon">📞</div>
+                <h3>Comunicación</h3>
+                <ul>
+                  <li>Mantener comunicación fluida y oportuna</li>
+                  <li>Informar sobre cambios normativos relevantes</li>
+                  <li>Proporcionar reportes y actualizaciones periódicas</li>
+                  <li>Estar disponible durante horarios laborales</li>
+                </ul>
+              </div>
+
+              <div class="obligation-card todoconta">
+                <div class="obligation-icon">📈</div>
+                <h3>Calidad y Mejora Continua</h3>
+                <ul>
+                  <li>Mantener estándares profesionales altos</li>
+                  <li>Implementar mejoras en procesos y servicios</li>
+                  <li>Capacitar continuamente a nuestro personal</li>
+                  <li>Solicitar retroalimentación del Cliente</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 6: Precios -->
+          <section id="precios" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">6.</span>
+              Precios y Forma de Pago
+            </h2>
+            
+            <div class="content-card">
+              <h3 class="subsection-title">💲 Estructura de Precios</h3>
+              <div class="pricing-structure">
+                <div class="pricing-item">
+                  <span class="pricing-icon">🇲🇽</span>
+                  <span>Los precios están expresados en <strong>pesos mexicanos (MXN)</strong></span>
+                </div>
+                <div class="pricing-item">
+                  <span class="pricing-icon">🧾</span>
+                  <span>Los precios <strong>incluyen IVA</strong> cuando aplique</span>
+                </div>
+                <div class="pricing-item">
+                  <span class="pricing-icon">📅</span>
+                  <span>Los precios pueden ser modificados con <strong>30 días de anticipación</strong></span>
+                </div>
+                <div class="pricing-item">
+                  <span class="pricing-icon">📊</span>
+                  <span>Los servicios adicionales se <strong>cotizarán por separado</strong></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="content-card">
+              <h3 class="subsection-title">💳 Formas de Pago Aceptadas</h3>
+              <div class="payment-methods">
+                <div class="payment-method">
+                  <div class="payment-icon">🏦</div>
+                  <span>Transferencia bancaria</span>
+                </div>
+                <div class="payment-method">
+                  <div class="payment-icon">💵</div>
+                  <span>Depósito en efectivo</span>
+                </div>
+                <div class="payment-method">
+                  <div class="payment-icon">💳</div>
+                  <span>Tarjeta de crédito o débito</span>
+                </div>
+                <div class="payment-method">
+                  <div class="payment-icon">📱</div>
+                  <span>PayPal y plataformas digitales</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="content-card">
+              <h3 class="subsection-title">📋 Política de Pagos</h3>
+              <div class="payment-policies">
+                <div class="payment-policy">
+                  <h4>📅 Servicios Mensuales</h4>
+                  <p>Pago por adelantado los primeros 5 días del mes</p>
+                </div>
+                <div class="payment-policy">
+                  <h4>💻 Asesorías Online</h4>
+                  <p>Pago inmediato posterior a la sesión</p>
+                </div>
+                <div class="payment-policy">
+                  <h4>🔧 Servicios Adicionales</h4>
+                  <p>50% anticipo, 50% contra entrega</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 7: Garantías -->
+          <section id="garantias" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">7.</span>
+              Garantías y Responsabilidades
+            </h2>
+            
+            <div class="guarantee-card main-guarantee">
+              <div class="guarantee-header">
+                <div class="guarantee-icon-large">🛡️</div>
+                <h3>Garantía de Cumplimiento TodoConta</h3>
+              </div>
+              <p class="guarantee-text">
+                <strong>TodoConta garantiza que, si no cumplimos con alguna obligación fiscal por nuestra responsabilidad directa, 
+                cubriremos las multas y recargos correspondientes.</strong>
+              </p>
+            </div>
+
+            <div class="content-card">
+              <h3 class="subsection-title">❌ Limitaciones de la Garantía</h3>
+              <div class="limitations-grid">
+                <div class="limitation-item">
+                  <span class="limitation-icon">📄</span>
+                  <span>El Cliente no proporciona información completa o veraz</span>
+                </div>
+                <div class="limitation-item">
+                  <span class="limitation-icon">🚫</span>
+                  <span>El Cliente no implementa las recomendaciones proporcionadas</span>
+                </div>
+                <div class="limitation-item">
+                  <span class="limitation-icon">⚖️</span>
+                  <span>Existen cambios normativos retroactivos no previsibles</span>
+                </div>
+                <div class="limitation-item">
+                  <span class="limitation-icon">🌪️</span>
+                  <span>El incumplimiento se debe a causas ajenas a TodoConta</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="content-card">
+              <h3 class="subsection-title">⚖️ Límites de Responsabilidad</h3>
+              <ul class="feature-list">
+                <li>Nuestra responsabilidad máxima será equivalente a 12 meses de honorarios</li>
+                <li>No somos responsables por daños indirectos o lucro cesante</li>
+                <li>El Cliente debe notificar cualquier problema dentro de 30 días</li>
+                <li>Las reclamaciones prescriben después de 2 años</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Section 8: Confidencialidad -->
+          <section id="confidencialidad" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">8.</span>
+              Confidencialidad y Protección de Datos
+            </h2>
+            
+            <div class="confidentiality-grid">
+              <div class="confidentiality-card">
+                <div class="conf-icon">🔒</div>
+                <h3>Información Confidencial</h3>
+                <ul>
+                  <li>Toda información del Cliente es estrictamente confidencial</li>
+                  <li>Solo será utilizada para la prestación de servicios contratados</li>
+                  <li>No será divulgada a terceros sin autorización expresa</li>
+                  <li>Se mantendrá la confidencialidad incluso después de terminado el contrato</li>
+                </ul>
+              </div>
+
+              <div class="confidentiality-card">
+                <div class="conf-icon">🛡️</div>
+                <h3>Protección de Datos</h3>
+                <ul>
+                  <li>Cumplimos con la Ley Federal de Protección de Datos Personales</li>
+                  <li>Implementamos medidas de seguridad técnicas y administrativas</li>
+                  <li>El Cliente tiene derechos ARCO que puede ejercer en cualquier momento</li>
+                  <li>Véase nuestra Política de Privacidad para mayor detalle</li>
+                </ul>
+              </div>
+
+              <div class="confidentiality-card">
+                <div class="conf-icon">🧠</div>
+                <h3>Propiedad Intelectual</h3>
+                <ul>
+                  <li>Los reportes y análisis desarrollados son propiedad de TodoConta</li>
+                  <li>El Cliente tiene derecho de uso para sus fines empresariales</li>
+                  <li>No se permite la reproducción o distribución sin autorización</li>
+                  <li>Las metodologías y procesos son propiedad de TodoConta</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 9: Terminación -->
+          <section id="terminacion" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">9.</span>
+              Terminación del Contrato
+            </h2>
+            
+            <div class="termination-grid">
+              <div class="termination-card client">
+                <h3>👤 Terminación por el Cliente</h3>
+                <div class="termination-options">
+                  <div class="termination-option">
+                    <h4>Con causa:</h4>
+                    <p>Inmediata, sin penalización</p>
+                  </div>
+                  <div class="termination-option">
+                    <h4>Sin causa:</h4>
+                    <p>Con 30 días de aviso previo</p>
+                  </div>
+                  <div class="termination-option">
+                    <h4>Durante período de prueba:</h4>
+                    <p>Sin penalización alguna</p>
+                  </div>
+                </div>
+                <p class="termination-note">Debe liquidar servicios ya prestados</p>
+              </div>
+
+              <div class="termination-card todoconta">
+                <h3>🏢 Terminación por TodoConta</h3>
+                <div class="termination-options">
+                  <div class="termination-option">
+                    <h4>Por incumplimiento del Cliente:</h4>
+                    <p>Inmediata tras 15 días de aviso</p>
+                  </div>
+                  <div class="termination-option">
+                    <h4>Por falta de pago:</h4>
+                    <p>Después de 30 días de atraso</p>
+                  </div>
+                  <div class="termination-option">
+                    <h4>Sin causa:</h4>
+                    <p>Con 60 días de aviso previo</p>
+                  </div>
+                </div>
+                <p class="termination-note">Se entregará toda documentación pendiente</p>
+              </div>
+            </div>
+
+            <div class="content-card">
+              <h3 class="subsection-title">📋 Efectos de la Terminación</h3>
+              <div class="termination-effects">
+                <div class="effect-item">
+                  <span class="effect-icon">📁</span>
+                  <span>Entrega de toda documentación y archivos del Cliente</span>
+                </div>
+                <div class="effect-item">
+                  <span class="effect-icon">💰</span>
+                  <span>Liquidación de cuentas pendientes</span>
+                </div>
+                <div class="effect-item">
+                  <span class="effect-icon">📄</span>
+                  <span>Devolución de documentos originales</span>
+                </div>
+                <div class="effect-item">
+                    <span class="effect-icon">🗑️</span>
+                    <span>Destrucción segura de información confidencial (tras 5 años por obligaciones fiscales)</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+  
+            <!-- Section 10: Controversias -->
+            <section id="controversias" class="legal-section">
+              <h2 class="section-title">
+                <span class="section-number">10.</span>
+                Resolución de Controversias
+              </h2>
+              
+              <div class="resolution-process">
+                <div class="resolution-step">
+                  <div class="resolution-number">1</div>
+                  <div class="resolution-content">
+                    <h3>🤝 Mediación</h3>
+                    <p>En caso de conflicto, las partes acuerdan intentar resolverlo mediante mediación antes de recurrir a instancias legales.</p>
+                  </div>
+                </div>
+                
+                <div class="resolution-step">
+                  <div class="resolution-number">2</div>
+                  <div class="resolution-content">
+                    <h3>⚖️ Jurisdicción</h3>
+                    <p>Cualquier controversia será resuelta por los tribunales competentes en Michoacán, México, renunciando a cualquier otra jurisdicción.</p>
+                  </div>
+                </div>
+                
+                <div class="resolution-step">
+                  <div class="resolution-number">3</div>
+                  <div class="resolution-content">
+                    <h3>📜 Ley Aplicable</h3>
+                    <p>Este contrato se rige por las leyes mexicanas, incluyendo Código Civil Federal, Código de Comercio, LFPDPPP y Código Fiscal de la Federación.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+  
+            <!-- Section 11: Disposiciones -->
+            <section id="disposiciones" class="legal-section">
+              <h2 class="section-title">
+                <span class="section-number">11.</span>
+                Disposiciones Generales
+              </h2>
+              
+              <div class="dispositions-grid">
+                <div class="disposition-card">
+                  <h3>📋 Integridad del Acuerdo</h3>
+                  <p>Estos Términos, junto con el contrato específico de servicios, constituyen el acuerdo completo entre las partes.</p>
+                </div>
+                
+                <div class="disposition-card">
+                  <h3>⚖️ Divisibilidad</h3>
+                  <p>Si alguna disposición es declarada inválida, el resto del acuerdo permanecerá en vigor.</p>
+                </div>
+                
+                <div class="disposition-card">
+                  <h3>🚫 Renuncia</h3>
+                  <p>La falta de ejercicio de algún derecho no constituye renuncia al mismo.</p>
+                </div>
+                
+                <div class="disposition-card">
+                  <h3>🔄 Asignación</h3>
+                  <p>El Cliente no puede transferir sus derechos sin consentimiento escrito de TodoConta.</p>
+                </div>
+                
+                <div class="disposition-card">
+                  <h3>📧 Notificaciones</h3>
+                  <p>Todas las comunicaciones oficiales deben realizarse por escrito a las direcciones registradas.</p>
+                </div>
+                
+                <div class="disposition-card">
+                  <h3>📅 Modificaciones</h3>
+                  <p>TodoConta puede modificar estos términos con 30 días de aviso. El uso continuado implica aceptación.</p>
+                </div>
+              </div>
+            </section>
+  
+            <!-- Contact Section -->
+            <div class="contact-section">
+              <h3>📞 Contacto para Consultas</h3>
+              <div class="contact-details-grid">
+                <div class="contact-detail">
+                  <h4>📧 Email</h4>
+                  <p>legal@todoconta.com</p>
+                </div>
+                <div class="contact-detail">
+                  <h4>📞 Teléfono</h4>
+                  <p>(55) 4475-3602</p>
+                </div>
+                <div class="contact-detail">
+                  <h4>🕒 Horario</h4>
+                  <p>Lunes a viernes, 9:00 AM - 6:00 PM</p>
+                </div>
+                <div class="contact-detail">
+                  <h4>📍 Domicilio</h4>
+                  <p>Calle 15 de mayo #9, San Jerónimo, Michoacán, México, CP 61993</p>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Acceptance Notice -->
+            <div class="acceptance-notice">
+              <h3>✅ Aceptación de Términos</h3>
+              <p>
+                <strong>Al contratar nuestros servicios, usted acepta estar sujeto a estos Términos de Servicio.</strong>
+              </p>
+              <p class="effective-date">
+                <strong>Fecha de entrada en vigor:</strong> 31 de julio de 2025
+              </p>
+            </div>
+  
+            <!-- Footer Info -->
+            <div class="legal-footer">
+              <div class="company-signature">
+                <h4>TodoConta - Tranquilidad Fiscal Garantizada</h4>
+                <p>Calle 15 de mayo #9, San Jerónimo, Michoacán, México, CP 61993</p>
+                <p>Teléfono: (55) 4475-3602 | Email: hola@todoconta.com</p>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </section>
+  
+    <Footer />
+    
+    <script>
+      // Smooth scrolling for TOC links
+      document.addEventListener('DOMContentLoaded', () => {
+        // TOC navigation
+        const tocLinks = document.querySelectorAll('.toc-link');
+        const sections = document.querySelectorAll('.legal-section');
+        
+        tocLinks.forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+              targetSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+              
+              // Update active state
+              tocLinks.forEach(l => l.classList.remove('active'));
+              link.classList.add('active');
+            }
+          });
+        });
+  
+        // Scroll spy for TOC
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '-100px 0px -50% 0px'
+        };
+  
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const id = entry.target.getAttribute('id');
+              const activeLink = document.querySelector(`.toc-link[href="#${id}"]`);
+              
+              tocLinks.forEach(link => link.classList.remove('active'));
+              if (activeLink) {
+                activeLink.classList.add('active');
+              }
+            }
+          });
+        }, observerOptions);
+  
+        sections.forEach(section => {
+          observer.observe(section);
+        });
+  
+        // Animations
+        const animationObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        });
+  
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+          animationObserver.observe(el);
+        });
+      });
+    </script>
+  </Layout>
+  
+  <style>
+    /* Legal Page Specific Styles */
+    .legal-header {
+      background: var(--bg-hero);
+      color: white;
+      padding: calc(var(--space-20) + var(--space-8)) 0 var(--space-16);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+  
+    .legal-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)" /></svg>');
+      pointer-events: none;
+    }
+  
+    .header-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  
+    .legal-title {
+      font-family: var(--font-display);
+      font-size: var(--font-size-5xl);
+      font-weight: 800;
+      margin-bottom: var(--space-6);
+      color: white;
+      line-height: 1.1;
+    }
+  
+    .legal-subtitle {
+      font-size: var(--font-size-lg);
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: var(--space-8);
+      line-height: 1.6;
+    }
+  
+    .legal-meta {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+    }
+  
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      color: rgba(255, 255, 255, 0.9);
+      font-size: var(--font-size-sm);
+      background: rgba(255, 255, 255, 0.1);
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--border-radius-md);
+    }
+  
+    .legal-content {
+      padding: var(--space-20) 0;
+      background: var(--bg-secondary);
+    }
+  
+    .content-grid {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: var(--space-16);
+      max-width: 1400px;
+      margin: 0 auto;
+      align-items: start;
+    }
+  
+    /* Sidebar */
+    .legal-sidebar {
+      position: sticky;
+      top: var(--space-8);
+    }
+  
+    .toc-container {
+      background: var(--bg-primary);
+      border-radius: var(--border-radius-xl);
+      padding: var(--space-6);
+      box-shadow: var(--shadow-md);
+    }
+  
+    .toc-title {
+      font-family: var(--font-display);
+      font-size: var(--font-size-lg);
+      font-weight: 600;
+      color: var(--neutral-900);
+      margin-bottom: var(--space-4);
+    }
+  
+    .toc-nav {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      margin-bottom: var(--space-6);
+    }
+  
+    .toc-link {
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--border-radius-md);
+      text-decoration: none;
+      color: var(--neutral-600);
+      font-size: var(--font-size-sm);
+      transition: all var(--transition-normal);
+      border-left: 3px solid transparent;
+    }
+  
+    .toc-link:hover,
+    .toc-link.active {
+      background: var(--primary-50);
+      color: var(--primary-700);
+      border-left-color: var(--primary-600);
+    }
+  
+    .contact-card {
+      background: var(--primary-50);
+      padding: var(--space-4);
+      border-radius: var(--border-radius-lg);
+      border: 1px solid var(--primary-200);
+      margin-bottom: var(--space-4);
+    }
+  
+    .contact-card h4 {
+      font-size: var(--font-size-base);
+      font-weight: 600;
+      color: var(--primary-900);
+      margin-bottom: var(--space-2);
+    }
+  
+    .contact-card p {
+      font-size: var(--font-size-sm);
+      color: var(--primary-700);
+      margin-bottom: var(--space-3);
+    }
+  
+    .contact-btn {
+      display: block;
+      background: var(--primary-600);
+      color: white;
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--border-radius-md);
+      text-decoration: none;
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      text-align: center;
+      transition: all var(--transition-normal);
+    }
+  
+    .contact-btn:hover {
+      background: var(--primary-700);
+      transform: translateY(-1px);
+    }
+  
+    .guarantee-highlight {
+      background: var(--green-50);
+      border: 2px solid var(--green-300);
+      padding: var(--space-4);
+      border-radius: var(--border-radius-lg);
+      text-align: center;
+    }
+  
+    .guarantee-highlight .guarantee-icon {
+      font-size: var(--font-size-2xl);
+      margin-bottom: var(--space-2);
+    }
+  
+    .guarantee-highlight h4 {
+      font-size: var(--font-size-base);
+      font-weight: 600;
+      color: var(--green-900);
+      margin-bottom: var(--space-2);
+    }
+  
+    .guarantee-highlight p {
+      font-size: var(--font-size-sm);
+      color: var(--green-700);
+      margin: 0;
+      line-height: 1.4;
+    }
+  
+    /* Main Content */
+    .legal-main {
+      max-width: none;
+    }
+  
+    .legal-intro {
+      background: var(--bg-primary);
+      padding: var(--space-8);
+      border-radius: var(--border-radius-xl);
+      margin-bottom: var(--space-12);
+      box-shadow: var(--shadow-md);
+    }
+  
+    .intro-text {
+      font-size: var(--font-size-lg);
+      color: var(--neutral-700);
+      line-height: 1.6;
+      margin: 0;
+    }
+  
+    .legal-section {
+      margin-bottom: var(--space-16);
+    }
+  
+    .section-title {
+      font-family: var(--font-display);
+      font-size: var(--font-size-3xl);
+      font-weight: 700;
+      color: var(--neutral-900);
+      margin-bottom: var(--space-8);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+  
+    .section-number {
+      background: var(--primary-600);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--font-size-lg);
+      font-weight: 800;
+    }
+  
+    .content-card {
+      background: var(--bg-primary);
+      padding: var(--space-8);
+      border-radius: var(--border-radius-xl);
+      margin-bottom: var(--space-6);
+      box-shadow: var(--shadow-md);
+    }
+  
+    .content-card.secondary {
+      background: var(--green-50);
+      border: 1px solid var(--green-200);
+    }
+  
+    .subsection-title {
+      font-family: var(--font-display);
+      font-size: var(--font-size-xl);
+      font-weight: 600;
+      color: var(--neutral-900);
+      margin-bottom: var(--space-6);
+    }
+  
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  
+    .feature-list li {
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid var(--neutral-200);
+      position: relative;
+      padding-left: var(--space-8);
+      color: var(--neutral-700);
+    }
+  
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+  
+    .feature-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      top: var(--space-3);
+      color: var(--green-600);
+      font-weight: bold;
+      font-size: var(--font-size-base);
+    }
+  
+    /* Company Info */
+    .company-info h3 {
+      font-family: var(--font-display);
+      font-size: var(--font-size-2xl);
+      font-weight: 700;
+      color: var(--neutral-900);
+      margin-bottom: var(--space-6);
+    }
+  
+    .info-grid {
+      display: grid;
+      gap: var(--space-4);
+    }
+  
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      padding: var(--space-3);
+      background: var(--neutral-50);
+      border-radius: var(--border-radius-md);
+    }
+  
+    .info-label {
+      font-weight: 600;
+      color: var(--neutral-900);
+      min-width: 120px;
+    }
+  
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-6);
+      margin: var(--space-6) 0;
+    }
+  
+    .service-detail-card {
+      background: var(--bg-primary);
+      padding: var(--space-6);
+      border-radius: var(--border-radius-lg);
+      border: 2px solid var(--neutral-200);
+      transition: all var(--transition-normal);
+      position: relative;
+    }
+  
+    .service-detail-card.featured {
+      border-color: var(--green-500);
+      transform: scale(1.02);
+      box-shadow: var(--shadow-lg);
+    }
+  
+    .service-detail-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+  
+    .service-detail-card.featured:hover {
+      transform: scale(1.02) translateY(-4px);
+    }
+  
+    .service-badge {
+      display: inline-block;
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--border-radius-sm);
+      font-size: var(--font-size-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-4);
+    }
+  
+    .service-badge.basic {
+      background: var(--primary-100);
+      color: var(--primary-800);
+    }
+  
+    .service-badge.premium {
+      background: var(--green-100);
+      color: var(--green-800);
+    }
+  
+    .service-badge.corporate {
+      background: var(--orange-100);
+      color: var(--orange-800);
+    }
+  
+    .service-price {
+      font-family: var(--font-display);
+      font-size: var(--font-size-2xl);
+      font-weight: 800;
+      color: var(--primary-600);
+      margin-bottom: var(--space-3);
+    }
+  
+    .service-detail-card h4 {
+      font-size: var(--font-size-lg);
+      font-weight: 600;
+      color: var(--neutral-900);
+      margin-bottom: var(--space-3);
+    }
+  
+    .service-detail-card p {
+      color: var(--neutral-600);
+      margin-bottom: var(--space-4);
+      line-height: 1.5;
+    }
+  
+    .service-features-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  
+    .service-features-list li {
+      padding: var(--space-2) 0 var(--space-2) var(--space-6);
+      color: var(--neutral-700);
+      font-size: var(--font-size-sm);
+      position: relative;
+      border-bottom: 1px solid var(--neutral-100);
+    }
+  
+    .service-features-list li:last-child {
+      border-bottom: none;
+    }
+  
+    .service-features-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      top: var(--space-2);
+      color: var(--green-600);
+      font-weight: bold;
+    }
+  
+    /* Advice Details */
+    .advice-details {
+      display: grid;
+      gap: var(--space-6);
+    }
+  
+    /* Additional Services */
+    .additional-services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-4);
+    }
+  
+    .additional-service {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-3);
+      background: var(--neutral-50);
+      border-radius: var(--border-radius-md);
+      transition: all var(--transition-normal);
+    }
+  
+    .additional-service:hover {
+      background: var(--primary-50);
+      transform: translateY(-2px);
+    }
+  
+    .service-icon {
+      font-size: var(--font-size-lg);
+    }
+  
+    /* Process Steps */
+    .process-steps {
+      display: grid;
+      gap: var(--space-6);
+    }
+  
+    .process-step {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+      padding: var(--space-4);
+      background: var(--neutral-50);
+      border-radius: var(--border-radius-lg);
+      border-left: 4px solid var(--primary-600);
+    }
+  
+    .step-number {
+      background: var(--primary-600);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: var(--font-size-lg);
+      flex-shrink: 0;
+    }
+  
+    .step-content h4 {
+      font-size: var(--font-size-lg);
+      font-weight: 600;
+      color: var(--neutral-900);
+      margin-bottom: var(--space-2);
+    }
+  
+    .step-content p {
+      color: var(--neutral-600);
+      margin: 0;
+      line-height: 1.5;
+    }
+  
+    /* Contract Types */
+    .contract-types {
+      display: grid;
+      gap: var(--space-4);
+    }
+  
+    .contract-type {
+      background: var(--neutral-50);
+      padding: var(--space-4);
+      border-radius: var(--border-radius-lg);
+      border-left: 4px solid var(--green-600);
+    }
+  
+    .contract-type h4 {
+      font-size: var(--font-size-base);
+      font-weight: 600;
+      color: var(--neutral-900);
+      margin-bottom: var(--space-2);
+    }
+  
+    .contract-type p {
+      color: var(--neutral-600);
+      margin: 0;
+      line-height: 1.5;
+    }
+  
+    /* Trial Period */
+    .trial-period {
+      background: var(--orange-50);
+      border: 2px solid var(--orange-300);
+      padding: var(--space-6);
+      border-radius: var(--border-radius-lg);
+      margin-top: var(--space-6);
+    }
+  
+    .trial-period h3 {
+      font-size: var(--font-size-lg);
+      font-weight: 600;
+      color: var(--orange-900);
+      margin-bottom: var(--space-3);
+    }
+  
+    .trial-period p {
+      color: var(--orange-800);
+      margin: 0;
+      line-height: 1.6;
+    }
+  
+    /* Obligations Grid */
+    .obligations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-6);
+    }
+  
+    .obligation-card {
+      background: var(--bg-primary);
+      padding: var(--space-6);
+      border-radius: var(--border-radius-lg);
+      border: 1px solid var(--neutral-200);
+      transition: all var(--transition-normal);
+    }
+  
+    .obligation-card.todoconta {
+      border-color: var(--green-300);
+      background: var(--green-50);
+    }
+  
+    .obligation-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+  
+    .obligation-icon {
+      font-size: var(--font-size-2xl);
+      margin-bottom: var(--space-4);
+      display: block;
+    }
+  
+    .obligation-card h3 {
+      font-size: var(--font-size-lg);
+      font-weight: 600;
+      color: var(--neutral-900);
+      margin-bottom: var(--space-4);
+    }
+  
+    .obligation-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  
+    .obligation-card li {
+      padding: var(--space-2) 0 var(--space-2) var(--space-6);
+      color: var(--neutral-700);
+      font-size: var(--font-size-sm);
+      position: relative;
+      border-bottom: 1px solid var(--neutral-100);
+    }
+  
+    .obligation-card li:last-child {
+      border-bottom: none;
+    }
+  
+    .obligation-card li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      top: var(--space-2);
+      color: var(--primary-600);
+      font-weight: bold;
+    }
+  
+    .obligation-card.todoconta li::before {
+      color: var(--green-600);
+    }
+  
+    /* Pricing Structure */
+    .pricing-structure {
+      display: grid;
+      gap: var(--space-4);
+    }
+  
+    .pricing-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-3);
+      background: var(--neutral-50);
+      border-radius: var(--border-radius-md);
+    }
+  
+    .pricing-icon {
+      font-size: var(--font-size-lg);
+    }
+  
+    /* Payment Methods */
+    .payment-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-4);
+    }
+  
+    .payment-method {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-4);
+      background: var(--neutral-50);
+      border-radius: var(--border-radius-lg);
+      transition: all var(--transition-normal);
+      border: 1px solid var(--neutral-200);
+    }
+  
+    .payment-method:hover {
+      background: var(--primary-50);
+      border-color: var(--primary-300);
+      transform: translateY(-2px);
+    }
+  
+    .payment-icon {
+      font-size: var(--font-size-xl);
+    }
+  
+    /* Payment Policies */
+    .payment-policies {
+      display: grid;
+      gap: var(--space-4);
+    }
+  
+    .payment-policy {
+      background: var(--neutral-50);
+      padding: var(--space-4);
+      border-radius: var(--border-radius-lg);
+      border-left: 4px solid var(--primary-600);
+    }
+  
+    .payment-policy h4 {
+      font-size: var(--font-size-base);
+      font-weight: 600;
+      color: var(--neutral-900);
+      margin-bottom: var(--space-2);
+    }
+  
+    .payment-policy p {
+      color: var(--neutral-600);
+      margin: 0;
+      line-height: 1.5;
+    }
+  
+    /* Main Guarantee */
+    .guarantee-card.main-guarantee {
+      background: var(--green-50);
+      border: 3px solid var(--green-400);
+      padding: var(--space-8);
+      border-radius: var(--border-radius-xl);
+      text-align: center;
+      margin-bottom: var(--space-8);
+      box-shadow: var(--shadow-lg);
+    }
+  
+    .guarantee-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+    }
+  
+    .guarantee-icon-large {
+      font-size: var(--font-size-4xl);
+    }
+  
+    .guarantee-header h3 {
+      font-family: var(--font-display);
+      font-size: var(--font-size-2xl);
+      font-weight: 700;
+      color: var(--green-900);
+      margin: 0;
+    }
+  
+    .guarantee-text {
+      font-size: var(--font-size-lg);
+      color: var(--green-800);
+      line-height: 1.6;
+      margin: 0;
+    }
+  
+    /* Limitations Grid */
+    .limitations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-4);
+    }
+  
+    .limitation-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      padding: var(--space-3);
+      background: var(--red-50);
+      border-radius: var(--border-radius-md);
+      border: 1px solid var(--red-200);
+    }
+  
+    .limitation-icon {
+      font-size: var(--font-size-lg);
+      color: var(--red-600);
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+  
+    .limitation-item span:last-child {
+      color: var(--red-700);
+      font-size: var(--font-size-sm);
+      line-height: 1.5;
+    }
+  
+    /* Confidentiality Grid */
+    .confidentiality-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-6);
+    }
+  
+    .confidentiality-card {
+      background: var(--bg-primary);
+      padding: var(--space-6);
+      border-radius: var(--border-radius-lg);
+      border: 1px solid var(--neutral-200);
+      transition: all var(--transition-normal);
+    }
+  
+    .confidentiality-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary-300);
+    }
+  
+    .conf-icon {
+      font-size: var(--font-size-2xl);
+      margin-bottom: var(--space-4);
+      display: block;
+    }
+  
+    .confidentiality-card h3 {
+      font-size: var(--font-size-lg);
+      font-weight: 600;
+      color: var(--neutral-900);
+      margin-bottom: var(--space-4);
+    }
+  
+    .confidentiality-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  
+    .confidentiality-card li {
+      padding: var(--space-2) 0 var(--space-2) var(--space-6);
+      color: var(--neutral-700);
+      font-size: var(--font-size-sm);
+      position: relative;
+      border-bottom: 1px solid var(--neutral-100);
+    }
+  
+    .confidentiality-card li:last-child {
+      border-bottom: none;
+    }
+  
+    .confidentiality-card li::before {
+      content: '🔸';
+      position: absolute;
+      left: 0;
+      top: var(--space-2);
+    }
+  
+    /* Termination Grid */
+    .termination-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: var(--space-6);
+    }
+  
+    .termination-card {
+      background: var(--bg-primary);
+      padding: var(--space-6);
+      border-radius: var(--border-radius-lg);
+      border: 2px solid var(--neutral-200);
+      transition: all var(--transition-normal);
+    }
+  
+    .termination-card.client {
+      border-color: var(--primary-300);
+      background: var(--primary-50);
+    }
+  
+    .termination-card.todoconta {
+      border-color: var(--orange-300);
+      background: var(--orange-50);
+    }
+  
+    .termination-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+  
+    .termination-card h3 {
+      font-size: var(--font-size-lg);
+      font-weight: 600;
+      color: var(--neutral-900);
+      margin-bottom: var(--space-4);
+    }
+  
+    .termination-options {
+      display: grid;
+      gap: var(--space-4);
+      margin-bottom: var(--space-4);
+    }
+  
+    .termination-option {
+      background: var(--bg-primary);
+      padding: var(--space-3);
+      border-radius: var(--border-radius-md);
+      border-left: 3px solid var(--primary-600);
+    }
+  
+    .termination-card.todoconta .termination-option {
+      border-left-color: var(--orange-600);
+    }
+  
+    .termination-option h4 {
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      color: var(--neutral-900);
+      margin-bottom: var(--space-1);
+    }
+  
+    .termination-option p {
+      font-size: var(--font-size-sm);
+      color: var(--neutral-600);
+      margin: 0;
+    }
+  
+    .termination-note {
+      font-size: var(--font-size-sm);
+      color: var(--neutral-600);
+      font-style: italic;
+      text-align: center;
+      background: var(--neutral-100);
+      padding: var(--space-2);
+      border-radius: var(--border-radius-sm);
+      margin: 0;
+    }
+  
+    /* Termination Effects */
+    .termination-effects {
+      display: grid;
+      gap: var(--space-3);
+    }
+  
+    .effect-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-3);
+      background: var(--neutral-50);
+      border-radius: var(--border-radius-md);
+    }
+  
+    .effect-icon {
+      font-size: var(--font-size-lg);
+      color: var(--primary-600);
+    }
+  
+    .effect-item span:last-child {
+      color: var(--neutral-700);
+      font-size: var(--font-size-sm);
+    }
+  
+    /* Resolution Process */
+    .resolution-process {
+      display: grid;
+      gap: var(--space-8);
+    }
+  
+    .resolution-step {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+      padding: var(--space-6);
+      background: var(--bg-primary);
+      border-radius: var(--border-radius-lg);
+      border: 1px solid var(--neutral-200);
+      box-shadow: var(--shadow-sm);
+    }
+  
+    .resolution-number {
+      background: var(--primary-600);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: var(--font-size-lg);
+      flex-shrink: 0;
+    }
+  
+    .resolution-step h3 {
+      font-size: var(--font-size-lg);
+      font-weight: 600;
+      color: var(--neutral-900);
+      margin-bottom: var(--space-3);
+    }
+  
+    .resolution-step p {
+      color: var(--neutral-700);
+      margin: 0;
+      line-height: 1.6;
+    }
+  
+    /* Dispositions Grid */
+    .dispositions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-4);
+    }
+  
+    .disposition-card {
+      background: var(--bg-primary);
+      padding: var(--space-4);
+      border-radius: var(--border-radius-lg);
+      border: 1px solid var(--neutral-200);
+      transition: all var(--transition-normal);
+    }
+  
+    .disposition-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary-300);
+    }
+  
+    .disposition-card h3 {
+      font-size: var(--font-size-base);
+      font-weight: 600;
+      color: var(--neutral-900);
+      margin-bottom: var(--space-3);
+    }
+  
+    .disposition-card p {
+      font-size: var(--font-size-sm);
+      color: var(--neutral-600);
+      margin: 0;
+      line-height: 1.5;
+    }
+  
+    /* Contact Section */
+    .contact-section {
+      background: var(--neutral-50);
+      padding: var(--space-8);
+      border-radius: var(--border-radius-xl);
+      margin: var(--space-12) 0;
+    }
+  
+    .contact-section h3 {
+      font-family: var(--font-display);
+      font-size: var(--font-size-xl);
+      font-weight: 600;
+      color: var(--neutral-900);
+      margin-bottom: var(--space-6);
+      text-align: center;
+    }
+  
+    .contact-details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-4);
+    }
+  
+    .contact-detail {
+      background: var(--bg-primary);
+      padding: var(--space-4);
+      border-radius: var(--border-radius-lg);
+      text-align: center;
+      border: 1px solid var(--neutral-200);
+    }
+  
+    .contact-detail h4 {
+      font-size: var(--font-size-base);
+      font-weight: 600;
+      color: var(--primary-600);
+      margin-bottom: var(--space-2);
+    }
+  
+    .contact-detail p {
+      font-size: var(--font-size-sm);
+      color: var(--neutral-700);
+      margin: 0;
+      line-height: 1.4;
+    }
+  
+    /* Acceptance Notice */
+    .acceptance-notice {
+      background: var(--primary-50);
+      border: 2px solid var(--primary-300);
+      border-radius: var(--border-radius-xl);
+      padding: var(--space-8);
+      margin: var(--space-12) 0;
+      text-align: center;
+    }
+  
+    .acceptance-notice h3 {
+      font-family: var(--font-display);
+      font-size: var(--font-size-xl);
+      font-weight: 600;
+      color: var(--primary-900);
+      margin-bottom: var(--space-4);
+    }
+  
+    .acceptance-notice p {
+      color: var(--primary-800);
+      font-size: var(--font-size-base);
+      line-height: 1.6;
+      margin-bottom: var(--space-3);
+    }
+  
+    .acceptance-notice p:last-child {
+      margin-bottom: 0;
+    }
+  
+    .effective-date {
+      font-weight: 600;
+      color: var(--primary-900);
+    }
+  
+    /* Legal Footer */
+    .legal-footer {
+      background: var(--neutral-900);
+      color: white;
+      padding: var(--space-8);
+      border-radius: var(--border-radius-xl);
+      text-align: center;
+      margin-top: var(--space-12);
+    }
+  
+    .company-signature h4 {
+      font-family: var(--font-display);
+      font-size: var(--font-size-xl);
+      font-weight: 600;
+      color: white;
+      margin-bottom: var(--space-3);
+    }
+  
+    .company-signature p {
+      margin: var(--space-1) 0;
+      color: var(--neutral-300);
+      font-size: var(--font-size-sm);
+    }
+  
+    /* Animations */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+  
+    .fade-in-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 250px 1fr;
+        gap: var(--space-8);
+      }
+  
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  
+    @media (max-width: 768px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+      }
+  
+      .legal-sidebar {
+        position: static;
+        order: 2;
+      }
+  
+      .legal-main {
+        order: 1;
+      }
+  
+      .legal-title {
+        font-size: var(--font-size-4xl);
+      }
+  
+      .legal-meta {
+        flex-direction: column;
+        gap: var(--space-4);
+      }
+  
+      .services-grid,
+      .obligations-grid,
+      .confidentiality-grid,
+      .termination-grid {
+        grid-template-columns: 1fr;
+      }
+  
+      .section-title {
+        font-size: var(--font-size-2xl);
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-2);
+      }
+  
+      .toc-container {
+        background: var(--primary-50);
+        border: 1px solid var(--primary-200);
+      }
+  
+      .contact-details-grid {
+        grid-template-columns: 1fr;
+      }
+  
+      .payment-methods {
+        grid-template-columns: 1fr;
+      }
+  
+      .additional-services {
+        grid-template-columns: 1fr;
+      }
+  
+      .guarantee-header {
+        flex-direction: column;
+        gap: var(--space-2);
+      }
+  
+      .guarantee-header h3 {
+        font-size: var(--font-size-xl);
+      }
+    }
+  
+    @media (max-width: 480px) {
+      .legal-header {
+        padding: calc(var(--space-16) + var(--space-8)) 0 var(--space-12);
+      }
+  
+      .legal-content {
+        padding: var(--space-12) 0;
+      }
+  
+      .content-card,
+      .legal-intro,
+      .toc-container {
+        padding: var(--space-6);
+      }
+  
+      .legal-title {
+        font-size: var(--font-size-3xl);
+      }
+  
+      .service-detail-card.featured {
+        transform: none;
+      }
+  
+      .service-detail-card.featured:hover {
+        transform: translateY(-4px);
+      }
+  
+      .dispositions-grid {
+        grid-template-columns: 1fr;
+      }
+  
+      .limitations-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>

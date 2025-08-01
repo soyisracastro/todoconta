@@ -1,0 +1,3003 @@
+---
+// src/pages/aviso-legal.astro
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/ui/Navbar.astro';
+import Footer from '../components/ui/Footer.astro';
+
+// Importar los estilos globales
+import '../styles/reset.css';
+import '../styles/design-system.css';
+import '../styles/global.css';
+---
+
+<Layout 
+  title="Aviso Legal - TodoConta" 
+  description="Aviso legal de TodoConta conforme a la legislación mexicana. Condiciones de uso del sitio web, propiedad intelectual, limitaciones de responsabilidad y jurisdicción aplicable.">
+  
+  <Navbar />
+  
+  <!-- Legal Page Header -->
+  <section class="legal-header">
+    <div class="container">
+      <div class="header-content">
+        <h1 class="legal-title fade-in-up">Aviso Legal</h1>
+        <p class="legal-subtitle fade-in-up">
+          De conformidad con la legislación mexicana vigente, TodoConta informa sobre las condiciones 
+          generales de uso y acceso a nuestro portal web, así como los términos legales aplicables.
+        </p>
+        <div class="legal-meta fade-in-up">
+          <span class="meta-item">
+            <span class="meta-icon">📅</span>
+            <span>Última actualización: 31 de julio de 2025</span>
+          </span>
+          <span class="meta-item">
+            <span class="meta-icon">🇲🇽</span>
+            <span>Legislación Mexicana</span>
+          </span>
+          <span class="meta-item">
+            <span class="meta-icon">⚖️</span>
+            <span>Versión 2.0</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Legal Content -->
+  <section class="legal-content">
+    <div class="container">
+      <div class="content-grid">
+        <!-- Table of Contents -->
+        <aside class="legal-sidebar">
+          <div class="toc-container">
+            <h3 class="toc-title">Contenido</h3>
+            <nav class="toc-nav">
+              <a href="#identificacion" class="toc-link">1. Identificación</a>
+              <a href="#condiciones-uso" class="toc-link">2. Condiciones de Uso</a>
+              <a href="#propiedad-intelectual" class="toc-link">3. Propiedad Intelectual</a>
+              <a href="#limitacion-responsabilidad" class="toc-link">4. Limitación de Responsabilidad</a>
+              <a href="#proteccion-datos" class="toc-link">5. Protección de Datos</a>
+              <a href="#servicios-contenido" class="toc-link">6. Servicios y Contenido</a>
+              <a href="#comunicaciones" class="toc-link">7. Comunicaciones</a>
+              <a href="#enlaces" class="toc-link">8. Enlaces y Recursos</a>
+              <a href="#jurisdiccion" class="toc-link">9. Jurisdicción</a>
+              <a href="#seguridad" class="toc-link">10. Seguridad</a>
+              <a href="#accesibilidad" class="toc-link">11. Accesibilidad</a>
+              <a href="#modificaciones" class="toc-link">12. Modificaciones</a>
+              <a href="#contacto-legal" class="toc-link">13. Contacto</a>
+            </nav>
+            
+            <div class="legal-info-card">
+              <h4>ℹ️ Información Legal</h4>
+              <p>Este aviso cumple con la normativa mexicana vigente</p>
+              <a href="mailto:legal@todoconta.com" class="legal-contact-btn">
+                Consultas Legales
+              </a>
+            </div>
+
+            <div class="compliance-highlight">
+              <div class="compliance-icon">🛡️</div>
+              <h4>Cumplimiento Normativo</h4>
+              <p>Conforme a la Constitución Política de los Estados Unidos Mexicanos y legislación aplicable</p>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="legal-main">
+          <div class="legal-intro">
+            <p class="intro-text">
+              Este aviso legal se rige por la <strong>legislación mexicana</strong> y establece las condiciones 
+              bajo las cuales se proporciona el acceso y uso del sitio web www.todoconta.com.
+            </p>
+          </div>
+
+          <!-- Section 1: Identificación -->
+          <section id="identificacion" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">1.</span>
+              Identificación y Datos del Titular
+            </h2>
+            <div class="content-card">
+              <div class="company-identification">
+                <h3>TodoConta</h3>
+                <div class="identification-grid">
+                  <div class="id-item">
+                    <span class="id-label">🏢 Denominación:</span>
+                    <span>TodoConta</span>
+                  </div>
+                  <div class="id-item">
+                    <span class="id-label">📍 Domicilio Social:</span>
+                    <span>Calle 15 de mayo #9, San Jerónimo, Michoacán, México, CP 61993</span>
+                  </div>
+                  <div class="id-item">
+                    <span class="id-label">📞 Teléfono:</span>
+                    <span>(55) 4475-3602</span>
+                  </div>
+                  <div class="id-item">
+                    <span class="id-label">✉️ Email:</span>
+                    <span>hola@todoconta.com</span>
+                  </div>
+                  <div class="id-item">
+                    <span class="id-label">🌐 Sitio web:</span>
+                    <span>www.todoconta.com</span>
+                  </div>
+                </div>
+
+                <div class="activity-section">
+                  <h4>📊 Actividad Principal:</h4>
+                  <div class="activity-list">
+                    <div class="activity-item">
+                      <span class="activity-icon">📋</span>
+                      <span>Servicios de contabilidad y auditoría</span>
+                    </div>
+                    <div class="activity-item">
+                      <span class="activity-icon">💼</span>
+                      <span>Asesoría fiscal y financiera</span>
+                    </div>
+                    <div class="activity-item">
+                      <span class="activity-icon">👥</span>
+                      <span>Servicios de nómina y gestión laboral</span>
+                    </div>
+                    <div class="activity-item">
+                      <span class="activity-icon">🎓</span>
+                      <span>Capacitación empresarial en temas fiscales</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 2: Condiciones de Uso -->
+          <section id="condiciones-uso" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">2.</span>
+              Condiciones de Uso del Sitio Web
+            </h2>
+            
+            <div class="content-card">
+              <h3 class="subsection-title">🌐 Acceso y Navegación</h3>
+              <div class="usage-conditions">
+                <div class="condition-item">
+                  <span class="condition-icon">✅</span>
+                  <span>El acceso a este sitio web es gratuito</span>
+                </div>
+                <div class="condition-item">
+                  <span class="condition-icon">📝</span>
+                  <span>No se requiere registro previo para consultar información general</span>
+                </div>
+                <div class="condition-item">
+                  <span class="condition-icon">🔐</span>
+                  <span>Algunos servicios pueden requerir registro y autenticación</span>
+                </div>
+                <div class="condition-item">
+                  <span class="condition-icon">⚙️</span>
+                  <span>Nos reservamos el derecho de modificar, suspender o interrumpir el acceso</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="content-card warning-card">
+              <h3 class="subsection-title">🚫 Uso Apropiado</h3>
+              <p class="usage-warning">El usuario se compromete a utilizar el sitio web de manera responsable y se prohíbe:</p>
+              <div class="prohibited-actions">
+                <div class="prohibited-item">
+                  <span class="prohibited-icon">❌</span>
+                  <span>Intentar acceder a áreas restringidas del sistema</span>
+                </div>
+                <div class="prohibited-item">
+                  <span class="prohibited-icon">🦠</span>
+                  <span>Introducir virus, malware o códigos maliciosos</span>
+                </div>
+                <div class="prohibited-item">
+                  <span class="prohibited-icon">⚡</span>
+                  <span>Realizar actividades que interfieran con el funcionamiento del sitio</span>
+                </div>
+                <div class="prohibited-item">
+                  <span class="prohibited-icon">💼</span>
+                  <span>Usar el contenido para fines comerciales sin autorización</span>
+                </div>
+                <div class="prohibited-item">
+                  <span class="prohibited-icon">📄</span>
+                  <span>Reproducir, distribuir o modificar el contenido sin permiso</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="content-card">
+              <h3 class="subsection-title">👤 Registro de Usuario</h3>
+              <p>Para acceder a ciertos servicios, el usuario debe:</p>
+              <div class="registration-requirements">
+                <div class="requirement-step">
+                  <div class="step-icon">1</div>
+                  <span>Proporcionar información veraz y actualizada</span>
+                </div>
+                <div class="requirement-step">
+                  <div class="step-icon">2</div>
+                  <span>Mantener la confidencialidad de sus credenciales de acceso</span>
+                </div>
+                <div class="requirement-step">
+                  <div class="step-icon">3</div>
+                  <span>Notificar inmediatamente cualquier uso no autorizado de su cuenta</span>
+                </div>
+                <div class="requirement-step">
+                  <div class="step-icon">4</div>
+                  <span>Cumplir con estos términos y condiciones</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 3: Propiedad Intelectual -->
+          <section id="propiedad-intelectual" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">3.</span>
+              Propiedad Intelectual e Industrial
+            </h2>
+            
+            <div class="intellectual-property-grid">
+              <div class="ip-card todoconta-rights">
+                <h3>🏷️ Derechos de TodoConta</h3>
+                <ul class="ip-list">
+                  <li><strong>Marca comercial:</strong> "TodoConta" es marca registrada de nuestra propiedad</li>
+                  <li><strong>Contenido del sitio:</strong> Textos, imágenes, diseños, logos y elementos gráficos</li>
+                  <li><strong>Software y aplicaciones:</strong> Códigos, programas y desarrollos tecnológicos</li>
+                  <li><strong>Metodologías:</strong> Procesos y sistemas de trabajo desarrollados</li>
+                </ul>
+              </div>
+
+              <div class="ip-card third-party-rights">
+                <h3>👥 Derechos de Terceros</h3>
+                <p>Respetamos los derechos de propiedad intelectual de terceros. Si utiliza el sitio web y considera que se vulneran sus derechos, contacte a:</p>
+                <div class="contact-ip">
+                  <span class="contact-ip-email">legal@todoconta.com</span>
+                </div>
+              </div>
+
+              <div class="ip-card authorized-use">
+                <h3>✅ Uso Autorizado</h3>
+                <div class="authorized-uses">
+                  <div class="use-item allowed">
+                    <span class="use-icon">✅</span>
+                    <span>Se permite el uso personal y no comercial del contenido</span>
+                  </div>
+                  <div class="use-item restricted">
+                    <span class="use-icon">❌</span>
+                    <span>Está prohibida la reproducción total o parcial sin autorización escrita</span>
+                  </div>
+                  <div class="use-item conditional">
+                    <span class="use-icon">📝</span>
+                    <span>Las citas deben incluir la fuente y enlace al sitio original</span>
+                  </div>
+                  <div class="use-item commercial">
+                    <span class="use-icon">💼</span>
+                    <span>Para uso comercial, contacte para obtener licencia correspondiente</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 4: Limitación de Responsabilidad -->
+          <section id="limitacion-responsabilidad" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">4.</span>
+              Limitación de Responsabilidad
+            </h2>
+            
+            <div class="responsibility-grid">
+              <div class="responsibility-card availability">
+                <h3>🌐 Disponibilidad del Sitio</h3>
+                <p class="disclaimer-text">TodoConta no garantiza:</p>
+                <ul class="disclaimer-list">
+                  <li>Acceso ininterrumpido al sitio web</li>
+                  <li>Ausencia de errores técnicos o de contenido</li>
+                  <li>Disponibilidad 24/7 de todos los servicios</li>
+                  <li>Compatibilidad con todos los navegadores y dispositivos</li>
+                </ul>
+              </div>
+
+              <div class="responsibility-card third-party-content">
+                <h3>🔗 Contenido de Terceros</h3>
+                <div class="third-party-disclaimers">
+                  <div class="disclaimer-item">
+                    <span class="disclaimer-icon">🔗</span>
+                    <span>Los enlaces a sitios externos son solo informativos</span>
+                  </div>
+                  <div class="disclaimer-item">
+                    <span class="disclaimer-icon">🚫</span>
+                    <span>No nos responsabilizamos por el contenido de sitios de terceros</span>
+                  </div>
+                  <div class="disclaimer-item">
+                    <span class="disclaimer-icon">ℹ️</span>
+                    <span>La inclusión de enlaces no implica endorso o recomendación</span>
+                  </div>
+                  <div class="disclaimer-item">
+                    <span class="disclaimer-icon">⚠️</span>
+                    <span>El usuario accede a sitios externos bajo su propio riesgo</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="responsibility-card legal-limitations">
+                <h3>⚖️ Limitaciones Legales</h3>
+                <p>Nuestra responsabilidad está limitada por:</p>
+                <div class="legal-limits">
+                  <div class="limit-item">
+                    <span class="limit-icon">🇲🇽</span>
+                    <span>La legislación mexicana aplicable</span>
+                  </div>
+                  <div class="limit-item">
+                    <span class="limit-icon">📋</span>
+                    <span>Las limitaciones específicas en contratos de servicio</span>
+                  </div>
+                  <div class="limit-item">
+                    <span class="limit-icon">🆓</span>
+                    <span>La naturaleza gratuita de ciertos contenidos del sitio</span>
+                  </div>
+                  <div class="limit-item">
+                    <span class="limit-icon">📄</span>
+                    <span>Los términos de servicio específicos</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 5: Protección de Datos -->
+          <section id="proteccion-datos" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">5.</span>
+              Protección de Datos Personales
+            </h2>
+            
+            <div class="data-protection-cards">
+              <div class="data-card compliance">
+                <h3>📜 Cumplimiento Normativo</h3>
+                <ul class="compliance-list">
+                  <li>Cumplimos con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares</li>
+                  <li>Implementamos medidas de seguridad técnicas y administrativas</li>
+                  <li>Tratamos los datos únicamente para las finalidades declaradas</li>
+                  <li>Respetamos los derechos ARCO de los titulares</li>
+                </ul>
+              </div>
+
+              <div class="data-card cookies">
+                <h3>🍪 Cookies y Tecnologías de Seguimiento</h3>
+                <div class="cookies-info">
+                  <p class="cookies-reference">
+                    <strong>Información detallada en nuestra Política de Privacidad</strong>
+                  </p>
+                  <div class="cookies-details">
+                    <div class="cookie-detail">
+                      <span class="cookie-icon">📊</span>
+                      <span>Utilizamos cookies para mejorar la experiencia del usuario</span>
+                    </div>
+                    <div class="cookie-detail">
+                      <span class="cookie-icon">📈</span>
+                      <span>Empleamos herramientas de análisis web (Google Analytics)</span>
+                    </div>
+                    <div class="cookie-detail">
+                      <span class="cookie-icon">⚙️</span>
+                      <span>El usuario puede configurar su navegador para rechazar cookies</span>
+                    </div>
+                    <div class="cookie-detail">
+                      <span class="cookie-icon">⚠️</span>
+                      <span>Algunas funcionalidades pueden verse limitadas sin cookies</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="data-card forms">
+                <h3>📝 Formularios de Contacto</h3>
+                <div class="forms-policy">
+                  <div class="policy-item">
+                    <span class="policy-icon">🔒</span>
+                    <span>Los datos proporcionados en formularios son tratados confidencialmente</span>
+                  </div>
+                  <div class="policy-item">
+                    <span class="policy-icon">💬</span>
+                    <span>Solo se utilizan para responder a consultas específicas</span>
+                  </div>
+                  <div class="policy-item">
+                    <span class="policy-icon">🚫</span>
+                    <span>No se comparten con terceros sin consentimiento</span>
+                  </div>
+                  <div class="policy-item">
+                    <span class="policy-icon">⏰</span>
+                    <span>Se conservan durante el tiempo necesario para cumplir la finalidad</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 6: Servicios y Contenido -->
+          <section id="servicios-contenido" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">6.</span>
+              Servicios y Contenido
+            </h2>
+            
+            <div class="services-content-grid">
+              <div class="service-info-card general">
+                <h3>ℹ️ Información General</h3>
+                <div class="general-disclaimers">
+                  <div class="disclaimer">
+                    <span class="disclaimer-bullet">📋</span>
+                    <span>La información del sitio tiene carácter meramente informativo</span>
+                  </div>
+                  <div class="disclaimer">
+                    <span class="disclaimer-bullet">🚫</span>
+                    <span>No constituye asesoría profesional específica</span>
+                  </div>
+                  <div class="disclaimer">
+                    <span class="disclaimer-bullet">💼</span>
+                    <span>Para asesoría personalizada, debe contratarse el servicio correspondiente</span>
+                  </div>
+                  <div class="disclaimer">
+                    <span class="disclaimer-bullet">💰</span>
+                    <span>Las tarifas y servicios están sujetos a cambios</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="service-info-card accuracy">
+                <h3>✅ Exactitud de la Información</h3>
+                <div class="accuracy-statements">
+                  <div class="accuracy-item positive">
+                    <span class="accuracy-icon">✅</span>
+                    <span>Nos esforzamos por mantener información actualizada y precisa</span>
+                  </div>
+                  <div class="accuracy-item limitation">
+                    <span class="accuracy-icon">⚠️</span>
+                    <span>No garantizamos la exactitud absoluta de toda la información</span>
+                  </div>
+                  <div class="accuracy-item dynamic">
+                    <span class="accuracy-icon">🔄</span>
+                    <span>Las normativas fiscales cambian frecuentemente</span>
+                  </div>
+                  <div class="accuracy-item recommendation">
+                    <span class="accuracy-icon">👨‍💼</span>
+                    <span>Se recomienda verificar información crítica con un profesional</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="service-info-card tools">
+                <h3>🧮 Calculadoras y Herramientas Online</h3>
+                <div class="tools-disclaimers">
+                  <div class="tool-disclaimer support">
+                    <span class="tool-icon">🛠️</span>
+                    <span>Son herramientas de apoyo y orientación general</span>
+                  </div>
+                  <div class="tool-disclaimer estimates">
+                    <span class="tool-icon">📊</span>
+                    <span>Los resultados son estimativos y no vinculantes</span>
+                  </div>
+                  <div class="tool-disclaimer professional">
+                    <span class="tool-icon">❌</span>
+                    <span>No sustituyen la asesoría profesional personalizada</span>
+                  </div>
+                  <div class="tool-disclaimer responsibility">
+                    <span class="tool-icon">👤</span>
+                    <span>Su uso es bajo responsabilidad del usuario</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 7: Comunicaciones -->
+          <section id="comunicaciones" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">7.</span>
+              Comunicaciones Electrónicas
+            </h2>
+            
+            <div class="communications-grid">
+              <div class="comm-card newsletter">
+                <h3>📧 Newsletter y Comunicaciones Promocionales</h3>
+                <div class="newsletter-policies">
+                  <div class="policy-point">
+                    <span class="policy-bullet">✅</span>
+                    <span>El usuario puede suscribirse voluntariamente a nuestras comunicaciones</span>
+                  </div>
+                  <div class="policy-point">
+                    <span class="policy-bullet">🚪</span>
+                    <span>Puede darse de baja en cualquier momento</span>
+                  </div>
+                  <div class="policy-point">
+                    <span class="policy-bullet">📋</span>
+                    <span>Solo enviamos contenido relevante y de valor</span>
+                  </div>
+                  <div class="policy-point">
+                    <span class="policy-bullet">⚙️</span>
+                    <span>Respetamos las preferencias de comunicación del usuario</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="comm-card service-notifications">
+                <h3>🔔 Notificaciones del Servicio</h3>
+                <div class="notification-info">
+                  <div class="notification-type">
+                    <span class="notif-icon">📢</span>
+                    <span>Enviamos comunicaciones importantes relacionadas con los servicios</span>
+                  </div>
+                  <div class="notification-type">
+                    <span class="notif-icon">📄</span>
+                    <span>Incluyen cambios en términos, políticas o servicios</span>
+                  </div>
+                  <div class="notification-type">
+                    <span class="notif-icon">⚖️</span>
+                    <span>Son necesarias para el cumplimiento contractual</span>
+                  </div>
+                  <div class="notification-type">
+                    <span class="notif-icon">🔒</span>
+                    <span>No se pueden desactivar completamente para usuarios activos</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 8: Enlaces -->
+          <section id="enlaces" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">8.</span>
+              Enlaces y Recursos Externos
+            </h2>
+            
+            <div class="links-grid">
+              <div class="links-card outgoing">
+                <h3>🔗 Enlaces Salientes</h3>
+                <div class="outgoing-policies">
+                  <div class="outgoing-policy">
+                    <span class="outgoing-icon">📚</span>
+                    <span>Proporcionamos enlaces a recursos útiles de terceros</span>
+                  </div>
+                  <div class="outgoing-policy">
+                    <span class="outgoing-icon">🚫</span>
+                    <span>No controlamos ni nos responsabilizamos por sitios externos</span>
+                  </div>
+                  <div class="outgoing-policy">
+                    <span class="outgoing-icon">⏰</span>
+                    <span>Los enlaces pueden volverse obsoletos sin previo aviso</span>
+                  </div>
+                  <div class="outgoing-policy">
+                    <span class="outgoing-icon">🔍</span>
+                    <span>Recomendamos revisar las políticas de privacidad de sitios externos</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="links-card incoming">
+                <h3>📥 Enlaces Entrantes</h3>
+                <div class="incoming-policies">
+                  <div class="incoming-policy allowed">
+                    <span class="incoming-icon">✅</span>
+                    <span>Permitimos enlaces a nuestro sitio desde otros sitios web</span>
+                  </div>
+                  <div class="incoming-policy direct">
+                    <span class="incoming-icon">🎯</span>
+                    <span>Deben ser enlaces directos y no enmarcar nuestro contenido</span>
+                  </div>
+                  <div class="incoming-policy logos">
+                    <span class="incoming-icon">🏷️</span>
+                    <span>No se permite usar nuestros logos sin autorización</span>
+                  </div>
+                  <div class="incoming-policy removal">
+                    <span class="incoming-icon">🚫</span>
+                    <span>Nos reservamos el derecho de solicitar la eliminación de enlaces</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 9: Jurisdicción -->
+          <section id="jurisdiccion" class="legal-section">
+            <h2 class="section-title">
+              <span class="section-number">9.</span>
+              Jurisdicción y Ley Aplicable
+            </h2>
+            
+            <div class="jurisdiction-content">
+              <div class="jurisdiction-card applicable-law">
+                <h3>📜 Legislación Aplicable</h3>
+                <p>Este aviso legal se rige por la legislación mexicana, específicamente:</p>
+                <div class="laws-list">
+                  <div class="law-item">
+                    <span class="law-icon">🏛️</span>
+                    <span>Constitución Política de los Estados Unidos Mexicanos</span>
+                  </div>
+                  <div class="law-item">
+                    <span class="law-icon">⚖️</span>
+                    <span>Código Civil Federal</span>
+                  </div>
+                  <div class="law-item">
+                    <span class="law-icon">💼</span>
+                    <span>Código de Comercio</span>
+                  </div>
+                  <div class="law-item">
+                    <span class="law-icon">🔒</span>
+                    <span>Ley Federal de Protección de Datos Personales en Posesión de los Particulares</span>
+                  </div>
+                  <div class="law-item">
+                    <span class="law-icon">📡</span>
+                    <span>Ley Federal de Telecomunicaciones y Radiodifusión</span>
+                  </div>
+                  <div class="law-item">
+                    <span class="law-icon">💰</span>
+                    <span>Código Fiscal de la Federación</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="jurisdiction-card competent-jurisdiction">
+                                <h3>🏛️ Jurisdicción Competente</h3>
+                                <div class="jurisdiction-details">
+                                  <div class="jurisdiction-item">
+                                    <span class="jurisdiction-icon">📍</span>
+                                    <span>Los tribunales competentes del Estado de Michoacán, México</span>
+                                  </div>
+                                  <div class="jurisdiction-item">
+                                    <span class="jurisdiction-icon">🎯</span>
+                                    <span>Específicamente los de la jurisdicción donde se ubica nuestro domicilio social</span>
+                                  </div>
+                                  <div class="jurisdiction-item">
+                                    <span class="jurisdiction-icon">🚫</span>
+                                    <span>Renuncia expresa a cualquier otro fuero que pudiera corresponder</span>
+                                  </div>
+                                  <div class="jurisdiction-item">
+                                    <span class="jurisdiction-icon">🇲🇽</span>
+                                    <span>Las controversias se resolverán conforme al derecho mexicano</span>
+                                  </div>
+                                </div>
+                              </div>
+                
+                              <div class="jurisdiction-card conflict-resolution">
+                                <h3>🤝 Resolución de Conflictos</h3>
+                                <p>En caso de controversia relacionada con el uso del sitio web:</p>
+                                <div class="resolution-steps">
+                                  <div class="resolution-step">
+                                    <div class="resolution-step-number">1</div>
+                                    <div class="resolution-step-content">
+                                      <h4>Mediación</h4>
+                                      <p>Se intentará resolver mediante mediación voluntaria</p>
+                                    </div>
+                                  </div>
+                                  <div class="resolution-step">
+                                    <div class="resolution-step-number">2</div>
+                                    <div class="resolution-step-content">
+                                      <h4>Arbitraje</h4>
+                                      <p>Si las partes acuerdan, se puede recurrir a arbitraje</p>
+                                    </div>
+                                  </div>
+                                  <div class="resolution-step">
+                                    <div class="resolution-step-number">3</div>
+                                    <div class="resolution-step-content">
+                                      <h4>Vía Judicial</h4>
+                                      <p>Como última instancia, se recurrirá a tribunales competentes</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                
+                          <!-- Section 10: Seguridad -->
+                          <section id="seguridad" class="legal-section">
+                            <h2 class="section-title">
+                              <span class="section-number">10.</span>
+                              Seguridad Informática
+                            </h2>
+                            
+                            <div class="security-grid">
+                              <div class="security-card measures">
+                                <h3>🛡️ Medidas de Seguridad</h3>
+                                <div class="security-measures-list">
+                                  <div class="security-measure">
+                                    <span class="security-icon">🔐</span>
+                                    <div class="security-content">
+                                      <strong>Certificado SSL:</strong>
+                                      <span>Conexiones encriptadas para proteger datos</span>
+                                    </div>
+                                  </div>
+                                  <div class="security-measure">
+                                    <span class="security-icon">🔥</span>
+                                    <div class="security-content">
+                                      <strong>Firewalls:</strong>
+                                      <span>Sistemas de protección contra accesos no autorizados</span>
+                                    </div>
+                                  </div>
+                                  <div class="security-measure">
+                                    <span class="security-icon">💾</span>
+                                    <div class="security-content">
+                                      <strong>Respaldos:</strong>
+                                      <span>Copias de seguridad periódicas de la información</span>
+                                    </div>
+                                  </div>
+                                  <div class="security-measure">
+                                    <span class="security-icon">🔄</span>
+                                    <div class="security-content">
+                                      <strong>Actualizaciones:</strong>
+                                      <span>Mantenimiento constante de sistemas de seguridad</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                
+                              <div class="security-card user-responsibilities">
+                                <h3>👤 Responsabilidades del Usuario</h3>
+                                <div class="user-security-duties">
+                                  <div class="security-duty">
+                                    <span class="duty-icon">🔄</span>
+                                    <span>Mantener actualizados sus navegadores y sistemas operativos</span>
+                                  </div>
+                                  <div class="security-duty">
+                                    <span class="duty-icon">🔒</span>
+                                    <span>No compartir credenciales de acceso con terceros</span>
+                                  </div>
+                                  <div class="security-duty">
+                                    <span class="duty-icon">⚠️</span>
+                                    <span>Reportar inmediatamente cualquier actividad sospechosa</span>
+                                  </div>
+                                  <div class="security-duty">
+                                    <span class="duty-icon">🛡️</span>
+                                    <span>Utilizar contraseñas seguras y cambiarlas periódicamente</span>
+                                  </div>
+                                </div>
+                              </div>
+                
+                              <div class="security-card security-reports">
+                                <h3>🚨 Reportes de Seguridad</h3>
+                                <p>Si detecta alguna vulnerabilidad o problema de seguridad:</p>
+                                <div class="security-report-process">
+                                  <div class="report-step">
+                                    <span class="report-icon">📧</span>
+                                    <div class="report-content">
+                                      <strong>Contacto:</strong> seguridad@todoconta.com
+                                    </div>
+                                  </div>
+                                  <div class="report-step">
+                                    <span class="report-icon">⏱️</span>
+                                    <div class="report-content">
+                                      <strong>Respuesta:</strong> Investigaremos en un plazo máximo de 48 horas
+                                    </div>
+                                  </div>
+                                  <div class="report-step">
+                                    <span class="report-icon">🔧</span>
+                                    <div class="report-content">
+                                      <strong>Resolución:</strong> Implementaremos correcciones necesarias
+                                    </div>
+                                  </div>
+                                  <div class="report-step">
+                                    <span class="report-icon">🏆</span>
+                                    <div class="report-content">
+                                      <strong>Agradecimiento:</strong> Reconocemos públicamente reportes responsables
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                
+                          <!-- Section 11: Accesibilidad -->
+                          <section id="accesibilidad" class="legal-section">
+                            <h2 class="section-title">
+                              <span class="section-number">11.</span>
+                              Accesibilidad Web
+                            </h2>
+                            
+                            <div class="accessibility-content">
+                              <div class="accessibility-card commitment">
+                                <h3>♿ Compromiso con la Accesibilidad</h3>
+                                <div class="accessibility-commitments">
+                                  <div class="commitment-item">
+                                    <span class="commitment-icon">📈</span>
+                                    <span>Nos esforzamos por cumplir con estándares de accesibilidad web</span>
+                                  </div>
+                                  <div class="commitment-item">
+                                    <span class="commitment-icon">📋</span>
+                                    <span>Seguimos las pautas WCAG 2.1 nivel AA cuando es posible</span>
+                                  </div>
+                                  <div class="commitment-item">
+                                    <span class="commitment-icon">🔄</span>
+                                    <span>Mejoramos continuamente la accesibilidad de nuestro sitio</span>
+                                  </div>
+                                  <div class="commitment-item">
+                                    <span class="commitment-icon">💬</span>
+                                    <span>Valoramos la retroalimentación sobre barreras de acceso</span>
+                                  </div>
+                                </div>
+                              </div>
+                
+                              <div class="accessibility-card technologies">
+                                <h3>💻 Tecnologías Utilizadas</h3>
+                                <div class="accessibility-technologies">
+                                  <div class="tech-item">
+                                    <span class="tech-icon">🏗️</span>
+                                    <div class="tech-content">
+                                      <strong>HTML semántico</strong>
+                                      <span>para mejor interpretación por lectores de pantalla</span>
+                                    </div>
+                                  </div>
+                                  <div class="tech-item">
+                                    <span class="tech-icon">🎨</span>
+                                    <div class="tech-content">
+                                      <strong>Contraste adecuado</strong>
+                                      <span>en textos e imágenes</span>
+                                    </div>
+                                  </div>
+                                  <div class="tech-item">
+                                    <span class="tech-icon">⌨️</span>
+                                    <div class="tech-content">
+                                      <strong>Navegación por teclado</strong>
+                                      <span>en elementos interactivos</span>
+                                    </div>
+                                  </div>
+                                  <div class="tech-item">
+                                    <span class="tech-icon">🖼️</span>
+                                    <div class="tech-content">
+                                      <strong>Texto alternativo</strong>
+                                      <span>en imágenes informativas</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                
+                              <div class="accessibility-card feedback">
+                                <h3>🔧 Solicitudes de Mejora</h3>
+                                <p>Si encuentra barreras de accesibilidad:</p>
+                                <div class="accessibility-feedback-process">
+                                  <div class="feedback-item">
+                                    <span class="feedback-label">📧 Contacto:</span>
+                                    <span>accesibilidad@todoconta.com</span>
+                                  </div>
+                                  <div class="feedback-item">
+                                    <span class="feedback-label">📝 Descripción:</span>
+                                    <span>Detalle el problema encontrado</span>
+                                  </div>
+                                  <div class="feedback-item">
+                                    <span class="feedback-label">💻 Dispositivo:</span>
+                                    <span>Indique navegador y tecnología de asistencia utilizada</span>
+                                  </div>
+                                  <div class="feedback-item">
+                                    <span class="feedback-label">🤝 Compromiso:</span>
+                                    <span>Trabajaremos para resolver el problema</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                
+                          <!-- Section 12: Modificaciones -->
+                          <section id="modificaciones" class="legal-section">
+                            <h2 class="section-title">
+                              <span class="section-number">12.</span>
+                              Modificaciones y Actualizaciones
+                            </h2>
+                            
+                            <div class="modifications-grid">
+                              <div class="modification-card rights">
+                                <h3>✏️ Derecho de Modificación</h3>
+                                <div class="modification-rights">
+                                  <div class="right-item">
+                                    <span class="right-icon">📝</span>
+                                    <span>TodoConta se reserva el derecho de modificar este aviso legal</span>
+                                  </div>
+                                  <div class="right-item">
+                                    <span class="right-icon">⚡</span>
+                                    <span>Los cambios entrarán en vigor inmediatamente tras su publicación</span>
+                                  </div>
+                                  <div class="right-item">
+                                    <span class="right-icon">📢</span>
+                                    <span>Los usuarios serán notificados de cambios significativos</span>
+                                  </div>
+                                  <div class="right-item">
+                                    <span class="right-icon">✅</span>
+                                    <span>El uso continuado implica aceptación de las modificaciones</span>
+                                  </div>
+                                </div>
+                              </div>
+                
+                              <div class="modification-card history">
+                                <h3>📚 Historial de Versiones</h3>
+                                <div class="version-history">
+                                  <div class="history-item">
+                                    <span class="history-icon">💾</span>
+                                    <span>Mantenemos un registro de las versiones anteriores</span>
+                                  </div>
+                                  <div class="history-item">
+                                    <span class="history-icon">🔍</span>
+                                    <span>Disponible bajo solicitud para fines de transparencia</span>
+                                  </div>
+                                  <div class="history-item">
+                                    <span class="history-icon">📅</span>
+                                    <span>Las fechas de modificación se indican claramente</span>
+                                  </div>
+                                  <div class="history-item">
+                                    <span class="history-icon">⭐</span>
+                                    <span>Los cambios sustanciales se destacan especialmente</span>
+                                  </div>
+                                </div>
+                              </div>
+                
+                              <div class="modification-card notifications">
+                                <h3>📣 Notificación de Cambios</h3>
+                                <div class="notification-methods">
+                                  <div class="notification-method important">
+                                    <h4>Para cambios importantes:</h4>
+                                    <ul class="method-list">
+                                      <li>Notificación por correo electrónico a usuarios registrados</li>
+                                      <li>Banner informativo en el sitio web</li>
+                                      <li>Publicación en redes sociales oficiales</li>
+                                      <li>Período de gracia de 30 días para comentarios</li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                
+                          <!-- Section 13: Contacto -->
+                          <section id="contacto-legal" class="legal-section">
+                            <h2 class="section-title">
+                              <span class="section-number">13.</span>
+                              Contacto y Consultas
+                            </h2>
+                            
+                            <div class="contact-legal-grid">
+                              <div class="contact-legal-card general">
+                                <h3>📞 Información de Contacto</h3>
+                                <div class="contact-details">
+                                  <div class="contact-detail-item">
+                                    <span class="contact-label">🏢 Domicilio:</span>
+                                    <span>Calle 15 de mayo #9, San Jerónimo, Michoacán, México, CP 61993</span>
+                                  </div>
+                                  <div class="contact-detail-item">
+                                    <span class="contact-label">📞 Teléfono:</span>
+                                    <span>(55) 4475-3602</span>
+                                  </div>
+                                  <div class="contact-detail-item">
+                                    <span class="contact-label">✉️ Email General:</span>
+                                    <span>hola@todoconta.com</span>
+                                  </div>
+                                  <div class="contact-detail-item">
+                                    <span class="contact-label">⚖️ Email Legal:</span>
+                                    <span>legal@todoconta.com</span>
+                                  </div>
+                                  <div class="contact-detail-item">
+                                    <span class="contact-label">🕒 Horario:</span>
+                                    <span>Lunes a viernes, 9:00 AM - 6:00 PM</span>
+                                  </div>
+                                </div>
+                              </div>
+                
+                              <div class="contact-legal-card departments">
+                                <h3>🏛️ Departamentos Específicos</h3>
+                                <div class="departments-list">
+                                  <div class="department-item">
+                                    <span class="dept-icon">⚖️</span>
+                                    <div class="dept-content">
+                                      <strong>Asuntos Legales:</strong>
+                                      <span>legal@todoconta.com</span>
+                                    </div>
+                                  </div>
+                                  <div class="department-item">
+                                    <span class="dept-icon">🔒</span>
+                                    <div class="dept-content">
+                                      <strong>Protección de Datos:</strong>
+                                      <span>privacidad@todoconta.com</span>
+                                    </div>
+                                  </div>
+                                  <div class="department-item">
+                                    <span class="dept-icon">🛡️</span>
+                                    <div class="dept-content">
+                                      <strong>Seguridad Informática:</strong>
+                                      <span>seguridad@todoconta.com</span>
+                                    </div>
+                                  </div>
+                                  <div class="department-item">
+                                    <span class="dept-icon">♿</span>
+                                    <div class="dept-content">
+                                      <strong>Accesibilidad Web:</strong>
+                                      <span>accesibilidad@todoconta.com</span>
+                                    </div>
+                                  </div>
+                                  <div class="department-item">
+                                    <span class="dept-icon">🎧</span>
+                                    <div class="dept-content">
+                                      <strong>Atención al Cliente:</strong>
+                                      <span>soporte@todoconta.com</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                
+                              <div class="contact-legal-card response-times">
+                                <h3>⏰ Tiempo de Respuesta</h3>
+                                <div class="response-times-list">
+                                  <div class="response-time">
+                                    <span class="time-icon">💬</span>
+                                    <div class="time-content">
+                                      <strong>Consultas generales:</strong>
+                                      <span>24-48 horas en días hábiles</span>
+                                    </div>
+                                  </div>
+                                  <div class="response-time">
+                                    <span class="time-icon">⚖️</span>
+                                    <div class="time-content">
+                                      <strong>Asuntos legales:</strong>
+                                      <span>5 días hábiles máximo</span>
+                                    </div>
+                                  </div>
+                                  <div class="response-time">
+                                    <span class="time-icon">🚨</span>
+                                    <div class="time-content">
+                                      <strong>Reportes de seguridad:</strong>
+                                      <span>48 horas máximo</span>
+                                    </div>
+                                  </div>
+                                  <div class="response-time">
+                                    <span class="time-icon">🔒</span>
+                                    <div class="time-content">
+                                      <strong>Solicitudes ARCO:</strong>
+                                      <span>20 días hábiles según la ley</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                
+                          <!-- Final Dispositions -->
+                          <div class="final-dispositions">
+                            <div class="disposition-card validity">
+                              <h3>📜 Validez de las Disposiciones</h3>
+                              <div class="validity-points">
+                                <div class="validity-point">
+                                  <span class="validity-icon">⚖️</span>
+                                  <span>Si alguna disposición se declara inválida, las demás permanecen vigentes</span>
+                                </div>
+                                <div class="validity-point">
+                                  <span class="validity-icon">🤝</span>
+                                  <span>Se interpretará conforme a la buena fe y usos comerciales</span>
+                                </div>
+                                <div class="validity-point">
+                                  <span class="validity-icon">🇪🇸</span>
+                                  <span>Prevalecen las versiones en español sobre traducciones</span>
+                                </div>
+                                <div class="validity-point">
+                                  <span class="validity-icon">📋</span>
+                                  <span>Los contratos específicos de servicio complementan este aviso</span>
+                                </div>
+                              </div>
+                            </div>
+                
+                            <div class="disposition-card effective-date">
+                              <h3>📅 Entrada en Vigor</h3>
+                              <div class="effective-info">
+                                <div class="effective-item">
+                                  <span class="effective-icon">🚀</span>
+                                  <span>Este aviso legal entra en vigor el 31 de julio de 2025</span>
+                                </div>
+                                <div class="effective-item">
+                                  <span class="effective-icon">🔄</span>
+                                  <span>Sustituye a todas las versiones anteriores</span>
+                                </div>
+                                <div class="effective-item">
+                                  <span class="effective-icon">⏳</span>
+                                  <span>Permanece vigente hasta nueva actualización</span>
+                                </div>
+                                <div class="effective-item">
+                                  <span class="effective-icon">📋</span>
+                                  <span>Es vinculante para todos los usuarios del sitio</span>
+                                </div>
+                              </div>
+                            </div>
+                
+                            <div class="disposition-card language">
+                              <h3>🌐 Idioma</h3>
+                              <div class="language-policy">
+                                <div class="language-item primary">
+                                  <span class="lang-icon">🇪🇸</span>
+                                  <span>El idioma oficial de este aviso es el español</span>
+                                </div>
+                                <div class="language-item secondary">
+                                  <span class="lang-icon">🔄</span>
+                                  <span>Las traducciones a otros idiomas son solo informativas</span>
+                                </div>
+                                <div class="language-item precedence">
+                                  <span class="lang-icon">⚖️</span>
+                                  <span>En caso de discrepancia, prevalece la versión en español</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                
+                          <!-- Document Info -->
+                          <div class="document-info">
+                            <h3>📄 Información del Documento</h3>
+                            <div class="doc-info-grid">
+                              <div class="doc-info-item">
+                                <span class="doc-label">📅 Fecha de última actualización:</span>
+                                <span>31 de julio de 2025</span>
+                              </div>
+                              <div class="doc-info-item">
+                                <span class="doc-label">🔢 Versión:</span>
+                                <span>2.0</span>
+                              </div>
+                              <div class="doc-info-item">
+                                <span class="doc-label">⏰ Vigencia:</span>
+                                <span>Indefinida hasta nueva actualización</span>
+                              </div>
+                              <div class="doc-info-item">
+                                <span class="doc-label">📧 Consultas:</span>
+                                <span>legal@todoconta.com</span>
+                              </div>
+                            </div>
+                          </div>
+                
+                          <!-- Footer Info -->
+                          <div class="legal-footer">
+                            <div class="company-signature">
+                              <h4>TodoConta - Tranquilidad Fiscal Garantizada</h4>
+                              <p>Calle 15 de mayo #9, San Jerónimo, Michoacán, México, CP 61993</p>
+                              <p>Teléfono: (55) 4475-3602 | Email: hola@todoconta.com</p>
+                            </div>
+                          </div>
+                        </main>
+                      </div>
+                    </div>
+                  </section>
+                
+                  <Footer />
+                  
+                  <script>
+                    // Smooth scrolling for TOC links
+                    document.addEventListener('DOMContentLoaded', () => {
+                      // TOC navigation
+                      const tocLinks = document.querySelectorAll('.toc-link');
+                      const sections = document.querySelectorAll('.legal-section');
+                      
+                      tocLinks.forEach(link => {
+                        link.addEventListener('click', (e) => {
+                          e.preventDefault();
+                          const targetId = link.getAttribute('href');
+                          const targetSection = document.querySelector(targetId);
+                          
+                          if (targetSection) {
+                            targetSection.scrollIntoView({
+                              behavior: 'smooth',
+                              block: 'start'
+                            });
+                            
+                            // Update active state
+                            tocLinks.forEach(l => l.classList.remove('active'));
+                            link.classList.add('active');
+                          }
+                        });
+                      });
+                
+                      // Scroll spy for TOC
+                      const observerOptions = {
+                        threshold: 0.1,
+                        rootMargin: '-100px 0px -50% 0px'
+                      };
+                
+                      const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                          if (entry.isIntersecting) {
+                            const id = entry.target.getAttribute('id');
+                            const activeLink = document.querySelector(`.toc-link[href="#${id}"]`);
+                            
+                            tocLinks.forEach(link => link.classList.remove('active'));
+                            if (activeLink) {
+                              activeLink.classList.add('active');
+                            }
+                          }
+                        });
+                      }, observerOptions);
+                
+                      sections.forEach(section => {
+                        observer.observe(section);
+                      });
+                
+                      // Animations
+                      const animationObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                          if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                          }
+                        });
+                      }, {
+                        threshold: 0.1,
+                        rootMargin: '0px 0px -50px 0px'
+                      });
+                
+                      document.querySelectorAll('.fade-in-up').forEach(el => {
+                        animationObserver.observe(el);
+                      });
+                    });
+                  </script>
+                </Layout>
+                
+                <style>
+                  /* Legal Page Specific Styles */
+                  .legal-header {
+                    background: var(--bg-hero);
+                    color: white;
+                    padding: calc(var(--space-20) + var(--space-8)) 0 var(--space-16);
+                    text-align: center;
+                    position: relative;
+                    overflow: hidden;
+                  }
+                
+                  .legal-header::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)" /></svg>');
+                    pointer-events: none;
+                  }
+                
+                  .header-content {
+                    position: relative;
+                    z-index: 1;
+                    max-width: 800px;
+                    margin: 0 auto;
+                  }
+                
+                  .legal-title {
+                    font-family: var(--font-display);
+                    font-size: var(--font-size-5xl);
+                    font-weight: 800;
+                    margin-bottom: var(--space-6);
+                    color: white;
+                    line-height: 1.1;
+                  }
+                
+                  .legal-subtitle {
+                    font-size: var(--font-size-lg);
+                    color: rgba(255, 255, 255, 0.9);
+                    margin-bottom: var(--space-8);
+                    line-height: 1.6;
+                  }
+                
+                  .legal-meta {
+                    display: flex;
+                    justify-content: center;
+                    gap: var(--space-6);
+                    flex-wrap: wrap;
+                  }
+                
+                  .meta-item {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-2);
+                    color: rgba(255, 255, 255, 0.9);
+                    font-size: var(--font-size-sm);
+                    background: rgba(255, 255, 255, 0.1);
+                    padding: var(--space-2) var(--space-3);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .legal-content {
+                    padding: var(--space-20) 0;
+                    background: var(--bg-secondary);
+                  }
+                
+                  .content-grid {
+                    display: grid;
+                    grid-template-columns: 300px 1fr;
+                    gap: var(--space-16);
+                    max-width: 1400px;
+                    margin: 0 auto;
+                    align-items: start;
+                  }
+                
+                  /* Sidebar */
+                  .legal-sidebar {
+                    position: sticky;
+                    top: var(--space-8);
+                  }
+                
+                  .toc-container {
+                    background: var(--bg-primary);
+                    border-radius: var(--border-radius-xl);
+                    padding: var(--space-6);
+                    box-shadow: var(--shadow-md);
+                  }
+                
+                  .toc-title {
+                    font-family: var(--font-display);
+                    font-size: var(--font-size-lg);
+                    font-weight: 600;
+                    color: var(--neutral-900);
+                    margin-bottom: var(--space-4);
+                  }
+                
+                  .toc-nav {
+                    display: flex;
+                    flex-direction: column;
+                    gap: var(--space-1);
+                    margin-bottom: var(--space-6);
+                  }
+                
+                  .toc-link {
+                    padding: var(--space-2) var(--space-3);
+                    border-radius: var(--border-radius-md);
+                    text-decoration: none;
+                    color: var(--neutral-600);
+                    font-size: var(--font-size-sm);
+                    transition: all var(--transition-normal);
+                    border-left: 3px solid transparent;
+                  }
+                
+                  .toc-link:hover,
+                  .toc-link.active {
+                    background: var(--orange-50);
+                    color: var(--orange-700);
+                    border-left-color: var(--orange-600);
+                  }
+                
+                  .legal-info-card {
+                    background: var(--orange-50);
+                    padding: var(--space-4);
+                    border-radius: var(--border-radius-lg);
+                    border: 1px solid var(--orange-200);
+                    margin-bottom: var(--space-4);
+                  }
+                
+                  .legal-info-card h4 {
+                    font-size: var(--font-size-base);
+                    font-weight: 600;
+                    color: var(--orange-900);
+                    margin-bottom: var(--space-2);
+                  }
+                
+                  .legal-info-card p {
+                    font-size: var(--font-size-sm);
+                    color: var(--orange-700);
+                    margin-bottom: var(--space-3);
+                  }
+                    .legal-contact-btn {
+                    display: block;
+                    background: var(--orange-600);
+                    color: white;
+                    padding: var(--space-2) var(--space-3);
+                    border-radius: var(--border-radius-md);
+                    text-decoration: none;
+                    font-size: var(--font-size-sm);
+                    font-weight: 600;
+                    text-align: center;
+                    transition: all var(--transition-normal);
+                  }
+                
+                  .legal-contact-btn:hover {
+                    background: var(--orange-700);
+                    transform: translateY(-1px);
+                  }
+                
+                  .compliance-highlight {
+                    background: var(--neutral-100);
+                    border: 2px solid var(--neutral-300);
+                    padding: var(--space-4);
+                    border-radius: var(--border-radius-lg);
+                    text-align: center;
+                  }
+                
+                  .compliance-highlight .compliance-icon {
+                    font-size: var(--font-size-2xl);
+                    margin-bottom: var(--space-2);
+                  }
+                
+                  .compliance-highlight h4 {
+                    font-size: var(--font-size-base);
+                    font-weight: 600;
+                    color: var(--neutral-900);
+                    margin-bottom: var(--space-2);
+                  }
+                
+                  .compliance-highlight p {
+                    font-size: var(--font-size-sm);
+                    color: var(--neutral-700);
+                    margin: 0;
+                    line-height: 1.4;
+                  }
+                
+                  /* Main Content */
+                  .legal-main {
+                    max-width: none;
+                  }
+                
+                  .legal-intro {
+                    background: var(--bg-primary);
+                    padding: var(--space-8);
+                    border-radius: var(--border-radius-xl);
+                    margin-bottom: var(--space-12);
+                    box-shadow: var(--shadow-md);
+                  }
+                
+                  .intro-text {
+                    font-size: var(--font-size-lg);
+                    color: var(--neutral-700);
+                    line-height: 1.6;
+                    margin: 0;
+                  }
+                
+                  .legal-section {
+                    margin-bottom: var(--space-16);
+                  }
+                
+                  .section-title {
+                    font-family: var(--font-display);
+                    font-size: var(--font-size-3xl);
+                    font-weight: 700;
+                    color: var(--neutral-900);
+                    margin-bottom: var(--space-8);
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-3);
+                  }
+                
+                  .section-number {
+                    background: var(--orange-600);
+                    color: white;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: var(--font-size-lg);
+                    font-weight: 800;
+                  }
+                
+                  .content-card {
+                    background: var(--bg-primary);
+                    padding: var(--space-8);
+                    border-radius: var(--border-radius-xl);
+                    margin-bottom: var(--space-6);
+                    box-shadow: var(--shadow-md);
+                  }
+                
+                  .content-card.warning-card {
+                    background: var(--red-50);
+                    border: 1px solid var(--red-200);
+                  }
+                
+                  .subsection-title {
+                    font-family: var(--font-display);
+                    font-size: var(--font-size-xl);
+                    font-weight: 600;
+                    color: var(--neutral-900);
+                    margin-bottom: var(--space-6);
+                  }
+                
+                  /* Company Identification */
+                  .company-identification h3 {
+                    font-family: var(--font-display);
+                    font-size: var(--font-size-2xl);
+                    font-weight: 700;
+                    color: var(--neutral-900);
+                    margin-bottom: var(--space-6);
+                  }
+                
+                  .identification-grid {
+                    display: grid;
+                    gap: var(--space-4);
+                    margin-bottom: var(--space-8);
+                  }
+                
+                  .id-item {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    background: var(--neutral-50);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .id-label {
+                    font-weight: 600;
+                    color: var(--neutral-900);
+                    min-width: 140px;
+                  }
+                
+                  .activity-section {
+                    background: var(--orange-50);
+                    padding: var(--space-6);
+                    border-radius: var(--border-radius-lg);
+                    border: 1px solid var(--orange-200);
+                  }
+                
+                  .activity-section h4 {
+                    font-size: var(--font-size-lg);
+                    font-weight: 600;
+                    color: var(--orange-900);
+                    margin-bottom: var(--space-4);
+                  }
+                
+                  .activity-list {
+                    display: grid;
+                    gap: var(--space-3);
+                  }
+                
+                  .activity-item {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    background: var(--bg-primary);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .activity-icon {
+                    font-size: var(--font-size-lg);
+                    color: var(--orange-600);
+                  }
+                
+                  /* Usage Conditions */
+                  .usage-conditions {
+                    display: grid;
+                    gap: var(--space-3);
+                  }
+                
+                  .condition-item {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    background: var(--neutral-50);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .condition-icon {
+                    font-size: var(--font-size-lg);
+                    color: var(--green-600);
+                  }
+                
+                  .usage-warning {
+                    font-size: var(--font-size-base);
+                    color: var(--red-800);
+                    margin-bottom: var(--space-4);
+                    font-weight: 500;
+                  }
+                
+                  .prohibited-actions {
+                    display: grid;
+                    gap: var(--space-3);
+                  }
+                
+                  .prohibited-item {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    background: var(--bg-primary);
+                    border-radius: var(--border-radius-md);
+                    border-left: 3px solid var(--red-500);
+                  }
+                
+                  .prohibited-icon {
+                    font-size: var(--font-size-lg);
+                    color: var(--red-600);
+                  }
+                
+                  .registration-requirements {
+                    display: grid;
+                    gap: var(--space-4);
+                  }
+                
+                  .requirement-step {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-4);
+                    padding: var(--space-4);
+                    background: var(--neutral-50);
+                    border-radius: var(--border-radius-lg);
+                    border-left: 4px solid var(--primary-600);
+                  }
+                
+                  .step-icon {
+                    background: var(--primary-600);
+                    color: white;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    font-size: var(--font-size-sm);
+                    flex-shrink: 0;
+                  }
+                
+                  /* Intellectual Property */
+                  .intellectual-property-grid {
+                    display: grid;
+                    gap: var(--space-6);
+                  }
+                
+                  .ip-card {
+                    background: var(--bg-primary);
+                    padding: var(--space-6);
+                    border-radius: var(--border-radius-lg);
+                    border: 1px solid var(--neutral-200);
+                    transition: all var(--transition-normal);
+                  }
+                
+                  .ip-card.todoconta-rights {
+                    border-left: 4px solid var(--primary-600);
+                  }
+                
+                  .ip-card.third-party-rights {
+                    border-left: 4px solid var(--orange-600);
+                  }
+                
+                  .ip-card.authorized-use {
+                    border-left: 4px solid var(--green-600);
+                  }
+                
+                  .ip-card:hover {
+                    transform: translateY(-2px);
+                    box-shadow: var(--shadow-md);
+                  }
+                
+                  .ip-card h3 {
+                    font-size: var(--font-size-lg);
+                    font-weight: 600;
+                    color: var(--neutral-900);
+                    margin-bottom: var(--space-4);
+                  }
+                
+                  .ip-list {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                  }
+                
+                  .ip-list li {
+                    padding: var(--space-2) 0 var(--space-2) var(--space-6);
+                    border-bottom: 1px solid var(--neutral-100);
+                    position: relative;
+                    color: var(--neutral-700);
+                  }
+                
+                  .ip-list li:last-child {
+                    border-bottom: none;
+                  }
+                
+                  .ip-list li::before {
+                    content: '•';
+                    position: absolute;
+                    left: 0;
+                    top: var(--space-2);
+                    color: var(--primary-600);
+                    font-weight: bold;
+                  }
+                
+                  .contact-ip {
+                    background: var(--orange-100);
+                    padding: var(--space-3);
+                    border-radius: var(--border-radius-md);
+                    margin-top: var(--space-3);
+                    text-align: center;
+                  }
+                
+                  .contact-ip-email {
+                    font-weight: 600;
+                    color: var(--orange-800);
+                  }
+                
+                  .authorized-uses {
+                    display: grid;
+                    gap: var(--space-3);
+                  }
+                
+                  .use-item {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .use-item.allowed {
+                    background: var(--green-50);
+                    border: 1px solid var(--green-200);
+                  }
+                
+                  .use-item.restricted {
+                    background: var(--red-50);
+                    border: 1px solid var(--red-200);
+                  }
+                
+                  .use-item.conditional {
+                    background: var(--orange-50);
+                    border: 1px solid var(--orange-200);
+                  }
+                
+                  .use-item.commercial {
+                    background: var(--primary-50);
+                    border: 1px solid var(--primary-200);
+                  }
+                
+                  .use-icon {
+                    font-size: var(--font-size-lg);
+                  }
+                
+                  /* Responsibility Grid */
+                  .responsibility-grid {
+                    display: grid;
+                    gap: var(--space-6);
+                  }
+                
+                  .responsibility-card {
+                    background: var(--bg-primary);
+                    padding: var(--space-6);
+                    border-radius: var(--border-radius-lg);
+                    border: 1px solid var(--neutral-200);
+                    transition: all var(--transition-normal);
+                  }
+                
+                  .responsibility-card.availability {
+                    border-left: 4px solid var(--orange-600);
+                  }
+                
+                  .responsibility-card.third-party-content {
+                    border-left: 4px solid var(--primary-600);
+                  }
+                
+                  .responsibility-card.legal-limitations {
+                    border-left: 4px solid var(--neutral-600);
+                  }
+                
+                  .responsibility-card:hover {
+                    transform: translateY(-2px);
+                    box-shadow: var(--shadow-md);
+                  }
+                
+                  .responsibility-card h3 {
+                    font-size: var(--font-size-lg);
+                    font-weight: 600;
+                    color: var(--neutral-900);
+                    margin-bottom: var(--space-4);
+                  }
+                
+                  .disclaimer-text {
+                    font-weight: 500;
+                    color: var(--neutral-800);
+                    margin-bottom: var(--space-3);
+                  }
+                
+                  .disclaimer-list {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                  }
+                
+                  .disclaimer-list li {
+                    padding: var(--space-2) 0 var(--space-2) var(--space-6);
+                    border-bottom: 1px solid var(--neutral-100);
+                    position: relative;
+                    color: var(--neutral-700);
+                    font-size: var(--font-size-sm);
+                  }
+                
+                  .disclaimer-list li:last-child {
+                    border-bottom: none;
+                  }
+                
+                  .disclaimer-list li::before {
+                    content: '❌';
+                    position: absolute;
+                    left: 0;
+                    top: var(--space-2);
+                  }
+                
+                  .third-party-disclaimers {
+                    display: grid;
+                    gap: var(--space-3);
+                  }
+                
+                  .disclaimer-item {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    background: var(--neutral-50);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .disclaimer-icon {
+                    font-size: var(--font-size-lg);
+                    color: var(--primary-600);
+                  }
+                
+                  .legal-limits {
+                    display: grid;
+                    gap: var(--space-3);
+                  }
+                
+                  .limit-item {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    background: var(--neutral-50);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .limit-icon {
+                    font-size: var(--font-size-lg);
+                    color: var(--neutral-600);
+                  }
+                
+                  /* Data Protection Cards */
+                  .data-protection-cards {
+                    display: grid;
+                    gap: var(--space-6);
+                  }
+                
+                  .data-card {
+                    background: var(--bg-primary);
+                    padding: var(--space-6);
+                    border-radius: var(--border-radius-lg);
+                    border: 1px solid var(--neutral-200);
+                    transition: all var(--transition-normal);
+                  }
+                
+                  .data-card.compliance {
+                    border-left: 4px solid var(--green-600);
+                  }
+                
+                  .data-card.cookies {
+                    border-left: 4px solid var(--orange-600);
+                  }
+                
+                  .data-card.forms {
+                    border-left: 4px solid var(--primary-600);
+                  }
+                
+                  .data-card:hover {
+                    transform: translateY(-2px);
+                    box-shadow: var(--shadow-md);
+                  }
+                
+                  .data-card h3 {
+                    font-size: var(--font-size-lg);
+                    font-weight: 600;
+                    color: var(--neutral-900);
+                    margin-bottom: var(--space-4);
+                  }
+                
+                  .compliance-list {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                  }
+                
+                  .compliance-list li {
+                    padding: var(--space-3) 0 var(--space-3) var(--space-6);
+                    border-bottom: 1px solid var(--neutral-100);
+                    position: relative;
+                    color: var(--neutral-700);
+                  }
+                
+                  .compliance-list li:last-child {
+                    border-bottom: none;
+                  }
+                
+                  .compliance-list li::before {
+                    content: '✓';
+                    position: absolute;
+                    left: 0;
+                    top: var(--space-3);
+                    color: var(--green-600);
+                    font-weight: bold;
+                  }
+                
+                  .cookies-reference {
+                    background: var(--orange-100);
+                    padding: var(--space-3);
+                    border-radius: var(--border-radius-md);
+                    margin-bottom: var(--space-4);
+                    text-align: center;
+                    color: var(--orange-800);
+                  }
+                
+                  .cookies-details {
+                    display: grid;
+                    gap: var(--space-3);
+                  }
+                
+                  .cookie-detail {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    background: var(--neutral-50);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .cookie-icon {
+                    font-size: var(--font-size-lg);
+                    color: var(--orange-600);
+                  }
+                
+                  .forms-policy {
+                    display: grid;
+                    gap: var(--space-3);
+                  }
+                
+                  .policy-item {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    background: var(--neutral-50);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .policy-icon {
+                    font-size: var(--font-size-lg);
+                    color: var(--primary-600);
+                  }
+                
+                  /* Services Content Grid */
+                  .services-content-grid {
+                    display: grid;
+                    gap: var(--space-6);
+                  }
+                
+                  .service-info-card {
+                    background: var(--bg-primary);
+                    padding: var(--space-6);
+                    border-radius: var(--border-radius-lg);
+                    border: 1px solid var(--neutral-200);
+                    transition: all var(--transition-normal);
+                  }
+                
+                  .service-info-card.general {
+                    border-left: 4px solid var(--primary-600);
+                  }
+                
+                  .service-info-card.accuracy {
+                    border-left: 4px solid var(--orange-600);
+                  }
+                
+                  .service-info-card.tools {
+                    border-left: 4px solid var(--green-600);
+                  }
+                
+                  .service-info-card:hover {
+                    transform: translateY(-2px);
+                    box-shadow: var(--shadow-md);
+                  }
+                
+                  .service-info-card h3 {
+                    font-size: var(--font-size-lg);
+                    font-weight: 600;
+                    color: var(--neutral-900);
+                    margin-bottom: var(--space-4);
+                  }
+                
+                  .general-disclaimers {
+                    display: grid;
+                    gap: var(--space-3);
+                  }
+                
+                  .disclaimer {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    background: var(--neutral-50);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .disclaimer-bullet {
+                    font-size: var(--font-size-lg);
+                    color: var(--primary-600);
+                  }
+                
+                  .accuracy-statements {
+                    display: grid;
+                    gap: var(--space-3);
+                  }
+                
+                  .accuracy-item {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .accuracy-item.positive {
+                    background: var(--green-50);
+                    border: 1px solid var(--green-200);
+                  }
+                
+                  .accuracy-item.limitation {
+                    background: var(--orange-50);
+                    border: 1px solid var(--orange-200);
+                  }
+                
+                  .accuracy-item.dynamic {
+                    background: var(--primary-50);
+                    border: 1px solid var(--primary-200);
+                  }
+                
+                  .accuracy-item.recommendation {
+                    background: var(--neutral-50);
+                    border: 1px solid var(--neutral-200);
+                  }
+                
+                  .accuracy-icon {
+                    font-size: var(--font-size-lg);
+                  }
+                
+                  .tools-disclaimers {
+                    display: grid;
+                    gap: var(--space-3);
+                  }
+                
+                  .tool-disclaimer {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    background: var(--neutral-50);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .tool-icon {
+                    font-size: var(--font-size-lg);
+                    color: var(--green-600);
+                  }
+                
+                  /* Communications Grid */
+                  .communications-grid {
+                    display: grid;
+                    gap: var(--space-6);
+                  }
+                
+                  .comm-card {
+                    background: var(--bg-primary);
+                    padding: var(--space-6);
+                    border-radius: var(--border-radius-lg);
+                    border: 1px solid var(--neutral-200);
+                    transition: all var(--transition-normal);
+                  }
+                
+                  .comm-card.newsletter {
+                    border-left: 4px solid var(--green-600);
+                  }
+                
+                  .comm-card.service-notifications {
+                    border-left: 4px solid var(--orange-600);
+                  }
+                
+                  .comm-card:hover {
+                    transform: translateY(-2px);
+                    box-shadow: var(--shadow-md);
+                  }
+                
+                  .comm-card h3 {
+                    font-size: var(--font-size-lg);
+                    font-weight: 600;
+                    color: var(--neutral-900);
+                    margin-bottom: var(--space-4);
+                  }
+                
+                  .newsletter-policies {
+                    display: grid;
+                    gap: var(--space-3);
+                  }
+                
+                  .policy-point {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    background: var(--neutral-50);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .policy-bullet {
+                    font-size: var(--font-size-lg);
+                    color: var(--green-600);
+                  }
+                
+                  .notification-info {
+                    display: grid;
+                    gap: var(--space-3);
+                  }
+                
+                  .notification-type {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    background: var(--neutral-50);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .notif-icon {
+                    font-size: var(--font-size-lg);
+                    color: var(--orange-600);
+                  }
+                
+                  /* Links Grid */
+                  .links-grid {
+                    display: grid;
+                    gap: var(--space-6);
+                  }
+                
+                  .links-card {
+                    background: var(--bg-primary);
+                    padding: var(--space-6);
+                    border-radius: var(--border-radius-lg);
+                    border: 1px solid var(--neutral-200);
+                    transition: all var(--transition-normal);
+                  }
+                
+                  .links-card.outgoing {
+                    border-left: 4px solid var(--primary-600);
+                  }
+                
+                  .links-card.incoming {
+                    border-left: 4px solid var(--green-600);
+                  }
+                
+                  .links-card:hover {
+                    transform: translateY(-2px);
+                    box-shadow: var(--shadow-md);
+                  }
+                
+                  .links-card h3 {
+                    font-size: var(--font-size-lg);
+                    font-weight: 600;
+                    color: var(--neutral-900);
+                    margin-bottom: var(--space-4);
+                  }
+                
+                  .outgoing-policies,
+                  .incoming-policies {
+                    display: grid;
+                    gap: var(--space-3);
+                  }
+                
+                  .outgoing-policy,
+                  .incoming-policy {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    background: var(--neutral-50);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .outgoing-icon {
+                    font-size: var(--font-size-lg);
+                    color: var(--primary-600);
+                  }
+                
+                  .incoming-icon {
+                    font-size: var(--font-size-lg);
+                    color: var(--green-600);
+                  }
+                
+                  /* Jurisdiction Content */
+                  .jurisdiction-content {
+                    display: grid;
+                    gap: var(--space-6);
+                  }
+                
+                  .jurisdiction-card {
+                    background: var(--bg-primary);
+                    padding: var(--space-6);
+                    border-radius: var(--border-radius-lg);
+                    border: 1px solid var(--neutral-200);
+                    transition: all var(--transition-normal);
+                  }
+                
+                  .jurisdiction-card.applicable-law {
+                    border-left: 4px solid var(--primary-600);
+                  }
+                
+                  .jurisdiction-card.competent-jurisdiction {
+                    border-left: 4px solid var(--orange-600);
+                  }
+                
+                  .jurisdiction-card.conflict-resolution {
+                    border-left: 4px solid var(--green-600);
+                  }
+                
+                  .jurisdiction-card:hover {
+                    transform: translateY(-2px);
+                    box-shadow: var(--shadow-md);
+                  }
+                
+                  .jurisdiction-card h3 {
+                    font-size: var(--font-size-lg);
+                    font-weight: 600;
+                    color: var(--neutral-900);
+                    margin-bottom: var(--space-4);
+                  }
+                
+                  .laws-list,
+                  .jurisdiction-details {
+                    display: grid;
+                    gap: var(--space-3);
+                  }
+                
+                  .law-item,
+                  .jurisdiction-item {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    background: var(--neutral-50);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .law-icon,
+                  .jurisdiction-icon {
+                    font-size: var(--font-size-lg);
+                    color: var(--primary-600);
+                  }
+                
+                  .resolution-steps {
+                    display: grid;
+                    gap: var(--space-4);
+                    margin-top: var(--space-4);
+                  }
+                
+                  .resolution-step {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: var(--space-4);
+                    padding: var(--space-4);
+                    background: var(--neutral-50);
+                    border-radius: var(--border-radius-lg);
+                  }
+                
+                  .resolution-step-number {
+                    background: var(--green-600);
+                    color: white;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    font-size: var(--font-size-sm);
+                    flex-shrink: 0;
+                  }
+                
+                  .resolution-step-content h4 {
+                    font-size: var(--font-size-base);
+                    font-weight: 600;
+                    color: var(--neutral-900);
+                    margin-bottom: var(--space-1);
+                  }
+                
+                  .resolution-step-content p {
+                    font-size: var(--font-size-sm);
+                    color: var(--neutral-600);
+                    margin: 0;
+                  }
+                
+                  /* Security Grid */
+                  .security-grid {
+                    display: grid;
+                    gap: var(--space-6);
+                  }
+                
+                  .security-card {
+                    background: var(--bg-primary);
+                    padding: var(--space-6);
+                    border-radius: var(--border-radius-lg);
+                    border: 1px solid var(--neutral-200);
+                    transition: all var(--transition-normal);
+                  }
+                
+                  .security-card.measures {
+                    border-left: 4px solid var(--green-600);
+                  }
+                
+                  .security-card.user-responsibilities {
+                    border-left: 4px solid var(--orange-600);
+                  }
+                
+                  .security-card.security-reports {
+                    border-left: 4px solid var(--primary-600);
+                  }
+                
+                  .security-card:hover {
+                    transform: translateY(-2px);
+                    box-shadow: var(--shadow-md);
+                  }
+                
+                  .security-card h3 {
+                    font-size: var(--font-size-lg);
+                    font-weight: 600;
+                    color: var(--neutral-900);
+                    margin-bottom: var(--space-4);
+                  }
+                
+                  .security-measures-list {
+                    display: grid;
+                    gap: var(--space-4);
+                  }
+                
+                  .security-measure {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    background: var(--neutral-50);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .security-icon {
+                    font-size: var(--font-size-lg);
+                    color: var(--green-600);
+                    margin-top: 2px;
+                  }
+                
+                  .security-content strong {
+                    color: var(--neutral-900);
+                    font-weight: 600;
+                  }
+                
+                  .security-content {
+                    display: flex;
+                    flex-direction: column;
+                    gap: var(--space-1);
+                  }
+                
+                  .user-security-duties {
+                    display: grid;
+                    gap: var(--space-3);
+                  }
+                
+                  .security-duty {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    background: var(--neutral-50);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .duty-icon {
+                    font-size: var(--font-size-lg);
+                    color: var(--orange-600);
+                  }
+                
+                  .security-report-process {
+                    display: grid;
+                    gap: var(--space-3);
+                    margin-top: var(--space-4);
+                  }
+                
+                  .report-step {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    background: var(--neutral-50);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .report-icon {
+                    font-size: var(--font-size-lg);
+                    color: var(--primary-600);
+                    margin-top: 2px;
+                  }
+                
+                  .report-content strong {
+                    color: var(--neutral-900);
+                    font-weight: 600;
+                  }
+                
+                  .report-content {
+                    display: flex;
+                    flex-direction: column;
+                    gap: var(--space-1);
+                  }
+                
+                  /* Accessibility Content */
+                  .accessibility-content {
+                    display: grid;
+                    gap: var(--space-6);
+                  }
+                
+                  .accessibility-card {
+                    background: var(--bg-primary);
+                    padding: var(--space-6);
+                    border-radius: var(--border-radius-lg);
+                    border: 1px solid var(--neutral-200);
+                    transition: all var(--transition-normal);
+                  }
+                
+                  .accessibility-card.commitment {
+                    border-left: 4px solid var(--green-600);
+                  }
+                
+                  .accessibility-card.technologies {
+                    border-left: 4px solid var(--primary-600);
+                  }
+                
+                  .accessibility-card.feedback {
+                    border-left: 4px solid var(--orange-600);
+                  }
+                
+                  .accessibility-card:hover {
+                    transform: translateY(-2px);
+                    box-shadow: var(--shadow-md);
+                  }
+                
+                  .accessibility-card h3 {
+                    font-size: var(--font-size-lg);
+                    font-weight: 600;
+                    color: var(--neutral-900);
+                    margin-bottom: var(--space-4);
+                  }
+                
+                  .accessibility-commitments,
+                  .accessibility-technologies {
+                    display: grid;
+                    gap: var(--space-3);
+                  }
+                
+                  .commitment-item {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    background: var(--neutral-50);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .commitment-icon {
+                    font-size: var(--font-size-lg);
+                    color: var(--green-600);
+                  }
+                
+                  .tech-item {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    background: var(--neutral-50);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .tech-icon {
+                    font-size: var(--font-size-lg);
+                    color: var(--primary-600);
+                    margin-top: 2px;
+                  }
+                
+                  .tech-content strong {
+                    color: var(--neutral-900);
+                    font-weight: 600;
+                  }
+                
+                  .tech-content {
+                    display: flex;
+                    flex-direction: column;
+                    gap: var(--space-1);
+                  }
+                
+                  .accessibility-feedback-process {
+                    display: grid;
+                    gap: var(--space-3);
+                    margin-top: var(--space-4);
+                  }
+                
+                  .feedback-item {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    background: var(--neutral-50);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .feedback-label {
+                    font-weight: 600;
+                    color: var(--orange-600);
+                    min-width: 100px;
+                  }
+                
+                  /* Modifications Grid */
+                  .modifications-grid {
+                    display: grid;
+                    gap: var(--space-6);
+                  }
+                
+                  .modification-card {
+                    background: var(--bg-primary);
+                    padding: var(--space-6);
+                    border-radius: var(--border-radius-lg);
+                    border: 1px solid var(--neutral-200);
+                    transition: all var(--transition-normal);
+                  }
+                
+                  .modification-card.rights {
+                    border-left: 4px solid var(--primary-600);
+                  }
+                
+                  .modification-card.history {
+                    border-left: 4px solid var(--green-600);
+                  }
+                
+                  .modification-card.notifications {
+                    border-left: 4px solid var(--orange-600);
+                  }
+                
+                  .modification-card:hover {
+                    transform: translateY(-2px);
+                    box-shadow: var(--shadow-md);
+                  }
+                
+                  .modification-card h3 {
+                    font-size: var(--font-size-lg);
+                    font-weight: 600;
+                    color: var(--neutral-900);
+                    margin-bottom: var(--space-4);
+                  }
+                
+                  .modification-rights,
+                  .version-history {
+                    display: grid;
+                    gap: var(--space-3);
+                  }
+                
+                  .right-item,
+                  .history-item {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    background: var(--neutral-50);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .right-icon,
+                  .history-icon {
+                    font-size: var(--font-size-lg);
+                    color: var(--primary-600);
+                  }
+                
+                  .notification-methods {
+                    margin-top: var(--space-4);
+                  }
+                
+                  .notification-method.important {
+                    background: var(--orange-50);
+                    padding: var(--space-4);
+                    border-radius: var(--border-radius-lg);
+                    border: 1px solid var(--orange-200);
+                  }
+                
+                  .notification-method h4 {
+                    font-size: var(--font-size-base);
+                    font-weight: 600;
+                    color: var(--orange-900);
+                    margin-bottom: var(--space-3);
+                  }
+                
+                  .method-list {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                  }
+                
+                  .method-list li {
+                    padding: var(--space-2) 0 var(--space-2) var(--space-6);
+                    border-bottom: 1px solid var(--orange-200);
+                    position: relative;
+                    color: var(--orange-700);
+                    font-size: var(--font-size-sm);
+                  }
+                
+                  .method-list li:last-child {
+                    border-bottom: none;
+                  }
+                
+                  .method-list li::before {
+                    content: '•';
+                    position: absolute;
+                    left: 0;
+                    top: var(--space-2);
+                    color: var(--orange-600);
+                    font-weight: bold;
+                  }
+                
+                  /* Contact Legal Grid */
+                  .contact-legal-grid {
+                    display: grid;
+                    gap: var(--space-6);
+                  }
+                
+                  .contact-legal-card {
+                    background: var(--bg-primary);
+                    padding: var(--space-6);
+                    border-radius: var(--border-radius-lg);
+                    border: 1px solid var(--neutral-200);
+                    transition: all var(--transition-normal);
+                  }
+                
+                  .contact-legal-card.general {
+                    border-left: 4px solid var(--primary-600);
+                  }
+                
+                  .contact-legal-card.departments {
+                    border-left: 4px solid var(--green-600);
+                  }
+                
+                  .contact-legal-card.response-times {
+                    border-left: 4px solid var(--orange-600);
+                  }
+                
+                  .contact-legal-card:hover {
+                    transform: translateY(-2px);
+                    box-shadow: var(--shadow-md);
+                  }
+                
+                  .contact-legal-card h3 {
+                    font-size: var(--font-size-lg);
+                    font-weight: 600;
+                    color: var(--neutral-900);
+                    margin-bottom: var(--space-4);
+                  }
+                
+                  .contact-details {
+                    display: grid;
+                    gap: var(--space-3);
+                  }
+                
+                  .contact-detail-item {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    background: var(--neutral-50);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .contact-label {
+                    font-weight: 600;
+                    color: var(--primary-600);
+                    min-width: 120px;
+                  }
+                
+                  .departments-list {
+                    display: grid;
+                    gap: var(--space-3);
+                  }
+                
+                  .department-item {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    background: var(--neutral-50);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .dept-icon {
+                    font-size: var(--font-size-lg);
+                    color: var(--green-600);
+                    margin-top: 2px;
+                  }
+                
+                  .dept-content strong {
+                    color: var(--neutral-900);
+                    font-weight: 600;
+                  }
+                
+                  .dept-content {
+                    display: flex;
+                    flex-direction: column;
+                    gap: var(--space-1);
+                  }
+                
+                  .response-times-list {
+                    display: grid;
+                    gap: var(--space-3);
+                  }
+                
+                  .response-time {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    background: var(--neutral-50);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .time-icon {
+                    font-size: var(--font-size-lg);
+                    color: var(--orange-600);
+                    margin-top: 2px;
+                  }
+                
+                  .time-content strong {
+                    color: var(--neutral-900);
+                    font-weight: 600;
+                  }
+                
+                  .time-content {
+                    display: flex;
+                    flex-direction: column;
+                    gap: var(--space-1);
+                  }
+                
+                  /* Final Dispositions */
+                  .final-dispositions {
+                    display: grid;
+                    gap: var(--space-6);
+                    margin: var(--space-12) 0;
+                  }
+                
+                  .disposition-card {
+                    background: var(--bg-primary);
+                    padding: var(--space-6);
+                    border-radius: var(--border-radius-lg);
+                    border: 1px solid var(--neutral-200);
+                    transition: all var(--transition-normal);
+                  }
+                
+                  .disposition-card.validity {
+                    border-left: 4px solid var(--primary-600);
+                  }
+                
+                  .disposition-card.effective-date {
+                    border-left: 4px solid var(--green-600);
+                  }
+                
+                  .disposition-card.language {
+                    border-left: 4px solid var(--orange-600);
+                  }
+                
+                  .disposition-card:hover {
+                    transform: translateY(-2px);
+                    box-shadow: var(--shadow-md);
+                  }
+                
+                  .disposition-card h3 {
+                    font-size: var(--font-size-lg);
+                    font-weight: 600;
+                    color: var(--neutral-900);
+                    margin-bottom: var(--space-4);
+                  }
+                
+                  .validity-points,
+                  .effective-info,
+                  .language-policy {
+                    display: grid;
+                    gap: var(--space-3);
+                  }
+                
+                  .validity-point,
+                  .effective-item,
+                  .language-item {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    background: var(--neutral-50);
+                    border-radius: var(--border-radius-md);
+                  }
+                
+                  .validity-icon,
+                  .effective-icon,
+                  .lang-icon {
+                    font-size: var(--font-size-lg);
+                    color: var(--primary-600);
+                  }
+                
+                  .language-item.primary .lang-icon {
+                    color: var(--green-600);
+                  }
+                
+                  .language-item.secondary .lang-icon {
+                    color: var(--orange-600);
+                  }
+                
+                  .language-item.precedence .lang-icon {
+                    color: var(--primary-600);
+                  }
+                
+                  /* Document Info */
+                  .document-info {
+                    background: var(--neutral-100);
+                    padding: var(--space-8);
+                    border-radius: var(--border-radius-xl);
+                    margin: var(--space-12) 0;
+                  }
+                
+                  .document-info h3 {
+                    font-family: var(--font-display);
+                    font-size: var(--font-size-xl);
+                    font-weight: 600;
+                    color: var(--neutral-900);
+                    margin-bottom: var(--space-6);
+                    text-align: center;
+                  }
+                
+                  .doc-info-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                    gap: var(--space-4);
+                  }
+                
+                  .doc-info-item {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-3);
+                    padding: var(--space-3);
+                    background: var(--bg-primary);
+                    border-radius: var(--border-radius-lg);
+                    border: 1px solid var(--neutral-200);
+                  }
+                
+                  .doc-label {
+                    font-weight: 600;
+                    color: var(--neutral-900);
+                    min-width: 100px;
+                  }
+                
+                  /* Legal Footer */
+                  .legal-footer {
+                    background: var(--neutral-900);
+                    color: white;
+                    padding: var(--space-8);
+                    border-radius: var(--border-radius-xl);
+                    text-align: center;
+                    margin-top: var(--space-12);
+                  }
+                
+                  .company-signature h4 {
+                    font-family: var(--font-display);
+                    font-size: var(--font-size-xl);
+                    font-weight: 600;
+                    color: white;
+                    margin-bottom: var(--space-3);
+                  }
+                
+                  .company-signature p {
+                    margin: var(--space-1) 0;
+                    color: var(--neutral-300);
+                    font-size: var(--font-size-sm);
+                  }
+                
+                  /* Animations */
+                  .fade-in-up {
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition: all 0.6s ease-out;
+                  }
+                
+                  .fade-in-up.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                  }
+                
+                  /* Responsive Design */
+                  @media (max-width: 1024px) {
+                    .content-grid {
+                      grid-template-columns: 250px 1fr;
+                      gap: var(--space-8);
+                    }
+                  }
+                
+                  @media (max-width: 768px) {
+                    .content-grid {
+                      grid-template-columns: 1fr;
+                      gap: var(--space-8);
+                    }
+                
+                    .legal-sidebar {
+                      position: static;
+                      order: 2;
+                    }
+                
+                    .legal-main {
+                      order: 1;
+                    }
+                
+                    .legal-title {
+                      font-size: var(--font-size-4xl);
+                    }
+                
+                    .legal-meta {
+                      flex-direction: column;
+                      gap: var(--space-4);
+                    }
+                
+                    .section-title {
+                      font-size: var(--font-size-2xl);
+                      flex-direction: column;
+                      text-align: center;
+                      gap: var(--space-2);
+                    }
+                
+                    .toc-container {
+                      background: var(--orange-50);
+                      border: 1px solid var(--orange-200);
+                    }
+                
+                    .intellectual-property-grid,
+                    .responsibility-grid,
+                    .data-protection-cards,
+                    .services-content-grid,
+                    .communications-grid,
+                    .links-grid,
+                    .jurisdiction-content,
+                    .security-grid,
+                    .accessibility-content,
+                    .modifications-grid,
+                    .contact-legal-grid,
+                    .final-dispositions {
+                      gap: var(--space-4);
+                    }
+                
+                    .doc-info-grid {
+                      grid-template-columns: 1fr;
+                    }
+                  }
+                
+                  @media (max-width: 480px) {
+                    .legal-header {
+                      padding: calc(var(--space-16) + var(--space-8)) 0 var(--space-12);
+                    }
+                
+                    .legal-content {
+                      padding: var(--space-12) 0;
+                    }
+                
+                    .content-card,
+                    .legal-intro,
+                    .toc-container {
+                      padding: var(--space-6);
+                    }
+                
+                    .legal-title {
+                      font-size: var(--font-size-3xl);
+                    }
+                
+                    .intellectual-property-grid,
+                    .responsibility-grid,
+                    .data-protection-cards,
+                    .services-content-grid,
+                    .communications-grid,
+                    .links-grid,
+                    .jurisdiction-content,
+                    .security-grid,
+                    .accessibility-content,
+                    .modifications-grid,
+                    .contact-legal-grid,
+                    .final-dispositions {
+                      grid-template-columns: 1fr;
+                    }
+                  }
+                </style> 
