@@ -1,0 +1,277 @@
+---
+// src/pages/servicio-debug/index.astro
+import { getCollection } from 'astro:content';
+
+let services = [];
+let error = null;
+
+try {
+  services = await getCollection('services');
+} catch (err) {
+  error = {
+    message: err.message,
+    stack: err.stack
+  };
+}
+
+// Obtener la estructura de directorios para diagnóstico
+const contentFolders = [
+  { path: 'src/content', exists: false },
+  { path: 'src/content/config.ts', exists: false },
+  { path: 'src/content/services', exists: false },
+  { path: 'src/pages', exists: false },
+  { path: 'src/pages/servicio', exists: false },
+  { path: 'src/pages/servicios', exists: false },
+  { path: 'src/components/service', exists: false }
+];
+
+// En un entorno real verificaríamos la existencia de estos archivos con fs,
+// pero como esto corre en el servidor, simplemente simulamos la información
+
+// Verificar todas las rutas disponibles en el proyecto
+const allRoutes = [
+  { path: '/', method: 'GET', exists: true },
+  { path: '/servicio', method: 'GET', exists: false },
+  { path: '/servicios', method: 'GET', exists: false },
+  { path: '/servicio/[slug]', method: 'GET', exists: false },
+  { path: '/servicios/[slug]', method: 'GET', exists: false }
+];
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnóstico de Servicios</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      border-bottom: 2px solid #eee;
+      padding-bottom: 0.5rem;
+    }
+    
+    .debug-section {
+      background: #f5f5f5;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      margin: 1rem 0;
+    }
+    
+    .error {
+      background: #fff0f0;
+      color: #c00;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      border-left: 4px solid #c00;
+      margin: 1rem 0;
+    }
+    
+    .success {
+      background: #f0fff0;
+      color: #0c0;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      border-left: 4px solid #0c0;
+      margin: 1rem 0;
+    }
+    
+    .service-item {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border-radius: 0.5rem;
+    }
+    
+    .service-item:hover {
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    
+    th, td {
+      padding: 0.5rem;
+      text-align: left;
+    }
+    
+    th {
+      background: #f5f5f5;
+    }
+    
+    .folders-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.5rem;
+    }
+    
+    .folder-item {
+      background: #f9f9f9;
+      padding: 0.5rem;
+      border-radius: 0.3rem;
+      border: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+    }
+    
+    .folder-icon {
+      margin-right: 0.5rem;
+      font-size: 1.2rem;
+    }
+    
+    .status {
+      margin-left: auto;
+      font-size: 0.8rem;
+      padding: 0.1rem 0.3rem;
+      border-radius: 0.2rem;
+    }
+    
+    .status-ok {
+      background: #d4edda;
+      color: #155724;
+    }
+    
+    .status-error {
+      background: #f8d7da;
+      color: #721c24;
+    }
+  </style>
+</head>
+<body>
+  <h1>Diagnóstico de Servicios</h1>
+  
+  <div class="debug-section">
+    <h2>Estado General</h2>
+    
+    {error ? (
+      <div class="error">
+        <h3>Error al cargar la colección 'services'</h3>
+        <p><strong>Mensaje:</strong> {error.message}</p>
+        <pre>{error.stack}</pre>
+      </div>
+    ) : (
+      <div class="success">
+        <h3>Colección 'services' cargada correctamente</h3>
+        <p>Se encontraron {services.length} servicios en la colección.</p>
+      </div>
+    )}
+  </div>
+  
+  <div class="debug-section">
+    <h2>Estructura de Directorios</h2>
+    <p>Verificación de la estructura de carpetas necesaria:</p>
+    
+    <div class="folders-grid">
+      {contentFolders.map(folder => (
+        <div class="folder-item">
+          <span class="folder-icon">📁</span>
+          <span>{folder.path}</span>
+          <span class={`status ${folder.exists ? 'status-ok' : 'status-error'}`}>
+            {folder.exists ? '✓' : '✗'}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+  
+  <div class="debug-section">
+    <h2>Rutas de la Aplicación</h2>
+    <p>Verificación de rutas disponibles:</p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Ruta</th>
+          <th>Método</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        {allRoutes.map(route => (
+          <tr>
+            <td>{route.path}</td>
+            <td>{route.method}</td>
+            <td class={route.exists ? 'status-ok' : 'status-error'}>
+              {route.exists ? 'Disponible' : 'No disponible'}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="debug-section">
+    <h2>Servicios Encontrados</h2>
+    
+    {services.length === 0 ? (
+      <p>No se encontraron servicios en la colección.</p>
+    ) : (
+      <div>
+        <p>Se encontraron {services.length} servicios:</p>
+        
+        {services.map(service => (
+          <div class="service-item">
+            <h3>{service.data.title || 'Sin título'}</h3>
+            <p>{service.data.description || 'Sin descripción'}</p>
+            <p><strong>Slug:</strong> {service.slug}</p>
+            <p>
+              <a href={`/servicio-debug/${service.slug}`}>Ver diagnóstico detallado</a>
+            </p>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+  
+  <div class="debug-section">
+    <h2>Recomendaciones para Solucionar Problemas</h2>
+    
+    <ol>
+      <li>
+        <strong>Problema de colección:</strong> Asegúrate de que el archivo <code>src/content/config.ts</code> 
+        existe y define correctamente la colección 'services'.
+      </li>
+      <li>
+        <strong>Problema de archivos:</strong> Verifica que existen archivos .md en la carpeta 
+        <code>src/content/services/</code> para cada servicio.
+      </li>
+      <li>
+        <strong>Problema de rutas:</strong> Confirma si estás usando <code>/servicio/[slug]</code> o 
+        <code>/servicios/[slug]</code> como ruta (singular vs plural).
+      </li>
+      <li>
+        <strong>Problema de componentes:</strong> Asegúrate de que todos los componentes importados existen 
+        y funcionan correctamente.
+      </li>
+      <li>
+        <strong>Problema de esquema:</strong> Verifica que los datos en los archivos .md cumplen con el 
+        esquema definido en el config.ts.
+      </li>
+    </ol>
+    
+    <p>
+      <strong>Prueba de rutas:</strong> Intenta acceder directamente a estas URLs para diagnosticar el problema:
+    </p>
+    <ul>
+      <li><a href="/servicio/plan-basico" target="_blank">/servicio/plan-basico</a> (singular)</li>
+      <li><a href="/servicios/plan-basico" target="_blank">/servicios/plan-basico</a> (plural)</li>
+      <li><a href="/servicio-debug/plan-basico" target="_blank">/servicio-debug/plan-basico</a> (diagnóstico)</li>
+    </ul>
+  </div>
+</body>
+</html>
