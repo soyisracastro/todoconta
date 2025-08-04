@@ -1,0 +1,107 @@
+---
+title: "Trámite de e.firma y CSD"
+description: "Gestión completa para la obtención y renovación de tu e.firma (antes FIEL) y Certificado de Sello Digital (CSD), herramientas indispensables para la facturación electrónica y trámites fiscales en México."
+shortDescription: "Obtención y renovación de certificados digitales (CSD) y e.firma para facturación electrónica."
+icon: "🔐"
+price: 1600
+priceNote: "desde"
+deliveryTime: "3-5 días hábiles"
+badge: "Indispensable"
+featured: true
+heroImage: "/images/servicios/tramite-efirma-csd.jpg"
+ctaText: "Solicitar Servicio"
+ctaUrl: "#contacto"
+secondaryCtaText: "Ver Requisitos"
+secondaryCtaUrl: "#requisitos"
+
+benefits:
+  - title: "Ahorro de Tiempo"
+    description: "Evita filas y trámites complicados. Nosotros gestionamos todo el proceso por ti de manera eficiente."
+    icon: "⏱️"
+  - title: "Garantía de Éxito"
+    description: "Contamos con amplia experiencia en trámites ante el SAT, asegurando que tu solicitud sea aprobada sin contratiempos."
+    icon: "✅"
+  - title: "Asesoría Completa"
+    description: "Te explicamos el uso adecuado de tus certificados digitales y las mejores prácticas para su resguardo."
+    icon: "👨‍💼"
+  - title: "Soporte Continuo"
+    description: "Asistencia técnica para la instalación y uso de tus certificados en tus sistemas de facturación."
+    icon: "🛠️"
+
+process:
+  - title: "Análisis de Requisitos"
+    description: "Verificamos tu situación fiscal y determinamos los documentos específicos que necesitas según tu caso."
+    icon: "📋"
+  - title: "Recopilación de Documentación"
+    description: "Te apoyamos en la preparación y organización de todos los documentos necesarios para el trámite."
+    icon: "📁"
+  - title: "Generación de Archivo de Requerimiento"
+    description: "Creamos el archivo de requerimiento (.req) necesario para el trámite de los certificados."
+    icon: "💻"
+  - title: "Gestión ante el SAT"
+    description: "Realizamos las gestiones necesarias ante el SAT para la obtención o renovación de tus certificados."
+    icon: "🏢"
+  - title: "Entrega e Instalación"
+    description: "Te entregamos tus archivos digitales (.cer, .key) y te asistimos en su instalación y configuración."
+    icon: "📥"
+  - title: "Capacitación de Uso"
+    description: "Te enseñamos cómo utilizar tus certificados para facturación electrónica y otros trámites fiscales."
+    icon: "🎓"
+
+requirements:
+  - "Identificación oficial vigente (INE, pasaporte)"
+  - "CURP (Personas físicas)"
+  - "Comprobante de domicilio (no mayor a 3 meses)"
+  - "Constancia de Situación Fiscal reciente"
+  - "Correo electrónico personal (no compartido)"
+  - "Dispositivo USB para almacenar los certificados"
+  - "Para personas morales: acta constitutiva, poder notarial e identificación del representante legal"
+  - "Para renovación: archivos previos de e.firma (.cer y .key) y contraseña"
+
+deliverables:
+  - "Archivo de Certificado Digital (.cer)"
+  - "Archivo de Llave Privada (.key)"
+  - "Contraseña de la llave privada (en sobre cerrado)"
+  - "Acuse de renovación o generación de e.firma"
+  - "Acuse de renovación o generación de CSD"
+  - "Guía de uso y resguardo de certificados digitales"
+  - "Respaldo digital seguro de los archivos"
+
+relatedServices:
+  - "inscripcion-rfc"
+  - "cambio-regimen-fiscal"
+  - "facturacion-electronica"
+  - "opinion-cumplimiento-fiscal"
+  - "regularizacion-fiscal"
+
+faqs:
+  - question: "¿Cuál es la diferencia entre la e.firma y el CSD?"
+    answer: "La e.firma (antes FIEL) es la firma electrónica que te identifica como persona física o moral ante el SAT y tiene validez jurídica similar a la firma autógrafa. El CSD (Certificado de Sello Digital) es específico para la emisión de facturas electrónicas (CFDI). Ambos son certificados digitales, pero tienen diferentes usos y aplicaciones en el ámbito fiscal."
+  - question: "¿Cuánto tiempo de vigencia tienen los certificados?"
+    answer: "La e.firma tiene una vigencia de 4 años a partir de su emisión. El CSD tiene una vigencia de 4 años para personas físicas y de 2 años para personas morales. Es importante renovarlos antes de su vencimiento para evitar interrupciones en tus operaciones fiscales."
+  - question: "¿Necesito presentarme personalmente ante el SAT?"
+    answer: "Para la primera emisión de la e.firma generalmente sí se requiere la presencia del titular o representante legal. Sin embargo, para renovaciones y trámites de CSD, nosotros podemos gestionarlo por ti mediante una carta poder, siempre que contemos con la e.firma vigente y los archivos previos."
+  - question: "¿Qué hago si olvidé mi contraseña o perdí mis archivos digitales?"
+    answer: "Si olvidaste la contraseña o perdiste los archivos de tu e.firma o CSD, será necesario realizar un trámite de revocación y posterior emisión de nuevos certificados. Nosotros podemos asesorarte y ayudarte con este proceso."
+  - question: "¿Puedo utilizar la misma e.firma para múltiples empresas?"
+    answer: "No, cada persona física o moral debe tener su propia e.firma. Si eres representante legal de varias empresas, cada una necesitará su propio certificado, aunque tú como representante utilices la misma identificación para todos los trámites."
+  - question: "¿Es seguro compartir mis archivos de e.firma para realizar el trámite?"
+    answer: "Entendemos tu preocupación por la seguridad. Por eso implementamos protocolos estrictos de seguridad y confidencialidad. Solo utilizamos tus archivos para el trámite específico y no los almacenamos después de completado el servicio. También puedes optar por estar presente durante el proceso si lo prefieres."
+
+testimonials:
+  - quote: "Había perdido mi e.firma y tenía urgencia por renovarla para presentar declaraciones. Todoconta resolvió mi problema en tiempo récord y con total profesionalismo."
+    author: "Fernando Guzmán"
+    position: "Gerente Administrativo"
+    company: "Soluciones Industriales S.A. de C.V."
+  - quote: "Me explicaron claramente todo el proceso y me ayudaron incluso con la configuración en mi sistema de facturación. Un servicio completo que recomiendo ampliamente."
+    author: "Patricia Vega"
+    position: "Contadora Independiente"
+  - quote: "Como representante legal de varias empresas, necesitaba gestionar múltiples CSD. El equipo de Todoconta hizo el proceso muy sencillo y eficiente. Excelente servicio."
+    author: "Héctor Ramírez"
+    position: "Director Jurídico"
+    company: "Grupo Empresarial Mexicano"
+
+seoTitle: "Trámite de e.firma y CSD | Gestión Profesional de Certificados Digitales"
+seoDescription: "Servicio completo de obtención y renovación de e.firma y Certificado de Sello Digital (CSD) para facturación electrónica. Trámite rápido y seguro garantizado."
+seoKeywords: ["e.firma", "FIEL", "CSD", "certificado digital", "sello digital", "facturación electrónica", "SAT", "renovación e.firma", "firma electrónica", "trámites fiscales"]
+---

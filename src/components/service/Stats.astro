@@ -1,0 +1,110 @@
+---
+// src/components/service/Stats.astro
+export interface Props {
+  stats: Array<{
+    value: string;
+    label: string;
+    description?: string;
+  }>;
+}
+
+const { stats } = Astro.props;
+---
+
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-container">
+      {stats.map((stat, index) => (
+        <div class={`stat-card animate-fade-in-up delay-${200 + index * 100}`}>
+          <div class="stat-value">{stat.value}</div>
+          <div class="stat-label">{stat.label}</div>
+          {stat.description && <p class="stat-description">{stat.description}</p>}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .stats-section {
+    padding: var(--space-16) 0;
+    background-color: var(--primary-600);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .stats-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 20C15.5228 20 20 15.5228 20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20Z' fill='white' fill-opacity='0.1'/%3E%3C/svg%3E");
+    background-position: 0 0;
+    background-size: 40px 40px;
+    opacity: 0.3;
+    z-index: 1;
+  }
+  
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-8);
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+  }
+  
+  .stat-card {
+    text-align: center;
+    padding: var(--space-4);
+  }
+  
+  .stat-value {
+    font-family: var(--font-display);
+    font-size: var(--font-size-5xl);
+    font-weight: 800;
+    color: white;
+    margin-bottom: var(--space-2);
+    line-height: 1;
+  }
+  
+  .stat-label {
+    font-size: var(--font-size-lg);
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    margin-bottom: var(--space-3);
+  }
+  
+  .stat-description {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .stats-section {
+      padding: var(--space-12) 0;
+    }
+    
+    .stats-container {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+    
+    .stat-value {
+      font-size: var(--font-size-4xl);
+    }
+    
+    .stat-label {
+      font-size: var(--font-size-base);
+    }
+  }
+</style>

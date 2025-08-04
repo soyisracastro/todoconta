@@ -1,0 +1,283 @@
+---
+// src/components/service/PricingCard.astro
+export interface Props {
+  monthlyPrice: number;
+  yearlyPrice?: number;
+  savings?: string;
+  priceNote?: string;
+  featured?: boolean;
+  includedFeatures: Array<{
+    icon: string;
+    text: string;
+    included: boolean;
+  }>;
+  ctaText: string;
+  ctaUrl: string;
+}
+
+const { 
+  monthlyPrice,
+  yearlyPrice,
+  savings,
+  priceNote,
+  featured = false,
+  includedFeatures,
+  ctaText,
+  ctaUrl
+} = Astro.props;
+
+// Filtrar para mostrar solo las características incluidas
+const topFeatures = includedFeatures 
+  ? includedFeatures.filter(feature => feature.included)
+  : [];
+
+// Formatear los precios
+const formatPrice = (price: number) => {
+  return new Intl.NumberFormat('es-MX', {
+    style: 'currency',
+    currency: 'MXN',
+    maximumFractionDigits: 0
+  }).format(price);
+};
+
+const formattedMonthlyPrice = formatPrice(monthlyPrice);
+const formattedYearlyPrice = yearlyPrice ? formatPrice(yearlyPrice) : null;
+---
+
+<div class={`pricing-card animate-fade-in-up ${featured ? 'featured' : ''}`}>
+  <div class="pricing-options">
+    <div class="options-container">
+      <div class="option monthly active" data-option="monthly">
+        <div class="option-content">
+          <div class="option-title">Mensual</div>
+          <div class="option-price">{formattedMonthlyPrice}</div>
+        </div>
+      </div>
+      
+      {yearlyPrice && (
+        <div class="option yearly" data-option="yearly">
+          <div class="option-content">
+            <div class="option-title">
+              Anual 
+              {savings && <span class="option-savings">{savings}</span>}
+            </div>
+            <div class="option-price">{formattedYearlyPrice}</div>
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+  
+  {priceNote && (
+    <div class="price-note">{priceNote}</div>
+  )}
+  
+  <div class="features-container">
+    <h3 class="features-title">Incluye:</h3>
+    <ul class="features-list">
+      {topFeatures.map(feature => (
+        <li class="feature-item">
+          <span class="feature-icon">{feature.icon}</span>
+          <span class="feature-text">{feature.text}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+  
+  <a href={ctaUrl} class="cta-button">{ctaText}</a>
+  
+  <p class="guarantee">
+    <span class="guarantee-icon">🛡️</span>
+    <span class="guarantee-text">Garantía de satisfacción: Cubrimos el costo de multas por errores en nuestro servicio.</span>
+  </p>
+</div>
+
+<script>
+  // Script para cambiar entre opciones de precio mensual y anual
+  document.addEventListener('DOMContentLoaded', () => {
+    const options = document.querySelectorAll('.option');
+    
+    options.forEach(option => {
+      option.addEventListener('click', () => {
+        // Quitar clase active de todas las opciones
+        options.forEach(opt => {
+          opt.classList.remove('active');
+        });
+        
+        // Añadir clase active a la opción clickeada
+        option.classList.add('active');
+      });
+    });
+  });
+</script>
+
+<style>
+  .pricing-card {
+    background-color: white;
+    border-radius: var(--border-radius-2xl);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-6) var(--space-6) var(--space-8);
+    max-width: 500px;
+    margin: 0 auto;
+    border: 1px solid var(--neutral-200);
+    transition: transform var(--transition-normal);
+  }
+  
+  .pricing-card.featured {
+    border: 2px solid var(--primary-500);
+    transform: scale(1.02);
+  }
+  
+  .pricing-options {
+    margin-bottom: var(--space-6);
+  }
+  
+  .options-container {
+    display: flex;
+    background-color: var(--neutral-100);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-1);
+    gap: var(--space-1);
+    margin-bottom: var(--space-4);
+  }
+  
+  .option {
+    flex: 1;
+    padding: var(--space-3);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+  }
+  
+  .option.active {
+    background-color: white;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .option-content {
+    text-align: center;
+  }
+  
+  .option-title {
+    font-weight: 600;
+    color: var(--neutral-700);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  
+  .option-savings {
+    background-color: var(--green-100);
+    color: var(--green-700);
+    padding: 0 var(--space-2);
+    border-radius: var(--border-radius-full);
+    font-size: var(--font-size-xs);
+  }
+  
+  .option-price {
+    font-family: var(--font-display);
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--neutral-900);
+  }
+  
+  .price-note {
+    text-align: center;
+    color: var(--neutral-500);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-6);
+  }
+  
+  .features-container {
+    margin-bottom: var(--space-8);
+  }
+  
+  .features-title {
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--neutral-800);
+    margin-bottom: var(--space-4);
+    text-align: center;
+  }
+  
+  .features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-4);
+  }
+  
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+  
+  .feature-icon {
+    color: var(--green-600);
+    font-size: var(--font-size-lg);
+    flex-shrink: 0;
+  }
+  
+  .feature-text {
+    color: var(--neutral-700);
+    font-size: var(--font-size-base);
+  }
+  
+  .cta-button {
+    display: block;
+    width: 100%;
+    background-color: var(--primary-600);
+    color: white;
+    text-align: center;
+    padding: var(--space-4);
+    border-radius: var(--border-radius-lg);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: var(--font-size-lg);
+    text-decoration: none;
+    transition: all var(--transition-normal);
+    margin-bottom: var(--space-6);
+  }
+  
+  .cta-button:hover {
+    background-color: var(--primary-700);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .guarantee {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    background-color: var(--green-50);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--green-100);
+  }
+  
+  .guarantee-icon {
+    font-size: var(--font-size-xl);
+  }
+  
+  .guarantee-text {
+    font-size: var(--font-size-sm);
+    color: var(--green-800);
+  }
+  
+  @media (max-width: 768px) {
+    .features-list {
+      grid-template-columns: 1fr;
+    }
+    
+    .option-price {
+      font-size: var(--font-size-xl);
+    }
+  }
+</style>

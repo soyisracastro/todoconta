@@ -1,4 +1,5 @@
 ---
+// src/pages/landing/[product].astro
 import { getCollection, getEntry } from 'astro:content';
 import LandingLayout from '../../layouts/LandingLayout.astro';
 import Hero from '../../components/landing/Hero.astro';
@@ -8,12 +9,6 @@ import Pricing from '../../components/landing/Pricing.astro';
 import Demo from '../../components/landing/Demo.astro';
 import FAQ from '../../components/landing/FAQ.astro';
 import CTA from '../../components/landing/CTA.astro';
-
-// Importar los estilos globales
-import '../../styles/reset.css';
-import '../../styles/design-system.css';
-import '../../styles/global.css';
-import '../../styles/landing.css';
 
 // Genera rutas para cada producto
 export async function getStaticPaths() {
@@ -103,6 +98,12 @@ const keywords = [
   ...benefits.map(b => b.title),
   'Todoconta', 'software contable', 'herramientas fiscales'
 ];
+
+// Verificar que todas las propiedades necesarias estén disponibles
+const hasValidFeatures = features && Array.isArray(features) && features.length > 0;
+const hasValidBenefits = benefits && Array.isArray(benefits) && benefits.length > 0;
+const hasValidPricing = pricing && pricing.features && Array.isArray(pricing.features);
+const hasValidFaqs = faqs && Array.isArray(faqs) && faqs.length > 0;
 ---
 
 <LandingLayout 
@@ -115,20 +116,46 @@ const keywords = [
   <Hero {...heroProps} />
   
   <!-- Features Section -->
-  <Features {...featuresProps} />
+  {hasValidFeatures && <Features {...featuresProps} />}
   
   <!-- Benefits Section -->
-  <Benefits {...benefitsProps} />
+  {hasValidBenefits && <Benefits {...benefitsProps} />}
   
   <!-- Pricing Section -->
-  <Pricing {...pricingProps} />
+  {hasValidPricing && <Pricing {...pricingProps} />}
   
   <!-- Demo Section (if available) -->
   {demoProps && <Demo {...demoProps} />}
   
   <!-- FAQ Section (if available) -->
-  {faqs && faqs.length > 0 && <FAQ faqs={faqs} />}
+  {hasValidFaqs && <FAQ faqs={faqs} />}
   
   <!-- Call to Action -->
   <CTA {...ctaProps} />
 </LandingLayout>
+
+<style is:global>
+  /* Estilos adicionales específicos para esta página */
+  .landing-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+  }
+  
+  /* Animaciones */
+  .animate-fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .animate-fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .delay-100 { transition-delay: 100ms; }
+  .delay-200 { transition-delay: 200ms; }
+  .delay-300 { transition-delay: 300ms; }
+  .delay-400 { transition-delay: 400ms; }
+</style>

@@ -1,0 +1,108 @@
+---
+title: "Opinión de Cumplimiento Fiscal"
+description: "Gestión completa del trámite de opinión de cumplimiento de obligaciones fiscales (32-D) para licitaciones, contratos gubernamentales y operaciones comerciales que requieran acreditar tu situación fiscal ante terceros."
+shortDescription: "Gestión completa del trámite de opinión de cumplimiento (32-D) para licitaciones y contratos gubernamentales."
+icon: "✅"
+price: 1200
+priceNote: "desde"
+deliveryTime: "1-3 días hábiles"
+badge: "Urgente"
+featured: false
+heroImage: "/images/servicios/opinion-cumplimiento-fiscal.jpg"
+ctaText: "Solicitar Trámite"
+ctaUrl: "#contacto"
+secondaryCtaText: "Trámite Urgente"
+secondaryCtaUrl: "#contacto"
+
+benefits:
+  - title: "Respuesta Rápida"
+    description: "Obtenemos tu opinión positiva en el menor tiempo posible, ideal para requisitos urgentes de licitaciones o contratos."
+    icon: "⚡"
+  - title: "Verificación Preventiva"
+    description: "Detectamos y corregimos posibles inconsistencias antes de solicitar la opinión, evitando resultados negativos."
+    icon: "🔍"
+  - title: "Validez Garantizada"
+    description: "Nos aseguramos de que el documento cumpla con todos los requisitos legales y tenga plena validez ante cualquier instancia."
+    icon: "⚖️"
+  - title: "Asesoría Especializada"
+    description: "Te explicamos las implicaciones de la opinión obtenida y las acciones necesarias para mantener un estatus positivo."
+    icon: "👨‍💼"
+
+process:
+  - title: "Diagnóstico Inicial"
+    description: "Verificamos tu situación fiscal actual mediante una revisión preliminar de tu cumplimiento ante el SAT, IMSS e INFONAVIT."
+    icon: "📋"
+  - title: "Detección de Inconsistencias"
+    description: "Identificamos posibles problemas o incumplimientos que puedan generar una opinión negativa."
+    icon: "🔎"
+  - title: "Regularización Previa"
+    description: "Corregimos las inconsistencias detectadas para asegurar la obtención de una opinión positiva."
+    icon: "🔧"
+  - title: "Trámite de Opinión"
+    description: "Realizamos la solicitud formal de la opinión de cumplimiento ante las autoridades correspondientes."
+    icon: "📤"
+  - title: "Verificación y Validación"
+    description: "Comprobamos la autenticidad y validez del documento obtenido mediante los mecanismos oficiales."
+    icon: "✓"
+  - title: "Entrega y Asesoría"
+    description: "Te proporcionamos el documento final con explicaciones sobre su interpretación y periodo de vigencia."
+    icon: "📬"
+
+requirements:
+  - "e.firma (antes FIEL) vigente o Contraseña de acceso al portal del SAT"
+  - "RFC activo y actualizado"
+  - "Correo electrónico registrado ante el SAT"
+  - "Declaraciones mensuales y anuales al corriente"
+  - "Estar al día en pagos de impuestos federales"
+  - "No tener créditos fiscales firmes pendientes"
+  - "Contar con domicilio fiscal localizable y actualizado"
+  - "Para personas morales: estatus activo de obligaciones ante el IMSS e INFONAVIT"
+
+deliverables:
+  - "Opinión de Cumplimiento de Obligaciones Fiscales (32-D) en formato PDF con sello digital"
+  - "Verificación de autenticidad mediante código QR"
+  - "Reporte de estatus fiscal detallado"
+  - "Certificado de validez para presentación ante dependencias"
+  - "Guía de interpretación del documento"
+  - "Recomendaciones para mantener el estatus positivo"
+  - "Calendario de obligaciones fiscales pendientes (si aplica)"
+
+relatedServices:
+  - "regularizacion-fiscal"
+  - "tramite-efirma-csd"
+  - "cambio-regimen-fiscal"
+  - "inscripcion-rfc"
+  - "declaracion-anual-personas-fisicas"
+
+faqs:
+  - question: "¿Qué es la Opinión de Cumplimiento de Obligaciones Fiscales (32-D)?"
+    answer: "Es un documento oficial emitido por el SAT que indica si un contribuyente está al corriente en el cumplimiento de sus obligaciones fiscales federales. Este documento es identificado como '32-D' por el artículo del Código Fiscal de la Federación que lo regula. Es ampliamente solicitado para participar en licitaciones gubernamentales, obtener contratos públicos, realizar trámites bancarios, y como requisito entre empresas privadas para verificar la formalidad de sus proveedores."
+  - question: "¿Cuánto tiempo es válida la opinión de cumplimiento?"
+    answer: "La opinión de cumplimiento de obligaciones fiscales tiene una vigencia de 30 días naturales a partir de su emisión. Es importante verificar si la entidad que solicita el documento requiere una fecha de emisión específica, ya que algunas dependencias gubernamentales exigen que el documento tenga una antigüedad no mayor a cierto número de días al momento de presentarlo."
+  - question: "¿Qué significa una opinión negativa o con inconsistencias?"
+    answer: "Una opinión negativa indica que el SAT ha detectado incumplimientos en tus obligaciones fiscales, como declaraciones pendientes, omisión de pagos, créditos fiscales firmes, inconsistencias en tus datos de registro, o localización como contribuyente no localizado. Una opinión con observaciones señala que existen algunas inconsistencias menores que no impiden la obtención de una opinión positiva, pero que deben ser atendidas. En ambos casos, podemos ayudarte a identificar y resolver estos problemas."
+  - question: "¿Es posible obtener una opinión positiva si tengo adeudos fiscales?"
+    answer: "Si tienes adeudos fiscales pero estos se encuentran garantizados mediante algún medio permitido por el SAT (como un convenio de pago a plazos, fianza, embargo, etc.), es posible obtener una opinión positiva. También es posible si los adeudos están en proceso de impugnación y aún no están firmes. Nuestro servicio incluye la evaluación de tu situación particular y la recomendación de la mejor estrategia para cada caso."
+  - question: "¿Este documento incluye opinión del IMSS e INFONAVIT?"
+    answer: "El documento básico emitido por el SAT no incluye la situación ante el IMSS e INFONAVIT. Sin embargo, para ciertos trámites gubernamentales, se requiere la opinión de cumplimiento de estas tres instituciones. Como parte de nuestro servicio integral, podemos gestionar también las opiniones de cumplimiento ante el IMSS e INFONAVIT para ofrecerte una solución completa, según tus necesidades específicas."
+  - question: "¿Qué sucede si me niegan la opinión positiva de cumplimiento?"
+    answer: "Si te niegan la opinión positiva, primero identificaremos las causas específicas del rechazo. Estas pueden incluir declaraciones pendientes, pagos omitidos, discrepancias en datos registrales, entre otras. Una vez identificadas las causas, implementaremos un plan de regularización para solucionar cada inconsistencia, priorizando aquellas de mayor impacto o urgencia. Tras la regularización, solicitaremos nuevamente la opinión para verificar que todos los problemas han sido resueltos satisfactoriamente."
+
+testimonials:
+  - quote: "Necesitaba urgentemente la opinión positiva para participar en una licitación gubernamental. Todoconta resolvió algunas inconsistencias en mi situación fiscal y obtuve el documento en tiempo récord. Gracias a ellos, pude presentar mi propuesta a tiempo."
+    author: "Miguel Ángel Rojas"
+    position: "Director"
+    company: "Construcciones Modernas S.A. de C.V."
+  - quote: "Mi banco me solicitó la opinión de cumplimiento para un crédito empresarial y descubrí que tenía una opinión negativa por declaraciones pendientes. El equipo de Todoconta me ayudó a regularizar mi situación rápidamente y obtuve mi crédito sin problemas."
+    author: "Laura Sánchez"
+    position: "Propietaria"
+    company: "Distribuidora Industrial del Norte"
+  - quote: "Como proveedor de PEMEX, necesito presentar la opinión de cumplimiento regularmente. Todoconta no solo gestiona el trámite eficientemente, sino que me mantiene al tanto de mis obligaciones para evitar sorpresas. Un servicio verdaderamente preventivo."
+    author: "Javier Montiel"
+    position: "Gerente Administrativo"
+    company: "Servicios Petroleros Especializados"
+
+seoTitle: "Opinión de Cumplimiento Fiscal 32-D | Gestión de Trámite SAT"
+seoDescription: "Servicio profesional para obtener la Opinión de Cumplimiento de Obligaciones Fiscales (32-D) positiva. Gestión integral para licitaciones, contratos gubernamentales y trámites comerciales."
+seoKeywords: ["opinión de cumplimiento fiscal", "32-D", "licitaciones", "contratos gubernamentales", "SAT", "obligaciones fiscales", "trámites fiscales", "cumplimiento fiscal", "situación fiscal", "opinión positiva"]
+---

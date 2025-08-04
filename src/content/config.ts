@@ -31,115 +31,69 @@ const productsCollection = defineCollection({
 })
 
 const servicesCollection = defineCollection({
-    schema: z.object({
-        title: z.string(),
-        description: z.string(),
-        monthlyPrice: z.number(),
-        yearlyPrice: z.number().optional(),
-        savings: z.string().optional(),
-        currency: z.string().default('MXN'),
-        priceNote: z.string().optional(),
-        badge: z.string().optional(),
-        featured: z.boolean().default(false),
-        recommendedFor: z.string(),
-        heroImage: z.string().optional(),
-        ctaText: z.string().default('Contratar Ahora'),
-        ctaUrl: z.string(),
-        secondaryCtaText: z.string().optional(),
-        secondaryCtaUrl: z.string().optional(),
-        includedFeatures: z.array(z.object({
-          icon: z.string(),
-          text: z.string(),
-          included: z.boolean().default(true)
-        })),
-        categories: z.array(z.object({
-          title: z.string(),
-          features: z.array(z.object({
-            text: z.string(),
-            included: z.boolean(),
-            tooltip: z.string().optional()
-          }))
-        })),
-        testimonials: z.array(z.object({
-          quote: z.string(),
-          author: z.string(),
-          position: z.string().optional(),
-          company: z.string().optional(),
-          avatar: z.string().optional()
-        })).optional(),
-        faqs: z.array(z.object({
-          question: z.string(),
-          answer: z.string()
-        })).optional(),
-        process: z.array(z.object({
-          title: z.string(),
-          description: z.string(),
-          icon: z.string()
-        })).optional(),
-        stats: z.array(z.object({
-          value: z.string(),
-          label: z.string(),
-          description: z.string().optional()
-        })).optional()
-      })    
-})
-
-const infoCollection = defineCollection({
-    schema: z.object({
-        title: z.string(),
-        description: z.string(),
-        lastUpdated: z.date(),
-        heroImage: z.string().optional(),
-        badge: z.string().optional(),
-        seoKeywords: z.array(z.string()).optional(),
-        mainCta: z.object({
-          text: z.string(),
-          url: z.string()
-        }).optional(),
-        secondaryCta: z.object({
-          text: z.string(),
-          url: z.string()
-        }).optional(),
-        toc: z.boolean().default(true), // Tabla de contenidos
-        sections: z.array(z.object({
-          title: z.string(),
-          content: z.string(), // Contenido en Markdown
-          image: z.string().optional(),
-          callout: z.object({
-            type: z.enum(['info', 'warning', 'success', 'error']),
-            title: z.string().optional(),
-            content: z.string()
-          }).optional(),
-        })),
-        requirements: z.array(z.string()).optional(),
-        timeline: z.array(z.object({
-          title: z.string(),
-          description: z.string(),
-          duration: z.string().optional()
-        })).optional(),
-        faqs: z.array(z.object({
-          question: z.string(),
-          answer: z.string()
-        })).optional(),
-        relatedServices: z.array(z.string()).optional(), // Referencias a otros servicios
-        relatedInfo: z.array(z.string()).optional(), // Referencias a otras páginas informativas
-        downloadables: z.array(z.object({
-          title: z.string(),
-          description: z.string().optional(),
-          fileUrl: z.string(),
-          fileType: z.string().optional() // PDF, XLSX, etc.
-        })).optional(),
-        authorInfo: z.object({
-          name: z.string(),
-          title: z.string().optional(),
-          bio: z.string().optional(),
-          avatar: z.string().optional()
-        }).optional()
-      })    
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    shortDescription: z.string().optional(), // Descripción corta para listados
+    icon: z.string(), // Emoji o icono representativo
+    slug: z.string().optional(),
+    price: z.number().optional(), // Precio base del servicio (si aplica)
+    priceNote: z.string().optional(), // Nota sobre el precio (ej: "desde" o "por trámite")
+    deliveryTime: z.string().optional(), // Tiempo estimado de entrega
+    badge: z.string().optional(), // Badge opcional (ej: "Popular", "Nuevo")
+    featured: z.boolean().default(false),
+    heroImage: z.string().optional(),
+    ctaText: z.string().default('Solicitar Servicio'),
+    ctaUrl: z.string().default('#contacto'),
+    secondaryCtaText: z.string().optional(),
+    secondaryCtaUrl: z.string().optional(),
+    
+    // Características del servicio
+    benefits: z.array(z.object({
+      icon: z.string().optional(),
+      title: z.string(),
+      description: z.string()
+    })),
+    
+    // Proceso del servicio
+    process: z.array(z.object({
+      title: z.string(),
+      description: z.string(),
+      icon: z.string().optional()
+    })).optional(),
+    
+    // Requisitos para el servicio
+    requirements: z.array(z.string()).optional(),
+    
+    // Entregables
+    deliverables: z.array(z.string()).optional(),
+    
+    // Servicios relacionados
+    relatedServices: z.array(z.string()).optional(),
+    
+    // Preguntas frecuentes
+    faqs: z.array(z.object({
+      question: z.string(),
+      answer: z.string()
+    })).optional(),
+    
+    // Testimonios relacionados con este servicio
+    testimonials: z.array(z.object({
+      quote: z.string(),
+      author: z.string(),
+      position: z.string().optional(),
+      company: z.string().optional(),
+      avatar: z.string().optional()
+    })).optional(),
+    
+    // SEO
+    seoTitle: z.string().optional(),
+    seoDescription: z.string().optional(),
+    seoKeywords: z.array(z.string()).optional()
+  })
 })
 
 export const collections = {
     'products': productsCollection,
     'services': servicesCollection,
-    'info': infoCollection,
 }

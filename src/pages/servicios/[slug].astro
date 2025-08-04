@@ -1,20 +1,10 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 import ServiceLayout from '../../layouts/ServiceLayout.astro';
-import Hero from '../../components/service/Hero.astro';
-import Features from '../../components/service/Features.astro';
-import PricingCard from '../../components/service/PricingCard.astro';
-import Categories from '../../components/service/Categories.astro';
-import Testimonials from '../../components/service/Testimonials.astro';
-import Process from '../../components/service/Process.astro';
-import Stats from '../../components/service/Stats.astro';
-import FAQ from '../../components/service/FAQ.astro';
-import CTA from '../../components/service/CTA.astro';
 
 // Genera rutas para cada servicio
 export async function getStaticPaths() {
   const services = await getCollection('services');
-  
   return services.map(service => ({
     params: { slug: service.slug },
     props: { service }
@@ -25,87 +15,353 @@ const { service } = Astro.props;
 const { 
   title, 
   description, 
-  monthlyPrice, 
-  yearlyPrice,
-  savings,
+  icon,
+  price,
   priceNote,
+  deliveryTime,
   badge,
   featured,
-  recommendedFor,
   heroImage,
   ctaText,
   ctaUrl,
   secondaryCtaText,
   secondaryCtaUrl,
-  includedFeatures,
-  categories,
-  testimonials,
-  faqs,
-  process,
-  stats
+  benefits = [],
+  process = [],
+  requirements = [],
+  deliverables = [],
+  relatedServices = [],
+  faqs = [],
+  testimonials = []
 } = service.data;
+
+// Formatear el precio
+const formatPrice = (price) => {
+  return new Intl.NumberFormat('es-MX', {
+    style: 'currency',
+    currency: 'MXN',
+    maximumFractionDigits: 0
+  }).format(price || 0);
+};
+
+const formattedPrice = formatPrice(price);
+
+// Generar URL de placeholder para imágenes
+const getPlaceholderImage = (width, height, text) => {
+  return `https://placehold.co/${width}x${height}/075985/FFFFFF/png?text=${encodeURIComponent(text || 'Todoconta')}`;
+};
+
+const heroPlaceholder = getPlaceholderImage(800, 450, title);
+const testimonialPlaceholder = getPlaceholderImage(80, 80, 'TC');
+
+// Obtener servicios relacionados si existen
+let relatedServicesData = [];
+if (relatedServices && relatedServices.length > 0) {
+  const allServices = await getCollection('services');
+  relatedServicesData = relatedServices
+    .map(slug => allServices.find(s => s.slug === slug))
+    .filter(Boolean);
+}
 ---
 
 <ServiceLayout title={title} description={description}>
   <!-- Hero Section -->
-  <Hero
-    title={title}
-    description={description}
-    badge={badge}
-    recommendedFor={recommendedFor}
-    image={heroImage}
-    primaryCta={{text: ctaText, url: ctaUrl}}
-    secondaryCta={secondaryCtaText && secondaryCtaUrl ? {text: secondaryCtaText, url: secondaryCtaUrl} : null}
-    includedFeatures={includedFeatures}
-  />
-
-  <!-- Pricing Section -->
-  <section class="pricing-section">
+  <section class="hero">
     <div class="container">
-      <h2 class="section-title text-center">Inversión</h2>
-      <PricingCard
-        monthlyPrice={monthlyPrice}
-        yearlyPrice={yearlyPrice}
-        savings={savings}
-        priceNote={priceNote}
-        featured={featured}
-        includedFeatures={includedFeatures}
-        ctaText={ctaText}
-        ctaUrl={ctaUrl}
-      />
+      <div class="hero-content">
+        <div class="hero-text">
+          {badge && <div class="hero-badge">{badge}</div>}
+          <h1 class="hero-title">
+            {icon && <span class="hero-icon">{icon} </span>}
+            {title}
+          </h1>
+          <p class="hero-description">{description}</p>
+          
+          {(price || deliveryTime) && (
+            <div class="hero-details">
+              {price && (
+                <div class="hero-detail">
+                  <span class="detail-label">Precio:</span>
+                  <span class="detail-value">{formattedPrice} {priceNote && <small>{priceNote}</small>}</span>
+                </div>
+              )}
+              
+              {deliveryTime && (
+                <div class="hero-detail">
+                  <span class="detail-label">Tiempo de entrega:</span>
+                  <span class="detail-value">{deliveryTime}</span>
+                </div>
+              )}
+            </div>
+          )}
+          
+          <div class="hero-actions">
+            <a href={ctaUrl || "#contacto"} class="btn btn-primary">
+              {ctaText || "Solicitar Servicio"}
+            </a>
+            
+            {secondaryCtaText && secondaryCtaUrl && (
+              <a href={secondaryCtaUrl} class="btn btn-outline">
+                {secondaryCtaText}
+              </a>
+            )}
+          </div>
+        </div>
+        
+        <div class="hero-image">
+          <img src={heroImage || heroPlaceholder} alt={title}>
+        </div>
+      </div>
     </div>
   </section>
   
-  <!-- Categories Section -->
-  {categories && categories.length > 0 && (
-    <Categories categories={categories} />
-  )}
-  
-  <!-- Testimonials Section -->
-  {testimonials && testimonials.length > 0 && (
-    <Testimonials testimonials={testimonials} />
+  <!-- Benefits Section -->
+  {benefits && benefits.length > 0 && (
+    <section class="benefits section">
+      <div class="container">
+        <h2 class="section-title">Beneficios de Nuestro Servicio</h2>
+        <p class="section-subtitle">
+          Conoce las ventajas de nuestro servicio especializado
+        </p>
+        
+        <div class="benefits-grid">
+          {benefits.map(benefit => (
+            <div class="benefit-card">
+              {benefit.icon && <div class="benefit-icon">{benefit.icon}</div>}
+              <h3 class="benefit-title">{benefit.title}</h3>
+              <p class="benefit-description">{benefit.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   )}
   
   <!-- Process Section -->
   {process && process.length > 0 && (
-    <Process steps={process} />
+    <section class="process section" id="proceso">
+      <div class="container">
+        <h2 class="section-title">Nuestro Proceso</h2>
+        <p class="section-subtitle">
+          Conoce cómo trabajamos paso a paso
+        </p>
+        
+        <div class="process-steps">
+          {process.map((step, index) => (
+            <div class="process-step">
+              <div class="step-number">{index + 1}</div>
+              <div class="step-content">
+                {step.icon && <div class="step-icon">{step.icon}</div>}
+                <h3 class="step-title">{step.title}</h3>
+                <p class="step-description">{step.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   )}
   
-  <!-- Stats Section -->
-  {stats && stats.length > 0 && (
-    <Stats stats={stats} />
+  <!-- Requirements & Deliverables Section -->
+  {(requirements.length > 0 || deliverables.length > 0) && (
+    <section class="requirements-deliverables section" id="requisitos">
+      <div class="container">
+        <div class="requirements-deliverables-grid">
+          {requirements.length > 0 && (
+            <div class="requirements-card">
+              <h2 class="card-title">Requisitos</h2>
+              <p class="card-subtitle">Lo que necesitamos para iniciar el trámite</p>
+              
+              <ul class="requirements-list">
+                {requirements.map(requirement => (
+                  <li class="requirement-item">
+                    <span class="requirement-icon">📋</span>
+                    <span class="requirement-text">{requirement}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          
+          {deliverables.length > 0 && (
+            <div class="deliverables-card">
+              <h2 class="card-title">Entregables</h2>
+              <p class="card-subtitle">Lo que recibirás al finalizar el servicio</p>
+              
+              <ul class="deliverables-list">
+                {deliverables.map(deliverable => (
+                  <li class="deliverable-item">
+                    <span class="deliverable-icon">✅</span>
+                    <span class="deliverable-text">{deliverable}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  )}
+  
+  <!-- Testimonials Section -->
+  {testimonials && testimonials.length > 0 && (
+    <section class="testimonials section">
+      <div class="container">
+        <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+        <p class="section-subtitle">
+          Experiencias de quienes ya han contratado este servicio
+        </p>
+        
+        <div class="testimonials-grid">
+          {testimonials.map(testimonial => (
+            <div class="testimonial-card">
+              <div class="quote-icon">"</div>
+              <p class="testimonial-quote">{testimonial.quote}</p>
+              
+              <div class="testimonial-author">
+                <div class="author-avatar">
+                  <img 
+                    src={testimonial.avatar || testimonialPlaceholder} 
+                    alt={testimonial.author}
+                  >
+                </div>
+                
+                <div class="author-info">
+                  <h4 class="author-name">{testimonial.author}</h4>
+                  <p class="author-position">
+                    {testimonial.position}
+                    {testimonial.position && testimonial.company && ", "}
+                    {testimonial.company}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   )}
   
   <!-- FAQ Section -->
   {faqs && faqs.length > 0 && (
-    <FAQ faqs={faqs} />
+    <section class="faq section">
+      <div class="container">
+        <h2 class="section-title">Preguntas Frecuentes</h2>
+        <p class="section-subtitle">
+          Resolvemos tus dudas sobre este servicio
+        </p>
+        
+        <div class="faq-items">
+          {faqs.map((faq, index) => (
+            <div class="faq-item">
+              <button 
+                class="faq-question" 
+                aria-expanded={index === 0 ? "true" : "false"} 
+                type="button"
+              >
+                <span>{faq.question}</span>
+                <span class="question-icon">{index === 0 ? '−' : '+'}</span>
+              </button>
+              <div 
+                class="faq-answer" 
+                style={index === 0 ? "max-height: 1000px; padding-bottom: var(--space-4);" : "max-height: 0;"}
+              >
+                <p>{faq.answer}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   )}
   
-  <!-- Call to Action -->
-  <CTA
-    title={`¿Listo para comenzar con nuestro ${title}?`}
-    description="Contrata ahora y obtén el mejor servicio contable para tu negocio."
-    primaryCta={{text: ctaText, url: ctaUrl}}
-    secondaryCta={secondaryCtaText && secondaryCtaUrl ? {text: secondaryCtaText, url: secondaryCtaUrl} : null}
-  />
+  <!-- Related Services Section -->
+  {relatedServicesData.length > 0 && (
+    <section class="related-services section">
+      <div class="container">
+        <h2 class="section-title">Servicios Relacionados</h2>
+        <p class="section-subtitle">
+          Estos servicios pueden complementar tu trámite
+        </p>
+        
+        <div class="related-services-grid">
+          {relatedServicesData.map(relatedService => (
+            <a href={`/servicios/${relatedService.slug}`} class="related-service-card">
+              <div class="related-service-icon">
+                {relatedService.data.icon}
+              </div>
+              <h3 class="related-service-title">{relatedService.data.title}</h3>
+              <p class="related-service-description">
+                {relatedService.data.shortDescription || relatedService.data.description.substring(0, 120) + '...'}
+              </p>
+              <span class="related-service-link">Ver servicio →</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+  
+  <!-- CTA Section -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">¿Listo para contratar nuestro servicio de {title}?</h2>
+        <p class="cta-description">
+          Contáctanos hoy mismo y comienza el proceso. Estamos aquí para ayudarte.
+        </p>
+        
+        <div class="cta-actions">
+          <a href={ctaUrl || "#contacto"} class="btn btn-primary">
+            {ctaText || "Solicitar Servicio"}
+          </a>
+          
+          {secondaryCtaText && secondaryCtaUrl && (
+            <a href={secondaryCtaUrl} class="btn btn-outline">
+              {secondaryCtaText}
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <script slot="scripts">
+    document.addEventListener('DOMContentLoaded', () => {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const isExpanded = question.getAttribute('aria-expanded') === 'true';
+          const answer = question.nextElementSibling;
+          
+          // Cerrar todas las respuestas primero
+          faqQuestions.forEach(q => {
+            if (q !== question) {
+              q.setAttribute('aria-expanded', 'false');
+              q.nextElementSibling.style.maxHeight = '0';
+              // Actualizar el icono
+              const icon = q.querySelector('.question-icon');
+              if (icon) icon.textContent = '+';
+            }
+          });
+          
+          // Cambiar estado de la pregunta actual
+          question.setAttribute('aria-expanded', !isExpanded);
+          
+          // Actualizar altura máxima e icono
+          if (!isExpanded) {
+            // El valor 1000px es seguro para contener la mayoría de los textos
+            answer.style.maxHeight = '1000px';
+            const icon = question.querySelector('.question-icon');
+            if (icon) icon.textContent = '−';
+          } else {
+            answer.style.maxHeight = '0';
+            const icon = question.querySelector('.question-icon');
+            if (icon) icon.textContent = '+';
+          }
+        });
+      });
+    });
+  </script>
 </ServiceLayout>

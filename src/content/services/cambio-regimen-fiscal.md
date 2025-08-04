@@ -1,0 +1,105 @@
+---
+title: "Cambio de Régimen Fiscal"
+description: "Análisis y gestión completa para cambio de régimen fiscal con evaluación personalizada de opciones fiscales que maximicen tus beneficios y reduzcan tu carga tributaria según tu situación actual."
+shortDescription: "Análisis y gestión completa para cambio de régimen fiscal. Evaluamos la mejor opción para tu situación actual."
+icon: "🔄"
+price: 1800
+priceNote: "desde"
+deliveryTime: "5-7 días hábiles"
+badge: "Estratégico"
+featured: true
+heroImage: "/images/servicios/cambio-regimen-fiscal.jpg"
+ctaText: "Solicitar Servicio"
+ctaUrl: "#contacto"
+secondaryCtaText: "Agendar Asesoría"
+secondaryCtaUrl: "#contacto"
+
+benefits:
+  - title: "Optimización Fiscal"
+    description: "Identificamos el régimen que mejor se adapte a tu actividad económica para reducir legalmente tu carga tributaria."
+    icon: "💰"
+  - title: "Proyección Financiera"
+    description: "Realizamos un análisis comparativo entre tu régimen actual y las alternativas disponibles, calculando el impacto económico."
+    icon: "📊"
+  - title: "Cumplimiento Legal"
+    description: "Garantizamos que el cambio cumpla con todos los requisitos legales y normativas vigentes del SAT."
+    icon: "⚖️"
+  - title: "Gestión Completa"
+    description: "Nos encargamos de todo el proceso, desde el análisis hasta la presentación de avisos ante el SAT."
+    icon: "✅"
+
+process:
+  - title: "Diagnóstico Fiscal"
+    description: "Analizamos tu situación fiscal actual, ingresos, gastos y operaciones para identificar oportunidades de mejora."
+    icon: "🔍"
+  - title: "Evaluación de Alternativas"
+    description: "Presentamos diferentes opciones de regímenes fiscales aplicables a tu caso, con ventajas y desventajas de cada uno."
+    icon: "📋"
+  - title: "Proyección Comparativa"
+    description: "Calculamos el impacto económico de cada alternativa en términos de carga fiscal, obligaciones y beneficios."
+    icon: "💹"
+  - title: "Preparación de Documentación"
+    description: "Recopilamos y preparamos toda la documentación necesaria para el trámite de cambio."
+    icon: "📝"
+  - title: "Presentación de Avisos"
+    description: "Realizamos la gestión ante el SAT para formalizar el cambio de régimen fiscal."
+    icon: "🏢"
+  - title: "Implementación y Seguimiento"
+    description: "Te orientamos sobre las nuevas obligaciones fiscales y te acompañamos en la transición al nuevo régimen."
+    icon: "🤝"
+
+requirements:
+  - "Identificación oficial vigente (INE, pasaporte)"
+  - "Constancia de Situación Fiscal actual"
+  - "FIEL o e.firma vigente (en algunos casos)"
+  - "Declaraciones fiscales de los últimos 6 meses"
+  - "Estados de cuenta bancarios de los últimos 3 meses"
+  - "Registro de ingresos y gastos del periodo actual"
+  - "Comprobantes de deducciones importantes"
+
+deliverables:
+  - "Informe de análisis comparativo de regímenes fiscales"
+  - "Acuse de recepción del aviso de cambio de régimen"
+  - "Nueva Constancia de Situación Fiscal"
+  - "Calendario de obligaciones fiscales del nuevo régimen"
+  - "Guía personalizada de cumplimiento fiscal"
+  - "Recomendaciones para optimización fiscal futura"
+
+relatedServices:
+  - "inscripcion-rfc"
+  - "tramite-efirma-csd"
+  - "declaracion-anual-personas-fisicas"
+  - "planeacion-fiscal-estrategica"
+  - "regularizacion-fiscal"
+
+faqs:
+  - question: "¿Puedo cambiar de régimen fiscal en cualquier momento del año?"
+    answer: "No. Aunque hay regímenes que permiten el cambio en cualquier momento, la mayoría requiere que se realice durante enero del año en que surtirá efecto el cambio o dentro del mes siguiente al inicio de operaciones. Cada régimen tiene sus propias reglas, por lo que es importante realizar un análisis previo."
+  - question: "¿Tendré que presentar declaraciones complementarias por los periodos anteriores?"
+    answer: "En general, no es necesario presentar declaraciones complementarias por periodos anteriores si ya fueron presentadas correctamente bajo el régimen anterior. El cambio de régimen aplica para periodos futuros. Sin embargo, en casos específicos podría requerirse alguna regularización dependiendo de tu situación particular."
+  - question: "¿Cuál es el mejor régimen fiscal para mi negocio?"
+    answer: "No existe una respuesta única, ya que depende de muchos factores como: tipo de actividad, nivel de ingresos, gastos deducibles, si tienes empleados, proyecciones de crecimiento, entre otros. Por eso realizamos un análisis personalizado para recomendarte la mejor opción según tu situación específica."
+  - question: "¿Qué sucede si no cumplo con los requisitos para el régimen que me interesa?"
+    answer: "Si no cumples con los requisitos para un régimen específico, buscaremos alternativas viables para tu situación. Es importante cumplir con los requisitos establecidos, ya que el SAT puede rechazar tu cambio o, peor aún, reclasificarte posteriormente, lo que podría generar recargos y multas."
+  - question: "¿Debo dar de baja mi RFC actual para cambiar de régimen?"
+    answer: "No, no es necesario dar de baja tu RFC. El cambio de régimen es un trámite que mantiene el mismo RFC, solo modifica el régimen bajo el cual tributas y, consecuentemente, tus obligaciones fiscales."
+  - question: "¿El cambio de régimen afectará mis facturas emitidas anteriormente?"
+    answer: "No, las facturas emitidas bajo el régimen anterior seguirán siendo válidas. El cambio de régimen no afecta la validez de los CFDI previamente emitidos."
+
+testimonials:
+  - quote: "Estaba perdiendo dinero en el régimen equivocado. Gracias a la asesoría de Todoconta, cambié a un régimen que se adapta mejor a mi actividad y he reducido considerablemente mi carga fiscal de manera legal."
+    author: "Alejandra Gutiérrez"
+    position: "Consultora Independiente"
+  - quote: "El proceso fue muy claro y profesional. Me explicaron todas las opciones disponibles, los pros y contras, y me ayudaron a tomar la mejor decisión para mi empresa. Definitivamente recomiendo este servicio."
+    author: "Ricardo Méndez"
+    position: "Director General"
+    company: "Soluciones Tecnológicas MX"
+  - quote: "Mi anterior contador nunca me explicó que estaba en el régimen incorrecto. Con el cambio que realizó Todoconta, ahora pago menos impuestos y tengo menos obligaciones fiscales. Ha sido una excelente inversión."
+    author: "Mariana Torres"
+    position: "Propietaria"
+    company: "Boutique La Maison"
+
+seoTitle: "Cambio de Régimen Fiscal | Optimización Tributaria para Personas Físicas y Morales"
+seoDescription: "Servicio profesional de análisis y gestión para cambio de régimen fiscal. Evaluamos las mejores opciones para reducir legalmente tu carga tributaria según tu situación actual."
+seoKeywords: ["cambio régimen fiscal", "optimización fiscal", "tributación", "SAT", "RESICO", "personas físicas", "personas morales", "asesoría fiscal", "carga tributaria", "obligaciones fiscales"]
+---
