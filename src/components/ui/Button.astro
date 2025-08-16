@@ -8,25 +8,21 @@ const {
 } = Astro.props;
 
 const variantClasses = {
-  primary: "bg-primary-600 text-white hover:bg-primary-700 hover:shadow-primary",
-  secondary: "bg-green-600 text-white hover:bg-green-700 hover:shadow-green",
-  accent: "bg-orange-600 text-white hover:bg-orange-700 hover:shadow-orange",
-  outline: "bg-transparent border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white"
+  primary: "btn-primary",
+  secondary: "btn-secondary",
+  accent: "btn-accent",
+  outline: "btn-outline"
 };
 
 const sizeClasses = {
-  sm: "text-sm py-2 px-3",
-  default: "py-3 px-6",
-  lg: "text-lg py-4 px-8",
-  xl: "text-xl py-5 px-10 font-bold"
+  sm: "btn-sm",
+  default: "",
+  lg: "btn-lg",
+  xl: "btn-xl"
 };
 
 const classes = [
-  "inline-flex items-center justify-center",
-  "font-display font-semibold",
-  "rounded-md border-2 border-transparent",
-  "transition-all duration-300 ease-in-out",
-  "hover:transform hover:-translate-y-1",
+  "btn",
   variantClasses[variant],
   sizeClasses[size],
   className
@@ -44,15 +40,3 @@ const classes = [
     </button>
   )
 }
-
-<style>
-  .hover\:shadow-primary:hover {
-    box-shadow: 0 8px 25px rgba(2, 132, 199, 0.3);
-  }
-  .hover\:shadow-green:hover {
-    box-shadow: 0 8px 25px rgba(22, 163, 74, 0.3);
-  }
-  .hover\:shadow-orange:hover {
-    box-shadow: 0 8px 25px rgba(234, 88, 12, 0.3);
-  }
-</style>

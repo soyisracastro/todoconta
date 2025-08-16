@@ -130,7 +130,7 @@ const currentYear = new Date().getFullYear();
 
 <style>
   .footer {
-    background: var(--neutral-900);
+    background: var(--color-text-primary);
     color: white;
     padding: var(--space-20) 0 var(--space-8);
   }
@@ -158,8 +158,8 @@ const currentYear = new Date().getFullYear();
   }
 
   .newsletter-text h3 {
-    font-family: var(--font-display);
-    font-size: var(--font-size-2xl);
+    font-family: var(--font-secondary);
+    font-size: 1.5rem;
     font-weight: 700;
     color: white;
     margin-bottom: var(--space-3);
@@ -168,7 +168,7 @@ const currentYear = new Date().getFullYear();
   .newsletter-text p {
     color: rgba(255, 255, 255, 0.8);
     margin: 0;
-    font-size: var(--font-size-base);
+    font-size: 15px;
     line-height: 1.6;
   }
 
@@ -182,10 +182,10 @@ const currentYear = new Date().getFullYear();
     padding: var(--space-4);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: var(--border-radius-lg);
-    font-size: var(--font-size-base);
+    font-size: 15px;
     background: rgba(255, 255, 255, 0.1);
     color: white;
-    transition: all var(--transition-normal);
+    transition: all 0.2s ease;
   }
 
   .newsletter-input::placeholder {
@@ -194,28 +194,28 @@ const currentYear = new Date().getFullYear();
 
   .newsletter-input:focus {
     outline: none;
-    border-color: var(--primary-400);
-    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-light);
     background: rgba(255, 255, 255, 0.15);
   }
 
   .newsletter-button {
-    background: var(--orange-600);
-    color: white;
+    background: var(--color-warning);
+    color: var(--color-text-primary);
     border: none;
     padding: var(--space-4) var(--space-6);
     border-radius: var(--border-radius-lg);
     font-weight: 600;
     cursor: pointer;
-    transition: all var(--transition-normal);
+    transition: all 0.2s ease;
     white-space: nowrap;
-    font-family: var(--font-display);
+    font-family: var(--font-secondary);
   }
 
   .newsletter-button:hover {
-    background: var(--orange-700);
+    background: var(--color-warning);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(234, 88, 12, 0.3);
+    box-shadow: 0 8px 20px rgba(242, 204, 143, 0.3);
   }
 
   /* Main Footer Content */
@@ -227,8 +227,8 @@ const currentYear = new Date().getFullYear();
   }
 
   .footer-section h3 {
-    font-family: var(--font-display);
-    font-size: var(--font-size-lg);
+    font-family: var(--font-secondary);
+    font-size: 1.125rem;
     font-weight: 700;
     color: white;
     margin-bottom: var(--space-4);
@@ -243,7 +243,7 @@ const currentYear = new Date().getFullYear();
     left: 0;
     width: 40px;
     height: 2px;
-    background: var(--primary-500);
+    background: var(--color-primary);
     border-radius: 1px;
   }
 
@@ -251,7 +251,7 @@ const currentYear = new Date().getFullYear();
     color: rgba(255, 255, 255, 0.8);
     line-height: 1.6;
     margin-bottom: var(--space-6);
-    font-size: var(--font-size-sm);
+    font-size: 14px;
   }
 
   .footer-links {
@@ -263,15 +263,15 @@ const currentYear = new Date().getFullYear();
   .footer-link {
     color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
-    transition: all var(--transition-normal);
+    transition: all 0.2s ease;
     padding: var(--space-1) 0;
-    font-size: var(--font-size-sm);
+    font-size: 14px;
     display: flex;
     align-items: center;
   }
 
   .footer-link:hover {
-    color: var(--primary-400);
+    color: var(--color-primary);
     transform: translateX(var(--space-2));
   }
 
@@ -291,14 +291,14 @@ const currentYear = new Date().getFullYear();
     border-radius: var(--border-radius-lg);
     color: white;
     text-decoration: none;
-    font-size: var(--font-size-lg);
-    transition: all var(--transition-normal);
+    font-size: 1.125rem;
+    transition: all 0.2s ease;
   }
 
   .social-link:hover {
-    background: var(--primary-600);
+    background: var(--color-primary);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
+    box-shadow: 0 8px 20px rgba(61, 64, 91, 0.3);
   }
 
   /* Copyright Section */
@@ -314,7 +314,7 @@ const currentYear = new Date().getFullYear();
 
   .footer-copyright {
     color: rgba(255, 255, 255, 0.6);
-    font-size: var(--font-size-sm);
+    font-size: 14px;
   }
 
   .footer-legal {
@@ -325,12 +325,12 @@ const currentYear = new Date().getFullYear();
   .footer-legal a {
     color: rgba(255, 255, 255, 0.6);
     text-decoration: none;
-    font-size: var(--font-size-sm);
-    transition: color var(--transition-normal);
+    font-size: 14px;
+    transition: color 0.2s ease;
   }
 
   .footer-legal a:hover {
-    color: var(--primary-400);
+    color: var(--color-primary);
   }
 
   /* Responsive Styles */

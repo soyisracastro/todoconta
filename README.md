@@ -36,17 +36,20 @@ Todoconta es un sitio web moderno y profesional desarrollado con **Astro** que p
 ### Pasos de Instalación
 
 1. **Clonar el repositorio**
+
    ```bash
    git clone https://github.com/iscasur/todoconta.git
    cd todoconta
    ```
 
 2. **Instalar dependencias**
+
    ```bash
    npm install
    ```
 
 3. **Ejecutar en modo desarrollo**
+
    ```bash
    npm run dev
    ```
@@ -115,42 +118,49 @@ El proyecto utiliza un sistema de diseño personalizado con:
 
 ```css
 /* Colores principales */
---primary-600: #2563eb
+--color-primary: #2563eb
 --green-600: #16a34a
 --orange-600: #ea580c
---neutral-900: #111827
+--color-text-primary: #111827
 ```
 
 ## 📱 Secciones del Sitio
 
 ### 1. **Hero Section**
+
 - Título principal con call-to-action
 - Estadísticas de la empresa
 - Mockup del dashboard IA
 - Animaciones de entrada
 
 ### 2. **Value Props**
+
 - Beneficios principales del servicio
 - Garantías y promesas de valor
 
 ### 3. **Services**
+
 - Planes de servicio (Básico, Premium, Empresarial)
 - Precios y características detalladas
 - Comparación visual entre planes
 
 ### 4. **Online Advice**
+
 - Servicios de asesoría en línea
 - Horarios y disponibilidad
 
 ### 5. **AI Automation**
+
 - Características de automatización con IA
 - Beneficios tecnológicos
 
 ### 6. **Stats**
+
 - Estadísticas de la empresa
 - Métricas de éxito
 
 ### 7. **Call to Action**
+
 - Formularios de contacto
 - Información de contacto
 
@@ -165,6 +175,7 @@ El proyecto utiliza un sistema de diseño personalizado con:
 ### Modificar Estilos
 
 Los estilos se organizan en:
+
 - `design-system.css` - Variables y sistema de diseño
 - `global.css` - Estilos globales
 - `reset.css` - Reset de CSS
@@ -172,6 +183,7 @@ Los estilos se organizan en:
 ### Animaciones
 
 El sitio utiliza animaciones CSS con:
+
 - `fade-in-up` - Entrada desde abajo
 - `fade-in-left` - Entrada desde la izquierda
 - `scale-in` - Escalado suave
@@ -179,12 +191,14 @@ El sitio utiliza animaciones CSS con:
 ## 📈 Optimización
 
 ### Performance
+
 - **Build estático** con Astro
 - **CSS optimizado** sin frameworks pesados
 - **Imágenes optimizadas** en formato SVG
 - **Lazy loading** para animaciones
 
 ### SEO
+
 - Meta tags optimizados
 - Estructura semántica HTML
 - Open Graph tags
@@ -193,18 +207,21 @@ El sitio utiliza animaciones CSS con:
 ## 🚀 Despliegue
 
 ### Netlify
+
 ```bash
 npm run build
 # Subir carpeta dist/ a Netlify
 ```
 
 ### Vercel
+
 ```bash
 npm run build
 # Conectar repositorio a Vercel
 ```
 
 ### GitHub Pages
+
 ```bash
 npm run build
 # Configurar GitHub Actions para deploy
