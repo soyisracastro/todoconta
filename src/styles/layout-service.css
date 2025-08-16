@@ -127,7 +127,7 @@
 }
 
 .pricing-card.featured {
-  border: 2px solid var(--primary-500);
+  border: 2px solid var(--color-border-light);
 }
 
 .pricing-card.featured::before {
@@ -137,7 +137,11 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--primary-500), var(--primary-700));
+  background: linear-gradient(
+    90deg,
+    var(--color-border-light),
+    var(--primary-700)
+  );
 }
 
 .pricing-title {
@@ -208,7 +212,7 @@
 
 /* Testimonials Section */
 .testimonials {
-  background-color: var(--primary-50);
+  background-color: var(--color-background-alt);
   padding: var(--space-16) 0;
 }
 

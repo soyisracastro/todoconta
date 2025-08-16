@@ -89,7 +89,7 @@ button {
 
 /* Focus styles for accessibility */
 :focus-visible {
-  outline: 2px solid var(--primary-500, #0ea5e9);
+  outline: 2px solid var(--color-border-light, #0ea5e9);
   outline-offset: 2px;
 }
 
@@ -190,16 +190,18 @@ textarea {
 
 /* Prevent zooming on focus for mobile */
 @media (max-width: 768px) {
-  input, select, textarea {
+  input,
+  select,
+  textarea {
     font-size: 16px;
   }
 }
 
 /* Consistent default button styling */
 button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
+[type='button'],
+[type='reset'],
+[type='submit'] {
   -webkit-appearance: button;
 }
 
@@ -239,7 +241,7 @@ a {
   .hide-on-mobile {
     display: none;
   }
-  
+
   .show-on-mobile {
     display: initial;
   }

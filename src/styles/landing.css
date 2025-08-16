@@ -165,7 +165,7 @@
 }
 
 .feature-icon {
-  background-color: var(--primary-50);
+  background-color: var(--color-background-alt);
   color: var(--color-primary);
   width: 50px;
   height: 50px;
@@ -193,7 +193,7 @@
 
 /* Benefits Section */
 .benefits-section {
-  background-color: var(--primary-50);
+  background-color: var(--color-background-alt);
   padding: var(--space-16) 0;
   border-radius: var(--border-radius-3xl);
   margin-bottom: var(--space-16);
@@ -263,7 +263,11 @@
   left: 0;
   right: 0;
   height: 6px;
-  background: linear-gradient(90deg, var(--primary-500), var(--green-500));
+  background: linear-gradient(
+    90deg,
+    var(--color-border-light),
+    var(--green-500)
+  );
 }
 
 .price-title {
