@@ -61,7 +61,7 @@ const services = await getCollection('services');
 <style>
   /* Hero Section */
   .services-hero {
-    background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-800) 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-text-primary) 100%);
     color: white;
     padding: var(--space-16) 0;
     text-align: center;
@@ -70,6 +70,7 @@ const services = await getCollection('services');
   .hero-title {
     font-size: var(--font-size-5xl);
     font-weight: 800;
+    color: white;
     margin-bottom: var(--space-6);
   }
   
@@ -122,21 +123,21 @@ const services = await getCollection('services');
   }
   
   .service-title {
-    font-family: var(--font-display);
+    font-family: var(--font-secondary);
     font-size: var(--font-size-xl);
     font-weight: 600;
-    color: var(--neutral-900);
+    color: var(--color-text-primary);
     margin-bottom: var(--space-2);
   }
   
   .service-description {
-    color: var(--neutral-600);
+    color: var(--color-text-secondary);
     margin-bottom: var(--space-4);
     flex-grow: 1;
   }
   
   .service-link {
-    color: var(--primary-600);
+    color: var(--color-primary);
     font-weight: 600;
     font-size: var(--font-size-sm);
     display: inline-block;
@@ -149,7 +150,7 @@ const services = await getCollection('services');
   
   /* Contact CTA */
   .contact-cta {
-    background-color: var(--neutral-50);
+    background-color: var(--color-white);
     padding: var(--space-16) 0;
     text-align: center;
   }
@@ -162,13 +163,13 @@ const services = await getCollection('services');
   .cta-title {
     font-size: var(--font-size-3xl);
     font-weight: 700;
-    color: var(--neutral-900);
+    color: var(--color-text-primary);
     margin-bottom: var(--space-4);
   }
   
   .cta-description {
     font-size: var(--font-size-lg);
-    color: var(--neutral-600);
+    color: var(--color-text-secondary);
     margin-bottom: var(--space-8);
   }
   

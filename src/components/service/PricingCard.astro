@@ -119,12 +119,12 @@ const formattedYearlyPrice = yearlyPrice ? formatPrice(yearlyPrice) : null;
     padding: var(--space-6) var(--space-6) var(--space-8);
     max-width: 500px;
     margin: 0 auto;
-    border: 1px solid var(--neutral-200);
+    border: 1px solid var(--color-primary-light);
     transition: transform var(--transition-normal);
   }
   
   .pricing-card.featured {
-    border: 2px solid var(--primary-500);
+    border: 2px solid var(--color-border-light);
     transform: scale(1.02);
   }
   
@@ -160,7 +160,7 @@ const formattedYearlyPrice = yearlyPrice ? formatPrice(yearlyPrice) : null;
   
   .option-title {
     font-weight: 600;
-    color: var(--neutral-700);
+    color: var(--color-text-primary);
     font-size: var(--font-size-sm);
     margin-bottom: var(--space-1);
     display: flex;
@@ -178,15 +178,15 @@ const formattedYearlyPrice = yearlyPrice ? formatPrice(yearlyPrice) : null;
   }
   
   .option-price {
-    font-family: var(--font-display);
+    font-family: var(--font-secondary);
     font-size: var(--font-size-2xl);
     font-weight: 700;
-    color: var(--neutral-900);
+    color: var(--color-text-primary);
   }
   
   .price-note {
     text-align: center;
-    color: var(--neutral-500);
+    color: var(--color-white);
     font-size: var(--font-size-sm);
     margin-bottom: var(--space-6);
   }
@@ -196,7 +196,7 @@ const formattedYearlyPrice = yearlyPrice ? formatPrice(yearlyPrice) : null;
   }
   
   .features-title {
-    font-family: var(--font-display);
+    font-family: var(--font-secondary);
     font-size: var(--font-size-lg);
     font-weight: 600;
     color: var(--neutral-800);
@@ -220,25 +220,25 @@ const formattedYearlyPrice = yearlyPrice ? formatPrice(yearlyPrice) : null;
   }
   
   .feature-icon {
-    color: var(--green-600);
+    color: var(--color-primary);
     font-size: var(--font-size-lg);
     flex-shrink: 0;
   }
   
   .feature-text {
-    color: var(--neutral-700);
+    color: var(--color-text-primary);
     font-size: var(--font-size-base);
   }
   
   .cta-button {
     display: block;
     width: 100%;
-    background-color: var(--primary-600);
+    background-color: var(--color-primary);
     color: white;
     text-align: center;
     padding: var(--space-4);
     border-radius: var(--border-radius-lg);
-    font-family: var(--font-display);
+    font-family: var(--font-secondary);
     font-weight: 600;
     font-size: var(--font-size-lg);
     text-decoration: none;
@@ -256,7 +256,7 @@ const formattedYearlyPrice = yearlyPrice ? formatPrice(yearlyPrice) : null;
     display: flex;
     align-items: center;
     gap: var(--space-3);
-    background-color: var(--green-50);
+    background-color: var(--color-primary-light);
     padding: var(--space-3) var(--space-4);
     border-radius: var(--border-radius-lg);
     border: 1px solid var(--green-100);

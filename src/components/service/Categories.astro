@@ -58,16 +58,16 @@ const { categories } = Astro.props;
   }
   
   .section-title {
-    font-family: var(--font-display);
+    font-family: var(--font-secondary);
     font-size: var(--font-size-3xl);
     font-weight: 700;
-    color: var(--neutral-900);
+    color: var(--color-text-primary);
     margin-bottom: var(--space-4);
   }
   
   .section-subtitle {
     font-size: var(--font-size-lg);
-    color: var(--neutral-600);
+    color: var(--color-text-secondary);
     max-width: 700px;
     margin: 0 auto var(--space-12);
   }
@@ -79,22 +79,22 @@ const { categories } = Astro.props;
   }
   
   .category-card {
-    background-color: var(--neutral-50);
+    background-color: var(--color-white);
     border-radius: var(--border-radius-xl);
     padding: var(--space-6);
     box-shadow: var(--shadow-md);
-    border: 1px solid var(--neutral-200);
+    border: 1px solid var(--color-primary-light);
     height: 100%;
   }
   
   .category-title {
-    font-family: var(--font-display);
+    font-family: var(--font-secondary);
     font-size: var(--font-size-xl);
     font-weight: 600;
-    color: var(--neutral-900);
+    color: var(--color-text-primary);
     padding-bottom: var(--space-3);
     margin-bottom: var(--space-5);
-    border-bottom: 1px solid var(--neutral-200);
+    border-bottom: 1px solid var(--color-primary-light);
   }
   
   .category-features {
@@ -108,7 +108,7 @@ const { categories } = Astro.props;
     align-items: flex-start;
     margin-bottom: var(--space-3);
     padding-bottom: var(--space-3);
-    border-bottom: 1px dashed var(--neutral-200);
+    border-bottom: 1px dashed var(--color-primary-light);
   }
   
   .feature-item:last-child {
@@ -132,16 +132,16 @@ const { categories } = Astro.props;
   
   .feature-item.included .feature-icon {
     background-color: var(--green-100);
-    color: var(--green-600);
+    color: var(--color-primary);
   }
   
   .feature-item.excluded .feature-icon {
-    background-color: var(--neutral-200);
-    color: var(--neutral-500);
+    background-color: var(--color-primary-light);
+    color: var(--color-white);
   }
   
   .feature-text {
-    color: var(--neutral-700);
+    color: var(--color-text-primary);
     font-size: var(--font-size-base);
     position: relative;
     display: flex;
@@ -150,7 +150,7 @@ const { categories } = Astro.props;
   }
   
   .feature-item.excluded .feature-text {
-    color: var(--neutral-500);
+    color: var(--color-white);
     text-decoration: line-through;
   }
   
@@ -166,8 +166,8 @@ const { categories } = Astro.props;
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background-color: var(--primary-100);
-    color: var(--primary-600);
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
     font-size: var(--font-size-xs);
     font-style: italic;
     font-weight: bold;

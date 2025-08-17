@@ -4,7 +4,7 @@
 /* Hero Section */
 .hero {
   padding: var(--space-16) 0;
-  background-color: var(--neutral-50);
+  background-color: var(--color-white);
   position: relative;
   overflow: hidden;
 }
@@ -18,7 +18,7 @@
 
 .hero-badge {
   display: inline-block;
-  background-color: var(--primary-600);
+  background-color: var(--color-primary);
   color: white;
   font-size: 0.75rem;
   font-weight: 600;
@@ -30,7 +30,7 @@
 }
 
 .hero-description {
-  color: var(--neutral-600);
+  color: var(--color-text-secondary);
   margin-bottom: var(--space-6);
   font-size: 1.125rem;
 }
@@ -40,7 +40,7 @@
   padding: var(--space-4);
   border-radius: var(--border-radius-lg);
   margin-bottom: var(--space-6);
-  border: 1px solid var(--neutral-200);
+  border: 1px solid var(--color-primary-light);
 }
 
 .hero-recommended strong {
@@ -68,7 +68,7 @@
 
 /* Pricing Section */
 .pricing {
-  background-color: var(--neutral-50);
+  background-color: var(--color-white);
   padding: var(--space-16) 0;
   position: relative;
   overflow: hidden;
@@ -92,7 +92,7 @@
   display: flex;
   max-width: 300px;
   margin: 0 auto var(--space-10);
-  border: 1px solid var(--neutral-200);
+  border: 1px solid var(--color-primary-light);
 }
 
 .pricing-option {
@@ -106,7 +106,7 @@
 }
 
 .pricing-option.active {
-  background-color: var(--primary-600);
+  background-color: var(--color-primary);
   color: white;
 }
 
@@ -127,7 +127,7 @@
 }
 
 .pricing-card.featured {
-  border: 2px solid var(--primary-500);
+  border: 2px solid var(--color-border-light);
 }
 
 .pricing-card.featured::before {
@@ -137,7 +137,11 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--primary-500), var(--primary-700));
+  background: linear-gradient(
+    90deg,
+    var(--color-border-light),
+    var(--primary-700)
+  );
 }
 
 .pricing-title {
@@ -146,7 +150,7 @@
 }
 
 .pricing-amount {
-  font-family: var(--font-display);
+  font-family: var(--font-secondary);
   font-size: 3rem;
   font-weight: 800;
   color: var(--primary-700);
@@ -156,7 +160,7 @@
 
 .pricing-period {
   text-align: center;
-  color: var(--neutral-500);
+  color: var(--color-white);
   margin-bottom: var(--space-6);
 }
 
@@ -171,7 +175,7 @@
   gap: var(--space-3);
   margin-bottom: var(--space-3);
   padding-bottom: var(--space-3);
-  border-bottom: 1px dashed var(--neutral-200);
+  border-bottom: 1px dashed var(--color-primary-light);
 }
 
 .feature-item:last-child {
@@ -181,21 +185,21 @@
 }
 
 .feature-icon {
-  color: var(--green-500);
+  color: var(--color-primary);
   flex-shrink: 0;
   font-size: 1.25rem;
 }
 
 .cta-button {
   display: block;
-  background-color: var(--primary-600);
+  background-color: var(--color-primary);
   color: white;
   text-align: center;
   padding: var(--space-4);
   border-radius: var(--border-radius-lg);
   font-weight: 600;
   font-size: 1.125rem;
-  font-family: var(--font-display);
+  font-family: var(--font-secondary);
   transition: all 0.2s;
 }
 
@@ -208,7 +212,7 @@
 
 /* Testimonials Section */
 .testimonials {
-  background-color: var(--primary-50);
+  background-color: var(--color-background-alt);
   padding: var(--space-16) 0;
 }
 
@@ -219,7 +223,7 @@
 
 /* Stats Section */
 .stats {
-  background-color: var(--primary-600);
+  background-color: var(--color-primary);
   color: white;
   padding: var(--space-12) 0;
 }
@@ -236,7 +240,11 @@
 
 /* CTA Section */
 .cta {
-  background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-800) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--primary-800) 100%
+  );
   color: white;
   padding: var(--space-16) 0;
   text-align: center;
@@ -285,7 +293,7 @@
   .hero-content {
     grid-template-columns: 1fr;
   }
-  
+
   .hero-image {
     order: -1;
     max-width: 500px;
@@ -297,21 +305,21 @@
   .hero-actions {
     flex-direction: column;
   }
-  
+
   .btn {
     width: 100%;
   }
-  
+
   .cta-actions {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .cta-actions .btn {
     width: 100%;
     max-width: 300px;
   }
-  
+
   .cta-title {
     font-size: 2rem;
   }

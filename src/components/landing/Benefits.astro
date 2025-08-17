@@ -13,7 +13,7 @@ const {
   title = "Beneficios",
   subtitle = "Descubre las ventajas que obtendrás con nuestro producto",
   benefits,
-  bgColor = "var(--primary-50)"
+  bgColor = "var(--color-background-alt)"
 } = Astro.props;
 ---
 
@@ -40,7 +40,7 @@ const {
 
 <style>
   .benefits-section {
-    background-color: var(--benefits-bg-color, var(--primary-50));
+    background-color: var(--benefits-bg-color, var(--color-background-alt));
     padding: var(--space-16) 0;
     border-radius: var(--border-radius-3xl);
     margin: var(--space-16) 0;
@@ -53,16 +53,16 @@ const {
   }
   
   .section-title {
-    font-family: var(--font-display);
+    font-family: var(--font-secondary);
     font-size: var(--font-size-3xl);
     font-weight: 700;
-    color: var(--neutral-900);
+    color: var(--color-text-primary);
     margin-bottom: var(--space-4);
   }
   
   .section-subtitle {
     font-size: var(--font-size-lg);
-    color: var(--neutral-600);
+    color: var(--color-text-secondary);
     max-width: 700px;
     margin: 0 auto;
   }
@@ -90,7 +90,7 @@ const {
   }
   
   .benefit-check {
-    background-color: var(--green-500);
+    background-color: var(--color-primary);
     color: white;
     min-width: 28px;
     height: 28px;
@@ -109,14 +109,14 @@ const {
   
   .benefit-title {
     font-weight: 600;
-    color: var(--neutral-900);
+    color: var(--color-text-primary);
     margin-bottom: var(--space-1);
-    font-family: var(--font-display);
+    font-family: var(--font-secondary);
     font-size: var(--font-size-lg);
   }
   
   .benefit-description {
-    color: var(--neutral-600);
+    color: var(--color-text-secondary);
     margin: 0;
   }
   

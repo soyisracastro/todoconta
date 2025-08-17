@@ -20,7 +20,7 @@ const {
   badge,
   primaryCta,
   secondaryCta,
-  image = "https://placehold.co/800x450/075985/FFFFFF/png?text=Product+Image"
+  image = "https://placehold.co/800x450/3D405B/FFFFFF/png?text=Product+Image"
 } = Astro.props;
 ---
 
@@ -46,11 +46,11 @@ const {
 <style>
   .hero {
     position: relative;
-    background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-800) 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
     color: white;
     padding: var(--space-16) 0;
     overflow: hidden;
-    border-radius: 0 0 var(--border-radius-3xl) var(--border-radius-3xl);
+    border-radius: 0 0 var(--border-radius-xl) var(--border-radius-xl);
   }
 
   .hero::before {
@@ -80,25 +80,25 @@ const {
     display: inline-block;
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
-    border-radius: var(--border-radius-full);
+    border-radius: 9999px;
     padding: var(--space-2) var(--space-4);
     font-weight: 600;
-    font-size: var(--font-size-sm);
+    font-size: 14px;
     color: white;
     margin-bottom: var(--space-6);
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .hero-title {
-    font-family: var(--font-display);
-    font-size: var(--font-size-5xl);
+    font-family: var(--font-secondary);
+    font-size: 3rem;
     font-weight: 800;
     margin-bottom: var(--space-6);
     line-height: 1.1;
   }
 
   .hero-subtitle {
-    font-size: var(--font-size-xl);
+    font-size: 1.25rem;
     margin-bottom: var(--space-8);
     max-width: 600px;
     opacity: 0.9;
@@ -114,11 +114,11 @@ const {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--font-display);
+    font-family: var(--font-secondary);
     font-weight: 600;
     padding: var(--space-4) var(--space-8);
     border-radius: var(--border-radius-lg);
-    transition: all var(--transition-normal);
+    transition: all 0.2s ease;
     text-decoration: none;
     cursor: pointer;
     border: none;
@@ -126,7 +126,7 @@ const {
 
   .btn-primary {
     background-color: white;
-    color: var(--primary-700);
+    color: var(--color-primary-hover);
   }
 
   .btn-primary:hover {
@@ -154,8 +154,8 @@ const {
   }
 
   .hero-image {
-    border-radius: var(--border-radius-2xl);
-    box-shadow: var(--shadow-xl);
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-lg);
     border: 1px solid rgba(0, 0, 0, 0.1);
     width: 100%;
     height: auto;
@@ -181,11 +181,11 @@ const {
   /* Responsive */
   @media (max-width: 768px) {
     .hero-title {
-      font-size: var(--font-size-4xl);
+      font-size: 2.25rem;
     }
 
     .hero-subtitle {
-      font-size: var(--font-size-lg);
+      font-size: 1.125rem;
     }
 
     .hero-buttons {
@@ -202,7 +202,7 @@ const {
     }
     
     .hero {
-      border-radius: 0 0 var(--border-radius-2xl) var(--border-radius-2xl);
+      border-radius: 0 0 var(--border-radius-xl) var(--border-radius-xl);
     }
   }
 </style>
