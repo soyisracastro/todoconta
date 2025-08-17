@@ -49,7 +49,7 @@ const {
       :root {
           /* Primary Brand Colors */
           --color-background-alt: #f0f9ff;
-          --primary-100: #e0f2fe;
+          --color-primary-light: #e0f2fe;
           --primary-200: #bae6fd;
           --primary-300: #7dd3fc;
           --primary-400: #38bdf8;
@@ -60,12 +60,12 @@ const {
           --primary-900: #0c4a6e;
 
           /* Green Financial */
-          --green-50: #f0fdf4;
+          --color-primary-light: #f0fdf4;
           --green-100: #dcfce7;
           --green-200: #bbf7d0;
           --green-300: #86efac;
           --green-400: #4ade80;
-          --green-500: #22c55e;
+          --color-primary: #22c55e;
           --green-600: #16a34a;
           --green-700: #15803d;
           --green-800: #166534;
@@ -74,11 +74,11 @@ const {
           /* Orange Energetic */
           --orange-50: #fff7ed;
           --orange-100: #ffedd5;
-          --orange-200: #fed7aa;
+          --color-primary: #fed7aa;
           --orange-300: #fdba74;
           --orange-400: #fb923c;
           --orange-500: #f97316;
-          --orange-600: #ea580c;
+          --color-primary: #ea580c;
           --orange-700: #c2410c;
           --orange-800: #9a3412;
           --orange-900: #7c2d12;
@@ -86,12 +86,12 @@ const {
           /* Warm Neutrals */
           --color-white: #fafaf9;
           --neutral-100: #f5f5f4;
-          --neutral-200: #e7e5e4;
+          --color-primary-light: #e7e5e4;
           --neutral-300: #d6d3d1;
           --neutral-400: #a8a29e;
-          --color-white0: #78716c;
-          --neutral-600: #57534e;
-          --neutral-700: #44403c;
+          --color-white: #78716c;
+          --color-text-secondary: #57534e;
+          --color-text-primary: #44403c;
           --neutral-800: #292524;
           --color-text-primary: #1c1917;
           
@@ -146,10 +146,10 @@ const {
           --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
           
           /* Colors */
-          --bg-primary: #ffffff;
+          --color-background: #ffffff;
           --bg-secondary: var(--color-white);
           --text-primary: var(--color-text-primary);
-          --text-secondary: var(--neutral-600);
+          --text-secondary: var(--color-text-secondary);
       }
 
       /* Reset básico */
@@ -164,7 +164,7 @@ const {
           font-size: 16px;
           line-height: 1.5;
           color: var(--text-primary);
-          background-color: var(--bg-primary);
+          background-color: var(--color-background);
       }
 
       img {
@@ -301,7 +301,7 @@ const {
     background-color: var(--neutral-100);
     text-align: center;
     font-size: var(--font-size-sm);
-    color: var(--color-white0);
+    color: var(--color-white);
   }
   
   .footer-links {

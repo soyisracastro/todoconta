@@ -120,7 +120,7 @@ El proyecto utiliza un sistema de diseño personalizado con:
 /* Colores principales */
 --color-primary: #2563eb
 --green-600: #16a34a
---orange-600: #ea580c
+--color-primary: #ea580c
 --color-text-primary: #111827
 ```
 

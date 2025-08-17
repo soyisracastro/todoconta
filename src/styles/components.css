@@ -8,9 +8,9 @@
 
 /* Cards */
 .card {
-  background: var(--bg-primary);
+  background: var(--color-background);
   border-radius: var(--border-radius-xl);
-  border: 1px solid var(--neutral-200);
+  border: 1px solid var(--color-primary-light);
   overflow: hidden;
   transition: all var(--transition-slow);
 }
@@ -72,7 +72,7 @@
 }
 
 .feature-description {
-  color: var(--neutral-600);
+  color: var(--color-text-secondary);
   font-size: var(--font-size-base);
   flex-grow: 1;
 }
@@ -111,14 +111,14 @@
   padding-top: var(--space-6);
   margin-bottom: var(--space-6);
   font-style: italic;
-  color: var(--neutral-700);
+  color: var(--color-text-primary);
   flex-grow: 1;
 }
 
 .testimonial-author {
   display: flex;
   align-items: center;
-  border-top: 1px solid var(--neutral-200);
+  border-top: 1px solid var(--color-primary-light);
   padding-top: var(--space-4);
   margin-top: auto;
 }
@@ -140,7 +140,7 @@
 }
 
 .author-position {
-  color: var(--color-white0);
+  color: var(--color-white);
   font-size: 0.875rem;
 }
 
@@ -151,7 +151,7 @@
 }
 
 .faq-item {
-  border-bottom: 1px solid var(--neutral-200);
+  border-bottom: 1px solid var(--color-primary-light);
   margin-bottom: var(--space-4);
 }
 
@@ -191,7 +191,7 @@
 
 .faq-answer {
   padding: 0;
-  color: var(--neutral-600);
+  color: var(--color-text-secondary);
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease-out, padding 0.3s ease-out;
@@ -215,7 +215,7 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background-color: var(--primary-100);
+  background-color: var(--color-primary-light);
   z-index: 0;
 }
 
@@ -252,7 +252,7 @@
   border-radius: var(--border-radius-xl);
   padding: var(--space-6);
   box-shadow: var(--shadow-md);
-  border: 1px solid var(--neutral-200);
+  border: 1px solid var(--color-primary-light);
 }
 
 .step-icon {
@@ -338,7 +338,7 @@
 
 .pricing-period {
   text-align: center;
-  color: var(--color-white0);
+  color: var(--color-white);
   margin-bottom: var(--space-6);
 }
 
@@ -353,7 +353,7 @@
   gap: var(--space-3);
   margin-bottom: var(--space-3);
   padding-bottom: var(--space-3);
-  border-bottom: 1px dashed var(--neutral-200);
+  border-bottom: 1px dashed var(--color-primary-light);
 }
 
 .feature-item:last-child {
@@ -363,7 +363,7 @@
 }
 
 .feature-icon {
-  color: var(--green-500);
+  color: var(--color-primary);
   flex-shrink: 0;
   font-size: 1.25rem;
 }
@@ -401,7 +401,7 @@
   border-radius: var(--border-radius-xl);
   padding: var(--space-6);
   box-shadow: var(--shadow-md);
-  border: 1px solid var(--neutral-200);
+  border: 1px solid var(--color-primary-light);
   height: 100%;
 }
 
@@ -412,7 +412,7 @@
   color: var(--color-text-primary);
   padding-bottom: var(--space-3);
   margin-bottom: var(--space-4);
-  border-bottom: 1px solid var(--neutral-200);
+  border-bottom: 1px solid var(--color-primary-light);
 }
 
 .category-features {
@@ -423,7 +423,7 @@
   display: flex;
   align-items: center;
   padding: var(--space-2) 0;
-  border-bottom: 1px dashed var(--neutral-200);
+  border-bottom: 1px dashed var(--color-primary-light);
 }
 
 .category-feature:last-child {
@@ -445,12 +445,12 @@
 
 .status-included {
   background-color: var(--green-100);
-  color: var(--green-600);
+  color: var(--color-primary);
 }
 
 .status-excluded {
-  background-color: var(--neutral-200);
-  color: var(--color-white0);
+  background-color: var(--color-primary-light);
+  color: var(--color-white);
 }
 
 .feature-info {
@@ -464,8 +464,8 @@
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background-color: var(--neutral-200);
-  color: var(--neutral-600);
+  background-color: var(--color-primary-light);
+  color: var(--color-text-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -542,7 +542,7 @@
 
 .detail-label {
   font-size: var(--font-size-sm);
-  color: var(--neutral-600);
+  color: var(--color-text-secondary);
   margin-bottom: var(--space-1);
 }
 
@@ -590,7 +590,7 @@
 }
 
 .benefit-description {
-  color: var(--neutral-600);
+  color: var(--color-text-secondary);
   line-height: 1.5;
 }
 
@@ -623,7 +623,7 @@
 }
 
 .card-subtitle {
-  color: var(--neutral-600);
+  color: var(--color-text-secondary);
   margin-bottom: var(--space-6);
 }
 
@@ -639,7 +639,7 @@
   gap: var(--space-3);
   margin-bottom: var(--space-4);
   padding-bottom: var(--space-4);
-  border-bottom: 1px dashed var(--neutral-200);
+  border-bottom: 1px dashed var(--color-primary-light);
 }
 
 .requirement-item:last-child,
@@ -658,7 +658,7 @@
 .requirement-text,
 .deliverable-text {
   font-size: var(--font-size-base);
-  color: var(--neutral-700);
+  color: var(--color-text-primary);
   line-height: 1.5;
 }
 
@@ -701,7 +701,7 @@
 }
 
 .related-service-description {
-  color: var(--neutral-600);
+  color: var(--color-text-secondary);
   margin-bottom: var(--space-4);
   flex-grow: 1;
 }

@@ -30,7 +30,7 @@
 }
 
 .hero-description {
-  color: var(--neutral-600);
+  color: var(--color-text-secondary);
   margin-bottom: var(--space-6);
   font-size: 1.125rem;
 }
@@ -40,7 +40,7 @@
   padding: var(--space-4);
   border-radius: var(--border-radius-lg);
   margin-bottom: var(--space-6);
-  border: 1px solid var(--neutral-200);
+  border: 1px solid var(--color-primary-light);
 }
 
 .hero-recommended strong {
@@ -92,7 +92,7 @@
   display: flex;
   max-width: 300px;
   margin: 0 auto var(--space-10);
-  border: 1px solid var(--neutral-200);
+  border: 1px solid var(--color-primary-light);
 }
 
 .pricing-option {
@@ -160,7 +160,7 @@
 
 .pricing-period {
   text-align: center;
-  color: var(--color-white0);
+  color: var(--color-white);
   margin-bottom: var(--space-6);
 }
 
@@ -175,7 +175,7 @@
   gap: var(--space-3);
   margin-bottom: var(--space-3);
   padding-bottom: var(--space-3);
-  border-bottom: 1px dashed var(--neutral-200);
+  border-bottom: 1px dashed var(--color-primary-light);
 }
 
 .feature-item:last-child {
@@ -185,7 +185,7 @@
 }
 
 .feature-icon {
-  color: var(--green-500);
+  color: var(--color-primary);
   flex-shrink: 0;
   font-size: 1.25rem;
 }

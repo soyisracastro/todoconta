@@ -128,7 +128,7 @@ const servicePlans = [
 
   .section-subtitle {
     font-size: var(--font-size-lg);
-    color: var(--neutral-600);
+    color: var(--color-text-secondary);
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
@@ -142,10 +142,10 @@ const servicePlans = [
   }
 
   .service-card {
-    background: var(--bg-primary);
+    background: var(--color-background);
     border-radius: var(--border-radius-2xl);
     padding: var(--space-8);
-    border: 2px solid var(--neutral-200);
+    border: 2px solid var(--color-primary-light);
     transition: all var(--transition-slow);
     position: relative;
     display: flex;
@@ -153,8 +153,9 @@ const servicePlans = [
   }
 
   .service-card.featured {
-    border-color: var(--green-500);
-    background: var(--green-50);
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+    color: var(--color-white)
     transform: scale(1.05);
     z-index: 1;
     box-shadow: var(--shadow-lg);
@@ -172,8 +173,8 @@ const servicePlans = [
 
   .service-badge {
     display: inline-block;
-    background: var(--primary-100);
-    color: var(--primary-800);
+    background: var(--color-primary-light);
+    color: var(--color-primary);
     padding: var(--space-2) var(--space-4);
     border-radius: var(--border-radius-sm);
     font-size: var(--font-size-sm);
@@ -182,8 +183,8 @@ const servicePlans = [
   }
 
   .service-card.featured .service-badge {
-    background: var(--green-200);
-    color: var(--green-800);
+    background: rgba(242, 204, 143, 0.3);
+    color: var(--color-white);
   }
 
   .service-title {
@@ -194,6 +195,11 @@ const servicePlans = [
     margin-bottom: var(--space-3);
   }
 
+  .service-card.featured .service-title {
+    color: var(--color-white);
+  }
+
+
   .service-price {
     font-family: var(--font-secondary);
     font-size: var(--font-size-4xl);
@@ -203,19 +209,27 @@ const servicePlans = [
   }
 
   .service-card.featured .service-price {
-    color: var(--green-600);
+    color: var(--color-white);
   }
 
   .service-period {
-    color: var(--color-white0);
+    color: var(--color-primary);
     font-size: var(--font-size-base);
     margin-bottom: var(--space-6);
   }
 
+  .service-card.featured .service-period {
+    color: var(--color-white);
+  }
+
   .service-description {
-    color: var(--neutral-600);
+    color: var(--color-text-secondary);
     margin-bottom: var(--space-6);
     line-height: 1.6;
+  }
+
+  .service-card.featured .service-description {
+    color: var(--color-white);
   }
 
   .service-features {
@@ -229,19 +243,27 @@ const servicePlans = [
     align-items: center;
     gap: var(--space-3);
     margin-bottom: var(--space-3);
-    color: var(--neutral-700);
+    color: var(--color-text-primary);
     font-size: var(--font-size-sm);
     position: relative;
     padding-left: var(--space-6);
   }
 
+  .service-card.featured .service-features li {
+    color: var(--color-white);
+  }
+
   .service-features li::before {
     content: '✓';
-    color: var(--green-600);
+    color: var(--color-primary);
     font-weight: bold;
     position: absolute;
     left: 0;
     font-size: var(--font-size-base);
+  }
+
+  .service-card.featured .service-features li::before {
+    color: var(--color-white);
   }
 
   .service-cta {
@@ -259,17 +281,23 @@ const servicePlans = [
     margin-top: auto;
   }
 
+  .service-card.featured .service-cta {
+    background: var(--color-warning);
+    color: var(--color-primary);
+    border-color: var(--color-warning);
+  }
+
   .btn-secondary {
-    background: var(--green-600);
+    background: var(--color-primary);
     color: white;
-    border: 2px solid var(--green-600);
+    border: 2px solid var(--color-primary);
   }
 
   .btn-secondary:hover {
     background: var(--green-700);
     border-color: var(--green-700);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(22, 163, 74, 0.3);
+    box-shadow: var(--shadow-lg);
   }
 
   .btn-outline {
@@ -311,6 +339,7 @@ const servicePlans = [
     font-size: var(--font-size-xl);
     font-weight: 600;
     color: white;
+    margin-top: var(--space-2);
     margin-bottom: var(--space-2);
   }
 

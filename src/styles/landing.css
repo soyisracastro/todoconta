@@ -136,7 +136,7 @@
 
 .section-subtitle {
   font-size: var(--font-size-lg);
-  color: var(--neutral-600);
+  color: var(--color-text-secondary);
   max-width: 700px;
   margin: 0 auto var(--space-12);
 }
@@ -186,7 +186,7 @@
 }
 
 .feature-description {
-  color: var(--neutral-600);
+  color: var(--color-text-secondary);
   font-size: var(--font-size-base);
   flex-grow: 1;
 }
@@ -213,7 +213,7 @@
 }
 
 .benefit-check {
-  background-color: var(--green-500);
+  background-color: var(--color-primary);
   color: white;
   min-width: 28px;
   height: 28px;
@@ -236,7 +236,7 @@
 }
 
 .benefit-description {
-  color: var(--neutral-600);
+  color: var(--color-text-secondary);
 }
 
 /* Pricing Section */
@@ -266,7 +266,7 @@
   background: linear-gradient(
     90deg,
     var(--color-border-light),
-    var(--green-500)
+    var(--color-primary)
   );
 }
 
@@ -279,7 +279,7 @@
 }
 
 .price-subtitle {
-  color: var(--neutral-600);
+  color: var(--color-text-secondary);
   margin-bottom: var(--space-6);
 }
 
@@ -292,7 +292,7 @@
 }
 
 .price-period {
-  color: var(--color-white0);
+  color: var(--color-white);
   font-size: var(--font-size-sm);
   margin-bottom: var(--space-6);
 }
@@ -307,11 +307,11 @@
   align-items: center;
   gap: var(--space-3);
   margin-bottom: var(--space-3);
-  color: var(--neutral-700);
+  color: var(--color-text-primary);
 }
 
 .price-feature-icon {
-  color: var(--green-500);
+  color: var(--color-primary);
   font-weight: bold;
 }
 
@@ -380,7 +380,7 @@
 .form-button {
   width: 100%;
   padding: var(--space-4);
-  background-color: var(--green-600);
+  background-color: var(--color-primary);
   color: white;
   border: none;
   border-radius: var(--border-radius-lg);
@@ -394,7 +394,7 @@
 .form-button:hover {
   background-color: var(--green-700);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(22, 163, 74, 0.3);
+  box-shadow: var(--shadow-lg);
 }
 
 /* FAQ Section */
@@ -408,7 +408,7 @@
 }
 
 .faq-item {
-  border-bottom: 1px solid var(--neutral-200);
+  border-bottom: 1px solid var(--color-primary-light);
   padding: var(--space-4) 0;
 }
 
@@ -421,7 +421,7 @@
 }
 
 .faq-answer {
-  color: var(--neutral-600);
+  color: var(--color-text-secondary);
 }
 
 /* CTA Section */

@@ -40,7 +40,7 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   font-family: var(--font-primary, system-ui, sans-serif);
-  color: var(--neutral-700, #44403c);
+  color: var(--color-text-primary, #44403c);
   background-color: var(--bg-secondary, #fafaf9);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -159,7 +159,7 @@ section > *:last-child {
 
 /* Selection style */
 ::selection {
-  background-color: var(--primary-100, #e0f2fe);
+  background-color: var(--color-primary-light, #e0f2fe);
   color: var(--primary-800, #075985);
 }
 

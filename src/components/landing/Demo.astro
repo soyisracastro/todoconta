@@ -20,7 +20,7 @@ const {
   demoUrl,
   formId,
   bgColor = "var(--neutral-100)",
-  buttonColor = "var(--green-600)",
+  buttonColor = "var(--color-primary)",
   fields = [
     {
       name: "name",
@@ -141,7 +141,7 @@ const {
   
   .section-subtitle {
     font-size: var(--font-size-lg);
-    color: var(--neutral-600);
+    color: var(--color-text-secondary);
     margin-bottom: var(--space-8);
   }
   
@@ -192,12 +192,12 @@ const {
   .form-button:hover {
     filter: brightness(1.1);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(22, 163, 74, 0.3);
+    box-shadow: var(--shadow-lg);
   }
   
   .form-disclaimer {
     font-size: var(--font-size-sm);
-    color: var(--color-white0);
+    color: var(--color-white);
     max-width: 450px;
   }
   
