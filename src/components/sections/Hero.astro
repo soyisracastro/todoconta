@@ -8,12 +8,17 @@ export interface Props {
   title?: string;
   subtitle?: string;
   showStats?: boolean;
+  cta?: {
+    title: string;
+    link: string;
+  };
 }
 
 const {
   title = "Tranquilidad Fiscal Garantizada para tu Empresa",
   subtitle = "Servicios contables integrales y asesorías fiscales especializadas. <strong>Si no cumplimos, cubrimos las multas</strong>.",
-  showStats = true
+  showStats = true,
+  cta
 } = Astro.props;
 
 // Estadísticas para mostrar en el hero
@@ -42,7 +47,11 @@ const stats = [
         <p class="hero-subtitle fade-in-up" set:html={subtitle}></p>
         
         <div class="hero-cta fade-in-up">
-          <a href="#asesoria" class="btn btn-accent btn-xl">Consulta Online</a>
+          {cta && (
+            <a href={cta.link} class="btn btn-accent btn-xl">
+              {cta.title}
+            </a>
+          )}
           <a href="#servicios" class="btn btn-outline btn-xl">Ver Planes</a>
         </div>
         

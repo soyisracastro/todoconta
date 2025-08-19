@@ -1,49 +1,7 @@
 ---
-// Servicios adicionales que ofrecemos
-const serviciosAdicionales = [
-  {
-    title: "Inscripción al RFC",
-    description: "Registro completo de personas físicas y morales ante el SAT. Incluye asesoría para elegir el régimen fiscal más conveniente.",
-    icon: "📋",
-    link: "#contacto"
-  },
-  {
-    title: "Cambio de Régimen Fiscal",
-    description: "Análisis y gestión completa para cambio de régimen fiscal. Evaluamos la mejor opción para tu situación actual.",
-    icon: "🔄",
-    link: "#contacto"
-  },
-  {
-    title: "Trámite de e.firma y CSD",
-    description: "Obtención y renovación de certificados digitales (CSD) y e.firma para facturación electrónica.",
-    icon: "🔐",
-    link: "#contacto"
-  },
-  {
-    title: "Declaración Anual Personas Físicas",
-    description: "Elaboración y presentación de declaración anual con estrategias para maximizar deducciones y minimizar impuestos.",
-    icon: "📊",
-    link: "#contacto"
-  },
-  {
-    title: "Opinión de Cumplimiento Fiscal",
-    description: "Gestión completa del trámite de opinión de cumplimiento (32-D) para licitaciones y contratos gubernamentales.",
-    icon: "✅",
-    link: "#contacto"
-  },
-  {
-    title: "Regularización Fiscal",
-    description: "Ponemos al corriente tus obligaciones fiscales pendientes. Incluye análisis de multas y estrategias de pagos.",
-    icon: "⚖️",
-    link: "#contacto"
-  },
-  {
-    title: "Talleres y Capacitación",
-    description: "Capacitación empresarial en temas fiscales y contables. Talleres presenciales y en línea para tu equipo.",
-    icon: "🎓",
-    link: "#contacto"
-  }
-];
+import { getCollection } from "astro:content";
+
+const serviciosAdicionales = await getCollection('services');
 ---
 
 <section class="servicios-adicionales" id="adicionales">
@@ -57,12 +15,12 @@ const serviciosAdicionales = [
     </div>
 
     <div class="servicios-grid">
-      {serviciosAdicionales.map((servicio, index) => (
+      {serviciosAdicionales.map((service, index) => (
         <div class="servicio-card fade-in-up" style={`animation-delay: ${index * 0.1}s`}>
-          <div class="servicio-icon">{servicio.icon}</div>
-          <h3 class="servicio-title">{servicio.title}</h3>
-          <p class="servicio-description">{servicio.description}</p>
-          <a href={servicio.link} class="servicio-link">
+          <div class="servicio-icon">{service.data.icon}</div>
+          <h3 class="servicio-title">{service.data.title}</h3>
+          <p class="servicio-description">{service.data.description}</p>
+          <a href={`/servicios/${service.slug}`} class="servicio-link">
             Más información →
           </a>
         </div>
