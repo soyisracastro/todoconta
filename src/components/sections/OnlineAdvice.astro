@@ -1,10 +1,17 @@
 ---
+export interface Props {
+  cta?: {
+    title: string;
+    link: string;
+  };
+}
+
 // Características detalladas de la asesoría online
 const features = [
   {
     icon: "👨‍💼",
-    title: "Contadores certificados",
-    description: "Especialistas con experiencia comprobada en fiscalidad mexicana"
+    title: "Atención personal directa conmigo",
+    description: "Especialista con experiencia comprobada en fiscalidad mexicana"
   },
   {
     icon: "⏰",
@@ -21,21 +28,19 @@ const features = [
     title: "Reporte por escrito",
     description: "Resumen detallado de la consulta para tus archivos"
   },
-  {
-    icon: "📱",
-    title: "Sin instalaciones",
-    description: "Acceso directo desde tu navegador, sin complicaciones"
-  }
 ];
+
+const {
+  cta,
+} = Astro.props as Props;
 ---
 
 <section class="online-advice" id="asesoria">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title fade-in-up">Asesoría Fiscal 100% Online</h2>
+      <h2 class="section-title fade-in-up">Asesoría Fiscal Personalizada<br /> para Profesionistas y Empresarios</h2>
       <p class="section-subtitle fade-in-up">
-        Consultas especializadas por videollamada con contadores certificados. 
-        Resuelve dudas fiscales específicas sin comprometerte a un plan mensual.
+        Soy Israel Castro, contador especializado en régimen de actividades empresariales y profesionales. Te ayudo personalmente a resolver tus dudas fiscales específicas por videollamada, sin comprometerte a un plan mensual.
       </p>
     </div>
     
@@ -57,7 +62,7 @@ const features = [
       <div class="pricing-content fade-in-left">
         <div class="pricing-card">
           <div class="pricing-header">
-            <div class="price-amount">$1,500</div>
+            <div class="price-amount">$1,200</div>
             <div class="price-unit">por hora</div>
           </div>
           
@@ -68,7 +73,7 @@ const features = [
             <div class="pricing-feature">✓ Sin compromisos a largo plazo</div>
           </div>
 
-          <a href="#contacto" class="pricing-cta">Agendar Ahora</a>
+          {cta && <a href={cta.link} class="pricing-cta">{cta.title}</a>}
 
         </div>
       </div>
@@ -79,7 +84,7 @@ const features = [
 <style>
   .online-advice {
     background: var(--color-background);
-    padding: var(--space-20) 0;
+    padding: var(--space-8) 0;
   }
 
   .container {
