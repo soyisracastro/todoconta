@@ -50,18 +50,9 @@ const currentYear = new Date().getFullYear();
       <div class="newsletter-content">
         <div class="newsletter-text">
           <h3>📬 Mantente Actualizado</h3>
-          <p>Recibe las últimas noticias fiscales, guías prácticas y análisis del sector contable.</p>
+          <p>Contabilidad, impuestos y finanzas explicados para emprendedores mexicanos.</p>
         </div>
-        <form class="newsletter-form" id="footerNewsletter">
-          <input 
-            type="email" 
-            class="newsletter-input" 
-            placeholder="Ingresa tu email profesional" 
-            required
-            aria-label="Tu email profesional"
-          >
-          <button type="submit" class="newsletter-button">Suscribirse</button>
-        </form>
+        <iframe src="https://todoconta.substack.com/embed" width="480" height="150" style="border-radius: var(--border-radius-lg); border: var(--border-width-thin) solid var(--color-border); background: var(--color-white);" frameborder="0" scrolling="no"></iframe>
       </div>
     </div>
 
@@ -71,8 +62,7 @@ const currentYear = new Date().getFullYear();
       <div class="footer-section">
         <h3>Todoconta</h3>
         <p class="footer-description">
-          Especialistas en servicios contables integrales y software de gestión fiscal. 
-          Más de 15 años brindando tranquilidad fiscal a empresarios mexicanos.
+          Contador Público especializado en asesorías fiscales personalizadas para profesionistas y empresarios. Más de 15 años ayudando a optimizar situaciones fiscales.
         </p>
         <div class="footer-social">
           {socialLinks.map(social => (
@@ -162,6 +152,7 @@ const currentYear = new Date().getFullYear();
     font-size: 1.5rem;
     font-weight: 700;
     color: white;
+    margin-top: var(--space-3);
     margin-bottom: var(--space-3);
   }
 
@@ -393,51 +384,3 @@ const currentYear = new Date().getFullYear();
   }
 </style>
 
-<script>
-  // Script para manejar el formulario de newsletter
-  document.addEventListener('DOMContentLoaded', () => {
-    const newsletterForm = document.getElementById('footerNewsletter');
-    
-    if (newsletterForm) {
-      newsletterForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const emailInput = newsletterForm.querySelector('.newsletter-input');
-        const submitButton = newsletterForm.querySelector('.newsletter-button');
-        const originalButtonText = submitButton.textContent;
-        
-        // Cambiar texto del botón durante el envío
-        submitButton.textContent = 'Enviando...';
-        submitButton.disabled = true;
-        
-        try {
-          // Simular envío (reemplazar con tu lógica real)
-          await new Promise(resolve => setTimeout(resolve, 1500));
-          
-          // Mostrar mensaje de éxito
-          const formContainer = newsletterForm.parentElement;
-          formContainer.innerHTML = `
-            <div class="success-message">
-              <h4>¡Gracias por suscribirte! 🎉</h4>
-              <p>Recibirás nuestro próximo boletín con novedades fiscales y contables.</p>
-            </div>
-          `;
-        } catch (error) {
-          // Restaurar botón y mostrar error
-          submitButton.textContent = originalButtonText;
-          submitButton.disabled = false;
-          
-          // Añadir mensaje de error debajo del formulario
-          const errorDiv = document.createElement('div');
-          errorDiv.className = 'newsletter-error';
-          errorDiv.textContent = 'No pudimos completar tu suscripción. Por favor, inténtalo de nuevo.';
-          errorDiv.style.color = '#ef4444';
-          errorDiv.style.marginTop = '8px';
-          errorDiv.style.fontSize = '14px';
-          
-          newsletterForm.appendChild(errorDiv);
-        }
-      });
-    }
-  });
-</script>

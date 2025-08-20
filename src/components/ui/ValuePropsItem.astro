@@ -1,0 +1,104 @@
+---
+export interface ValueProp {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+export interface Props {
+  valueProps: ValueProp[];
+}
+
+const { valueProps } = Astro.props as Props;
+
+---
+<div class="value-grid">
+    {valueProps.map((prop: ValueProp, index: number) => (
+      <div class="value-card fade-in-up" style={`animation-delay: ${index * 0.15}s`}>
+        <div class="value-icon">{prop.icon}</div>
+        <h3 class="value-title">{prop.title}</h3>
+        <p class="value-description">{prop.description}</p>
+      </div>
+    ))}
+</div>
+
+<style>
+    .value-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+    margin-top: var(--space-12);
+  }
+
+  .value-card {
+    text-align: center;
+    padding: var(--space-8);
+    background: var(--color-white);
+    border-radius: var(--border-radius-xl);
+    border: 1px solid var(--color-primary-light);
+    transition: all var(--transition-slow);
+  }
+
+  .value-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-primary);
+  }
+
+  .value-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--color-primary-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-4xl);
+    margin: 0 auto var(--space-6);
+    transition: all var(--transition-normal);
+  }
+
+  .value-card:hover .value-icon {
+    background: var(--color-border-light);
+    color: white;
+    transform: scale(1.1);
+  }
+
+  .value-title {
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .value-description {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .value-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .value-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .value-card {
+      padding: var(--space-6);
+    }
+    
+    .value-icon {
+      width: 60px;
+      height: 60px;
+      font-size: var(--font-size-3xl);
+    }
+  }
+</style>
