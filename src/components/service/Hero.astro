@@ -21,19 +21,19 @@ export interface Props {
   }>;
 }
 
-const { 
-  title, 
-  description, 
+const {
+  title,
+  description,
   badge,
   recommendedFor,
-  image = "/images/services/default-hero.jpg",
+  image = '/images/services/default-hero.jpg',
   primaryCta,
   secondaryCta,
-  includedFeatures
+  includedFeatures,
 } = Astro.props;
 
 // Filtrar para mostrar solo las características incluidas
-const topFeatures = includedFeatures 
+const topFeatures = includedFeatures
   ? includedFeatures.filter(feature => feature.included).slice(0, 6)
   : [];
 ---
@@ -45,36 +45,42 @@ const topFeatures = includedFeatures
         {badge && <span class="hero-badge">{badge}</span>}
         <h1 class="hero-title">{title}</h1>
         <p class="hero-description">{description}</p>
-        
+
         <div class="hero-recommended">
           <span class="recommended-label">Recomendado para:</span>
           <p class="recommended-text">{recommendedFor}</p>
         </div>
-        
+
         <div class="hero-actions">
           <a href={primaryCta.url} class="btn btn-primary">{primaryCta.text}</a>
-          {secondaryCta && (
-            <a href={secondaryCta.url} class="btn btn-outline">{secondaryCta.text}</a>
-          )}
+          {
+            secondaryCta && (
+              <a href={secondaryCta.url} class="btn btn-outline">
+                {secondaryCta.text}
+              </a>
+            )
+          }
         </div>
       </div>
-      
+
       <div class="hero-visual animate-fade-in-up delay-200">
-        <img src={image} alt={title} class="hero-image">
-        
-        {topFeatures.length > 0 && (
-          <div class="hero-features">
-            <h3 class="features-title">Incluye:</h3>
-            <ul class="features-list">
-              {topFeatures.map(feature => (
-                <li class="feature-item">
-                  <span class="feature-icon">{feature.icon}</span>
-                  <span class="feature-text">{feature.text}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+        <img src={image} alt={title} class="hero-image" />
+
+        {
+          topFeatures.length > 0 && (
+            <div class="hero-features">
+              <h3 class="features-title">Incluye:</h3>
+              <ul class="features-list">
+                {topFeatures.map(feature => (
+                  <li class="feature-item">
+                    <span class="feature-icon">{feature.icon}</span>
+                    <span class="feature-text">{feature.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
       </div>
     </div>
   </div>
@@ -87,14 +93,14 @@ const topFeatures = includedFeatures
     position: relative;
     overflow: hidden;
   }
-  
+
   .hero-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-10);
     align-items: center;
   }
-  
+
   .hero-badge {
     display: inline-block;
     background-color: var(--color-primary);
@@ -107,7 +113,7 @@ const topFeatures = includedFeatures
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
-  
+
   .hero-title {
     font-family: var(--font-secondary);
     font-size: var(--font-size-5xl);
@@ -116,14 +122,14 @@ const topFeatures = includedFeatures
     margin-bottom: var(--space-6);
     line-height: 1.1;
   }
-  
+
   .hero-description {
     font-size: var(--font-size-xl);
     color: var(--color-text-primary);
     margin-bottom: var(--space-8);
     line-height: 1.6;
   }
-  
+
   .hero-recommended {
     background-color: var(--neutral-100);
     border: 1px solid var(--color-primary-light);
@@ -131,26 +137,26 @@ const topFeatures = includedFeatures
     padding: var(--space-4);
     margin-bottom: var(--space-8);
   }
-  
+
   .recommended-label {
     display: block;
     font-weight: 600;
     color: var(--color-text-primary);
     margin-bottom: var(--space-1);
   }
-  
+
   .recommended-text {
     color: var(--color-text-secondary);
     font-size: var(--font-size-base);
     margin: 0;
   }
-  
+
   .hero-actions {
     display: flex;
     gap: var(--space-4);
     margin-bottom: var(--space-10);
   }
-  
+
   .btn {
     display: inline-flex;
     align-items: center;
@@ -163,40 +169,40 @@ const topFeatures = includedFeatures
     text-decoration: none;
     cursor: pointer;
   }
-  
+
   .btn-primary {
     background-color: var(--color-primary);
     color: white;
     border: none;
   }
-  
+
   .btn-primary:hover {
     background-color: var(--primary-700);
     transform: translateY(-3px);
     box-shadow: var(--shadow-md);
   }
-  
+
   .btn-outline {
     background-color: transparent;
     color: var(--color-primary);
     border: 2px solid var(--color-primary);
   }
-  
+
   .btn-outline:hover {
     background-color: var(--color-background-alt);
     transform: translateY(-3px);
   }
-  
+
   .hero-visual {
     position: relative;
   }
-  
+
   .hero-image {
     width: 100%;
     border-radius: var(--border-radius-2xl);
     box-shadow: var(--shadow-xl);
   }
-  
+
   .hero-features {
     position: absolute;
     bottom: -20px;
@@ -208,7 +214,7 @@ const topFeatures = includedFeatures
     border: 1px solid var(--color-primary-light);
     width: 80%;
   }
-  
+
   .features-title {
     font-family: var(--font-secondary);
     font-size: var(--font-size-base);
@@ -216,7 +222,7 @@ const topFeatures = includedFeatures
     color: var(--neutral-800);
     margin-bottom: var(--space-3);
   }
-  
+
   .features-list {
     list-style: none;
     padding: 0;
@@ -225,42 +231,42 @@ const topFeatures = includedFeatures
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: var(--space-3);
   }
-  
+
   .feature-item {
     display: flex;
     align-items: center;
     gap: var(--space-2);
   }
-  
+
   .feature-icon {
     color: var(--color-primary);
     font-size: var(--font-size-lg);
   }
-  
+
   .feature-text {
     font-size: var(--font-size-sm);
     color: var(--color-text-primary);
   }
-  
+
   @media (max-width: 992px) {
     .hero-content {
       grid-template-columns: 1fr;
       text-align: center;
     }
-    
+
     .hero-title {
       font-size: var(--font-size-4xl);
     }
-    
+
     .hero-actions {
       justify-content: center;
     }
-    
+
     .hero-image {
       max-width: 80%;
       margin: 0 auto;
     }
-    
+
     .hero-features {
       width: 90%;
       right: 0;
@@ -268,24 +274,24 @@ const topFeatures = includedFeatures
       margin: 0 auto;
     }
   }
-  
+
   @media (max-width: 768px) {
     .hero-section {
       padding: var(--space-10) 0 var(--space-16);
     }
-    
+
     .hero-title {
       font-size: var(--font-size-3xl);
     }
-    
+
     .hero-description {
       font-size: var(--font-size-lg);
     }
-    
+
     .hero-actions {
       flex-direction: column;
     }
-    
+
     .features-list {
       grid-template-columns: 1fr;
     }

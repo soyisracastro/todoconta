@@ -18,46 +18,53 @@ const {
   features,
   badge,
   featured = false,
-  ctaText = "Contratar Plan",
-  ctaHref = "#contacto",
-  index = 0
+  ctaText = 'Contratar Plan',
+  ctaHref = '#contacto',
+  index = 0,
 } = Astro.props;
 ---
 
-<div 
-  class={`service-card ${featured ? 'featured' : ''} fade-in-up`} 
+<div
+  class={`service-card ${featured ? 'featured' : ''} fade-in-up`}
   style={`animation-delay: ${index * 0.2}s`}
   data-plan={title.toLowerCase().replace(/\s+/g, '-')}
 >
   <div class="service-badge">{badge}</div>
-  
+
   <h3 class="service-title">{title}</h3>
-  
+
   <div class="service-price-container">
     <div class="service-price">${price}</div>
     <div class="service-period">/mes</div>
   </div>
-  
+
   <p class="service-description">{description}</p>
-  
+
   <ul class="service-features">
-    {features.map((feature) => (
-      <li class="service-feature-item">
-        <span class="feature-check">✓</span>
-        <span>{feature}</span>
-      </li>
-    ))}
+    {
+      features.map(feature => (
+        <li class="service-feature-item">
+          <span class="feature-check">✓</span>
+          <span>{feature}</span>
+        </li>
+      ))
+    }
   </ul>
-  
-  <a href={ctaHref} class={`service-cta ${featured ? 'cta-featured' : 'cta-standard'}`}>
+
+  <a
+    href={ctaHref}
+    class={`service-cta ${featured ? 'cta-featured' : 'cta-standard'}`}
+  >
     {ctaText}
   </a>
-  
-  {featured && (
-    <div class="popular-badge">
-      <span class="popular-badge-text">MÁS POPULAR</span>
-    </div>
-  )}
+
+  {
+    featured && (
+      <div class="popular-badge">
+        <span class="popular-badge-text">MÁS POPULAR</span>
+      </div>
+    )
+  }
 </div>
 
 <style>
@@ -317,7 +324,7 @@ const {
     .service-price {
       font-size: 1.875rem;
     }
-    
+
     .service-title {
       font-size: 1.25rem;
     }
@@ -327,14 +334,14 @@ const {
     .service-card {
       padding: var(--space-6);
     }
-    
+
     .popular-badge {
       top: var(--space-2);
       right: var(--space-2);
       font-size: 10px;
       padding: 2px 6px;
     }
-    
+
     .popular-badge-text::before,
     .popular-badge-text::after {
       display: none;

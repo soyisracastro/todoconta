@@ -2,25 +2,25 @@
 // Definir las estadísticas que queremos mostrar
 const stats = [
   {
-    number: "500+",
-    label: "Empresas Atendidas"
+    number: '500+',
+    label: 'Empresas Atendidas',
   },
   {
-    number: "2,500+",
-    label: "Consultas Online"
+    number: '2,500+',
+    label: 'Consultas Online',
   },
   {
-    number: "70%",
-    label: "Menos Tiempo Manual"
+    number: '70%',
+    label: 'Menos Tiempo Manual',
   },
   {
-    number: "98.5%",
-    label: "Sin Multas Fiscales"
+    number: '98.5%',
+    label: 'Sin Multas Fiscales',
   },
   {
-    number: "15+",
-    label: "Años de Experiencia"
-  }
+    number: '15+',
+    label: 'Años de Experiencia',
+  },
 ];
 ---
 
@@ -28,14 +28,22 @@ const stats = [
   <div class="stats-background"></div>
   <div class="container">
     <div class="stats-grid">
-      {stats.map((stat, index) => (
-        <div class="stat-item fade-in-up" style={`animation-delay: ${index * 0.15}s`}>
-          <div class="stat-number" data-count={stat.number.replace(/\D/g, '')}>
-            {stat.number}
+      {
+        stats.map((stat, index) => (
+          <div
+            class="stat-item fade-in-up"
+            style={`animation-delay: ${index * 0.15}s`}
+          >
+            <div
+              class="stat-number"
+              data-count={stat.number.replace(/\D/g, '')}
+            >
+              {stat.number}
+            </div>
+            <div class="stat-label">{stat.label}</div>
           </div>
-          <div class="stat-label">{stat.label}</div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </section>
@@ -52,8 +60,17 @@ const stats = [
   .stats-background {
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 10%),
-                      radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 10%);
+    background-image:
+      radial-gradient(
+        circle at 20% 30%,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 10%
+      ),
+      radial-gradient(
+        circle at 80% 70%,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 10%
+      );
     opacity: 0.6;
   }
 
@@ -188,59 +205,64 @@ const stats = [
 <script>
   // Script para animación opcional de conteo (si lo deseas)
   document.addEventListener('DOMContentLoaded', () => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Añade clase para animación CSS
-          entry.target.classList.add('visible');
-          
-          // Si quieres implementar animación de contador numérico
-          // (opcional, puedes remover esta parte si prefieres solo la animación CSS)
-          if (entry.target.classList.contains('stat-item')) {
-            const numberElement = entry.target.querySelector('.stat-number');
-            if (numberElement) {
-              const finalValue = numberElement.dataset.count || 0;
-              animateCounter(numberElement, 0, parseInt(finalValue), 1500);
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Añade clase para animación CSS
+            entry.target.classList.add('visible');
+
+            // Si quieres implementar animación de contador numérico
+            // (opcional, puedes remover esta parte si prefieres solo la animación CSS)
+            if (entry.target.classList.contains('stat-item')) {
+              const numberElement = entry.target.querySelector('.stat-number') as HTMLElement;
+              if (numberElement && numberElement.dataset.count) {
+                const finalValue = numberElement.dataset.count || '0';
+                animateCounter(numberElement, 0, parseInt(finalValue), 1500);
+              }
             }
           }
-        }
-      });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    });
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+      }
+    );
 
     // Observar elementos con animación
-    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
-    
+    document
+      .querySelectorAll('.fade-in-up')
+      .forEach(el => observer.observe(el));
+
     // Función para animar contador (opcional)
-    function animateCounter(element, start, end, duration) {
-      let startTimestamp = null;
+    function animateCounter(element: HTMLElement, start: number, end: number, duration: number): void {
+      let startTimestamp: number | null = null;
       const originalText = element.textContent;
       const hasPlus = originalText.includes('+');
       const hasPercentage = originalText.includes('%');
-      
+
       // Si el valor no es un número simple, no animamos
       if (isNaN(end)) return;
-      
-      const step = (timestamp) => {
+
+      const step = (timestamp: number) => {
         if (!startTimestamp) startTimestamp = timestamp;
         const progress = Math.min((timestamp - startTimestamp) / duration, 1);
         const currentValue = Math.floor(progress * (end - start) + start);
-        
+
         let formattedValue = currentValue.toLocaleString();
         if (hasPlus) formattedValue += '+';
         if (hasPercentage) formattedValue += '%';
-        
+
         element.textContent = formattedValue;
-        
+
         if (progress < 1) {
           window.requestAnimationFrame(step);
         } else {
           element.textContent = originalText; // Restaura el texto original al final
         }
       };
-      
+
       window.requestAnimationFrame(step);
     }
   });

@@ -2,41 +2,51 @@
 // Enlaces para las secciones del footer
 const footerLinks = {
   services: [
-    { name: "Plan Básico", url: "#servicios" },
-    { name: "Plan Premium", url: "#servicios" },
-    { name: "Plan Empresarial", url: "#servicios" },
-    { name: "Declaración Anual", url: "/servicios/declaracion-anual" },
-    { name: "Constitución de Empresas", url: "/servicios/constitucion-empresas" },
-    { name: "Capacitación", url: "/servicios/capacitacion" }
+    { name: 'Plan Básico', url: '#servicios' },
+    { name: 'Plan Premium', url: '#servicios' },
+    { name: 'Plan Empresarial', url: '#servicios' },
+    { name: 'Declaración Anual', url: '/servicios/declaracion-anual' },
+    {
+      name: 'Constitución de Empresas',
+      url: '/servicios/constitucion-empresas',
+    },
+    { name: 'Capacitación', url: '/servicios/capacitacion' },
   ],
   solutions: [
-    { name: "Asesoría Online", url: "#asesoria" },
-    { name: "Automatización IA", url: "#automatizacion" },
-    { name: "Capacitación Fiscal", url: "/soluciones/capacitacion-fiscal" },
-    { name: "Consultorías Especializadas", url: "/soluciones/consultorias" },
-    { name: "Auditorías Internas", url: "/soluciones/auditorias" },
-    { name: "Constitución de Empresas", url: "/soluciones/constitucion" }
+    { name: 'Asesoría Online', url: '#asesoria' },
+    { name: 'Automatización IA', url: '#automatizacion' },
+    { name: 'Capacitación Fiscal', url: '/soluciones/capacitacion-fiscal' },
+    { name: 'Consultorías Especializadas', url: '/soluciones/consultorias' },
+    { name: 'Auditorías Internas', url: '/soluciones/auditorias' },
+    { name: 'Constitución de Empresas', url: '/soluciones/constitucion' },
   ],
   contact: [
-    { name: "📞 (55) 4475-3602", url: "tel:5544753602" },
-    { name: "✉️ hola@todoconta.com", url: "mailto:hola@todoconta.com" },
-    { name: "💬 Chat WhatsApp", url: "https://wa.me/5215544753602" },
-    { name: "📍 Ciudad de México", url: "https://maps.google.com/?q=todoconta+mexico" },
-    { name: "🕒 Lun-Sáb 9-18h", url: "#" }
+    { name: '📞 (55) 4475-3602', url: 'tel:5544753602' },
+    { name: '✉️ hola@todoconta.com', url: 'mailto:hola@todoconta.com' },
+    { name: '💬 Chat WhatsApp', url: 'https://wa.me/5215544753602' },
+    {
+      name: '📍 Ciudad de México',
+      url: 'https://maps.google.com/?q=todoconta+mexico',
+    },
+    { name: '🕒 Lun-Sáb 9-18h', url: '#' },
   ],
   legal: [
-    { name: "Términos de Servicio", url: "/terminos" },
-    { name: "Política de Privacidad", url: "/privacidad" },
-    { name: "Aviso Legal", url: "/aviso-legal" }
-  ]
+    { name: 'Términos de Servicio', url: '/terminos' },
+    { name: 'Política de Privacidad', url: '/privacidad' },
+    { name: 'Aviso Legal', url: '/aviso-legal' },
+  ],
 };
 
 // Social media links
 const socialLinks = [
-  { icon: "📘", name: "Facebook", url: "https://facebook.com/todoconta" },
-  { icon: "💼", name: "LinkedIn", url: "https://linkedin.com/company/todoconta" },
-  { icon: "📺", name: "YouTube", url: "https://youtube.com/c/todoconta" },
-  { icon: "💬", name: "WhatsApp", url: "https://wa.me/5215544753602" }
+  { icon: '📘', name: 'Facebook', url: 'https://facebook.com/todoconta' },
+  {
+    icon: '💼',
+    name: 'LinkedIn',
+    url: 'https://linkedin.com/company/todoconta',
+  },
+  { icon: '📺', name: 'YouTube', url: 'https://youtube.com/c/todoconta' },
+  { icon: '💬', name: 'WhatsApp', url: 'https://wa.me/5215544753602' },
 ];
 
 // Current year for copyright
@@ -50,9 +60,18 @@ const currentYear = new Date().getFullYear();
       <div class="newsletter-content">
         <div class="newsletter-text">
           <h3>📬 Mantente Actualizado</h3>
-          <p>Contabilidad, impuestos y finanzas explicados para emprendedores mexicanos.</p>
+          <p>
+            Contabilidad, impuestos y finanzas explicados para emprendedores
+            mexicanos.
+          </p>
         </div>
-        <iframe src="https://todoconta.substack.com/embed" width="480" height="150" style="border-radius: var(--border-radius-lg); border: var(--border-width-thin) solid var(--color-border); background: var(--color-white);" frameborder="0" scrolling="no"></iframe>
+        <iframe
+          src="https://todoconta.substack.com/embed"
+          width="480"
+          height="150"
+          style="border-radius: var(--border-radius-lg); border: var(--border-width-thin) solid var(--color-border); background: var(--color-white);"
+          frameborder="0"
+          scrolling="no"></iframe>
       </div>
     </div>
 
@@ -62,14 +81,24 @@ const currentYear = new Date().getFullYear();
       <div class="footer-section">
         <h3>Todoconta</h3>
         <p class="footer-description">
-          Contador Público especializado en asesorías fiscales personalizadas para profesionistas y empresarios. Más de 15 años ayudando a optimizar situaciones fiscales.
+          Contador Público especializado en asesorías fiscales personalizadas
+          para profesionistas y empresarios. Más de 15 años ayudando a optimizar
+          situaciones fiscales.
         </p>
         <div class="footer-social">
-          {socialLinks.map(social => (
-            <a href={social.url} class="social-link" title={social.name} target="_blank" rel="noopener">
-              {social.icon}
-            </a>
-          ))}
+          {
+            socialLinks.map(social => (
+              <a
+                href={social.url}
+                class="social-link"
+                title={social.name}
+                target="_blank"
+                rel="noopener"
+              >
+                {social.icon}
+              </a>
+            ))
+          }
         </div>
       </div>
 
@@ -77,9 +106,13 @@ const currentYear = new Date().getFullYear();
       <div class="footer-section">
         <h3>Servicios</h3>
         <div class="footer-links">
-          {footerLinks.services.map(link => (
-            <a href={link.url} class="footer-link">{link.name}</a>
-          ))}
+          {
+            footerLinks.services.map(link => (
+              <a href={link.url} class="footer-link">
+                {link.name}
+              </a>
+            ))
+          }
         </div>
       </div>
 
@@ -87,9 +120,13 @@ const currentYear = new Date().getFullYear();
       <div class="footer-section">
         <h3>Soluciones</h3>
         <div class="footer-links">
-          {footerLinks.solutions.map(link => (
-            <a href={link.url} class="footer-link">{link.name}</a>
-          ))}
+          {
+            footerLinks.solutions.map(link => (
+              <a href={link.url} class="footer-link">
+                {link.name}
+              </a>
+            ))
+          }
         </div>
       </div>
 
@@ -97,9 +134,13 @@ const currentYear = new Date().getFullYear();
       <div class="footer-section">
         <h3>Contacto</h3>
         <div class="footer-links">
-          {footerLinks.contact.map(link => (
-            <a href={link.url} class="footer-link">{link.name}</a>
-          ))}
+          {
+            footerLinks.contact.map(link => (
+              <a href={link.url} class="footer-link">
+                {link.name}
+              </a>
+            ))
+          }
         </div>
       </div>
     </div>
@@ -110,9 +151,7 @@ const currentYear = new Date().getFullYear();
         &copy; {currentYear} Todoconta. Todos los derechos reservados.
       </div>
       <div class="footer-legal">
-        {footerLinks.legal.map(link => (
-          <a href={link.url}>{link.name}</a>
-        ))}
+        {footerLinks.legal.map(link => <a href={link.url}>{link.name}</a>)}
       </div>
     </div>
   </div>
@@ -330,7 +369,7 @@ const currentYear = new Date().getFullYear();
       grid-template-columns: 1fr 1fr;
       gap: var(--space-6);
     }
-    
+
     .newsletter-content {
       grid-template-columns: 1fr;
       gap: var(--space-6);
@@ -343,34 +382,34 @@ const currentYear = new Date().getFullYear();
       grid-template-columns: 1fr;
       text-align: center;
     }
-    
+
     .footer-section h3::after {
       left: 50%;
       transform: translateX(-50%);
     }
-    
+
     .footer-newsletter-form {
       flex-direction: column;
     }
-    
+
     .footer-bottom {
       flex-direction: column;
       text-align: center;
       gap: var(--space-4);
     }
-    
+
     .footer-legal {
       justify-content: center;
     }
-    
+
     .footer-social {
       justify-content: center;
     }
-    
+
     .footer-link:hover {
       transform: none;
     }
-    
+
     .newsletter-form {
       flex-direction: column;
     }
@@ -383,4 +422,3 @@ const currentYear = new Date().getFullYear();
     }
   }
 </style>
-

@@ -9,63 +9,70 @@ export interface Props {
 // Características detalladas de la asesoría online
 const features = [
   {
-    icon: "👨‍💼",
-    title: "Atención personal directa conmigo",
-    description: "Especialista con experiencia comprobada en fiscalidad mexicana"
+    icon: '👨‍💼',
+    title: 'Atención personal directa conmigo',
+    description:
+      'Especialista con experiencia comprobada en fiscalidad mexicana',
   },
   {
-    icon: "⏰",
-    title: "Disponible 9am-6pm",
-    description: "Lunes a viernes, horario completo para tu conveniencia"
+    icon: '⏰',
+    title: 'Disponible 9am-6pm',
+    description: 'Lunes a viernes, horario completo para tu conveniencia',
   },
   {
-    icon: "📹",
-    title: "Videollamada o chat",
-    description: "Comunicación directa y personalizada según tus preferencias"
+    icon: '📹',
+    title: 'Videollamada o chat',
+    description: 'Comunicación directa y personalizada según tus preferencias',
   },
   {
-    icon: "📋",
-    title: "Reporte por escrito",
-    description: "Resumen detallado de la consulta para tus archivos"
+    icon: '📋',
+    title: 'Reporte por escrito',
+    description: 'Resumen detallado de la consulta para tus archivos',
   },
 ];
 
-const {
-  cta,
-} = Astro.props as Props;
+const { cta } = Astro.props as Props;
 ---
 
 <section class="online-advice" id="asesoria">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title fade-in-up">Asesoría Fiscal Personalizada<br /> para Profesionistas y Empresarios</h2>
+      <h2 class="section-title fade-in-up">
+        Asesoría Fiscal Personalizada<br /> para Profesionistas y Empresarios
+      </h2>
       <p class="section-subtitle fade-in-up">
-        Te ayudo personalmente a resolver tus dudas fiscales específicas por videollamada, sin comprometerte a un plan mensual.
+        Te ayudo personalmente a resolver tus dudas fiscales específicas por
+        videollamada, sin comprometerte a un plan mensual.
       </p>
     </div>
-    
+
     <div class="content-grid">
       <div class="features-content">
         <div class="features-grid fade-in-up">
-          {features.map((feature, index) => (
-            <div class="feature-item" style={`animation-delay: ${index * 0.1}s`}>
-              <div class="feature-icon">{feature.icon}</div>
-              <div class="feature-content">
-                <h4 class="feature-title">{feature.title}</h4>
-                <p class="feature-description">{feature.description}</p>
+          {
+            features.map((feature, index) => (
+              <div
+                class="feature-item"
+                style={`animation-delay: ${index * 0.1}s`}
+              >
+                <div class="feature-icon">{feature.icon}</div>
+                <div class="feature-content">
+                  <h4 class="feature-title">{feature.title}</h4>
+                  <p class="feature-description">{feature.description}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
-      
+
       <div class="pricing-content fade-in-left">
         <div class="pricing-card">
           <div class="pricing-header">
             <div class="price-amount">$1,200</div>
             <div class="price-unit">por hora</div>
           </div>
-          
+
           <div class="pricing-features">
             <div class="pricing-feature">✓ Consulta especializada</div>
             <div class="pricing-feature">✓ Reporte por escrito</div>
@@ -73,8 +80,13 @@ const {
             <div class="pricing-feature">✓ Sin compromisos a largo plazo</div>
           </div>
 
-          {cta && <a href={cta.link} class="pricing-cta">{cta.title}</a>}
-
+          {
+            cta && (
+              <a href={cta.link} class="pricing-cta">
+                {cta.title}
+              </a>
+            )
+          }
         </div>
       </div>
     </div>

@@ -13,12 +13,12 @@ export interface Props {
   bgGradient?: string;
 }
 
-const { 
-  title, 
-  description, 
+const {
+  title,
+  description,
   primaryCta,
   secondaryCta,
-  bgGradient = "linear-gradient(135deg, var(--color-primary) 0%, var(--primary-800) 100%)"
+  bgGradient = 'linear-gradient(135deg, var(--color-primary) 0%, var(--primary-800) 100%)',
 } = Astro.props;
 ---
 
@@ -29,9 +29,13 @@ const {
       <p class="cta-description">{description}</p>
       <div class="cta-buttons">
         <a href={primaryCta.url} class="btn btn-primary">{primaryCta.text}</a>
-        {secondaryCta && (
-          <a href={secondaryCta.url} class="btn btn-secondary">{secondaryCta.text}</a>
-        )}
+        {
+          secondaryCta && (
+            <a href={secondaryCta.url} class="btn btn-secondary">
+              {secondaryCta.text}
+            </a>
+          )
+        }
       </div>
     </div>
   </div>
@@ -121,14 +125,16 @@ const {
     background-color: rgba(255, 255, 255, 0.2);
     transform: translateY(-3px);
   }
-  
+
   /* Animaciones */
   .animate-fade-in-up {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
   }
-  
+
   .animate-fade-in-up.visible {
     opacity: 1;
     transform: translateY(0);
@@ -145,12 +151,12 @@ const {
       width: 100%;
       align-items: center;
     }
-    
+
     .btn {
       width: 100%;
       max-width: 300px;
     }
-    
+
     .cta-section {
       border-radius: var(--border-radius-2xl) var(--border-radius-2xl) 0 0;
       margin-top: var(--space-10);

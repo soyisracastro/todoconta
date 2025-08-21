@@ -1,112 +1,119 @@
 ---
 
 ---
+
 <section class="section section-alt" id="para-quien">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title fade-in-up">¿Este servicio es para ti?</h2>
-            <p class="section-subtitle fade-in-up">
-                Mi asesoría está especializada en personas físicas con actividades empresariales y profesionales. 
-                Si eres profesionista independiente o empresario, puedo ayudarte.
-            </p>
-        </div>
-        
-        <div class="target-grid">
-            <div class="target-card fade-in-up">
-                <h3>👨‍⚕️ Profesionistas Independientes</h3>
-                <ul class="target-list">
-                    <li>Médicos especialistas y generales</li>
-                    <li>Abogados y despachos jurídicos</li>
-                    <li>Consultores y asesores</li>
-                    <li>Arquitectos e ingenieros</li>
-                    <li>Contadores y auditores</li>
-                    <li>Dentistas y especialistas de salud</li>
-                    <li>Psicólogos y terapeutas</li>
-                    <li>Cualquier actividad profesional</li>
-                </ul>
-            </div>
-            
-            <div class="target-card fade-in-up">
-                <h3>🏢 Empresarios con Actividades Empresariales</h3>
-                <ul class="target-list">
-                    <li>Comerciantes y retail</li>
-                    <li>Prestadores de servicios</li>
-                    <li>Manufactura y producción</li>
-                    <li>Restaurantes y alimentos</li>
-                    <li>Tecnología y software</li>
-                    <li>Marketing y publicidad</li>
-                    <li>Construcción y bienes raíces</li>
-                    <li>Cualquier actividad empresarial</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="target-card fade-in-up" style="max-width: 800px; margin: 0 auto;">
-            <h3>❓ Consultas más frecuentes que resuelvo:</h3>
-            <ul class="target-list" style="columns: 1;">
-                <li>¿Me conviene seguir en RESICO o cambiar al régimen general?</li>
-                <li>¿Qué deducciones puedo aplicar en mi actividad específica?</li>
-                <li>¿Cómo optimizar mis declaraciones trimestrales y anuales?</li>
-                <li>¿Qué obligaciones tengo y cómo cumplirlas sin errores?</li>
-                <li>¿Cómo estructurar mis gastos para maximizar deducciones?</li>
-                <li>¿Cuándo y cómo hacer la transición de RESICO al régimen general?</li>
-            </ul>
-        </div>
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title fade-in-up">¿Este servicio es para ti?</h2>
+      <p class="section-subtitle fade-in-up">
+        Mi asesoría está especializada en personas físicas con actividades
+        empresariales y profesionales. Si eres profesionista independiente o
+        empresario, puedo ayudarte.
+      </p>
     </div>
+
+    <div class="target-grid">
+      <div class="target-card fade-in-up">
+        <h3>👨‍⚕️ Profesionistas Independientes</h3>
+        <ul class="target-list">
+          <li>Médicos especialistas y generales</li>
+          <li>Abogados y despachos jurídicos</li>
+          <li>Consultores y asesores</li>
+          <li>Arquitectos e ingenieros</li>
+          <li>Contadores y auditores</li>
+          <li>Dentistas y especialistas de salud</li>
+          <li>Psicólogos y terapeutas</li>
+          <li>Cualquier actividad profesional</li>
+        </ul>
+      </div>
+
+      <div class="target-card fade-in-up">
+        <h3>🏢 Empresarios con Actividades Empresariales</h3>
+        <ul class="target-list">
+          <li>Comerciantes y retail</li>
+          <li>Prestadores de servicios</li>
+          <li>Manufactura y producción</li>
+          <li>Restaurantes y alimentos</li>
+          <li>Tecnología y software</li>
+          <li>Marketing y publicidad</li>
+          <li>Construcción y bienes raíces</li>
+          <li>Cualquier actividad empresarial</li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="target-card fade-in-up"
+      style="max-width: 800px; margin: 0 auto;"
+    >
+      <h3>❓ Consultas más frecuentes que resuelvo:</h3>
+      <ul class="target-list" style="columns: 1;">
+        <li>¿Me conviene seguir en RESICO o cambiar al régimen general?</li>
+        <li>¿Qué deducciones puedo aplicar en mi actividad específica?</li>
+        <li>¿Cómo optimizar mis declaraciones trimestrales y anuales?</li>
+        <li>¿Qué obligaciones tengo y cómo cumplirlas sin errores?</li>
+        <li>¿Cómo estructurar mis gastos para maximizar deducciones?</li>
+        <li>
+          ¿Cuándo y cómo hacer la transición de RESICO al régimen general?
+        </li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 <style>
-    /* Target Section */
+  /* Target Section */
+  .target-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    margin-bottom: var(--space-16);
+  }
+
+  @media (min-width: 768px) {
     .target-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--space-8);
-            margin-bottom: var(--space-16);
-        }
+      grid-template-columns: 1fr 1fr;
+    }
+  }
 
-        @media (min-width: 768px) {
-            .target-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
+  .target-card {
+    background-color: var(--color-white);
+    padding: var(--space-8);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-sm);
+  }
 
-        .target-card {
-            background-color: var(--color-white);
-            padding: var(--space-8);
-            border: 1px solid var(--color-border-light);
-            border-radius: var(--border-radius-xl);
-            box-shadow: var(--shadow-sm);
-        }
+  .target-card h3 {
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
 
-        .target-card h3 {
-            font-family: var(--font-secondary);
-            font-size: var(--font-size-xl);
-            font-weight: 600;
-            margin-bottom: var(--space-4);
-            color: var(--color-text-primary);
-            display: flex;
-            align-items: center;
-            gap: var(--space-3);
-        }
+  .target-list {
+    list-style: none;
+  }
 
-        .target-list {
-            list-style: none;
-        }
+  .target-list li {
+    padding: var(--space-2) 0;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
 
-        .target-list li {
-            padding: var(--space-2) 0;
-            color: var(--color-text-secondary);
-            font-size: var(--font-size-sm);
-            display: flex;
-            align-items: flex-start;
-            gap: var(--space-3);
-        }
-
-        .target-list li:before {
-            content: "•";
-            color: var(--color-primary);
-            font-weight: bold;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
+  .target-list li:before {
+    content: '•';
+    color: var(--color-primary);
+    font-weight: bold;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
 </style>

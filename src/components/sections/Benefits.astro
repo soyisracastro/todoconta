@@ -3,54 +3,57 @@ import ValuePropsItem from '../ui/ValuePropsItem.astro';
 import type { ValueProp } from '../ui/ValuePropsItem.astro';
 
 const valueProps: ValueProp[] = [
-    {
-        icon: "🎓",
-        title: "Especialización Comprobada",
-        description:
-            "15+ años enfocado exclusivamente en régimen de actividades empresariales y profesionales. Conozco cada detalle del RESICO y te ayudo a optimizar tu situación fiscal.",
-    },
-    {
-        icon: "👤",
-        title: "Atención Personal Directa",
-        description:
-            "Hablas directamente conmigo, no con asistentes. Cada consulta la atiendo personalmente para entender tu situación específica y darte soluciones precisas.",
-    },
-    {
-        icon: "💰",
-        title: "Sin Compromisos de Permanencia",
-        description:
-            "Paga solo por la asesoría que necesitas. No hay mensualidades ni contratos. Una inversión puntual para resolver dudas importantes.",
-    },
-    {
-        icon: "📄",
-        title: "Reporte Personalizado",
-        description:
-            "Al final de nuestra sesión, te envío un reporte detallado con las recomendaciones específicas para tu caso y los pasos a seguir.",
-    },
-    {
-        icon: "📈",
-        title: "Experiencia en RESICO",
-        description:
-            "Te ayudo a entender si te conviene mantenerte en RESICO, cuándo y cómo hacer la transición al régimen general, y cómo maximizar tus beneficios fiscales.",
-    },
-    {
-        icon: "💬",
-        title: "Comunicación Clara y Directa",
-        description:
-            "Explico conceptos fiscales complejos de manera sencilla. No uso jerga técnica que no entiendas. Mi objetivo es que salgas con claridad total.",
-    },
+  {
+    icon: '🎓',
+    title: 'Especialización Comprobada',
+    description:
+      '15+ años enfocado exclusivamente en régimen de actividades empresariales y profesionales. Conozco cada detalle del RESICO y te ayudo a optimizar tu situación fiscal.',
+  },
+  {
+    icon: '👤',
+    title: 'Atención Personal Directa',
+    description:
+      'Hablas directamente conmigo, no con asistentes. Cada consulta la atiendo personalmente para entender tu situación específica y darte soluciones precisas.',
+  },
+  {
+    icon: '💰',
+    title: 'Sin Compromisos de Permanencia',
+    description:
+      'Paga solo por la asesoría que necesitas. No hay mensualidades ni contratos. Una inversión puntual para resolver dudas importantes.',
+  },
+  {
+    icon: '📄',
+    title: 'Reporte Personalizado',
+    description:
+      'Al final de nuestra sesión, te envío un reporte detallado con las recomendaciones específicas para tu caso y los pasos a seguir.',
+  },
+  {
+    icon: '📈',
+    title: 'Experiencia en RESICO',
+    description:
+      'Te ayudo a entender si te conviene mantenerte en RESICO, cuándo y cómo hacer la transición al régimen general, y cómo maximizar tus beneficios fiscales.',
+  },
+  {
+    icon: '💬',
+    title: 'Comunicación Clara y Directa',
+    description:
+      'Explico conceptos fiscales complejos de manera sencilla. No uso jerga técnica que no entiendas. Mi objetivo es que salgas con claridad total.',
+  },
 ];
 ---
+
 <section class="section" id="beneficios">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title fade-in-up">¿Por qué elegir mi asesoría personalizada?</h2>
-            <p class="section-subtitle fade-in-up">
-                15+ años enfocado exclusivamente en profesionistas y empresarios. 
-                Te atiendo personalmente para darte soluciones específicas a tu situación.
-            </p>
-        </div>
-        
-        <ValuePropsItem valueProps={valueProps} />
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title fade-in-up">
+        ¿Por qué elegir mi asesoría personalizada?
+      </h2>
+      <p class="section-subtitle fade-in-up">
+        15+ años enfocado exclusivamente en profesionistas y empresarios. Te
+        atiendo personalmente para darte soluciones específicas a tu situación.
+      </p>
     </div>
+
+    <ValuePropsItem valueProps={valueProps} />
+  </div>
 </section>

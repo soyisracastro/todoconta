@@ -15,7 +15,7 @@ export interface Props {
   ctaUrl: string;
 }
 
-const { 
+const {
   monthlyPrice,
   yearlyPrice,
   savings,
@@ -23,11 +23,11 @@ const {
   featured = false,
   includedFeatures,
   ctaText,
-  ctaUrl
+  ctaUrl,
 } = Astro.props;
 
 // Filtrar para mostrar solo las características incluidas
-const topFeatures = includedFeatures 
+const topFeatures = includedFeatures
   ? includedFeatures.filter(feature => feature.included)
   : [];
 
@@ -36,7 +36,7 @@ const formatPrice = (price: number) => {
   return new Intl.NumberFormat('es-MX', {
     style: 'currency',
     currency: 'MXN',
-    maximumFractionDigits: 0
+    maximumFractionDigits: 0,
   }).format(price);
 };
 
@@ -53,42 +53,47 @@ const formattedYearlyPrice = yearlyPrice ? formatPrice(yearlyPrice) : null;
           <div class="option-price">{formattedMonthlyPrice}</div>
         </div>
       </div>
-      
-      {yearlyPrice && (
-        <div class="option yearly" data-option="yearly">
-          <div class="option-content">
-            <div class="option-title">
-              Anual 
-              {savings && <span class="option-savings">{savings}</span>}
+
+      {
+        yearlyPrice && (
+          <div class="option yearly" data-option="yearly">
+            <div class="option-content">
+              <div class="option-title">
+                Anual
+                {savings && <span class="option-savings">{savings}</span>}
+              </div>
+              <div class="option-price">{formattedYearlyPrice}</div>
             </div>
-            <div class="option-price">{formattedYearlyPrice}</div>
           </div>
-        </div>
-      )}
+        )
+      }
     </div>
   </div>
-  
-  {priceNote && (
-    <div class="price-note">{priceNote}</div>
-  )}
-  
+
+  {priceNote && <div class="price-note">{priceNote}</div>}
+
   <div class="features-container">
     <h3 class="features-title">Incluye:</h3>
     <ul class="features-list">
-      {topFeatures.map(feature => (
-        <li class="feature-item">
-          <span class="feature-icon">{feature.icon}</span>
-          <span class="feature-text">{feature.text}</span>
-        </li>
-      ))}
+      {
+        topFeatures.map(feature => (
+          <li class="feature-item">
+            <span class="feature-icon">{feature.icon}</span>
+            <span class="feature-text">{feature.text}</span>
+          </li>
+        ))
+      }
     </ul>
   </div>
-  
+
   <a href={ctaUrl} class="cta-button">{ctaText}</a>
-  
+
   <p class="guarantee">
     <span class="guarantee-icon">🛡️</span>
-    <span class="guarantee-text">Garantía de satisfacción: Cubrimos el costo de multas por errores en nuestro servicio.</span>
+    <span class="guarantee-text"
+      >Garantía de satisfacción: Cubrimos el costo de multas por errores en
+      nuestro servicio.</span
+    >
   </p>
 </div>
 
@@ -96,14 +101,14 @@ const formattedYearlyPrice = yearlyPrice ? formatPrice(yearlyPrice) : null;
   // Script para cambiar entre opciones de precio mensual y anual
   document.addEventListener('DOMContentLoaded', () => {
     const options = document.querySelectorAll('.option');
-    
+
     options.forEach(option => {
       option.addEventListener('click', () => {
         // Quitar clase active de todas las opciones
         options.forEach(opt => {
           opt.classList.remove('active');
         });
-        
+
         // Añadir clase active a la opción clickeada
         option.classList.add('active');
       });
@@ -122,16 +127,16 @@ const formattedYearlyPrice = yearlyPrice ? formatPrice(yearlyPrice) : null;
     border: 1px solid var(--color-primary-light);
     transition: transform var(--transition-normal);
   }
-  
+
   .pricing-card.featured {
     border: 2px solid var(--color-border-light);
     transform: scale(1.02);
   }
-  
+
   .pricing-options {
     margin-bottom: var(--space-6);
   }
-  
+
   .options-container {
     display: flex;
     background-color: var(--neutral-100);
@@ -140,7 +145,7 @@ const formattedYearlyPrice = yearlyPrice ? formatPrice(yearlyPrice) : null;
     gap: var(--space-1);
     margin-bottom: var(--space-4);
   }
-  
+
   .option {
     flex: 1;
     padding: var(--space-3);
@@ -148,16 +153,16 @@ const formattedYearlyPrice = yearlyPrice ? formatPrice(yearlyPrice) : null;
     cursor: pointer;
     transition: all var(--transition-normal);
   }
-  
+
   .option.active {
     background-color: white;
     box-shadow: var(--shadow-sm);
   }
-  
+
   .option-content {
     text-align: center;
   }
-  
+
   .option-title {
     font-weight: 600;
     color: var(--color-text-primary);
@@ -168,7 +173,7 @@ const formattedYearlyPrice = yearlyPrice ? formatPrice(yearlyPrice) : null;
     align-items: center;
     gap: var(--space-2);
   }
-  
+
   .option-savings {
     background-color: var(--green-100);
     color: var(--green-700);
@@ -176,25 +181,25 @@ const formattedYearlyPrice = yearlyPrice ? formatPrice(yearlyPrice) : null;
     border-radius: var(--border-radius-full);
     font-size: var(--font-size-xs);
   }
-  
+
   .option-price {
     font-family: var(--font-secondary);
     font-size: var(--font-size-2xl);
     font-weight: 700;
     color: var(--color-text-primary);
   }
-  
+
   .price-note {
     text-align: center;
     color: var(--color-white);
     font-size: var(--font-size-sm);
     margin-bottom: var(--space-6);
   }
-  
+
   .features-container {
     margin-bottom: var(--space-8);
   }
-  
+
   .features-title {
     font-family: var(--font-secondary);
     font-size: var(--font-size-lg);
@@ -203,7 +208,7 @@ const formattedYearlyPrice = yearlyPrice ? formatPrice(yearlyPrice) : null;
     margin-bottom: var(--space-4);
     text-align: center;
   }
-  
+
   .features-list {
     list-style: none;
     padding: 0;
@@ -212,24 +217,24 @@ const formattedYearlyPrice = yearlyPrice ? formatPrice(yearlyPrice) : null;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: var(--space-4);
   }
-  
+
   .feature-item {
     display: flex;
     align-items: flex-start;
     gap: var(--space-3);
   }
-  
+
   .feature-icon {
     color: var(--color-primary);
     font-size: var(--font-size-lg);
     flex-shrink: 0;
   }
-  
+
   .feature-text {
     color: var(--color-text-primary);
     font-size: var(--font-size-base);
   }
-  
+
   .cta-button {
     display: block;
     width: 100%;
@@ -245,13 +250,13 @@ const formattedYearlyPrice = yearlyPrice ? formatPrice(yearlyPrice) : null;
     transition: all var(--transition-normal);
     margin-bottom: var(--space-6);
   }
-  
+
   .cta-button:hover {
     background-color: var(--primary-700);
     transform: translateY(-3px);
     box-shadow: var(--shadow-md);
   }
-  
+
   .guarantee {
     display: flex;
     align-items: center;
@@ -261,21 +266,21 @@ const formattedYearlyPrice = yearlyPrice ? formatPrice(yearlyPrice) : null;
     border-radius: var(--border-radius-lg);
     border: 1px solid var(--green-100);
   }
-  
+
   .guarantee-icon {
     font-size: var(--font-size-xl);
   }
-  
+
   .guarantee-text {
     font-size: var(--font-size-sm);
     color: var(--green-800);
   }
-  
+
   @media (max-width: 768px) {
     .features-list {
       grid-template-columns: 1fr;
     }
-    
+
     .option-price {
       font-size: var(--font-size-xl);
     }

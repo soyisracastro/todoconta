@@ -1,15 +1,41 @@
 {
-  "name": "",
+  "name": "todoconta",
+  "description": "Professional page for Todoconta accounting services and tax consulting",
   "type": "module",
   "version": "0.0.1",
+  "author": "Israel Castro",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iscasur/todoconta.git"
+  },
+  "keywords": [
+    "accounting",
+    "tax-consulting",
+    "astro",
+    "todoconta"
+  ],
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "type-check": "astro check",
+    "format": "prettier --write \"**/*.{astro,ts,js,json}\" --ignore-path .gitignore",
+    "lint": "eslint . --ext ts,astro --ignore-path .gitignore"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.4",
     "astro": "^5.12.6",
-    "date-fns": "^4.1.0"
+    "date-fns": "^4.1.0",
+    "typescript": "^5.9.2"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "eslint-plugin-astro": "^0.29.0",
+    "prettier": "^3.0.0",
+    "prettier-plugin-astro": "^0.12.0"
   }
 }

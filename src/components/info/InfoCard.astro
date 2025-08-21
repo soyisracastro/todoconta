@@ -8,26 +8,26 @@ export interface Props {
   lastUpdated: string;
 }
 
-const { 
-  title, 
-  description, 
-  image = "/images/info/default-info.jpg",
+const {
+  title,
+  description,
+  image = '/images/info/default-info.jpg',
   badge,
   url,
-  lastUpdated
+  lastUpdated,
 } = Astro.props;
 ---
 
 <a href={url} class="info-card">
   <div class="info-image-container">
-    <img src={image} alt={title} class="info-image">
+    <img src={image} alt={title} class="info-image" />
     {badge && <span class="info-badge">{badge}</span>}
   </div>
-  
+
   <div class="info-content">
     <h3 class="info-title">{title}</h3>
     <p class="info-description">{description}</p>
-    
+
     <div class="info-footer">
       <span class="info-date">Actualizado: {lastUpdated}</span>
       <span class="info-read-more">Leer más →</span>
@@ -41,29 +41,31 @@ const {
     border-radius: var(--border-radius-xl);
     overflow: hidden;
     box-shadow: var(--shadow-md);
-    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    transition:
+      transform var(--transition-normal),
+      box-shadow var(--transition-normal);
     height: 100%;
     display: flex;
     flex-direction: column;
     text-decoration: none;
     color: inherit;
   }
-  
+
   .info-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
   }
-  
+
   .info-image-container {
     position: relative;
   }
-  
+
   .info-image {
     width: 100%;
     height: 180px;
     object-fit: cover;
   }
-  
+
   .info-badge {
     position: absolute;
     top: var(--space-3);
@@ -75,14 +77,14 @@ const {
     padding: var(--space-1) var(--space-3);
     border-radius: var(--border-radius-full);
   }
-  
+
   .info-content {
     padding: var(--space-6);
     flex-grow: 1;
     display: flex;
     flex-direction: column;
   }
-  
+
   .info-title {
     font-family: var(--font-secondary);
     font-size: var(--font-size-lg);
@@ -91,7 +93,7 @@ const {
     margin-bottom: var(--space-3);
     line-height: 1.3;
   }
-  
+
   .info-description {
     color: var(--color-text-secondary);
     margin-bottom: var(--space-4);
@@ -102,7 +104,7 @@ const {
     overflow: hidden;
     font-size: var(--font-size-sm);
   }
-  
+
   .info-footer {
     display: flex;
     justify-content: space-between;
@@ -111,17 +113,17 @@ const {
     padding-top: var(--space-3);
     font-size: var(--font-size-xs);
   }
-  
+
   .info-date {
     color: var(--color-white);
   }
-  
+
   .info-read-more {
     color: var(--color-primary);
     font-weight: 600;
     transition: transform var(--transition-normal);
   }
-  
+
   .info-card:hover .info-read-more {
     transform: translateX(3px);
   }

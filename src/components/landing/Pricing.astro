@@ -11,23 +11,23 @@ export interface Props {
   highlighted?: boolean;
 }
 
-const { 
-  title = "Precio y Licencia",
-  subtitle = "Obtén acceso completo a todas las funcionalidades",
+const {
+  title = 'Precio y Licencia',
+  subtitle = 'Obtén acceso completo a todas las funcionalidades',
   price,
-  currency = "MXN",
+  currency = 'MXN',
   pricePeriod,
   features,
-  ctaText = "Comprar Ahora",
+  ctaText = 'Comprar Ahora',
   ctaUrl,
-  highlighted = false
+  highlighted = false,
 } = Astro.props;
 
 // Formatear el precio
 const formattedPrice = new Intl.NumberFormat('es-MX', {
   style: 'currency',
   currency: currency,
-  maximumFractionDigits: 0
+  maximumFractionDigits: 0,
 }).format(price);
 ---
 
@@ -35,27 +35,37 @@ const formattedPrice = new Intl.NumberFormat('es-MX', {
   <div class="landing-container">
     <div class="pricing-header">
       <h2 class="section-title animate-fade-in-up">{title}</h2>
-      {subtitle && <p class="section-subtitle animate-fade-in-up delay-100">{subtitle}</p>}
+      {
+        subtitle && (
+          <p class="section-subtitle animate-fade-in-up delay-100">
+            {subtitle}
+          </p>
+        )
+      }
     </div>
-    
-    <div class={`price-card animate-fade-in-up delay-200 ${highlighted ? 'highlighted' : ''}`}>
+
+    <div
+      class={`price-card animate-fade-in-up delay-200 ${highlighted ? 'highlighted' : ''}`}
+    >
       <div class="price-content">
         <h3 class="price-title">{title}</h3>
-        
+
         <div class="price-amount">
           <span class="amount">{formattedPrice}</span>
           {pricePeriod && <span class="period">{pricePeriod}</span>}
         </div>
-        
+
         <div class="price-features">
-          {features.map((feature) => (
-            <div class="price-feature">
-              <span class="feature-icon">✓</span>
-              <span class="feature-text">{feature}</span>
-            </div>
-          ))}
+          {
+            features.map(feature => (
+              <div class="price-feature">
+                <span class="feature-icon">✓</span>
+                <span class="feature-text">{feature}</span>
+              </div>
+            ))
+          }
         </div>
-        
+
         <a href={ctaUrl} class="price-button">{ctaText}</a>
       </div>
     </div>
@@ -67,12 +77,12 @@ const formattedPrice = new Intl.NumberFormat('es-MX', {
     padding: var(--space-16) 0;
     text-align: center;
   }
-  
+
   .pricing-header {
     max-width: 800px;
     margin: 0 auto var(--space-10);
   }
-  
+
   .section-title {
     font-family: var(--font-secondary);
     font-size: var(--font-size-3xl);
@@ -80,14 +90,14 @@ const formattedPrice = new Intl.NumberFormat('es-MX', {
     color: var(--color-text-primary);
     margin-bottom: var(--space-4);
   }
-  
+
   .section-subtitle {
     font-size: var(--font-size-lg);
     color: var(--color-text-secondary);
     max-width: 700px;
     margin: 0 auto;
   }
-  
+
   .price-card {
     background-color: white;
     border-radius: var(--border-radius-2xl);
@@ -100,12 +110,12 @@ const formattedPrice = new Intl.NumberFormat('es-MX', {
     border: 1px solid var(--color-primary-light);
     transition: transform var(--transition-normal);
   }
-  
+
   .price-card.highlighted {
     border: 2px solid var(--color-border-light);
     transform: scale(1.02);
   }
-  
+
   .price-card::before {
     content: '';
     position: absolute;
@@ -113,14 +123,18 @@ const formattedPrice = new Intl.NumberFormat('es-MX', {
     left: 0;
     right: 0;
     height: 6px;
-    background: linear-gradient(90deg, var(--color-border-light), var(--color-primary));
+    background: linear-gradient(
+      90deg,
+      var(--color-border-light),
+      var(--color-primary)
+    );
   }
-  
+
   .price-content {
     position: relative;
     z-index: 2;
   }
-  
+
   .price-title {
     font-family: var(--font-secondary);
     font-size: var(--font-size-2xl);
@@ -128,32 +142,32 @@ const formattedPrice = new Intl.NumberFormat('es-MX', {
     color: var(--color-text-primary);
     margin-bottom: var(--space-6);
   }
-  
+
   .price-amount {
     margin-bottom: var(--space-6);
   }
-  
+
   .amount {
     font-family: var(--font-secondary);
     font-size: var(--font-size-4xl);
     font-weight: 800;
     color: var(--primary-700);
   }
-  
+
   .period {
     display: block;
     color: var(--color-white);
     font-size: var(--font-size-sm);
     margin-top: var(--space-1);
   }
-  
+
   .price-features {
     text-align: left;
     margin-bottom: var(--space-8);
     border-top: 1px solid var(--color-primary-light);
     padding-top: var(--space-6);
   }
-  
+
   .price-feature {
     display: flex;
     align-items: center;
@@ -161,12 +175,12 @@ const formattedPrice = new Intl.NumberFormat('es-MX', {
     margin-bottom: var(--space-3);
     color: var(--color-text-primary);
   }
-  
+
   .feature-icon {
     color: var(--color-primary);
     font-weight: bold;
   }
-  
+
   .price-button {
     display: inline-block;
     width: 100%;
@@ -182,38 +196,44 @@ const formattedPrice = new Intl.NumberFormat('es-MX', {
     transition: all var(--transition-normal);
     text-decoration: none;
   }
-  
+
   .price-button:hover {
     background-color: var(--primary-700);
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(2, 132, 199, 0.3);
   }
-  
+
   /* Animaciones */
   .animate-fade-in-up {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
   }
-  
+
   .animate-fade-in-up.visible {
     opacity: 1;
     transform: translateY(0);
   }
-  
-  .delay-100 { transition-delay: 100ms; }
-  .delay-200 { transition-delay: 200ms; }
-  
+
+  .delay-100 {
+    transition-delay: 100ms;
+  }
+  .delay-200 {
+    transition-delay: 200ms;
+  }
+
   /* Responsive */
   @media (max-width: 768px) {
     .section-title {
       font-size: var(--font-size-2xl);
     }
-    
+
     .price-card {
       padding: var(--space-6);
     }
-    
+
     .amount {
       font-size: var(--font-size-3xl);
     }

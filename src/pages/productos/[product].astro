@@ -1,6 +1,6 @@
 ---
 // src/pages/landing/[product].astro
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 import LandingLayout from '../../layouts/LandingLayout.astro';
 import Hero from '../../components/landing/Hero.astro';
 import Features from '../../components/landing/Features.astro';
@@ -13,20 +13,20 @@ import CTA from '../../components/landing/CTA.astro';
 // Genera rutas para cada producto
 export async function getStaticPaths() {
   const products = await getCollection('products');
-  
+
   return products.map(product => ({
     params: { product: product.slug },
-    props: { product }
+    props: { product },
   }));
 }
 
 const { product } = Astro.props;
-const { 
-  title, 
-  description, 
-  price, 
-  pricePeriod, 
-  badge, 
+const {
+  title,
+  description,
+  price,
+  pricePeriod,
+  badge,
   heroImage,
   demoUrl,
   buyUrl,
@@ -34,7 +34,7 @@ const {
   benefits,
   pricing,
   faqs,
-  formId
+  formId,
 } = product.data;
 
 // Prepara los datos para los componentes
@@ -43,52 +43,60 @@ const heroProps = {
   subtitle: description,
   badge,
   primaryCta: {
-    text: "Comprar Ahora",
-    url: "#pricing"
+    text: 'Comprar Ahora',
+    url: '#pricing',
   },
-  secondaryCta: demoUrl ? {
-    text: "Descargar Demo",
-    url: "#demo"
-  } : undefined,
-  image: heroImage
+  secondaryCta: demoUrl
+    ? {
+        text: 'Descargar Demo',
+        url: '#demo',
+      }
+    : undefined,
+  image: heroImage,
 };
 
 const featuresProps = {
-  title: "Funciones Principales",
+  title: 'Funciones Principales',
   subtitle: `${title} ofrece potentes herramientas para optimizar tu trabajo.`,
-  features
+  features,
 };
 
 const benefitsProps = {
-  title: "Beneficios para tu Negocio",
+  title: 'Beneficios para tu Negocio',
   subtitle: `${title} está diseñado para optimizar tus procesos.`,
-  benefits
+  benefits,
 };
 
 const pricingProps = {
   price,
   pricePeriod,
   features: pricing.features,
-  ctaUrl: buyUrl || "#",
-  highlighted: true
+  ctaUrl: buyUrl || '#',
+  highlighted: true,
 };
 
-const demoProps = demoUrl && formId ? {
-  demoUrl,
-  formId
-} : null;
+const demoProps =
+  demoUrl && formId
+    ? {
+        demoUrl,
+        formId,
+      }
+    : null;
 
 const ctaProps = {
   title: `¿Listo para optimizar tu trabajo con ${title}?`,
-  description: "Únete a miles de profesionales que confían en nuestras soluciones para gestionar sus procesos de manera eficiente.",
+  description:
+    'Únete a miles de profesionales que confían en nuestras soluciones para gestionar sus procesos de manera eficiente.',
   primaryCta: {
-    text: "Comprar Ahora",
-    url: buyUrl || "#pricing"
+    text: 'Comprar Ahora',
+    url: buyUrl || '#pricing',
   },
-  secondaryCta: demoUrl ? {
-    text: "Probar Demo Gratis",
-    url: "#demo"
-  } : undefined
+  secondaryCta: demoUrl
+    ? {
+        text: 'Probar Demo Gratis',
+        url: '#demo',
+      }
+    : undefined,
 };
 
 // Keywords para SEO
@@ -96,40 +104,45 @@ const keywords = [
   title.split(' ').join(', '),
   ...features.map(f => f.title),
   ...benefits.map(b => b.title),
-  'Todoconta', 'software contable', 'herramientas fiscales'
+  'Todoconta',
+  'software contable',
+  'herramientas fiscales',
 ];
 
 // Verificar que todas las propiedades necesarias estén disponibles
-const hasValidFeatures = features && Array.isArray(features) && features.length > 0;
-const hasValidBenefits = benefits && Array.isArray(benefits) && benefits.length > 0;
-const hasValidPricing = pricing && pricing.features && Array.isArray(pricing.features);
+const hasValidFeatures =
+  features && Array.isArray(features) && features.length > 0;
+const hasValidBenefits =
+  benefits && Array.isArray(benefits) && benefits.length > 0;
+const hasValidPricing =
+  pricing && pricing.features && Array.isArray(pricing.features);
 const hasValidFaqs = faqs && Array.isArray(faqs) && faqs.length > 0;
 ---
 
-<LandingLayout 
-  title={title} 
+<LandingLayout
+  title={title}
   description={description}
   keywords={keywords}
   ogImage={heroImage}
 >
   <!-- Hero Section -->
   <Hero {...heroProps} />
-  
+
   <!-- Features Section -->
   {hasValidFeatures && <Features {...featuresProps} />}
-  
+
   <!-- Benefits Section -->
   {hasValidBenefits && <Benefits {...benefitsProps} />}
-  
+
   <!-- Pricing Section -->
   {hasValidPricing && <Pricing {...pricingProps} />}
-  
+
   <!-- Demo Section (if available) -->
   {demoProps && <Demo {...demoProps} />}
-  
+
   <!-- FAQ Section (if available) -->
   {hasValidFaqs && <FAQ faqs={faqs} />}
-  
+
   <!-- Call to Action -->
   <CTA {...ctaProps} />
 </LandingLayout>
@@ -141,21 +154,31 @@ const hasValidFaqs = faqs && Array.isArray(faqs) && faqs.length > 0;
     margin: 0 auto;
     padding: 0 var(--space-4);
   }
-  
+
   /* Animaciones */
   .animate-fade-in-up {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
   }
-  
+
   .animate-fade-in-up.visible {
     opacity: 1;
     transform: translateY(0);
   }
-  
-  .delay-100 { transition-delay: 100ms; }
-  .delay-200 { transition-delay: 200ms; }
-  .delay-300 { transition-delay: 300ms; }
-  .delay-400 { transition-delay: 400ms; }
+
+  .delay-100 {
+    transition-delay: 100ms;
+  }
+  .delay-200 {
+    transition-delay: 200ms;
+  }
+  .delay-300 {
+    transition-delay: 300ms;
+  }
+  .delay-400 {
+    transition-delay: 400ms;
+  }
 </style>

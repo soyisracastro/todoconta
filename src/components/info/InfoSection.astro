@@ -21,23 +21,23 @@ function markdownToHtml(markdown: string) {
   // Convierte párrafos
   let html = markdown.replace(/\n\n/g, '</p><p>');
   html = `<p>${html}</p>`;
-  
+
   // Convierte listas
   html = html.replace(/^\s*-\s+(.*)/gm, '<li>$1</li>');
   html = html.replace(/<li>(.*?)<\/li>\s*<li>/g, '<li>$1</li>\n<li>');
   html = html.replace(/<li>(.*?)<\/li>/g, '<ul><li>$1</li></ul>');
   html = html.replace(/<\/ul>\s*<ul>/g, '');
-  
+
   // Convierte encabezados
   html = html.replace(/####\s+(.*?)\n/g, '<h4>$1</h4>');
   html = html.replace(/###\s+(.*?)\n/g, '<h3>$1</h3>');
   html = html.replace(/##\s+(.*?)\n/g, '<h2>$1</h2>');
   html = html.replace(/#\s+(.*?)\n/g, '<h1>$1</h1>');
-  
+
   // Convierte negritas e itálicas
   html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
   html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
-  
+
   return html;
 }
 
@@ -48,29 +48,29 @@ const calloutColors = {
     border: 'var(--primary-300)',
     icon: 'ℹ️',
     title: 'var(--primary-700)',
-    text: 'var(--primary-800)'
+    text: 'var(--primary-800)',
   },
   warning: {
     bg: 'var(--orange-50)',
     border: 'var(--orange-300)',
     icon: '⚠️',
     title: 'var(--orange-700)',
-    text: 'var(--orange-800)'
+    text: 'var(--orange-800)',
   },
   success: {
     bg: 'var(--color-primary-light)',
     border: 'var(--green-300)',
     icon: '✅',
     title: 'var(--green-700)',
-    text: 'var(--green-800)'
+    text: 'var(--green-800)',
   },
   error: {
     bg: 'var(--red-50, #fef2f2)',
     border: 'var(--red-300, #fca5a5)',
     icon: '❌',
     title: 'var(--red-700, #b91c1c)',
-    text: 'var(--red-800, #991b1b)'
-  }
+    text: 'var(--red-800, #991b1b)',
+  },
 };
 ---
 
@@ -79,34 +79,47 @@ const calloutColors = {
     {index && <span class="section-number">{index}.</span>}
     {title}
   </h2>
-  
+
   <div class="section-content">
     <div class="content-text" set:html={markdownToHtml(content)} />
-    
-    {image && (
-      <div class="content-image">
-        <img src={image} alt={title} class="section-image">
-      </div>
-    )}
-    
-    {callout && (
-      <div class="callout" style={`
+
+    {
+      image && (
+        <div class="content-image">
+          <img src={image} alt={title} class="section-image" />
+        </div>
+      )
+    }
+
+    {
+      callout && (
+        <div
+          class="callout"
+          style={`
         background-color: ${calloutColors[callout.type].bg}; 
         border-color: ${calloutColors[callout.type].border};
-      `}>
-        <div class="callout-icon">{calloutColors[callout.type].icon}</div>
-        <div class="callout-content">
-          {callout.title && (
-            <div class="callout-title" style={`color: ${calloutColors[callout.type].title};`}>
-              {callout.title}
+      `}
+        >
+          <div class="callout-icon">{calloutColors[callout.type].icon}</div>
+          <div class="callout-content">
+            {callout.title && (
+              <div
+                class="callout-title"
+                style={`color: ${calloutColors[callout.type].title};`}
+              >
+                {callout.title}
+              </div>
+            )}
+            <div
+              class="callout-text"
+              style={`color: ${calloutColors[callout.type].text};`}
+            >
+              {callout.content}
             </div>
-          )}
-          <div class="callout-text" style={`color: ${calloutColors[callout.type].text};`}>
-            {callout.content}
           </div>
         </div>
-      </div>
-    )}
+      )
+    }
   </div>
 </section>
 
@@ -115,7 +128,7 @@ const calloutColors = {
     margin-bottom: var(--space-16);
     scroll-margin-top: var(--space-16);
   }
-  
+
   .section-title {
     font-family: var(--font-secondary);
     font-size: var(--font-size-2xl);
@@ -126,22 +139,22 @@ const calloutColors = {
     padding-bottom: var(--space-3);
     border-bottom: 1px solid var(--color-primary-light);
   }
-  
+
   .section-number {
     color: var(--color-primary);
     margin-right: var(--space-2);
   }
-  
+
   .section-content {
     color: var(--color-text-primary);
     font-size: var(--font-size-base);
     line-height: 1.6;
   }
-  
+
   .content-text {
     margin-bottom: var(--space-6);
   }
-  
+
   .content-text :global(h3) {
     font-family: var(--font-secondary);
     font-size: var(--font-size-xl);
@@ -149,7 +162,7 @@ const calloutColors = {
     color: var(--neutral-800);
     margin: var(--space-6) 0 var(--space-3);
   }
-  
+
   .content-text :global(h4) {
     font-family: var(--font-secondary);
     font-size: var(--font-size-lg);
@@ -157,35 +170,35 @@ const calloutColors = {
     color: var(--neutral-800);
     margin: var(--space-5) 0 var(--space-2);
   }
-  
+
   .content-text :global(p) {
     margin-bottom: var(--space-4);
   }
-  
+
   .content-text :global(ul) {
     margin-bottom: var(--space-4);
     padding-left: var(--space-6);
   }
-  
+
   .content-text :global(li) {
     margin-bottom: var(--space-2);
   }
-  
+
   .content-text :global(strong) {
     font-weight: 600;
     color: var(--color-text-primary);
   }
-  
+
   .content-image {
     margin: var(--space-6) 0;
   }
-  
+
   .section-image {
     width: 100%;
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-md);
   }
-  
+
   .callout {
     border-left: 4px solid;
     border-radius: var(--border-radius-md);
@@ -193,33 +206,33 @@ const calloutColors = {
     margin: var(--space-6) 0;
     display: flex;
   }
-  
+
   .callout-icon {
     margin-right: var(--space-3);
     font-size: var(--font-size-xl);
   }
-  
+
   .callout-content {
     flex-grow: 1;
   }
-  
+
   .callout-title {
     font-family: var(--font-secondary);
     font-weight: 600;
     margin-bottom: var(--space-1);
     font-size: var(--font-size-base);
   }
-  
+
   .callout-text {
     font-size: var(--font-size-base);
   }
-  
+
   /* Responsive adjustments */
   @media (min-width: 768px) {
     .section-title {
       font-size: var(--font-size-3xl);
     }
-    
+
     .section-content {
       font-size: var(--font-size-lg);
     }

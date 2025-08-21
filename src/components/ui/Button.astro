@@ -1,32 +1,40 @@
 ---
-const { 
-  variant = "primary", 
-  size = "default", 
-  href, 
-  class: className, 
-  ...props 
-} = Astro.props;
+export interface Props {
+  variant?: 'primary' | 'secondary' | 'accent' | 'outline';
+  size?: 'sm' | 'default' | 'lg' | 'xl';
+  href?: string;
+  class?: string;
+  [key: string]: any;
+}
+
+const {
+  variant = 'primary',
+  size = 'default',
+  href,
+  class: className,
+  ...props
+} = Astro.props as Props;
 
 const variantClasses = {
-  primary: "btn-primary",
-  secondary: "btn-secondary",
-  accent: "btn-accent",
-  outline: "btn-outline"
+  primary: 'btn-primary',
+  secondary: 'btn-secondary',
+  accent: 'btn-accent',
+  outline: 'btn-outline',
 };
 
 const sizeClasses = {
-  sm: "btn-sm",
-  default: "",
-  lg: "btn-lg",
-  xl: "btn-xl"
+  sm: 'btn-sm',
+  default: '',
+  lg: 'btn-lg',
+  xl: 'btn-xl',
 };
 
 const classes = [
-  "btn",
+  'btn',
   variantClasses[variant],
   sizeClasses[size],
-  className
-].join(" ");
+  className,
+].join(' ');
 ---
 
 {

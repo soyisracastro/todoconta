@@ -4,61 +4,64 @@ import Layout from '../../layouts/Layout.astro';
 // Datos estáticos de categorías de talleres (para mostrar incluso si el iframe no carga)
 const categoriasTalleres = [
   {
-    titulo: "Cumplimiento Fiscal",
-    descripcion: "Actualización sobre normativas y procedimientos del SAT",
+    titulo: 'Cumplimiento Fiscal',
+    descripcion: 'Actualización sobre normativas y procedimientos del SAT',
     talleres: [
-      "Reforma Fiscal 2025: Cambios Clave y Aplicación Práctica",
-      "Facturación Electrónica 4.0: Requisitos y Mejores Prácticas",
-      "Declaración Anual para Personas Físicas y Morales",
-      "Obligaciones Fiscales según Régimen Tributario"
-    ]
+      'Reforma Fiscal 2025: Cambios Clave y Aplicación Práctica',
+      'Facturación Electrónica 4.0: Requisitos y Mejores Prácticas',
+      'Declaración Anual para Personas Físicas y Morales',
+      'Obligaciones Fiscales según Régimen Tributario',
+    ],
   },
   {
-    titulo: "Contabilidad Práctica",
-    descripcion: "Fundamentos y aplicaciones para gestión financiera efectiva",
+    titulo: 'Contabilidad Práctica',
+    descripcion: 'Fundamentos y aplicaciones para gestión financiera efectiva',
     talleres: [
-      "Contabilidad para No Contadores: Fundamentos Esenciales",
-      "Nómina y Prestaciones: Cálculo, Obligaciones y Optimización",
-      "Contabilidad Electrónica y Reportes Digitales",
-      "Control Interno y Políticas Contables"
-    ]
+      'Contabilidad para No Contadores: Fundamentos Esenciales',
+      'Nómina y Prestaciones: Cálculo, Obligaciones y Optimización',
+      'Contabilidad Electrónica y Reportes Digitales',
+      'Control Interno y Políticas Contables',
+    ],
   },
   {
-    titulo: "Optimización Fiscal",
-    descripcion: "Estrategias legales para reducir la carga tributaria",
+    titulo: 'Optimización Fiscal',
+    descripcion: 'Estrategias legales para reducir la carga tributaria',
     talleres: [
-      "Deducciones Personales y Empresariales: Guía Completa",
-      "Estímulos Fiscales Vigentes y su Aplicación",
-      "Planeación Fiscal Legal para Empresas",
-      "Estructuración Fiscal de Negocios"
-    ]
+      'Deducciones Personales y Empresariales: Guía Completa',
+      'Estímulos Fiscales Vigentes y su Aplicación',
+      'Planeación Fiscal Legal para Empresas',
+      'Estructuración Fiscal de Negocios',
+    ],
   },
   {
-    titulo: "Tecnología Fiscal",
-    descripcion: "Herramientas digitales para eficiencia contable",
+    titulo: 'Tecnología Fiscal',
+    descripcion: 'Herramientas digitales para eficiencia contable',
     talleres: [
-      "Herramientas Digitales para Contabilidad y Finanzas",
-      "Automatización de Procesos Fiscales y Contables",
-      "XMLSAT Premium: Aprovechamiento Máximo",
-      "Seguridad Digital en la Gestión Fiscal"
-    ]
-  }
+      'Herramientas Digitales para Contabilidad y Finanzas',
+      'Automatización de Procesos Fiscales y Contables',
+      'XMLSAT Premium: Aprovechamiento Máximo',
+      'Seguridad Digital en la Gestión Fiscal',
+    ],
+  },
 ];
 
 // URL de tu perfil de Lu.ma (sustituir con tu URL real)
-const lumaProfileUrl = "https://lu.ma/todoconta";
+const lumaProfileUrl = 'https://lu.ma/todoconta';
 ---
 
-<Layout title="Talleres y Capacitación | Todoconta" description="Calendario de talleres y capacitaciones especializadas en temas fiscales y contables. Cursos presenciales y virtuales con enfoque práctico para la optimización fiscal de tu empresa.">
-  
+<Layout
+  title="Talleres y Capacitación | Todoconta"
+  description="Calendario de talleres y capacitaciones especializadas en temas fiscales y contables. Cursos presenciales y virtuales con enfoque práctico para la optimización fiscal de tu empresa."
+>
   <!-- Hero Section -->
   <section class="talleres-hero">
     <div class="container">
       <div class="hero-content">
         <h1 class="hero-title">Talleres y Capacitación</h1>
         <p class="hero-description">
-          Actualiza tus conocimientos fiscales y contables con nuestros talleres especializados.
-          Metodología práctica, instructores expertos y contenido siempre actualizado.
+          Actualiza tus conocimientos fiscales y contables con nuestros talleres
+          especializados. Metodología práctica, instructores expertos y
+          contenido siempre actualizado.
         </p>
         <div class="hero-actions">
           <a href="#calendario" class="btn btn-primary">Ver Calendario</a>
@@ -67,71 +70,83 @@ const lumaProfileUrl = "https://lu.ma/todoconta";
       </div>
     </div>
   </section>
-  
+
   <!-- Beneficios Section -->
   <section class="beneficios-section">
     <div class="container">
       <h2 class="section-title">¿Por qué elegir nuestros talleres?</h2>
-      
+
       <div class="beneficios-grid">
         <div class="beneficio-card">
           <div class="beneficio-icon">👨‍🏫</div>
           <h3 class="beneficio-title">Instructores Expertos</h3>
           <p class="beneficio-description">
-            Facilitadores con amplia experiencia práctica que combinan conocimiento teórico con aplicación real.
+            Facilitadores con amplia experiencia práctica que combinan
+            conocimiento teórico con aplicación real.
           </p>
         </div>
-        
+
         <div class="beneficio-card">
           <div class="beneficio-icon">📚</div>
           <h3 class="beneficio-title">Contenido Actualizado</h3>
           <p class="beneficio-description">
-            Información siempre al día con las últimas reformas fiscales y criterios del SAT.
+            Información siempre al día con las últimas reformas fiscales y
+            criterios del SAT.
           </p>
         </div>
-        
+
         <div class="beneficio-card">
           <div class="beneficio-icon">🛠️</div>
           <h3 class="beneficio-title">Enfoque Práctico</h3>
           <p class="beneficio-description">
-            Metodología basada en casos reales y ejercicios aplicables inmediatamente en tu empresa.
+            Metodología basada en casos reales y ejercicios aplicables
+            inmediatamente en tu empresa.
           </p>
         </div>
-        
+
         <div class="beneficio-card">
           <div class="beneficio-icon">🔄</div>
           <h3 class="beneficio-title">Seguimiento Post-Taller</h3>
           <p class="beneficio-description">
-            Sesión de resolución de dudas posterior para asegurar la correcta aplicación de lo aprendido.
+            Sesión de resolución de dudas posterior para asegurar la correcta
+            aplicación de lo aprendido.
           </p>
         </div>
       </div>
     </div>
   </section>
-  
+
   <!-- Calendario Section (Lu.ma integration) -->
   <section class="calendario-section" id="calendario">
     <div class="container">
       <h2 class="section-title">Próximos Talleres</h2>
       <p class="section-subtitle">
-        Inscríbete directamente a nuestros próximos talleres virtuales y presenciales.
+        Inscríbete directamente a nuestros próximos talleres virtuales y
+        presenciales.
       </p>
-      
+
       <div class="luma-container">
         <!-- Fallback en caso de que el iframe no cargue -->
         <div class="luma-fallback">
           <p>Cargando calendario de talleres...</p>
-          <p>Si el calendario no se muestra, <a href={lumaProfileUrl} target="_blank" rel="noopener">haz clic aquí para ver todos nuestros talleres en Lu.ma</a></p>
+          <p>
+            Si el calendario no se muestra, <a
+              href={lumaProfileUrl}
+              target="_blank"
+              rel="noopener"
+              >haz clic aquí para ver todos nuestros talleres en Lu.ma</a
+            >
+          </p>
         </div>
-        
+
         <!-- Iframe de Lu.ma -->
         <!-- Nota: Ajusta el height según tus necesidades -->
-        <iframe 
-          src={lumaProfileUrl} 
-          width="100%" 
-          height="800" 
-          frameborder="0" 
-          allowfullscreen 
+        <iframe
+          src={lumaProfileUrl}
+          width="100%"
+          height="800"
+          frameborder="0"
+          allowfullscreen
           allow="fullscreen"
           style="border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg);"
           onload="document.querySelector('.luma-fallback').style.display = 'none';"
@@ -139,7 +154,7 @@ const lumaProfileUrl = "https://lu.ma/todoconta";
       </div>
     </div>
   </section>
-  
+
   <!-- Categorías Section -->
   <section class="categorias-section" id="categorias">
     <div class="container">
@@ -147,98 +162,122 @@ const lumaProfileUrl = "https://lu.ma/todoconta";
       <p class="section-subtitle">
         Explora nuestras diferentes áreas de especialización
       </p>
-      
+
       <div class="categorias-grid">
-        {categoriasTalleres.map(categoria => (
-          <div class="categoria-card">
-            <h3 class="categoria-title">{categoria.titulo}</h3>
-            <p class="categoria-description">{categoria.descripcion}</p>
-            <ul class="talleres-list">
-              {categoria.talleres.map(taller => (
-                <li class="taller-item">{taller}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        {
+          categoriasTalleres.map(categoria => (
+            <div class="categoria-card">
+              <h3 class="categoria-title">{categoria.titulo}</h3>
+              <p class="categoria-description">{categoria.descripcion}</p>
+              <ul class="talleres-list">
+                {categoria.talleres.map(taller => (
+                  <li class="taller-item">{taller}</li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
-  
+
   <!-- Taller In-Company Section -->
   <section class="incompany-section">
     <div class="container">
       <div class="incompany-content">
-        <h2 class="incompany-title">¿Necesitas un taller especializado para tu empresa?</h2>
+        <h2 class="incompany-title">
+          ¿Necesitas un taller especializado para tu empresa?
+        </h2>
         <p class="incompany-description">
-          Diseñamos programas de capacitación a medida según las necesidades específicas de tu organización.
-          Adaptamos contenido, duración y formato para maximizar el valor para tu equipo.
+          Diseñamos programas de capacitación a medida según las necesidades
+          específicas de tu organización. Adaptamos contenido, duración y
+          formato para maximizar el valor para tu equipo.
         </p>
         <div class="incompany-features">
           <div class="incompany-feature">
             <span class="feature-icon">✅</span>
-            <span class="feature-text">Contenido personalizado para tu industria</span>
+            <span class="feature-text"
+              >Contenido personalizado para tu industria</span
+            >
           </div>
           <div class="incompany-feature">
             <span class="feature-icon">✅</span>
-            <span class="feature-text">Formato presencial, virtual o híbrido</span>
+            <span class="feature-text"
+              >Formato presencial, virtual o híbrido</span
+            >
           </div>
           <div class="incompany-feature">
             <span class="feature-icon">✅</span>
-            <span class="feature-text">Ejercicios basados en casos reales de tu empresa</span>
+            <span class="feature-text"
+              >Ejercicios basados en casos reales de tu empresa</span
+            >
           </div>
           <div class="incompany-feature">
             <span class="feature-icon">✅</span>
-            <span class="feature-text">Descuentos especiales para grupos grandes</span>
+            <span class="feature-text"
+              >Descuentos especiales para grupos grandes</span
+            >
           </div>
         </div>
         <a href="#contacto" class="btn btn-primary">Solicitar Propuesta</a>
       </div>
     </div>
   </section>
-  
+
   <!-- Testimonials Section -->
   <section class="testimonials-section">
     <div class="container">
       <h2 class="section-title">Lo que dicen nuestros participantes</h2>
-      
+
       <div class="testimonials-grid">
         <div class="testimonial-card">
           <div class="quote-icon">"</div>
           <p class="testimonial-quote">
-            El taller de Reforma Fiscal 2025 fue exactamente lo que necesitábamos. Explicaciones claras, ejemplos prácticos y la posibilidad de resolver dudas específicas de nuestra industria.
+            El taller de Reforma Fiscal 2025 fue exactamente lo que
+            necesitábamos. Explicaciones claras, ejemplos prácticos y la
+            posibilidad de resolver dudas específicas de nuestra industria.
           </p>
           <div class="testimonial-author">
             <div class="author-info">
               <h4 class="author-name">Claudia Ramírez</h4>
-              <p class="author-position">Directora Financiera, Grupo Industrial Mexicano</p>
+              <p class="author-position">
+                Directora Financiera, Grupo Industrial Mexicano
+              </p>
             </div>
           </div>
         </div>
-        
+
         <div class="testimonial-card">
           <div class="quote-icon">"</div>
           <p class="testimonial-quote">
-            Como emprendedor, el taller de 'Contabilidad para No Contadores' me dio exactamente las herramientas que necesitaba para entender y supervisar eficazmente las finanzas de mi negocio.
+            Como emprendedor, el taller de 'Contabilidad para No Contadores' me
+            dio exactamente las herramientas que necesitaba para entender y
+            supervisar eficazmente las finanzas de mi negocio.
           </p>
           <div class="testimonial-author">
             <div class="author-info">
               <h4 class="author-name">Sofía Hernández</h4>
-              <p class="author-position">Fundadora & CEO, EcoSoluciones Sustentables</p>
+              <p class="author-position">
+                Fundadora & CEO, EcoSoluciones Sustentables
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  
+
   <!-- Contact Section -->
   <section class="contact-section" id="contacto">
     <div class="container">
       <div class="contact-content">
         <div class="contact-info">
-          <h2 class="contact-title">¿Tienes preguntas sobre nuestros talleres?</h2>
+          <h2 class="contact-title">
+            ¿Tienes preguntas sobre nuestros talleres?
+          </h2>
           <p class="contact-description">
-            Completa el formulario y nuestro equipo se pondrá en contacto contigo para brindarte toda la información que necesitas.
+            Completa el formulario y nuestro equipo se pondrá en contacto
+            contigo para brindarte toda la información que necesitas.
           </p>
           <div class="contact-methods">
             <div class="contact-method">
@@ -255,34 +294,54 @@ const lumaProfileUrl = "https://lu.ma/todoconta";
             </div>
           </div>
         </div>
-        
+
         <form class="contact-form" id="talleresForm">
           <div class="form-group">
             <label for="nombre" class="form-label">Nombre completo</label>
-            <input type="text" id="nombre" name="nombre" class="form-input" required>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              class="form-input"
+              required
+            />
           </div>
-          
+
           <div class="form-group">
             <label for="email" class="form-label">Correo electrónico</label>
-            <input type="email" id="email" name="email" class="form-input" required>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-input"
+              required
+            />
           </div>
-          
+
           <div class="form-group">
             <label for="telefono" class="form-label">Teléfono</label>
-            <input type="tel" id="telefono" name="telefono" class="form-input">
+            <input
+              type="tel"
+              id="telefono"
+              name="telefono"
+              class="form-input"
+            />
           </div>
-          
+
           <div class="form-group">
             <label for="empresa" class="form-label">Empresa</label>
-            <input type="text" id="empresa" name="empresa" class="form-input">
+            <input type="text" id="empresa" name="empresa" class="form-input" />
           </div>
-          
+
           <div class="form-group">
             <label for="mensaje" class="form-label">Mensaje</label>
-            <textarea id="mensaje" name="mensaje" class="form-textarea" rows="4"></textarea>
+            <textarea id="mensaje" name="mensaje" class="form-textarea" rows="4"
+            ></textarea>
           </div>
-          
-          <button type="submit" class="btn btn-primary form-submit">Enviar Mensaje</button>
+
+          <button type="submit" class="btn btn-primary form-submit"
+            >Enviar Mensaje</button
+          >
         </form>
       </div>
     </div>
@@ -292,44 +351,48 @@ const lumaProfileUrl = "https://lu.ma/todoconta";
 <style>
   /* Hero Section */
   .talleres-hero {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--primary-800) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--color-primary) 0%,
+      var(--primary-800) 100%
+    );
     color: white;
     padding: var(--space-16) 0;
     text-align: center;
   }
-  
+
   .hero-title {
     font-size: var(--font-size-5xl);
     font-weight: 800;
     margin-bottom: var(--space-6);
   }
-  
+
   .hero-description {
     font-size: var(--font-size-xl);
     max-width: 700px;
     margin: 0 auto var(--space-8);
     opacity: 0.9;
   }
-  
+
   .hero-actions {
     display: flex;
     gap: var(--space-4);
     justify-content: center;
   }
-  
+
   /* Beneficios Section */
   .beneficios-section {
     padding: var(--space-16) 0;
     background-color: var(--color-white);
   }
-  
+
   .beneficios-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--space-6);
     margin-top: var(--space-10);
   }
-  
+
   .beneficio-card {
     background-color: white;
     border-radius: var(--border-radius-xl);
@@ -338,17 +401,17 @@ const lumaProfileUrl = "https://lu.ma/todoconta";
     text-align: center;
     transition: all var(--transition-normal);
   }
-  
+
   .beneficio-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
   }
-  
+
   .beneficio-icon {
     font-size: 2.5rem;
     margin-bottom: var(--space-4);
   }
-  
+
   .beneficio-title {
     font-family: var(--font-secondary);
     font-size: var(--font-size-xl);
@@ -356,21 +419,21 @@ const lumaProfileUrl = "https://lu.ma/todoconta";
     color: var(--color-text-primary);
     margin-bottom: var(--space-3);
   }
-  
+
   .beneficio-description {
     color: var(--color-text-secondary);
   }
-  
+
   /* Calendario Section */
   .calendario-section {
     padding: var(--space-16) 0;
   }
-  
+
   .luma-container {
     margin-top: var(--space-8);
     position: relative;
   }
-  
+
   .luma-fallback {
     text-align: center;
     padding: var(--space-8);
@@ -378,20 +441,20 @@ const lumaProfileUrl = "https://lu.ma/todoconta";
     border-radius: var(--border-radius-lg);
     border: 1px dashed var(--neutral-300);
   }
-  
+
   /* Categorías Section */
   .categorias-section {
     padding: var(--space-16) 0;
     background-color: var(--color-white);
   }
-  
+
   .categorias-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--space-6);
     margin-top: var(--space-8);
   }
-  
+
   .categoria-card {
     background-color: white;
     border-radius: var(--border-radius-xl);
@@ -399,7 +462,7 @@ const lumaProfileUrl = "https://lu.ma/todoconta";
     box-shadow: var(--shadow-md);
     height: 100%;
   }
-  
+
   .categoria-title {
     font-family: var(--font-secondary);
     font-size: var(--font-size-xl);
@@ -409,51 +472,51 @@ const lumaProfileUrl = "https://lu.ma/todoconta";
     padding-bottom: var(--space-3);
     border-bottom: 1px solid var(--color-primary-light);
   }
-  
+
   .categoria-description {
     color: var(--color-text-secondary);
     margin-bottom: var(--space-4);
   }
-  
+
   .talleres-list {
     list-style: none;
   }
-  
+
   .taller-item {
     padding: var(--space-2) 0;
     border-bottom: 1px dashed var(--color-primary-light);
     color: var(--color-text-primary);
   }
-  
+
   .taller-item:last-child {
     border-bottom: none;
   }
-  
+
   /* In-Company Section */
   .incompany-section {
     padding: var(--space-16) 0;
     background-color: var(--color-background-alt);
   }
-  
+
   .incompany-content {
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
   }
-  
+
   .incompany-title {
     font-size: var(--font-size-3xl);
     font-weight: 700;
     color: var(--primary-700);
     margin-bottom: var(--space-4);
   }
-  
+
   .incompany-description {
     font-size: var(--font-size-lg);
     color: var(--color-text-secondary);
     margin-bottom: var(--space-8);
   }
-  
+
   .incompany-features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -461,30 +524,30 @@ const lumaProfileUrl = "https://lu.ma/todoconta";
     margin-bottom: var(--space-8);
     text-align: left;
   }
-  
+
   .incompany-feature {
     display: flex;
     align-items: center;
     gap: var(--space-3);
   }
-  
+
   .feature-icon {
     color: var(--color-primary);
     font-size: 1.25rem;
   }
-  
+
   /* Testimonials Section */
   .testimonials-section {
     padding: var(--space-16) 0;
   }
-  
+
   .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--space-6);
     margin-top: var(--space-8);
   }
-  
+
   .testimonial-card {
     background-color: white;
     border-radius: var(--border-radius-xl);
@@ -495,7 +558,7 @@ const lumaProfileUrl = "https://lu.ma/todoconta";
     display: flex;
     flex-direction: column;
   }
-  
+
   .quote-icon {
     position: absolute;
     top: var(--space-4);
@@ -507,7 +570,7 @@ const lumaProfileUrl = "https://lu.ma/todoconta";
     font-weight: bold;
     opacity: 0.5;
   }
-  
+
   .testimonial-quote {
     padding-top: var(--space-6);
     margin-bottom: var(--space-6);
@@ -515,76 +578,76 @@ const lumaProfileUrl = "https://lu.ma/todoconta";
     color: var(--color-text-primary);
     flex-grow: 1;
   }
-  
+
   .testimonial-author {
     border-top: 1px solid var(--color-primary-light);
     padding-top: var(--space-4);
     margin-top: auto;
   }
-  
+
   .author-name {
     font-weight: 600;
     color: var(--color-text-primary);
     margin-bottom: var(--space-1);
   }
-  
+
   .author-position {
     color: var(--color-white);
     font-size: 0.875rem;
   }
-  
+
   /* Contact Section */
   .contact-section {
     padding: var(--space-16) 0;
     background-color: var(--color-text-primary);
     color: white;
   }
-  
+
   .contact-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-8);
     align-items: center;
   }
-  
+
   .contact-title {
     font-size: var(--font-size-3xl);
     font-weight: 700;
     margin-bottom: var(--space-4);
   }
-  
+
   .contact-description {
     margin-bottom: var(--space-6);
     color: var(--neutral-300);
   }
-  
+
   .contact-methods {
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
   }
-  
+
   .contact-method {
     display: flex;
     align-items: center;
     gap: var(--space-3);
   }
-  
+
   .method-icon {
     font-size: 1.5rem;
   }
-  
+
   .contact-form {
     background-color: white;
     padding: var(--space-6);
     border-radius: var(--border-radius-xl);
     box-shadow: var(--shadow-lg);
   }
-  
+
   .form-group {
     margin-bottom: var(--space-4);
   }
-  
+
   .form-label {
     display: block;
     margin-bottom: var(--space-2);
@@ -592,7 +655,7 @@ const lumaProfileUrl = "https://lu.ma/todoconta";
     font-weight: 600;
     color: var(--neutral-800);
   }
-  
+
   .form-input,
   .form-textarea {
     width: 100%;
@@ -602,38 +665,38 @@ const lumaProfileUrl = "https://lu.ma/todoconta";
     font-family: var(--font-primary);
     transition: all var(--transition-fast);
   }
-  
+
   .form-input:focus,
   .form-textarea:focus {
     outline: none;
     border-color: var(--primary-400);
     box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
   }
-  
+
   .form-submit {
     width: 100%;
   }
-  
+
   /* Responsive Styles */
   @media (max-width: 768px) {
     .hero-actions {
       flex-direction: column;
       gap: var(--space-3);
     }
-    
+
     .contact-content {
       grid-template-columns: 1fr;
     }
-    
+
     .contact-info {
       text-align: center;
       margin-bottom: var(--space-8);
     }
-    
+
     .contact-methods {
       align-items: center;
     }
-    
+
     .incompany-features {
       grid-template-columns: 1fr;
     }
@@ -642,16 +705,16 @@ const lumaProfileUrl = "https://lu.ma/todoconta";
 
 <script>
   // Script para manejar el formulario
-  document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('talleresForm');
-    
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('talleresForm') as HTMLFormElement;
+
     if (form) {
-      form.addEventListener('submit', function(e) {
+      form.addEventListener('submit', function (e) {
         e.preventDefault();
-        
+
         // Aquí puedes agregar la lógica para enviar el formulario
         // Por ejemplo, usando fetch para enviar a tu endpoint
-        
+
         // Simulación de envío exitoso
         alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
         form.reset();

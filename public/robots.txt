@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://todoconta.com/sitemap-index.xml
+
+# Block access to admin or private areas if any exist
+# Disallow: /admin/
+# Disallow: /.well-known/
+
+# Allow all search engines to crawl the site
+# This is a public business website

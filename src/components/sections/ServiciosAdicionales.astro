@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection } from 'astro:content';
 
 const serviciosAdicionales = await getCollection('services');
 ---
@@ -9,29 +9,39 @@ const serviciosAdicionales = await getCollection('services');
     <div class="section-header">
       <h2 class="section-title fade-in-up">Servicios Adicionales</h2>
       <p class="section-subtitle fade-in-up">
-        Servicios especializados para necesidades específicas de tu empresa. 
+        Servicios especializados para necesidades específicas de tu empresa.
         Soluciones puntuales con la calidad y confianza de siempre.
       </p>
     </div>
 
     <div class="servicios-grid">
-      {serviciosAdicionales.map((service, index) => (
-        <div class="servicio-card fade-in-up" style={`animation-delay: ${index * 0.1}s`}>
-          <div class="servicio-icon">{service.data.icon}</div>
-          <h3 class="servicio-title">{service.data.title}</h3>
-          <p class="servicio-description">{service.data.description}</p>
-          <a href={`/servicios/${service.slug}`} class="servicio-link">
-            Más información →
-          </a>
-        </div>
-      ))}
+      {
+        serviciosAdicionales.map((service, index) => (
+          <div
+            class="servicio-card fade-in-up"
+            style={`animation-delay: ${index * 0.1}s`}
+          >
+            <div class="servicio-icon">{service.data.icon}</div>
+            <h3 class="servicio-title">{service.data.title}</h3>
+            <p class="servicio-description">{service.data.description}</p>
+            <a href={`/servicios/${service.slug}`} class="servicio-link">
+              Más información →
+            </a>
+          </div>
+        ))
+      }
     </div>
 
     <div class="servicios-cta fade-in-up">
       <div class="cta-content">
         <h3>¿No encuentras lo que necesitas?</h3>
-        <p>Contáctanos y te ayudamos con cualquier trámite fiscal o contable específico</p>
-        <a href="#contacto" class="btn btn-primary btn-lg">Consulta Personalizada</a>
+        <p>
+          Contáctanos y te ayudamos con cualquier trámite fiscal o contable
+          específico
+        </p>
+        <a href="#contacto" class="btn btn-primary btn-lg"
+          >Consulta Personalizada</a
+        >
       </div>
     </div>
   </div>
@@ -95,7 +105,11 @@ const serviciosAdicionales = await getCollection('services');
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, transparent 0%, rgba(234, 88, 12, 0.02) 100%);
+    background: linear-gradient(
+      135deg,
+      transparent 0%,
+      rgba(234, 88, 12, 0.02) 100%
+    );
     pointer-events: none;
   }
 
@@ -107,7 +121,11 @@ const serviciosAdicionales = await getCollection('services');
   }
 
   .servicio-card:hover::before {
-    background: linear-gradient(135deg, transparent 0%, rgba(234, 88, 12, 0.05) 100%);
+    background: linear-gradient(
+      135deg,
+      transparent 0%,
+      rgba(234, 88, 12, 0.05) 100%
+    );
   }
 
   .servicio-icon {

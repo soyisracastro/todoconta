@@ -1,36 +1,40 @@
 ---
-import ValuePropsItem from "../ui/ValuePropsItem.astro";
+import ValuePropsItem from '../ui/ValuePropsItem.astro';
 
 // Definimos las propuestas de valor
 const valueProps = [
   {
-    icon: "🛡️",
-    title: "Garantía de Multas",
-    description: "Si no cumplimos con alguna obligación fiscal por nuestra responsabilidad, cubrimos las multas y recargos correspondientes."
+    icon: '🛡️',
+    title: 'Garantía de Multas',
+    description:
+      'Si no cumplimos con alguna obligación fiscal por nuestra responsabilidad, cubrimos las multas y recargos correspondientes.',
   },
   {
-    icon: "⚡",
-    title: "Servicio Integral",
-    description: "Contabilidad, nómina, IMSS, SAT y más. Todo en un solo lugar con comunicación directa a tu contador asignado."
+    icon: '⚡',
+    title: 'Servicio Integral',
+    description:
+      'Contabilidad, nómina, IMSS, SAT y más. Todo en un solo lugar con comunicación directa a tu contador asignado.',
   },
   {
-    icon: "🤖",
-    title: "Automatización con IA",
-    description: "Inteligencia artificial que automatiza procesos manuales, clasifica gastos y genera recomendaciones fiscales personalizadas."
-  }
+    icon: '🤖',
+    title: 'Automatización con IA',
+    description:
+      'Inteligencia artificial que automatiza procesos manuales, clasifica gastos y genera recomendaciones fiscales personalizadas.',
+  },
 ];
 ---
+
 <section class="value-prop" id="beneficios">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title fade-in-up">¿Por qué nosotros?</h2>
       <p class="section-subtitle fade-in-up">
-        Combinamos servicios contables profesionales con tecnología avanzada para darte tranquilidad total
+        Combinamos servicios contables profesionales con tecnología avanzada
+        para darte tranquilidad total
       </p>
     </div>
-    
+
     <ValuePropsItem valueProps={valueProps} />
-    
   </div>
 </section>
 
@@ -52,11 +56,11 @@ const valueProps = [
     transform: translateY(0);
   }
 
-  @media (max-width: 768px) {   
+  @media (max-width: 768px) {
     .section-title {
       font-size: var(--font-size-4xl);
     }
-    
+
     .section-subtitle {
       font-size: var(--font-size-lg);
     }
