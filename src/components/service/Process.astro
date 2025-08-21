@@ -13,23 +13,29 @@ const { steps } = Astro.props;
 
 <section class="process-section">
   <div class="container">
-    <h2 class="section-title text-center animate-fade-in-up">Cómo Funciona Nuestro Proceso</h2>
+    <h2 class="section-title text-center animate-fade-in-up">
+      Cómo Funciona Nuestro Proceso
+    </h2>
     <p class="section-subtitle text-center animate-fade-in-up delay-100">
       Conoce el paso a paso de nuestra metodología de trabajo
     </p>
-    
+
     <div class="process-timeline">
-      {steps.map((step, index) => (
-        <div class={`process-step animate-fade-in-up delay-${200 + index * 100}`}>
-          <div class="step-number">{index + 1}</div>
-          
-          <div class="step-content">
-            <div class="step-icon">{step.icon}</div>
-            <h3 class="step-title">{step.title}</h3>
-            <p class="step-description">{step.description}</p>
+      {
+        steps.map((step, index) => (
+          <div
+            class={`process-step animate-fade-in-up delay-${200 + index * 100}`}
+          >
+            <div class="step-number">{index + 1}</div>
+
+            <div class="step-content">
+              <div class="step-icon">{step.icon}</div>
+              <h3 class="step-title">{step.title}</h3>
+              <p class="step-description">{step.description}</p>
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </section>
@@ -39,11 +45,11 @@ const { steps } = Astro.props;
     padding: var(--space-20) 0;
     background-color: white;
   }
-  
+
   .text-center {
     text-align: center;
   }
-  
+
   .section-title {
     font-family: var(--font-secondary);
     font-size: var(--font-size-3xl);
@@ -51,20 +57,20 @@ const { steps } = Astro.props;
     color: var(--color-text-primary);
     margin-bottom: var(--space-4);
   }
-  
+
   .section-subtitle {
     font-size: var(--font-size-lg);
     color: var(--color-text-secondary);
     max-width: 700px;
     margin: 0 auto var(--space-12);
   }
-  
+
   .process-timeline {
     position: relative;
     max-width: 800px;
     margin: 0 auto;
   }
-  
+
   .process-timeline::before {
     content: '';
     position: absolute;
@@ -75,17 +81,17 @@ const { steps } = Astro.props;
     background-color: var(--primary-200);
     z-index: 1;
   }
-  
+
   .process-step {
     position: relative;
     margin-bottom: var(--space-10);
     padding-left: var(--space-16);
   }
-  
+
   .process-step:last-child {
     margin-bottom: 0;
   }
-  
+
   .process-step:last-child::before {
     content: '';
     position: absolute;
@@ -96,7 +102,7 @@ const { steps } = Astro.props;
     height: calc(100% - 50px);
     z-index: 2;
   }
-  
+
   .step-number {
     position: absolute;
     left: 0;
@@ -115,7 +121,7 @@ const { steps } = Astro.props;
     z-index: 3;
     box-shadow: var(--shadow-md);
   }
-  
+
   .step-content {
     background-color: var(--color-white);
     border-radius: var(--border-radius-xl);
@@ -123,12 +129,12 @@ const { steps } = Astro.props;
     box-shadow: var(--shadow-md);
     border: 1px solid var(--color-primary-light);
   }
-  
+
   .step-icon {
     font-size: var(--font-size-2xl);
     margin-bottom: var(--space-3);
   }
-  
+
   .step-title {
     font-family: var(--font-secondary);
     font-size: var(--font-size-xl);
@@ -136,40 +142,40 @@ const { steps } = Astro.props;
     color: var(--color-text-primary);
     margin-bottom: var(--space-3);
   }
-  
+
   .step-description {
     color: var(--color-text-primary);
     line-height: 1.6;
     margin: 0;
   }
-  
+
   @media (max-width: 768px) {
     .process-section {
       padding: var(--space-16) 0;
     }
-    
+
     .section-title {
       font-size: var(--font-size-2xl);
     }
-    
+
     .section-subtitle {
       font-size: var(--font-size-base);
     }
-    
+
     .process-step {
       padding-left: var(--space-12);
     }
-    
+
     .step-number {
       width: 40px;
       height: 40px;
       font-size: var(--font-size-lg);
     }
-    
+
     .process-timeline::before {
       left: 19px;
     }
-    
+
     .process-step:last-child::before {
       left: 19px;
     }

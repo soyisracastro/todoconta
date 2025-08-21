@@ -2,36 +2,36 @@
 // Características de la automatización con IA
 const features = [
   {
-    icon: "🧠",
-    text: "Clasificación inteligente"
+    icon: '🧠',
+    text: 'Clasificación inteligente',
   },
   {
-    icon: "💡",
-    text: "Detección de ahorros"
+    icon: '💡',
+    text: 'Detección de ahorros',
   },
   {
-    icon: "🔔",
-    text: "Alertas predictivas"
+    icon: '🔔',
+    text: 'Alertas predictivas',
   },
   {
-    icon: "📈",
-    text: "Análisis de tendencias"
+    icon: '📈',
+    text: 'Análisis de tendencias',
   },
   {
-    icon: "⚡",
-    text: "70% menos tiempo manual"
+    icon: '⚡',
+    text: '70% menos tiempo manual',
   },
   {
-    icon: "🎯",
-    text: "Recomendaciones personalizadas"
-  }
+    icon: '🎯',
+    text: 'Recomendaciones personalizadas',
+  },
 ];
 
 // Alertas de IA que mostraremos en el mockup
 const aiAlerts = [
-  "15 gastos sin clasificar",
-  "Posible deducción de $12,500",
-  "Recomendación: Cambio de régimen"
+  '15 gastos sin clasificar',
+  'Posible deducción de $12,500',
+  'Recomendación: Cambio de régimen',
 ];
 ---
 
@@ -41,20 +41,22 @@ const aiAlerts = [
       <div class="visual-content fade-in-up">
         <div class="ai-mockup">
           <h4 class="mockup-title">Asistente IA Contable</h4>
-          
+
           <div class="ai-alerts-card">
             <div class="ai-header">
               <span class="ai-icon">🤖</span>
               <div class="ai-detection-title">IA Detectó:</div>
             </div>
-            
+
             <div class="ai-alerts-list">
-              {aiAlerts.map(alert => (
-                <div class="ai-alert-item">• {alert}</div>
-              ))}
+              {
+                aiAlerts.map(alert => (
+                  <div class="ai-alert-item">• {alert}</div>
+                ))
+              }
             </div>
           </div>
-          
+
           <div class="ai-stats-card">
             <div class="ai-stat">
               <span class="ai-stat-icon">⚡</span>
@@ -63,26 +65,36 @@ const aiAlerts = [
           </div>
         </div>
       </div>
-      
+
       <div class="text-content">
-        <h2 class="section-title fade-in-up">Automatización con<br>Inteligencia Artificial</h2>
+        <h2 class="section-title fade-in-up">
+          Automatización con<br />Inteligencia Artificial
+        </h2>
         <p class="section-lead fade-in-up">
-          Elimina tareas repetitivas con IA que aprende de tu negocio. 
-          Clasificación automática de gastos, detección de deducciones y alertas inteligentes.
+          Elimina tareas repetitivas con IA que aprende de tu negocio.
+          Clasificación automática de gastos, detección de deducciones y alertas
+          inteligentes.
         </p>
-        
+
         <div class="features-grid fade-in-up">
-          {features.map((feature, index) => (
-            <div class="feature-item" style={`animation-delay: ${index * 0.1}s`}>
-              <div class="feature-icon">{feature.icon}</div>
-              <span class="feature-text">{feature.text}</span>
-            </div>
-          ))}
+          {
+            features.map((feature, index) => (
+              <div
+                class="feature-item"
+                style={`animation-delay: ${index * 0.1}s`}
+              >
+                <div class="feature-icon">{feature.icon}</div>
+                <span class="feature-text">{feature.text}</span>
+              </div>
+            ))
+          }
         </div>
 
         <div class="cta-buttons fade-in-up">
           <a href="#contacto" class="btn btn-accent btn-lg">Activar IA</a>
-          <a href="#servicios" class="btn btn-outline btn-lg">Incluido en Premium</a>
+          <a href="#servicios" class="btn btn-outline btn-lg"
+            >Incluido en Premium</a
+          >
         </div>
       </div>
     </div>

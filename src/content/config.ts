@@ -1,34 +1,40 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection, z } from 'astro:content';
 
 const productsCollection = defineCollection({
-    schema: z.object({
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    price: z.number(),
+    pricePeriod: z.string().optional(),
+    badge: z.string().optional(),
+    heroImage: z.string().optional(),
+    demoUrl: z.string().optional(),
+    buyUrl: z.string().optional(),
+    features: z.array(
+      z.object({
+        icon: z.string(),
         title: z.string(),
         description: z.string(),
-        price: z.number(),
-        pricePeriod: z.string().optional(),
-        badge: z.string().optional(),
-        heroImage: z.string().optional(),
-        demoUrl: z.string().optional(),
-        buyUrl: z.string().optional(),
-        features: z.array(z.object({
-          icon: z.string(),
-          title: z.string(),
-          description: z.string()
-        })),
-        benefits: z.array(z.object({
-          title: z.string(),
-          description: z.string()
-        })),
-        pricing: z.object({
-          features: z.array(z.string())
-        }),
-        faqs: z.array(z.object({
-          question: z.string(),
-          answer: z.string()
-        })),
-        formId: z.string().optional()
-      })    
-})
+      })
+    ),
+    benefits: z.array(
+      z.object({
+        title: z.string(),
+        description: z.string(),
+      })
+    ),
+    pricing: z.object({
+      features: z.array(z.string()),
+    }),
+    faqs: z.array(
+      z.object({
+        question: z.string(),
+        answer: z.string(),
+      })
+    ),
+    formId: z.string().optional(),
+  }),
+});
 
 const servicesCollection = defineCollection({
   schema: z.object({
@@ -47,53 +53,67 @@ const servicesCollection = defineCollection({
     ctaUrl: z.string().default('#contacto'),
     secondaryCtaText: z.string().optional(),
     secondaryCtaUrl: z.string().optional(),
-    
+
     // Características del servicio
-    benefits: z.array(z.object({
-      icon: z.string().optional(),
-      title: z.string(),
-      description: z.string()
-    })),
-    
+    benefits: z.array(
+      z.object({
+        icon: z.string().optional(),
+        title: z.string(),
+        description: z.string(),
+      })
+    ),
+
     // Proceso del servicio
-    process: z.array(z.object({
-      title: z.string(),
-      description: z.string(),
-      icon: z.string().optional()
-    })).optional(),
-    
+    process: z
+      .array(
+        z.object({
+          title: z.string(),
+          description: z.string(),
+          icon: z.string().optional(),
+        })
+      )
+      .optional(),
+
     // Requisitos para el servicio
     requirements: z.array(z.string()).optional(),
-    
+
     // Entregables
     deliverables: z.array(z.string()).optional(),
-    
+
     // Servicios relacionados
     relatedServices: z.array(z.string()).optional(),
-    
+
     // Preguntas frecuentes
-    faqs: z.array(z.object({
-      question: z.string(),
-      answer: z.string()
-    })).optional(),
-    
+    faqs: z
+      .array(
+        z.object({
+          question: z.string(),
+          answer: z.string(),
+        })
+      )
+      .optional(),
+
     // Testimonios relacionados con este servicio
-    testimonials: z.array(z.object({
-      quote: z.string(),
-      author: z.string(),
-      position: z.string().optional(),
-      company: z.string().optional(),
-      avatar: z.string().optional()
-    })).optional(),
-    
+    testimonials: z
+      .array(
+        z.object({
+          quote: z.string(),
+          author: z.string(),
+          position: z.string().optional(),
+          company: z.string().optional(),
+          avatar: z.string().optional(),
+        })
+      )
+      .optional(),
+
     // SEO
     seoTitle: z.string().optional(),
     seoDescription: z.string().optional(),
-    seoKeywords: z.array(z.string()).optional()
-  })
-})
+    seoKeywords: z.array(z.string()).optional(),
+  }),
+});
 
 export const collections = {
-    'products': productsCollection,
-    'services': servicesCollection,
-}
+  products: productsCollection,
+  services: servicesCollection,
+};

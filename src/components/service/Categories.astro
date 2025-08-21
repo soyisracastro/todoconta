@@ -16,33 +16,46 @@ const { categories } = Astro.props;
 
 <section class="categories-section">
   <div class="container">
-    <h2 class="section-title text-center animate-fade-in-up">¿Qué Incluye Nuestro Servicio?</h2>
+    <h2 class="section-title text-center animate-fade-in-up">
+      ¿Qué Incluye Nuestro Servicio?
+    </h2>
     <p class="section-subtitle text-center animate-fade-in-up delay-100">
       Conoce a detalle todo lo que obtendrás al contratar nuestro servicio
     </p>
-    
+
     <div class="categories-container">
-      {categories.map((category, index) => (
-        <div class={`category-card animate-fade-in-up delay-${200 + index * 100}`}>
-          <h3 class="category-title">{category.title}</h3>
-          
-          <ul class="category-features">
-            {category.features.map(feature => (
-              <li class={`feature-item ${feature.included ? 'included' : 'excluded'}`}>
-                <span class="feature-icon">{feature.included ? '✓' : '✕'}</span>
-                <span class="feature-text">
-                  {feature.text}
-                  {feature.tooltip && (
-                    <span class="feature-tooltip" data-tooltip={feature.tooltip}>
-                      <span class="tooltip-icon">i</span>
-                    </span>
-                  )}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+      {
+        categories.map((category, index) => (
+          <div
+            class={`category-card animate-fade-in-up delay-${200 + index * 100}`}
+          >
+            <h3 class="category-title">{category.title}</h3>
+
+            <ul class="category-features">
+              {category.features.map(feature => (
+                <li
+                  class={`feature-item ${feature.included ? 'included' : 'excluded'}`}
+                >
+                  <span class="feature-icon">
+                    {feature.included ? '✓' : '✕'}
+                  </span>
+                  <span class="feature-text">
+                    {feature.text}
+                    {feature.tooltip && (
+                      <span
+                        class="feature-tooltip"
+                        data-tooltip={feature.tooltip}
+                      >
+                        <span class="tooltip-icon">i</span>
+                      </span>
+                    )}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>
@@ -52,11 +65,11 @@ const { categories } = Astro.props;
     padding: var(--space-20) 0;
     background-color: white;
   }
-  
+
   .text-center {
     text-align: center;
   }
-  
+
   .section-title {
     font-family: var(--font-secondary);
     font-size: var(--font-size-3xl);
@@ -64,20 +77,20 @@ const { categories } = Astro.props;
     color: var(--color-text-primary);
     margin-bottom: var(--space-4);
   }
-  
+
   .section-subtitle {
     font-size: var(--font-size-lg);
     color: var(--color-text-secondary);
     max-width: 700px;
     margin: 0 auto var(--space-12);
   }
-  
+
   .categories-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--space-8);
   }
-  
+
   .category-card {
     background-color: var(--color-white);
     border-radius: var(--border-radius-xl);
@@ -86,7 +99,7 @@ const { categories } = Astro.props;
     border: 1px solid var(--color-primary-light);
     height: 100%;
   }
-  
+
   .category-title {
     font-family: var(--font-secondary);
     font-size: var(--font-size-xl);
@@ -96,13 +109,13 @@ const { categories } = Astro.props;
     margin-bottom: var(--space-5);
     border-bottom: 1px solid var(--color-primary-light);
   }
-  
+
   .category-features {
     list-style: none;
     padding: 0;
     margin: 0;
   }
-  
+
   .feature-item {
     display: flex;
     align-items: flex-start;
@@ -110,13 +123,13 @@ const { categories } = Astro.props;
     padding-bottom: var(--space-3);
     border-bottom: 1px dashed var(--color-primary-light);
   }
-  
+
   .feature-item:last-child {
     margin-bottom: 0;
     padding-bottom: 0;
     border-bottom: none;
   }
-  
+
   .feature-icon {
     flex-shrink: 0;
     width: 24px;
@@ -129,17 +142,17 @@ const { categories } = Astro.props;
     font-size: var(--font-size-sm);
     font-weight: bold;
   }
-  
+
   .feature-item.included .feature-icon {
     background-color: var(--green-100);
     color: var(--color-primary);
   }
-  
+
   .feature-item.excluded .feature-icon {
     background-color: var(--color-primary-light);
     color: var(--color-white);
   }
-  
+
   .feature-text {
     color: var(--color-text-primary);
     font-size: var(--font-size-base);
@@ -148,17 +161,17 @@ const { categories } = Astro.props;
     align-items: center;
     gap: var(--space-2);
   }
-  
+
   .feature-item.excluded .feature-text {
     color: var(--color-white);
     text-decoration: line-through;
   }
-  
+
   .feature-tooltip {
     position: relative;
     display: inline-block;
   }
-  
+
   .tooltip-icon {
     display: inline-flex;
     align-items: center;
@@ -173,7 +186,7 @@ const { categories } = Astro.props;
     font-weight: bold;
     cursor: help;
   }
-  
+
   .feature-tooltip:hover::after {
     content: attr(data-tooltip);
     position: absolute;
@@ -190,7 +203,7 @@ const { categories } = Astro.props;
     margin-bottom: var(--space-2);
     box-shadow: var(--shadow-md);
   }
-  
+
   .feature-tooltip:hover::before {
     content: '';
     position: absolute;
@@ -203,20 +216,20 @@ const { categories } = Astro.props;
     margin-bottom: -5px;
     z-index: 11;
   }
-  
+
   @media (max-width: 768px) {
     .categories-section {
       padding: var(--space-16) 0;
     }
-    
+
     .categories-container {
       grid-template-columns: 1fr;
     }
-    
+
     .section-title {
       font-size: var(--font-size-2xl);
     }
-    
+
     .section-subtitle {
       font-size: var(--font-size-base);
     }

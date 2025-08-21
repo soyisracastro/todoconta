@@ -1,10 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/ui/Navbar.astro';
-import ValueProps from '../components/sections/ValueProps.astro';
 import OnlineAdvice from '../components/sections/OnlineAdvice.astro';
-import ServiciosAdicionales from '../components/sections/ServiciosAdicionales.astro';
-import CallToAction from '../components/sections/CallToAction.astro';
 import Footer from '../components/ui/Footer.astro';
 import Target from '../components/sections/Target.astro';
 import Benefits from '../components/sections/Benefits.astro';
@@ -16,55 +13,24 @@ const menuLinks = [
   { title: 'Por qué conmigo', url: '#beneficios' },
   { title: '¿Es para ti?', url: '#para-quien' },
   { title: 'Otros servicios', url: '#servicios-completos' },
-]
+];
 
 const cta = {
   title: 'Agendar Ahora',
-  link: 'https://buy.stripe.com/4gMeVd3KB5ibaiRdAkffy0f'
-}
+  link: 'https://buy.stripe.com/4gMeVd3KB5ibaiRdAkffy0f',
+};
 ---
 
-<Layout title="Todoconta - Servicios Contables y Asesorías Fiscales Especializadas" 
-  description="Servicios contables integrales desde $4,200/mes. Asesorías fiscales online desde $1,500/hora. Tranquilidad fiscal garantizada para tu empresa.">
-  
-  <Navbar links={menuLinks} cta={cta}/>
+<Layout
+  title="Todoconta - Servicios Contables y Asesorías Fiscales Especializadas"
+  description="Servicios contables integrales desde $4,200/mes. Asesorías fiscales online desde $1,500/hora. Tranquilidad fiscal garantizada para tu empresa."
+>
+  <Navbar links={menuLinks} cta={cta} />
   <OnlineAdvice cta={cta} />
   <Target />
   <Benefits />
   <Process />
   <ServicesLink />
   <Footer />
-  
-  <script>
-    // Script para las animaciones
-    document.addEventListener('DOMContentLoaded', () => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      });
 
-      document.querySelectorAll('.fade-in-up, .fade-in-left, .scale-in')
-        .forEach(el => observer.observe(el));
-    });
-
-    // Smooth scrolling para links de navegación
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-  </script>
 </Layout>

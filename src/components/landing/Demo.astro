@@ -8,72 +8,83 @@ export interface Props {
   buttonColor?: string;
   fields?: Array<{
     name: string;
-    type: string;
+    type: 'text' | 'email' | 'tel' | 'password' | 'number';
     placeholder: string;
     required: boolean;
   }>;
 }
 
-const { 
-  title = "Prueba Gratis",
-  subtitle = "Descarga la versión de prueba con todas las funciones activadas",
+const {
+  title = 'Prueba Gratis',
+  subtitle = 'Descarga la versión de prueba con todas las funciones activadas',
   demoUrl,
   formId,
-  bgColor = "var(--neutral-100)",
-  buttonColor = "var(--color-primary)",
+  bgColor = 'var(--neutral-100)',
+  buttonColor = 'var(--color-primary)',
   fields = [
     {
-      name: "name",
-      type: "text",
-      placeholder: "Nombre completo",
-      required: true
+      name: 'name',
+      type: 'text',
+      placeholder: 'Nombre completo',
+      required: true,
     },
     {
-      name: "email",
-      type: "email",
-      placeholder: "Correo electrónico",
-      required: true
+      name: 'email',
+      type: 'email',
+      placeholder: 'Correo electrónico',
+      required: true,
     },
     {
-      name: "company",
-      type: "text",
-      placeholder: "Empresa (opcional)",
-      required: false
-    }
-  ]
+      name: 'company',
+      type: 'text',
+      placeholder: 'Empresa (opcional)',
+      required: false,
+    },
+  ],
 } = Astro.props;
 ---
 
-<section class="demo-section" id="demo" style={`--demo-bg-color: ${bgColor}; --demo-button-color: ${buttonColor};`}>
-  <div class="landing-container">
+<section
+  class="demo-section"
+  id="demo"
+  style={`--demo-bg-color: ${bgColor}; --demo-button-color: ${buttonColor};`}
+>
+  <div class="container">
     <div class="demo-content">
       <h2 class="section-title animate-fade-in-up">{title}</h2>
       <p class="section-subtitle animate-fade-in-up delay-100">{subtitle}</p>
-      
-      <form class="demo-form animate-fade-in-up delay-200" action="https://sendy.todoconta.com/subscribe" method="POST" id={formId}>
-        <input type="hidden" name="list" value="YOUR_LIST_ID">
-        <input type="hidden" name="redirect" value={demoUrl}>
-        
-        {fields.map((field, index) => (
-          <div class="form-group">
-            <input 
-              type={field.type} 
-              name={field.name} 
-              class="form-input" 
-              placeholder={field.placeholder} 
-              required={field.required}
-            >
-          </div>
-        ))}
-        
+
+      <form
+        class="demo-form animate-fade-in-up delay-200"
+        action="https://sendy.todoconta.com/subscribe"
+        method="POST"
+        id={formId}
+      >
+        <input type="hidden" name="list" value="YOUR_LIST_ID" />
+        <input type="hidden" name="redirect" value={demoUrl} />
+
+        {
+          fields.map((field, _index) => (
+            <div class="form-group">
+              <input
+                type={field.type}
+                name={field.name}
+                class="form-input"
+                placeholder={field.placeholder}
+                required={field.required}
+              />
+            </div>
+          ))
+        }
+
         <div class="form-group">
           <button type="submit" class="form-button">Descargar Demo</button>
         </div>
       </form>
-      
+
       <p class="form-disclaimer animate-fade-in-up delay-300">
-        Al descargar, aceptas recibir información sobre actualizaciones y ofertas especiales. 
-        Puedes darte de baja en cualquier momento.
+        Al descargar, aceptas recibir información sobre actualizaciones y
+        ofertas especiales. Puedes darte de baja en cualquier momento.
       </p>
     </div>
   </div>
@@ -82,27 +93,27 @@ const {
 <script define:vars={{ formId, demoUrl }}>
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById(formId);
-    
+
     if (form) {
-      form.addEventListener('submit', function(e) {
+      form.addEventListener('submit', function (e) {
         e.preventDefault();
-        
+
         // Recolectar datos del formulario
         const formData = new FormData(form);
-        
+
         // Simular envío a Sendy (en un entorno real, esto sería una petición fetch real)
         setTimeout(() => {
           // Redirigir a la URL de descarga
           window.location.href = demoUrl;
         }, 1000);
-        
+
         // Mostrar un mensaje de éxito
         const button = form.querySelector('.form-button');
         if (button) {
           const originalText = button.textContent;
           button.textContent = '¡Redirigiendo a la descarga!';
           button.disabled = true;
-          
+
           // Opcional: restaurar el botón después de un tiempo
           setTimeout(() => {
             button.textContent = originalText;
@@ -121,7 +132,7 @@ const {
     border-radius: var(--border-radius-3xl);
     margin: var(--space-16) 0;
   }
-  
+
   .demo-content {
     display: flex;
     flex-direction: column;
@@ -130,7 +141,7 @@ const {
     margin: 0 auto;
     text-align: center;
   }
-  
+
   .section-title {
     font-family: var(--font-secondary);
     font-size: var(--font-size-3xl);
@@ -138,13 +149,13 @@ const {
     color: var(--color-text-primary);
     margin-bottom: var(--space-4);
   }
-  
+
   .section-subtitle {
     font-size: var(--font-size-lg);
     color: var(--color-text-secondary);
     margin-bottom: var(--space-8);
   }
-  
+
   .demo-form {
     width: 100%;
     max-width: 450px;
@@ -154,11 +165,11 @@ const {
     box-shadow: var(--shadow-lg);
     margin-bottom: var(--space-6);
   }
-  
+
   .form-group {
     margin-bottom: var(--space-4);
   }
-  
+
   .form-input {
     width: 100%;
     padding: var(--space-4);
@@ -168,13 +179,13 @@ const {
     font-size: var(--font-size-base);
     transition: border-color var(--transition-fast);
   }
-  
+
   .form-input:focus {
     outline: none;
     border-color: var(--primary-400);
     box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
   }
-  
+
   .form-button {
     width: 100%;
     padding: var(--space-4);
@@ -188,47 +199,55 @@ const {
     cursor: pointer;
     transition: all var(--transition-normal);
   }
-  
+
   .form-button:hover {
     filter: brightness(1.1);
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
   }
-  
+
   .form-disclaimer {
     font-size: var(--font-size-sm);
     color: var(--color-white);
     max-width: 450px;
   }
-  
+
   /* Animaciones */
   .animate-fade-in-up {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
   }
-  
+
   .animate-fade-in-up.visible {
     opacity: 1;
     transform: translateY(0);
   }
-  
-  .delay-100 { transition-delay: 100ms; }
-  .delay-200 { transition-delay: 200ms; }
-  .delay-300 { transition-delay: 300ms; }
-  
+
+  .delay-100 {
+    transition-delay: 100ms;
+  }
+  .delay-200 {
+    transition-delay: 200ms;
+  }
+  .delay-300 {
+    transition-delay: 300ms;
+  }
+
   /* Responsive */
   @media (max-width: 768px) {
     .section-title {
       font-size: var(--font-size-2xl);
     }
-    
+
     .demo-section {
       border-radius: var(--border-radius-2xl);
       margin: var(--space-10) 0;
       padding: var(--space-10) 0;
     }
-    
+
     .demo-form {
       padding: var(--space-6);
     }

@@ -10,20 +10,25 @@ export interface Props {
 }
 
 const { valueProps } = Astro.props as Props;
-
 ---
+
 <div class="value-grid">
-    {valueProps.map((prop: ValueProp, index: number) => (
-      <div class="value-card fade-in-up" style={`animation-delay: ${index * 0.15}s`}>
+  {
+    valueProps.map((prop: ValueProp, index: number) => (
+      <div
+        class="value-card fade-in-up"
+        style={`animation-delay: ${index * 0.15}s`}
+      >
         <div class="value-icon">{prop.icon}</div>
         <h3 class="value-title">{prop.title}</h3>
         <p class="value-description">{prop.description}</p>
       </div>
-    ))}
+    ))
+  }
 </div>
 
 <style>
-    .value-grid {
+  .value-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-8);
@@ -94,7 +99,7 @@ const { valueProps } = Astro.props as Props;
     .value-card {
       padding: var(--space-6);
     }
-    
+
     .value-icon {
       width: 60px;
       height: 60px;

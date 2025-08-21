@@ -2,90 +2,104 @@
 // Planes de servicio
 const servicePlans = [
   {
-    title: "Plan Básico",
-    price: "4,200",
-    badge: "IDEAL PARA EMPEZAR",
-    description: "Perfecto para profesionistas independientes y pequeños empresarios sin empleados.",
+    title: 'Plan Básico',
+    price: '4,200',
+    badge: 'IDEAL PARA EMPEZAR',
+    description:
+      'Perfecto para profesionistas independientes y pequeños empresarios sin empleados.',
     features: [
-      "Contabilidad mensual completa",
-      "Declaraciones de ISR e IVA",
-      "Estados financieros básicos",
-      "Gestión SAT esencial",
-      "Actualización de obligaciones fiscales",
-      "Soporte telefónico y email"
+      'Contabilidad mensual completa',
+      'Declaraciones de ISR e IVA',
+      'Estados financieros básicos',
+      'Gestión SAT esencial',
+      'Actualización de obligaciones fiscales',
+      'Soporte telefónico y email',
     ],
     featured: false,
-    ctaText: "Contratar Plan",
-    ctaHref: "#contacto"
+    ctaText: 'Contratar Plan',
+    ctaHref: '#contacto',
   },
   {
-    title: "Plan Premium",
-    price: "7,800",
-    badge: "EL MÁS COMPLETO",
-    description: "Solución integral para empresarios con empleados. Incluye hasta 15 trabajadores.",
+    title: 'Plan Premium',
+    price: '7,800',
+    badge: 'EL MÁS COMPLETO',
+    description:
+      'Solución integral para empresarios con empleados. Incluye hasta 15 trabajadores.',
     features: [
-      "Todo lo del Plan Básico",
-      "Nómina completa (hasta 15 empleados)",
-      "Gestión IMSS / INFONAVIT",
-      "Contratos laborales y finiquitos",
-      "Asesoría fiscal avanzada",
-      "Representación en auditorías",
-      "2 horas de consulta online/mes"
+      'Todo lo del Plan Básico',
+      'Nómina completa (hasta 15 empleados)',
+      'Gestión IMSS / INFONAVIT',
+      'Contratos laborales y finiquitos',
+      'Asesoría fiscal avanzada',
+      'Representación en auditorías',
+      '2 horas de consulta online/mes',
     ],
     featured: true,
-    ctaText: "Contratar Plan",
-    ctaHref: "#contacto"
+    ctaText: 'Contratar Plan',
+    ctaHref: '#contacto',
   },
   {
-    title: "Plan Empresarial",
-    price: "14,500",
-    badge: "CORPORATIVO",
-    description: "Para empresas establecidas con operaciones complejas. Hasta 50 trabajadores.",
+    title: 'Plan Empresarial',
+    price: '14,500',
+    badge: 'CORPORATIVO',
+    description:
+      'Para empresas establecidas con operaciones complejas. Hasta 50 trabajadores.',
     features: [
-      "Todo lo del Plan Premium",
-      "Contabilidad corporativa avanzada",
-      "Análisis de costos y reportes gerenciales",
-      "Planeación fiscal estratégica",
-      "Contador senior asignado",
-      "4 horas de consulta online/mes",
-      "Reuniones trimestrales ejecutivas"
+      'Todo lo del Plan Premium',
+      'Contabilidad corporativa avanzada',
+      'Análisis de costos y reportes gerenciales',
+      'Planeación fiscal estratégica',
+      'Contador senior asignado',
+      '4 horas de consulta online/mes',
+      'Reuniones trimestrales ejecutivas',
     ],
     featured: false,
-    ctaText: "Contratar Plan",
-    ctaHref: "#contacto"
-  }
+    ctaText: 'Contratar Plan',
+    ctaHref: '#contacto',
+  },
 ];
 ---
 
 <section class="services" id="servicios">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title fade-in-up">Planes que se Adaptan a tu Empresa</h2>
+      <h2 class="section-title fade-in-up">
+        Planes que se Adaptan a tu Empresa
+      </h2>
       <p class="section-subtitle fade-in-up">
-        Desde profesionistas independientes hasta empresas con empleados. Encuentra el plan perfecto para ti.
+        Desde profesionistas independientes hasta empresas con empleados.
+        Encuentra el plan perfecto para ti.
       </p>
     </div>
-    
+
     <div class="services-grid">
-      {servicePlans.map((plan, index) => (
-        <div class={`service-card ${plan.featured ? 'featured' : ''} fade-in-up`} style={`animation-delay: ${index * 0.2}s`}>
-          <div class="service-badge">{plan.badge}</div>
-          <h3 class="service-title">{plan.title}</h3>
-          <div class="service-price">${plan.price}</div>
-          <div class="service-period">/mes</div>
-          <p class="service-description">{plan.description}</p>
-          
-          <ul class="service-features">
-            {plan.features.map(feature => (
-              <li>{feature}</li>
-            ))}
-          </ul>
-          
-          <a href={plan.ctaHref} class={`btn service-cta ${plan.featured ? 'btn-secondary' : 'btn-outline'}`}>
-            {plan.ctaText}
-          </a>
-        </div>
-      ))}
+      {
+        servicePlans.map((plan, index) => (
+          <div
+            class={`service-card ${plan.featured ? 'featured' : ''} fade-in-up`}
+            style={`animation-delay: ${index * 0.2}s`}
+          >
+            <div class="service-badge">{plan.badge}</div>
+            <h3 class="service-title">{plan.title}</h3>
+            <div class="service-price">${plan.price}</div>
+            <div class="service-period">/mes</div>
+            <p class="service-description">{plan.description}</p>
+
+            <ul class="service-features">
+              {plan.features.map(feature => (
+                <li>{feature}</li>
+              ))}
+            </ul>
+
+            <a
+              href={plan.ctaHref}
+              class={`btn service-cta ${plan.featured ? 'btn-secondary' : 'btn-outline'}`}
+            >
+              {plan.ctaText}
+            </a>
+          </div>
+        ))
+      }
     </div>
 
     <div class="services-guarantee fade-in-up">
@@ -93,7 +107,10 @@ const servicePlans = [
         <div class="guarantee-icon">🛡️</div>
         <div class="guarantee-text">
           <h3>Garantía de Cumplimiento</h3>
-          <p>Si no cumplimos con alguna obligación fiscal por nuestra responsabilidad, cubrimos las multas y recargos correspondientes.</p>
+          <p>
+            Si no cumplimos con alguna obligación fiscal por nuestra
+            responsabilidad, cubrimos las multas y recargos correspondientes.
+          </p>
         </div>
       </div>
     </div>
@@ -198,7 +215,6 @@ const servicePlans = [
   .service-card.featured .service-title {
     color: var(--color-white);
   }
-
 
   .service-price {
     font-family: var(--font-secondary);

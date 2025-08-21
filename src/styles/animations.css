@@ -1,0 +1,50 @@
+/* Shared Animation Styles */
+/* Used across different layouts and components */
+
+/* Fade in animations */
+.fade-in-up,
+.animate-fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scale-in {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Visible state for all animations */
+.fade-in-up.visible,
+.animate-fade-in-up.visible,
+.fade-in-left.visible,
+.scale-in.visible {
+  opacity: 1;
+  transform: translateY(0) translateX(0) scale(1);
+}
+
+/* Animation delays */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+
+/* Responsive animations - reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up,
+  .animate-fade-in-up,
+  .fade-in-left,
+  .scale-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
