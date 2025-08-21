@@ -147,38 +147,3 @@ const hasValidFaqs = faqs && Array.isArray(faqs) && faqs.length > 0;
   <CTA {...ctaProps} />
 </LandingLayout>
 
-<style is:global>
-  /* Estilos adicionales específicos para esta página */
-  .landing-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--space-4);
-  }
-
-  /* Animaciones */
-  .animate-fade-in-up {
-    opacity: 0;
-    transform: translateY(20px);
-    transition:
-      opacity 0.6s ease,
-      transform 0.6s ease;
-  }
-
-  .animate-fade-in-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .delay-100 {
-    transition-delay: 100ms;
-  }
-  .delay-200 {
-    transition-delay: 200ms;
-  }
-  .delay-300 {
-    transition-delay: 300ms;
-  }
-  .delay-400 {
-    transition-delay: 400ms;
-  }
-</style>
