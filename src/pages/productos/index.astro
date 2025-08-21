@@ -1,0 +1,20 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/ui/Navbar.astro';
+import Products from '../../components/sections/Products.astro';
+import Footer from '../../components/ui/Footer.astro';
+
+const cta = {
+  title: 'Necesito ayuda',
+  link: 'https://wa.me/5215544753602',
+};
+---
+
+<Layout
+  title="Todoconta - Productos de Software Contable"
+  description="Descubre nuestras soluciones de software para contadores y empresas. Optimiza la gestión de nóminas y la descarga de XML desde el SAT."
+>
+  <Navbar cta={cta} />
+  <Products />
+  <Footer />
+</Layout>

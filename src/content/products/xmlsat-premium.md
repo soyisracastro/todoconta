@@ -3,7 +3,7 @@ title: "XMLSAT Premium - Gestión Masiva de CFDI y Auditoría Electrónica"
 description: "Diseñado para despachos contables, contadores autónomos, auditores fiscalistas y administradores que necesitan procesar grandes volúmenes de facturas electrónicas."
 price: 2200
 pricePeriod: "IVA incluido"
-badge: "XMLSAT PREMIUM MULTI EMPRESA"
+badge: "XMLSAT PREMIUM"
 heroImage: "https://placehold.co/800x450/075985/FFFFFF/png?text=XMLSAT+Premium"
 demoUrl: "http://softwarepaq.com/downloads/software/SetupXMLSAT_PREMIUM.exe"
 buyUrl: "https://www.paypal.me/todoconta"
