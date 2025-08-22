@@ -17,7 +17,7 @@ const {
 
 <section class="faq-section" id="faq">
   <div class="container">
-    <div class="faq-header">
+    <div class="section-header">
       <h2 class="section-title animate-fade-in-up">{title}</h2>
       {
         subtitle && (
@@ -96,27 +96,6 @@ const {
     padding: var(--space-16) 0;
   }
 
-  .faq-header {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto var(--space-10);
-  }
-
-  .section-title {
-    font-family: var(--font-secondary);
-    font-size: var(--font-size-3xl);
-    font-weight: 700;
-    color: var(--color-text-primary);
-    margin-bottom: var(--space-4);
-  }
-
-  .section-subtitle {
-    font-size: var(--font-size-lg);
-    color: var(--color-text-secondary);
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
   .faq-container {
     max-width: 800px;
     margin: 0 auto;
@@ -173,42 +152,8 @@ const {
     line-height: 1.6;
   }
 
-  /* Animaciones */
-  .animate-fade-in-up {
-    opacity: 0;
-    transform: translateY(20px);
-    transition:
-      opacity 0.6s ease,
-      transform 0.6s ease;
-  }
-
-  .animate-fade-in-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .delay-100 {
-    transition-delay: 100ms;
-  }
-  .delay-200 {
-    transition-delay: 200ms;
-  }
-  .delay-300 {
-    transition-delay: 300ms;
-  }
-  .delay-400 {
-    transition-delay: 400ms;
-  }
-  .delay-500 {
-    transition-delay: 500ms;
-  }
-
   /* Responsive */
   @media (max-width: 768px) {
-    .section-title {
-      font-size: var(--font-size-2xl);
-    }
-
     .faq-question {
       font-size: var(--font-size-base);
       padding: var(--space-4) 0;
