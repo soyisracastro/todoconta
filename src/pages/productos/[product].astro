@@ -41,18 +41,18 @@ const {
 const heroProps = {
   title,
   subtitle: description,
-  badge,
   primaryCta: {
     text: 'Comprar Ahora',
     url: '#pricing',
   },
-  secondaryCta: demoUrl
-    ? {
-        text: 'Descargar Demo',
-        url: '#demo',
-      }
-    : undefined,
-  image: heroImage,
+  ...(badge && { badge }),
+  ...(demoUrl && {
+    secondaryCta: {
+      text: 'Descargar Demo',
+      url: '#demo',
+    },
+  }),
+  ...(heroImage && { image: heroImage }),
 };
 
 const featuresProps = {
@@ -69,10 +69,10 @@ const benefitsProps = {
 
 const pricingProps = {
   price,
-  pricePeriod,
   features: pricing.features,
   ctaUrl: buyUrl || '#',
   highlighted: true,
+  ...(pricePeriod && { pricePeriod }),
 };
 
 const demoProps =
@@ -91,12 +91,12 @@ const ctaProps = {
     text: 'Comprar Ahora',
     url: buyUrl || '#pricing',
   },
-  secondaryCta: demoUrl
-    ? {
-        text: 'Probar Demo Gratis',
-        url: '#demo',
-      }
-    : undefined,
+  ...(demoUrl && {
+    secondaryCta: {
+      text: 'Probar Demo Gratis',
+      url: '#demo',
+    },
+  }),
 };
 
 // Keywords para SEO
@@ -123,7 +123,7 @@ const hasValidFaqs = faqs && Array.isArray(faqs) && faqs.length > 0;
   title={title}
   description={description}
   keywords={keywords}
-  ogImage={heroImage}
+  {...(heroImage && { ogImage: heroImage })}
 >
   <!-- Hero Section -->
   <Hero {...heroProps} />

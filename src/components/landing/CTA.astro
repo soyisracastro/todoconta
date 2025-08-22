@@ -28,10 +28,10 @@ const {
       <h2 class="cta-title">{title}</h2>
       <p class="cta-description">{description}</p>
       <div class="cta-buttons">
-        <a href={primaryCta.url} class="btn btn-primary">{primaryCta.text}</a>
+        <a href={primaryCta.url} class="btn btn-accent">{primaryCta.text}</a>
         {
           secondaryCta && (
-            <a href={secondaryCta.url} class="btn btn-secondary">
+            <a href={secondaryCta.url} class="btn btn-outline">
               {secondaryCta.text}
             </a>
           )
@@ -43,10 +43,10 @@ const {
 
 <style>
   .cta-section {
-    background: var(--cta-bg-gradient);
+    background: var(--color-primary);
     color: white;
     padding: var(--space-16) 0;
-    border-radius: var(--border-radius-3xl) var(--border-radius-3xl) 0 0;
+    border-radius: var(--border-radius-xl) var(--border-radius-xl) 0 0;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -77,6 +77,7 @@ const {
     font-size: var(--font-size-3xl);
     font-weight: 700;
     margin-bottom: var(--space-4);
+    color: white;
   }
 
   .cta-description {
@@ -91,55 +92,6 @@ const {
     justify-content: center;
   }
 
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-secondary);
-    font-weight: 600;
-    padding: var(--space-4) var(--space-8);
-    border-radius: var(--border-radius-lg);
-    transition: all var(--transition-normal);
-    text-decoration: none;
-    cursor: pointer;
-    border: none;
-  }
-
-  .btn-primary {
-    background-color: white;
-    color: var(--primary-700);
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
-  }
-
-  .btn-secondary {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-  }
-
-  .btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-3px);
-  }
-
-  /* Animaciones */
-  .animate-fade-in-up {
-    opacity: 0;
-    transform: translateY(20px);
-    transition:
-      opacity 0.6s ease,
-      transform 0.6s ease;
-  }
-
-  .animate-fade-in-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
   /* Responsive */
   @media (max-width: 768px) {
     .cta-title {
@@ -150,11 +102,6 @@ const {
       flex-direction: column;
       width: 100%;
       align-items: center;
-    }
-
-    .btn {
-      width: 100%;
-      max-width: 300px;
     }
 
     .cta-section {
