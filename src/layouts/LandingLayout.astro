@@ -2,6 +2,7 @@
 // src/layouts/LandingLayout.astro
 import '../styles/reset.css';
 import '../styles/design-system.css';
+import '../styles/landing.css';
 import '../styles/global.css';
 import '../styles/animations.css';
 
@@ -55,6 +56,15 @@ const {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={new URL(ogImage, Astro.url)} />
 
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VS5CTEJ19C"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VS5CTEJ19C');
+    </script>
 
     <!-- Estructura JSON-LD para SEO -->
     <script

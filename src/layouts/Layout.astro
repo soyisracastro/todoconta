@@ -35,6 +35,16 @@ const { title, description } = Astro.props;
     <meta property="og:url" content="https://todoconta.com" />
     <meta property="og:image" content="https://todoconta.com/og-image.jpg" />
 
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VS5CTEJ19C"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VS5CTEJ19C');
+    </script>
+
     <!-- Security and theme metadatos -->
     <meta name="theme-color" content="#0284c7" />
     <meta name="robots" content="index, follow" />
