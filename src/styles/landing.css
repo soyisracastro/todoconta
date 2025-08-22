@@ -6,12 +6,12 @@
   background: linear-gradient(
     135deg,
     var(--color-primary) 0%,
-    var(--primary-800) 100%
+    var(--color-primary-hover) 100%
   );
   color: white;
   padding: var(--space-16) 0;
   overflow: hidden;
-  border-radius: 0 0 var(--border-radius-3xl) var(--border-radius-3xl);
+  border-radius: 0 0 var(--border-radius-xl) var(--border-radius-xl);
 }
 
 .hero::before {
@@ -76,7 +76,6 @@
   margin: 0 auto;
   position: relative;
   z-index: 2;
-  transform: translateY(80px);
 }
 
 .hero-image {
@@ -440,34 +439,6 @@
   display: flex;
   gap: var(--space-4);
   justify-content: center;
-}
-
-/* Animation Classes */
-.animate-fade-in-up {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.animate-fade-in-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.delay-100 {
-  transition-delay: 100ms;
-}
-.delay-200 {
-  transition-delay: 200ms;
-}
-.delay-300 {
-  transition-delay: 300ms;
-}
-.delay-400 {
-  transition-delay: 400ms;
-}
-.delay-500 {
-  transition-delay: 500ms;
 }
 
 /* Responsive Styles */

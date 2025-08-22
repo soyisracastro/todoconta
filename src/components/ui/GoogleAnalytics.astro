@@ -1,0 +1,18 @@
+---
+// Componente de Google Analytics reutilizable
+export interface Props {
+  trackingId?: string;
+}
+
+const { trackingId = 'G-VS5CTEJ19C' } = Astro.props;
+---
+
+<!-- Google tag (gtag.js) -->
+<script async src={`https://www.googletagmanager.com/gtag/js?id=${trackingId}`}></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '{trackingId}');
+</script>
