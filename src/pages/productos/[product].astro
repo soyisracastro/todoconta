@@ -123,7 +123,7 @@ const hasValidFaqs = faqs && Array.isArray(faqs) && faqs.length > 0;
   title={title}
   description={description}
   keywords={keywords}
-  {...(heroImage && { ogImage: heroImage })}
+  {...heroImage && { ogImage: heroImage }}
 >
   <!-- Hero Section -->
   <Hero {...heroProps} />
@@ -146,4 +146,3 @@ const hasValidFaqs = faqs && Array.isArray(faqs) && faqs.length > 0;
   <!-- Call to Action -->
   <CTA {...ctaProps} />
 </LandingLayout>
-

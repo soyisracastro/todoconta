@@ -14,7 +14,7 @@ export function initSmoothScroll() {
       if (targetElement) {
         targetElement.scrollIntoView({
           behavior: 'smooth',
-          block: 'start'
+          block: 'start',
         });
       }
     });
@@ -26,15 +26,18 @@ export function initSmoothScroll() {
  * @param {string} selector - CSS selector for elements to observe
  * @param {Object} options - IntersectionObserver options
  */
-export function initScrollAnimations(selector = '.fade-in-up, .fade-in-left, .scale-in, .animate-fade-in-up', options = {}) {
+export function initScrollAnimations(
+  selector = '.fade-in-up, .fade-in-left, .scale-in, .animate-fade-in-up',
+  options = {}
+) {
   const defaultOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    rootMargin: '0px 0px -50px 0px',
   };
 
   const observerOptions = { ...defaultOptions, ...options };
 
-  const observer = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');

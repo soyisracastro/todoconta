@@ -215,7 +215,9 @@ const stats = [
             // Si quieres implementar animación de contador numérico
             // (opcional, puedes remover esta parte si prefieres solo la animación CSS)
             if (entry.target.classList.contains('stat-item')) {
-              const numberElement = entry.target.querySelector('.stat-number') as HTMLElement;
+              const numberElement = entry.target.querySelector(
+                '.stat-number'
+              ) as HTMLElement;
               if (numberElement && numberElement.dataset.count) {
                 const finalValue = numberElement.dataset.count || '0';
                 animateCounter(numberElement, 0, parseInt(finalValue), 1500);
@@ -236,7 +238,12 @@ const stats = [
       .forEach(el => observer.observe(el));
 
     // Función para animar contador (opcional)
-    function animateCounter(element: HTMLElement, start: number, end: number, duration: number): void {
+    function animateCounter(
+      element: HTMLElement,
+      start: number,
+      end: number,
+      duration: number
+    ): void {
       let startTimestamp: number | null = null;
       const originalText = element.textContent;
       const hasPlus = originalText.includes('+');

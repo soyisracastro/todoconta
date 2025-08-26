@@ -10,13 +10,12 @@ const products = await getCollection('products');
     <div class="section-header">
       <h2 class="section-title fade-in-up">Nuestros Productos</h2>
       <p class="section-subtitle fade-in-up">
-        Soluciones de software y plantillas Excel para optimizar tus procesos contables.
+        Soluciones de software y plantillas Excel para optimizar tus procesos
+        contables.
       </p>
     </div>
     <div class="products-grid">
-      {products.map(product => (
-        <ProductCard product={product} />
-      ))}
+      {products.map(product => <ProductCard product={product} />)}
     </div>
   </div>
 </section>
