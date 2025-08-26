@@ -1,0 +1,42 @@
+---
+
+---
+
+<div class="minimal-footer">
+  <p>
+    &copy; {new Date().getFullYear()} Todoconta. Todos los derechos reservados.
+  </p>
+  <div class="footer-links">
+    <a href="/privacidad">Privacidad</a>
+    <a href="/terminos">Términos</a>
+    <a href="/contacto">Contacto</a>
+  </div>
+</div>
+
+<style>
+  .minimal-footer {
+    padding: var(--space-6) 0;
+    background-color: var(--color-primary);
+    text-align: center;
+    font-size: var(--font-size-sm);
+    color: var(--color-white);
+  }
+
+  .footer-links {
+    margin-top: var(--space-2);
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+  }
+
+  .footer-links a {
+    color: var(--color-white);
+    text-decoration: none;
+    transition: color var(--transition-normal);
+  }
+
+  .footer-links a:hover {
+    color: var(--primary-text-secondary);
+    text-decoration: underline;
+  }
+</style>

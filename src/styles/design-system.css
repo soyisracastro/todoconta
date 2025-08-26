@@ -1,24 +1,24 @@
 /* New Design System Variables - Notion Style */
 :root {
   /* Primary Colors */
-  --color-primary: #3d405b;
-  --color-background: #faf9f4;
-  --color-background-alt: #f7f5ed;
-  --color-text-primary: #2c2e3a;
-  --color-text-secondary: #6b6e7c;
+  --color-primary: #14b8a6;
+  --color-background: #f7f9f8;
+  --color-background-alt: #f0f4f3;
+  --color-text-primary: #1f2937;
+  --color-text-secondary: #6b7280;
   --color-white: #ffffff;
 
   /* Accent Colors */
-  --color-success: #81b29a;
-  --color-warning: #f2cc8f;
-  --color-error: #e07a5f;
-  --color-info: #3d405b;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #0ea5e9;
 
   /* Derived colors for system */
-  --color-primary-light: rgba(61, 64, 91, 0.08);
-  --color-primary-hover: rgba(61, 64, 91, 0.9);
-  --color-border: rgba(107, 110, 124, 0.15);
-  --color-border-light: rgba(107, 110, 124, 0.08);
+  --color-primary-light: rgba(20, 184, 166, 0.08);
+  --color-primary-hover: rgba(20, 184, 166, 0.9);
+  --color-border: rgba(107, 114, 128, 0.15);
+  --color-border-light: rgba(107, 114, 128, 0.08);
 
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;

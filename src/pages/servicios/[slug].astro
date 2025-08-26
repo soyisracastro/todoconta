@@ -48,7 +48,11 @@ const formatPrice = (price: number | undefined): string => {
 const formattedPrice = formatPrice(price);
 
 // Generar URL de placeholder para imágenes
-const getPlaceholderImage = (width: number, height: number, text: string): string => {
+const getPlaceholderImage = (
+  width: number,
+  height: number,
+  text: string
+): string => {
   return `https://placehold.co/${width}x${height}/075985/FFFFFF/png?text=${encodeURIComponent(text || 'Todoconta')}`;
 };
 
@@ -365,7 +369,7 @@ if (relatedServices && relatedServices.length > 0) {
 
   <Footer />
 
-  <script slot="scripts">
+  <script slot="scripts" is:inline>
     document.addEventListener('DOMContentLoaded', () => {
       const faqQuestions = document.querySelectorAll('.faq-question');
 

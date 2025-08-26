@@ -43,7 +43,10 @@ export function getMetaPixelScript() {
 }
 
 // Función para tracking de eventos personalizados en Google Analytics
-export function trackEvent(eventName: string, parameters?: Record<string, any>) {
+export function trackEvent(
+  eventName: string,
+  parameters?: Record<string, any>
+) {
   if (typeof window !== 'undefined' && (window as any).gtag) {
     (window as any).gtag('event', eventName, parameters);
   }
@@ -53,20 +56,26 @@ export function trackEvent(eventName: string, parameters?: Record<string, any>) 
 export function trackPageView(url: string) {
   if (typeof window !== 'undefined' && (window as any).gtag) {
     (window as any).gtag('config', GA_TRACKING_ID, {
-      page_path: url
+      page_path: url,
     });
   }
 }
 
 // Función para tracking de eventos en Meta Pixel
-export function trackMetaPixelEvent(eventName: string, parameters?: Record<string, any>) {
+export function trackMetaPixelEvent(
+  eventName: string,
+  parameters?: Record<string, any>
+) {
   if (typeof window !== 'undefined' && (window as any).fbq) {
     (window as any).fbq('track', eventName, parameters);
   }
 }
 
 // Función para tracking de conversiones en Meta Pixel
-export function trackMetaPixelConversion(value?: number, currency: string = 'MXN') {
+export function trackMetaPixelConversion(
+  value?: number,
+  currency: string = 'MXN'
+) {
   if (typeof window !== 'undefined' && (window as any).fbq) {
     const params: any = {};
     if (value) {
@@ -85,7 +94,10 @@ export function trackMetaPixelLead() {
 }
 
 // Función para tracking de inicio de checkout en Meta Pixel
-export function trackMetaPixelInitiateCheckout(value?: number, currency: string = 'MXN') {
+export function trackMetaPixelInitiateCheckout(
+  value?: number,
+  currency: string = 'MXN'
+) {
   if (typeof window !== 'undefined' && (window as any).fbq) {
     const params: any = {};
     if (value) {

@@ -1,13 +1,13 @@
 // Ejemplos de implementación de tracking para Google Analytics y Meta Pixel
 // Este archivo muestra cómo usar las funciones de tracking en diferentes componentes
 
-import { 
-  trackEvent, 
-  trackPageView, 
-  trackMetaPixelEvent, 
-  trackMetaPixelConversion, 
+import {
+  trackEvent,
+  trackPageView,
+  trackMetaPixelEvent,
+  trackMetaPixelConversion,
   trackMetaPixelLead,
-  trackMetaPixelInitiateCheckout 
+  trackMetaPixelInitiateCheckout,
 } from '../config/analytics';
 
 // ============================================================================
@@ -16,21 +16,21 @@ import {
 
 export function setupContactFormTracking() {
   const contactForm = document.querySelector('#contact-form');
-  
+
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', e => {
       // Google Analytics
       trackEvent('form_submit', {
         form_name: 'contacto',
         page: window.location.pathname,
-        form_type: 'contact'
+        form_type: 'contact',
       });
 
       // Meta Pixel
       trackMetaPixelLead();
       trackMetaPixelEvent('Lead', {
         content_name: 'formulario_contacto',
-        content_category: 'contacto'
+        content_category: 'contacto',
       });
     });
   }
@@ -42,24 +42,26 @@ export function setupContactFormTracking() {
 
 export function setupCTATracking() {
   const ctaButtons = document.querySelectorAll('[data-tracking="cta"]');
-  
+
   ctaButtons.forEach(button => {
-    button.addEventListener('click', (e) => {
-      const buttonName = button.getAttribute('data-button-name') || 'cta_generico';
-      const buttonPage = button.getAttribute('data-page') || window.location.pathname;
-      
+    button.addEventListener('click', e => {
+      const buttonName =
+        button.getAttribute('data-button-name') || 'cta_generico';
+      const buttonPage =
+        button.getAttribute('data-page') || window.location.pathname;
+
       // Google Analytics
       trackEvent('button_click', {
         button_name: buttonName,
         page: buttonPage,
-        event_category: 'engagement'
+        event_category: 'engagement',
       });
 
       // Meta Pixel
       trackMetaPixelEvent('CustomEvent', {
         event_name: 'cta_click',
         button_name: buttonName,
-        page: buttonPage
+        page: buttonPage,
       });
     });
   });
@@ -72,11 +74,11 @@ export function setupCTATracking() {
 export function setupPageViewTracking() {
   // Tracking inicial de la página
   trackPageView(window.location.pathname);
-  
+
   // Tracking de cambios de página en SPA (si aplica)
   if (typeof window !== 'undefined') {
     let currentPath = window.location.pathname;
-    
+
     // Observar cambios en la URL
     const observer = new MutationObserver(() => {
       if (window.location.pathname !== currentPath) {
@@ -84,7 +86,7 @@ export function setupPageViewTracking() {
         trackPageView(currentPath);
       }
     });
-    
+
     observer.observe(document.body, { childList: true, subtree: true });
   }
 }
@@ -96,27 +98,29 @@ export function setupPageViewTracking() {
 export function setupEngagementTracking() {
   let scrollEvents = new Set();
   let startTime = Date.now();
-  
+
   // Tracking de scroll
   window.addEventListener('scroll', () => {
-    const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
-    
+    const scrollPercent = Math.round(
+      (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
+    );
+
     // Trackear solo en porcentajes específicos para evitar spam
     [25, 50, 75, 90].forEach(threshold => {
       if (scrollPercent >= threshold && !scrollEvents.has(threshold)) {
         scrollEvents.add(threshold);
-        
+
         // Google Analytics
         trackEvent('scroll', {
           scroll_percent: threshold,
-          page: window.location.pathname
+          page: window.location.pathname,
         });
 
         // Meta Pixel
         trackMetaPixelEvent('CustomEvent', {
           event_name: 'scroll_threshold',
           scroll_percent: threshold,
-          page: window.location.pathname
+          page: window.location.pathname,
         });
       }
     });
@@ -125,19 +129,20 @@ export function setupEngagementTracking() {
   // Tracking de tiempo en página
   window.addEventListener('beforeunload', () => {
     const timeOnPage = Math.round((Date.now() - startTime) / 1000);
-    
-    if (timeOnPage > 10) { // Solo trackear si estuvo más de 10 segundos
+
+    if (timeOnPage > 10) {
+      // Solo trackear si estuvo más de 10 segundos
       // Google Analytics
       trackEvent('engagement', {
         event_category: 'engagement',
         event_label: 'time_on_page',
-        value: timeOnPage
+        value: timeOnPage,
       });
 
       // Meta Pixel
       trackMetaPixelEvent('CustomEvent', {
         event_name: 'time_on_page',
-        time_seconds: timeOnPage
+        time_seconds: timeOnPage,
       });
     }
   });
@@ -149,24 +154,24 @@ export function setupEngagementTracking() {
 
 export function setupServiceTracking() {
   const serviceCards = document.querySelectorAll('[data-service]');
-  
+
   serviceCards.forEach(card => {
-    card.addEventListener('click', (e) => {
+    card.addEventListener('click', e => {
       const serviceName = card.getAttribute('data-service');
       const serviceCategory = card.getAttribute('data-category');
-      
+
       // Google Analytics
       trackEvent('service_view', {
         service_name: serviceName,
         service_category: serviceCategory,
-        page: window.location.pathname
+        page: window.location.pathname,
       });
 
       // Meta Pixel
       trackMetaPixelEvent('ViewContent', {
         content_name: serviceName,
         content_category: serviceCategory,
-        content_type: 'servicio'
+        content_type: 'servicio',
       });
     });
   });
@@ -184,12 +189,14 @@ export function setupConversionTracking() {
       transaction_id: `service_${Date.now()}`,
       value: value,
       currency: 'MXN',
-      items: [{
-        item_name: serviceName,
-        item_category: 'servicio',
-        price: value,
-        quantity: 1
-      }]
+      items: [
+        {
+          item_name: serviceName,
+          item_category: 'servicio',
+          price: value,
+          quantity: 1,
+        },
+      ],
     });
 
     // Meta Pixel
@@ -198,7 +205,7 @@ export function setupConversionTracking() {
       content_name: serviceName,
       content_category: 'servicio',
       value: value,
-      currency: 'MXN'
+      currency: 'MXN',
     });
   };
 
@@ -208,12 +215,14 @@ export function setupConversionTracking() {
     trackEvent('begin_checkout', {
       value: value,
       currency: 'MXN',
-      items: [{
-        item_name: serviceName,
-        item_category: 'servicio',
-        price: value,
-        quantity: 1
-      }]
+      items: [
+        {
+          item_name: serviceName,
+          item_category: 'servicio',
+          price: value,
+          quantity: 1,
+        },
+      ],
     });
 
     // Meta Pixel
@@ -222,7 +231,7 @@ export function setupConversionTracking() {
       content_name: serviceName,
       content_category: 'servicio',
       value: value,
-      currency: 'MXN'
+      currency: 'MXN',
     });
   };
 }
@@ -235,16 +244,18 @@ export function initializeAllTracking() {
   // Inicializar tracking básico
   setupPageViewTracking();
   setupEngagementTracking();
-  
+
   // Inicializar tracking de formularios y botones
   setupContactFormTracking();
   setupCTATracking();
   setupServiceTracking();
-  
+
   // Inicializar tracking de conversiones
   setupConversionTracking();
-  
-  console.log('✅ Tracking de Google Analytics y Meta Pixel inicializado correctamente');
+
+  console.log(
+    '✅ Tracking de Google Analytics y Meta Pixel inicializado correctamente'
+  );
 }
 
 // ============================================================================
