@@ -7,10 +7,12 @@ import Target from '../components/sections/Target.astro';
 import Benefits from '../components/sections/Benefits.astro';
 import Process from '../components/sections/Process.astro';
 import ServicesLink from '../components/sections/ServicesLink.astro';
+import AboutMe from '@/components/sections/AboutMe.astro';
 
 const menuLinks = [
   { title: 'Cómo trabajo', url: '#como-trabajo' },
   { title: 'Por qué conmigo', url: '#beneficios' },
+  { title: 'Quién soy', url: '#about-me' },
   { title: '¿Es para ti?', url: '#para-quien' },
   { title: 'Otros servicios', url: '#servicios-completos' },
 ];
@@ -29,6 +31,7 @@ const cta = {
   <OnlineAdvice cta={cta} />
   <Target />
   <Benefits />
+  <AboutMe />
   <Process />
   <ServicesLink />
   <Footer />
