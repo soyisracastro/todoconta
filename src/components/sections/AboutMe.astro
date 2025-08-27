@@ -1,0 +1,259 @@
+---
+
+---
+
+<section class="about-me section" id="about-me">
+  <div class="container">
+    <div class="section-header">
+        <h2 class="section-title fade-in-up">Conoce a tu Contador de Confianza</h2>
+        <p class="section-subtitle fade-in-up">
+          Más de 10 años ayudando a empresarios mexicanos a crecer sin
+          preocuparse por temas fiscales
+        </p>
+      </div>
+    <div class="about-content fade-in-up">
+      <div class="about-image">
+        <div class="image-placeholder">
+            <img src="/images/photo.png" alt="Israel Castro Urieta - Contador Especialista" class="profile-image">
+        </div>
+      </div>
+
+      <div class="about-text">
+        <div class="about-description">
+          <p class="about-lead">
+            <strong>Especialista en Contabilidad Fiscal</strong> con amplia experiencia en automatización de procesos contables para
+            PyMEs mexicanas.
+          </p>
+
+          <p>
+            He ayudado a más de 150 empresarios a optimizar su carga fiscal y
+            automatizar sus procesos contables, permitiéndoles enfocar su
+            energía en hacer crecer sus negocios mientras yo me encargo de
+            mantener todo en orden con el SAT.
+          </p>
+
+          <p>
+            Mi filosofía es simple: <em
+              >"La contabilidad debe ser tu aliada, no tu dolor de cabeza"</em
+            >. Por eso desarrollo soluciones tecnológicas que simplifican lo
+            complejo y garantizan el cumplimiento fiscal sin complicaciones.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-me {
+    background: var(--color-white);
+    position: relative;
+  }
+
+  .about-me::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-border),
+      transparent
+    );
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  /* Image Section */
+  .about-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .image-placeholder {
+    width: 280px;
+    height: 350px;
+    background: linear-gradient(
+      135deg,
+      var(--color-background) 0%,
+      var(--color-background-alt) 100%
+    );
+    border: 2px dashed var(--color-border);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .image-placeholder::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(
+      135deg,
+      var(--color-primary),
+      var(--color-success)
+    );
+    border-radius: 16px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .image-placeholder:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-4px);
+  }
+
+  .image-placeholder:hover::before {
+    opacity: 0.1;
+  }
+
+  .placeholder-icon {
+    font-size: 4rem;
+    color: var(--color-text-secondary);
+    transition: color 0.3s ease;
+  }
+
+  .image-placeholder:hover .placeholder-icon {
+    color: var(--color-primary);
+  }
+
+  .placeholder-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    transition: color 0.3s ease;
+  }
+
+  .image-placeholder:hover .placeholder-text {
+    color: var(--color-primary);
+  }
+
+  /* Text Content */
+  .about-text .section-header {
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+
+  .about-text .section-title {
+    margin-bottom: 1rem;
+    color: var(--color-text-primary);
+  }
+
+  .about-text .section-subtitle {
+    color: var(--color-text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  .about-description {
+    margin-bottom: 2.5rem;
+  }
+
+  .about-description p {
+    margin-bottom: 1.5rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+
+  .about-lead {
+    font-size: 1.1rem !important;
+    color: var(--color-text-primary) !important;
+    font-weight: 500;
+    margin-bottom: 2rem !important;
+  }
+
+  .about-lead strong {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .about-description em {
+    color: var(--color-primary);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .about-content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      text-align: center;
+    }
+
+    .about-text .section-header {
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about-content {
+      gap: 2rem;
+    }
+
+    .image-placeholder {
+      width: 240px;
+      height: 300px;
+    }
+
+    .placeholder-icon {
+      font-size: 3rem;
+    }
+
+    .about-text .section-title {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .image-placeholder {
+      width: 200px;
+      height: 250px;
+    }
+
+    .placeholder-icon {
+      font-size: 2.5rem;
+    }
+
+    .placeholder-text {
+      font-size: 1rem;
+    }
+  }
+
+  /* Alternative: When you add a real image, use this class */
+  .about-image img,
+  .about-image .profile-image {
+    width: 280px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(20, 184, 166, 0.15);
+    transition: all 0.3s ease;
+  }
+
+  .about-image img:hover,
+  .about-image .profile-image:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(20, 184, 166, 0.2);
+  }
+</style>
