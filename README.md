@@ -67,6 +67,11 @@ npm run dev          # Inicia servidor de desarrollo
 npm run build        # Construye para producción
 npm run preview      # Vista previa de la build
 
+# Calidad de Código
+npm run type-check   # Verifica tipos con TypeScript
+npm run lint         # Ejecuta ESLint en archivos TS y Astro
+npm run format       # Formatea código con Prettier
+
 # Herramientas Astro
 npm run astro        # Comandos de Astro CLI
 ```
@@ -76,33 +81,73 @@ npm run astro        # Comandos de Astro CLI
 ```
 todoconta/
 ├── public/                 # Archivos estáticos
-│   └── favicon.svg
+│   ├── favicon.svg
+│   ├── images/            # Imágenes del sitio
+│   │   ├── logo-icon.svg
+│   │   ├── photo.png
+│   │   └── servicios/     # Imágenes de servicios
+│   └── robots.txt
 ├── src/
 │   ├── components/         # Componentes reutilizables
-│   │   ├── sections/       # Secciones de la página
-│   │   │   ├── Hero.astro
-│   │   │   ├── Services.astro
-│   │   │   ├── ValueProps.astro
-│   │   │   ├── OnlineAdvice.astro
-│   │   │   ├── AIAutomation.astro
-│   │   │   ├── Stats.astro
-│   │   │   └── CallToAction.astro
-│   │   └── ui/            # Componentes de interfaz
-│   │       ├── Button.astro
-│   │       ├── Navbar.astro
-│   │       ├── Footer.astro
-│   │       └── ServiceCard.astro
+│   │   ├── sections/       # Secciones principales del sitio
+│   │   ├── landing/        # Componentes específicos del landing
+│   │   ├── service/        # Componentes de páginas de servicio
+│   │   ├── info/          # Componentes informativos
+│   │   └── ui/            # Componentes de interfaz base
+│   ├── content/           # Colecciones de contenido
+│   │   ├── config.ts      # Configuración de colecciones
+│   │   ├── products/      # Productos (*.md)
+│   │   └── services/      # Servicios (*.md)
+│   ├── config/            # Configuraciones
+│   │   └── analytics.ts
 │   ├── layouts/           # Layouts de página
-│   │   └── Layout.astro
-│   ├── pages/             # Páginas del sitio
-│   │   └── index.astro
-│   └── styles/            # Estilos CSS
+│   │   ├── Layout.astro
+│   │   ├── LandingLayout.astro
+│   │   └── ServiceLayout.astro
+│   ├── pages/             # Páginas del sitio (enrutamiento)
+│   │   ├── index.astro    # Página principal
+│   │   ├── productos/     # Páginas dinámicas de productos
+│   │   ├── servicios/     # Páginas dinámicas de servicios
+│   │   └── talleres/      # Páginas de talleres
+│   ├── scripts/           # Utilidades JavaScript
+│   │   └── shared-utils.js
+│   └── styles/            # Sistema de estilos CSS
 │       ├── design-system.css
 │       ├── global.css
+│       ├── animations.css
+│       ├── components.css
+│       ├── landing.css
 │       └── reset.css
 ├── astro.config.mjs       # Configuración de Astro
 ├── package.json           # Dependencias y scripts
-└── tsconfig.json          # Configuración de TypeScript
+├── tsconfig.json          # Configuración de TypeScript
+└── CLAUDE.md              # Guía para Claude Code
+```
+
+## 📝 Gestión de Contenido
+
+El proyecto utiliza **Astro Content Collections** para la gestión tipada del contenido:
+
+### Colecciones Disponibles
+
+- **Products** (`/productos/`): Software y herramientas como XMLSAT
+- **Services** (`/servicios/`): Servicios contables y fiscales
+
+Cada colección incluye:
+- ✅ **Validación de tipos** con Zod schemas
+- 🔍 **SEO optimizado** con meta datos personalizados
+- 💰 **Información de precios** y características
+- ❓ **FAQs integradas** por producto/servicio
+- 🔄 **Enrutamiento dinámico** automático
+
+### Agregar Nuevo Contenido
+
+```bash
+# Nuevo producto
+touch src/content/products/nuevo-producto.md
+
+# Nuevo servicio
+touch src/content/services/nuevo-servicio.md
 ```
 
 ## 🎨 Sistema de Diseño
@@ -120,73 +165,82 @@ El proyecto utiliza un sistema de diseño personalizado con:
 /* Colores principales */
 --color-primary: #2563eb
 --green-600: #16a34a
---color-primary: #ea580c
+--color-secondary: #ea580c
 --color-text-primary: #111827
 ```
 
-## 📱 Secciones del Sitio
+## 📱 Páginas y Funcionalidades
 
-### 1. **Hero Section**
+### Páginas Principales
 
-- Título principal con call-to-action
-- Estadísticas de la empresa
-- Mockup del dashboard IA
-- Animaciones de entrada
+- **`/`** - Landing page con servicios contables integrales
+- **`/productos/`** - Catálogo de software (XMLSAT, Control XML, etc.)
+- **`/servicios/`** - Servicios fiscales (RFC, e.Firma, Declaraciones)
+- **`/talleres/`** - Capacitación y talleres especializados
 
-### 2. **Value Props**
+### Características Especiales
 
-- Beneficios principales del servicio
-- Garantías y promesas de valor
+- **🔄 Redirects SEO**: 75+ redirecciones desde WordPress a Astro
+- **📊 Analytics**: Google Analytics + Meta Pixel integrados
+- **⚡ Performance**: Builds estáticos optimizados con esbuild
+- **🔒 Seguridad**: Headers de seguridad configurados
+- **📱 Responsivo**: Diseño adaptable a todos los dispositivos
 
-### 3. **Services**
+### Secciones del Landing
 
-- Planes de servicio (Básico, Premium, Empresarial)
-- Precios y características detalladas
-- Comparación visual entre planes
-
-### 4. **Online Advice**
-
-- Servicios de asesoría en línea
-- Horarios y disponibilidad
-
-### 5. **AI Automation**
-
-- Características de automatización con IA
-- Beneficios tecnológicos
-
-### 6. **Stats**
-
-- Estadísticas de la empresa
-- Métricas de éxito
-
-### 7. **Call to Action**
-
-- Formularios de contacto
-- Información de contacto
+1. **Hero** - Propuesta de valor principal + estadísticas
+2. **ValueProps** - Beneficios y garantías del servicio
+3. **Services** - Planes contables (Básico, Premium, Empresarial)
+4. **OnlineAdvice** - Asesoría fiscal en línea
+5. **AIAutomation** - Automatización con inteligencia artificial
+6. **Products** - Software especializado (XMLSAT)
+7. **Stats** - Métricas de confianza y experiencia
+8. **CallToAction** - Formularios de contacto integrados
 
 ## 🔧 Desarrollo
 
-### Agregar Nuevas Secciones
+### Flujo de Desarrollo
 
-1. Crear componente en `src/components/sections/`
-2. Importar en `src/pages/index.astro`
-3. Agregar estilos CSS personalizados
+```bash
+git checkout -b feature/nueva-funcionalidad
+npm run dev                    # Servidor de desarrollo
+# ... hacer cambios ...
+npm run type-check            # Verificar tipos
+npm run lint                   # Verificar código
+npm run format                 # Formatear código
+npm run build                  # Probar build
+git commit -m "feat: nueva funcionalidad"
+```
+
+### Agregar Componentes
+
+1. **Secciones**: `src/components/sections/` - Para landing page
+2. **UI**: `src/components/ui/` - Componentes reutilizables
+3. **Servicios**: `src/components/service/` - Para páginas de servicio
+4. **Landing**: `src/components/landing/` - Específicos del landing
 
 ### Modificar Estilos
 
-Los estilos se organizan en:
-
-- `design-system.css` - Variables y sistema de diseño
-- `global.css` - Estilos globales
-- `reset.css` - Reset de CSS
+- `design-system.css` - Variables CSS y tokens de diseño
+- `global.css` - Estilos globales y utilidades
+- `animations.css` - Animaciones y transiciones
+- `components.css` - Estilos de componentes compartidos
+- `reset.css` - Normalización de estilos del navegador
 
 ### Animaciones
 
 El sitio utiliza animaciones CSS con:
 
-- `fade-in-up` - Entrada desde abajo
+- `fade-in-up` - Entrada desde abajo con desvanecimiento
 - `fade-in-left` - Entrada desde la izquierda
-- `scale-in` - Escalado suave
+- `scale-in` - Escalado suave para elementos destacados
+- **Intersection Observer** - Animaciones activadas al hacer scroll
+
+### Configuración TypeScript
+
+- **Modo estricto** habilitado con opciones adicionales
+- **Path aliases** configurados (`@/*`, `@/components/*`)
+- **Astro Check** integrado para validación de tipos
 
 ## 📈 Optimización
 
@@ -199,33 +253,37 @@ El sitio utiliza animaciones CSS con:
 
 ### SEO
 
-- Meta tags optimizados
-- Estructura semántica HTML
-- Open Graph tags
-- Schema markup
+- **Meta tags** optimizados por página
+- **Estructura semántica** HTML5
+- **Open Graph** tags para redes sociales
+- **Redirects** configurados para migración WordPress→Astro
+- **Sitemap** generado automáticamente
+- **Content Collections** con metadata SEO personalizable
 
 ## 🚀 Despliegue
 
-### Netlify
+El proyecto está optimizado para despliegue estático:
+
+### Build para Producción
 
 ```bash
-npm run build
-# Subir carpeta dist/ a Netlify
+npm run build        # Genera carpeta dist/
+npm run preview      # Vista previa local de la build
 ```
 
-### Vercel
+### Plataformas Soportadas
 
-```bash
-npm run build
-# Conectar repositorio a Vercel
-```
+- **Netlify**: Deploy automático desde repositorio
+- **Vercel**: Integración nativa con Astro
+- **GitHub Pages**: Con GitHub Actions
+- **Cualquier hosting estático**: Subir carpeta `dist/`
 
-### GitHub Pages
+### Optimizaciones de Build
 
-```bash
-npm run build
-# Configurar GitHub Actions para deploy
-```
+- ✅ **Minificación** con esbuild
+- ✅ **Compresión HTML** automática
+- ✅ **Inlining CSS** inteligente
+- ✅ **Imágenes optimizadas** en formato SVG
 
 ## 🤝 Contribución
 
