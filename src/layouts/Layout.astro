@@ -96,10 +96,14 @@ const { title, description, keywords } = Astro.props;
   <body>
     <slot />
 
-    <!-- Shared functionality script -->
+    <!-- Shared functionality and animations script -->
     <script>
       import { initSharedUtils } from '../scripts/shared-utils.js';
+      import { initAnimations } from '../scripts/animations.js';
+      
+      // Initialize both systems
       initSharedUtils();
+      initAnimations();
     </script>
   </body>
 </html>
