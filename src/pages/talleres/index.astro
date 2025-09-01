@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/ui/Button.astro';
 
 // Datos estáticos de categorías de talleres (para mostrar incluso si el iframe no carga)
 const categoriasTalleres = [
@@ -64,8 +65,8 @@ const lumaProfileUrl = 'https://lu.ma/todoconta';
           contenido siempre actualizado.
         </p>
         <div class="hero-actions">
-          <a href="#calendario" class="btn btn-primary">Ver Calendario</a>
-          <a href="#categorias" class="btn btn-outline">Explorar Categorías</a>
+          <Button href="#calendario" variant="primary">Ver Calendario</Button>
+          <Button href="#categorias" variant="outline">Explorar Categorías</Button>
         </div>
       </div>
     </div>
@@ -219,7 +220,7 @@ const lumaProfileUrl = 'https://lu.ma/todoconta';
             >
           </div>
         </div>
-        <a href="#contacto" class="btn btn-primary">Solicitar Propuesta</a>
+        <Button href="#contacto" variant="primary">Solicitar Propuesta</Button>
       </div>
     </div>
   </section>
@@ -339,8 +340,8 @@ const lumaProfileUrl = 'https://lu.ma/todoconta';
             ></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary form-submit"
-            >Enviar Mensaje</button
+          <Button type="submit" variant="primary" class="form-submit"
+            >Enviar Mensaje</Button
           >
         </form>
       </div>

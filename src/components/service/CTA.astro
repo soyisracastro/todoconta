@@ -1,5 +1,7 @@
 ---
 // src/components/service/CTA.astro
+import Button from '../ui/Button.astro';
+
 export interface Props {
   title: string;
   description: string;
@@ -30,12 +32,12 @@ const {
       <p class="cta-description">{description}</p>
 
       <div class="cta-actions">
-        <a href={primaryCta.url} class="btn btn-primary">{primaryCta.text}</a>
+        <Button href={primaryCta.url} variant="primary">{primaryCta.text}</Button>
         {
           secondaryCta && (
-            <a href={secondaryCta.url} class="btn btn-secondary">
+            <Button href={secondaryCta.url} variant="secondary">
               {secondaryCta.text}
-            </a>
+            </Button>
           )
         }
       </div>

@@ -3,6 +3,8 @@ import { getCollection } from 'astro:content';
 import ServiceLayout from '../../layouts/ServiceLayout.astro';
 import Navbar from '@/components/ui/Navbar.astro';
 import Footer from '@/components/ui/Footer.astro';
+import FAQ from '../../components/ui/FAQ.astro';
+import Button from '../../components/ui/Button.astro';
 
 // Genera rutas para cada servicio
 export async function getStaticPaths() {
@@ -106,15 +108,15 @@ if (relatedServices && relatedServices.length > 0) {
           }
 
           <div class="hero-actions">
-            <a href={ctaUrl || '#contacto'} class="btn btn-primary">
+            <Button href={ctaUrl || '#contacto'} variant="primary">
               {ctaText || 'Solicitar Servicio'}
-            </a>
+            </Button>
 
             {
               secondaryCtaText && secondaryCtaUrl && (
-                <a href={secondaryCtaUrl} class="btn btn-outline">
+                <Button href={secondaryCtaUrl} variant="outline">
                   {secondaryCtaText}
-                </a>
+                </Button>
               )
             }
           </div>
@@ -267,39 +269,12 @@ if (relatedServices && relatedServices.length > 0) {
   <!-- FAQ Section -->
   {
     faqs && faqs.length > 0 && (
-      <section class="faq section">
-        <div class="container">
-          <h2 class="section-title">Preguntas Frecuentes</h2>
-          <p class="section-subtitle">
-            Resolvemos tus dudas sobre este servicio
-          </p>
-
-          <div class="faq-items">
-            {faqs.map((faq, index) => (
-              <div class="faq-item">
-                <button
-                  class="faq-question"
-                  aria-expanded={index === 0 ? 'true' : 'false'}
-                  type="button"
-                >
-                  <span>{faq.question}</span>
-                  <span class="question-icon">{index === 0 ? '−' : '+'}</span>
-                </button>
-                <div
-                  class="faq-answer"
-                  style={
-                    index === 0
-                      ? 'max-height: 1000px; padding-bottom: var(--space-4);'
-                      : 'max-height: 0;'
-                  }
-                >
-                  <p>{faq.answer}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FAQ 
+        title="Preguntas Frecuentes"
+        subtitle="Resolvemos tus dudas sobre este servicio"
+        faqs={faqs}
+        variant="card"
+      />
     )
   }
 
@@ -351,15 +326,15 @@ if (relatedServices && relatedServices.length > 0) {
         </p>
 
         <div class="cta-actions">
-          <a href={ctaUrl || '#contacto'} class="btn btn-primary">
+          <Button href={ctaUrl || '#contacto'} variant="primary">
             {ctaText || 'Solicitar Servicio'}
-          </a>
+          </Button>
 
           {
             secondaryCtaText && secondaryCtaUrl && (
-              <a href={secondaryCtaUrl} class="btn btn-outline">
+              <Button href={secondaryCtaUrl} variant="outline">
                 {secondaryCtaText}
-              </a>
+              </Button>
             )
           }
         </div>
@@ -369,42 +344,4 @@ if (relatedServices && relatedServices.length > 0) {
 
   <Footer />
 
-  <script slot="scripts" is:inline>
-    document.addEventListener('DOMContentLoaded', () => {
-      const faqQuestions = document.querySelectorAll('.faq-question');
-
-      faqQuestions.forEach(question => {
-        question.addEventListener('click', () => {
-          const isExpanded = question.getAttribute('aria-expanded') === 'true';
-          const answer = question.nextElementSibling;
-
-          // Cerrar todas las respuestas primero
-          faqQuestions.forEach(q => {
-            if (q !== question) {
-              q.setAttribute('aria-expanded', 'false');
-              q.nextElementSibling.style.maxHeight = '0';
-              // Actualizar el icono
-              const icon = q.querySelector('.question-icon');
-              if (icon) icon.textContent = '+';
-            }
-          });
-
-          // Cambiar estado de la pregunta actual
-          question.setAttribute('aria-expanded', !isExpanded);
-
-          // Actualizar altura máxima e icono
-          if (!isExpanded) {
-            // El valor 1000px es seguro para contener la mayoría de los textos
-            answer.style.maxHeight = '1000px';
-            const icon = question.querySelector('.question-icon');
-            if (icon) icon.textContent = '−';
-          } else {
-            answer.style.maxHeight = '0';
-            const icon = question.querySelector('.question-icon');
-            if (icon) icon.textContent = '+';
-          }
-        });
-      });
-    });
-  </script>
 </ServiceLayout>

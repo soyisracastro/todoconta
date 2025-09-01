@@ -1,5 +1,5 @@
 ---
-
+import Button from '../ui/Button.astro';
 ---
 
 <section class="cta-section" id="contacto">
@@ -13,14 +13,14 @@
       </p>
 
       <div class="cta-buttons fade-in-up">
-        <a href="tel:5544753602" class="btn btn-primary btn-xl">
+        <Button href="tel:5544753602" variant="primary" size="xl">
           <span class="btn-icon">📞</span>
           <span>(55) 4475-3602</span>
-        </a>
-        <a href="mailto:hola@todoconta.com" class="btn btn-secondary btn-xl">
+        </Button>
+        <Button href="mailto:hola@todoconta.com" variant="secondary" size="xl">
           <span class="btn-icon">✉️</span>
           <span>hola@todoconta.com</span>
-        </a>
+        </Button>
       </div>
 
       <div class="contact-form fade-in-up">
@@ -99,10 +99,10 @@
             </label>
           </div>
 
-          <button type="submit" class="btn btn-accent form-submit">
+          <Button type="submit" variant="accent" class="form-submit">
             <span class="btn-text">Enviar solicitud</span>
             <span class="btn-icon">→</span>
-          </button>
+          </Button>
         </form>
       </div>
 
@@ -475,23 +475,7 @@
       });
     }
 
-    // Inicializar las animaciones
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px',
-      }
-    );
-
-    document
-      .querySelectorAll('.fade-in-up')
-      .forEach(el => observer.observe(el));
+    // Animations are handled by the centralized animation system
+    // No need for component-specific animation code
   });
 </script>

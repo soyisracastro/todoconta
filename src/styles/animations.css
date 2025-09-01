@@ -37,14 +37,109 @@
 .delay-400 { transition-delay: 400ms; }
 .delay-500 { transition-delay: 500ms; }
 
-/* Responsive animations - reduce motion for users who prefer it */
+/* Disable animations for users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .fade-in-up,
   .animate-fade-in-up,
   .fade-in-left,
   .scale-in {
-    opacity: 1;
-    transform: none;
-    transition: none;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
+}
+
+/* Programmatic animation disable */
+.no-animations .fade-in-up,
+.no-animations .animate-fade-in-up,
+.no-animations .fade-in-left,
+.no-animations .scale-in {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Additional animation classes for enhanced system */
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-down {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Visible states for new animations */
+.fade-in-right.visible,
+.fade-in-down.visible,
+.slide-up.visible {
+  opacity: 1;
+  transform: translateY(0) translateX(0);
+}
+
+/* Extended delays for more control */
+.delay-600 { transition-delay: 600ms; }
+.delay-700 { transition-delay: 700ms; }
+.delay-800 { transition-delay: 800ms; }
+.delay-900 { transition-delay: 900ms; }
+.delay-1000 { transition-delay: 1000ms; }
+
+/* Bouncy animations */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(30px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05) translateY(-10px);
+  }
+  70% {
+    transform: scale(0.95) translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.bounce-in {
+  opacity: 0;
+  transform: scale(0.3) translateY(30px);
+}
+
+.bounce-in.visible {
+  animation: bounceIn 0.8s ease forwards;
+}
+
+/* Disable new animations for reduced motion users */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-right,
+  .fade-in-down,
+  .slide-up,
+  .bounce-in {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+.no-animations .fade-in-right,
+.no-animations .fade-in-down,
+.no-animations .slide-up,
+.no-animations .bounce-in {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
 }

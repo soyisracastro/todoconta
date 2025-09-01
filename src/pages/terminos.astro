@@ -970,24 +970,7 @@ import Footer from '../components/ui/Footer.astro';
         observer.observe(section);
       });
 
-      // Animations
-      const animationObserver = new IntersectionObserver(
-        entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-            }
-          });
-        },
-        {
-          threshold: 0.1,
-          rootMargin: '0px 0px -50px 0px',
-        }
-      );
-
-      document.querySelectorAll('.fade-in-up').forEach(el => {
-        animationObserver.observe(el);
-      });
+      // Animations handled by centralized animation system
     });
   </script>
 </Layout>

@@ -1,5 +1,6 @@
 ---
 import '../../styles/design-system.css';
+import Button from '../ui/Button.astro';
 
 // Opcional: definir props si necesitas personalizar el hero desde diferentes páginas
 export interface Props {
@@ -47,12 +48,12 @@ const stats = [
         <div class="hero-cta fade-in-up">
           {
             cta && (
-              <a href={cta.link} class="btn btn-accent btn-xl">
+              <Button href={cta.link} variant="accent" size="xl">
                 {cta.title}
-              </a>
+              </Button>
             )
           }
-          <a href="#servicios" class="btn btn-outline btn-xl">Ver Planes</a>
+          <Button href="#servicios" variant="outline" size="xl">Ver Planes</Button>
         </div>
 
         {
