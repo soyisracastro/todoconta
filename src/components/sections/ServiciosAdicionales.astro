@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import Button from '../ui/Button.astro';
 
 const serviciosAdicionales = await getCollection('services');
 ---
@@ -39,8 +40,8 @@ const serviciosAdicionales = await getCollection('services');
           Contáctanos y te ayudamos con cualquier trámite fiscal o contable
           específico
         </p>
-        <a href="#contacto" class="btn btn-primary btn-lg"
-          >Consulta Personalizada</a
+        <Button href="#contacto" variant="primary" size="lg"
+          >Consulta Personalizada</Button
         >
       </div>
     </div>

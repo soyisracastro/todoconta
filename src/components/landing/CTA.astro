@@ -1,4 +1,6 @@
 ---
+import Button from '../ui/Button.astro';
+
 export interface Props {
   title: string;
   description: string;
@@ -28,12 +30,12 @@ const {
       <h2 class="cta-title">{title}</h2>
       <p class="cta-description">{description}</p>
       <div class="cta-buttons">
-        <a href={primaryCta.url} class="btn btn-accent">{primaryCta.text}</a>
+        <Button href={primaryCta.url} variant="accent">{primaryCta.text}</Button>
         {
           secondaryCta && (
-            <a href={secondaryCta.url} class="btn btn-outline">
+            <Button href={secondaryCta.url} variant="outline">
               {secondaryCta.text}
-            </a>
+            </Button>
           )
         }
       </div>

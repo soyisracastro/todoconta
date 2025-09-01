@@ -1,4 +1,6 @@
 ---
+import Button from './Button.astro';
+
 export interface Props {
   links?: Array<{
     title: string;
@@ -39,9 +41,9 @@ const { links, cta, showPhone = false } = Astro.props as Props;
       }
       {
         cta && (
-          <a href={cta.link} class="btn btn-primary">
+          <Button href={cta.link} variant="primary">
             {cta.title}
-          </a>
+          </Button>
         )
       }
     </div>

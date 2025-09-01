@@ -1,4 +1,6 @@
 ---
+import Button from '../ui/Button.astro';
+
 // Características de la automatización con IA
 const features = [
   {
@@ -91,9 +93,9 @@ const aiAlerts = [
         </div>
 
         <div class="cta-buttons fade-in-up">
-          <a href="#contacto" class="btn btn-accent btn-lg">Activar IA</a>
-          <a href="#servicios" class="btn btn-outline btn-lg"
-            >Incluido en Premium</a
+          <Button href="#contacto" variant="accent" size="lg">Activar IA</Button>
+          <Button href="#servicios" variant="outline" size="lg"
+            >Incluido en Premium</Button
           >
         </div>
       </div>
