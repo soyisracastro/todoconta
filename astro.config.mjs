@@ -18,6 +18,7 @@ export default defineConfig({
     "/imss-modalidad-10-independientes/": "https://todoconta.substack.com/p/imss-modalidad-10-independientes/",
     "/fallecimiento-contribuyente/": "https://todoconta.substack.com/p/fallecimiento-contribuyente/",
     "/contabilidad-electronica-sat-invitaciones/": "https://todoconta.substack.com/p/contabilidad-electronica-sat-invitaciones/",
+    "/efirma-sat/": "https://todoconta.substack.com/p/efirma-sat",
     "/blog/": "https://todoconta.substack.com/",
     
     // Medium priority redirects
@@ -30,6 +31,8 @@ export default defineConfig({
     "/avisos-sat-declaracion-anual-asalariados/": "https://todoconta.substack.com/p/avisos-sat-declaracion-anual-asalariados/",
     "/curp-biometrica-mexico/": "https://todoconta.substack.com/p/curp-biometrica-mexico/",
     "/resolucion-miscelanea-fiscal/": "https://todoconta.substack.com/p/resolucion-miscelanea-fiscal/",
+    "generar-facturas-electronicas": "https://todoconta.substack.com/p/generar-facturas-electronicas/",
+    "plazo-conservar-contabilidad/": "https://todoconta.substack.com/p/plazo-conservar-contabilidad/",
     
     // Product redirects (short URLs)
     "/xs": "https://todoconta.com/producto/xmlsat/",
