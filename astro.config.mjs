@@ -18,6 +18,7 @@ export default defineConfig({
     "/imss-modalidad-10-independientes/": "https://todoconta.substack.com/p/imss-modalidad-10-independientes/",
     "/fallecimiento-contribuyente/": "https://todoconta.substack.com/p/fallecimiento-contribuyente/",
     "/contabilidad-electronica-sat-invitaciones/": "https://todoconta.substack.com/p/contabilidad-electronica-sat-invitaciones/",
+    "/efirma-sat/": "https://todoconta.substack.com/p/efirma-sat",
     "/blog/": "https://todoconta.substack.com/",
     
     // Medium priority redirects
