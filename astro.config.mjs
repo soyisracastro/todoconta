@@ -31,6 +31,8 @@ export default defineConfig({
     "/avisos-sat-declaracion-anual-asalariados/": "https://todoconta.substack.com/p/avisos-sat-declaracion-anual-asalariados/",
     "/curp-biometrica-mexico/": "https://todoconta.substack.com/p/curp-biometrica-mexico/",
     "/resolucion-miscelanea-fiscal/": "https://todoconta.substack.com/p/resolucion-miscelanea-fiscal/",
+    "generar-facturas-electronicas": "https://todoconta.substack.com/p/generar-facturas-electronicas/",
+    "plazo-conservar-contabilidad/": "https://todoconta.substack.com/p/plazo-conservar-contabilidad/",
     
     // Product redirects (short URLs)
     "/xs": "https://todoconta.com/producto/xmlsat/",
