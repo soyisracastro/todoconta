@@ -1,0 +1,240 @@
+---
+export interface Props {
+  id?: string;
+  title?: string;
+  subtitle?: string;
+  variant?: 'default' | 'centered' | 'narrow' | 'wide';
+  background?: 'default' | 'alt' | 'warm' | 'primary';
+  padding?: 'sm' | 'md' | 'lg' | 'xl';
+  containerSize?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
+  class?: string;
+  animate?: boolean;
+}
+
+const {
+  id,
+  title,
+  subtitle,
+  variant = 'default',
+  background = 'default',
+  padding = 'lg',
+  containerSize = 'lg',
+  class: className,
+  animate = true,
+} = Astro.props;
+
+// Mapear variantes de background a clases CSS
+const backgroundClasses = {
+  default: '',
+  alt: 'section-bg-alt',
+  warm: 'section-bg-warm', 
+  primary: 'section-bg-primary',
+};
+
+// Mapear tamaños de padding
+const paddingClasses = {
+  sm: 'section-padding-sm',
+  md: 'section-padding-md', 
+  lg: 'section-padding-lg',
+  xl: 'section-padding-xl',
+};
+
+// Mapear tamaños de container
+const containerClasses = {
+  sm: 'container-sm',
+  md: 'container-md',
+  lg: 'container-lg', 
+  xl: 'container-xl',
+  full: 'container-full',
+};
+
+const sectionClasses = [
+  'section',
+  `section-${variant}`,
+  backgroundClasses[background],
+  paddingClasses[padding],
+  className,
+].filter(Boolean).join(' ');
+---
+
+<section 
+  class={sectionClasses}
+  id={id}
+>
+  <div class={`container ${containerClasses[containerSize]}`}>
+    {(title || subtitle) && (
+      <div class="section-header" class:list={[animate && 'animate-fade-in-up']}>
+        {title && (
+          <h2 class="section-title">{title}</h2>
+        )}
+        {subtitle && (
+          <p class="section-subtitle">{subtitle}</p>
+        )}
+      </div>
+    )}
+    
+    <div class="section-content" class:list={[animate && 'animate-fade-in-up delay-200']}>
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Base section styles */
+  .section {
+    position: relative;
+  }
+
+  .container {
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+  }
+
+  /* Container sizes */
+  .container-sm {
+    max-width: 640px;
+  }
+
+  .container-md {
+    max-width: 768px;
+  }
+
+  .container-lg {
+    max-width: 1200px;
+  }
+
+  .container-xl {
+    max-width: 1400px;
+  }
+
+  .container-full {
+    max-width: 100%;
+  }
+
+  /* Padding variants */
+  .section-padding-sm {
+    padding: var(--space-8) 0;
+  }
+
+  .section-padding-md {
+    padding: var(--space-12) 0;
+  }
+
+  .section-padding-lg {
+    padding: var(--space-16) 0;
+  }
+
+  .section-padding-xl {
+    padding: var(--space-24) 0;
+  }
+
+  /* Background variants */
+  .section-bg-alt {
+    background: var(--color-background-alt);
+  }
+
+  .section-bg-warm {
+    background: var(--bg-warm);
+  }
+
+  .section-bg-primary {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .section-bg-primary .section-title {
+    color: white;
+  }
+
+  .section-bg-primary .section-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Section header */
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+  }
+
+  .section-title {
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-4xl);
+    font-weight: 800;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+    line-height: 1.2;
+  }
+
+  .section-subtitle {
+    font-size: var(--font-size-xl);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Section variants */
+  .section-centered {
+    text-align: center;
+  }
+
+  .section-centered .section-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section-narrow .section-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .section-wide .container {
+    max-width: 100%;
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: var(--font-size-3xl);
+    }
+
+    .section-subtitle {
+      font-size: var(--font-size-lg);
+    }
+
+    .section-header {
+      margin-bottom: var(--space-8);
+    }
+
+    .section-padding-sm {
+      padding: var(--space-6) 0;
+    }
+
+    .section-padding-md {
+      padding: var(--space-8) 0;
+    }
+
+    .section-padding-lg {
+      padding: var(--space-12) 0;
+    }
+
+    .section-padding-xl {
+      padding: var(--space-16) 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .container {
+      padding: 0 var(--space-4);
+    }
+
+    .section-title {
+      font-size: var(--font-size-2xl);
+    }
+
+    .section-subtitle {
+      font-size: var(--font-size-base);
+    }
+  }
+</style>

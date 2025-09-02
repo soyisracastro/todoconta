@@ -2,13 +2,13 @@
 // src/pages/landing/[product].astro
 import { getCollection } from 'astro:content';
 import LandingLayout from '../../layouts/LandingLayout.astro';
-import Hero from '../../components/landing/Hero.astro';
+import Hero from '../../components/ui/Hero.astro';
 import Features from '../../components/landing/Features.astro';
 import Benefits from '../../components/landing/Benefits.astro';
 import Pricing from '../../components/landing/Pricing.astro';
 import Demo from '../../components/landing/Demo.astro';
 import FAQ from '../../components/ui/FAQ.astro';
-import CTA from '../../components/landing/CTA.astro';
+import CTA from '../../components/ui/CTA.astro';
 
 // Genera rutas para cada producto
 export async function getStaticPaths() {
@@ -126,7 +126,7 @@ const hasValidFaqs = faqs && Array.isArray(faqs) && faqs.length > 0;
   {...heroImage && { ogImage: heroImage }}
 >
   <!-- Hero Section -->
-  <Hero {...heroProps} />
+  <Hero {...heroProps} variant="product" />
 
   <!-- Features Section -->
   {hasValidFeatures && <Features {...featuresProps} />}
@@ -144,5 +144,5 @@ const hasValidFaqs = faqs && Array.isArray(faqs) && faqs.length > 0;
   {hasValidFaqs && <FAQ faqs={faqs} />}
 
   <!-- Call to Action -->
-  <CTA {...ctaProps} />
+  <CTA {...ctaProps} variant="simple" />
 </LandingLayout>
