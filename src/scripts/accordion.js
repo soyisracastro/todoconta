@@ -15,7 +15,7 @@ export function initAccordion(containerSelector, options = {}) {
     contentSelector = '.faq-answer',
     activeClass = 'faq-open',
     allowMultiple = false,
-    animationDuration = 300
+    animationDuration = 300,
   } = options;
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -23,11 +23,11 @@ export function initAccordion(containerSelector, options = {}) {
     if (!container) return;
 
     const accordionItems = container.querySelectorAll(itemSelector);
-    
+
     accordionItems.forEach(item => {
       const trigger = item.querySelector(triggerSelector);
       const content = item.querySelector(contentSelector);
-      
+
       if (!trigger || !content) return;
 
       // Configurar estado inicial
@@ -37,14 +37,26 @@ export function initAccordion(containerSelector, options = {}) {
 
       // Event listener para toggle
       trigger.addEventListener('click', () => {
-        toggleAccordionItem(item, content, activeClass, allowMultiple, accordionItems);
+        toggleAccordionItem(
+          item,
+          content,
+          activeClass,
+          allowMultiple,
+          accordionItems
+        );
       });
 
       // Soporte para teclado (Enter y Space)
-      trigger.addEventListener('keydown', (e) => {
+      trigger.addEventListener('keydown', e => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          toggleAccordionItem(item, content, activeClass, allowMultiple, accordionItems);
+          toggleAccordionItem(
+            item,
+            content,
+            activeClass,
+            allowMultiple,
+            accordionItems
+          );
         }
       });
 
@@ -58,13 +70,19 @@ export function initAccordion(containerSelector, options = {}) {
 
 /**
  * Toggle de un item del acordeón
- * @param {HTMLElement} item 
- * @param {HTMLElement} content 
- * @param {string} activeClass 
- * @param {boolean} allowMultiple 
- * @param {NodeList} allItems 
+ * @param {HTMLElement} item
+ * @param {HTMLElement} content
+ * @param {string} activeClass
+ * @param {boolean} allowMultiple
+ * @param {NodeList} allItems
  */
-function toggleAccordionItem(item, content, activeClass, allowMultiple, allItems) {
+function toggleAccordionItem(
+  item,
+  content,
+  activeClass,
+  allowMultiple,
+  allItems
+) {
   const isOpen = item.classList.contains(activeClass);
 
   // Cerrar otros items si no se permite múltiples abiertos
@@ -86,16 +104,16 @@ function toggleAccordionItem(item, content, activeClass, allowMultiple, allItems
 
 /**
  * Abre un item del acordeón
- * @param {HTMLElement} item 
- * @param {HTMLElement} content 
- * @param {string} activeClass 
+ * @param {HTMLElement} item
+ * @param {HTMLElement} content
+ * @param {string} activeClass
  */
 function openAccordionItem(item, content, activeClass) {
   item.classList.add(activeClass);
-  
+
   // Calcular altura real del contenido
   content.style.maxHeight = content.scrollHeight + 'px';
-  
+
   // Actualizar aria-expanded si existe
   const trigger = item.querySelector('[aria-expanded]');
   if (trigger) {
@@ -105,18 +123,20 @@ function openAccordionItem(item, content, activeClass) {
 
 /**
  * Cierra un item del acordeón
- * @param {HTMLElement} item 
- * @param {string} activeClass 
+ * @param {HTMLElement} item
+ * @param {string} activeClass
  */
 function closeAccordionItem(item, activeClass) {
-  const content = item.querySelector('.faq-answer') || item.querySelector('[data-accordion-content]');
-  
+  const content =
+    item.querySelector('.faq-answer') ||
+    item.querySelector('[data-accordion-content]');
+
   item.classList.remove(activeClass);
-  
+
   if (content) {
     content.style.maxHeight = '0';
   }
-  
+
   // Actualizar aria-expanded si existe
   const trigger = item.querySelector('[aria-expanded]');
   if (trigger) {
@@ -126,8 +146,8 @@ function closeAccordionItem(item, activeClass) {
 
 /**
  * Abre un item específico por su índice
- * @param {string} containerSelector 
- * @param {number} index 
+ * @param {string} containerSelector
+ * @param {number} index
  */
 export function openAccordionItemByIndex(containerSelector, index) {
   const container = document.querySelector(containerSelector);
@@ -135,7 +155,7 @@ export function openAccordionItemByIndex(containerSelector, index) {
 
   const items = container.querySelectorAll('.faq-item');
   const item = items[index];
-  
+
   if (item && !item.classList.contains('faq-open')) {
     const content = item.querySelector('.faq-answer');
     if (content) {
@@ -146,7 +166,7 @@ export function openAccordionItemByIndex(containerSelector, index) {
 
 /**
  * Cierra todos los items del acordeón
- * @param {string} containerSelector 
+ * @param {string} containerSelector
  */
 export function closeAllAccordionItems(containerSelector) {
   const container = document.querySelector(containerSelector);
@@ -160,7 +180,7 @@ export function closeAllAccordionItems(containerSelector) {
 
 /**
  * Configuración predeterminada para FAQs
- * @param {string} containerSelector 
+ * @param {string} containerSelector
  */
 export function initFAQ(containerSelector) {
   initAccordion(containerSelector, {
@@ -169,14 +189,14 @@ export function initFAQ(containerSelector) {
     contentSelector: '.faq-answer',
     activeClass: 'faq-open',
     allowMultiple: false,
-    animationDuration: 300
+    animationDuration: 300,
   });
 }
 
 /**
  * Buscar en FAQs y destacar resultados
- * @param {string} containerSelector 
- * @param {string} searchTerm 
+ * @param {string} containerSelector
+ * @param {string} searchTerm
  */
 export function searchFAQs(containerSelector, searchTerm) {
   const container = document.querySelector(containerSelector);
@@ -187,15 +207,17 @@ export function searchFAQs(containerSelector, searchTerm) {
   let hasResults = false;
 
   items.forEach(item => {
-    const question = item.querySelector('.faq-question')?.textContent?.toLowerCase() || '';
-    const answer = item.querySelector('.faq-answer')?.textContent?.toLowerCase() || '';
-    
+    const question =
+      item.querySelector('.faq-question')?.textContent?.toLowerCase() || '';
+    const answer =
+      item.querySelector('.faq-answer')?.textContent?.toLowerCase() || '';
+
     const matches = question.includes(term) || answer.includes(term);
-    
+
     if (matches || term === '') {
       item.style.display = '';
       hasResults = true;
-      
+
       // Destacar término si hay búsqueda activa
       if (term && term.length > 2) {
         highlightSearchTerm(item, searchTerm);
@@ -213,22 +235,22 @@ export function searchFAQs(containerSelector, searchTerm) {
 
 /**
  * Destaca el término de búsqueda en el item
- * @param {HTMLElement} item 
- * @param {string} term 
+ * @param {HTMLElement} item
+ * @param {string} term
  */
 function highlightSearchTerm(item, term) {
   const question = item.querySelector('.faq-question');
   const answer = item.querySelector('.faq-answer');
-  
+
   [question, answer].forEach(element => {
     if (!element) return;
-    
+
     const originalText = element.textContent;
     const highlightedText = originalText.replace(
       new RegExp(term, 'gi'),
       match => `<mark class="search-highlight">${match}</mark>`
     );
-    
+
     if (highlightedText !== originalText) {
       element.innerHTML = highlightedText;
     }
@@ -237,7 +259,7 @@ function highlightSearchTerm(item, term) {
 
 /**
  * Remueve destacados de búsqueda
- * @param {HTMLElement} item 
+ * @param {HTMLElement} item
  */
 function removeHighlights(item) {
   const highlights = item.querySelectorAll('.search-highlight');

@@ -43,16 +43,25 @@ const {
 } = Astro.props;
 
 // Establecer valores por defecto después de que variant esté definido
-const title = Astro.props.title || (variant === 'homepage' ? 'Tranquilidad Fiscal Garantizada para tu Empresa' : '');
-const subtitle = Astro.props.subtitle || (variant === 'homepage' ? 'Servicios contables integrales y asesorías fiscales especializadas. <strong>Si no cumplimos, cubrimos las multas</strong>.' : '');
+const title =
+  Astro.props.title ||
+  (variant === 'homepage'
+    ? 'Tranquilidad Fiscal Garantizada para tu Empresa'
+    : '');
+const subtitle =
+  Astro.props.subtitle ||
+  (variant === 'homepage'
+    ? 'Servicios contables integrales y asesorías fiscales especializadas. <strong>Si no cumplimos, cubrimos las multas</strong>.'
+    : '');
 
 // Usar description o subtitle según la variante
 const heroText = variant === 'service' ? description : subtitle;
 
 // Imagen por defecto según variante
-const defaultImage = variant === 'service' 
-  ? '/images/services/default-hero.jpg'
-  : 'https://placehold.co/800x450/14b8a6/FFFFFF/png?text=Product+Image';
+const defaultImage =
+  variant === 'service'
+    ? '/images/services/default-hero.jpg'
+    : 'https://placehold.co/800x450/14b8a6/FFFFFF/png?text=Product+Image';
 
 const heroImage = image || defaultImage;
 
@@ -78,125 +87,159 @@ const stats = [
 ];
 ---
 
-<section class="hero" class:list={[`hero-${variant}`]} id={variant === 'homepage' ? 'inicio' : undefined}>
-  {variant === 'homepage' && <div class="hero-background"></div>}
+<section
+  class="hero"
+  class:list={[`hero-${variant}`]}
+  id={variant === 'homepage' ? 'inicio' : undefined}
+>
+  {variant === 'homepage' && <div class="hero-background" />}
   <div class="container">
     <div class="hero-content">
       <div class="hero-text">
         {badge && <span class="hero-badge animate-fade-in-up">{badge}</span>}
-        <h1 class="hero-title animate-fade-in-up delay-100" set:html={variant === 'homepage' ? subtitle : title}></h1>
-        {variant === 'homepage' ? (
-          <p class="hero-subtitle fade-in-up" set:html={subtitle}></p>
-        ) : heroText && (
-          <p class="hero-description animate-fade-in-up delay-200">{heroText}</p>
-        )}
-        
-        {variant === 'service' && recommendedFor && (
-          <div class="hero-recommended animate-fade-in-up delay-250">
-            <span class="recommended-label">Recomendado para:</span>
-            <p class="recommended-text">{recommendedFor}</p>
-          </div>
-        )}
+        <h1
+          class="hero-title animate-fade-in-up delay-100"
+          set:html={variant === 'homepage' ? subtitle : title}
+        />
+        {
+          variant === 'homepage' ? (
+            <p class="hero-subtitle fade-in-up" set:html={subtitle} />
+          ) : (
+            heroText && (
+              <p class="hero-description animate-fade-in-up delay-200">
+                {heroText}
+              </p>
+            )
+          )
+        }
 
-        {variant === 'homepage' ? (
-          <div class="hero-cta fade-in-up">
-            {cta && (
-              <Button href={cta.link} variant="accent" size="xl">
-                {cta.title}
-              </Button>
-            )}
-            <Button href="#servicios" variant="outline" size="xl">Ver Planes</Button>
-          </div>
-        ) : (
-          <div class="hero-buttons animate-fade-in-up delay-300">
-            {primaryCta && (
-              <Button 
-                href={primaryCta.url} 
-                variant={variant === 'service' ? 'primary' : 'accent'}
-              >
-                {primaryCta.text}
-              </Button>
-            )}
-            {secondaryCta && (
-              <Button href={secondaryCta.url} variant="outline">
-                {secondaryCta.text}
-              </Button>
-            )}
-          </div>
-        )}
+        {
+          variant === 'service' && recommendedFor && (
+            <div class="hero-recommended animate-fade-in-up delay-250">
+              <span class="recommended-label">Recomendado para:</span>
+              <p class="recommended-text">{recommendedFor}</p>
+            </div>
+          )
+        }
 
-        {variant === 'homepage' && showStats && (
-          <div class="hero-stats fade-in-up">
-            {stats.map(stat => (
-              <div class="hero-stat">
-                <span class="hero-stat-number">{stat.number}</span>
-                <span class="hero-stat-label">{stat.label}</span>
-              </div>
-            ))}
-          </div>
-        )}
+        {
+          variant === 'homepage' ? (
+            <div class="hero-cta fade-in-up">
+              {cta && (
+                <Button href={cta.link} variant="accent" size="xl">
+                  {cta.title}
+                </Button>
+              )}
+              <Button href="#servicios" variant="outline" size="xl">
+                Ver Planes
+              </Button>
+            </div>
+          ) : (
+            <div class="hero-buttons animate-fade-in-up delay-300">
+              {primaryCta && (
+                <Button
+                  href={primaryCta.url}
+                  variant={variant === 'service' ? 'primary' : 'accent'}
+                >
+                  {primaryCta.text}
+                </Button>
+              )}
+              {secondaryCta && (
+                <Button href={secondaryCta.url} variant="outline">
+                  {secondaryCta.text}
+                </Button>
+              )}
+            </div>
+          )
+        }
+
+        {
+          variant === 'homepage' && showStats && (
+            <div class="hero-stats fade-in-up">
+              {stats.map(stat => (
+                <div class="hero-stat">
+                  <span class="hero-stat-number">{stat.number}</span>
+                  <span class="hero-stat-label">{stat.label}</span>
+                </div>
+              ))}
+            </div>
+          )
+        }
       </div>
 
-      {(variant === 'product' || variant === 'landing') && (
-        <div class="hero-image-container animate-fade-in-up delay-400">
-          <img src={heroImage} alt="Visualización del producto" class="hero-image" />
-        </div>
-      )}
+      {
+        (variant === 'product' || variant === 'landing') && (
+          <div class="hero-image-container animate-fade-in-up delay-400">
+            <img
+              src={heroImage}
+              alt="Visualización del producto"
+              class="hero-image"
+            />
+          </div>
+        )
+      }
 
-      {variant === 'service' && (
-        <div class="hero-visual animate-fade-in-up delay-200">
-          <img src={heroImage} alt={title} class="hero-image" />
-          
-          {topFeatures.length > 0 && (
-            <div class="hero-features">
-              <h3 class="features-title">Incluye:</h3>
-              <ul class="features-list">
-                {topFeatures.map(feature => (
-                  <li class="feature-item">
-                    <span class="feature-icon">{feature.icon}</span>
-                    <span class="feature-text">{feature.text}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
-      )}
+      {
+        variant === 'service' && (
+          <div class="hero-visual animate-fade-in-up delay-200">
+            <img src={heroImage} alt={title} class="hero-image" />
 
-      {variant === 'homepage' && (
-        <div class="hero-visual fade-in-left">
-          <div class="hero-mockup">
-            <div class="mockup-content">
-              <h4>Tranquilidad Fiscal Total</h4>
-              <p class="mockup-feature">📊 Contabilidad completa</p>
-              <p class="mockup-feature">📋 Declaraciones fiscales</p>
-              <p class="mockup-feature">👨‍💼 Asesoría especializada</p>
-              <p class="mockup-feature">🛡️ Garantía de cumplimiento</p>
-              <div class="mockup-badge">
-                <span class="mockup-badge-dot"></span>
-                <span>Servicio profesional confiable</span>
+            {topFeatures.length > 0 && (
+              <div class="hero-features">
+                <h3 class="features-title">Incluye:</h3>
+                <ul class="features-list">
+                  {topFeatures.map(feature => (
+                    <li class="feature-item">
+                      <span class="feature-icon">{feature.icon}</span>
+                      <span class="feature-text">{feature.text}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        )
+      }
+
+      {
+        variant === 'homepage' && (
+          <div class="hero-visual fade-in-left">
+            <div class="hero-mockup">
+              <div class="mockup-content">
+                <h4>Tranquilidad Fiscal Total</h4>
+                <p class="mockup-feature">📊 Contabilidad completa</p>
+                <p class="mockup-feature">📋 Declaraciones fiscales</p>
+                <p class="mockup-feature">👨‍💼 Asesoría especializada</p>
+                <p class="mockup-feature">🛡️ Garantía de cumplimiento</p>
+                <div class="mockup-badge">
+                  <span class="mockup-badge-dot" />
+                  <span>Servicio profesional confiable</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      )}
+        )
+      }
     </div>
   </div>
 
-  {variant === 'homepage' && (
-    <div class="hero-wave">
-      <svg
-        viewBox="0 0 1440 120"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="none"
-      >
-        <path
-          d="M0 0L48 8.875C96 17.75 192 35.5 288 44.375C384 53.25 480 53.25 576 44.375C672 35.5 768 17.75 864 26.625C960 35.5 1056 71 1152 80.75C1248 89.625 1344 71 1392 62.125L1440 53.25V120H1392C1344 120 1248 120 1152 120C1056 120 960 120 864 120C768 120 672 120 576 120C480 120 384 120 288 120C192 120 96 120 48 120H0V0Z"
-          fill="var(--color-background)"></path>
-      </svg>
-    </div>
-  )}
+  {
+    variant === 'homepage' && (
+      <div class="hero-wave">
+        <svg
+          viewBox="0 0 1440 120"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0 0L48 8.875C96 17.75 192 35.5 288 44.375C384 53.25 480 53.25 576 44.375C672 35.5 768 17.75 864 26.625C960 35.5 1056 71 1152 80.75C1248 89.625 1344 71 1392 62.125L1440 53.25V120H1392C1344 120 1248 120 1152 120C1056 120 960 120 864 120C768 120 672 120 576 120C480 120 384 120 288 120C192 120 96 120 48 120H0V0Z"
+            fill="var(--color-background)"
+          />
+        </svg>
+      </div>
+    )
+  }
 </section>
 
 <style>
@@ -257,7 +300,11 @@ const stats = [
   .hero-product,
   .hero-landing {
     padding: var(--space-16) 0;
-    background: linear-gradient(135deg, var(--color-background) 0%, var(--color-background-alt) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--color-background) 0%,
+      var(--color-background-alt) 100%
+    );
   }
 
   .hero-product .hero-content,
@@ -267,7 +314,11 @@ const stats = [
 
   .hero-product .hero-badge,
   .hero-landing .hero-badge {
-    background: linear-gradient(135deg, var(--color-accent) 0%, var(--orange-600) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--color-accent) 0%,
+      var(--orange-600) 100%
+    );
     color: white;
   }
 
@@ -646,16 +697,16 @@ const stats = [
       grid-template-columns: 1fr;
       text-align: center;
     }
-    
+
     .hero-homepage .hero-text {
       max-width: 650px;
       margin: 0 auto;
     }
-    
+
     .hero-homepage .hero-visual {
       display: none;
     }
-    
+
     .hero-cta,
     .hero-stats {
       justify-content: center;
@@ -666,7 +717,7 @@ const stats = [
     .hero-homepage .hero-title {
       font-size: 2.5rem;
     }
-    
+
     .hero-subtitle {
       font-size: 1.1rem;
     }

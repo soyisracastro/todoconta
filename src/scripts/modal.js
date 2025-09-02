@@ -18,13 +18,18 @@ export function showModal(config) {
     className = '',
     onOpen = null,
     onClose = null,
-    buttons = []
+    buttons = [],
   } = config;
 
   // Crear estructura del modal
   const modalOverlay = createModalOverlay();
   const modalContainer = createModalContainer(size, className);
-  const modalContent = createModalContent(title, content, showCloseButton, buttons);
+  const modalContent = createModalContent(
+    title,
+    content,
+    showCloseButton,
+    buttons
+  );
 
   modalContainer.appendChild(modalContent);
   modalOverlay.appendChild(modalContainer);
@@ -34,7 +39,7 @@ export function showModal(config) {
   setupModalEvents(modalOverlay, modalContainer, {
     closeOnBackdrop,
     closeOnEscape,
-    onClose
+    onClose,
   });
 
   // Mostrar modal con animación
@@ -53,8 +58,8 @@ export function showModal(config) {
 
 /**
  * Cierra un modal específico
- * @param {HTMLElement} modal 
- * @param {Function} onClose 
+ * @param {HTMLElement} modal
+ * @param {Function} onClose
  */
 export function closeModal(modal, onClose = null) {
   if (!modal) return;
@@ -100,8 +105,8 @@ function createModalOverlay() {
 
 /**
  * Crea el contenedor del modal
- * @param {string} size 
- * @param {string} className 
+ * @param {string} size
+ * @param {string} className
  * @returns {HTMLElement}
  */
 function createModalContainer(size, className) {
@@ -112,10 +117,10 @@ function createModalContainer(size, className) {
 
 /**
  * Crea el contenido del modal
- * @param {string} title 
- * @param {string} content 
- * @param {boolean} showCloseButton 
- * @param {Array} buttons 
+ * @param {string} title
+ * @param {string} content
+ * @param {boolean} showCloseButton
+ * @param {Array} buttons
  * @returns {HTMLElement}
  */
 function createModalContent(title, content, showCloseButton, buttons) {
@@ -152,13 +157,13 @@ function createModalContent(title, content, showCloseButton, buttons) {
   // Body
   const body = document.createElement('div');
   body.className = 'modal-body';
-  
+
   if (typeof content === 'string') {
     body.innerHTML = content;
   } else if (content instanceof HTMLElement) {
     body.appendChild(content);
   }
-  
+
   modalContent.appendChild(body);
 
   // Footer con botones
@@ -170,9 +175,9 @@ function createModalContent(title, content, showCloseButton, buttons) {
       const button = document.createElement('button');
       button.className = `btn ${buttonConfig.className || 'btn-primary'}`;
       button.textContent = buttonConfig.text;
-      
+
       if (buttonConfig.onClick) {
-        button.addEventListener('click', (e) => {
+        button.addEventListener('click', e => {
           const modal = e.target.closest('.modal-overlay');
           buttonConfig.onClick(modal, e);
         });
@@ -189,16 +194,16 @@ function createModalContent(title, content, showCloseButton, buttons) {
 
 /**
  * Configura eventos del modal
- * @param {HTMLElement} overlay 
- * @param {HTMLElement} container 
- * @param {Object} options 
+ * @param {HTMLElement} overlay
+ * @param {HTMLElement} container
+ * @param {Object} options
  */
 function setupModalEvents(overlay, container, options) {
   const { closeOnBackdrop, closeOnEscape, onClose } = options;
 
   // Cerrar al hacer click en el backdrop
   if (closeOnBackdrop) {
-    overlay.addEventListener('click', (e) => {
+    overlay.addEventListener('click', e => {
       if (e.target === overlay) {
         closeModal(overlay, onClose);
       }
@@ -207,7 +212,7 @@ function setupModalEvents(overlay, container, options) {
 
   // Cerrar con Escape
   if (closeOnEscape) {
-    const handleEscape = (e) => {
+    const handleEscape = e => {
       if (e.key === 'Escape') {
         closeModal(overlay, onClose);
         document.removeEventListener('keydown', handleEscape);
@@ -222,13 +227,13 @@ function setupModalEvents(overlay, container, options) {
 
 /**
  * Configura el trap de foco dentro del modal
- * @param {HTMLElement} container 
+ * @param {HTMLElement} container
  */
 function setupFocusTrap(container) {
   const focusableElements = container.querySelectorAll(
     'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
   );
-  
+
   if (focusableElements.length === 0) return;
 
   const firstFocusable = focusableElements[0];
@@ -240,7 +245,7 @@ function setupFocusTrap(container) {
   }, 100);
 
   // Trap del Tab
-  container.addEventListener('keydown', (e) => {
+  container.addEventListener('keydown', e => {
     if (e.key !== 'Tab') return;
 
     if (e.shiftKey) {
@@ -259,18 +264,18 @@ function setupFocusTrap(container) {
 
 /**
  * Modal de confirmación
- * @param {Object} config 
+ * @param {Object} config
  * @returns {Promise<boolean>}
  */
 export function showConfirmModal(config) {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     const {
       title = 'Confirmar acción',
       message = '¿Estás seguro de que deseas continuar?',
       confirmText = 'Confirmar',
       cancelText = 'Cancelar',
       confirmClass = 'btn-danger',
-      cancelClass = 'btn-outline'
+      cancelClass = 'btn-outline',
     } = config;
 
     showModal({
@@ -283,43 +288,43 @@ export function showConfirmModal(config) {
         {
           text: cancelText,
           className: cancelClass,
-          onClick: (modal) => {
+          onClick: modal => {
             closeModal(modal);
             resolve(false);
-          }
+          },
         },
         {
           text: confirmText,
           className: confirmClass,
-          onClick: (modal) => {
+          onClick: modal => {
             closeModal(modal);
             resolve(true);
-          }
-        }
-      ]
+          },
+        },
+      ],
     });
   });
 }
 
 /**
  * Modal de alerta
- * @param {Object} config 
+ * @param {Object} config
  * @returns {Promise<void>}
  */
 export function showAlertModal(config) {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     const {
       title = 'Información',
       message = '',
       buttonText = 'Aceptar',
-      type = 'info' // info, success, warning, error
+      type = 'info', // info, success, warning, error
     } = config;
 
     const icon = {
       info: 'ℹ️',
       success: '✅',
       warning: '⚠️',
-      error: '❌'
+      error: '❌',
     }[type];
 
     showModal({
@@ -334,12 +339,12 @@ export function showAlertModal(config) {
         {
           text: buttonText,
           className: 'btn-primary',
-          onClick: (modal) => {
+          onClick: modal => {
             closeModal(modal);
             resolve();
-          }
-        }
-      ]
+          },
+        },
+      ],
     });
   });
 }
@@ -350,20 +355,20 @@ export function showAlertModal(config) {
 export function initModalTriggers() {
   document.addEventListener('DOMContentLoaded', () => {
     // Botones con data-modal
-    document.addEventListener('click', (e) => {
+    document.addEventListener('click', e => {
       const trigger = e.target.closest('[data-modal]');
       if (!trigger) return;
 
       e.preventDefault();
-      
+
       const modalSelector = trigger.getAttribute('data-modal');
       const modalElement = document.querySelector(modalSelector);
-      
+
       if (modalElement) {
         showModal({
           content: modalElement.cloneNode(true),
           title: trigger.getAttribute('data-modal-title') || '',
-          size: trigger.getAttribute('data-modal-size') || 'medium'
+          size: trigger.getAttribute('data-modal-size') || 'medium',
         });
       }
     });

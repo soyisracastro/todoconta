@@ -50,7 +50,7 @@ export function initScrollAnimations(
   // Observe all matching elements
   const elements = document.querySelectorAll(selector);
   elements.forEach(el => observer.observe(el));
-  
+
   // Return observer for manual control if needed
   return observer;
 }
@@ -68,7 +68,7 @@ export const AnimationUtils = {
   staggerAnimation(selector, baseDelay = 0, increment = 100) {
     const elements = document.querySelectorAll(selector);
     elements.forEach((el, index) => {
-      el.style.transitionDelay = `${baseDelay + (index * increment)}ms`;
+      el.style.transitionDelay = `${baseDelay + index * increment}ms`;
     });
   },
 
@@ -109,7 +109,7 @@ export const AnimationUtils = {
    */
   animate(element, classes, delay = 0) {
     const classArray = Array.isArray(classes) ? classes : [classes];
-    
+
     if (delay > 0) {
       setTimeout(() => {
         classArray.forEach(cls => element.classList.add(cls));
@@ -117,7 +117,7 @@ export const AnimationUtils = {
     } else {
       classArray.forEach(cls => element.classList.add(cls));
     }
-  }
+  },
 };
 
 /**

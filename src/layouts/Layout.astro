@@ -39,8 +39,10 @@ const { title, description, keywords } = Astro.props;
     <meta property="og:image" content="https://todoconta.com/og-image.jpg" />
 
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VS5CTEJ19C"
-    ></script>
+    <script
+      async
+      is:inline
+      src="https://www.googletagmanager.com/gtag/js?id=G-VS5CTEJ19C"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -52,7 +54,7 @@ const { title, description, keywords } = Astro.props;
     </script>
 
     <!-- Meta Pixel Code -->
-    <script is:inline>
+    <script async is:inline>
       !(function (f, b, e, v, n, t, s) {
         if (f.fbq) return;
         n = f.fbq = function () {
@@ -100,7 +102,7 @@ const { title, description, keywords } = Astro.props;
     <script>
       import { initSharedUtils } from '../scripts/shared-utils.js';
       import { initAnimations } from '../scripts/animations.js';
-      
+
       // Initialize both systems
       initSharedUtils();
       initAnimations();

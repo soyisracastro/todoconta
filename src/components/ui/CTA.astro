@@ -34,150 +34,197 @@ const {
 } = Astro.props;
 ---
 
-<section class="cta-section" class:list={[`cta-${variant}`]} style={`--cta-bg-gradient: ${bgGradient};`}>
-  {variant === 'with-form' && <div class="cta-background"></div>}
-  
+<section
+  class="cta-section"
+  class:list={[`cta-${variant}`]}
+  style={`--cta-bg-gradient: ${bgGradient};`}
+>
+  {variant === 'with-form' && <div class="cta-background" />}
+
   <div class="container">
     <div class="cta-content animate-fade-in-up">
       <h2 class="cta-title">{title}</h2>
       <p class="cta-description">{description}</p>
-      
+
       <div class="cta-buttons">
-        <Button 
-          href={primaryCta.url} 
-          variant={variant === 'with-form' ? 'primary' : (variant === 'simple' ? 'accent' : 'primary')}
-          size={variant === 'with-form' ? 'xl' : undefined}
+        <Button
+          href={primaryCta.url}
+          variant={variant === 'with-form'
+            ? 'primary'
+            : variant === 'simple'
+              ? 'accent'
+              : 'primary'}
+          {...variant === 'with-form' && { size: 'xl' }}
         >
           {variant === 'with-form' && <span class="btn-icon">📞</span>}
           {primaryCta.text}
         </Button>
-        
-        {secondaryCta && (
-          <Button 
-            href={secondaryCta.url} 
-            variant={variant === 'simple' ? 'outline' : (variant === 'with-form' ? 'secondary' : 'secondary')}
-            size={variant === 'with-form' ? 'xl' : undefined}
-          >
-            {variant === 'with-form' && <span class="btn-icon">✉️</span>}
-            {secondaryCta.text}
-          </Button>
-        )}
+
+        {
+          secondaryCta && (
+            <Button
+              href={secondaryCta.url}
+              variant={
+                variant === 'simple'
+                  ? 'outline'
+                  : variant === 'with-form'
+                    ? 'secondary'
+                    : 'secondary'
+              }
+              {...(variant === 'with-form' && { size: 'xl' })}
+            >
+              {variant === 'with-form' && <span class="btn-icon">✉️</span>}
+              {secondaryCta.text}
+            </Button>
+          )
+        }
       </div>
 
-      {variant === 'with-contact' && contactMethods && (
-        <div class="cta-contact">
-          <p>¿Tienes preguntas específicas? Contáctanos directamente:</p>
-          <div class="contact-methods">
-            {contactMethods.email && (
-              <a href={`mailto:${contactMethods.email}`} class="contact-method">
-                <span class="contact-icon">✉️</span>
-                <span class="contact-text">{contactMethods.email}</span>
-              </a>
-            )}
-            {contactMethods.phone && (
-              <a href={`tel:${contactMethods.phone.replace(/\D/g, '')}`} class="contact-method">
-                <span class="contact-icon">📞</span>
-                <span class="contact-text">{contactMethods.phone}</span>
-              </a>
-            )}
-            {contactMethods.whatsapp && (
-              <a href={`https://wa.me/${contactMethods.whatsapp}`} target="_blank" class="contact-method">
-                <span class="contact-icon">💬</span>
-                <span class="contact-text">WhatsApp</span>
-              </a>
-            )}
+      {
+        variant === 'with-contact' && contactMethods && (
+          <div class="cta-contact">
+            <p>¿Tienes preguntas específicas? Contáctanos directamente:</p>
+            <div class="contact-methods">
+              {contactMethods.email && (
+                <a
+                  href={`mailto:${contactMethods.email}`}
+                  class="contact-method"
+                >
+                  <span class="contact-icon">✉️</span>
+                  <span class="contact-text">{contactMethods.email}</span>
+                </a>
+              )}
+              {contactMethods.phone && (
+                <a
+                  href={`tel:${contactMethods.phone.replace(/\D/g, '')}`}
+                  class="contact-method"
+                >
+                  <span class="contact-icon">📞</span>
+                  <span class="contact-text">{contactMethods.phone}</span>
+                </a>
+              )}
+              {contactMethods.whatsapp && (
+                <a
+                  href={`https://wa.me/${contactMethods.whatsapp}`}
+                  target="_blank"
+                  class="contact-method"
+                >
+                  <span class="contact-icon">💬</span>
+                  <span class="contact-text">WhatsApp</span>
+                </a>
+              )}
+            </div>
           </div>
-        </div>
-      )}
+        )
+      }
 
-      {variant === 'with-form' && (
-        <div class="contact-form fade-in-up">
-          <h3 class="form-title">O déjanos tus datos y te contactamos</h3>
-          <form id="contactForm" class="form">
-            <div class="form-row">
+      {
+        variant === 'with-form' && (
+          <div class="contact-form fade-in-up">
+            <h3 class="form-title">O déjanos tus datos y te contactamos</h3>
+            <form id="contactForm" class="form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name" class="form-label">
+                    Nombre completo
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="form-input"
+                    placeholder="Tu nombre"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="company" class="form-label">
+                    Empresa
+                  </label>
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    class="form-input"
+                    placeholder="Nombre de tu empresa"
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email" class="form-label">
+                    Correo electrónico
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="form-input"
+                    placeholder="tu@email.com"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="phone" class="form-label">
+                    Teléfono
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    class="form-input"
+                    placeholder="(55) 1234-5678"
+                  />
+                </div>
+              </div>
+
               <div class="form-group">
-                <label for="name" class="form-label">Nombre completo</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  class="form-input"
-                  placeholder="Tu nombre"
-                  required
+                <label for="message" class="form-label">
+                  ¿Cómo podemos ayudarte?
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  class="form-input form-textarea"
+                  placeholder="Cuéntanos sobre tu situación fiscal o necesidades específicas"
+                  rows="4"
                 />
               </div>
+
               <div class="form-group">
-                <label for="company" class="form-label">Empresa</label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  class="form-input"
-                  placeholder="Nombre de tu empresa"
-                />
+                <label class="form-checkbox">
+                  <input type="checkbox" name="privacy" required />
+                  <span class="checkbox-text">
+                    Acepto la{' '}
+                    <a href="/privacidad" class="link">
+                      política de privacidad
+                    </a>{' '}
+                    y recibir comunicaciones.
+                  </span>
+                </label>
               </div>
-            </div>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label for="email" class="form-label">Correo electrónico</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  class="form-input"
-                  placeholder="tu@email.com"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="phone" class="form-label">Teléfono</label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  class="form-input"
-                  placeholder="(55) 1234-5678"
-                />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="message" class="form-label">¿Cómo podemos ayudarte?</label>
-              <textarea
-                id="message"
-                name="message"
-                class="form-input form-textarea"
-                placeholder="Cuéntanos sobre tu situación fiscal o necesidades específicas"
-                rows="4"></textarea>
-            </div>
-
-            <div class="form-group">
-              <label class="form-checkbox">
-                <input type="checkbox" name="privacy" required />
-                <span class="checkbox-text">
-                  Acepto la <a href="/privacidad" class="link">política de privacidad</a> y recibir comunicaciones.
-                </span>
-              </label>
-            </div>
-
-            <Button type="submit" variant="accent" class="form-submit">
-              <span class="btn-text">Enviar solicitud</span>
-              <span class="btn-icon">→</span>
-            </Button>
-          </form>
-        </div>
-      )}
-
-      {showGuarantee && (
-        <div class="guarantee fade-in-up">
-          <div class="guarantee-icon">🛡️</div>
-          <div class="guarantee-text">
-            Garantía de cumplimiento: Si no cumplimos por nuestra responsabilidad,
-            cubrimos las multas
+              <Button type="submit" variant="accent" class="form-submit">
+                <span class="btn-text">Enviar solicitud</span>
+                <span class="btn-icon">→</span>
+              </Button>
+            </form>
           </div>
-        </div>
-      )}
+        )
+      }
+
+      {
+        showGuarantee && (
+          <div class="guarantee fade-in-up">
+            <div class="guarantee-icon">🛡️</div>
+            <div class="guarantee-text">
+              Garantía de cumplimiento: Si no cumplimos por nuestra
+              responsabilidad, cubrimos las multas
+            </div>
+          </div>
+        )
+      }
     </div>
   </div>
 </section>
@@ -546,7 +593,9 @@ const {
       contactForm.addEventListener('submit', async e => {
         e.preventDefault();
 
-        const submitButton = contactForm.querySelector('.form-submit');
+        const submitButton = contactForm.querySelector(
+          '.form-submit'
+        ) as HTMLButtonElement;
         const originalButtonText = submitButton.innerHTML;
 
         submitButton.innerHTML = '<span class="btn-text">Enviando...</span>';
@@ -563,12 +612,15 @@ const {
             </div>
           `;
         } catch (error) {
-          submitButton.innerHTML = originalButtonText;
-          submitButton.disabled = false;
+          if (submitButton) {
+            submitButton.innerHTML = originalButtonText;
+            submitButton.disabled = false;
+          }
 
           const errorDiv = document.createElement('div');
           errorDiv.className = 'form-error';
-          errorDiv.textContent = 'Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo.';
+          errorDiv.textContent =
+            'Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo.';
           contactForm.appendChild(errorDiv);
         }
       });

@@ -270,7 +270,7 @@ if (relatedServices && relatedServices.length > 0) {
   <!-- FAQ Section -->
   {
     faqs && faqs.length > 0 && (
-      <FAQ 
+      <FAQ
         title="Preguntas Frecuentes"
         subtitle="Resolvemos tus dudas sobre este servicio"
         faqs={faqs}
@@ -320,20 +320,21 @@ if (relatedServices && relatedServices.length > 0) {
     description="Contáctanos hoy mismo y comienza el proceso. Estamos aquí para ayudarte."
     primaryCta={{
       text: ctaText || 'Solicitar Servicio',
-      url: ctaUrl || '#contacto'
+      url: ctaUrl || '#contacto',
     }}
-    secondaryCta={secondaryCtaText && secondaryCtaUrl ? {
-      text: secondaryCtaText,
-      url: secondaryCtaUrl
-    } : null}
+    secondaryCta={secondaryCtaText && secondaryCtaUrl
+      ? {
+          text: secondaryCtaText,
+          url: secondaryCtaUrl,
+        }
+      : null}
     variant="with-contact"
     contactMethods={{
-      email: "hola@todoconta.com",
-      phone: "(55) 4475-3602",
-      whatsapp: "5215544753602"
+      email: 'hola@todoconta.com',
+      phone: '(55) 4475-3602',
+      whatsapp: '5215544753602',
     }}
   />
 
   <Footer />
-
 </ServiceLayout>

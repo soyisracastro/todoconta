@@ -15,7 +15,6 @@ const {
   subtitle = 'Resolvemos tus dudas más comunes',
   faqs,
   variant = 'default',
-  autoOpenFirst = true,
 } = Astro.props;
 ---
 
@@ -54,7 +53,7 @@ const {
 
 <script>
   import { setupFAQAccordion } from '../../scripts/accordion.js';
-  
+
   document.addEventListener('DOMContentLoaded', () => {
     setupFAQAccordion();
   });

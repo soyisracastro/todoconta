@@ -1,0 +1,19 @@
+# Archivos de ejemplos y testing
+src/examples/
+*.examples.ts
+*.examples.js
+
+# Archivos de configuración
+src/config/
+*.config.*
+*.config.js
+*.config.ts
+
+# Archivos de build y dist
+dist/
+build/
+node_modules/
+
+# Archivos temporales
+*.tmp
+*.temp
