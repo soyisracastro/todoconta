@@ -84,7 +84,7 @@ const stats = [
     <div class="hero-content">
       <div class="hero-text">
         {badge && <span class="hero-badge animate-fade-in-up">{badge}</span>}
-        <h1 class="hero-title animate-fade-in-up delay-100" set:html={variant === 'homepage' ? title : subtitle}></h1>
+        <h1 class="hero-title animate-fade-in-up delay-100" set:html={variant === 'homepage' ? subtitle : title}></h1>
         {variant === 'homepage' ? (
           <p class="hero-subtitle fade-in-up" set:html={subtitle}></p>
         ) : heroText && (
