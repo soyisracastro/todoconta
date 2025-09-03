@@ -5,7 +5,7 @@ price: 2200
 pricePeriod: "IVA incluido"
 badge: "XMLSAT PREMIUM"
 heroImage: "https://placehold.co/800x450/075985/FFFFFF/png?text=XMLSAT+Premium"
-demoUrl: "http://softwarepaq.com/downloads/software/SetupXMLSAT_PREMIUM.exe"
+demoUrl: "https://softwarepaq.com/downloads/software/SetupXMLSAT_PREMIUM.exe"
 buyUrl: "https://www.paypal.me/todoconta"
 features:
   - icon: "📥"

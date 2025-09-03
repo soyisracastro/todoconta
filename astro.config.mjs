@@ -52,8 +52,8 @@ export default defineConfig({
     "/controlxml-demo": "https://bit.ly/3q6Orb4",
     "/controlxmlnom-demo": "https://bit.ly/3rFHC0q",
     "/conciliarep-demo": "https://bit.ly/37eQ2ED",
-    "/xmlsatpremium-demo": "http://softwarepaq2.com/downloads/software/SetupXMLSAT_PREMIUM.exe",
-    "/xmlsat-demo": "http://softwarepaq2.com/downloads/software/SetupXMLSAT.exe",
+    "/xmlsatpremium-demo": "https://softwarepaq2.com/downloads/software/SetupXMLSAT_PREMIUM.exe",
+    "/xmlsat-demo": "https://softwarepaq2.com/downloads/software/SetupXMLSAT.exe",
     
     // Service redirects (short URLs)
     "/csd": "https://todoconta.com/certificado-sello-digital-csd",
