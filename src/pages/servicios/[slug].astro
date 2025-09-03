@@ -1,9 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
 import ServiceLayout from '../../layouts/ServiceLayout.astro';
-import Navbar from '@/components/ui/Navbar.astro';
-import Footer from '@/components/ui/Footer.astro';
+import Navbar from '../../components/layout/Navbar.astro';
+import Footer from '../../components/layout/Footer.astro';
 import FAQ from '../../components/ui/FAQ.astro';
+import CTA from '../../components/ui/CTA.astro';
 import Button from '../../components/ui/Button.astro';
 
 // Genera rutas para cada servicio
@@ -269,7 +270,7 @@ if (relatedServices && relatedServices.length > 0) {
   <!-- FAQ Section -->
   {
     faqs && faqs.length > 0 && (
-      <FAQ 
+      <FAQ
         title="Preguntas Frecuentes"
         subtitle="Resolvemos tus dudas sobre este servicio"
         faqs={faqs}
@@ -314,34 +315,26 @@ if (relatedServices && relatedServices.length > 0) {
   }
 
   <!-- CTA Section -->
-  <section class="cta">
-    <div class="container">
-      <div class="cta-content">
-        <h2 class="cta-title">
-          ¿Listo para contratar nuestro servicio de {title}?
-        </h2>
-        <p class="cta-description">
-          Contáctanos hoy mismo y comienza el proceso. Estamos aquí para
-          ayudarte.
-        </p>
-
-        <div class="cta-actions">
-          <Button href={ctaUrl || '#contacto'} variant="primary">
-            {ctaText || 'Solicitar Servicio'}
-          </Button>
-
-          {
-            secondaryCtaText && secondaryCtaUrl && (
-              <Button href={secondaryCtaUrl} variant="outline">
-                {secondaryCtaText}
-              </Button>
-            )
-          }
-        </div>
-      </div>
-    </div>
-  </section>
+  <CTA
+    title={`¿Listo para contratar nuestro servicio de ${title}?`}
+    description="Contáctanos hoy mismo y comienza el proceso. Estamos aquí para ayudarte."
+    primaryCta={{
+      text: ctaText || 'Solicitar Servicio',
+      url: ctaUrl || '#contacto',
+    }}
+    secondaryCta={secondaryCtaText && secondaryCtaUrl
+      ? {
+          text: secondaryCtaText,
+          url: secondaryCtaUrl,
+        }
+      : null}
+    variant="with-contact"
+    contactMethods={{
+      email: 'hola@todoconta.com',
+      phone: '(55) 4475-3602',
+      whatsapp: '5215544753602',
+    }}
+  />
 
   <Footer />
-
 </ServiceLayout>

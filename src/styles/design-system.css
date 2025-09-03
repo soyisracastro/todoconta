@@ -9,6 +9,7 @@
   --color-white: #ffffff;
 
   /* Accent Colors */
+  --color-accent: #f97316;
   --color-success: #10b981;
   --color-warning: #f59e0b;
   --color-error: #ef4444;
@@ -19,6 +20,26 @@
   --color-primary-hover: rgba(20, 184, 166, 0.9);
   --color-border: rgba(107, 114, 128, 0.15);
   --color-border-light: rgba(107, 114, 128, 0.08);
+
+  /* Primary variants */
+  --primary-700: #0f766e;
+  --primary-800: #115e59;
+
+  /* Orange variants */
+  --orange-600: #ea580c;
+  --orange-700: #c2410c;
+
+  /* Green variants */
+  --green-200: #bbf7d0;
+  --green-700: #15803d;
+  --green-800: #166534;
+
+  /* Neutral variants */
+  --neutral-100: #f5f5f5;
+  --neutral-800: #262626;
+
+  /* Background variants */
+  --bg-warm: #fefbf3;
 
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;

@@ -10,21 +10,21 @@ export const ANIMATION_CONFIG = {
   // IntersectionObserver settings
   threshold: 0.1,
   rootMargin: '0px 0px -50px 0px',
-  
+
   // Animation selectors
   selectors: {
     fadeUp: '.fade-in-up, .animate-fade-in-up',
     fadeLeft: '.fade-in-left',
     scaleIn: '.scale-in',
-    all: '.fade-in-up, .animate-fade-in-up, .fade-in-left, .scale-in'
+    all: '.fade-in-up, .animate-fade-in-up, .fade-in-left, .scale-in',
   },
 
   // Animation delays (in ms)
   delays: {
     base: 0,
     increment: 100,
-    stagger: 150
-  }
+    stagger: 150,
+  },
 };
 
 /**
@@ -42,7 +42,7 @@ export class AnimationController {
    */
   init() {
     if (this.isInitialized) return;
-    
+
     // Respect user's motion preferences
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       this.disableAnimations();
@@ -61,14 +61,14 @@ export class AnimationController {
     const observerOptions = {
       threshold: this.config.threshold,
       rootMargin: this.config.rootMargin,
-      ...options
+      ...options,
     };
 
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          
+
           // Optional: stop observing after animation for performance
           if (options.once !== false) {
             observer.unobserve(entry.target);
@@ -93,14 +93,14 @@ export class AnimationController {
     const {
       baseDelay = this.config.delays.base,
       increment = this.config.delays.stagger,
-      animationClass = 'visible'
+      animationClass = 'visible',
     } = options;
 
     const elements = document.querySelectorAll(selector);
-    
+
     elements.forEach((el, index) => {
-      const delay = baseDelay + (index * increment);
-      
+      const delay = baseDelay + index * increment;
+
       setTimeout(() => {
         el.classList.add(animationClass);
       }, delay);
@@ -116,14 +116,14 @@ export class AnimationController {
     const observerOptions = {
       threshold: this.config.threshold,
       rootMargin: this.config.rootMargin,
-      ...options
+      ...options,
     };
 
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           callback(entry.target, entry);
-          
+
           if (options.once !== false) {
             observer.unobserve(entry.target);
           }
@@ -144,9 +144,11 @@ export class AnimationController {
   disableAnimations() {
     // Add class to body to disable animations via CSS
     document.body.classList.add('no-animations');
-    
+
     // Make all animation elements visible immediately
-    const allAnimElements = document.querySelectorAll(this.config.selectors.all);
+    const allAnimElements = document.querySelectorAll(
+      this.config.selectors.all
+    );
     allAnimElements.forEach(el => {
       el.classList.add('visible');
       el.style.opacity = '1';
@@ -188,16 +190,16 @@ export const animationUtils = {
     const endNum = parseInt(end);
     const diff = endNum - startNum;
 
-    const updateCounter = (currentTime) => {
+    const updateCounter = currentTime => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      
+
       // Easing function (easeOutCubic)
       const easeProgress = 1 - Math.pow(1 - progress, 3);
-      const current = Math.floor(startNum + (diff * easeProgress));
-      
+      const current = Math.floor(startNum + diff * easeProgress);
+
       element.textContent = current.toLocaleString();
-      
+
       if (progress < 1) {
         requestAnimationFrame(updateCounter);
       } else {
@@ -214,7 +216,7 @@ export const animationUtils = {
   typeWriter(element, text, speed = 50) {
     element.textContent = '';
     let i = 0;
-    
+
     const type = () => {
       if (i < text.length) {
         element.textContent += text.charAt(i);
@@ -222,9 +224,9 @@ export const animationUtils = {
         setTimeout(type, speed);
       }
     };
-    
+
     type();
-  }
+  },
 };
 
 /**
@@ -239,7 +241,7 @@ export function initScrollAnimations(selector, options) {
   if (!globalController) {
     globalController = new AnimationController();
   }
-  
+
   return globalController.initScrollAnimations(selector, options);
 }
 
@@ -250,7 +252,7 @@ export function initAnimations(options = {}) {
   if (!globalController) {
     globalController = new AnimationController(options);
   }
-  
+
   globalController.init();
   return globalController;
 }

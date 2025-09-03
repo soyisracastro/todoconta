@@ -1,5 +1,5 @@
 ---
-import Button from './Button.astro';
+import Button from '../ui/Button.astro';
 
 export interface Props {
   links?: Array<{
@@ -49,7 +49,6 @@ const { links, cta, showPhone = false } = Astro.props as Props;
     </div>
   </nav>
 </header>
-
 
 <script>
   // Mobile menu functionality
