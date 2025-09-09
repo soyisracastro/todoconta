@@ -19,6 +19,7 @@ export default defineConfig({
     "/fallecimiento-contribuyente/": "https://todoconta.substack.com/p/fallecimiento-contribuyente/",
     "/contabilidad-electronica-sat-invitaciones/": "https://todoconta.substack.com/p/contabilidad-electronica-sat-invitaciones/",
     "/efirma-sat/": "https://todoconta.substack.com/p/efirma-sat",
+    "/firma-electronica/": "https://todoconta.substack.com/p/efirma-sat",
     "/blog/": "https://todoconta.substack.com/",
     
     // Medium priority redirects
@@ -35,16 +36,16 @@ export default defineConfig({
     "plazo-conservar-contabilidad/": "https://todoconta.substack.com/p/plazo-conservar-contabilidad/",
     
     // Product redirects (short URLs)
-    "/xs": "https://todoconta.com/producto/xmlsat/",
-    "/xsp": "https://todoconta.com/producto/xmlsat-premium/",
-    "/xmlsatpremium": "https://todoconta.com/producto/xmlsat-premium/",
-    "/xmlsat": "https://todoconta.com/producto/xmlsat/",
-    "/controlxml": "https://todoconta.com/producto/control-xml-cfdi/",
-    "/controlxmlnom": "https://todoconta.com/producto/control-xml-nomina/",
-    "/conciliarep": "https://todoconta.com/producto/conciliarep/",
-    "/xmlctpqi": "https://todoconta.com/producto/xml-a-contpaqi/",
-    "/xmlcontpaq": "https://todoconta.com/producto/xml-a-contpaqi/",
-    "/diot": "https://todoconta.com/producto/carga-batch-diot/",
+    "/xs": "https://todoconta.com/productos/xmlsat/",
+    "/xsp": "https://todoconta.com/productos/xmlsat-premium/",
+    "/xmlsatpremium": "https://todoconta.com/productos/xmlsat-premium/",
+    "/xmlsat": "https://todoconta.com/productos/xmlsat/",
+    "/controlxml": "https://todoconta.com/productos/control-xml-cfdi/",
+    "/controlxmlnom": "https://todoconta.com/productos/control-xml-nomina/",
+    "/conciliarep": "https://todoconta.com/productos/conciliarep/",
+    "/xmlctpqi": "https://todoconta.com/productos/xml-a-contpaqi/",
+    "/xmlcontpaq": "https://todoconta.com/productos/xml-a-contpaqi/",
+    "/diot": "https://todoconta.com/productos/carga-batch-diot/",
     
     // Demo redirects
     "/xmlctpqi-demo": "https://bit.ly/2Ly9ioI",
@@ -73,7 +74,6 @@ export default defineConfig({
     
     // Special redirects
     "/integrar-contabilidad-especial-deducciones": "https://todoconta.com/integrar-contabilidad-especial/",
-    "/firma-electronica/": "https://todoconta.com/efirma-sat/",
     "/devolucion": "https://todoconta.notion.site/22d3c008312e80be834ff3ced8eb6e3a",
   },
   
