@@ -1,11 +1,12 @@
 ---
-import { getCollection } from "astro:content";
-import Layout from "@/layouts/Layout.astro";
-import Button from "@/components/ui/Button.astro";
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import Button from '@/components/ui/Button.astro';
 
-const services = await getCollection("services");
+const services = await getCollection('services');
 
-const bio = "Contador público con +10 años de experiencia optimizando procesos contables mediante tecnología y automatización.";
+const bio =
+  'Contador público con +10 años de experiencia optimizando procesos contables mediante tecnología y automatización.';
 ---
 
 <Layout
@@ -14,7 +15,7 @@ const bio = "Contador público con +10 años de experiencia optimizando procesos
 >
   <section class="section-links">
     <div class="container">
-      <div class="section-header fade-in-up"> 
+      <div class="section-header fade-in-up">
         <img
           src="/images/photo.png"
           alt="Israel Castro"
@@ -25,16 +26,18 @@ const bio = "Contador público con +10 años de experiencia optimizando procesos
       </div>
 
       <div class="links">
-        <Button href="/" variant="primary" size="lg">
-          Asesoría en línea
-        </Button>
+        <Button href="/" variant="primary" size="lg">Asesoría en línea</Button>
         <Button href="/servicios" variant="outline" size="lg">
           Servicios contables
         </Button>
         <h2>Servicios adicionales</h2>
         {
-          services.map((service) => (
-            <Button href={`/servicios/${service.slug}`} variant="outline" size="lg">
+          services.map(service => (
+            <Button
+              href={`/servicios/${service.slug}`}
+              variant="outline"
+              size="lg"
+            >
               {service.data.title}
             </Button>
           ))
@@ -48,8 +51,7 @@ const bio = "Contador público con +10 años de experiencia optimizando procesos
           width="100%"
           height="150"
           frameborder="0"
-          scrolling="no"
-        ></iframe>
+          scrolling="no"></iframe>
       </div>
     </div>
   </section>
