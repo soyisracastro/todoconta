@@ -1,64 +1,64 @@
 ---
-title: "XMLSAT Premium - Gestión Masiva de CFDI y Auditoría Electrónica"
-description: "Diseñado para despachos contables, contadores autónomos, auditores fiscalistas y administradores que necesitan procesar grandes volúmenes de facturas electrónicas."
+title: 'XMLSAT Premium'
+description: 'Diseñado para despachos contables, contadores autónomos, auditores fiscalistas y administradores que necesitan procesar grandes volúmenes de facturas electrónicas.'
 price: 2200
-pricePeriod: "IVA incluido"
-badge: "XMLSAT PREMIUM"
-heroImage: "https://placehold.co/800x450/075985/FFFFFF/png?text=XMLSAT+Premium"
-demoUrl: "https://softwarepaq.com/downloads/software/SetupXMLSAT_PREMIUM.exe"
-buyUrl: "https://www.paypal.me/todoconta"
+pricePeriod: 'IVA incluido'
+badge: 'Auditoría Fiscal'
+heroImage: 'https://placehold.co/800x450/075985/FFFFFF/png?text=XMLSAT+Premium'
+demoUrl: 'https://softwarepaq.com/downloads/software/SetupXMLSAT_PREMIUM.exe'
+buyUrl: 'https://www.paypal.me/todoconta'
 features:
-  - icon: "📥"
-    title: "Descarga Masiva"
-    description: "Hasta 200 mil XML por solicitud con Web Services SAT usando FIEL, y hasta 10 mil XML por día con RFC/CIEC."
-  - icon: "🔍"
-    title: "Validación en Tiempo Real"
-    description: "Consulta de facturas contra las listas negras del SAT para validar su autenticidad al instante."
-  - icon: "📊"
-    title: "Reportes Fiscales"
-    description: "Genera reportes de Impuestos IVA, ISR, IEPS, impuestos locales, y concentrado de ingresos y gastos."
-  - icon: "📁"
-    title: "Conversión Masiva"
-    description: "Convierte XML a PDF de forma individual y masiva para facilitar la gestión documental."
-  - icon: "📈"
-    title: "Reportes Avanzados"
-    description: "Reporte simple y extendido de nómina 1.2 con 223 columnas para un análisis detallado."
-  - icon: "🔄"
-    title: "Contabilidad Electrónica"
-    description: "Convertidor de archivos para generar la contabilidad electrónica 1.3 y DIOT 2019."
+  - icon: '📥'
+    title: 'Descarga Masiva'
+    description: 'Hasta 200 mil XML por solicitud con Web Services SAT usando FIEL, y hasta 10 mil XML por día con RFC/CIEC.'
+  - icon: '🔍'
+    title: 'Validación en Tiempo Real'
+    description: 'Consulta de facturas contra las listas negras del SAT para validar su autenticidad al instante.'
+  - icon: '📊'
+    title: 'Reportes Fiscales'
+    description: 'Genera reportes de Impuestos IVA, ISR, IEPS, impuestos locales, y concentrado de ingresos y gastos.'
+  - icon: '📁'
+    title: 'Conversión Masiva'
+    description: 'Convierte XML a PDF de forma individual y masiva para facilitar la gestión documental.'
+  - icon: '📈'
+    title: 'Reportes Avanzados'
+    description: 'Reporte simple y extendido de nómina 1.2 con 223 columnas para un análisis detallado.'
+  - icon: '🔄'
+    title: 'Contabilidad Electrónica'
+    description: 'Convertidor de archivos para generar la contabilidad electrónica 1.3 y DIOT 2019.'
 benefits:
-  - title: "Ahorro de Tiempo"
-    description: "Automatiza procesos que tomarían horas manualmente, permitiéndote enfocarte en asesorar a tus clientes."
-  - title: "Mayor Precisión"
-    description: "Elimina errores humanos en la captura y procesamiento de datos fiscales críticos."
-  - title: "Escalabilidad"
-    description: "Gestiona múltiples contribuyentes sin límite desde una sola licencia, ideal para despachos en crecimiento."
-  - title: "Cumplimiento Fiscal"
-    description: "Mantente al día con los requerimientos del SAT para facturas electrónicas, incluyendo CFDI 4.0."
-  - title: "Soporte Técnico Incluido"
-    description: "Eventos ilimitados de soporte durante toda la vigencia de tu licencia."
-  - title: "Flexibilidad"
-    description: "Mueve tu licencia a otro equipo sin costo adicional cuando lo necesites."
+  - title: 'Ahorro de Tiempo'
+    description: 'Automatiza procesos que tomarían horas manualmente, permitiéndote enfocarte en asesorar a tus clientes.'
+  - title: 'Mayor Precisión'
+    description: 'Elimina errores humanos en la captura y procesamiento de datos fiscales críticos.'
+  - title: 'Escalabilidad'
+    description: 'Gestiona múltiples contribuyentes sin límite desde una sola licencia, ideal para despachos en crecimiento.'
+  - title: 'Cumplimiento Fiscal'
+    description: 'Mantente al día con los requerimientos del SAT para facturas electrónicas, incluyendo CFDI 4.0.'
+  - title: 'Soporte Técnico Incluido'
+    description: 'Eventos ilimitados de soporte durante toda la vigencia de tu licencia.'
+  - title: 'Flexibilidad'
+    description: 'Mueve tu licencia a otro equipo sin costo adicional cuando lo necesites.'
 pricing:
   features:
-    - "Contribuyentes ilimitados"
-    - "Descarga masiva hasta 200,000 XML por solicitud"
-    - "Soporte técnico ilimitado"
-    - "Activación en 15 minutos en horario laboral"
-    - "Actualizaciones incluidas por 1 año"
-    - "Compatible con CFDI 3.2, 3.3 y 4.0"
+    - 'Contribuyentes ilimitados'
+    - 'Descarga masiva hasta 200,000 XML por solicitud'
+    - 'Soporte técnico ilimitado'
+    - 'Activación en 15 minutos en horario laboral'
+    - 'Actualizaciones incluidas por 1 año'
+    - 'Compatible con CFDI 3.2, 3.3 y 4.0'
 faqs:
-  - question: "¿Cuál es la diferencia entre XMLSAT y XMLSAT PREMIUM?"
-    answer: "XMLSAT++ realiza búsqueda de hasta 500 XML por día, mientras que XMLSAT PREMIUM puede procesar hasta 500 por segundo, permitiendo descargas masivas de hasta 200,000 XML por solicitud."
-  - question: "¿Con 1 sola licencia puedo administrar más de un RFC?"
-    answer: "Sí, una licencia de XMLSAT Premium te permite gestionar RFCs ilimitados, ideal para despachos contables."
-  - question: "¿Cómo me envían la licencia?"
-    answer: "La licencia se activa con el código IMEI generado por XMLSAT PREMIUM después de la instalación. Este código es único para cada equipo."
-  - question: "¿En cuánto tiempo activan mi licencia?"
-    answer: "Las activaciones se realizan en 15 minutos, de lunes a sábado en horario de 9 a 18 horas, una vez recibido el pago."
-  - question: "¿Puedo instalar el software en más de una computadora?"
-    answer: "Sí, las licencias son por equipo. Cada computadora necesitará su propia licencia, pero puedes mover una licencia a otro equipo sin costo adicional."
-  - question: "¿Mi RFC y clave CIEC se almacenan en algún lado?"
-    answer: "El RFC y clave se almacenan únicamente en tu computadora. Esta función es opcional y puedes desactivarla al ingresar cualquier RFC (Desactivar→Recordar Clave)."
-formId: "xmlsat_premium_demo"
+  - question: '¿Cuál es la diferencia entre XMLSAT y XMLSAT PREMIUM?'
+    answer: 'XMLSAT++ realiza búsqueda de hasta 500 XML por día, mientras que XMLSAT PREMIUM puede procesar hasta 500 por segundo, permitiendo descargas masivas de hasta 200,000 XML por solicitud.'
+  - question: '¿Con 1 sola licencia puedo administrar más de un RFC?'
+    answer: 'Sí, una licencia de XMLSAT Premium te permite gestionar RFCs ilimitados, ideal para despachos contables.'
+  - question: '¿Cómo me envían la licencia?'
+    answer: 'La licencia se activa con el código IMEI generado por XMLSAT PREMIUM después de la instalación. Este código es único para cada equipo.'
+  - question: '¿En cuánto tiempo activan mi licencia?'
+    answer: 'Las activaciones se realizan en 15 minutos, de lunes a sábado en horario de 9 a 18 horas, una vez recibido el pago.'
+  - question: '¿Puedo instalar el software en más de una computadora?'
+    answer: 'Sí, las licencias son por equipo. Cada computadora necesitará su propia licencia, pero puedes mover una licencia a otro equipo sin costo adicional.'
+  - question: '¿Mi RFC y clave CIEC se almacenan en algún lado?'
+    answer: 'El RFC y clave se almacenan únicamente en tu computadora. Esta función es opcional y puedes desactivarla al ingresar cualquier RFC (Desactivar→Recordar Clave).'
+formId: 'xmlsat_premium_demo'
 ---

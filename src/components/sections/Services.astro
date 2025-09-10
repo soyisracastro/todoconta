@@ -1,4 +1,6 @@
 ---
+import Button from '../ui/Button.astro';
+
 // Planes de servicio
 const servicePlans = [
   {
@@ -91,12 +93,12 @@ const servicePlans = [
               ))}
             </ul>
 
-            <a
+            <Button
               href={plan.ctaHref}
-              class={`btn service-cta ${plan.featured ? 'btn-secondary' : 'btn-outline'}`}
+              variant={plan.featured ? 'secondary' : 'outline'}
             >
               {plan.ctaText}
-            </a>
+            </Button>
           </div>
         ))
       }
@@ -171,8 +173,7 @@ const servicePlans = [
 
   .service-card.featured {
     border-color: var(--color-primary);
-    background: var(--color-primary);
-    color: var(--color-white);
+    background: var(--color-primary-light);
     transform: scale(1.05);
     z-index: 1;
     box-shadow: var(--shadow-lg);
@@ -181,7 +182,7 @@ const servicePlans = [
   .service-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-xl);
-    border-color: var(--primary-300);
+    border-color: var(--color-primary);
   }
 
   .service-card.featured:hover {
@@ -199,21 +200,12 @@ const servicePlans = [
     margin-bottom: var(--space-4);
   }
 
-  .service-card.featured .service-badge {
-    background: rgba(242, 204, 143, 0.3);
-    color: var(--color-white);
-  }
-
   .service-title {
     font-family: var(--font-secondary);
     font-size: var(--font-size-2xl);
     font-weight: 700;
     color: var(--color-text-primary);
     margin-bottom: var(--space-3);
-  }
-
-  .service-card.featured .service-title {
-    color: var(--color-white);
   }
 
   .service-price {
@@ -224,28 +216,16 @@ const servicePlans = [
     margin-bottom: var(--space-2);
   }
 
-  .service-card.featured .service-price {
-    color: var(--color-white);
-  }
-
   .service-period {
     color: var(--color-primary);
     font-size: var(--font-size-base);
     margin-bottom: var(--space-6);
   }
 
-  .service-card.featured .service-period {
-    color: var(--color-white);
-  }
-
   .service-description {
     color: var(--color-text-secondary);
     margin-bottom: var(--space-6);
     line-height: 1.6;
-  }
-
-  .service-card.featured .service-description {
-    color: var(--color-white);
   }
 
   .service-features {
@@ -265,10 +245,6 @@ const servicePlans = [
     padding-left: var(--space-6);
   }
 
-  .service-card.featured .service-features li {
-    color: var(--color-white);
-  }
-
   .service-features li::before {
     content: '✓';
     color: var(--color-primary);
@@ -276,10 +252,6 @@ const servicePlans = [
     position: absolute;
     left: 0;
     font-size: var(--font-size-base);
-  }
-
-  .service-card.featured .service-features li::before {
-    color: var(--color-white);
   }
 
   .service-cta {
@@ -295,12 +267,6 @@ const servicePlans = [
     text-decoration: none;
     transition: all var(--transition-normal);
     margin-top: auto;
-  }
-
-  .service-card.featured .service-cta {
-    background: var(--color-warning);
-    color: var(--color-primary);
-    border-color: var(--color-warning);
   }
 
   .btn-secondary {
