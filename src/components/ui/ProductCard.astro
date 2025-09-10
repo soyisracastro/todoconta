@@ -7,7 +7,7 @@ const { product } = Astro.props;
 const { data, slug } = product;
 ---
 
-<a href={`/productos/${slug}`} class="product-card fade-in-up">
+<a href={`/producto/${slug}`} class="product-card fade-in-up">
   <div class="product-image-container">
     <img src={data.heroImage} alt={data.title} class="product-image" />
     <div class="product-badge">{data.badge}</div>

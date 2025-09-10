@@ -53,7 +53,7 @@ src/
 
 Two main collections defined in `src/content/config.ts`:
 
-- **Products** (`/productos/`): Software products like XMLSAT with pricing, features, FAQs
+- **Products** (`/producto/`): Software products like XMLSAT with pricing, features, FAQs
 - **Services** (`/servicios/`): Accounting services with process descriptions, requirements, deliverables
 
 Both collections use Zod schemas for type safety and include comprehensive metadata for SEO and content management.
