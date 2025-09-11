@@ -1,5 +1,5 @@
 // Configuración de Google Analytics
-export const GA_TRACKING_ID = 'G-VS5CTEJ19C';
+export const GA_TRACKING_ID = 'G-8D6CZ461Y3';
 
 // Configuración del Meta Pixel de Facebook
 export const META_PIXEL_ID = '321230706915370';

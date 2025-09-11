@@ -3,7 +3,7 @@
 ## Configuración Implementada
 
 ### Google Analytics
-- **ID de Google Analytics**: `G-VS5CTEJ19C`
+- **ID de Google Analytics**: `G-8D6CZ461Y3`
 - **Propiedad**: Todoconta Landing
 
 ### Meta Pixel de Facebook
@@ -37,7 +37,7 @@ import GoogleAnalytics from '../components/ui/GoogleAnalytics.astro';
 
 <html>
   <head>
-    <GoogleAnalytics trackingId="G-VS5CTEJ19C" />
+    <GoogleAnalytics trackingId="G-8D6CZ461Y3" />
   </head>
   <body>
     <!-- Contenido de la página -->
