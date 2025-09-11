@@ -24,7 +24,8 @@ export default defineConfig({
     
     // Medium priority redirects
     "/cartas-invitacion-sat/": "https://todoconta.substack.com/p/cartas-invitacion-sat/",
-    "/ingresos-gravados-exentos-isr/": "https://todoconta.substack.com/p/ingresos-gravados-exentos-isr/",
+    "/ingresos-gravados-exentos-isr/": "https://todoconta.substack.com/p/ingresos-gravados-e-ingresos-exentos",
+    "/ingresos-gravados-y-exentos-que-se-consideran-para-el-calculo-de-isr-anual-de-los-trabajadores/": "https://todoconta.substack.com/p/ingresos-gravados-e-ingresos-exentos",
     "/metodologia-kanban-devoluciones-isr/": "https://todoconta.substack.com/p/metodologia-kanban-devoluciones-isr/",
     "/ajuste-anual-inflacion/": "https://todoconta.substack.com/p/ajuste-anual-inflacion/",
     "/software-contable-nube/": "https://todoconta.substack.com/p/software-contable-nube/",
@@ -32,8 +33,9 @@ export default defineConfig({
     "/avisos-sat-declaracion-anual-asalariados/": "https://todoconta.substack.com/p/avisos-sat-declaracion-anual-asalariados/",
     "/curp-biometrica-mexico/": "https://todoconta.substack.com/p/curp-biometrica-mexico/",
     "/resolucion-miscelanea-fiscal/": "https://todoconta.substack.com/p/resolucion-miscelanea-fiscal/",
-    "generar-facturas-electronicas": "https://todoconta.substack.com/p/generar-facturas-electronicas/",
-    "plazo-conservar-contabilidad/": "https://todoconta.substack.com/p/plazo-conservar-contabilidad/",
+    "/generar-facturas-electronicas": "https://todoconta.substack.com/p/generar-facturas-electronicas/",
+    "/plazo-conservar-contabilidad/": "https://todoconta.substack.com/p/plazo-conservar-contabilidad/",
+    "/integrar-contabilidad-especial-deducciones": "https://todoconta.com/integrar-contabilidad-especial/",
     
     // Product redirects (short URLs)
     "/xs": "https://todoconta.com/productos/xmlsat/",
@@ -60,8 +62,8 @@ export default defineConfig({
     "/csd": "https://todoconta.com/certificado-sello-digital-csd",
     "/wss": "https://todoconta.com/web-service-sat/",
     "/dp": "https://todoconta.com/deducciones-personales/",
-    "/fe": "https://todoconta.com/firma-electronica/",
-    "/ie": "https://todoconta.com/ingresos-gravados-exentos-isr/",
+    "/fe": "https://todoconta.substack.com/p/efirma-sat",
+    "/ie": "https://todoconta.substack.com/p/ingresos-gravados-e-ingresos-exentos",
     "/fed": "https://wa.me/5215544753602?&text=%22Hola%2C+me+interesa+el+servicio+para+recuperar+mi+saldo+a+favor%E2%80%A6%22",
     
     // Affiliate and external service redirects
@@ -73,7 +75,6 @@ export default defineConfig({
     "/contalink": "https://signup.contalink.com/referidos/CAAF29FB",
     
     // Special redirects
-    "/integrar-contabilidad-especial-deducciones": "https://todoconta.com/integrar-contabilidad-especial/",
     "/devolucion": "https://todoconta.notion.site/22d3c008312e80be834ff3ced8eb6e3a",
   },
   
