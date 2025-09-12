@@ -1,4 +1,9 @@
 ---
+import { getCollection } from 'astro:content';
+
+// Get all products from content collection
+const allProducts = await getCollection('products');
+
 // Enlaces para las secciones del footer
 const footerLinks = {
   services: [
@@ -13,8 +18,11 @@ const footerLinks = {
     { name: 'Ver mas servicios', url: '/servicios#adicionales' },
   ],
   solutions: [
-    { name: 'XMLSAT Premium', url: '/producto/xmlsat-premium' },
-    { name: 'Control XML Nómina', url: '/producto/control-xml-nomina' },
+    ...allProducts.slice(0, 4).map(product => ({
+      name: product.data.title,
+      url: `/producto/${product.slug}`
+    })),
+    { name: 'Ver mas soluciones', url: '/producto' }
   ],
   contact: [
     { name: '✉️ hola@todoconta.com', url: 'mailto:hola@todoconta.com' },
