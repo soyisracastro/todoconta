@@ -31,7 +31,7 @@ plans:
       - 'Descuento del +40% vs licencias individuales'
     featured: true
     ctaText: 'Comprar 3 Licencias'
-    ctaUrl: '#contacto'
+    ctaUrl: 'https://buy.stripe.com/5kAcNA02hcXC8MM5kr'
   - title: '5 Licencias'
     price: 2699
     pricePeriod: 'anual (IVA incluido)'
@@ -45,7 +45,7 @@ plans:
       - 'Descuento del +50% vs licencias individuales'
     featured: false
     ctaText: 'Comprar 5 Licencias'
-    ctaUrl: '#contacto'
+    ctaUrl: 'https://buy.stripe.com/dR6eVI3et8Hmgfe4go'
 heroImage: 'https://placehold.co/800x450/0891b2/FFFFFF/png?text=XMLSAT++'
 buyUrl: '#contacto'
 features:
