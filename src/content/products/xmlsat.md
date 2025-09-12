@@ -47,7 +47,6 @@ plans:
     ctaText: 'Comprar 5 Licencias'
     ctaUrl: '#contacto'
 heroImage: 'https://placehold.co/800x450/0891b2/FFFFFF/png?text=XMLSAT++'
-demoUrl: 'https://todoconta.com/xmlsat-demo'
 buyUrl: '#contacto'
 features:
   - icon: '📥'

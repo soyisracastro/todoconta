@@ -29,7 +29,6 @@ const {
   pricePeriod,
   badge,
   heroImage,
-  demoUrl,
   buyUrl,
   features,
   benefits,
@@ -52,7 +51,7 @@ const heroProps = {
     url: '#pricing',
   },
   ...(badge && { badge }),
-  ...(demoUrl && {
+  ...(formId && {
     secondaryCta: {
       text: 'Descargar Demo',
       url: '#demo',
@@ -92,13 +91,11 @@ const pricingPlansProps = plans
     }
   : null;
 
-const demoProps =
-  demoUrl && formId
-    ? {
-        demoUrl,
-        formId,
-      }
-    : null;
+const demoProps = formId
+  ? {
+      formId,
+    }
+  : null;
 
 const ctaProps = {
   title: `¿Listo para optimizar tu trabajo con ${title}?`,
@@ -108,7 +105,7 @@ const ctaProps = {
     text: 'Comprar Ahora',
     url: buyUrl || '#pricing',
   },
-  ...(demoUrl && {
+  ...(formId && {
     secondaryCta: {
       text: 'Probar Demo Gratis',
       url: '#demo',

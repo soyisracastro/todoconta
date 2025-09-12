@@ -5,7 +5,6 @@ price: 2200
 pricePeriod: 'IVA incluido'
 badge: 'Auditoría Fiscal'
 heroImage: 'https://placehold.co/800x450/075985/FFFFFF/png?text=XMLSAT+Premium'
-demoUrl: 'https://softwarepaq2.com/downloads/software/SetupXMLSAT_PREMIUM.exe'
 buyUrl: 'https://buy.stripe.com/00g4h4bKZ7Di1kk149'
 features:
   - icon: '📥'

@@ -1,64 +1,63 @@
 ---
-title: "Control XML Nómina - Plantilla Excel para Manejo de CFDI de Nómina"
-description: "Plantilla Excel profesional diseñada para contadores y departamentos de recursos humanos que necesitan analizar, controlar y reportar CFDI de nómina."
+title: 'Control XML Nómina - Plantilla Excel para Manejo de CFDI de Nómina'
+description: 'Plantilla Excel profesional diseñada para contadores y departamentos de recursos humanos que necesitan analizar, controlar y reportar CFDI de nómina.'
 price: 1850
-pricePeriod: "IVA incluido"
-badge: "PLANTILLA EXCEL PREMIUM"
-heroImage: "https://placehold.co/800x450/166534/FFFFFF/png?text=Control+XML+Nomina"
-demoUrl: "https://todoconta.com/descargas/demo-control-xml-nomina.xlsx"
-buyUrl: "https://todoconta.com/producto/control-xml-nomina/"
+pricePeriod: 'IVA incluido'
+badge: 'PLANTILLA EXCEL PREMIUM'
+heroImage: 'https://placehold.co/800x450/166534/FFFFFF/png?text=Control+XML+Nomina'
+buyUrl: 'https://todoconta.com/producto/control-xml-nomina/'
 features:
-  - icon: "📊"
-    title: "Análisis Detallado"
-    description: "Analiza todos los campos del CFDI de nómina 1.2 con más de 200 columnas de información."
-  - icon: "🔍"
-    title: "Validación Automática"
-    description: "Detecta inconsistencias y posibles errores en tus recibos de nómina automáticamente."
-  - icon: "📥"
-    title: "Importación Masiva"
-    description: "Importa cientos de XML de nómina con un solo clic desde cualquier carpeta."
-  - icon: "📋"
-    title: "Reportes Personalizados"
-    description: "Genera reportes específicos por departamento, periodo o empleado."
-  - icon: "📝"
-    title: "Conciliación"
-    description: "Compara tus cálculos internos con los CFDI generados para detectar discrepancias."
-  - icon: "📂"
-    title: "Organización Eficiente"
-    description: "Ordena y clasifica automáticamente tus CFDI por periodo, empleado o tipo de nómina."
+  - icon: '📊'
+    title: 'Análisis Detallado'
+    description: 'Analiza todos los campos del CFDI de nómina 1.2 con más de 200 columnas de información.'
+  - icon: '🔍'
+    title: 'Validación Automática'
+    description: 'Detecta inconsistencias y posibles errores en tus recibos de nómina automáticamente.'
+  - icon: '📥'
+    title: 'Importación Masiva'
+    description: 'Importa cientos de XML de nómina con un solo clic desde cualquier carpeta.'
+  - icon: '📋'
+    title: 'Reportes Personalizados'
+    description: 'Genera reportes específicos por departamento, periodo o empleado.'
+  - icon: '📝'
+    title: 'Conciliación'
+    description: 'Compara tus cálculos internos con los CFDI generados para detectar discrepancias.'
+  - icon: '📂'
+    title: 'Organización Eficiente'
+    description: 'Ordena y clasifica automáticamente tus CFDI por periodo, empleado o tipo de nómina.'
 benefits:
-  - title: "Ahorro de Tiempo"
-    description: "Reduce el tiempo de procesamiento de nómina en hasta un 80% con la importación y análisis automáticos."
-  - title: "Cumplimiento Fiscal"
-    description: "Asegúrate de que todos tus CFDI de nómina cumplen con los requisitos del SAT."
-  - title: "Toma de Decisiones"
-    description: "Obtén información valiosa para la toma de decisiones estratégicas en RRHH."
-  - title: "Fácil de Usar"
-    description: "Interfaz intuitiva en Excel que no requiere conocimientos técnicos avanzados."
-  - title: "Compatible con Todos los PAC"
-    description: "Funciona con XML generados por cualquier Proveedor Autorizado de Certificación."
-  - title: "Actualizaciones Incluidas"
-    description: "Recibe actualizaciones gratuitas durante un año para mantener compatibilidad con cambios fiscales."
+  - title: 'Ahorro de Tiempo'
+    description: 'Reduce el tiempo de procesamiento de nómina en hasta un 80% con la importación y análisis automáticos.'
+  - title: 'Cumplimiento Fiscal'
+    description: 'Asegúrate de que todos tus CFDI de nómina cumplen con los requisitos del SAT.'
+  - title: 'Toma de Decisiones'
+    description: 'Obtén información valiosa para la toma de decisiones estratégicas en RRHH.'
+  - title: 'Fácil de Usar'
+    description: 'Interfaz intuitiva en Excel que no requiere conocimientos técnicos avanzados.'
+  - title: 'Compatible con Todos los PAC'
+    description: 'Funciona con XML generados por cualquier Proveedor Autorizado de Certificación.'
+  - title: 'Actualizaciones Incluidas'
+    description: 'Recibe actualizaciones gratuitas durante un año para mantener compatibilidad con cambios fiscales.'
 pricing:
   features:
-    - "Licencia perpetua (sin caducidad)"
-    - "Compatible con Excel 2013 o superior"
-    - "Soporte técnico por 1 año"
-    - "Guía de usuario detallada"
-    - "Actualizaciones incluidas por 1 año"
-    - "Compatible con CFDI de nómina 1.2"
+    - 'Licencia perpetua (sin caducidad)'
+    - 'Compatible con Excel 2013 o superior'
+    - 'Soporte técnico por 1 año'
+    - 'Guía de usuario detallada'
+    - 'Actualizaciones incluidas por 1 año'
+    - 'Compatible con CFDI de nómina 1.2'
 faqs:
-  - question: "¿Necesito conocimientos avanzados de Excel para usar esta plantilla?"
-    answer: "No, la plantilla está diseñada para ser intuitiva y fácil de usar. Solo necesitas conocimientos básicos de Excel."
-  - question: "¿La plantilla funciona con todos los XML de nómina?"
-    answer: "Sí, es compatible con cualquier CFDI de nómina 1.2, independientemente del PAC que lo haya generado."
-  - question: "¿Cómo recibo la plantilla después de la compra?"
-    answer: "Recibirás un enlace de descarga en tu correo electrónico inmediatamente después de realizar el pago."
-  - question: "¿Puedo usar la plantilla en múltiples computadoras?"
-    answer: "Sí, la licencia te permite usar la plantilla en todas las computadoras de tu empresa."
-  - question: "¿La plantilla se actualiza con los cambios fiscales?"
-    answer: "Sí, recibirás actualizaciones gratuitas durante un año para mantener la compatibilidad con los cambios fiscales."
-  - question: "¿Qué pasa si tengo problemas para usar la plantilla?"
-    answer: "Contamos con soporte técnico por correo electrónico y WhatsApp para resolver cualquier duda o problema que puedas tener."
-formId: "control_xml_nomina_demo"
+  - question: '¿Necesito conocimientos avanzados de Excel para usar esta plantilla?'
+    answer: 'No, la plantilla está diseñada para ser intuitiva y fácil de usar. Solo necesitas conocimientos básicos de Excel.'
+  - question: '¿La plantilla funciona con todos los XML de nómina?'
+    answer: 'Sí, es compatible con cualquier CFDI de nómina 1.2, independientemente del PAC que lo haya generado.'
+  - question: '¿Cómo recibo la plantilla después de la compra?'
+    answer: 'Recibirás un enlace de descarga en tu correo electrónico inmediatamente después de realizar el pago.'
+  - question: '¿Puedo usar la plantilla en múltiples computadoras?'
+    answer: 'Sí, la licencia te permite usar la plantilla en todas las computadoras de tu empresa.'
+  - question: '¿La plantilla se actualiza con los cambios fiscales?'
+    answer: 'Sí, recibirás actualizaciones gratuitas durante un año para mantener la compatibilidad con los cambios fiscales.'
+  - question: '¿Qué pasa si tengo problemas para usar la plantilla?'
+    answer: 'Contamos con soporte técnico por correo electrónico y WhatsApp para resolver cualquier duda o problema que puedas tener.'
+formId: 'control_xml_nomina_demo'
 ---
