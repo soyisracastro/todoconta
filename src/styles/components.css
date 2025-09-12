@@ -35,7 +35,7 @@
 
 /* Feature Cards */
 .feature-card {
-  background-color: white;
+  background-color: var(--color-white);
   border-radius: var(--border-radius-xl);
   padding: var(--space-6);
   box-shadow: var(--shadow-md);
@@ -85,7 +85,7 @@
 }
 
 .testimonial-card {
-  background-color: white;
+  background-color: var(--color-white);
   border-radius: var(--border-radius-xl);
   padding: var(--space-6);
   box-shadow: var(--shadow-md);
@@ -194,7 +194,9 @@
   color: var(--color-text-secondary);
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease-out, padding 0.3s ease-out;
+  transition:
+    max-height 0.5s ease-out,
+    padding 0.3s ease-out;
 }
 
 .faq-question[aria-expanded='true'] + .faq-answer {
@@ -236,7 +238,7 @@
   width: 48px;
   height: 48px;
   background-color: var(--color-primary);
-  color: white;
+  color: var(--color-white);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -248,7 +250,7 @@
 }
 
 .step-content {
-  background-color: white;
+  background-color: var(--color-white);
   border-radius: var(--border-radius-xl);
   padding: var(--space-6);
   box-shadow: var(--shadow-md);
@@ -299,7 +301,7 @@
 
 /* Pricing */
 .pricing-card {
-  background-color: white;
+  background-color: var(--color-white);
   border-radius: var(--border-radius-2xl);
   padding: var(--space-8);
   max-width: 500px;
@@ -372,7 +374,7 @@
 .cta-button {
   display: block;
   background-color: var(--color-primary);
-  color: white;
+  color: var(--color-white);
   text-align: center;
   padding: var(--space-4);
   border-radius: var(--border-radius-lg);
@@ -384,7 +386,7 @@
 
 .cta-button:hover {
   background-color: var(--primary-700);
-  color: white;
+  color: var(--color-white);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
@@ -397,7 +399,7 @@
 }
 
 .category-card {
-  background-color: white;
+  background-color: var(--color-white);
   border-radius: var(--border-radius-xl);
   padding: var(--space-6);
   box-shadow: var(--shadow-md);
@@ -482,7 +484,7 @@
   left: 50%;
   transform: translateX(-50%);
   background-color: var(--neutral-800);
-  color: white;
+  color: var(--color-white);
   text-align: center;
   padding: var(--space-2) var(--space-3);
   border-radius: var(--border-radius-md);
@@ -490,7 +492,9 @@
   white-space: nowrap;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.2s, visibility 0.2s;
+  transition:
+    opacity 0.2s,
+    visibility 0.2s;
   z-index: 10;
   margin-bottom: var(--space-2);
   pointer-events: none;
@@ -560,7 +564,7 @@
 }
 
 .benefit-card {
-  background-color: white;
+  background-color: var(--color-white);
   border-radius: var(--border-radius-xl);
   padding: var(--space-6);
   box-shadow: var(--shadow-md);
@@ -607,7 +611,7 @@
 
 .requirements-card,
 .deliverables-card {
-  background-color: white;
+  background-color: var(--color-white);
   border-radius: var(--border-radius-xl);
   padding: var(--space-6);
   box-shadow: var(--shadow-md);
@@ -670,7 +674,7 @@
 }
 
 .related-service-card {
-  background-color: white;
+  background-color: var(--color-white);
   border-radius: var(--border-radius-xl);
   padding: var(--space-6);
   box-shadow: var(--shadow-md);
