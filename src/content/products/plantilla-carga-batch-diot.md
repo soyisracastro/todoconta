@@ -5,7 +5,7 @@ price: 399
 pricePeriod: 'IVA inc.'
 badge: 'Plantilla Excel'
 heroImage: 'https://placehold.co/800x450/166534/FFFFFF/png?text=Carga+Batch+DIOT+2025'
-buyUrl: '#contacto'
+buyUrl: 'https://buy.stripe.com/bJe6oH94V7qj9eNcwgffy0g'
 features:
   - icon: '📊'
     title: 'Plantilla Excel Funcional'
