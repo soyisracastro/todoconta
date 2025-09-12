@@ -4,12 +4,29 @@ const productsCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    price: z.number(),
+    price: z.number().optional(), // Precio base opcional, se puede usar plans en su lugar
     pricePeriod: z.string().optional(),
     badge: z.string().optional(),
     heroImage: z.string().optional(),
-    demoUrl: z.string().optional(),
     buyUrl: z.string().optional(),
+
+    // Planes de precios opcionales (para productos con múltiples opciones)
+    plans: z
+      .array(
+        z.object({
+          title: z.string(),
+          price: z.number(),
+          pricePeriod: z.string().optional(),
+          badge: z.string().optional(),
+          description: z.string(),
+          features: z.array(z.string()),
+          featured: z.boolean().default(false),
+          ctaText: z.string().optional(),
+          ctaUrl: z.string().optional(),
+        })
+      )
+      .optional(),
+
     features: z.array(
       z.object({
         icon: z.string(),

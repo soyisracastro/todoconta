@@ -1,11 +1,52 @@
 ---
 title: 'XMLSAT++'
 description: 'Software para la auditoría electrónica y administración masiva de CFDI. Facilita la descarga masiva, validación contra listas negras del SAT, generación de reportes fiscales y contabilidad electrónica.'
-price: 1160
-pricePeriod: 'anual (IVA incluido)'
 badge: 'Auditoría Fiscal'
+plans:
+  - title: '1 Licencia'
+    price: 1160
+    pricePeriod: 'anual (IVA incluido)'
+    badge: 'INDIVIDUAL'
+    description: 'Ideal para contadores independientes o empresas pequeñas.'
+    features:
+      - 'Licencia con vigencia de 365 días'
+      - 'Contribuyentes (RFCs) ilimitados'
+      - 'Soporte técnico ilimitado'
+      - 'Actualizaciones gratuitas y automáticas'
+      - 'Activación remota en 15 minutos'
+      - 'Posibilidad de mover licencia a otro equipo'
+    featured: false
+    ctaText: 'Comprar 1 Licencia'
+    ctaUrl: 'https://buy.stripe.com/eVa3d09CRf5Kgfe5kq'
+  - title: '3 Licencias'
+    price: 1999
+    pricePeriod: 'anual (IVA incluido)'
+    badge: 'DESPACHO'
+    description: 'Perfecto para despachos contables medianos con múltiples usuarios.'
+    features:
+      - 'Todo lo incluido en 1 licencia'
+      - '3 instalaciones simultáneas'
+      - 'Gestión centralizada de licencias'
+      - 'Soporte prioritario'
+      - 'Descuento del +40% vs licencias individuales'
+    featured: true
+    ctaText: 'Comprar 3 Licencias'
+    ctaUrl: 'https://buy.stripe.com/5kAcNA02hcXC8MM5kr'
+  - title: '5 Licencias'
+    price: 2699
+    pricePeriod: 'anual (IVA incluido)'
+    badge: 'EMPRESARIAL'
+    description: 'Solución completa para despachos grandes y empresas corporativas.'
+    features:
+      - 'Todo lo incluido en 3 licencias'
+      - '5 instalaciones simultáneas'
+      - 'Soporte técnico VIP'
+      - 'Sesiones de capacitación incluidas'
+      - 'Descuento del +50% vs licencias individuales'
+    featured: false
+    ctaText: 'Comprar 5 Licencias'
+    ctaUrl: 'https://buy.stripe.com/dR6eVI3et8Hmgfe4go'
 heroImage: 'https://placehold.co/800x450/0891b2/FFFFFF/png?text=XMLSAT++'
-demoUrl: 'https://todoconta.com/xmlsat-demo'
 buyUrl: '#contacto'
 features:
   - icon: '📥'
@@ -60,7 +101,7 @@ faqs:
     answer: 'La licencia se activa mediante un código IMEI que genera el software después de instalarlo. Nos envías ese código junto con tu comprobante de pago para activarla.'
   - question: '¿Mi RFC y clave CIEC se almacenan en algún lado?'
     answer: 'Tus credenciales se almacenan de forma segura y opcional únicamente en tu computadora. Puedes desactivar esta función si lo deseas.'
-formId: 'xmlsat_plus_plus_contact'
+formId: '6HH9LMxo1zmCugKgk64lMg'
 ---
 
 ## La Herramienta Definitiva para la Auditoría y Gestión de CFDI
@@ -68,13 +109,6 @@ formId: 'xmlsat_plus_plus_contact'
 **XMLSAT++** es un software integral diseñado para despachos contables, contadores y auditores que buscan **optimizar su tiempo y precisión**. Administra y audita masivamente comprobantes fiscales digitales (CFDI 4.0, 3.3 y 3.2) con un conjunto de herramientas poderosas.
 
 Desde la **descarga masiva** de hasta 4,000 XML diarios directamente desde el SAT, hasta la **generación de la Contabilidad Electrónica y la DIOT**, XMLSAT++ centraliza las tareas más críticas de tu día a día.
-
-### Funcionalidades Clave
-
-- **Descarga Masiva:** Utiliza FIEL o CIEC para descargar miles de facturas en minutos, no en horas.
-- **Validación Total:** Compara tus XML y la lista de tus proveedores contra las listas negras del SAT para evitar operaciones con EFOS.
-- **Reportes Inteligentes:** Genera reportes detallados de impuestos (IVA, ISR, IEPS), nómina y concentrados de ingresos y gastos para un análisis profundo.
-- **Auditoría Electrónica:** Consulta declaraciones, DIOTs y descarga la contabilidad electrónica enviada al SAT para realizar conciliaciones precisas.
 
 ### Ideal Para
 

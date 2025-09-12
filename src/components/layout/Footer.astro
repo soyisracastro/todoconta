@@ -1,4 +1,9 @@
 ---
+import { getCollection } from 'astro:content';
+
+// Get all products from content collection
+const allProducts = await getCollection('products');
+
 // Enlaces para las secciones del footer
 const footerLinks = {
   services: [
@@ -13,8 +18,11 @@ const footerLinks = {
     { name: 'Ver mas servicios', url: '/servicios#adicionales' },
   ],
   solutions: [
-    { name: 'XMLSAT Premium', url: '/producto/xmlsat-premium' },
-    { name: 'Control XML Nómina', url: '/producto/control-xml-nomina' },
+    ...allProducts.slice(0, 5).map(product => ({
+      name: product.data.title,
+      url: `/producto/${product.slug}`,
+    })),
+    { name: 'Ver mas soluciones', url: '/tienda' },
   ],
   contact: [
     { name: '✉️ hola@todoconta.com', url: 'mailto:hola@todoconta.com' },
@@ -150,7 +158,7 @@ const currentYear = new Date().getFullYear();
 <style>
   .footer {
     background: var(--color-text-primary);
-    color: white;
+    color: var(--color-white);
     padding: var(--space-20) 0 var(--space-8);
   }
 
@@ -224,7 +232,7 @@ const currentYear = new Date().getFullYear();
     font-family: var(--font-secondary);
     font-size: 1.125rem;
     font-weight: 700;
-    color: white;
+    color: var(--color-white);
     margin-bottom: var(--space-4);
     position: relative;
     padding-bottom: var(--space-2);
@@ -283,7 +291,7 @@ const currentYear = new Date().getFullYear();
     height: 44px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: var(--border-radius-lg);
-    color: white;
+    color: var(--color-white);
     text-decoration: none;
     font-size: 1.125rem;
     transition: all 0.2s ease;

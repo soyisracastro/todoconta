@@ -2,7 +2,6 @@
 export interface Props {
   title?: string;
   subtitle?: string;
-  demoUrl: string;
   formId: string;
   bgColor?: string;
   buttonColor?: string;
@@ -17,7 +16,6 @@ export interface Props {
 const {
   title = 'Prueba Gratis',
   subtitle = 'Descarga la versión de prueba con todas las funciones activadas',
-  demoUrl,
   formId,
   bgColor = 'var(--neutral-100)',
   buttonColor = 'var(--color-primary)',
@@ -35,7 +33,7 @@ const {
       required: true,
     },
     {
-      name: 'company',
+      name: 'Company',
       type: 'text',
       placeholder: 'Empresa (opcional)',
       required: false,
@@ -62,8 +60,7 @@ const {
         method="POST"
         id={formId}
       >
-        <input type="hidden" name="list" value="YOUR_LIST_ID" />
-        <input type="hidden" name="redirect" value={demoUrl} />
+        <input type="hidden" name="list" value={formId} />
 
         {
           fields.map((field, _index) => (
@@ -92,35 +89,109 @@ const {
   </div>
 </section>
 
-<script define:vars={{ formId, demoUrl }}>
+<script
+  define:vars={{
+    formId,
+    apiKey: import.meta.env.PUBLIC_SENDY_API_KEY,
+  }}
+>
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById(formId);
 
     if (form) {
-      form.addEventListener('submit', function (e) {
+      form.addEventListener('submit', async function (e) {
         e.preventDefault();
 
         // Recolectar datos del formulario
         const formData = new FormData(form);
 
-        // Simular envío a Sendy (en un entorno real, esto sería una petición fetch real)
-        setTimeout(() => {
-          // Redirigir a la URL de descarga
-          window.location.href = demoUrl;
-        }, 1000);
+        // Crear mensaje de éxito
+        const successMessage = document.createElement('div');
+        successMessage.className = 'success-message';
+        successMessage.style.cssText = `
+          background: #10b981;
+          color: white;
+          padding: 1rem;
+          border-radius: 0.5rem;
+          text-align: center;
+          margin-top: 1rem;
+          font-weight: 600;
+        `;
 
-        // Mostrar un mensaje de éxito
-        const button = form.querySelector('.form-button');
-        if (button) {
-          const originalText = button.textContent;
-          button.textContent = '¡Redirigiendo a la descarga!';
-          button.disabled = true;
+        // Crear mensaje de error
+        const errorMessage = document.createElement('div');
+        errorMessage.className = 'error-message';
+        errorMessage.style.cssText = `
+          background: #ef4444;
+          color: white;
+          padding: 1rem;
+          border-radius: 0.5rem;
+          text-align: center;
+          margin-top: 1rem;
+          font-weight: 600;
+        `;
 
-          // Opcional: restaurar el botón después de un tiempo
-          setTimeout(() => {
-            button.textContent = originalText;
-            button.disabled = false;
-          }, 3000);
+        // Preparar datos para Sendy
+        const data = {
+          api_key: apiKey,
+          list: formId,
+          ...Object.fromEntries(formData),
+          boolean: 'true',
+        };
+
+        // Deshabilitar botón durante el envío
+        const submitButton = form.querySelector('button[type="submit"]');
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = 'Enviando...';
+        }
+
+        try {
+          const response = await fetch(
+            'https://sendy.todoconta.com/subscribe',
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+              },
+              body: new URLSearchParams(data),
+            }
+          );
+
+          const responseText = await response.text();
+
+          // Remover mensajes anteriores
+          form
+            .querySelectorAll('.success-message, .error-message')
+            .forEach(msg => msg.remove());
+
+          if (responseText === '1') {
+            successMessage.textContent =
+              '¡Te has suscrito con éxito! 🎉 Revisa tu correo para descargar el demo.';
+            form.appendChild(successMessage);
+            form.reset();
+          } else if (responseText === 'Already subscribed.') {
+            errorMessage.textContent =
+              'Parece que ya te habías suscrito antes 🤔';
+            form.appendChild(errorMessage);
+          } else {
+            errorMessage.textContent = `Error: ${responseText}`;
+            form.appendChild(errorMessage);
+          }
+        } catch (error) {
+          console.error('Error subscribing user:', error);
+          form
+            .querySelectorAll('.success-message, .error-message')
+            .forEach(msg => msg.remove());
+          errorMessage.textContent =
+            'Ocurrió un error al suscribirte, intenta más tarde';
+          form.appendChild(errorMessage);
+        } finally {
+          // Rehabilitar botón
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = 'Descargar Demo';
+          }
         }
       });
     }
@@ -147,7 +218,7 @@ const {
   .demo-form {
     width: 100%;
     max-width: 450px;
-    background-color: white;
+    background-color: var(--color-white);
     padding: var(--space-8);
     border-radius: var(--border-radius-xl);
     box-shadow: var(--shadow-lg);
@@ -178,7 +249,7 @@ const {
     width: 100%;
     padding: var(--space-4);
     background-color: var(--demo-button-color);
-    color: white;
+    color: var(--color-white);
     border: none;
     border-radius: var(--border-radius-lg);
     font-family: var(--font-secondary);
@@ -196,7 +267,7 @@ const {
 
   .form-disclaimer {
     font-size: var(--font-size-sm);
-    color: var(--color-white);
+    color: var(--color-text-secondary);
     max-width: 450px;
   }
 

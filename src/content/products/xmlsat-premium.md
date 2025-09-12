@@ -5,8 +5,7 @@ price: 2200
 pricePeriod: 'IVA incluido'
 badge: 'Auditoría Fiscal'
 heroImage: 'https://placehold.co/800x450/075985/FFFFFF/png?text=XMLSAT+Premium'
-demoUrl: 'https://softwarepaq.com/downloads/software/SetupXMLSAT_PREMIUM.exe'
-buyUrl: 'https://www.paypal.me/todoconta'
+buyUrl: 'https://buy.stripe.com/00g4h4bKZ7Di1kk149'
 features:
   - icon: '📥'
     title: 'Descarga Masiva'
@@ -60,5 +59,5 @@ faqs:
     answer: 'Sí, las licencias son por equipo. Cada computadora necesitará su propia licencia, pero puedes mover una licencia a otro equipo sin costo adicional.'
   - question: '¿Mi RFC y clave CIEC se almacenan en algún lado?'
     answer: 'El RFC y clave se almacenan únicamente en tu computadora. Esta función es opcional y puedes desactivarla al ingresar cualquier RFC (Desactivar→Recordar Clave).'
-formId: 'xmlsat_premium_demo'
+formId: 'XTuoImkImRFKKc8tYkxCsg'
 ---
