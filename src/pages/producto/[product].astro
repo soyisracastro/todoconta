@@ -6,6 +6,7 @@ import Hero from '../../components/ui/Hero.astro';
 import Features from '../../components/pages/landing/Features.astro';
 import Benefits from '../../components/pages/landing/Benefits.astro';
 import Pricing from '../../components/pages/landing/Pricing.astro';
+import PricingPlans from '../../components/pages/landing/PricingPlans.astro';
 import Demo from '../../components/pages/landing/Demo.astro';
 import FAQ from '../../components/ui/FAQ.astro';
 import CTA from '../../components/ui/CTA.astro';
@@ -35,7 +36,12 @@ const {
   pricing,
   faqs,
   formId,
+  plans,
 } = product.data;
+
+// Renderizar el contenido Markdown si existe
+const { Content } = await product.render();
+const hasContent = product.body && product.body.trim().length > 0;
 
 // Prepara los datos para los componentes
 const heroProps = {
@@ -67,13 +73,24 @@ const benefitsProps = {
   benefits,
 };
 
-const pricingProps = {
-  price,
-  features: pricing.features,
-  ctaUrl: buyUrl || '#',
-  highlighted: true,
-  ...(pricePeriod && { pricePeriod }),
-};
+// Props para pricing individual o múltiples planes
+const pricingProps = price
+  ? {
+      price,
+      features: pricing.features,
+      ctaUrl: buyUrl || '#',
+      highlighted: true,
+      ...(pricePeriod ? { pricePeriod } : {}),
+    }
+  : undefined;
+
+const pricingPlansProps = plans
+  ? {
+      title: 'Elige tu Licencia',
+      subtitle: `Selecciona el número de licencias de ${title} que mejor se adapte a tu negocio.`,
+      plans,
+    }
+  : null;
 
 const demoProps =
   demoUrl && formId
@@ -115,7 +132,8 @@ const hasValidFeatures =
 const hasValidBenefits =
   benefits && Array.isArray(benefits) && benefits.length > 0;
 const hasValidPricing =
-  pricing && pricing.features && Array.isArray(pricing.features);
+  pricing && pricing.features && Array.isArray(pricing.features) && price;
+const hasValidPlans = plans && Array.isArray(plans) && plans.length > 0;
 const hasValidFaqs = faqs && Array.isArray(faqs) && faqs.length > 0;
 ---
 
@@ -128,6 +146,19 @@ const hasValidFaqs = faqs && Array.isArray(faqs) && faqs.length > 0;
   <!-- Hero Section -->
   <Hero {...heroProps} variant="product" />
 
+  <!-- Content Section (if available) -->
+  {
+    hasContent && (
+      <section class="py-24">
+        <div class="container mx-auto px-6">
+          <div class="prose prose-lg max-w-4xl mx-auto">
+            <Content />
+          </div>
+        </div>
+      </section>
+    )
+  }
+
   <!-- Features Section -->
   {hasValidFeatures && <Features {...featuresProps} />}
 
@@ -136,6 +167,9 @@ const hasValidFaqs = faqs && Array.isArray(faqs) && faqs.length > 0;
 
   <!-- Pricing Section -->
   {hasValidPricing && <Pricing {...pricingProps} />}
+
+  <!-- Pricing Plans Section (for products with multiple plans) -->
+  {hasValidPlans && <PricingPlans {...pricingPlansProps} />}
 
   <!-- Demo Section (if available) -->
   {demoProps && <Demo {...demoProps} />}

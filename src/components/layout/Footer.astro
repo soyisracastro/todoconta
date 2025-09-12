@@ -18,11 +18,11 @@ const footerLinks = {
     { name: 'Ver mas servicios', url: '/servicios#adicionales' },
   ],
   solutions: [
-    ...allProducts.slice(0, 4).map(product => ({
+    ...allProducts.slice(0, 5).map(product => ({
       name: product.data.title,
-      url: `/producto/${product.slug}`
+      url: `/producto/${product.slug}`,
     })),
-    { name: 'Ver mas soluciones', url: '/producto' }
+    { name: 'Ver mas soluciones', url: '/tienda' },
   ],
   contact: [
     { name: '✉️ hola@todoconta.com', url: 'mailto:hola@todoconta.com' },

@@ -1,5 +1,5 @@
 ---
-import Button from '../ui/Button.astro';
+import PricingCard from '../ui/PricingCard.astro';
 
 // Planes de servicio
 const servicePlans = [
@@ -77,28 +77,8 @@ const servicePlans = [
     <div class="services-grid">
       {
         servicePlans.map((plan, index) => (
-          <div
-            class={`service-card ${plan.featured ? 'featured' : ''} fade-in-up`}
-            style={`animation-delay: ${index * 0.2}s`}
-          >
-            <div class="service-badge">{plan.badge}</div>
-            <h3 class="service-title">{plan.title}</h3>
-            <div class="service-price">${plan.price}</div>
-            <div class="service-period">/mes</div>
-            <p class="service-description">{plan.description}</p>
-
-            <ul class="service-features">
-              {plan.features.map(feature => (
-                <li>{feature}</li>
-              ))}
-            </ul>
-
-            <Button
-              href={plan.ctaHref}
-              variant={plan.featured ? 'secondary' : 'outline'}
-            >
-              {plan.ctaText}
-            </Button>
+          <div style={`animation-delay: ${index * 0.2}s`}>
+            <PricingCard {...plan} />
           </div>
         ))
       }
@@ -160,100 +140,6 @@ const servicePlans = [
     margin-bottom: var(--space-16);
   }
 
-  .service-card {
-    background: var(--color-background);
-    border-radius: var(--border-radius-2xl);
-    padding: var(--space-8);
-    border: 2px solid var(--color-primary-light);
-    transition: all var(--transition-slow);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .service-card.featured {
-    border-color: var(--color-primary);
-    background: var(--color-primary-light);
-    transform: scale(1.05);
-    z-index: 1;
-    box-shadow: var(--shadow-lg);
-  }
-
-  .service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
-    border-color: var(--color-primary);
-  }
-
-  .service-card.featured:hover {
-    transform: scale(1.05) translateY(-8px);
-  }
-
-  .service-badge {
-    display: inline-block;
-    background: var(--color-primary-light);
-    color: var(--color-primary);
-    padding: var(--space-2) var(--space-4);
-    border-radius: var(--border-radius-sm);
-    font-size: var(--font-size-sm);
-    font-weight: 600;
-    margin-bottom: var(--space-4);
-  }
-
-  .service-title {
-    font-family: var(--font-secondary);
-    font-size: var(--font-size-2xl);
-    font-weight: 700;
-    color: var(--color-text-primary);
-    margin-bottom: var(--space-3);
-  }
-
-  .service-price {
-    font-family: var(--font-secondary);
-    font-size: var(--font-size-4xl);
-    font-weight: 800;
-    color: var(--color-primary);
-    margin-bottom: var(--space-2);
-  }
-
-  .service-period {
-    color: var(--color-primary);
-    font-size: var(--font-size-base);
-    margin-bottom: var(--space-6);
-  }
-
-  .service-description {
-    color: var(--color-text-secondary);
-    margin-bottom: var(--space-6);
-    line-height: 1.6;
-  }
-
-  .service-features {
-    list-style: none;
-    margin-bottom: var(--space-8);
-    flex-grow: 1;
-  }
-
-  .service-features li {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    margin-bottom: var(--space-3);
-    color: var(--color-text-primary);
-    font-size: var(--font-size-sm);
-    position: relative;
-    padding-left: var(--space-6);
-  }
-
-  .service-features li::before {
-    content: '✓';
-    color: var(--color-primary);
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-    font-size: var(--font-size-base);
-  }
-
   .services-guarantee {
     background: var(--color-text-primary);
     color: var(--color-white);
@@ -294,14 +180,6 @@ const servicePlans = [
   @media (max-width: 768px) {
     .services-grid {
       grid-template-columns: 1fr;
-    }
-
-    .service-card.featured {
-      transform: none;
-    }
-
-    .service-card.featured:hover {
-      transform: translateY(-8px);
     }
 
     .section-title {

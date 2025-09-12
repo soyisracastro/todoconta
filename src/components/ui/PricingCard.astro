@@ -1,0 +1,150 @@
+---
+export interface Props {
+  title: string;
+  price: string;
+  pricePeriod?: string;
+  badge?: string;
+  description: string;
+  features: string[];
+  featured?: boolean;
+  ctaText?: string;
+  ctaHref?: string;
+}
+
+const {
+  title,
+  price,
+  pricePeriod = 'mes',
+  badge,
+  description,
+  features,
+  featured = false,
+  ctaText = 'Contratar',
+  ctaHref = '#contacto',
+} = Astro.props;
+
+import Button from './Button.astro';
+---
+
+<div class={`pricing-card ${featured ? 'featured' : ''} fade-in-up`}>
+  {badge && <div class="pricing-badge">{badge}</div>}
+  <h3 class="pricing-title">{title}</h3>
+  <div class="pricing-price">${price}</div>
+  <div class="pricing-period">/{pricePeriod && pricePeriod}</div>
+  <p class="pricing-description">{description}</p>
+
+  <ul class="pricing-features">
+    {features.map(feature => <li>{feature}</li>)}
+  </ul>
+
+  <Button href={ctaHref} variant={featured ? 'secondary' : 'outline'}>
+    {ctaText}
+  </Button>
+</div>
+
+<style>
+  .pricing-card {
+    background: var(--color-background);
+    border-radius: var(--border-radius-2xl);
+    padding: var(--space-8);
+    border: 2px solid var(--color-primary-light);
+    transition: all var(--transition-slow);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pricing-card.featured {
+    border-color: var(--color-primary);
+    background: var(--color-primary-light);
+    transform: scale(1.05);
+    z-index: 1;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-primary);
+  }
+
+  .pricing-card.featured:hover {
+    transform: scale(1.05) translateY(-8px);
+  }
+
+  .pricing-badge {
+    display: inline-block;
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+  }
+
+  .pricing-title {
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .pricing-price {
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-4xl);
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: var(--space-2);
+  }
+
+  .pricing-period {
+    color: var(--color-primary);
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-6);
+  }
+
+  .pricing-description {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-6);
+    line-height: 1.6;
+  }
+
+  .pricing-features {
+    list-style: none;
+    margin-bottom: var(--space-8);
+    flex-grow: 1;
+  }
+
+  .pricing-features li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-sm);
+    position: relative;
+    padding-left: var(--space-6);
+  }
+
+  .pricing-features li::before {
+    content: '✓';
+    color: var(--color-primary);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    font-size: var(--font-size-base);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .pricing-card.featured {
+      transform: none;
+    }
+
+    .pricing-card.featured:hover {
+      transform: translateY(-8px);
+    }
+  }
+</style>

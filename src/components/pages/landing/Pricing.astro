@@ -1,14 +1,16 @@
 ---
+import PricingCard from '../../ui/PricingCard.astro';
+
 export interface Props {
-  title?: string;
-  subtitle?: string;
+  title?: string | undefined;
+  subtitle?: string | undefined;
   price: number;
-  currency?: string;
-  pricePeriod?: string;
+  currency?: string | undefined;
+  pricePeriod?: string | undefined;
   features: string[];
-  ctaText?: string;
+  ctaText?: string | undefined;
   ctaUrl: string;
-  highlighted?: boolean;
+  highlighted?: boolean | undefined;
 }
 
 const {
@@ -28,7 +30,10 @@ const formattedPrice = new Intl.NumberFormat('es-MX', {
   style: 'currency',
   currency: currency,
   maximumFractionDigits: 0,
-}).format(price);
+})
+  .format(price)
+  .replace('$', '')
+  .replace(',', ',');
 ---
 
 <section class="pricing-section" id="pricing">
@@ -44,30 +49,17 @@ const formattedPrice = new Intl.NumberFormat('es-MX', {
       }
     </div>
 
-    <div
-      class={`price-card animate-fade-in-up delay-200 ${highlighted ? 'highlighted' : ''}`}
-    >
-      <div class="price-content">
-        <h3 class="price-title">{title}</h3>
-
-        <div class="price-amount">
-          <span class="amount">{formattedPrice}</span>
-          {pricePeriod && <span class="period">{pricePeriod}</span>}
-        </div>
-
-        <div class="price-features">
-          {
-            features.map(feature => (
-              <div class="price-feature">
-                <span class="feature-icon">✓</span>
-                <span class="feature-text">{feature}</span>
-              </div>
-            ))
-          }
-        </div>
-
-        <a href={ctaUrl} class="price-button">{ctaText}</a>
-      </div>
+    <div class="pricing-wrapper animate-fade-in-up delay-200">
+      <PricingCard
+        title={title}
+        price={formattedPrice}
+        {...pricePeriod && { pricePeriod }}
+        description={subtitle}
+        features={features}
+        featured={highlighted}
+        ctaText={ctaText}
+        ctaHref={ctaUrl}
+      />
     </div>
   </div>
 </section>
@@ -78,119 +70,8 @@ const formattedPrice = new Intl.NumberFormat('es-MX', {
     text-align: center;
   }
 
-  .price-card {
-    background-color: var(--color-white);
-    border-radius: var(--border-radius-2xl);
-    padding: var(--space-8);
-    box-shadow: var(--shadow-lg);
+  .pricing-wrapper {
     max-width: 500px;
     margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid var(--color-primary-light);
-    transition: transform var(--transition-normal);
-  }
-
-  .price-card.highlighted {
-    border: 2px solid var(--color-border-light);
-    transform: scale(1.02);
-  }
-
-  .price-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 6px;
-    background: linear-gradient(
-      90deg,
-      var(--color-border-light),
-      var(--color-primary)
-    );
-  }
-
-  .price-content {
-    position: relative;
-    z-index: 2;
-  }
-
-  .price-title {
-    font-family: var(--font-secondary);
-    font-size: var(--font-size-2xl);
-    font-weight: 700;
-    color: var(--color-text-primary);
-    margin-bottom: var(--space-6);
-  }
-
-  .price-amount {
-    margin-bottom: var(--space-6);
-  }
-
-  .amount {
-    font-family: var(--font-secondary);
-    font-size: var(--font-size-4xl);
-    font-weight: 800;
-    color: var(--primary-700);
-  }
-
-  .period {
-    display: block;
-    color: var(--color-white);
-    font-size: var(--font-size-sm);
-    margin-top: var(--space-1);
-  }
-
-  .price-features {
-    text-align: left;
-    margin-bottom: var(--space-8);
-    border-top: 1px solid var(--color-primary-light);
-    padding-top: var(--space-6);
-  }
-
-  .price-feature {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    margin-bottom: var(--space-3);
-    color: var(--color-text-primary);
-  }
-
-  .feature-icon {
-    color: var(--color-primary);
-    font-weight: bold;
-  }
-
-  .price-button {
-    display: inline-block;
-    width: 100%;
-    padding: var(--space-4);
-    font-size: var(--font-size-lg);
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    border-radius: var(--border-radius-lg);
-    border: none;
-    cursor: pointer;
-    font-family: var(--font-secondary);
-    font-weight: 600;
-    transition: all var(--transition-normal);
-    text-decoration: none;
-  }
-
-  .price-button:hover {
-    background-color: var(--primary-700);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(2, 132, 199, 0.3);
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .price-card {
-      padding: var(--space-6);
-    }
-
-    .amount {
-      font-size: var(--font-size-3xl);
-    }
   }
 </style>

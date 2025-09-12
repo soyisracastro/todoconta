@@ -1,0 +1,117 @@
+---
+import PricingCard from '../../ui/PricingCard.astro';
+
+export interface Props {
+  title?: string | undefined;
+  subtitle?: string | undefined;
+  plans: Array<{
+    title: string;
+    price: number;
+    pricePeriod?: string | undefined;
+    badge?: string | undefined;
+    description: string;
+    features: string[];
+    featured?: boolean | undefined;
+    ctaText?: string | undefined;
+    ctaUrl?: string | undefined;
+  }>;
+}
+
+const {
+  title = 'Elige el Plan Perfecto',
+  subtitle = 'Selecciona la opción que mejor se adapte a tus necesidades.',
+  plans,
+} = Astro.props;
+---
+
+<section class="pricing-plans-section" id="pricing">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title animate-fade-in-up">{title}</h2>
+      {
+        subtitle && (
+          <p class="section-subtitle animate-fade-in-up delay-100">
+            {subtitle}
+          </p>
+        )
+      }
+    </div>
+
+    <div class="pricing-grid">
+      {
+        plans.map((plan, index) => (
+          <div
+            class="animate-fade-in-up"
+            style={`animation-delay: ${(index + 2) * 100}ms`}
+          >
+            <PricingCard
+              title={plan.title}
+              price={plan.price.toLocaleString('es-MX')}
+              pricePeriod={plan.pricePeriod}
+              badge={plan.badge}
+              description={plan.description}
+              features={plan.features}
+              featured={plan.featured}
+              ctaText={plan.ctaText}
+              ctaHref={plan.ctaUrl}
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing-plans-section {
+    padding: var(--space-16) 0;
+    text-align: center;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+  }
+
+  .section-title {
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+    line-height: 1.2;
+  }
+
+  .section-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-8);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .pricing-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .section-title {
+      font-size: var(--font-size-3xl);
+    }
+  }
+</style>
