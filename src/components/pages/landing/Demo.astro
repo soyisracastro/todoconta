@@ -98,7 +98,7 @@ const {
 >
   // Variables passed from Astro context via define:vars
   // @ts-ignore - formId and apiKey are defined by Astro's define:vars
-  
+
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById(formId);
 
@@ -114,7 +114,6 @@ const {
         successMessage.className = 'success-message';
         successMessage.style.cssText = `
           background: var(--color-primary-light);
-          color: white;
           padding: 1rem;
           border-radius: 0.5rem;
           text-align: center;
