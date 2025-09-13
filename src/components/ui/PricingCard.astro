@@ -2,13 +2,13 @@
 export interface Props {
   title: string;
   price: string;
-  pricePeriod?: string;
-  badge?: string;
+  pricePeriod?: string | undefined;
+  badge?: string | undefined;
   description: string;
   features: string[];
-  featured?: boolean;
-  ctaText?: string;
-  ctaHref?: string;
+  featured?: boolean | undefined;
+  ctaText?: string | undefined;
+  ctaHref?: string | undefined;
 }
 
 const {

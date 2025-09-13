@@ -90,11 +90,15 @@ const {
 </section>
 
 <script
+  is:inline
   define:vars={{
     formId,
     apiKey: import.meta.env.PUBLIC_SENDY_API_KEY,
   }}
 >
+  // Variables passed from Astro context via define:vars
+  // @ts-ignore - formId and apiKey are defined by Astro's define:vars
+  
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById(formId);
 
@@ -109,7 +113,7 @@ const {
         const successMessage = document.createElement('div');
         successMessage.className = 'success-message';
         successMessage.style.cssText = `
-          background: #10b981;
+          background: var(--color-primary-light);
           color: white;
           padding: 1rem;
           border-radius: 0.5rem;

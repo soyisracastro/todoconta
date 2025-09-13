@@ -4,7 +4,7 @@ import PricingCard from '../../ui/PricingCard.astro';
 export interface Props {
   title?: string | undefined;
   subtitle?: string | undefined;
-  plans: Array<{
+  plans?: Array<{
     title: string;
     price: number;
     pricePeriod?: string | undefined;
@@ -14,13 +14,13 @@ export interface Props {
     featured?: boolean | undefined;
     ctaText?: string | undefined;
     ctaUrl?: string | undefined;
-  }>;
+  }> | undefined;
 }
 
 const {
   title = 'Elige el Plan Perfecto',
   subtitle = 'Selecciona la opción que mejor se adapte a tus necesidades.',
-  plans,
+  plans = [],
 } = Astro.props;
 ---
 

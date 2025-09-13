@@ -4,12 +4,12 @@ import PricingCard from '../../ui/PricingCard.astro';
 export interface Props {
   title?: string | undefined;
   subtitle?: string | undefined;
-  price: number;
+  price?: number | undefined;
   currency?: string | undefined;
   pricePeriod?: string | undefined;
-  features: string[];
+  features?: string[] | undefined;
   ctaText?: string | undefined;
-  ctaUrl: string;
+  ctaUrl?: string | undefined;
   highlighted?: boolean | undefined;
 }
 
@@ -19,21 +19,21 @@ const {
   price,
   currency = 'MXN',
   pricePeriod,
-  features,
+  features = [],
   ctaText = 'Comprar Ahora',
-  ctaUrl,
+  ctaUrl = '#',
   highlighted = false,
 } = Astro.props;
 
 // Formatear el precio
-const formattedPrice = new Intl.NumberFormat('es-MX', {
+const formattedPrice = price ? new Intl.NumberFormat('es-MX', {
   style: 'currency',
   currency: currency,
   maximumFractionDigits: 0,
 })
   .format(price)
   .replace('$', '')
-  .replace(',', ',');
+  .replace(',', ',') : '0';
 ---
 
 <section class="pricing-section" id="pricing">
