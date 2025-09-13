@@ -1429,6 +1429,7 @@ import Footer from '@/components/layout/Footer.astro';
         link.addEventListener('click', e => {
           e.preventDefault();
           const targetId = link.getAttribute('href');
+          if (!targetId) return;
           const targetSection = document.querySelector(targetId);
 
           if (targetSection) {

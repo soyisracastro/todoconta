@@ -206,17 +206,17 @@ const stats = [
   // Use centralized animation system with custom counter logic
   document.addEventListener('DOMContentLoaded', () => {
     import('../../scripts/animations.js').then(
-      ({ AnimationController, animationUtils }) => {
+      ({ AnimationController }) => {
         const controller = new AnimationController();
 
         // Custom animation for stats with counter effect
         controller.onScrollReveal(
           '.stat-item',
-          element => {
+          (element: Element) => {
             element.classList.add('visible');
 
             // Animate counter numbers
-            const numberElement = element.querySelector('.stat-number');
+            const numberElement = element.querySelector('.stat-number') as HTMLElement;
             if (numberElement && numberElement.dataset.count) {
               const originalText = numberElement.textContent || '';
               const finalValue = parseInt(numberElement.dataset.count) || 0;
@@ -235,7 +235,6 @@ const stats = [
               );
             }
           },
-          null,
           {
             threshold: 0.2,
             once: true,
@@ -246,16 +245,16 @@ const stats = [
 
     // Enhanced counter animation that preserves suffixes
     function animateCounter(
-      element,
-      start,
-      end,
-      duration,
+      element: HTMLElement,
+      start: number,
+      end: number,
+      duration: number,
       hasPlus = false,
       hasPercentage = false
     ) {
-      let startTimestamp = null;
+      let startTimestamp: number | null = null;
 
-      const step = timestamp => {
+      const step = (timestamp: number) => {
         if (!startTimestamp) startTimestamp = timestamp;
         const progress = Math.min((timestamp - startTimestamp) / duration, 1);
 
