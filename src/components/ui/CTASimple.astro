@@ -12,6 +12,10 @@ export interface Props {
     text: string;
     url: string;
   } | null;
+  // New props for dynamic payment links
+  productId?: string;
+  planId?: string;
+  isPaymentButton?: boolean;
 }
 
 const {
@@ -19,6 +23,9 @@ const {
   description,
   primaryCta,
   secondaryCta,
+  productId,
+  planId,
+  isPaymentButton = false,
 } = Astro.props;
 ---
 
@@ -29,7 +36,14 @@ const {
       <p class="cta-description">{description}</p>
 
       <div class="cta-buttons">
-        <Button href={primaryCta.url} variant="primary">
+        <Button
+          href={primaryCta.url}
+          variant="primary"
+          data-product-id={productId}
+          data-plan-id={planId}
+          data-payment-button={isPaymentButton}
+          id="primary-cta-button"
+        >
           {primaryCta.text}
         </Button>
 
@@ -42,6 +56,70 @@ const {
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const primaryButton = document.getElementById('primary-cta-button') as HTMLAnchorElement;
+
+    if (primaryButton && primaryButton.dataset.paymentButton === 'true') {
+      primaryButton.addEventListener('click', async (e) => {
+        e.preventDefault();
+
+        const productId = primaryButton.dataset.productId;
+        const planId = primaryButton.dataset.planId;
+
+        if (!productId || !planId) {
+          console.error('Missing productId or planId for payment button');
+          return;
+        }
+
+        // Show loading state
+        const originalText = primaryButton.textContent;
+        primaryButton.textContent = 'Generando enlace...';
+        primaryButton.style.pointerEvents = 'none';
+
+        try {
+          // Get customer email (you might want to show a modal or form for this)
+          const customerEmail = prompt('Por favor ingresa tu correo electrónico:');
+
+          if (!customerEmail) {
+            primaryButton.textContent = originalText;
+            primaryButton.style.pointerEvents = 'auto';
+            return;
+          }
+
+          // Call the API to create payment link
+          const response = await fetch('/api/stripe/create-payment-link', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              productId,
+              planId,
+              customerEmail,
+            }),
+          });
+
+          if (!response.ok) {
+            throw new Error('Failed to create payment link');
+          }
+
+          const data = await response.json();
+
+          // Redirect to Stripe payment link
+          window.location.href = data.url;
+
+        } catch (error) {
+          console.error('Error creating payment link:', error);
+          alert('Error al generar el enlace de pago. Por favor intenta de nuevo.');
+          primaryButton.textContent = originalText;
+          primaryButton.style.pointerEvents = 'auto';
+        }
+      });
+    }
+  });
+</script>
 
 <style>
   .cta-simple {

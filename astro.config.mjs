@@ -3,6 +3,9 @@ import { defineConfig, envField } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
+  // Output configuration for static generation
+  output: 'static',
+
   // Site URL for SEO and sitemap generation
   site: 'https://todoconta.com',
 
@@ -135,6 +138,34 @@ export default defineConfig({
       PUBLIC_SENDY_API_KEY: envField.string({
         context: 'client',
         access: 'public',
+      }),
+      STRIPE_SECRET_KEY: envField.string({
+        context: 'server',
+        access: 'secret',
+      }),
+      STRIPE_PUBLISHABLE_KEY: envField.string({
+        context: 'client',
+        access: 'public',
+      }),
+      STRIPE_WEBHOOK_SECRET: envField.string({
+        context: 'server',
+        access: 'secret',
+      }),
+      AWS_ACCESS_KEY_ID: envField.string({
+        context: 'server',
+        access: 'secret',
+      }),
+      AWS_SECRET_ACCESS_KEY: envField.string({
+        context: 'server',
+        access: 'secret',
+      }),
+      AWS_REGION: envField.string({
+        context: 'server',
+        access: 'secret',
+      }),
+      AWS_SES_FROM_EMAIL: envField.string({
+        context: 'server',
+        access: 'secret',
       }),
     },
   },
