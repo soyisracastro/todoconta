@@ -42,6 +42,23 @@ const {
 const { Content } = await product.render();
 const hasContent = product.body && product.body.trim().length > 0;
 
+// Calculate price display
+let priceDisplay = undefined;
+if (price && pricePeriod) {
+  // Single fixed price
+  priceDisplay = `$${price.toLocaleString()}/${pricePeriod}`;
+} else if (plans && plans.length > 0) {
+  // Price range from plans
+  const prices = plans.map(plan => plan.price);
+  const minPrice = Math.min(...prices);
+  const maxPrice = Math.max(...prices);
+  const period = plans[0].pricePeriod || 'mes'; // Use first plan's period as default
+  priceDisplay = {
+    min: `$${minPrice.toLocaleString()}`,
+    max: `$${maxPrice.toLocaleString()}/${period}`
+  };
+}
+
 // Prepara los datos para los componentes
 const heroProps = {
   title,
@@ -51,6 +68,7 @@ const heroProps = {
     url: '#pricing',
   },
   ...(badge && { badge }),
+  ...(priceDisplay && { price: priceDisplay }),
   ...(formId && {
     secondaryCta: {
       text: 'Descargar Demo',

@@ -1,0 +1,445 @@
+---
+import Button from './Button.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  primaryCta: {
+    text: string;
+    url: string;
+  };
+  secondaryCta?: {
+    text: string;
+    url: string;
+  } | null;
+  showGuarantee?: boolean;
+}
+
+const {
+  title,
+  description,
+  primaryCta,
+  secondaryCta,
+  showGuarantee = false,
+} = Astro.props;
+---
+
+<section class="cta-with-form">
+  <div class="cta-background" />
+
+  <div class="container">
+    <div class="cta-content animate-fade-in-up">
+      <h2 class="cta-title">{title}</h2>
+      <p class="cta-description">{description}</p>
+
+      <div class="cta-buttons">
+        <Button href={primaryCta.url} variant="primary" size="xl">
+          <span class="btn-icon">📞</span>
+          {primaryCta.text}
+        </Button>
+
+        {secondaryCta && (
+          <Button href={secondaryCta.url} variant="secondary" size="xl">
+            <span class="btn-icon">✉️</span>
+            {secondaryCta.text}
+          </Button>
+        )}
+      </div>
+
+      <div class="contact-form fade-in-up">
+        <h3 class="form-title">O déjanos tus datos y te contactamos</h3>
+        <form id="contactForm" class="form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name" class="form-label">
+                Nombre completo
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="company" class="form-label">
+                Empresa
+              </label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                class="form-input"
+                placeholder="Nombre de tu empresa"
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email" class="form-label">
+                Correo electrónico
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-input"
+                placeholder="tu@email.com"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="phone" class="form-label">
+                Teléfono
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                class="form-input"
+                placeholder="(55) 1234-5678"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label">
+              ¿Cómo podemos ayudarte?
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              class="form-input form-textarea"
+              placeholder="Cuéntanos sobre tu situación fiscal o necesidades específicas"
+              rows="4"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-checkbox">
+              <input type="checkbox" name="privacy" required />
+              <span class="checkbox-text">
+                Acepto la{' '}
+                <a href="/privacidad" class="link">
+                  política de privacidad
+                </a>{' '}
+                y recibir comunicaciones.
+              </span>
+            </label>
+          </div>
+
+          <Button type="submit" variant="accent" class="form-submit">
+            <span class="btn-text">Enviar solicitud</span>
+            <span class="btn-icon">→</span>
+          </Button>
+        </form>
+      </div>
+
+      {showGuarantee && (
+        <div class="guarantee fade-in-up">
+          <div class="guarantee-icon">🛡️</div>
+          <div class="guarantee-text">
+            Garantía de cumplimiento: Si no cumplimos por nuestra
+            responsabilidad, cubrimos las multas
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-with-form {
+    background: var(--bg-warm);
+    padding: var(--space-24) 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-background {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23f97316' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .cta-title {
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-5xl);
+    font-weight: 800;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .cta-description {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-8);
+    font-size: var(--font-size-lg);
+    line-height: 1.6;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-12);
+  }
+
+  .btn-icon {
+    margin-right: var(--space-2);
+  }
+
+  /* Form styles */
+  .contact-form {
+    background: var(--color-background);
+    border-radius: var(--border-radius-2xl);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-primary-light);
+    margin-bottom: var(--space-12);
+    text-align: left;
+    transition: all var(--transition-normal);
+  }
+
+  .contact-form:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-5px);
+  }
+
+  .form-title {
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-6);
+    text-align: center;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+
+  .form-group {
+    margin-bottom: var(--space-2);
+  }
+
+  .form-label {
+    display: block;
+    margin-bottom: var(--space-2);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--neutral-800);
+  }
+
+  .form-input {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    border: 2px solid var(--color-primary-light);
+    border-radius: var(--border-radius-lg);
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    color: var(--neutral-800);
+    transition: all var(--transition-normal);
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: var(--color-border-light);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
+  }
+
+  .form-textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  .form-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    cursor: pointer;
+  }
+
+  .checkbox-text {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .link {
+    color: var(--color-primary);
+    text-decoration: underline;
+    transition: color var(--transition-normal);
+  }
+
+  .link:hover {
+    color: var(--primary-700);
+  }
+
+  .form-submit {
+    margin-top: var(--space-2);
+    align-self: flex-end;
+  }
+
+  .btn-text {
+    margin-right: var(--space-2);
+  }
+
+  /* Guarantee styles */
+  .guarantee {
+    background: var(--color-primary-light);
+    border: 1px solid var(--green-200);
+    border-radius: var(--border-radius-xl);
+    padding: var(--space-6);
+    margin-top: var(--space-8);
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all var(--transition-normal);
+  }
+
+  .guarantee:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .guarantee-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-2xl);
+    color: var(--color-white);
+    flex-shrink: 0;
+  }
+
+  .guarantee-text {
+    font-weight: 600;
+    color: var(--green-800);
+    font-size: var(--font-size-lg);
+    line-height: 1.4;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .cta-title {
+      font-size: var(--font-size-4xl);
+    }
+
+    .cta-description {
+      font-size: var(--font-size-base);
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+
+    .contact-form {
+      padding: var(--space-4);
+    }
+
+    .form {
+      gap: var(--space-4);
+    }
+
+    .guarantee {
+      flex-direction: column;
+      text-align: center;
+      padding: var(--space-4);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .contact-form {
+      padding: var(--space-4);
+    }
+
+    .form {
+      gap: var(--space-4);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contactForm');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', async e => {
+        e.preventDefault();
+
+        const submitButton = contactForm.querySelector(
+          '.form-submit'
+        ) as HTMLButtonElement;
+        const originalButtonText = submitButton.innerHTML;
+
+        submitButton.innerHTML = '<span class="btn-text">Enviando...</span>';
+        submitButton.disabled = true;
+
+        try {
+          await new Promise(resolve => setTimeout(resolve, 1500));
+
+          contactForm.innerHTML = `
+            <div class="success-message">
+              <div class="success-icon">✓</div>
+              <h3 class="success-title">¡Solicitud enviada con éxito!</h3>
+              <p class="success-text">Nos pondremos en contacto contigo a la brevedad posible.</p>
+            </div>
+          `;
+        } catch (error) {
+          if (submitButton) {
+            submitButton.innerHTML = originalButtonText;
+            submitButton.disabled = false;
+          }
+
+          const errorDiv = document.createElement('div');
+          errorDiv.className = 'form-error';
+          errorDiv.textContent =
+            'Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo.';
+          contactForm.appendChild(errorDiv);
+        }
+      });
+    }
+  });
+</script>

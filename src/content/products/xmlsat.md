@@ -5,7 +5,7 @@ badge: 'Auditoría Fiscal'
 plans:
   - title: '1 Licencia'
     price: 1160
-    pricePeriod: 'anual (IVA incluido)'
+    pricePeriod: 'Anual'
     badge: 'INDIVIDUAL'
     description: 'Ideal para contadores independientes o empresas pequeñas.'
     features:
@@ -20,7 +20,7 @@ plans:
     ctaUrl: 'https://buy.stripe.com/eVa3d09CRf5Kgfe5kq'
   - title: '3 Licencias'
     price: 1999
-    pricePeriod: 'anual (IVA incluido)'
+    pricePeriod: 'Anual'
     badge: 'DESPACHO'
     description: 'Perfecto para despachos contables medianos con múltiples usuarios.'
     features:
@@ -34,7 +34,7 @@ plans:
     ctaUrl: 'https://buy.stripe.com/5kAcNA02hcXC8MM5kr'
   - title: '5 Licencias'
     price: 2699
-    pricePeriod: 'anual (IVA incluido)'
+    pricePeriod: 'Anual'
     badge: 'EMPRESARIAL'
     description: 'Solución completa para despachos grandes y empresas corporativas.'
     features:

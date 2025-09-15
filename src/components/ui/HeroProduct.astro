@@ -5,6 +5,7 @@ export interface Props {
   title: string;
   description: string;
   badge?: string;
+  price?: string | { min: string; max: string };
   primaryCta: {
     text: string;
     url: string;
@@ -20,6 +21,7 @@ const {
   title,
   description,
   badge,
+  price,
   primaryCta,
   secondaryCta,
   image,
@@ -36,10 +38,15 @@ const heroImage = image || defaultImage;
       <div class="hero-text">
         {badge && <span class="hero-badge animate-fade-in-up">{badge}</span>}
         <h1 class="hero-title animate-fade-in-up delay-100">{title}</h1>
+        {price && (
+          <div class="hero-price animate-fade-in-up delay-150">
+            {typeof price === 'string' ? price : `${price.min} - ${price.max}`}
+          </div>
+        )}
         <p class="hero-description animate-fade-in-up delay-200">{description}</p>
 
         <div class="hero-buttons animate-fade-in-up delay-300">
-          <Button href={primaryCta.url} variant="accent">
+          <Button href={primaryCta.url} variant="primary">
             {primaryCta.text}
           </Button>
           {secondaryCta && (
@@ -95,8 +102,17 @@ const heroImage = image || defaultImage;
     font-family: var(--font-secondary);
     font-weight: 800;
     color: var(--color-text-primary);
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--space-4);
     line-height: 1.1;
+  }
+
+  .hero-price {
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-2xl);
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-bottom: var(--space-4);
+    display: inline-block;
   }
 
   .hero-description {
@@ -133,7 +149,7 @@ const heroImage = image || defaultImage;
     background: linear-gradient(
       135deg,
       var(--color-accent) 0%,
-      var(--orange-600) 100%
+      var(--color-primary) 100%
     );
     color: var(--color-white);
   }
