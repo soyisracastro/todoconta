@@ -2,7 +2,7 @@
 // src/pages/landing/[product].astro
 import { getCollection } from 'astro:content';
 import LandingLayout from '../../layouts/LandingLayout.astro';
-import Hero from '../../components/ui/Hero.astro';
+import HeroProduct from '../../components/ui/HeroProduct.astro';
 import Features from '../../components/pages/landing/Features.astro';
 import Benefits from '../../components/pages/landing/Benefits.astro';
 import Pricing from '../../components/pages/landing/Pricing.astro';
@@ -45,7 +45,7 @@ const hasContent = product.body && product.body.trim().length > 0;
 // Prepara los datos para los componentes
 const heroProps = {
   title,
-  subtitle: description,
+  description,
   primaryCta: {
     text: 'Comprar Ahora',
     url: '#pricing',
@@ -141,7 +141,7 @@ const hasValidFaqs = faqs && Array.isArray(faqs) && faqs.length > 0;
   {...heroImage && { ogImage: heroImage }}
 >
   <!-- Hero Section -->
-  <Hero {...heroProps} variant="product" />
+  <HeroProduct {...heroProps} />
 
   <!-- Content Section (if available) -->
   {

@@ -1,0 +1,206 @@
+---
+import Button from './Button.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  badge?: string;
+  primaryCta: {
+    text: string;
+    url: string;
+  };
+  secondaryCta?: {
+    text: string;
+    url: string;
+  } | null;
+  image?: string;
+}
+
+const {
+  title,
+  description,
+  badge,
+  primaryCta,
+  secondaryCta,
+  image,
+} = Astro.props;
+
+// Imagen por defecto
+const defaultImage = 'https://placehold.co/800x450/14b8a6/FFFFFF/png?text=Product+Image';
+const heroImage = image || defaultImage;
+---
+
+<section class="hero hero-product">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        {badge && <span class="hero-badge animate-fade-in-up">{badge}</span>}
+        <h1 class="hero-title animate-fade-in-up delay-100">{title}</h1>
+        <p class="hero-description animate-fade-in-up delay-200">{description}</p>
+
+        <div class="hero-buttons animate-fade-in-up delay-300">
+          <Button href={primaryCta.url} variant="accent">
+            {primaryCta.text}
+          </Button>
+          {secondaryCta && (
+            <Button href={secondaryCta.url} variant="outline">
+              {secondaryCta.text}
+            </Button>
+          )}
+        </div>
+      </div>
+
+      <div class="hero-image-container animate-fade-in-up delay-400">
+        <img
+          src={heroImage}
+          alt="Visualización del producto"
+          class="hero-image"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Base styles */
+  .hero {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+  }
+
+  .hero-content {
+    display: grid;
+    align-items: center;
+    gap: var(--space-10);
+  }
+
+  .hero-badge {
+    display: inline-block;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--border-radius-full);
+    margin-bottom: var(--space-4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .hero-title {
+    font-family: var(--font-secondary);
+    font-weight: 800;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-6);
+    line-height: 1.1;
+  }
+
+  .hero-description {
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-8);
+    line-height: 1.6;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: var(--space-4);
+  }
+
+  .hero-image {
+    width: 100%;
+    border-radius: var(--border-radius-2xl);
+  }
+
+  /* Product variant styles */
+  .hero-product {
+    padding: var(--space-16) 0;
+    background: linear-gradient(
+      135deg,
+      var(--color-background) 0%,
+      var(--color-background-alt) 100%
+    );
+  }
+
+  .hero-product .hero-content {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-product .hero-badge {
+    background: linear-gradient(
+      135deg,
+      var(--color-accent) 0%,
+      var(--orange-600) 100%
+    );
+    color: var(--color-white);
+  }
+
+  .hero-product .hero-title {
+    font-size: var(--font-size-4xl);
+  }
+
+  .hero-product .hero-description {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+  }
+
+  .hero-product .hero-image {
+    box-shadow: var(--shadow-2xl);
+  }
+
+  /* Responsive design */
+  @media (max-width: 992px) {
+    .hero-content {
+      grid-template-columns: 1fr !important;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: var(--font-size-4xl);
+    }
+
+    .hero-buttons {
+      justify-content: center;
+    }
+
+    .hero-image {
+      max-width: 80%;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: var(--space-10) 0;
+    }
+
+    .hero-title {
+      font-size: var(--font-size-3xl);
+    }
+
+    .hero-description {
+      font-size: var(--font-size-lg);
+    }
+
+    .hero-buttons {
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-content {
+      gap: var(--space-6);
+    }
+
+    .hero-title {
+      font-size: var(--font-size-2xl);
+    }
+
+    .hero-description {
+      font-size: var(--font-size-base);
+    }
+  }
+</style>
