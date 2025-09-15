@@ -129,6 +129,10 @@ const ctaProps = {
       url: '#demo',
     },
   }),
+  // Add payment button props for dynamic links
+  productId: product.slug,
+  planId: 'single', // Default to single plan, can be enhanced for multiple plans
+  isPaymentButton: !buyUrl || buyUrl === '#pricing', // Use dynamic payment if no static URL
 };
 
 // Keywords para SEO

@@ -22,6 +22,10 @@ export interface Props {
     whatsapp?: string;
   };
   showGuarantee?: boolean;
+  // New props for dynamic payment links
+  productId?: string;
+  planId?: string;
+  isPaymentButton?: boolean;
 }
 
 const {
@@ -33,6 +37,9 @@ const {
   bgGradient,
   contactMethods,
   showGuarantee,
+  productId,
+  planId,
+  isPaymentButton,
 } = Astro.props;
 ---
 
@@ -42,6 +49,9 @@ const {
     description={description}
     primaryCta={primaryCta}
     {...(secondaryCta && { secondaryCta })}
+    {...(productId && { productId })}
+    {...(planId && { planId })}
+    {...(isPaymentButton !== undefined && { isPaymentButton })}
   />
 )}
 

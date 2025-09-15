@@ -1,0 +1,148 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+
+export async function getStaticProps() {
+  // This will be handled client-side for dynamic content
+  return {};
+}
+
+// Get URL parameters safely
+const url = new URL(Astro.request.url);
+const product = url.searchParams.get('product');
+const plan = url.searchParams.get('plan');
+const session_id = url.searchParams.get('session_id');
+---
+
+<LandingLayout title="¡Gracias por tu compra!" description="Tu pago ha sido procesado exitosamente">
+  <section class="py-24 bg-gradient-to-br from-green-50 to-emerald-50">
+    <div class="container mx-auto px-6 text-center">
+      <!-- Success Icon -->
+      <div class="mb-8">
+        <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">¡Pago Exitoso!</h1>
+        <p class="text-xl text-gray-600 mb-8">
+          Gracias por tu compra. Hemos procesado tu pago correctamente.
+        </p>
+      </div>
+
+      <!-- Order Details -->
+      <div class="bg-white rounded-lg shadow-lg p-8 mb-8 max-w-2xl mx-auto">
+        <h2 class="text-2xl font-semibold text-gray-900 mb-6">Detalles de tu compra</h2>
+
+        <div class="space-y-4 text-left">
+          <div class="flex justify-between items-center py-2 border-b border-gray-200">
+            <span class="font-medium text-gray-700">Producto:</span>
+            <span class="text-gray-900" id="product-name">Cargando...</span>
+          </div>
+
+          <div class="flex justify-between items-center py-2 border-b border-gray-200">
+            <span class="font-medium text-gray-700">Plan:</span>
+            <span class="text-gray-900" id="plan-name">Cargando...</span>
+          </div>
+
+          <div class="flex justify-between items-center py-2 border-b border-gray-200">
+            <span class="font-medium text-gray-700">ID de Transacción:</span>
+            <span class="text-gray-900 font-mono text-sm" id="transaction-id">
+              {session_id || 'Cargando...'}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email Confirmation -->
+      <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8 max-w-2xl mx-auto">
+        <div class="flex items-center mb-4">
+          <svg class="w-6 h-6 text-blue-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+          <h3 class="text-lg font-semibold text-blue-900">Revisa tu correo electrónico</h3>
+        </div>
+        <p class="text-blue-800">
+          En los próximos minutos recibirás un correo electrónico con:
+        </p>
+        <ul class="text-blue-800 mt-3 text-left list-disc list-inside space-y-1">
+          <li>Instrucciones de activación o descarga</li>
+          <li>Información detallada de tu compra</li>
+          <li>Enlaces de soporte técnico</li>
+        </ul>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a
+          href="/"
+          class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+        >
+          Volver al Inicio
+        </a>
+
+        <a
+          href="/contacto"
+          class="inline-flex items-center px-6 py-3 bg-gray-100 text-gray-700 font-medium rounded-lg hover:bg-gray-200 transition-colors"
+        >
+          Contactar Soporte
+        </a>
+      </div>
+
+      <!-- Help Text -->
+      <div class="mt-12 text-gray-500">
+        <p class="text-sm">
+          ¿No recibiste el correo? Revisa tu carpeta de spam o
+          <a href="/contacto" class="text-blue-600 hover:text-blue-800 underline">contáctanos</a>
+          para recibir asistencia.
+        </p>
+      </div>
+    </div>
+  </section>
+</LandingLayout>
+
+<script define:vars={{ product, plan }}>
+  // Load product details dynamically
+  document.addEventListener('DOMContentLoaded', async () => {
+    const productSlug = product;
+    const planId = plan;
+
+    if (productSlug) {
+      try {
+        // This would typically fetch from your API or content collections
+        // For now, we'll use a simple mapping
+        const productNames = {
+          'xmlsat': 'XMLSAT++',
+          'xmlsat-premium': 'XMLSAT Premium',
+          'plantilla-carga-batch-diot': 'Plantilla Carga Batch DIOT 2025',
+          'control-xml-cfdi': 'Control XML CFDI',
+          'control-xml-nomina': 'Control XML Nómina',
+          'centinela-xpress': 'Centinela Xpress'
+        };
+
+        const productName = productNames[productSlug] || 'Producto';
+        const productNameElement = document.getElementById('product-name');
+        if (productNameElement) {
+          productNameElement.textContent = productName;
+        }
+
+        if (planId) {
+          // Simple plan name mapping
+          const planNames = {
+            '1-licencia': '1 Licencia',
+            '3-licencias': '3 Licencias',
+            '5-licencias': '5 Licencias',
+            'single': 'Licencia Individual'
+          };
+
+          const planName = planNames[planId] || planId;
+          const planNameElement = document.getElementById('plan-name');
+          if (planNameElement) {
+            planNameElement.textContent = planName;
+          }
+        }
+      } catch (error) {
+        console.error('Error loading product details:', error);
+      }
+    }
+  });
+</script>
