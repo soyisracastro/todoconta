@@ -15,12 +15,14 @@ export interface Props {
     ctaText?: string | undefined;
     ctaUrl?: string | undefined;
   }> | undefined;
+  showBankTransferCta?: boolean | undefined;
 }
 
 const {
   title = 'Elige el Plan Perfecto',
   subtitle = 'Selecciona la opción que mejor se adapte a tus necesidades.',
   plans = [],
+  showBankTransferCta = false,
 } = Astro.props;
 ---
 
@@ -54,6 +56,7 @@ const {
               featured={plan.featured}
               ctaText={plan.ctaText}
               ctaHref={plan.ctaUrl}
+              showBankTransferCta={showBankTransferCta}
             />
           </div>
         ))
