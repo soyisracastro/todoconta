@@ -2,7 +2,7 @@
 // src/pages/landing/[product].astro
 import { getCollection } from 'astro:content';
 import LandingLayout from '../../layouts/LandingLayout.astro';
-import Hero from '../../components/ui/Hero.astro';
+import HeroProduct from '../../components/ui/HeroProduct.astro';
 import Features from '../../components/pages/landing/Features.astro';
 import Benefits from '../../components/pages/landing/Benefits.astro';
 import Pricing from '../../components/pages/landing/Pricing.astro';
@@ -42,15 +42,33 @@ const {
 const { Content } = await product.render();
 const hasContent = product.body && product.body.trim().length > 0;
 
+// Calculate price display
+let priceDisplay = undefined;
+if (price && pricePeriod) {
+  // Single fixed price
+  priceDisplay = `$${price.toLocaleString()}/${pricePeriod}`;
+} else if (plans && plans.length > 0) {
+  // Price range from plans
+  const prices = plans.map(plan => plan.price);
+  const minPrice = Math.min(...prices);
+  const maxPrice = Math.max(...prices);
+  const period = plans[0].pricePeriod || 'mes'; // Use first plan's period as default
+  priceDisplay = {
+    min: `$${minPrice.toLocaleString()}`,
+    max: `$${maxPrice.toLocaleString()}/${period}`
+  };
+}
+
 // Prepara los datos para los componentes
 const heroProps = {
   title,
-  subtitle: description,
+  description,
   primaryCta: {
     text: 'Comprar Ahora',
     url: '#pricing',
   },
   ...(badge && { badge }),
+  ...(priceDisplay && { price: priceDisplay }),
   ...(formId && {
     secondaryCta: {
       text: 'Descargar Demo',
@@ -141,7 +159,7 @@ const hasValidFaqs = faqs && Array.isArray(faqs) && faqs.length > 0;
   {...heroImage && { ogImage: heroImage }}
 >
   <!-- Hero Section -->
-  <Hero {...heroProps} variant="product" />
+  <HeroProduct {...heroProps} />
 
   <!-- Content Section (if available) -->
   {
