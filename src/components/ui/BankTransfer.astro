@@ -1,0 +1,227 @@
+---
+export interface Props {
+  productTitle: string;
+  productPrice?: number;
+  productId: string;
+}
+
+const { productTitle, productPrice } = Astro.props;
+
+// Bank account information (should be moved to environment variables in production)
+const bankInfo = {
+  bank: 'BBVA Bancomer',
+  accountHolder: 'Israel Castro Urieta',
+  accountNumber: '2851186442',
+  clabe: '012266028511864426',
+  reference: `Pago ${productTitle}`,
+};
+---
+
+<section class="section section-alt" id="bank-transfer-section">
+  <div class="container">
+    <div class="section-title">💳 Pago por Transferencia Bancaria</div>
+    <div class="section-subtitle">
+      Opción segura y sin comisiones adicionales
+    </div>
+
+    <!-- Bank Information Card -->
+    <div class="card mb-8">
+      <div class="card-body">
+        <h3 class="text-xl font-semibold text-primary mb-6">
+          Información Bancaria
+        </h3>
+
+        <div class="grid grid-cols-2 gap-6">
+          <!-- Account Details -->
+          <div class="space-y-4">
+            <div>
+              <label class="form-label"> Banco</label>
+              <div
+                class="flex items-center justify-between p-3 rounded-md"
+                style="background-color: var(--color-background-alt);"
+              >
+                <span class="text-primary font-mono">{bankInfo.bank}</span>
+                <button
+                  class="btn btn-outline btn-sm"
+                  onclick="copyToClipboard(bankInfo.bank, event)"
+                >
+                  Copiar
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <label class="form-label"> Beneficiario</label>
+              <div
+                class="flex items-center justify-between p-3 rounded-md"
+                style="background-color: var(--color-background-alt);"
+              >
+                <span class="text-primary font-mono text-sm"
+                  >{bankInfo.accountHolder}</span
+                >
+                <button
+                  class="btn btn-outline btn-sm"
+                  onclick="copyToClipboard(bankInfo.accountHolder, event)"
+                >
+                  Copiar
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <label class="form-label"> Número de Cuenta</label>
+              <div
+                class="flex items-center justify-between p-3 rounded-md"
+                style="background-color: var(--color-background-alt);"
+              >
+                <span class="text-primary font-mono"
+                  >{bankInfo.accountNumber}</span
+                >
+                <button
+                  class="btn btn-outline btn-sm"
+                  onclick="copyToClipboard(bankInfo.accountNumber, event)"
+                >
+                  Copiar
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <label class="form-label"> CLABE Interbancaria</label>
+              <div
+                class="flex items-center justify-between p-3 rounded-md"
+                style="background-color: var(--color-background-alt);"
+              >
+                <span class="text-primary font-mono">{bankInfo.clabe}</span>
+                <button
+                  class="btn btn-outline btn-sm"
+                  onclick="copyToClipboard(bankInfo.clabe, event)"
+                >
+                  Copiar
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Payment Instructions -->
+          <div class="space-y-4">
+            <div>
+              <label class="form-label"> Concepto de Pago</label>
+              <div
+                class="flex items-center justify-between p-3 rounded-md"
+                style="background-color: var(--color-background-alt);"
+              >
+                <span class="text-primary font-mono text-sm"
+                  >{bankInfo.reference}</span
+                >
+                <button
+                  class="btn btn-outline btn-sm"
+                  onclick="copyToClipboard(bankInfo.reference, event)"
+                >
+                  Copiar
+                </button>
+              </div>
+            </div>
+
+            {
+              productPrice && (
+                <div>
+                  <label class="form-label">Monto a Pagar</label>
+                  <div
+                    class="flex items-center justify-between p-3 rounded-md"
+                    style="background-color: var(--color-background-alt); border: 2px solid var(--color-success);"
+                  >
+                    <span class="text-success font-bold text-lg">
+                      ${productPrice.toLocaleString()} MXN
+                    </span>
+                    <button
+                      class="btn btn-outline btn-sm"
+                      onclick="copyToClipboard(productPrice.toString(), event)"
+                    >
+                      Copiar
+                    </button>
+                  </div>
+                </div>
+              )
+            }
+
+            <!-- Important Notes -->
+            <div
+              class="p-4 rounded-md"
+              style="background-color: var(--color-background-alt); border: 1px solid var(--color-warning);"
+            >
+              <h4 class="text-warning font-medium mb-2">
+                📋 Instrucciones para el Pago
+              </h4>
+              <ol class="text-primary text-sm">
+                <li style="margin-bottom: var(--space-1);">
+                  1. Realiza la transferencia usando los datos bancarios
+                  mostrados arriba
+                </li>
+                <li style="margin-bottom: var(--space-1);">
+                  2. Usa exactamente el concepto de pago: <strong
+                    >"{bankInfo.reference}"</strong>
+                </li>
+                <li style="margin-bottom: var(--space-1);">
+                  3. Toma una captura de pantalla o guarda el comprobante de tu
+                  transferencia
+                </li>
+                <li style="margin-bottom: var(--space-1);">
+                  4. Envía el comprobante por email a: <a
+                    href="mailto:pagos@todoconta.com"
+                    class="text-primary font-semibold">pagos@todoconta.com</a>
+                </li>
+                <li>
+                  5. Recibirás las instrucciones de activación/descarga en las
+                  próximas 24 horas
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ bankInfo, productPrice }}>
+  // Copy to clipboard functionality
+  function copyToClipboard(text, event) {
+    // Prevent default if it's called from an event
+    if (event) {
+      event.preventDefault();
+    }
+
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        // Show temporary success feedback
+        const button = event ? event.target : null;
+        if (button) {
+          const originalText = button.textContent;
+          button.textContent = '¡Copiado!';
+          button.classList.add('text-success');
+
+          setTimeout(() => {
+            if (button) {
+              button.textContent = originalText;
+              button.classList.remove('text-success');
+            }
+          }, 2000);
+        }
+      })
+      .catch(err => {
+        console.error('Failed to copy text: ', err);
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+      });
+  }
+
+  // Make copyToClipboard available globally
+  window.copyToClipboard = copyToClipboard;
+</script>

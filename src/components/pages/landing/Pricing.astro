@@ -11,6 +11,11 @@ export interface Props {
   ctaText?: string | undefined;
   ctaUrl?: string | undefined;
   highlighted?: boolean | undefined;
+  showBankTransferCta?: boolean | undefined;
+  // Dynamic payment props
+  productId?: string;
+  planId?: string;
+  isPaymentButton?: boolean;
 }
 
 const {
@@ -23,17 +28,23 @@ const {
   ctaText = 'Comprar Ahora',
   ctaUrl = '#',
   highlighted = false,
+  showBankTransferCta = false,
+  productId,
+  planId,
+  isPaymentButton = false,
 } = Astro.props;
 
 // Formatear el precio
-const formattedPrice = price ? new Intl.NumberFormat('es-MX', {
-  style: 'currency',
-  currency: currency,
-  maximumFractionDigits: 0,
-})
-  .format(price)
-  .replace('$', '')
-  .replace(',', ',') : '0';
+const formattedPrice = price
+  ? new Intl.NumberFormat('es-MX', {
+      style: 'currency',
+      currency: currency,
+      maximumFractionDigits: 0,
+    })
+      .format(price)
+      .replace('$', '')
+      .replace(',', ',')
+  : '0';
 ---
 
 <section class="pricing-section" id="pricing">
@@ -59,6 +70,10 @@ const formattedPrice = price ? new Intl.NumberFormat('es-MX', {
         featured={highlighted}
         ctaText={ctaText}
         ctaHref={ctaUrl}
+        showBankTransferCta={showBankTransferCta}
+        {...productId && { productId }}
+        {...planId && { planId }}
+        {...isPaymentButton !== undefined && { isPaymentButton }}
       />
     </div>
   </div>

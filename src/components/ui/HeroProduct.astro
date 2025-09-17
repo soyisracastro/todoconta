@@ -17,18 +17,12 @@ export interface Props {
   image?: string;
 }
 
-const {
-  title,
-  description,
-  badge,
-  price,
-  primaryCta,
-  secondaryCta,
-  image,
-} = Astro.props;
+const { title, description, badge, price, primaryCta, secondaryCta, image } =
+  Astro.props;
 
 // Imagen por defecto
-const defaultImage = 'https://placehold.co/800x450/14b8a6/FFFFFF/png?text=Product+Image';
+const defaultImage =
+  'https://placehold.co/800x450/14b8a6/FFFFFF/png?text=Product+Image';
 const heroImage = image || defaultImage;
 ---
 
@@ -38,22 +32,30 @@ const heroImage = image || defaultImage;
       <div class="hero-text">
         {badge && <span class="hero-badge animate-fade-in-up">{badge}</span>}
         <h1 class="hero-title animate-fade-in-up delay-100">{title}</h1>
-        {price && (
-          <div class="hero-price animate-fade-in-up delay-150">
-            {typeof price === 'string' ? price : `${price.min} - ${price.max}`}
-          </div>
-        )}
-        <p class="hero-description animate-fade-in-up delay-200">{description}</p>
+        {
+          price && (
+            <div class="hero-price animate-fade-in-up delay-150">
+              {typeof price === 'string'
+                ? price
+                : `${price.min} - ${price.max}`}
+            </div>
+          )
+        }
+        <p class="hero-description animate-fade-in-up delay-200">
+          {description}
+        </p>
 
         <div class="hero-buttons animate-fade-in-up delay-300">
           <Button href={primaryCta.url} variant="primary">
             {primaryCta.text}
           </Button>
-          {secondaryCta && (
-            <Button href={secondaryCta.url} variant="outline">
-              {secondaryCta.text}
-            </Button>
-          )}
+          {
+            secondaryCta && (
+              <Button href={secondaryCta.url} variant="outline">
+                {secondaryCta.text}
+              </Button>
+            )
+          }
         </div>
       </div>
 

@@ -11,14 +11,14 @@ export interface Props {
   showStats?: boolean;
 }
 
-const {
-  cta,
-  showStats = false,
-} = Astro.props;
+const { cta, showStats = false } = Astro.props;
 
 // Valores por defecto
-const title = Astro.props.title || 'Tranquilidad Fiscal Garantizada para tu Empresa';
-const subtitle = Astro.props.subtitle || 'Servicios contables integrales y asesorías fiscales especializadas. <strong>Si no cumplimos, cubrimos las multas</strong>.';
+const title =
+  Astro.props.title || 'Tranquilidad Fiscal Garantizada para tu Empresa';
+const subtitle =
+  Astro.props.subtitle ||
+  'Servicios contables integrales y asesorías fiscales especializadas. <strong>Si no cumplimos, cubrimos las multas</strong>.';
 
 // Estadísticas
 const stats = [
@@ -38,7 +38,7 @@ const stats = [
 ---
 
 <section class="hero hero-homepage" id="inicio">
-  <div class="hero-background" />
+  <div class="hero-background"></div>
   <div class="container">
     <div class="hero-content">
       <div class="hero-text">
@@ -54,16 +54,18 @@ const stats = [
           </Button>
         </div>
 
-        {showStats && (
-          <div class="hero-stats fade-in-up">
-            {stats.map(stat => (
-              <div class="hero-stat">
-                <span class="hero-stat-number">{stat.number}</span>
-                <span class="hero-stat-label">{stat.label}</span>
-              </div>
-            ))}
-          </div>
-        )}
+        {
+          showStats && (
+            <div class="hero-stats fade-in-up">
+              {stats.map(stat => (
+                <div class="hero-stat">
+                  <span class="hero-stat-number">{stat.number}</span>
+                  <span class="hero-stat-label">{stat.label}</span>
+                </div>
+              ))}
+            </div>
+          )
+        }
       </div>
 
       <div class="hero-visual fade-in-left">
@@ -75,7 +77,7 @@ const stats = [
             <p class="mockup-feature">👨‍💼 Asesoría especializada</p>
             <p class="mockup-feature">🛡️ Garantía de cumplimiento</p>
             <div class="mockup-badge">
-              <span class="mockup-badge-dot" />
+              <span class="mockup-badge-dot"></span>
               <span>Servicio profesional confiable</span>
             </div>
           </div>
@@ -93,8 +95,7 @@ const stats = [
     >
       <path
         d="M0 0L48 8.875C96 17.75 192 35.5 288 44.375C384 53.25 480 53.25 576 44.375C672 35.5 768 17.75 864 26.625C960 35.5 1056 71 1152 80.75C1248 89.625 1344 71 1392 62.125L1440 53.25V120H1392C1344 120 1248 120 1152 120C1056 120 960 120 864 120C768 120 672 120 576 120C480 120 384 120 288 120C192 120 96 120 48 120H0V0Z"
-        fill="var(--color-background)"
-      />
+        fill="var(--color-background)"></path>
     </svg>
   </div>
 </section>

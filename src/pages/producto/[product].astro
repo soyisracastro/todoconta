@@ -9,7 +9,7 @@ import Pricing from '../../components/pages/landing/Pricing.astro';
 import PricingPlans from '../../components/pages/landing/PricingPlans.astro';
 import Demo from '../../components/pages/landing/Demo.astro';
 import FAQ from '../../components/ui/FAQ.astro';
-import CTA from '../../components/ui/CTA.astro';
+import BankTransfer from '../../components/ui/BankTransfer.astro';
 
 // Genera rutas para cada producto
 export async function getStaticPaths() {
@@ -55,7 +55,7 @@ if (price && pricePeriod) {
   const period = plans[0].pricePeriod || 'mes'; // Use first plan's period as default
   priceDisplay = {
     min: `$${minPrice.toLocaleString()}`,
-    max: `$${maxPrice.toLocaleString()}/${period}`
+    max: `$${maxPrice.toLocaleString()}/${period}`,
   };
 }
 
@@ -95,8 +95,17 @@ const pricingProps = price
   ? {
       price,
       features: pricing.features,
-      ctaUrl: buyUrl || '#',
+      ctaUrl: buyUrl || '#pricing', // Fallback to pricing section
       highlighted: true,
+      showBankTransferCta: true, // Mostrar CTA de transferencia bancaria
+      // Dynamic payment props when no buyUrl
+      ...(buyUrl
+        ? {}
+        : {
+            productId: product.slug,
+            planId: 'single',
+            isPaymentButton: true,
+          }),
       ...(pricePeriod ? { pricePeriod } : {}),
     }
   : undefined;
@@ -106,6 +115,9 @@ const pricingPlansProps = plans
       title: 'Elige tu Licencia',
       subtitle: `Selecciona el número de licencias de ${title} que mejor se adapte a tu negocio.`,
       plans,
+      showBankTransferCta: true, // Mostrar CTA de transferencia bancaria en planes múltiples
+      productId: product.slug,
+      isPaymentButton: true, // Enable payment buttons for plans
     }
   : null;
 
@@ -114,22 +126,6 @@ const demoProps = formId
       formId,
     }
   : null;
-
-const ctaProps = {
-  title: `¿Listo para optimizar tu trabajo con ${title}?`,
-  description:
-    'Únete a miles de profesionales que confían en nuestras soluciones para gestionar sus procesos de manera eficiente.',
-  primaryCta: {
-    text: 'Comprar Ahora',
-    url: buyUrl || '#pricing',
-  },
-  ...(formId && {
-    secondaryCta: {
-      text: 'Probar Demo Gratis',
-      url: '#demo',
-    },
-  }),
-};
 
 // Keywords para SEO
 const keywords = [
@@ -192,6 +188,10 @@ const hasValidFaqs = faqs && Array.isArray(faqs) && faqs.length > 0;
   <!-- FAQ Section (if available) -->
   {hasValidFaqs && <FAQ faqs={faqs} />}
 
-  <!-- Call to Action -->
-  <CTA {...ctaProps} variant="simple" />
+  <!-- Bank Transfer Section -->
+  <BankTransfer
+    productTitle={title}
+    productId={product.slug}
+    {...price && { productPrice: price }}
+  />
 </LandingLayout>
