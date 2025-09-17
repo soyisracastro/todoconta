@@ -1,10 +1,12 @@
 // @ts-check
 import { defineConfig, envField } from 'astro/config';
+import netlify from '@astrojs/netlify';
 
 // https://astro.build/config
 export default defineConfig({
-  // Output configuration for static generation
-  output: 'static',
+  // Output configuration for server-side rendering (required for API routes)
+  output: 'server',
+  adapter: netlify(),
 
   // Site URL for SEO and sitemap generation
   site: 'https://todoconta.com',
@@ -166,6 +168,22 @@ export default defineConfig({
       AWS_SES_FROM_EMAIL: envField.string({
         context: 'server',
         access: 'secret',
+      }),
+      // Custom AWS variables for Netlify compatibility
+      CUSTOM_AWS_ACCESS_KEY_ID: envField.string({
+        context: 'server',
+        access: 'secret',
+        optional: true,
+      }),
+      CUSTOM_AWS_SECRET_ACCESS_KEY: envField.string({
+        context: 'server',
+        access: 'secret',
+        optional: true,
+      }),
+      CUSTOM_AWS_REGION: envField.string({
+        context: 'server',
+        access: 'secret',
+        optional: true,
       }),
     },
   },
