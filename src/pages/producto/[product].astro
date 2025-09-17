@@ -55,7 +55,7 @@ if (price && pricePeriod) {
   const period = plans[0].pricePeriod || 'mes'; // Use first plan's period as default
   priceDisplay = {
     min: `$${minPrice.toLocaleString()}`,
-    max: `$${maxPrice.toLocaleString()}/${period}`
+    max: `$${maxPrice.toLocaleString()}/${period}`,
   };
 }
 
@@ -99,11 +99,13 @@ const pricingProps = price
       highlighted: true,
       showBankTransferCta: true, // Mostrar CTA de transferencia bancaria
       // Dynamic payment props when no buyUrl
-      ...(buyUrl ? {} : {
-        productId: product.slug,
-        planId: 'single',
-        isPaymentButton: true
-      }),
+      ...(buyUrl
+        ? {}
+        : {
+            productId: product.slug,
+            planId: 'single',
+            isPaymentButton: true,
+          }),
       ...(pricePeriod ? { pricePeriod } : {}),
     }
   : undefined;
@@ -124,7 +126,6 @@ const demoProps = formId
       formId,
     }
   : null;
-
 
 // Keywords para SEO
 const keywords = [
@@ -191,6 +192,6 @@ const hasValidFaqs = faqs && Array.isArray(faqs) && faqs.length > 0;
   <BankTransfer
     productTitle={title}
     productId={product.slug}
-    {...(price && { productPrice: price })}
+    {...price && { productPrice: price }}
   />
 </LandingLayout>

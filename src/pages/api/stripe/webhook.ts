@@ -10,10 +10,20 @@ export const GET: APIRoute = async () => {
 
     // Check environment variables
     const envCheck = {
-      AWS_ACCESS_KEY_ID: !!import.meta.env.AWS_ACCESS_KEY_ID,
-      AWS_SECRET_ACCESS_KEY: !!import.meta.env.AWS_SECRET_ACCESS_KEY,
-      AWS_REGION: import.meta.env.AWS_REGION || 'us-east-1',
-      AWS_SES_FROM_EMAIL: import.meta.env.AWS_SES_FROM_EMAIL || 'noreply@todoconta.com',
+      AWS_ACCESS_KEY_ID: !!(
+        import.meta.env.CUSTOM_AWS_ACCESS_KEY_ID ||
+        import.meta.env.AWS_ACCESS_KEY_ID
+      ),
+      AWS_SECRET_ACCESS_KEY: !!(
+        import.meta.env.CUSTOM_AWS_SECRET_ACCESS_KEY ||
+        import.meta.env.AWS_SECRET_ACCESS_KEY
+      ),
+      AWS_REGION:
+        import.meta.env.CUSTOM_AWS_REGION ||
+        import.meta.env.AWS_REGION ||
+        'us-east-1',
+      AWS_SES_FROM_EMAIL:
+        import.meta.env.AWS_SES_FROM_EMAIL || 'noreply@todoconta.com',
       STRIPE_SECRET_KEY: !!import.meta.env.STRIPE_SECRET_KEY,
       STRIPE_WEBHOOK_SECRET: !!import.meta.env.STRIPE_WEBHOOK_SECRET,
     };
@@ -21,18 +31,27 @@ export const GET: APIRoute = async () => {
     console.log('🔧 Environment variables check:', envCheck);
 
     // Show credential preview (first/last 4 chars)
-    const accessKeyPreview = import.meta.env.AWS_ACCESS_KEY_ID
-      ? `${import.meta.env.AWS_ACCESS_KEY_ID.substring(0, 4)}...${import.meta.env.AWS_ACCESS_KEY_ID.substring(import.meta.env.AWS_ACCESS_KEY_ID.length - 4)}`
+    const actualAccessKey =
+      import.meta.env.CUSTOM_AWS_ACCESS_KEY_ID ||
+      import.meta.env.AWS_ACCESS_KEY_ID;
+    const actualSecretKey =
+      import.meta.env.CUSTOM_AWS_SECRET_ACCESS_KEY ||
+      import.meta.env.AWS_SECRET_ACCESS_KEY;
+    const actualRegion =
+      import.meta.env.CUSTOM_AWS_REGION || import.meta.env.AWS_REGION;
+
+    const accessKeyPreview = actualAccessKey
+      ? `${actualAccessKey.substring(0, 4)}...${actualAccessKey.substring(actualAccessKey.length - 4)}`
       : 'NOT SET';
 
-    const secretKeyPreview = import.meta.env.AWS_SECRET_ACCESS_KEY
-      ? `${import.meta.env.AWS_SECRET_ACCESS_KEY.substring(0, 4)}...${import.meta.env.AWS_SECRET_ACCESS_KEY.substring(import.meta.env.AWS_SECRET_ACCESS_KEY.length - 4)}`
+    const secretKeyPreview = actualSecretKey
+      ? `${actualSecretKey.substring(0, 4)}...${actualSecretKey.substring(actualSecretKey.length - 4)}`
       : 'NOT SET';
 
     console.log('🔐 AWS Credentials preview:', {
       accessKey: accessKeyPreview,
       secretKey: secretKeyPreview,
-      region: import.meta.env.AWS_REGION || 'us-east-1'
+      region: actualRegion || 'us-east-1',
     });
 
     // Try to send a test email
@@ -56,8 +75,10 @@ export const GET: APIRoute = async () => {
           credentials: {
             accessKeyPreview,
             secretKeyPreview,
-            region: import.meta.env.AWS_REGION || 'us-east-1'
-          }
+            region: actualRegion || 'us-east-1',
+          },
+          netlifyNote:
+            'For Netlify deployment, use CUSTOM_AWS_ACCESS_KEY_ID, CUSTOM_AWS_SECRET_ACCESS_KEY, and CUSTOM_AWS_REGION instead of the standard AWS_ prefixed variables',
         }),
         { status: 200, headers: { 'Content-Type': 'application/json' } }
       );
@@ -72,28 +93,31 @@ export const GET: APIRoute = async () => {
           credentials: {
             accessKeyPreview,
             secretKeyPreview,
-            region: import.meta.env.AWS_REGION || 'us-east-1'
+            region: actualRegion || 'us-east-1',
           },
           troubleshooting: {
-            signatureError: 'If you see SignatureDoesNotMatch, your AWS credentials are invalid',
+            signatureError:
+              'If you see SignatureDoesNotMatch, your AWS credentials are invalid',
+            netlifyDeployment:
+              'For Netlify, use CUSTOM_AWS_ACCESS_KEY_ID, CUSTOM_AWS_SECRET_ACCESS_KEY, and CUSTOM_AWS_REGION',
             steps: [
               'Go to AWS IAM Console',
               'Create an IAM user with SES permissions',
               'Use the Access Key ID and Secret Access Key',
-              'Make sure the region matches your SES configuration'
-            ]
-          }
+              'Make sure the region matches your SES configuration',
+              'For Netlify: Use CUSTOM_ prefixed environment variables',
+            ],
+          },
         }),
         { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
     }
-
   } catch (error: any) {
     return new Response(
       JSON.stringify({
         success: false,
         message: 'Test failed',
-        error: error.message
+        error: error.message,
       }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }
     );
@@ -105,24 +129,44 @@ export const prerender = false;
 
 // Note: These will only work in serverless environments
 // For static deployment, you'll need to use a serverless platform like Vercel or Netlify
-const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY || 'your_stripe_secret_key');
-const endpointSecret = import.meta.env.STRIPE_WEBHOOK_SECRET || 'your_webhook_secret';
+const stripe = new Stripe(
+  import.meta.env.STRIPE_SECRET_KEY || 'your_stripe_secret_key'
+);
+const endpointSecret =
+  import.meta.env.STRIPE_WEBHOOK_SECRET || 'your_webhook_secret';
 
 // Initialize AWS SES client
 const sesClient = new SESClient({
-  region: import.meta.env.AWS_REGION || 'us-east-1',
+  region:
+    import.meta.env.AWS_REGION ||
+    import.meta.env.CUSTOM_AWS_REGION ||
+    'us-east-1',
   credentials: {
-    accessKeyId: import.meta.env.AWS_ACCESS_KEY_ID || 'your_access_key',
-    secretAccessKey: import.meta.env.AWS_SECRET_ACCESS_KEY || 'your_secret_key',
+    accessKeyId:
+      import.meta.env.CUSTOM_AWS_ACCESS_KEY_ID ||
+      import.meta.env.AWS_ACCESS_KEY_ID ||
+      'your_access_key',
+    secretAccessKey:
+      import.meta.env.CUSTOM_AWS_SECRET_ACCESS_KEY ||
+      import.meta.env.AWS_SECRET_ACCESS_KEY ||
+      'your_secret_key',
   },
 });
 
 // Email templates for different product types
 // Function to send email via AWS SES
-async function sendEmail(to: string, subject: string, htmlBody: string, textBody?: string) {
+async function sendEmail(
+  to: string,
+  subject: string,
+  htmlBody: string,
+  textBody?: string
+) {
   console.log('🔄 Attempting to send email to:', to);
   console.log('📧 Subject:', subject);
-  console.log('🔑 AWS SES From Email:', import.meta.env.AWS_SES_FROM_EMAIL || 'noreply@todoconta.com');
+  console.log(
+    '🔑 AWS SES From Email:',
+    import.meta.env.AWS_SES_FROM_EMAIL || 'noreply@todoconta.com'
+  );
   console.log('🌍 AWS Region:', import.meta.env.AWS_REGION || 'us-east-1');
 
   const params = {
@@ -161,11 +205,14 @@ async function sendEmail(to: string, subject: string, htmlBody: string, textBody
       name: error.name,
       message: error.message,
       code: error.$metadata?.httpStatusCode,
-      requestId: error.$metadata?.requestId
+      requestId: error.$metadata?.requestId,
     });
 
     // Don't throw error in test mode to avoid breaking the webhook
-    if (import.meta.env.DEV || import.meta.env.STRIPE_SECRET_KEY?.includes('test')) {
+    if (
+      import.meta.env.DEV ||
+      import.meta.env.STRIPE_SECRET_KEY?.includes('test')
+    ) {
       console.log('🧪 Test mode: Email sending failed but webhook continues');
       return { testMode: true, error: error.message };
     }
@@ -173,7 +220,6 @@ async function sendEmail(to: string, subject: string, htmlBody: string, textBody
     throw error;
   }
 }
-
 
 export const POST: APIRoute = async ({ request }) => {
   try {
@@ -190,7 +236,9 @@ export const POST: APIRoute = async ({ request }) => {
       event = stripe.webhooks.constructEvent(body, sig, endpointSecret);
     } catch (err) {
       console.error('Webhook signature verification failed:', err);
-      return new Response('Webhook signature verification failed', { status: 400 });
+      return new Response('Webhook signature verification failed', {
+        status: 400,
+      });
     }
 
     // Handle the event
@@ -217,32 +265,47 @@ export const POST: APIRoute = async ({ request }) => {
               // Find plan data
               if (productData.plans) {
                 console.log('🔍 Looking for plan:', planId);
-                console.log('📋 Available plans:', productData.plans.map((p: any) => ({ title: p.title, id: p.id })));
+                console.log(
+                  '📋 Available plans:',
+                  productData.plans.map((p: any) => ({
+                    title: p.title,
+                    id: p.id,
+                  }))
+                );
 
                 // Map planId to plan title for matching
                 const planIdToTitle: { [key: string]: string } = {
                   '1-licencia': '1 Licencia',
                   '3-licencias': '3 Licencias',
                   '5-licencias': '5 Licencias',
-                  'single': 'Licencia Individual'
+                  single: 'Licencia Individual',
                 };
 
-                const planTitle = planId ? (planIdToTitle[planId] || planId) : '';
-                planData = productData.plans.find((p: any) => p.title === planTitle);
+                const planTitle = planId ? planIdToTitle[planId] || planId : '';
+                planData = productData.plans.find(
+                  (p: any) => p.title === planTitle
+                );
 
-                console.log('🎯 Found plan:', planData ? planData.title : 'NOT FOUND');
+                console.log(
+                  '🎯 Found plan:',
+                  planData ? planData.title : 'NOT FOUND'
+                );
               } else if (productData.price && planId === 'single') {
                 planData = {
                   title: productData.title,
                   price: productData.price,
-                  pricePeriod: productData.pricePeriod
+                  pricePeriod: productData.pricePeriod,
                 };
                 console.log('🎯 Single product plan:', planData.title);
               }
 
               if (planData) {
                 // Generate email content
-                const emailContent = getEmailTemplate(productData, planData, customerEmail);
+                const emailContent = getEmailTemplate(
+                  productData,
+                  planData,
+                  customerEmail
+                );
 
                 // Send email via AWS SES
                 try {
@@ -253,7 +316,9 @@ export const POST: APIRoute = async ({ request }) => {
                     emailContent.subject // Use subject as text fallback
                   );
 
-                  console.log(`Email sent successfully to ${customerEmail} for product ${productData.title}`);
+                  console.log(
+                    `Email sent successfully to ${customerEmail} for product ${productData.title}`
+                  );
                 } catch (emailError) {
                   console.error('Failed to send email:', emailError);
                   // Note: You might want to implement a retry mechanism or queue system here
@@ -272,7 +337,6 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     return new Response(JSON.stringify({ received: true }), { status: 200 });
-
   } catch (error) {
     console.error('Webhook error:', error);
     return new Response('Webhook error', { status: 500 });

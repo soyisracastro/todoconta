@@ -47,27 +47,35 @@ import Button from './Button.astro';
   </ul>
 
   <div class="pricing-ctas">
-    {isPaymentButton ? (
-      <button
-        class={`btn ${featured ? 'btn-secondary' : 'btn-outline'} pricing-payment-btn`}
-        data-product-id={productId}
-        data-plan-id={planId}
-        data-payment-button="true"
-        type="button"
-      >
-        {ctaText}
-      </button>
-    ) : (
-      <Button href={ctaHref} variant={featured ? 'secondary' : 'outline'}>
-        {ctaText}
-      </Button>
-    )}
+    {
+      isPaymentButton ? (
+        <button
+          class={`btn ${featured ? 'btn-secondary' : 'btn-outline'} pricing-payment-btn`}
+          data-product-id={productId}
+          data-plan-id={planId}
+          data-payment-button="true"
+          type="button"
+        >
+          {ctaText}
+        </button>
+      ) : (
+        <Button href={ctaHref} variant={featured ? 'secondary' : 'outline'}>
+          {ctaText}
+        </Button>
+      )
+    }
 
-    {showBankTransferCta && (
-      <Button href="#bank-transfer-section" variant="outline" class="bank-transfer-cta">
-        💳 Pago con Transferencia
-      </Button>
-    )}
+    {
+      showBankTransferCta && (
+        <Button
+          href="#bank-transfer-section"
+          variant="outline"
+          class="bank-transfer-cta"
+        >
+          💳 Pago con Transferencia
+        </Button>
+      )
+    }
   </div>
 </div>
 

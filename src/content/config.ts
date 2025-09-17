@@ -52,13 +52,15 @@ const productsCollection = defineCollection({
     formId: z.string().optional(),
 
     // Email delivery configuration for digital products
-    emailDelivery: z.object({
-      subject: z.string(),
-      template: z.string(), // HTML template for email
-      attachments: z.array(z.string()).optional(), // File paths for attachments
-      downloadInstructions: z.string().optional(),
-      activationInstructions: z.string().optional(),
-    }).optional(),
+    emailDelivery: z
+      .object({
+        subject: z.string(),
+        template: z.string(), // HTML template for email
+        attachments: z.array(z.string()).optional(), // File paths for attachments
+        downloadInstructions: z.string().optional(),
+        activationInstructions: z.string().optional(),
+      })
+      .optional(),
   }),
 });
 

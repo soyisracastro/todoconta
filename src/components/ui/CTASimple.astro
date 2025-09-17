@@ -36,27 +36,31 @@ const {
       <p class="cta-description">{description}</p>
 
       <div class="cta-buttons">
-        {isPaymentButton ? (
-          <button
-            class="btn btn-primary cta-payment-btn"
-            data-product-id={productId}
-            data-plan-id={planId}
-            data-payment-button="true"
-            type="button"
-          >
-            {primaryCta.text}
-          </button>
-        ) : (
-          <Button href={primaryCta.url} variant="primary">
-            {primaryCta.text}
-          </Button>
-        )}
+        {
+          isPaymentButton ? (
+            <button
+              class="btn btn-primary cta-payment-btn"
+              data-product-id={productId}
+              data-plan-id={planId}
+              data-payment-button="true"
+              type="button"
+            >
+              {primaryCta.text}
+            </button>
+          ) : (
+            <Button href={primaryCta.url} variant="primary">
+              {primaryCta.text}
+            </Button>
+          )
+        }
 
-        {secondaryCta && (
-          <Button href={secondaryCta.url} variant="outline">
-            {secondaryCta.text}
-          </Button>
-        )}
+        {
+          secondaryCta && (
+            <Button href={secondaryCta.url} variant="outline">
+              {secondaryCta.text}
+            </Button>
+          )
+        }
       </div>
     </div>
   </div>
