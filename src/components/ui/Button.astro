@@ -1,6 +1,6 @@
 ---
 export interface Props {
-  variant?: 'primary' | 'secondary' | 'accent' | 'outline' | 'link';
+  variant?: 'primary' | 'secondary' | 'accent' | 'outline';
   size?: 'sm' | 'default' | 'lg' | 'xl';
   href?: string;
   class?: string;
@@ -20,7 +20,6 @@ const variantClasses = {
   secondary: 'btn-secondary',
   accent: 'btn-accent',
   outline: 'btn-outline',
-  link: 'btn-link',
 };
 
 const sizeClasses = {

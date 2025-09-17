@@ -9,11 +9,6 @@ export interface Props {
   featured?: boolean | undefined;
   ctaText?: string | undefined;
   ctaHref?: string | undefined;
-  showBankTransferCta?: boolean | undefined;
-  // New props for dynamic payment
-  productId?: string | undefined;
-  planId?: string | undefined;
-  isPaymentButton?: boolean | undefined;
 }
 
 const {
@@ -26,10 +21,6 @@ const {
   featured = false,
   ctaText = 'Contratar',
   ctaHref = '#contacto',
-  showBankTransferCta = false,
-  productId,
-  planId,
-  isPaymentButton = false,
 } = Astro.props;
 
 import Button from './Button.astro';
@@ -46,37 +37,9 @@ import Button from './Button.astro';
     {features.map(feature => <li>{feature}</li>)}
   </ul>
 
-  <div class="pricing-ctas">
-    {
-      isPaymentButton ? (
-        <button
-          class={`btn ${featured ? 'btn-secondary' : 'btn-outline'} pricing-payment-btn`}
-          data-product-id={productId}
-          data-plan-id={planId}
-          data-payment-button="true"
-          type="button"
-        >
-          {ctaText}
-        </button>
-      ) : (
-        <Button href={ctaHref} variant={featured ? 'secondary' : 'outline'}>
-          {ctaText}
-        </Button>
-      )
-    }
-
-    {
-      showBankTransferCta && (
-        <Button
-          href="#bank-transfer-section"
-          variant="outline"
-          class="bank-transfer-cta"
-        >
-          💳 Pago con Transferencia
-        </Button>
-      )
-    }
-  </div>
+  <Button href={ctaHref} variant={featured ? 'secondary' : 'outline'}>
+    {ctaText}
+  </Button>
 </div>
 
 <style>
@@ -174,51 +137,6 @@ import Button from './Button.astro';
     font-size: var(--font-size-base);
   }
 
-  .pricing-ctas {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-  }
-
-  .pricing-payment-btn {
-    width: 100%;
-    font-size: var(--font-size-sm);
-    padding: var(--space-3) var(--space-4);
-    border-radius: var(--border-radius-md);
-    font-weight: 500;
-    cursor: pointer;
-    transition: all var(--transition-fast);
-    border: 2px solid var(--color-primary);
-    background: transparent;
-    color: var(--color-primary);
-  }
-
-  .pricing-payment-btn:hover {
-    background: var(--color-primary);
-    color: var(--color-white);
-  }
-
-  .pricing-payment-btn.btn-secondary {
-    background: var(--color-primary);
-    color: var(--color-white);
-  }
-
-  .pricing-payment-btn.btn-secondary:hover {
-    background: var(--color-primary-dark);
-  }
-
-  .bank-transfer-cta {
-    font-size: var(--font-size-sm);
-    padding: var(--space-2) var(--space-4);
-    border-color: var(--color-success);
-    color: var(--color-success);
-  }
-
-  .bank-transfer-cta:hover {
-    background-color: var(--color-success);
-    color: var(--color-white);
-  }
-
   /* Responsive */
   @media (max-width: 768px) {
     .pricing-card.featured {
@@ -228,18 +146,5 @@ import Button from './Button.astro';
     .pricing-card.featured:hover {
       transform: translateY(-8px);
     }
-
-    .pricing-ctas {
-      gap: var(--space-2);
-    }
-
-    .bank-transfer-cta {
-      font-size: var(--font-size-xs);
-      padding: var(--space-2) var(--space-3);
-    }
   }
 </style>
-
-<script>
-  // Payment button functionality is handled by initPaymentButtons() in shared-utils.js
-</script>

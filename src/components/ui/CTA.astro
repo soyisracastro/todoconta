@@ -22,10 +22,6 @@ export interface Props {
     whatsapp?: string;
   };
   showGuarantee?: boolean;
-  // New props for dynamic payment links
-  productId?: string;
-  planId?: string;
-  isPaymentButton?: boolean;
 }
 
 const {
@@ -37,47 +33,36 @@ const {
   bgGradient,
   contactMethods,
   showGuarantee,
-  productId,
-  planId,
-  isPaymentButton,
 } = Astro.props;
 ---
 
-{
-  variant === 'simple' && (
-    <CTASimple
-      title={title}
-      description={description}
-      primaryCta={primaryCta}
-      {...(secondaryCta && { secondaryCta })}
-      {...(productId && { productId })}
-      {...(planId && { planId })}
-      {...(isPaymentButton !== undefined && { isPaymentButton })}
-    />
-  )
-}
+{variant === 'simple' && (
+  <CTASimple
+    title={title}
+    description={description}
+    primaryCta={primaryCta}
+    {...(secondaryCta && { secondaryCta })}
+  />
+)}
 
-{
-  variant === 'with-contact' && (
-    <CTAWithContact
-      title={title}
-      description={description}
-      primaryCta={primaryCta}
-      {...(secondaryCta && { secondaryCta })}
-      {...(bgGradient && { bgGradient })}
-      {...(contactMethods && { contactMethods })}
-    />
-  )
-}
+{variant === 'with-contact' && (
+  <CTAWithContact
+    title={title}
+    description={description}
+    primaryCta={primaryCta}
+    {...(secondaryCta && { secondaryCta })}
+    {...(bgGradient && { bgGradient })}
+    {...(contactMethods && { contactMethods })}
+  />
+)}
 
-{
-  variant === 'with-form' && (
-    <CTAWithForm
-      title={title}
-      description={description}
-      primaryCta={primaryCta}
-      {...(secondaryCta && { secondaryCta })}
-      {...(showGuarantee !== undefined && { showGuarantee })}
-    />
-  )
-}
+{variant === 'with-form' && (
+  <CTAWithForm
+    title={title}
+    description={description}
+    primaryCta={primaryCta}
+    {...(secondaryCta && { secondaryCta })}
+    {...(showGuarantee !== undefined && { showGuarantee })}
+  />
+)}
+
