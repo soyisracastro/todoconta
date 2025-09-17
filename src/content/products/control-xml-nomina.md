@@ -5,7 +5,7 @@ price: 1850
 pricePeriod: 'IVA incluido'
 badge: 'PLANTILLA EXCEL PREMIUM'
 heroImage: 'https://placehold.co/800x450/166534/FFFFFF/png?text=Control+XML+Nomina'
-buyUrl: 'https://buy.stripe.com/5kAcNA8yNg9ObYY3cm'
+# buyUrl: 'https://buy.stripe.com/5kAcNA8yNg9ObYY3cm'
 features:
   - icon: '📊'
     title: 'Análisis Detallado'
