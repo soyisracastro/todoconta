@@ -19,7 +19,7 @@ import LandingLayout from '../layouts/LandingLayout.astro';
       </div>
 
       <!-- Order Details -->
-      <div class="card mb-8" style="max-width: 600px; margin: 0 auto;">
+      <div class="card">
         <h2 class="card-title" style="text-align: center; margin-bottom: var(--space-6);">Detalles de tu compra</h2>
 
         <div class="order-details">
@@ -102,6 +102,12 @@ import LandingLayout from '../layouts/LandingLayout.astro';
     height: 48px;
     color: var(--color-white);
     stroke-width: 3;
+  }
+
+  .card {
+    padding: var(--space-6);
+    max-width: 600px;
+    margin: 0 auto var(--space-8);
   }
 
   /* Order Details Styles */
