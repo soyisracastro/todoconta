@@ -1,8 +1,13 @@
 // Email templates for different product types
-export function getEmailTemplate(productData: any, planData: any, customerEmail: string) {
-  const isDownloadable = productData.title.toLowerCase().includes('plantilla') ||
-                        productData.title.toLowerCase().includes('excel') ||
-                        productData.title.toLowerCase().includes('digital');
+export function getEmailTemplate(
+  productData: any,
+  planData: any,
+  customerEmail: string
+) {
+  const isDownloadable =
+    productData.title.toLowerCase().includes('plantilla') ||
+    productData.title.toLowerCase().includes('excel') ||
+    productData.title.toLowerCase().includes('digital');
 
   if (isDownloadable) {
     return {
@@ -67,7 +72,7 @@ INSTRUCCIONES:
 ¿Necesitas ayuda? Contactanos: soporte@todoconta.com
 
 Todoconta - www.todoconta.com
-      `.trim()
+      `.trim(),
     };
   } else {
     // Software license template
@@ -155,7 +160,7 @@ Email: soporte@todoconta.com
 WhatsApp: +52 55 4475 3602
 
 Todoconta - www.todoconta.com
-      `.trim()
+      `.trim(),
     };
   }
 }

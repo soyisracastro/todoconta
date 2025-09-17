@@ -126,7 +126,9 @@ export const AnimationUtils = {
 export function initPaymentButtons() {
   // Use a more robust approach that works with dynamic content
   function setupPaymentButtons() {
-    const paymentButtons = document.querySelectorAll('.pricing-payment-btn, .cta-payment-btn, [data-payment-button="true"]');
+    const paymentButtons = document.querySelectorAll(
+      '.pricing-payment-btn, .cta-payment-btn, [data-payment-button="true"]'
+    );
 
     paymentButtons.forEach(button => {
       // Skip if already has event listener
@@ -136,7 +138,7 @@ export function initPaymentButtons() {
 
       button.setAttribute('data-payment-initialized', 'true');
 
-      button.addEventListener('click', async (e) => {
+      button.addEventListener('click', async e => {
         e.preventDefault();
 
         const productId = button.getAttribute('data-product-id');
@@ -163,18 +165,21 @@ export function initPaymentButtons() {
 
           if (productId) {
             const productNames = {
-              'xmlsat': 'XMLSAT++',
+              xmlsat: 'XMLSAT++',
               'xmlsat-premium': 'XMLSAT Premium',
               'plantilla-carga-batch-diot': 'Carga Batch DIOT 2025',
-              'control-xml-nomina': 'Control XML Nómina - Plantilla Excel para Manejo de CFDI de Nómina',
-              'centinela-xpress': 'CENTINELA XPRESS'
+              'control-xml-nomina':
+                'Control XML Nómina - Plantilla Excel para Manejo de CFDI de Nómina',
+              'centinela-xpress': 'CENTINELA XPRESS',
             };
             productTitle = productNames[productId] || 'Producto Digital';
 
             // Try to get price from product data if available
             try {
               // Look for price in nearby elements or data attributes
-              const priceElement = button.closest('.pricing-card')?.querySelector('.pricing-price');
+              const priceElement = button
+                .closest('.pricing-card')
+                ?.querySelector('.pricing-price');
               if (priceElement) {
                 const priceText = priceElement.textContent || '';
                 const priceMatch = priceText.match(/\$([0-9,]+)/);
@@ -189,7 +194,10 @@ export function initPaymentButtons() {
           }
 
           // Show elegant modal instead of prompt
-          const customerEmail = await window.showEmailModal(productTitle, productPrice);
+          const customerEmail = await window.showEmailModal(
+            productTitle,
+            productPrice
+          );
 
           if (!customerEmail) {
             button.textContent = originalText;
@@ -218,12 +226,14 @@ export function initPaymentButtons() {
 
           // Redirect to Stripe payment link
           window.location.href = data.url;
-
         } catch (error) {
           console.error('Error creating payment link:', error);
 
           // Handle modal close/cancel separately
-          if (error.message === 'Modal closed' || error.message === 'User cancelled') {
+          if (
+            error.message === 'Modal closed' ||
+            error.message === 'User cancelled'
+          ) {
             console.log('User cancelled the payment process');
             button.textContent = originalText;
             button.removeAttribute('disabled');
@@ -231,21 +241,40 @@ export function initPaymentButtons() {
           }
 
           // More specific error messages for actual errors
-          let errorMessage = 'Error al generar el enlace de pago. Por favor intenta de nuevo.';
+          let errorMessage =
+            'Error al generar el enlace de pago. Por favor intenta de nuevo.';
 
           if (error.message) {
-            if (error.message.includes('Stripe configuration error') || error.message.includes('STRIPE_SECRET_KEY')) {
-              errorMessage = 'Error de configuración: Las claves de Stripe no están configuradas correctamente. Revisa tu archivo .env';
-            } else if (error.message.includes('Stripe authentication failed') || error.message.includes('Invalid Stripe API key')) {
-              errorMessage = 'Error de autenticación con Stripe. Verifica que tus claves API sean válidas.';
-            } else if (error.message.includes('network') || error.message.includes('fetch') || error.message.includes('Connection error')) {
-              errorMessage = 'Error de conexión. Verifica tu conexión a internet.';
+            if (
+              error.message.includes('Stripe configuration error') ||
+              error.message.includes('STRIPE_SECRET_KEY')
+            ) {
+              errorMessage =
+                'Error de configuración: Las claves de Stripe no están configuradas correctamente. Revisa tu archivo .env';
+            } else if (
+              error.message.includes('Stripe authentication failed') ||
+              error.message.includes('Invalid Stripe API key')
+            ) {
+              errorMessage =
+                'Error de autenticación con Stripe. Verifica que tus claves API sean válidas.';
+            } else if (
+              error.message.includes('network') ||
+              error.message.includes('fetch') ||
+              error.message.includes('Connection error')
+            ) {
+              errorMessage =
+                'Error de conexión. Verifica tu conexión a internet.';
             } else if (error.message.includes('Stripe API error')) {
-              errorMessage = 'Error en la API de Stripe. Intenta de nuevo en unos minutos.';
+              errorMessage =
+                'Error en la API de Stripe. Intenta de nuevo en unos minutos.';
             } else if (error.message.includes('Invalid request')) {
-              errorMessage = 'Datos inválidos enviados a Stripe. Verifica la información del producto.';
-            } else if (error.message.includes('Failed to create payment link')) {
-              errorMessage = 'Error al crear el enlace de pago. Verifica la configuración de Stripe.';
+              errorMessage =
+                'Datos inválidos enviados a Stripe. Verifica la información del producto.';
+            } else if (
+              error.message.includes('Failed to create payment link')
+            ) {
+              errorMessage =
+                'Error al crear el enlace de pago. Verifica la configuración de Stripe.';
             }
           }
 
@@ -264,7 +293,7 @@ export function initPaymentButtons() {
             error: error.message,
             productId,
             planId,
-            hasCustomerEmail: typeof customerEmail !== 'undefined'
+            hasCustomerEmail: typeof customerEmail !== 'undefined',
           });
 
           alert(errorMessage);
@@ -283,7 +312,7 @@ export function initPaymentButtons() {
   const observer = new MutationObserver(setupPaymentButtons);
   observer.observe(document.body, {
     childList: true,
-    subtree: true
+    subtree: true,
   });
 }
 
@@ -419,14 +448,14 @@ export function showEmailModal(productTitle, productPrice) {
     submitBtn.addEventListener('click', handleSubmit);
     cancelBtn.addEventListener('click', handleCancel);
 
-    emailInput.addEventListener('keypress', (e) => {
+    emailInput.addEventListener('keypress', e => {
       if (e.key === 'Enter') {
         handleSubmit();
       }
     });
 
     // Close on backdrop click
-    modalOverlay.addEventListener('click', (e) => {
+    modalOverlay.addEventListener('click', e => {
       if (e.target === modalOverlay) {
         handleCancel();
       }

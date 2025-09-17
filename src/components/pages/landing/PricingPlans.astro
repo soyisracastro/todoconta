@@ -4,17 +4,19 @@ import PricingCard from '../../ui/PricingCard.astro';
 export interface Props {
   title?: string | undefined;
   subtitle?: string | undefined;
-  plans?: Array<{
-    title: string;
-    price: number;
-    pricePeriod?: string | undefined;
-    badge?: string | undefined;
-    description: string;
-    features: string[];
-    featured?: boolean | undefined;
-    ctaText?: string | undefined;
-    ctaUrl?: string | undefined;
-  }> | undefined;
+  plans?:
+    | Array<{
+        title: string;
+        price: number;
+        pricePeriod?: string | undefined;
+        badge?: string | undefined;
+        description: string;
+        features: string[];
+        featured?: boolean | undefined;
+        ctaText?: string | undefined;
+        ctaUrl?: string | undefined;
+      }>
+    | undefined;
   showBankTransferCta?: boolean | undefined;
   // Payment-related props
   productId?: string | undefined;
@@ -38,7 +40,9 @@ function getPlanId(planTitle: string): string {
     '5 Licencias': '5-licencias',
     'Licencia Individual': 'single',
   };
-  return planMappings[planTitle] || planTitle.toLowerCase().replace(/\s+/g, '-');
+  return (
+    planMappings[planTitle] || planTitle.toLowerCase().replace(/\s+/g, '-')
+  );
 }
 ---
 

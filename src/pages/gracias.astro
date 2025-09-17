@@ -2,14 +2,26 @@
 import LandingLayout from '../layouts/LandingLayout.astro';
 ---
 
-<LandingLayout title="¡Gracias por tu compra!" description="Tu pago ha sido procesado exitosamente">
+<LandingLayout
+  title="¡Gracias por tu compra!"
+  description="Tu pago ha sido procesado exitosamente"
+>
   <section class="section bg-warm">
     <div class="container text-center">
       <!-- Success Icon -->
       <div class="mb-8">
         <div class="success-icon">
-          <svg class="success-checkmark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          <svg
+            class="success-checkmark"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 13l4 4L19 7"></path>
           </svg>
         </div>
         <h1 class="section-title">¡Pago Exitoso!</h1>
@@ -20,7 +32,12 @@ import LandingLayout from '../layouts/LandingLayout.astro';
 
       <!-- Order Details -->
       <div class="card">
-        <h2 class="card-title" style="text-align: center; margin-bottom: var(--space-6);">Detalles de tu compra</h2>
+        <h2
+          class="card-title"
+          style="text-align: center; margin-bottom: var(--space-6);"
+        >
+          Detalles de tu compra
+        </h2>
 
         <div class="order-details">
           <div class="order-row">
@@ -43,10 +60,23 @@ import LandingLayout from '../layouts/LandingLayout.astro';
       </div>
 
       <!-- Email Confirmation -->
-      <div class="success-message mb-8" style="max-width: 600px; margin: 0 auto;">
+      <div
+        class="success-message mb-8"
+        style="max-width: 600px; margin: 0 auto;"
+      >
         <div class="flex items-center mb-4">
-          <svg class="email-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          <svg
+            class="email-icon"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+            ></path>
           </svg>
           <h3 class="success-title">Revisa tu correo electrónico</h3>
         </div>
@@ -61,7 +91,10 @@ import LandingLayout from '../layouts/LandingLayout.astro';
       </div>
 
       <!-- Action Buttons -->
-      <div class="flex flex-col gap-4 items-center" style="max-width: 400px; margin: 0 auto;">
+      <div
+        class="flex flex-col gap-4 items-center"
+        style="max-width: 400px; margin: 0 auto;"
+      >
         <a href="/" class="btn btn-primary btn-lg" style="width: 100%;">
           Volver al Inicio
         </a>
@@ -270,11 +303,12 @@ import LandingLayout from '../layouts/LandingLayout.astro';
       try {
         // Product name mapping
         const productNames = {
-          'xmlsat': 'XMLSAT++',
+          xmlsat: 'XMLSAT++',
           'xmlsat-premium': 'XMLSAT Premium',
           'plantilla-carga-batch-diot': 'Carga Batch DIOT 2025',
-          'control-xml-nomina': 'Control XML Nómina - Plantilla Excel para Manejo de CFDI de Nómina',
-          'centinela-xpress': 'CENTINELA XPRESS'
+          'control-xml-nomina':
+            'Control XML Nómina - Plantilla Excel para Manejo de CFDI de Nómina',
+          'centinela-xpress': 'CENTINELA XPRESS',
         };
 
         const productName = productNames[productSlug] || 'Producto Digital';
@@ -293,10 +327,10 @@ import LandingLayout from '../layouts/LandingLayout.astro';
             '1-licencia': '1 Licencia',
             '3-licencias': '3 Licencias',
             '5-licencias': '5 Licencias',
-            'single': 'Licencia Individual',
+            single: 'Licencia Individual',
             '1': '1 Licencia',
             '3': '3 Licencias',
-            '5': '5 Licencias'
+            '5': '5 Licencias',
           };
 
           const planName = planNames[planId] || planId;
@@ -318,7 +352,6 @@ import LandingLayout from '../layouts/LandingLayout.astro';
             console.log('Transaction ID set:', sessionId);
           }
         }
-
       } catch (error) {
         console.error('Error loading product details:', error);
 
@@ -326,8 +359,10 @@ import LandingLayout from '../layouts/LandingLayout.astro';
         const productNameElement = document.getElementById('product-name');
         const planNameElement = document.getElementById('plan-name');
 
-        if (productNameElement) productNameElement.textContent = 'Producto Digital';
-        if (planNameElement) planNameElement.textContent = 'Licencia Individual';
+        if (productNameElement)
+          productNameElement.textContent = 'Producto Digital';
+        if (planNameElement)
+          planNameElement.textContent = 'Licencia Individual';
       }
     } else {
       console.warn('No product slug provided');

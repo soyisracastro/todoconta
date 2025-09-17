@@ -16,12 +16,16 @@ const stripe = new Stripe(stripeSecretKey || 'sk_test_placeholder');
 export const POST: APIRoute = async ({ request }) => {
   try {
     // Check if Stripe is properly configured
-    if (!stripeSecretKey || stripeSecretKey === 'your_stripe_secret_key' || stripeSecretKey === 'sk_test_placeholder') {
+    if (
+      !stripeSecretKey ||
+      stripeSecretKey === 'your_stripe_secret_key' ||
+      stripeSecretKey === 'sk_test_placeholder'
+    ) {
       console.error('Stripe secret key not configured');
       return new Response(
         JSON.stringify({
           error: 'Stripe configuration error',
-          details: 'STRIPE_SECRET_KEY is not properly configured'
+          details: 'STRIPE_SECRET_KEY is not properly configured',
         }),
         { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
@@ -31,7 +35,10 @@ export const POST: APIRoute = async ({ request }) => {
 
     if (!productId || !planId || !customerEmail) {
       return new Response(
-        JSON.stringify({ error: 'Missing required parameters: productId, planId, customerEmail' }),
+        JSON.stringify({
+          error:
+            'Missing required parameters: productId, planId, customerEmail',
+        }),
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
@@ -42,10 +49,10 @@ export const POST: APIRoute = async ({ request }) => {
     const product = products.find(p => p.slug === productId);
 
     if (!product) {
-      return new Response(
-        JSON.stringify({ error: 'Product not found' }),
-        { status: 404, headers: { 'Content-Type': 'application/json' } }
-      );
+      return new Response(JSON.stringify({ error: 'Product not found' }), {
+        status: 404,
+        headers: { 'Content-Type': 'application/json' },
+      });
     }
 
     const productData = product.data;
@@ -58,7 +65,7 @@ export const POST: APIRoute = async ({ request }) => {
         '1-licencia': '1 Licencia',
         '3-licencias': '3 Licencias',
         '5-licencias': '5 Licencias',
-        'single': 'Licencia Individual'
+        single: 'Licencia Individual',
       };
 
       const planTitle = planIdToTitle[planId] || planId;
@@ -69,15 +76,15 @@ export const POST: APIRoute = async ({ request }) => {
         title: productData.title,
         price: productData.price,
         pricePeriod: productData.pricePeriod,
-        paymentType: 'one-time'
+        paymentType: 'one-time',
       };
     }
 
     if (!plan) {
-      return new Response(
-        JSON.stringify({ error: 'Plan not found' }),
-        { status: 404, headers: { 'Content-Type': 'application/json' } }
-      );
+      return new Response(JSON.stringify({ error: 'Plan not found' }), {
+        status: 404,
+        headers: { 'Content-Type': 'application/json' },
+      });
     }
 
     // Determine payment type - for now, use one-time payments to avoid subscription management
@@ -87,7 +94,9 @@ export const POST: APIRoute = async ({ request }) => {
 
     // Create one-time payment product (simplified logic)
     const stripeProducts = await stripe.products.list({ limit: 100 });
-    stripeProduct = stripeProducts.data.find(p => p.metadata.productId === productId && p.metadata.planId === planId);
+    stripeProduct = stripeProducts.data.find(
+      p => p.metadata.productId === productId && p.metadata.planId === planId
+    );
 
     if (!stripeProduct) {
       stripeProduct = await stripe.products.create({
@@ -96,8 +105,8 @@ export const POST: APIRoute = async ({ request }) => {
         metadata: {
           productId,
           planId,
-          paymentType: 'one-time'
-        }
+          paymentType: 'one-time',
+        },
       });
     }
 
@@ -108,8 +117,8 @@ export const POST: APIRoute = async ({ request }) => {
       currency: 'mxn',
       metadata: {
         productId,
-        planId
-      }
+        planId,
+      },
     });
 
     // Create payment link
@@ -130,18 +139,17 @@ export const POST: APIRoute = async ({ request }) => {
         productId,
         planId,
         customerEmail,
-        paymentType
+        paymentType,
       },
     });
 
     return new Response(
       JSON.stringify({
         url: paymentLink.url,
-        paymentLinkId: paymentLink.id
+        paymentLinkId: paymentLink.id,
       }),
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     );
-
   } catch (error: any) {
     console.error('Error creating payment link:', error);
 
@@ -164,7 +172,10 @@ export const POST: APIRoute = async ({ request }) => {
     } else if (error.message?.includes('Invalid API Key')) {
       errorMessage = 'Invalid Stripe API key';
       statusCode = 401;
-    } else if (error.message?.includes('network') || error.message?.includes('fetch')) {
+    } else if (
+      error.message?.includes('network') ||
+      error.message?.includes('fetch')
+    ) {
       errorMessage = 'Network error - check your internet connection';
       statusCode = 503;
     }
@@ -173,7 +184,7 @@ export const POST: APIRoute = async ({ request }) => {
       JSON.stringify({
         error: errorMessage,
         details: error.message || 'Unknown error',
-        type: error.type || 'UnknownError'
+        type: error.type || 'UnknownError',
       }),
       { status: statusCode, headers: { 'Content-Type': 'application/json' } }
     );

@@ -35,14 +35,16 @@ const {
 } = Astro.props;
 
 // Formatear el precio
-const formattedPrice = price ? new Intl.NumberFormat('es-MX', {
-  style: 'currency',
-  currency: currency,
-  maximumFractionDigits: 0,
-})
-  .format(price)
-  .replace('$', '')
-  .replace(',', ',') : '0';
+const formattedPrice = price
+  ? new Intl.NumberFormat('es-MX', {
+      style: 'currency',
+      currency: currency,
+      maximumFractionDigits: 0,
+    })
+      .format(price)
+      .replace('$', '')
+      .replace(',', ',')
+  : '0';
 ---
 
 <section class="pricing-section" id="pricing">
@@ -69,9 +71,9 @@ const formattedPrice = price ? new Intl.NumberFormat('es-MX', {
         ctaText={ctaText}
         ctaHref={ctaUrl}
         showBankTransferCta={showBankTransferCta}
-        {...(productId && { productId })}
-        {...(planId && { planId })}
-        {...(isPaymentButton !== undefined && { isPaymentButton })}
+        {...productId && { productId }}
+        {...planId && { planId }}
+        {...isPaymentButton !== undefined && { isPaymentButton }}
       />
     </div>
   </div>

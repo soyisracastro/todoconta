@@ -25,7 +25,7 @@ const {
 ---
 
 <section class="cta-with-form">
-  <div class="cta-background" />
+  <div class="cta-background"></div>
 
   <div class="container">
     <div class="cta-content animate-fade-in-up">
@@ -38,12 +38,14 @@ const {
           {primaryCta.text}
         </Button>
 
-        {secondaryCta && (
-          <Button href={secondaryCta.url} variant="secondary" size="xl">
-            <span class="btn-icon">✉️</span>
-            {secondaryCta.text}
-          </Button>
-        )}
+        {
+          secondaryCta && (
+            <Button href={secondaryCta.url} variant="secondary" size="xl">
+              <span class="btn-icon">✉️</span>
+              {secondaryCta.text}
+            </Button>
+          )
+        }
       </div>
 
       <div class="contact-form fade-in-up">
@@ -51,9 +53,7 @@ const {
         <form id="contactForm" class="form">
           <div class="form-row">
             <div class="form-group">
-              <label for="name" class="form-label">
-                Nombre completo
-              </label>
+              <label for="name" class="form-label"> Nombre completo</label>
               <input
                 type="text"
                 id="name"
@@ -64,9 +64,7 @@ const {
               />
             </div>
             <div class="form-group">
-              <label for="company" class="form-label">
-                Empresa
-              </label>
+              <label for="company" class="form-label"> Empresa</label>
               <input
                 type="text"
                 id="company"
@@ -79,9 +77,7 @@ const {
 
           <div class="form-row">
             <div class="form-group">
-              <label for="email" class="form-label">
-                Correo electrónico
-              </label>
+              <label for="email" class="form-label"> Correo electrónico</label>
               <input
                 type="email"
                 id="email"
@@ -92,9 +88,7 @@ const {
               />
             </div>
             <div class="form-group">
-              <label for="phone" class="form-label">
-                Teléfono
-              </label>
+              <label for="phone" class="form-label"> Teléfono</label>
               <input
                 type="tel"
                 id="phone"
@@ -114,8 +108,7 @@ const {
               name="message"
               class="form-input form-textarea"
               placeholder="Cuéntanos sobre tu situación fiscal o necesidades específicas"
-              rows="4"
-            />
+              rows="4"></textarea>
           </div>
 
           <div class="form-group">
@@ -123,9 +116,9 @@ const {
               <input type="checkbox" name="privacy" required />
               <span class="checkbox-text">
                 Acepto la{' '}
-                <a href="/privacidad" class="link">
-                  política de privacidad
-                </a>{' '}
+                <a href="/privacidad" class="link"> política de privacidad</a>{
+                  ' '
+                }
                 y recibir comunicaciones.
               </span>
             </label>
@@ -138,15 +131,17 @@ const {
         </form>
       </div>
 
-      {showGuarantee && (
-        <div class="guarantee fade-in-up">
-          <div class="guarantee-icon">🛡️</div>
-          <div class="guarantee-text">
-            Garantía de cumplimiento: Si no cumplimos por nuestra
-            responsabilidad, cubrimos las multas
+      {
+        showGuarantee && (
+          <div class="guarantee fade-in-up">
+            <div class="guarantee-icon">🛡️</div>
+            <div class="guarantee-text">
+              Garantía de cumplimiento: Si no cumplimos por nuestra
+              responsabilidad, cubrimos las multas
+            </div>
           </div>
-        </div>
-      )}
+        )
+      }
     </div>
   </div>
 </section>
