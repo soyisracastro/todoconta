@@ -30,7 +30,10 @@ const {
 } = Astro.props;
 ---
 
-<section class="cta-with-contact" style={`--cta-bg-gradient: ${bgGradient};`}>
+<section
+  class="cta-with-contact"
+  style={`--cta-bg-gradient: ${bgGradient};`}
+>
   <div class="container">
     <div class="cta-content animate-fade-in-up">
       <h2 class="cta-title">{title}</h2>
@@ -41,52 +44,48 @@ const {
           {primaryCta.text}
         </Button>
 
-        {
-          secondaryCta && (
-            <Button href={secondaryCta.url} variant="secondary">
-              {secondaryCta.text}
-            </Button>
-          )
-        }
+        {secondaryCta && (
+          <Button href={secondaryCta.url} variant="secondary">
+            {secondaryCta.text}
+          </Button>
+        )}
       </div>
 
-      {
-        contactMethods && (
-          <div class="cta-contact">
-            <p>¿Tienes preguntas específicas? Contáctanos directamente:</p>
-            <div class="contact-methods">
-              {contactMethods.email && (
-                <a
-                  href={`mailto:${contactMethods.email}`}
-                  class="contact-method"
-                >
-                  <span class="contact-icon">✉️</span>
-                  <span class="contact-text">{contactMethods.email}</span>
-                </a>
-              )}
-              {contactMethods.phone && (
-                <a
-                  href={`tel:${contactMethods.phone.replace(/\D/g, '')}`}
-                  class="contact-method"
-                >
-                  <span class="contact-icon">📞</span>
-                  <span class="contact-text">{contactMethods.phone}</span>
-                </a>
-              )}
-              {contactMethods.whatsapp && (
-                <a
-                  href={`https://wa.me/${contactMethods.whatsapp}`}
-                  target="_blank"
-                  class="contact-method"
-                >
-                  <span class="contact-icon">💬</span>
-                  <span class="contact-text">WhatsApp</span>
-                </a>
-              )}
-            </div>
+      {contactMethods && (
+        <div class="cta-contact">
+          <p>¿Tienes preguntas específicas? Contáctanos directamente:</p>
+          <div class="contact-methods">
+            {contactMethods.email && (
+              <a
+                href={`mailto:${contactMethods.email}`}
+                class="contact-method"
+              >
+                <span class="contact-icon">✉️</span>
+                <span class="contact-text">{contactMethods.email}</span>
+              </a>
+            )}
+            {contactMethods.phone && (
+              <a
+                href={`tel:${contactMethods.phone.replace(/\D/g, '')}`}
+                class="contact-method"
+              >
+                <span class="contact-icon">📞</span>
+                <span class="contact-text">{contactMethods.phone}</span>
+              </a>
+            )}
+            {contactMethods.whatsapp && (
+              <a
+                href={`https://wa.me/${contactMethods.whatsapp}`}
+                target="_blank"
+                class="contact-method"
+              >
+                <span class="contact-icon">💬</span>
+                <span class="contact-text">WhatsApp</span>
+              </a>
+            )}
           </div>
-        )
-      }
+        </div>
+      )}
     </div>
   </div>
 </section>

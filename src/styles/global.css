@@ -157,7 +157,6 @@ a:hover {
 
 .btn-secondary:hover {
   background: var(--color-success);
-  color: var(--color-white);
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(129, 178, 154, 0.3);
 }
@@ -184,16 +183,6 @@ a:hover {
   background: var(--color-primary);
   color: var(--color-white);
   transform: translateY(-2px);
-}
-
-.btn-link {
-  background: transparent;
-  color: var(--color-primary);
-  border: 0px;
-}
-
-.btn-link:hover {
-  background: var(--color-primary-light);
 }
 
 .btn-lg {

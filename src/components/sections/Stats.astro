@@ -205,43 +205,43 @@ const stats = [
 <script>
   // Use centralized animation system with custom counter logic
   document.addEventListener('DOMContentLoaded', () => {
-    import('../../scripts/animations.js').then(({ AnimationController }) => {
-      const controller = new AnimationController();
+    import('../../scripts/animations.js').then(
+      ({ AnimationController }) => {
+        const controller = new AnimationController();
 
-      // Custom animation for stats with counter effect
-      controller.onScrollReveal(
-        '.stat-item',
-        (element: Element) => {
-          element.classList.add('visible');
+        // Custom animation for stats with counter effect
+        controller.onScrollReveal(
+          '.stat-item',
+          (element: Element) => {
+            element.classList.add('visible');
 
-          // Animate counter numbers
-          const numberElement = element.querySelector(
-            '.stat-number'
-          ) as HTMLElement;
-          if (numberElement && numberElement.dataset.count) {
-            const originalText = numberElement.textContent || '';
-            const finalValue = parseInt(numberElement.dataset.count) || 0;
+            // Animate counter numbers
+            const numberElement = element.querySelector('.stat-number') as HTMLElement;
+            if (numberElement && numberElement.dataset.count) {
+              const originalText = numberElement.textContent || '';
+              const finalValue = parseInt(numberElement.dataset.count) || 0;
 
-            // Custom counter that preserves formatting
-            const hasPlus = originalText.includes('+');
-            const hasPercentage = originalText.includes('%');
+              // Custom counter that preserves formatting
+              const hasPlus = originalText.includes('+');
+              const hasPercentage = originalText.includes('%');
 
-            animateCounter(
-              numberElement,
-              0,
-              finalValue,
-              1500,
-              hasPlus,
-              hasPercentage
-            );
+              animateCounter(
+                numberElement,
+                0,
+                finalValue,
+                1500,
+                hasPlus,
+                hasPercentage
+              );
+            }
+          },
+          {
+            threshold: 0.2,
+            once: true,
           }
-        },
-        {
-          threshold: 0.2,
-          once: true,
-        }
-      );
-    });
+        );
+      }
+    );
 
     // Enhanced counter animation that preserves suffixes
     function animateCounter(

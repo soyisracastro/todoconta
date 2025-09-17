@@ -5,7 +5,7 @@ price: 300
 pricePeriod: 'mensual'
 badge: 'Automatizado'
 heroImage: 'https://placehold.co/800x450/166534/FFFFFF/png?text=CENTINELA-XPRESS'
-# buyUrl: '#contacto'
+buyUrl: '#contacto'
 features:
   - icon: '🏢'
     title: 'Multi-Empresa'
