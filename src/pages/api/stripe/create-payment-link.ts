@@ -1,12 +1,32 @@
 import type { APIRoute } from 'astro';
 import Stripe from 'stripe';
 
-// Note: This will only work in serverless environments
-// For static deployment, you'll need to use a serverless platform like Vercel or Netlify
-const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY || 'your_stripe_secret_key');
+// Disable prerendering for this endpoint
+export const prerender = false;
+
+// Initialize Stripe with better error handling
+const stripeSecretKey = import.meta.env.STRIPE_SECRET_KEY;
+
+if (!stripeSecretKey || stripeSecretKey === 'your_stripe_secret_key') {
+  console.error('STRIPE_SECRET_KEY is not configured properly');
+}
+
+const stripe = new Stripe(stripeSecretKey || 'sk_test_placeholder');
 
 export const POST: APIRoute = async ({ request }) => {
   try {
+    // Check if Stripe is properly configured
+    if (!stripeSecretKey || stripeSecretKey === 'your_stripe_secret_key' || stripeSecretKey === 'sk_test_placeholder') {
+      console.error('Stripe secret key not configured');
+      return new Response(
+        JSON.stringify({
+          error: 'Stripe configuration error',
+          details: 'STRIPE_SECRET_KEY is not properly configured'
+        }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
     const { productId, planId, customerEmail } = await request.json();
 
     if (!productId || !planId || !customerEmail) {
@@ -33,7 +53,16 @@ export const POST: APIRoute = async ({ request }) => {
 
     // Find the specific plan
     if (productData.plans) {
-      plan = productData.plans.find((p: any) => p.id === planId || p.title === planId);
+      // Map planId to plan title for matching
+      const planIdToTitle: { [key: string]: string } = {
+        '1-licencia': '1 Licencia',
+        '3-licencias': '3 Licencias',
+        '5-licencias': '5 Licencias',
+        'single': 'Licencia Individual'
+      };
+
+      const planTitle = planIdToTitle[planId] || planId;
+      plan = productData.plans.find((p: any) => p.title === planTitle);
     } else if (productData.price && planId === 'single') {
       // Handle single price products
       plan = {
@@ -51,71 +80,37 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    // Determine payment type and create appropriate Stripe product/price
-    const paymentType = plan.pricePeriod?.toLowerCase().includes('anual') ? 'subscription' : 'one-time';
+    // Determine payment type - for now, use one-time payments to avoid subscription management
+    const paymentType = 'one-time'; // Changed from conditional logic to always use one-time payments
 
     let stripeProduct;
-    let stripePrice;
 
-    if (paymentType === 'subscription') {
-      // Create or retrieve subscription product
-      const products = await stripe.products.list({ limit: 100 });
-      stripeProduct = products.data.find(p => p.metadata.productId === productId && p.metadata.planId === planId);
+    // Create one-time payment product (simplified logic)
+    const stripeProducts = await stripe.products.list({ limit: 100 });
+    stripeProduct = stripeProducts.data.find(p => p.metadata.productId === productId && p.metadata.planId === planId);
 
-      if (!stripeProduct) {
-        stripeProduct = await stripe.products.create({
-          name: `${productData.title} - ${plan.title}`,
-          description: productData.description,
-          metadata: {
-            productId,
-            planId,
-            paymentType: 'subscription'
-          }
-        });
-      }
-
-      // Create price for subscription (annual)
-      stripePrice = await stripe.prices.create({
-        product: stripeProduct.id,
-        unit_amount: plan.price * 100, // Convert to cents
-        currency: 'mxn',
-        recurring: {
-          interval: 'year',
-          interval_count: 1
-        },
+    if (!stripeProduct) {
+      stripeProduct = await stripe.products.create({
+        name: `${productData.title} - ${plan.title}`,
+        description: productData.description,
         metadata: {
           productId,
-          planId
-        }
-      });
-    } else {
-      // Create one-time payment product
-      const products = await stripe.products.list({ limit: 100 });
-      stripeProduct = products.data.find(p => p.metadata.productId === productId && p.metadata.planId === planId);
-
-      if (!stripeProduct) {
-        stripeProduct = await stripe.products.create({
-          name: `${productData.title} - ${plan.title}`,
-          description: productData.description,
-          metadata: {
-            productId,
-            planId,
-            paymentType: 'one-time'
-          }
-        });
-      }
-
-      // Create one-time price
-      stripePrice = await stripe.prices.create({
-        product: stripeProduct.id,
-        unit_amount: plan.price * 100, // Convert to cents
-        currency: 'mxn',
-        metadata: {
-          productId,
-          planId
+          planId,
+          paymentType: 'one-time'
         }
       });
     }
+
+    // Create one-time price
+    const stripePrice = await stripe.prices.create({
+      product: stripeProduct.id,
+      unit_amount: plan.price * 100, // Convert to cents
+      currency: 'mxn',
+      metadata: {
+        productId,
+        planId
+      }
+    });
 
     // Create payment link
     const paymentLink = await stripe.paymentLinks.create({
@@ -147,11 +142,40 @@ export const POST: APIRoute = async ({ request }) => {
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     );
 
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error creating payment link:', error);
+
+    // Provide specific error messages based on the error type
+    let errorMessage = 'Failed to create payment link';
+    let statusCode = 500;
+
+    if (error.type === 'StripeInvalidRequestError') {
+      errorMessage = 'Invalid request to Stripe API';
+      statusCode = 400;
+    } else if (error.type === 'StripeAPIError') {
+      errorMessage = 'Stripe API error';
+      statusCode = 502;
+    } else if (error.type === 'StripeConnectionError') {
+      errorMessage = 'Connection error with Stripe';
+      statusCode = 503;
+    } else if (error.type === 'StripeAuthenticationError') {
+      errorMessage = 'Stripe authentication failed - check your API keys';
+      statusCode = 401;
+    } else if (error.message?.includes('Invalid API Key')) {
+      errorMessage = 'Invalid Stripe API key';
+      statusCode = 401;
+    } else if (error.message?.includes('network') || error.message?.includes('fetch')) {
+      errorMessage = 'Network error - check your internet connection';
+      statusCode = 503;
+    }
+
     return new Response(
-      JSON.stringify({ error: 'Failed to create payment link' }),
-      { status: 500, headers: { 'Content-Type': 'application/json' } }
+      JSON.stringify({
+        error: errorMessage,
+        details: error.message || 'Unknown error',
+        type: error.type || 'UnknownError'
+      }),
+      { status: statusCode, headers: { 'Content-Type': 'application/json' } }
     );
   }
 };

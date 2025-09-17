@@ -16,6 +16,9 @@ export interface Props {
     ctaUrl?: string | undefined;
   }> | undefined;
   showBankTransferCta?: boolean | undefined;
+  // Payment-related props
+  productId?: string | undefined;
+  isPaymentButton?: boolean | undefined;
 }
 
 const {
@@ -23,7 +26,20 @@ const {
   subtitle = 'Selecciona la opción que mejor se adapte a tus necesidades.',
   plans = [],
   showBankTransferCta = false,
+  productId,
+  isPaymentButton = false,
 } = Astro.props;
+
+// Function to convert plan title to plan ID
+function getPlanId(planTitle: string): string {
+  const planMappings: { [key: string]: string } = {
+    '1 Licencia': '1-licencia',
+    '3 Licencias': '3-licencias',
+    '5 Licencias': '5-licencias',
+    'Licencia Individual': 'single',
+  };
+  return planMappings[planTitle] || planTitle.toLowerCase().replace(/\s+/g, '-');
+}
 ---
 
 <section class="pricing-plans-section" id="pricing">
@@ -57,6 +73,9 @@ const {
               ctaText={plan.ctaText}
               ctaHref={plan.ctaUrl}
               showBankTransferCta={showBankTransferCta}
+              productId={productId}
+              planId={getPlanId(plan.title)}
+              isPaymentButton={isPaymentButton && !plan.ctaUrl}
             />
           </div>
         ))

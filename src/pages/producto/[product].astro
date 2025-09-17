@@ -95,9 +95,15 @@ const pricingProps = price
   ? {
       price,
       features: pricing.features,
-      ctaUrl: buyUrl || '#',
+      ctaUrl: buyUrl || '#pricing', // Fallback to pricing section
       highlighted: true,
       showBankTransferCta: true, // Mostrar CTA de transferencia bancaria
+      // Dynamic payment props when no buyUrl
+      ...(buyUrl ? {} : {
+        productId: product.slug,
+        planId: 'single',
+        isPaymentButton: true
+      }),
       ...(pricePeriod ? { pricePeriod } : {}),
     }
   : undefined;
@@ -108,6 +114,8 @@ const pricingPlansProps = plans
       subtitle: `Selecciona el número de licencias de ${title} que mejor se adapte a tu negocio.`,
       plans,
       showBankTransferCta: true, // Mostrar CTA de transferencia bancaria en planes múltiples
+      productId: product.slug,
+      isPaymentButton: true, // Enable payment buttons for plans
     }
   : null;
 

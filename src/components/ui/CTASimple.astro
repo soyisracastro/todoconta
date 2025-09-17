@@ -36,16 +36,21 @@ const {
       <p class="cta-description">{description}</p>
 
       <div class="cta-buttons">
-        <Button
-          href={primaryCta.url}
-          variant="primary"
-          data-product-id={productId}
-          data-plan-id={planId}
-          data-payment-button={isPaymentButton}
-          id="primary-cta-button"
-        >
-          {primaryCta.text}
-        </Button>
+        {isPaymentButton ? (
+          <button
+            class="btn btn-primary cta-payment-btn"
+            data-product-id={productId}
+            data-plan-id={planId}
+            data-payment-button="true"
+            type="button"
+          >
+            {primaryCta.text}
+          </button>
+        ) : (
+          <Button href={primaryCta.url} variant="primary">
+            {primaryCta.text}
+          </Button>
+        )}
 
         {secondaryCta && (
           <Button href={secondaryCta.url} variant="outline">
@@ -57,69 +62,7 @@ const {
   </div>
 </section>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const primaryButton = document.getElementById('primary-cta-button') as HTMLAnchorElement;
-
-    if (primaryButton && primaryButton.dataset.paymentButton === 'true') {
-      primaryButton.addEventListener('click', async (e) => {
-        e.preventDefault();
-
-        const productId = primaryButton.dataset.productId;
-        const planId = primaryButton.dataset.planId;
-
-        if (!productId || !planId) {
-          console.error('Missing productId or planId for payment button');
-          return;
-        }
-
-        // Show loading state
-        const originalText = primaryButton.textContent;
-        primaryButton.textContent = 'Generando enlace...';
-        primaryButton.style.pointerEvents = 'none';
-
-        try {
-          // Get customer email (you might want to show a modal or form for this)
-          const customerEmail = prompt('Por favor ingresa tu correo electrónico:');
-
-          if (!customerEmail) {
-            primaryButton.textContent = originalText;
-            primaryButton.style.pointerEvents = 'auto';
-            return;
-          }
-
-          // Call the API to create payment link
-          const response = await fetch('/api/stripe/create-payment-link', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              productId,
-              planId,
-              customerEmail,
-            }),
-          });
-
-          if (!response.ok) {
-            throw new Error('Failed to create payment link');
-          }
-
-          const data = await response.json();
-
-          // Redirect to Stripe payment link
-          window.location.href = data.url;
-
-        } catch (error) {
-          console.error('Error creating payment link:', error);
-          alert('Error al generar el enlace de pago. Por favor intenta de nuevo.');
-          primaryButton.textContent = originalText;
-          primaryButton.style.pointerEvents = 'auto';
-        }
-      });
-    }
-  });
-</script>
+<!-- Payment button functionality is handled by initPaymentButtons() in shared-utils.js -->
 
 <style>
   .cta-simple {
@@ -183,6 +126,30 @@ const {
     justify-content: center;
     flex-wrap: wrap;
     margin-bottom: var(--space-8);
+  }
+
+  .cta-payment-btn {
+    font-size: var(--font-size-base);
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--border-radius-md);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: 2px solid var(--color-primary);
+    background: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  .cta-payment-btn:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .cta-payment-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
   }
 
   /* Responsive */

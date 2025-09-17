@@ -17,7 +17,7 @@ plans:
       - 'Posibilidad de mover licencia a otro equipo'
     featured: false
     ctaText: 'Comprar 1 Licencia'
-    ctaUrl: 'https://buy.stripe.com/eVa3d09CRf5Kgfe5kq'
+    # ctaUrl: 'https://buy.stripe.com/eVa3d09CRf5Kgfe5kq'
   - title: '3 Licencias'
     price: 1999
     pricePeriod: 'Anual'
@@ -31,7 +31,7 @@ plans:
       - 'Descuento del +40% vs licencias individuales'
     featured: true
     ctaText: 'Comprar 3 Licencias'
-    ctaUrl: 'https://buy.stripe.com/5kAcNA02hcXC8MM5kr'
+    # ctaUrl: 'https://buy.stripe.com/5kAcNA02hcXC8MM5kr'
   - title: '5 Licencias'
     price: 2699
     pricePeriod: 'Anual'
@@ -45,9 +45,8 @@ plans:
       - 'Descuento del +50% vs licencias individuales'
     featured: false
     ctaText: 'Comprar 5 Licencias'
-    ctaUrl: 'https://buy.stripe.com/dR6eVI3et8Hmgfe4go'
+    # ctaUrl: 'https://buy.stripe.com/dR6eVI3et8Hmgfe4go'
 heroImage: 'https://placehold.co/800x450/0891b2/FFFFFF/png?text=XMLSAT++'
-buyUrl: '#contacto'
 features:
   - icon: '📥'
     title: 'Descarga Masiva Optimizada'
