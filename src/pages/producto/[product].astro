@@ -1,4 +1,5 @@
 ---
+export const prerender = true;
 // src/pages/landing/[product].astro
 import { getCollection } from 'astro:content';
 import LandingLayout from '../../layouts/LandingLayout.astro';
@@ -22,6 +23,9 @@ export async function getStaticPaths() {
 }
 
 const { product } = Astro.props;
+if (!product || !product.data) {
+  throw new Error(`Product data not found for slug: ${Astro.params.product}`);
+}
 const {
   title,
   description,
@@ -39,8 +43,17 @@ const {
 } = product.data;
 
 // Renderizar el contenido Markdown si existe
-const { Content } = await product.render();
+let Content = null;
 const hasContent = product.body && product.body.trim().length > 0;
+if (hasContent) {
+  try {
+    const renderResult = await product.render();
+    Content = renderResult.Content;
+  } catch (error) {
+    console.error(`Error rendering content for product ${product.slug}:`, error);
+    // Content remains null, so it won't render
+  }
+}
 
 // Calculate price display
 let priceDisplay = undefined;
@@ -159,7 +172,7 @@ const hasValidFaqs = faqs && Array.isArray(faqs) && faqs.length > 0;
 
   <!-- Content Section (if available) -->
   {
-    hasContent && (
+    hasContent && Content && (
       <section class="py-24">
         <div class="container mx-auto px-6">
           <div class="prose prose-lg max-w-4xl mx-auto">
