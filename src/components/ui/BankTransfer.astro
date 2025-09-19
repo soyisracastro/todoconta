@@ -18,8 +18,8 @@ const bankInfo = {
   reference: `Pago ${productTitle}`,
 };
 
-const title = "Pago por Transferencia";
-const subtitle = "Opción segura y sin comisiones adicionales";
+const title = 'Pago por Transferencia';
+const subtitle = 'Opción segura y sin comisiones adicionales';
 ---
 
 <section class="section section-alt" id="bank-transfer-section">
@@ -38,9 +38,7 @@ const subtitle = "Opción segura y sin comisiones adicionales";
     <!-- Bank Information Card -->
     <div class="card mb-8">
       <div class="card-body">
-        <h3 class="card-title">
-          Información Bancaria
-        </h3>
+        <h3 class="card-title">Información Bancaria</h3>
 
         <div class="grid grid-cols-2 gap-8">
           <!-- Account Details -->
@@ -49,7 +47,9 @@ const subtitle = "Opción segura y sin comisiones adicionales";
               <label class="form-label">Banco</label>
               <div class="bg-warm p-4 rounded-lg border border-primary-light">
                 <div class="flex items-center justify-between flex-col-mobile">
-                  <span class="text-primary font-mono font-medium">{bankInfo.bank}</span>
+                  <span class="text-primary font-mono font-medium"
+                    >{bankInfo.bank}</span
+                  >
                   <Button
                     variant="outline"
                     size="sm"
@@ -101,7 +101,9 @@ const subtitle = "Opción segura y sin comisiones adicionales";
               <label class="form-label">CLABE Interbancaria</label>
               <div class="bg-warm p-4 rounded-lg border border-primary-light">
                 <div class="flex items-center justify-between flex-col-mobile">
-                  <span class="text-primary font-mono font-medium">{bankInfo.clabe}</span>
+                  <span class="text-primary font-mono font-medium"
+                    >{bankInfo.clabe}</span
+                  >
                   <Button
                     variant="outline"
                     size="sm"
@@ -138,46 +140,58 @@ const subtitle = "Opción segura y sin comisiones adicionales";
               productPrice && (
                 <div class="form-group">
                   <label class="form-label">Monto a Pagar</label>
-                 <div class="bg-warm p-4 rounded-lg border border-primary-light">
-                   <div class="flex items-center justify-between flex-col-mobile">
-                     <span class="text-success font-bold text-xl">
-                       ${productPrice.toLocaleString()} MXN
-                     </span>
-                     <Button
-                       variant="outline"
-                       size="sm"
-                       onclick="copyToClipboard(window.productPrice.toString(), event)"
-                     >
-                       Copiar
-                     </Button>
-                   </div>
-                 </div>
+                  <div class="bg-warm p-4 rounded-lg border border-primary-light">
+                    <div class="flex items-center justify-between flex-col-mobile">
+                      <span class="text-success font-bold text-xl">
+                        ${productPrice.toLocaleString()} MXN
+                      </span>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onclick="copyToClipboard(window.productPrice.toString(), event)"
+                      >
+                        Copiar
+                      </Button>
+                    </div>
+                  </div>
                 </div>
               )
             }
 
             <!-- Important Notes -->
             <div class="bg-warm p-6 rounded-lg border border-warning">
-              <h4 class="text-warning font-semibold mb-4 flex items-center gap-2">
+              <h4
+                class="text-warning font-semibold mb-4 flex items-center gap-2"
+              >
                 Instrucciones para el pago
               </h4>
               <ol class="text-primary text-sm space-y-2">
                 <li>
-                  1. Realiza la transferencia usando los datos bancarios mostrados en esta sección.
+                  1. Realiza la transferencia usando los datos bancarios
+                  mostrados en esta sección.
                 </li>
                 <li>
-                  2. Utiliza el concepto de pago: <strong class="text-primary">"{bankInfo.reference}"</strong>
+                  2. Utiliza el concepto de pago: <strong class="text-primary"
+                    >"{bankInfo.reference}"</strong
+                  >
                 </li>
                 <li>
-                  3. Toma una captura de pantalla o guarda el comprobante de tu transferencia
+                  3. Toma una captura de pantalla o guarda el comprobante de tu
+                  transferencia
                 </li>
                 <li>
-                  4. Envía el comprobante por email a: <strong class="text-primary"><a
-                    href="mailto:pagos@todoconta.com"
-                    class="text-primary font-semibold hover:underline">pagos@todoconta.com</a></strong>
+                  4. Envía el comprobante por email a: <strong
+                    class="text-primary"
+                    ><a
+                      href="mailto:pagos@todoconta.com"
+                      class="text-primary font-semibold hover:underline"
+                      >pagos@todoconta.com</a
+                    ></strong
+                  >
                 </li>
                 <li>
-                  5. Recibirás las instrucciones de activación/descarga en las próximas 24 horas
+                  5. Recibirás las instrucciones de activación/descarga en las
+                  próximas 24 horas
                 </li>
               </ol>
             </div>
@@ -233,4 +247,3 @@ const subtitle = "Opción segura y sin comisiones adicionales";
   // Make copyToClipboard available globally
   window.copyToClipboard = copyToClipboard;
 </script>
-

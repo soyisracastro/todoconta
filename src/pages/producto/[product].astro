@@ -50,7 +50,10 @@ if (hasContent) {
     const renderResult = await product.render();
     Content = renderResult.Content;
   } catch (error) {
-    console.error(`Error rendering content for product ${product.slug}:`, error);
+    console.error(
+      `Error rendering content for product ${product.slug}:`,
+      error
+    );
     // Content remains null, so it won't render
   }
 }

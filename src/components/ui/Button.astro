@@ -31,7 +31,10 @@ const sizeClasses = {
   xl: 'btn-xl',
 };
 
-const classes = `btn ${variantClasses[variant] || ''} ${sizeClasses[size] || ''} ${className || ''}`.trim().replace(/\s+/g, ' ');
+const classes =
+  `btn ${variantClasses[variant] || ''} ${sizeClasses[size] || ''} ${className || ''}`
+    .trim()
+    .replace(/\s+/g, ' ');
 ---
 
 {
