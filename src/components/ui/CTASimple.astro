@@ -12,6 +12,10 @@ export interface Props {
     text: string;
     url: string;
   } | null;
+  // New props for dynamic payment links
+  productId?: string;
+  planId?: string;
+  isPaymentButton?: boolean;
 }
 
 const {
@@ -19,6 +23,9 @@ const {
   description,
   primaryCta,
   secondaryCta,
+  productId,
+  planId,
+  isPaymentButton = false,
 } = Astro.props;
 ---
 
@@ -29,19 +36,37 @@ const {
       <p class="cta-description">{description}</p>
 
       <div class="cta-buttons">
-        <Button href={primaryCta.url} variant="primary">
-          {primaryCta.text}
-        </Button>
+        {
+          isPaymentButton ? (
+            <button
+              class="btn btn-primary cta-payment-btn"
+              data-product-id={productId}
+              data-plan-id={planId}
+              data-payment-button="true"
+              type="button"
+            >
+              {primaryCta.text}
+            </button>
+          ) : (
+            <Button href={primaryCta.url} variant="primary">
+              {primaryCta.text}
+            </Button>
+          )
+        }
 
-        {secondaryCta && (
-          <Button href={secondaryCta.url} variant="outline">
-            {secondaryCta.text}
-          </Button>
-        )}
+        {
+          secondaryCta && (
+            <Button href={secondaryCta.url} variant="outline">
+              {secondaryCta.text}
+            </Button>
+          )
+        }
       </div>
     </div>
   </div>
 </section>
+
+<!-- Payment button functionality is handled by initPaymentButtons() in shared-utils.js -->
 
 <style>
   .cta-simple {
@@ -105,6 +130,30 @@ const {
     justify-content: center;
     flex-wrap: wrap;
     margin-bottom: var(--space-8);
+  }
+
+  .cta-payment-btn {
+    font-size: var(--font-size-base);
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--border-radius-md);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: 2px solid var(--color-primary);
+    background: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  .cta-payment-btn:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .cta-payment-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
   }
 
   /* Responsive */

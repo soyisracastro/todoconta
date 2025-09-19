@@ -27,3 +27,5 @@ pnpm-debug.log*
 data/
 .gemini-clipboard/
 .claude/
+# Local Netlify folder
+.netlify

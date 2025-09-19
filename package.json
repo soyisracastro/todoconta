@@ -26,8 +26,12 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
+    "@astrojs/netlify": "^6.5.10",
+    "@astrojs/node": "^9.4.3",
+    "@aws-sdk/client-ses": "^3.888.0",
     "astro": "^5.12.6",
     "date-fns": "^4.1.0",
+    "stripe": "^18.5.0",
     "typescript": "^5.9.2"
   },
   "devDependencies": {
