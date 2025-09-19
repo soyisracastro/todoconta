@@ -1,4 +1,6 @@
 ---
+import Button from './Button.astro';
+
 export interface Props {
   productTitle: string;
   productPrice?: number;
@@ -41,12 +43,13 @@ const bankInfo = {
                 style="background-color: var(--color-background-alt);"
               >
                 <span class="text-primary font-mono">{bankInfo.bank}</span>
-                <button
-                  class="btn btn-outline btn-sm"
-                  onclick="copyToClipboard(bankInfo.bank, event)"
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onclick="copyToClipboard(window.bankInfo.bank, event)"
                 >
                   Copiar
-                </button>
+                </Button>
               </div>
             </div>
 
@@ -59,12 +62,13 @@ const bankInfo = {
                 <span class="text-primary font-mono text-sm"
                   >{bankInfo.accountHolder}</span
                 >
-                <button
-                  class="btn btn-outline btn-sm"
-                  onclick="copyToClipboard(bankInfo.accountHolder, event)"
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onclick="copyToClipboard(window.bankInfo.accountHolder, event)"
                 >
                   Copiar
-                </button>
+                </Button>
               </div>
             </div>
 
@@ -77,12 +81,13 @@ const bankInfo = {
                 <span class="text-primary font-mono"
                   >{bankInfo.accountNumber}</span
                 >
-                <button
-                  class="btn btn-outline btn-sm"
-                  onclick="copyToClipboard(bankInfo.accountNumber, event)"
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onclick="copyToClipboard(window.bankInfo.accountNumber, event)"
                 >
                   Copiar
-                </button>
+                </Button>
               </div>
             </div>
 
@@ -93,12 +98,13 @@ const bankInfo = {
                 style="background-color: var(--color-background-alt);"
               >
                 <span class="text-primary font-mono">{bankInfo.clabe}</span>
-                <button
-                  class="btn btn-outline btn-sm"
-                  onclick="copyToClipboard(bankInfo.clabe, event)"
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onclick="copyToClipboard(window.bankInfo.clabe, event)"
                 >
                   Copiar
-                </button>
+                </Button>
               </div>
             </div>
           </div>
@@ -114,12 +120,13 @@ const bankInfo = {
                 <span class="text-primary font-mono text-sm"
                   >{bankInfo.reference}</span
                 >
-                <button
-                  class="btn btn-outline btn-sm"
-                  onclick="copyToClipboard(bankInfo.reference, event)"
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onclick="copyToClipboard(window.bankInfo.reference, event)"
                 >
                   Copiar
-                </button>
+                </Button>
               </div>
             </div>
 
@@ -134,12 +141,13 @@ const bankInfo = {
                     <span class="text-success font-bold text-lg">
                       ${productPrice.toLocaleString()} MXN
                     </span>
-                    <button
-                      class="btn btn-outline btn-sm"
-                      onclick="copyToClipboard(productPrice.toString(), event)"
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onclick="copyToClipboard(window.productPrice.toString(), event)"
                     >
                       Copiar
-                    </button>
+                    </Button>
                   </div>
                 </div>
               )
@@ -184,7 +192,11 @@ const bankInfo = {
   </div>
 </section>
 
-<script define:vars={{ bankInfo, productPrice }}>
+<script is:inline define:vars={{ bankInfo, productPrice }}>
+  // Expose variables to global scope for onclick strings
+  window.bankInfo = bankInfo;
+  window.productPrice = productPrice;
+
   // Copy to clipboard functionality
   function copyToClipboard(text, event) {
     // Prevent default if it's called from an event

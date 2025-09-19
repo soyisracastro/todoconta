@@ -4,6 +4,7 @@ export interface Props {
   size?: 'sm' | 'default' | 'lg' | 'xl';
   href?: string;
   class?: string;
+  onclick?: string;
   [key: string]: any;
 }
 
@@ -30,12 +31,7 @@ const sizeClasses = {
   xl: 'btn-xl',
 };
 
-const classes = [
-  'btn',
-  variantClasses[variant],
-  sizeClasses[size],
-  className,
-].join(' ');
+const classes = `btn ${variantClasses[variant] || ''} ${sizeClasses[size] || ''} ${className || ''}`.trim().replace(/\s+/g, ' ');
 ---
 
 {
