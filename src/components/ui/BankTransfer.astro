@@ -48,7 +48,7 @@ const subtitle = "Opción segura y sin comisiones adicionales";
             <div class="form-group">
               <label class="form-label">Banco</label>
               <div class="bg-warm p-4 rounded-lg border border-primary-light">
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between flex-col-mobile">
                   <span class="text-primary font-mono font-medium">{bankInfo.bank}</span>
                   <Button
                     variant="outline"
@@ -64,7 +64,7 @@ const subtitle = "Opción segura y sin comisiones adicionales";
             <div class="form-group">
               <label class="form-label">Beneficiario</label>
               <div class="bg-warm p-4 rounded-lg border border-primary-light">
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between flex-col-mobile">
                   <span class="text-primary font-mono text-sm font-medium"
                     >{bankInfo.accountHolder}</span
                   >
@@ -82,7 +82,7 @@ const subtitle = "Opción segura y sin comisiones adicionales";
             <div class="form-group">
               <label class="form-label">Número de Cuenta</label>
               <div class="bg-warm p-4 rounded-lg border border-primary-light">
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between flex-col-mobile">
                   <span class="text-primary font-mono font-medium"
                     >{bankInfo.accountNumber}</span
                   >
@@ -100,7 +100,7 @@ const subtitle = "Opción segura y sin comisiones adicionales";
             <div class="form-group">
               <label class="form-label">CLABE Interbancaria</label>
               <div class="bg-warm p-4 rounded-lg border border-primary-light">
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between flex-col-mobile">
                   <span class="text-primary font-mono font-medium">{bankInfo.clabe}</span>
                   <Button
                     variant="outline"
@@ -119,7 +119,7 @@ const subtitle = "Opción segura y sin comisiones adicionales";
             <div class="form-group">
               <label class="form-label">Concepto de Pago</label>
               <div class="bg-warm p-4 rounded-lg border border-primary-light">
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between flex-col-mobile">
                   <span class="text-primary font-mono text-sm font-medium"
                     >{bankInfo.reference}</span
                   >
@@ -139,19 +139,19 @@ const subtitle = "Opción segura y sin comisiones adicionales";
                 <div class="form-group">
                   <label class="form-label">Monto a Pagar</label>
                  <div class="bg-warm p-4 rounded-lg border border-primary-light">
-                    <div class="flex items-center justify-between">
-                      <span class="text-success font-bold text-xl">
-                        ${productPrice.toLocaleString()} MXN
-                      </span>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onclick="copyToClipboard(window.productPrice.toString(), event)"
-                      >
-                        Copiar
-                      </Button>
-                    </div>
-                  </div>
+                   <div class="flex items-center justify-between flex-col-mobile">
+                     <span class="text-success font-bold text-xl">
+                       ${productPrice.toLocaleString()} MXN
+                     </span>
+                     <Button
+                       variant="outline"
+                       size="sm"
+                       onclick="copyToClipboard(window.productPrice.toString(), event)"
+                     >
+                       Copiar
+                     </Button>
+                   </div>
+                 </div>
                 </div>
               )
             }
@@ -159,22 +159,22 @@ const subtitle = "Opción segura y sin comisiones adicionales";
             <!-- Important Notes -->
             <div class="bg-warm p-6 rounded-lg border border-warning">
               <h4 class="text-warning font-semibold mb-4 flex items-center gap-2">
-                📋 Instrucciones para el Pago
+                Instrucciones para el pago
               </h4>
               <ol class="text-primary text-sm space-y-2">
                 <li>
-                  1. Realiza la transferencia usando los datos bancarios mostrados arriba
+                  1. Realiza la transferencia usando los datos bancarios mostrados en esta sección.
                 </li>
                 <li>
-                  2. Usa exactamente el concepto de pago: <strong class="text-primary">"{bankInfo.reference}"</strong>
+                  2. Utiliza el concepto de pago: <strong class="text-primary">"{bankInfo.reference}"</strong>
                 </li>
                 <li>
                   3. Toma una captura de pantalla o guarda el comprobante de tu transferencia
                 </li>
                 <li>
-                  4. Envía el comprobante por email a: <a
+                  4. Envía el comprobante por email a: <strong class="text-primary"><a
                     href="mailto:pagos@todoconta.com"
-                    class="text-primary font-semibold hover:underline">pagos@todoconta.com</a>
+                    class="text-primary font-semibold hover:underline">pagos@todoconta.com</a></strong>
                 </li>
                 <li>
                   5. Recibirás las instrucciones de activación/descarga en las próximas 24 horas
@@ -233,3 +233,4 @@ const subtitle = "Opción segura y sin comisiones adicionales";
   // Make copyToClipboard available globally
   window.copyToClipboard = copyToClipboard;
 </script>
+
