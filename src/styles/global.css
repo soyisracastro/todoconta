@@ -427,6 +427,22 @@ a:hover {
   justify-content: space-between;
 }
 
+/* Responsive Flex Utilities */
+@media (max-width: 768px) {
+  .flex-col-mobile {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .flex-col-mobile > * {
+    width: 100%;
+  }
+
+  .flex-col-mobile.items-center {
+    align-items: flex-start;
+  }
+}
+
 .flex-wrap {
   flex-wrap: wrap;
 }
