@@ -46,7 +46,7 @@ plans:
     featured: false
     ctaText: 'Comprar 5 Licencias'
     # ctaUrl: 'https://buy.stripe.com/dR6eVI3et8Hmgfe4go'
-heroImage: 'https://placehold.co/800x450/0891b2/FFFFFF/png?text=XMLSAT++'
+heroImage: 'https://s3.us-east-1.amazonaws.com/todoconta.com/uploads/store/xmlsat.png'
 features:
   - icon: '📥'
     title: 'Descarga Masiva Optimizada'

@@ -4,7 +4,7 @@ description: 'Diseñado para despachos contables, contadores autónomos, auditor
 price: 2200
 pricePeriod: 'IVA incluido'
 badge: 'Auditoría Fiscal'
-heroImage: 'https://placehold.co/800x450/075985/FFFFFF/png?text=XMLSAT+Premium'
+heroImage: 'https://s3.us-east-1.amazonaws.com/todoconta.com/uploads/store/xmlsat-premium.png'
 # buyUrl: 'https://buy.stripe.com/00g4h4bKZ7Di1kk149'
 features:
   - icon: '📥'

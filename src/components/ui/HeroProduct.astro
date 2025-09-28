@@ -62,7 +62,7 @@ const heroImage = image || defaultImage;
       <div class="hero-image-container animate-fade-in-up delay-400">
         <img
           src={heroImage}
-          alt="Visualización del producto"
+          alt={title}
           class="hero-image"
         />
       </div>
@@ -130,7 +130,9 @@ const heroImage = image || defaultImage;
 
   .hero-image {
     width: 100%;
-    border-radius: var(--border-radius-2xl);
+    border: 0;
+    box-shadow: none;
+    border-radius: 0;
   }
 
   /* Product variant styles */
@@ -165,10 +167,6 @@ const heroImage = image || defaultImage;
     color: var(--color-text-secondary);
   }
 
-  .hero-product .hero-image {
-    box-shadow: var(--shadow-2xl);
-  }
-
   /* Responsive design */
   @media (max-width: 992px) {
     .hero-content {
@@ -185,7 +183,6 @@ const heroImage = image || defaultImage;
     }
 
     .hero-image {
-      max-width: 80%;
       margin: 0 auto;
     }
   }
