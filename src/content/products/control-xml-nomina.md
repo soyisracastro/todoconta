@@ -4,7 +4,7 @@ description: 'Plantilla Excel profesional diseñada para contadores y departamen
 price: 1850
 pricePeriod: 'IVA incluido'
 badge: 'PLANTILLA EXCEL PREMIUM'
-heroImage: 'https://placehold.co/800x450/166534/FFFFFF/png?text=Control+XML+Nomina'
+heroImage: 'https://s3.us-east-1.amazonaws.com/todoconta.com/uploads/store/control-xml-nom.png'
 # buyUrl: 'https://buy.stripe.com/5kAcNA8yNg9ObYY3cm'
 features:
   - icon: '📊'
