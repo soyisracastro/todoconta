@@ -38,7 +38,7 @@ const heroImage = '/images/workshop/hero-ai-accountant.jpg';
         </div>
       </div>
       <div class="hero-visual">
-        <img src="/images/workshop/hero-ai-accountant.jpg" width="1024" height="620" alt="Contador usando IA para automatizar tareas" />
+        <img src="/images/workshop/hero-ai-accountant.jpg" alt="Contador usando IA para automatizar tareas" />
         <div class="floating-elements">
           <div class="floating-card card-1">
             <span class="card-icon">💰</span>
@@ -1038,6 +1038,12 @@ const heroImage = '/images/workshop/hero-ai-accountant.jpg';
 
   .hero-visual {
     position: relative;
+  }
+
+  .hero-visual img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1024 / 620;
   }
 
   .floating-elements {
