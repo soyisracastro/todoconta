@@ -96,6 +96,18 @@ const { title, description, keywords } = Astro.props;
     <meta name="robots" content="index, follow" />
   </head>
   <body>
+    <!-- Workshop Banner -->
+    <header class="workshop-banner-header">
+      <div class="workshop-banner">
+        <a href="/ia-contadores" class="banner-link">
+          🚀 Nuevo Taller: IA para Contadores - Automatiza tu práctica y crea nuevas fuentes de ingresos
+        </a>
+        <button class="banner-close" aria-label="Cerrar banner" onclick="closeWorkshopBanner()">
+          ✕
+        </button>
+      </div>
+    </header>
+
     <slot />
 
     <!-- Shared functionality and animations script -->
@@ -106,6 +118,86 @@ const { title, description, keywords } = Astro.props;
       // Initialize both systems
       initSharedUtils();
       initAnimations();
+
+      // Workshop banner close functionality
+      function closeWorkshopBanner() {
+        const banner = document.querySelector('.workshop-banner-header');
+        if (banner) {
+          banner.style.display = 'none';
+        }
+      }
+
+      // Make function globally available
+      window.closeWorkshopBanner = closeWorkshopBanner;
     </script>
   </body>
 </html>
+
+<style>
+  /* Workshop Banner Header */
+  .workshop-banner-header {
+    background-color: var(--color-error);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-4) 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+  }
+
+  .workshop-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+  }
+
+  .banner-link {
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: var(--font-size-base);
+    flex: 1;
+    text-align: center;
+    transition: color var(--transition-fast);
+  }
+
+  .banner-link:hover {
+    color: var(--color-primary);
+  }
+
+  .banner-close {
+    background: none;
+    border: none;
+    font-size: var(--font-size-lg);
+    color: var(--color-white);
+    cursor: pointer;
+    padding: var(--space-2);
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+    margin-left: var(--space-4);
+  }
+
+  .banner-close:hover {
+    background: var(--color-background-alt);
+    color: var(--color-text-primary);
+  }
+
+  @media (max-width: 768px) {
+    .workshop-banner {
+      padding: 0 var(--space-4);
+    }
+
+    .banner-link {
+      font-size: var(--font-size-sm);
+    }
+
+    .banner-close {
+      font-size: var(--font-size-base);
+      margin-left: var(--space-2);
+    }
+  }
+</style>
