@@ -131,6 +131,15 @@ const {
     />
   </head>
   <body>
+    <!-- Workshop Banner - Only show on non-workshop pages -->
+    {Astro.url.pathname !== '/ia-contadores' && (
+      <div class="workshop-banner">
+        <a href="/ia-contadores" class="banner-link">
+          🚀 Nuevo Taller: IA para Contadores - Automatiza tu práctica y crea nuevas fuentes de ingresos
+        </a>
+      </div>
+    )}
+
     <!-- Floating Home Link -->
     <div class="floating-home-link">
       <a href="/" title="Volver a Todoconta">
@@ -565,6 +574,34 @@ const {
 
     .modal-footer .btn {
       width: 100%;
+    }
+  }
+
+  /* Workshop Banner */
+  .workshop-banner {
+    background-color: #dc2626;
+    color: white;
+    text-align: center;
+    padding: var(--space-3) var(--space-4);
+    font-weight: 600;
+    font-size: var(--font-size-base);
+  }
+
+  .banner-link {
+    color: white;
+    text-decoration: none;
+    display: block;
+    transition: opacity var(--transition-fast);
+  }
+
+  .banner-link:hover {
+    opacity: 0.9;
+  }
+
+  @media (max-width: 768px) {
+    .workshop-banner {
+      padding: var(--space-2) var(--space-3);
+      font-size: var(--font-size-sm);
     }
   }
 </style>
