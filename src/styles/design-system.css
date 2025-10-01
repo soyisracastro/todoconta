@@ -8,6 +8,13 @@
   --color-text-secondary: #6b7280;
   --color-white: #ffffff;
 
+  /* Hero Section - Dark Theme */
+  --color-hero-background: #0f172a;
+  --color-hero-background-alt: #1e293b;
+  --color-hero-text-primary: #ffffff;
+  --color-hero-text-secondary: #cbd5e1;
+  --color-hero-accent: #fb923c; /* Para destacar beneficios económicos */
+
   /* Accent Colors */
   --color-accent: #d4a64a;
   --color-success: #14b8a6;
@@ -20,6 +27,10 @@
   --color-primary-hover: rgba(20, 184, 166, 0.9);
   --color-border: rgba(107, 114, 128, 0.15);
   --color-border-light: rgba(107, 114, 128, 0.08);
+  
+  /* Hero specific borders/accents */
+  --color-hero-border: rgba(203, 213, 225, 0.1);
+  --color-hero-primary-glow: rgba(20, 184, 166, 0.15);
 
 
   /* Typography */
