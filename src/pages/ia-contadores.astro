@@ -1,0 +1,1384 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+import Button from '../components/ui/Button.astro';
+import BankTransfer from '../components/ui/BankTransfer.astro';
+
+const title = "IA para Contadores: Automatiza tu práctica y crea nuevas fuentes de ingresos";
+const description = "Un enfoque práctico y multiplataforma que maximiza tus recursos independientemente de la herramienta. Aprende a trabajar con un ecosistema de IAs y monetizar tu experiencia.";
+const keywords = ["IA para contadores", "inteligencia artificial contabilidad", "automatización contable", "asistentes IA fiscales", "monetización IA contadores"];
+---
+
+<LandingLayout title={title} description={description} keywords={keywords}>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-icon">🤖</span>
+          <span>Revolución en Contabilidad</span>
+        </div>
+        <h1 class="hero-title">
+          IA para Contadores:<br>
+          <span class="hero-highlight">Automatiza tu práctica</span><br>
+          y crea nuevas fuentes de ingresos
+        </h1>
+        <p class="hero-subtitle">
+          Un enfoque práctico y multiplataforma que maximiza tus recursos
+          independientemente de la herramienta. Aprende a pensar, usar y monetizar IA en tu día a día profesional.
+        </p>
+        <div class="hero-cta">
+          <Button href="#registro" variant="primary" size="xl">
+            Inscribirme Ahora
+          </Button>
+          <Button href="#beneficios" variant="outline" size="xl">
+            Ver Beneficios
+          </Button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="/public/images/workshop/hero-ai-accountant.jpg" />
+        <div class="floating-elements">
+          <div class="floating-card card-1">
+            <span class="card-icon">💰</span>
+            <span>+40% Eficiencia</span>
+          </div>
+          <div class="floating-card card-2">
+            <span class="card-icon">⏰</span>
+            <span>10-15h/semana</span>
+          </div>
+          <div class="floating-card card-3">
+            <span class="card-icon">📈</span>
+            <span>$1K-3K/mes extra</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bg-pattern"></div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits-section" id="beneficios">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">🚀 ¿Por qué este curso?</h2>
+        <p class="section-subtitle">
+          La inteligencia artificial está revolucionando la contabilidad y administración en oficina.
+          Este curso evitará que dependas de una sola herramienta.
+        </p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">🎯</div>
+          <h3>Ecosistema de IAs</h3>
+          <p>Aprende a trabajar con múltiples herramientas de IA, no solo una. Domina Gemini, ChatGPT, Claude y más.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">💡</div>
+          <h3>Mentalidad IA</h3>
+          <p>Desarrolla una mentalidad estratégica para identificar oportunidades de automatización en tu práctica diaria.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">💰</div>
+          <h3>Monetización</h3>
+          <p>Transforma tu experiencia y conocimiento en productos digitales rentables con IA.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">🔧</div>
+          <h3>Práctico y Aplicado</h3>
+          <p>Ejercicios reales con casos de oficina. No teoría, resultados medibles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curriculum Section -->
+  <section class="curriculum-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">📚 Estructura del Curso</h2>
+        <p class="section-subtitle">4 módulos intensivos para dominar la IA en contabilidad</p>
+      </div>
+
+      <div class="modules-grid">
+        <div class="module-card">
+          <div class="module-header">
+            <div class="module-number">1</div>
+            <div class="module-meta">
+              <span class="module-duration">1.5 horas</span>
+              <span class="module-type">Fundamentos</span>
+            </div>
+          </div>
+          <h3>Fundamentos de IA aplicada a la contabilidad</h3>
+          <ul class="module-topics">
+            <li>¿Qué es la IA y cómo funciona en contabilidad?</li>
+            <li>Tipos de Modelos de Lenguaje (LLMs)</li>
+            <li>Mentalidad y metodología de trabajo con IA</li>
+            <li>Comparación y criterios para elegir herramienta</li>
+            <li>Ejercicio práctico: Probar una misma tarea con dos IAs diferentes</li>
+          </ul>
+        </div>
+
+        <div class="module-card">
+          <div class="module-header">
+            <div class="module-number">2</div>
+            <div class="module-meta">
+              <span class="module-duration">2 horas</span>
+              <span class="module-type">Asistentes</span>
+            </div>
+          </div>
+          <h3>Promts y asistentes especializados para contadores</h3>
+          <ul class="module-topics">
+            <li>Cómo crear prompts potentes y eficientes</li>
+            <li>Diseño de asistentes (Gemas, GPTs, Flows)</li>
+            <li>Estructura de un asistente especializado</li>
+            <li>Casos prácticos: Intérprete de Normativa Fiscal, Analista de Estados Financieros</li>
+            <li>Ejercicio: Configura un asistente para tu propio caso</li>
+          </ul>
+        </div>
+
+        <div class="module-card">
+          <div class="module-header">
+            <div class="module-number">3</div>
+            <div class="module-meta">
+              <span class="module-duration">2.5 horas</span>
+              <span class="module-type">Herramientas</span>
+            </div>
+          </div>
+          <h3>Herramientas avanzadas y ecosistema IA</h3>
+          <ul class="module-topics">
+            <li>Clasificación práctica de IAs por especialidad</li>
+            <li>Cómo elegir la IA adecuada según la tarea</li>
+            <li>Integración multimodal: casos prácticos</li>
+            <li>Flujos híbridos: combinar varias IAs</li>
+          </ul>
+        </div>
+
+        <div class="module-card">
+          <div class="module-header">
+            <div class="module-number">4</div>
+            <div class="module-meta">
+              <span class="module-duration">2 horas</span>
+              <span class="module-type">Monetización</span>
+            </div>
+          </div>
+          <h3>Monetización y consultoría IA</h3>
+          <ul class="module-topics">
+            <li>Transformar experiencia en productos digitales</li>
+            <li>Ideas de ingresos extra para contadores</li>
+            <li>Estrategias para implementar IA en 90 días</li>
+            <li>Ejercicio: Diseña tu plan de monetización</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools Ecosystem Section -->
+  <section class="tools-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">🛠️ Ecosistema de Herramientas IA</h2>
+        <p class="section-subtitle">Domina las mejores IAs para cada tarea contable</p>
+      </div>
+
+      <div class="tools-showcase">
+        <img src="/public/images/workshop/ai-tools-ecosystem.jpg" />
+        <div class="tools-grid">
+          <div class="tool-category">
+            <h4>💻 Código</h4>
+            <p>Sonnet 4.5, Qwen3-Coder</p>
+          </div>
+          <div class="tool-category">
+            <h4>✍️ Escritura</h4>
+            <p>GPT-5</p>
+          </div>
+          <div class="tool-category">
+            <h4>🎨 Imagen</h4>
+            <p>Nano Banana</p>
+          </div>
+          <div class="tool-category">
+            <h4>🧠 Razonamiento</h4>
+            <p>GPT-5 high</p>
+          </div>
+          <div class="tool-category">
+            <h4>📰 Investigación</h4>
+            <p>Perplexity / Pro</p>
+          </div>
+          <div class="tool-category">
+            <h4>📄 OCR</h4>
+            <p>Gemini Flash</p>
+          </div>
+          <div class="tool-category">
+            <h4>🎤 Voz</h4>
+            <p>ElevenLabs</p>
+          </div>
+          <div class="tool-category">
+            <h4>🎧 Transcripción</h4>
+            <p>Whisper</p>
+          </div>
+          <div class="tool-category">
+            <h4>🔍 Búsqueda</h4>
+            <p>Perplexity Pro</p>
+          </div>
+          <div class="tool-category">
+            <h4>📊 Presentaciones</h4>
+            <p>Gamma App</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources Section -->
+  <section class="resources-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">🎁 Recursos Incluidos</h2>
+        <p class="section-subtitle">Todo lo que necesitas para implementar IA en tu práctica</p>
+      </div>
+
+      <div class="resources-grid">
+        <div class="resource-card">
+          <div class="resource-icon">🤖</div>
+          <h3>10+ Asistentes Pre-configurados</h3>
+          <p>Gemas, GPTs y Claude Flows listos para usar</p>
+        </div>
+
+        <div class="resource-card">
+          <div class="resource-icon">📊</div>
+          <h3>Plantillas Inteligentes</h3>
+          <p>Excel y Google Sheets con automatización IA</p>
+        </div>
+
+        <div class="resource-card">
+          <div class="resource-icon">📝</div>
+          <h3>Guía de Prompts</h3>
+          <p>100+ ejemplos para contadores</p>
+        </div>
+
+        <div class="resource-card">
+          <div class="resource-icon">🎥</div>
+          <h3>Tutoriales en Video</h3>
+          <p>Paso a paso con casos reales</p>
+        </div>
+
+        <div class="resource-card">
+          <div class="resource-icon">👥</div>
+          <h3>Comunidad Privada</h3>
+          <p>Intercambio de casos y experiencias</p>
+        </div>
+
+        <div class="resource-card">
+          <div class="resource-icon">🔄</div>
+          <h3>6 Meses de Actualizaciones</h3>
+          <p>Grabaciones y nuevos recursos</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing-section" id="registro">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">💵 Oferta Especial por Tiempo Limitado</h2>
+        <p class="section-subtitle">Aprovecha estos precios promocionales antes de que termine la oferta</p>
+
+        <!-- Countdown Timer -->
+        <div class="countdown-container">
+          <div class="countdown-header">
+            <span class="countdown-icon">⏰</span>
+            <span class="countdown-text">La oferta termina en:</span>
+          </div>
+          <div class="countdown-timer" id="countdown-timer">
+            <div class="countdown-item">
+              <span class="countdown-number" id="days">00</span>
+              <span class="countdown-label">Días</span>
+            </div>
+            <div class="countdown-item">
+              <span class="countdown-number" id="hours">00</span>
+              <span class="countdown-label">Horas</span>
+            </div>
+            <div class="countdown-item">
+              <span class="countdown-number" id="minutes">00</span>
+              <span class="countdown-label">Min</span>
+            </div>
+            <div class="countdown-item">
+              <span class="countdown-number" id="seconds">00</span>
+              <span class="countdown-label">Seg</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Plan Básico</h3>
+            <div class="pricing-price">
+              <span class="price-amount">$1,450</span>
+              <span class="price-currency">MXN</span>
+            </div>
+            <p class="pricing-duration">8 horas + grabación 72h</p>
+          </div>
+          <div class="pricing-features">
+            <div class="feature-item">✅ Acceso completo al taller de 8 horas</div>
+            <div class="feature-item">✅ Grabación del curso por 72 horas</div>
+            <div class="feature-item">✅ Materiales básicos del curso</div>
+          </div>
+          <Button href="#pago-basico" variant="outline" size="lg" class="pricing-cta">
+            Inscribirme
+          </Button>
+        </div>
+
+        <div class="pricing-card featured">
+          <div class="pricing-badge">¡El más popular!</div>
+          <div class="pricing-header">
+            <h3>Plan Pro</h3>
+            <div class="pricing-price">
+              <span class="price-amount">$3,850</span>
+              <span class="price-currency">MXN</span>
+            </div>
+            <p class="pricing-duration">8 horas + acceso ilimitado</p>
+          </div>
+          <div class="pricing-features">
+            <div class="feature-item">✅ Acceso al taller de 8 horas</div>
+            <div class="feature-item">✅ Grabación para ver en cualquier momento</div>
+            <div class="feature-item">✅ Plantillas/código/ejemplos trabajados</div>
+            <div class="feature-item">✅ Implementación inmediata</div>
+          </div>
+          <Button href="#pago-pro" variant="primary" size="lg" class="pricing-cta">
+            Inscribirme Ahora
+          </Button>
+        </div>
+
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Plan Premium</h3>
+            <div class="pricing-price">
+              <span class="price-amount">$6,500</span>
+              <span class="price-currency">MXN</span>
+            </div>
+            <p class="pricing-duration">8h + mentoría 1-on-1</p>
+          </div>
+          <div class="pricing-features">
+            <div class="feature-item">✅ Acceso al taller de 8 horas</div>
+            <div class="feature-item">✅ Grabación + trabajo realizado</div>
+            <div class="feature-item">✅ Sesión 1 a 1 de 60 minutos</div>
+            <div class="feature-item">✅ Optimización de flujo de trabajo</div>
+          </div>
+          <Button href="#pago-premium" variant="outline" size="lg" class="pricing-cta">
+            Inscribirme
+          </Button>
+        </div>
+      </div>
+
+      <!-- Bank Transfer Sections -->
+      <div id="pago-basico">
+        <BankTransfer
+          productTitle="IA para Contadores - Plan Básico"
+          productPrice={1450}
+          productId="ia-contadores-basico"
+        />
+      </div>
+
+      <div id="pago-pro">
+        <BankTransfer
+          productTitle="IA para Contadores - Plan Pro"
+          productPrice={3850}
+          productId="ia-contadores-pro"
+        />
+      </div>
+
+      <div id="pago-premium">
+        <BankTransfer
+          productTitle="IA para Contadores - Plan Premium"
+          productPrice={6500}
+          productId="ia-contadores-premium"
+        />
+      </div>
+
+      <!-- Guarantees -->
+      <div class="guarantees-section">
+        <h3>🛡️ Garantías TodoConta</h3>
+        <div class="guarantees-grid">
+          <div class="guarantee-item">
+            <div class="guarantee-icon">✅</div>
+            <div class="guarantee-content">
+              <h4>Garantía de Resultados</h4>
+              <p>30 días devolución si no ves resultados medibles</p>
+            </div>
+          </div>
+          <div class="guarantee-item">
+            <div class="guarantee-icon">🎁</div>
+            <div class="guarantee-content">
+              <h4>Bonos Especiales</h4>
+              <p>Acceso a comunidad, templates adicionales, sesión 1-on-1</p>
+            </div>
+          </div>
+          <div class="guarantee-item">
+            <div class="guarantee-icon">📜</div>
+            <div class="guarantee-content">
+              <h4>Certificado</h4>
+              <p>Certificado de finalización avalado</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI Section -->
+  <section class="roi-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">📊 ROI del Curso</h2>
+        <p class="section-subtitle">Resultados medibles en tiempo récord</p>
+      </div>
+
+      <div class="roi-stats">
+        <div class="roi-stat">
+          <div class="stat-number">10-15h</div>
+          <div class="stat-label">Ahorro semanal</div>
+          <div class="stat-equivalent">$500-750 USD/mes</div>
+        </div>
+
+        <div class="roi-stat">
+          <div class="stat-number">$1K-3K</div>
+          <div class="stat-label">Nuevos ingresos</div>
+          <div class="stat-equivalent">USD/mes promedio</div>
+        </div>
+
+        <div class="roi-stat">
+          <div class="stat-number">40%</div>
+          <div class="stat-label">Reducción tareas repetitivas</div>
+          <div class="stat-equivalent">Más tiempo para clientes</div>
+        </div>
+
+        <div class="roi-stat">
+          <div class="stat-number">2-4</div>
+          <div class="stat-label">Semanas recuperación inversión</div>
+          <div class="stat-equivalent">ROI típico</div>
+        </div>
+      </div>
+
+      <div class="roi-comparison">
+        <h3>💰 Comparación de Valor</h3>
+        <div class="comparison-grid">
+          <div class="comparison-item">
+            <h4>Consultoría Individual</h4>
+            <p>$150-300 USD/hora</p>
+          </div>
+          <div class="comparison-item">
+            <h4>Cursos Especializados</h4>
+            <p>$800-1,500 USD</p>
+          </div>
+          <div class="comparison-item featured">
+            <h4>🏆 Nuestro Curso</h4>
+            <p>Más valor a menor costo</p>
+          </div>
+          <div class="comparison-item">
+            <h4>Herramientas Custom</h4>
+            <p>$2,000-5,000 USD</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="final-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>📝 ¿Listo para transformar tu práctica contable con IA?</h2>
+        <p>
+          Regístrate hoy y accede a la primera clase + bonus exclusivo de materiales prácticos.
+        </p>
+        <div class="cta-actions">
+          <Button href="#registro" variant="primary" size="xl">
+            Inscribirme Ahora
+          </Button>
+          <Button href="#contacto" variant="outline" size="xl">
+            Más Información
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+</LandingLayout>
+
+<script is:inline>
+  // Countdown Timer for October 3rd, 2024
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const targetDate = new Date('2024-10-03T23:59:59').getTime();
+    const timeLeft = targetDate - now;
+
+    if (timeLeft > 0) {
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      const daysEl = document.getElementById('days');
+      const hoursEl = document.getElementById('hours');
+      const minutesEl = document.getElementById('minutes');
+      const secondsEl = document.getElementById('seconds');
+
+      if (daysEl) daysEl.textContent = days.toString().padStart(2, '0');
+      if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
+      if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
+      if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
+    } else {
+      // Offer expired
+      const timerEl = document.getElementById('countdown-timer');
+      if (timerEl) {
+        timerEl.innerHTML = '<div class="countdown-expired">¡La oferta ha terminado!</div>';
+      }
+    }
+  }
+
+  // Update countdown every second
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+
+<style>
+  /* Hero Section */
+  .hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--color-primary) 0%, #0f766e 50%, #134e4a 100%);
+    color: var(--color-white);
+    overflow: hidden;
+  }
+
+  .hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--space-20) var(--space-6);
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--border-radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    margin-bottom: var(--space-6);
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: var(--space-6);
+  }
+
+  .hero-highlight {
+    background: linear-gradient(45deg, #fbbf24, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: var(--font-size-lg);
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-bottom: var(--space-8);
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .hero-visual {
+    position: relative;
+  }
+
+  .floating-elements {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    pointer-events: none;
+  }
+
+  .floating-card {
+    position: absolute;
+    background: var(--color-white);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-primary);
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .card-1 {
+    top: 10%;
+    right: 10%;
+    animation-delay: 0s;
+  }
+
+  .card-2 {
+    top: 60%;
+    left: 5%;
+    animation-delay: 1s;
+  }
+
+  .card-3 {
+    bottom: 10%;
+    right: 5%;
+    animation-delay: 2s;
+  }
+
+  .hero-bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+      radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    animation: patternShift 20s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes patternShift {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(30px, -30px) rotate(120deg); }
+    66% { transform: translate(-20px, 20px) rotate(240deg); }
+  }
+
+  /* Benefits Section */
+  .benefits-section {
+    padding: var(--space-20) 0;
+    background: var(--color-background);
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-8);
+    margin-top: var(--space-12);
+  }
+
+  .benefit-card {
+    background: var(--color-white);
+    padding: var(--space-8);
+    border-radius: var(--border-radius-xl);
+    border: 1px solid var(--color-primary-light);
+    transition: all var(--transition-normal);
+    text-align: center;
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-primary);
+  }
+
+  .benefit-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .benefit-card h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .benefit-card p {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Curriculum Section */
+  .curriculum-section {
+    padding: var(--space-20) 0;
+    background: var(--bg-secondary);
+  }
+
+  .modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-8);
+    margin-top: var(--space-12);
+  }
+
+  .module-card {
+    background: var(--color-white);
+    padding: var(--space-8);
+    border-radius: var(--border-radius-xl);
+    border: 1px solid var(--color-primary-light);
+    transition: all var(--transition-normal);
+  }
+
+  .module-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+  }
+
+  .module-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-4);
+  }
+
+  .module-number {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--color-primary), #0f766e);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-xl);
+    font-weight: 800;
+  }
+
+  .module-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--space-1);
+  }
+
+  .module-duration {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .module-type {
+    font-size: var(--font-size-xs);
+    background: var(--color-primary-light);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--border-radius-sm);
+    color: var(--color-primary);
+  }
+
+  .module-card h3 {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .module-topics {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .module-topics li {
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--color-primary-light);
+    position: relative;
+    padding-left: var(--space-6);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-sm);
+  }
+
+  .module-topics li:last-child {
+    border-bottom: none;
+  }
+
+  .module-topics li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: var(--space-2);
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+
+  /* Tools Section */
+  .tools-section {
+    padding: var(--space-20) 0;
+    background: var(--color-background);
+  }
+
+  .tools-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: center;
+    margin-top: var(--space-12);
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  .tool-category {
+    background: var(--color-white);
+    padding: var(--space-4);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-primary-light);
+    transition: all var(--transition-normal);
+  }
+
+  .tool-category:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary);
+  }
+
+  .tool-category h4 {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2);
+  }
+
+  .tool-category p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  /* Resources Section */
+  .resources-section {
+    padding: var(--space-20) 0;
+    background: var(--bg-secondary);
+  }
+
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-8);
+    margin-top: var(--space-12);
+  }
+
+  .resource-card {
+    background: var(--color-white);
+    padding: var(--space-6);
+    border-radius: var(--border-radius-xl);
+    border: 1px solid var(--color-primary-light);
+    text-align: center;
+    transition: all var(--transition-normal);
+  }
+
+  .resource-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+  }
+
+  .resource-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .resource-card h3 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .resource-card p {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    margin: 0;
+  }
+
+  /* Pricing Section */
+  .pricing-section {
+    padding: var(--space-20) 0;
+    background: var(--color-background);
+  }
+
+  .countdown-container {
+    background: linear-gradient(135deg, var(--color-primary), #0f766e);
+    border-radius: var(--border-radius-xl);
+    padding: var(--space-8);
+    text-align: center;
+    color: var(--color-white);
+    margin-bottom: var(--space-12);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .countdown-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-6);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+  }
+
+  .countdown-icon {
+    font-size: 1.5rem;
+    animation: pulse 2s infinite;
+  }
+
+  .countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+  }
+
+  .countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 70px;
+  }
+
+  .countdown-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: var(--space-1);
+  }
+
+  .countdown-label {
+    font-size: var(--font-size-sm);
+    opacity: 0.9;
+    font-weight: 500;
+  }
+
+  .countdown-expired {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-error);
+    animation: shake 0.5s ease-in-out;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-8);
+    margin-top: var(--space-12);
+  }
+
+  .pricing-card {
+    background: var(--color-white);
+    padding: var(--space-8);
+    border-radius: var(--border-radius-xl);
+    border: 2px solid var(--color-primary-light);
+    position: relative;
+    transition: all var(--transition-normal);
+  }
+
+  .pricing-card.featured {
+    border-color: var(--color-primary);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .pricing-card.featured:hover {
+    transform: scale(1.05) translateY(-4px);
+  }
+
+  .pricing-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--color-primary), #0f766e);
+    color: var(--color-white);
+    padding: var(--space-1) var(--space-4);
+    border-radius: var(--border-radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+  }
+
+  .pricing-header {
+    text-align: center;
+    margin-bottom: var(--space-6);
+  }
+
+  .pricing-header h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .pricing-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+    margin-bottom: var(--space-2);
+  }
+
+  .price-amount {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .price-currency {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+  }
+
+  .price-mxn {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .pricing-duration {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-weight: 500;
+  }
+
+  .pricing-features {
+    margin-bottom: var(--space-8);
+  }
+
+  .feature-item {
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--color-primary-light);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-primary);
+  }
+
+  .feature-item:last-child {
+    border-bottom: none;
+  }
+
+  .pricing-cta {
+    width: 100%;
+  }
+
+  .guarantees-section {
+    margin-top: var(--space-16);
+    text-align: center;
+  }
+
+  .guarantees-section h3 {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-8);
+  }
+
+  .guarantees-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .guarantee-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    background: var(--color-white);
+    padding: var(--space-6);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-primary-light);
+  }
+
+  .guarantee-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .guarantee-content h4 {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2);
+  }
+
+  .guarantee-content p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  /* ROI Section */
+  .roi-section {
+    padding: var(--space-20) 0;
+    background: var(--bg-secondary);
+  }
+
+  .roi-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-8);
+    margin-top: var(--space-12);
+  }
+
+  .roi-stat {
+    background: var(--color-white);
+    padding: var(--space-8);
+    border-radius: var(--border-radius-xl);
+    text-align: center;
+    border: 1px solid var(--color-primary-light);
+    transition: all var(--transition-normal);
+  }
+
+  .roi-stat:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: var(--space-2);
+  }
+
+  .stat-label {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2);
+  }
+
+  .stat-equivalent {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .roi-comparison {
+    margin-top: var(--space-16);
+    text-align: center;
+  }
+
+  .roi-comparison h3 {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-8);
+  }
+
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .comparison-item {
+    background: var(--color-white);
+    padding: var(--space-6);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-primary-light);
+    transition: all var(--transition-normal);
+  }
+
+  .comparison-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .comparison-item.featured {
+    border-color: var(--color-primary);
+    background: var(--color-primary-light);
+  }
+
+  .comparison-item h4 {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2);
+  }
+
+  .comparison-item p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  /* Final CTA Section */
+  .final-cta-section {
+    padding: var(--space-20) 0;
+    background: linear-gradient(135deg, var(--color-primary) 0%, #0f766e 100%);
+    color: var(--color-white);
+    text-align: center;
+  }
+
+  .cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 {
+    font-size: var(--font-size-4xl);
+    font-weight: 800;
+    margin-bottom: var(--space-6);
+    line-height: 1.2;
+  }
+
+  .cta-content p {
+    font-size: var(--font-size-lg);
+    opacity: 0.9;
+    margin-bottom: var(--space-8);
+    line-height: 1.6;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .hero-container {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      text-align: center;
+    }
+
+    .tools-showcase {
+      grid-template-columns: 1fr;
+    }
+
+    .pricing-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .pricing-card.featured {
+      transform: none;
+    }
+
+    .pricing-card.featured:hover {
+      transform: translateY(-4px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-section {
+      min-height: auto;
+      padding: var(--space-16) 0;
+    }
+
+    .hero-container {
+      padding: var(--space-8) var(--space-6);
+    }
+
+    .hero-title {
+      font-size: var(--font-size-3xl);
+    }
+
+    .hero-cta {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .benefits-grid,
+    .resources-grid,
+    .guarantees-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .modules-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .tools-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .roi-stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .comparison-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cta-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .final-cta-section {
+      padding: var(--space-16) 0;
+    }
+
+    .cta-content h2 {
+      font-size: var(--font-size-3xl);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-container {
+      padding: var(--space-6);
+    }
+
+    .hero-title {
+      font-size: var(--font-size-2xl);
+    }
+
+    .roi-stats {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .floating-card {
+      display: none;
+    }
+  }
+</style>
