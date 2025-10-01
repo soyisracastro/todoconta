@@ -5,7 +5,11 @@ import Button from '../components/ui/Button.astro';
 const title = "IA para Contadores: Automatiza tu práctica y crea nuevas fuentes de ingresos";
 const description = "Un enfoque práctico y multiplataforma que maximiza tus recursos independientemente de la herramienta. Aprende a trabajar con un ecosistema de IAs y monetizar tu experiencia.";
 const keywords = ["IA para contadores", "inteligencia artificial contabilidad", "automatización contable", "asistentes IA fiscales", "monetización IA contadores"];
+
+const heroImage = '/images/workshop/hero-ai-accountant.jpg';
 ---
+
+<link rel="preload" as="image" href={heroImage} />
 
 <LandingLayout title={title} description={description} keywords={keywords}>
   <!-- Hero Section -->
@@ -34,7 +38,7 @@ const keywords = ["IA para contadores", "inteligencia artificial contabilidad", 
         </div>
       </div>
       <div class="hero-visual">
-        <img src="/images/workshop/hero-ai-accountant.jpg" />
+        <img src="/images/workshop/hero-ai-accountant.jpg" width="1024" height="620" alt="Contador usando IA para automatizar tareas" />
         <div class="floating-elements">
           <div class="floating-card card-1">
             <span class="card-icon">💰</span>
