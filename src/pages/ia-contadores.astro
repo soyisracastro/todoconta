@@ -5,7 +5,11 @@ import Button from '../components/ui/Button.astro';
 const title = "IA para Contadores: Automatiza tu práctica y crea nuevas fuentes de ingresos";
 const description = "Un enfoque práctico y multiplataforma que maximiza tus recursos independientemente de la herramienta. Aprende a trabajar con un ecosistema de IAs y monetizar tu experiencia.";
 const keywords = ["IA para contadores", "inteligencia artificial contabilidad", "automatización contable", "asistentes IA fiscales", "monetización IA contadores"];
+
+const heroImage = '/images/workshop/hero-ai-accountant.jpg';
 ---
+
+<link rel="preload" as="image" href={heroImage} />
 
 <LandingLayout title={title} description={description} keywords={keywords}>
   <!-- Hero Section -->
@@ -34,7 +38,7 @@ const keywords = ["IA para contadores", "inteligencia artificial contabilidad", 
         </div>
       </div>
       <div class="hero-visual">
-        <img src="/images/workshop/hero-ai-accountant.jpg" />
+        <img src="/images/workshop/hero-ai-accountant.jpg" alt="Contador usando IA para automatizar tareas" />
         <div class="floating-elements">
           <div class="floating-card card-1">
             <span class="card-icon">💰</span>
@@ -972,7 +976,7 @@ const keywords = ["IA para contadores", "inteligencia artificial contabilidad", 
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, var(--color-primary) 0%, #0f766e 50%, #134e4a 100%);
+    background: linear-gradient(135deg, var(--color-hero-background) 0%, var(--color-hero-background-alt) 100%);
     color: var(--color-white);
     overflow: hidden;
   }
@@ -1005,6 +1009,7 @@ const keywords = ["IA para contadores", "inteligencia artificial contabilidad", 
   }
 
   .hero-title {
+    color: var(--color-hero-text-primary);
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 800;
     line-height: 1.1;
@@ -1034,6 +1039,12 @@ const keywords = ["IA para contadores", "inteligencia artificial contabilidad", 
 
   .hero-visual {
     position: relative;
+  }
+
+  .hero-visual img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1024 / 620;
   }
 
   .floating-elements {
@@ -2039,7 +2050,7 @@ const keywords = ["IA para contadores", "inteligencia artificial contabilidad", 
   /* Final CTA Section */
   .final-cta-section {
     padding: var(--space-20) 0;
-    background: linear-gradient(135deg, var(--color-primary) 0%, #0f766e 100%);
+    background: linear-gradient(135deg, var(--color-hero-background) 0%, var(--color-hero-background-alt) 100%);
     color: var(--color-white);
     text-align: center;
   }
@@ -2050,6 +2061,7 @@ const keywords = ["IA para contadores", "inteligencia artificial contabilidad", 
   }
 
   .cta-content h2 {
+    color: var(--color-hero-text-primary);
     font-size: var(--font-size-4xl);
     font-weight: 800;
     margin-bottom: var(--space-6);
