@@ -22,7 +22,7 @@ const heroImage = '/images/workshop/hero-ai-accountant.jpg';
         </div>
         <h1 class="hero-title">
           🤖 Multiplica Tu Práctica Contable con IA<br>
-          <span class="hero-highlight">Ahorra hasta 15h/semana y Genera $$10K-$30K MXN/mes Extra</span>
+          <span class="hero-highlight">Ahorra hasta 15h/semana y Genera $10K-$30K MXN/mes Extra</span>
         </h1>
         <p class="hero-subtitle">
           <strong>La IA ya está aquí. Los contadores que la dominen liderarán.</strong><br><br>
@@ -453,32 +453,6 @@ const heroImage = '/images/workshop/hero-ai-accountant.jpg';
       <div class="section-header">
         <h2 class="section-title">💵 Oferta Especial por Tiempo Limitado</h2>
         <p class="section-subtitle">Aprovecha estos precios promocionales antes de que termine la oferta</p>
-
-        <!-- Countdown Timer -->
-        <div class="countdown-container">
-          <div class="countdown-header">
-            <span class="countdown-icon">⏰</span>
-            <span class="countdown-text">La oferta termina en:</span>
-          </div>
-          <div class="countdown-timer" id="countdown-timer">
-            <div class="countdown-item">
-              <span class="countdown-number" id="days">00</span>
-              <span class="countdown-label">Días</span>
-            </div>
-            <div class="countdown-item">
-              <span class="countdown-number" id="hours">00</span>
-              <span class="countdown-label">Horas</span>
-            </div>
-            <div class="countdown-item">
-              <span class="countdown-number" id="minutes">00</span>
-              <span class="countdown-label">Min</span>
-            </div>
-            <div class="countdown-item">
-              <span class="countdown-number" id="seconds">00</span>
-              <span class="countdown-label">Seg</span>
-            </div>
-          </div>
-        </div>
       </div>
 
       <div class="pricing-grid">
@@ -486,8 +460,7 @@ const heroImage = '/images/workshop/hero-ai-accountant.jpg';
           <div class="pricing-header">
             <h3>Plan Básico</h3>
             <div class="pricing-price">
-              <span class="price-normal">$850</span>
-              <span class="price-amount">$450</span>
+              <span class="price-amount">$850</span>
               <span class="price-currency">MXN</span>
             </div>
             <p class="pricing-duration">Perfecto para empezar:</p>
@@ -508,8 +481,7 @@ const heroImage = '/images/workshop/hero-ai-accountant.jpg';
           <div class="pricing-header">
             <h3>Plan Pro</h3>
             <div class="pricing-price">
-              <span class="price-normal">$2,250</span>
-              <span class="price-amount">$850</span>
+              <span class="price-amount">$2,250</span>
               <span class="price-currency">MXN</span>
             </div>
             <p class="pricing-duration">Todo lo del Plan Básico, más:</p>
@@ -530,8 +502,7 @@ const heroImage = '/images/workshop/hero-ai-accountant.jpg';
           <div class="pricing-header">
             <h3>Plan Premium</h3>
             <div class="pricing-price">
-              <span class="price-normal">$6,500</span>
-              <span class="price-amount">$2,500</span>
+              <span class="price-amount">$6,500</span>
               <span class="price-currency">MXN</span>
             </div>
             <p class="pricing-duration">Todo lo del Plan Pro, más:</p>
@@ -609,7 +580,7 @@ const heroImage = '/images/workshop/hero-ai-accountant.jpg';
         </div>
 
         <div class="roi-stat">
-          <div class="stat-number">850 MXN</div>
+          <div class="stat-number">2,250 MXN</div>
           <div class="stat-label">Inversión del curso</div>
           <div class="stat-equivalent">Plan Pro</div>
         </div>
@@ -623,7 +594,7 @@ const heroImage = '/images/workshop/hero-ai-accountant.jpg';
 
       <div class="roi-summary">
         <p class="roi-calculation">
-          <strong>En otras palabras:</strong> Pagas $850 MXN una vez. Generas $10,000-$30,000 cada mes.
+          <strong>En otras palabras:</strong> Pagas $2,250 MXN una vez. Generas $10,000-$30,000 cada mes.
         </p>
       </div>
 
@@ -640,7 +611,7 @@ const heroImage = '/images/workshop/hero-ai-accountant.jpg';
           </div>
           <div class="comparison-item featured">
             <h4>🏆 Nuestro Taller</h4>
-            <p><strong>$2,500 MXN</strong></p>
+            <p><strong>$6,500 MXN</strong></p>
             <small>Ecosistema completo + implementación + comunidad + garantía</small>
           </div>
           <div class="comparison-item">
@@ -714,71 +685,10 @@ const heroImage = '/images/workshop/hero-ai-accountant.jpg';
             ¿Tienes dudas? Escríbenos
           </Button>
         </div>
-        <p class="cta-note">
-          La ventana de oportunidad es HOY. Los precios suben en:
-          <div class="countdown-timer-inline" id="countdown-timer-inline">
-            <span class="countdown-number" id="days-inline">00</span>
-            <span class="countdown-label">D</span>
-            <span class="countdown-number" id="hours-inline">00</span>
-            <span class="countdown-label">H</span>
-            <span class="countdown-number" id="minutes-inline">00</span>
-            <span class="countdown-label">M</span>
-            <span class="countdown-number" id="seconds-inline">00</span>
-            <span class="countdown-label">S</span>
-          </div>
-        </p>
       </div>
     </div>
   </section>
 </LandingLayout>
-
-<script is:inline>
-  // Countdown Timer for October 5rd, 2025
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const targetDate = new Date('2025-10-05T23:59:59').getTime();
-    const timeLeft = targetDate - now;
-
-    if (timeLeft > 0) {
-      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-      // Update main countdown
-      const daysEl = document.getElementById('days');
-      const hoursEl = document.getElementById('hours');
-      const minutesEl = document.getElementById('minutes');
-      const secondsEl = document.getElementById('seconds');
-
-      if (daysEl) daysEl.textContent = days.toString().padStart(2, '0');
-      if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
-      if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
-      if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
-
-      // Update inline countdown in CTA
-      const daysInlineEl = document.getElementById('days-inline');
-      const hoursInlineEl = document.getElementById('hours-inline');
-      const minutesInlineEl = document.getElementById('minutes-inline');
-      const secondsInlineEl = document.getElementById('seconds-inline');
-
-      if (daysInlineEl) daysInlineEl.textContent = days.toString().padStart(2, '0');
-      if (hoursInlineEl) hoursInlineEl.textContent = hours.toString().padStart(2, '0');
-      if (minutesInlineEl) minutesInlineEl.textContent = minutes.toString().padStart(2, '0');
-      if (secondsInlineEl) secondsInlineEl.textContent = seconds.toString().padStart(2, '0');
-    } else {
-      // Offer expired
-      const timerEl = document.getElementById('countdown-timer');
-      if (timerEl) {
-        timerEl.innerHTML = '<div class="countdown-expired">¡La oferta ha terminado!</div>';
-      }
-    }
-  }
-
-  // Update countdown every second
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-</script>
 
 <script>
   // Plan selection and payment section handling
@@ -1383,64 +1293,6 @@ const heroImage = '/images/workshop/hero-ai-accountant.jpg';
     background: var(--color-background);
   }
 
-  .countdown-container {
-    background: linear-gradient(135deg, var(--color-primary), #0f766e);
-    border-radius: var(--border-radius-xl);
-    padding: var(--space-8);
-    text-align: center;
-    color: var(--color-white);
-    margin-bottom: var(--space-12);
-    box-shadow: var(--shadow-xl);
-  }
-
-  .countdown-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-3);
-    margin-bottom: var(--space-6);
-    font-size: var(--font-size-lg);
-    font-weight: 600;
-  }
-
-  .countdown-icon {
-    font-size: 1.5rem;
-    animation: pulse 2s infinite;
-  }
-
-  .countdown-timer {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-4);
-  }
-
-  .countdown-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 70px;
-  }
-
-  .countdown-number {
-    font-size: 2.5rem;
-    font-weight: 800;
-    line-height: 1;
-    margin-bottom: var(--space-1);
-  }
-
-  .countdown-label {
-    font-size: var(--font-size-sm);
-    opacity: 0.9;
-    font-weight: 500;
-  }
-
-  .countdown-expired {
-    font-size: var(--font-size-xl);
-    font-weight: 700;
-    color: var(--color-error);
-    animation: shake 0.5s ease-in-out;
-  }
-
   @keyframes pulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.1); }
@@ -1514,13 +1366,6 @@ const heroImage = '/images/workshop/hero-ai-accountant.jpg';
     align-items: center;
     gap: var(--space-1);
     margin-bottom: var(--space-2);
-  }
-
-  .price-normal {
-    font-size: var(--font-size-lg);
-    color: var(--color-text-secondary);
-    text-decoration: line-through;
-    font-weight: 500;
   }
 
   .price-amount {
@@ -2087,35 +1932,7 @@ const heroImage = '/images/workshop/hero-ai-accountant.jpg';
     text-align: center;
     font-size: var(--font-size-lg);
     color: rgba(255, 255, 255, 0.9);
-  }
-
-  .countdown-timer-inline {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-1);
-    margin-left: var(--space-2);
-    font-weight: 700;
-    color: var(--color-white);
-  }
-
-  .countdown-timer-inline .countdown-number {
-    background: rgba(255, 255, 255, 0.2);
-    padding: var(--space-1) var(--space-2);
-    border-radius: var(--border-radius-md);
-    font-size: var(--font-size-lg);
-    font-weight: 800;
-    min-width: 32px;
-    text-align: center;
-  }
-
-  .countdown-timer-inline .countdown-label {
-    font-size: var(--font-size-sm);
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.8);
-    margin: 0 var(--space-1);
-    position: relative;
-    top: -2px;
-  }
+  }  
 
   /* Responsive Design */
   @media (max-width: 1024px) {
