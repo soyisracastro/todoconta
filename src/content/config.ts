@@ -51,6 +51,57 @@ const productsCollection = defineCollection({
     ),
     formId: z.string().optional(),
 
+    // NIVEL 1 - Mejoras para aumentar conversiones
+    
+    // Highlights: Puntos clave que capturan atención en 3 segundos
+    highlights: z.array(z.string()).optional(),
+
+    // Testimonials: Validación social que aumenta conversión hasta +34%
+    testimonials: z
+      .array(
+        z.object({
+          quote: z.string(),
+          author: z.string(),
+          position: z.string().optional(),
+          company: z.string().optional(),
+          avatar: z.string().optional(),
+          rating: z.number().min(1).max(5).optional(),
+        })
+      )
+      .optional(),
+
+    // Demo Info: Reduce fricción de compra (+20-30% conversión)
+    demoInfo: z
+      .object({
+        available: z.boolean(),
+        url: z.string().optional(),
+        limitations: z.string().optional(),
+        duration: z.string().optional(),
+      })
+      .optional(),
+
+    // System Requirements: Reduce devoluciones y consultas de soporte
+    systemRequirements: z
+      .array(
+        z.object({
+          category: z.string(), // "OS", "Software", "Hardware"
+          requirement: z.string(),
+          required: z.boolean().default(true),
+        })
+      )
+      .optional(),
+
+    // Related Products: Cross-selling (+15-30% ticket promedio)
+    relatedProducts: z
+      .array(
+        z.object({
+          slug: z.string(),
+          relationshipType: z.enum(['complementary', 'alternative', 'upgrade']),
+          description: z.string().optional(),
+        })
+      )
+      .optional(),
+
     // Email delivery configuration for digital products
     emailDelivery: z
       .object({
