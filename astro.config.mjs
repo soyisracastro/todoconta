@@ -107,6 +107,7 @@ export default defineConfig({
     // Special redirects
     '/devolucion':
       'https://todoconta.notion.site/22d3c008312e80be834ff3ced8eb6e3a',
+    '/quiz-contabilidad': 'https://tally.so/r/dWqWoq',
   },
 
   // Build configuration for better performance
