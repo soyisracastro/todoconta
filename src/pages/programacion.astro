@@ -1,0 +1,835 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+
+const title = 'Aprende Programación desde Cero | Todoconta';
+const description =
+  'Domina la programación con nuestro curso intensivo. Aprende Python, JavaScript, desarrollo web y construye proyectos reales desde el primer día.';
+const keywords = [
+  'programación',
+  'curso de programación',
+  'aprender a programar',
+  'JavaScript',
+  'desarrollo web',
+  'coding bootcamp',
+];
+
+// ID de la lista de Sendy - Cambiar por el ID real de tu lista
+const SENDY_LIST_ID = 'curso-programacion-2025';
+---
+
+<LandingLayout title={title} description={description} keywords={keywords}>
+  <!-- Hero Section with p5.js Background -->
+  <section class="hero-programming">
+    <!-- p5.js Canvas Background -->
+    <div id="p5-canvas-container"></div>
+
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <div class="container">
+        <div class="hero-inner">
+          <!-- Badge -->
+          <div class="hero-badge animate-fade-in-up">
+            <span class="badge-dot"></span>
+            <span>Desbloquea tu potencial con código</span>
+          </div>
+
+          <!-- Main Heading -->
+          <h1 class="hero-title animate-fade-in-up delay-100">
+            Aprende a <span class="text-gradient">Programar</span><br />
+            y Construye tu Futuro
+          </h1>
+
+          <!-- Description -->
+          <p class="hero-description animate-fade-in-up delay-200">
+            Domina los fundamentos de la programación y las herramientas esenciales que necesitas para potenciar la IA
+            y convertir tus ideas en proyectos reales.
+          </p>
+
+          <!-- CTA Form -->
+          <div class="hero-form-container animate-fade-in-up delay-300">
+            <form
+              class="hero-form"
+              id="programming-subscribe-form"
+              method="POST"
+            >
+              <div class="form-row">
+                <input
+                  type="text"
+                  name="name"
+                  class="form-input"
+                  placeholder="Tu nombre"
+                  required
+                />
+                <input
+                  type="email"
+                  name="email"
+                  class="form-input"
+                  placeholder="Tu mejor correo"
+                  required
+                />
+                <button type="submit" class="form-submit-btn">
+                  <span class="btn-text">¡Me uno a la lista!</span>
+                  <svg
+                    class="btn-icon"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </button>
+              </div>
+              <p class="form-disclaimer">
+                Únete a la lista de espera y recibe la primera lección el 01 de diciembre. 100% gratis.
+              </p>
+            </form>
+          </div>
+
+          <!-- Countdown -->
+          <div class="countdown-container animate-fade-in-up delay-400">
+            <div class="countdown-header">
+              <span class="countdown-emoji">🚀</span>
+              <span class="countdown-title">El curso inicia en:</span>
+            </div>
+            <div class="countdown-timer" id="countdown-timer">
+              <div class="time-unit">
+                <div class="time-number" id="days">00</div>
+                <div class="time-label">Días</div>
+              </div>
+              <div class="time-separator">:</div>
+              <div class="time-unit">
+                <div class="time-number" id="hours">00</div>
+                <div class="time-label">Horas</div>
+              </div>
+              <div class="time-separator">:</div>
+              <div class="time-unit">
+                <div class="time-number" id="minutes">00</div>
+                <div class="time-label">Minutos</div>
+              </div>
+              <div class="time-separator">:</div>
+              <div class="time-unit">
+                <div class="time-number" id="seconds">00</div>
+                <div class="time-label">Segundos</div>
+              </div>
+            </div>
+            <div class="countdown-date">
+              📅 Lunes 01 de Diciembre, 2025
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</LandingLayout>
+
+<!-- p5.js Library -->
+<script
+  is:inline
+  src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"
+></script>
+
+<!-- p5.js Matrix Effect -->
+<script is:inline>
+  // Wait for p5.js to load
+  window.addEventListener('load', function () {
+    // Matrix-inspired particle system
+    let particles = [];
+    let lines = [];
+    const numParticles = 80;
+    const numLines = 15;
+
+    new p5(function (p) {
+      p.setup = function () {
+        const container = document.getElementById('p5-canvas-container');
+        const canvas = p.createCanvas(p.windowWidth, p.windowHeight);
+        canvas.parent('p5-canvas-container');
+
+        // Initialize particles (floating code symbols)
+        for (let i = 0; i < numParticles; i++) {
+          particles.push(new Particle(p));
+        }
+
+        // Initialize falling lines (Matrix rain)
+        for (let i = 0; i < numLines; i++) {
+          lines.push(new MatrixLine(p));
+        }
+      };
+
+      p.draw = function () {
+        // Dark background with slight transparency for trail effect
+        p.background(15, 23, 42, 25);
+
+        // Update and display particles
+        for (let particle of particles) {
+          particle.update();
+          particle.display();
+        }
+
+        // Update and display matrix lines
+        for (let line of lines) {
+          line.update();
+          line.display();
+        }
+      };
+
+      p.windowResized = function () {
+        p.resizeCanvas(p.windowWidth, p.windowHeight);
+      };
+
+      // Particle class (floating symbols)
+      class Particle {
+        constructor(p) {
+          this.p = p;
+          this.x = p.random(p.width);
+          this.y = p.random(p.height);
+          this.size = p.random(8, 16);
+          this.speedX = p.random(-0.3, 0.3);
+          this.speedY = p.random(-0.5, 0.5);
+          this.alpha = p.random(30, 100);
+          this.symbol = p.random(['<', '>', '{', '}', '(', ')', ';', '=', '/']);
+          this.color = p.random([
+            [20, 184, 166], // Teal
+            [251, 146, 60], // Orange
+            [139, 92, 246], // Purple
+          ]);
+        }
+
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+
+          // Wrap around edges
+          if (this.x < 0) this.x = this.p.width;
+          if (this.x > this.p.width) this.x = 0;
+          if (this.y < 0) this.y = this.p.height;
+          if (this.y > this.p.height) this.y = 0;
+
+          // Pulse alpha
+          this.alpha += this.p.sin(this.p.frameCount * 0.02) * 0.5;
+        }
+
+        display() {
+          this.p.push();
+          this.p.fill(this.color[0], this.color[1], this.color[2], this.alpha);
+          this.p.noStroke();
+          this.p.textSize(this.size);
+          this.p.textAlign(this.p.CENTER, this.p.CENTER);
+          this.p.text(this.symbol, this.x, this.y);
+          this.p.pop();
+        }
+      }
+
+      // Matrix Line class (falling code)
+      class MatrixLine {
+        constructor(p) {
+          this.p = p;
+          this.reset();
+        }
+
+        reset() {
+          this.x = this.p.random(this.p.width);
+          this.y = this.p.random(-500, -50);
+          this.speed = this.p.random(2, 5);
+          this.length = this.p.random(100, 300);
+          this.characters = [];
+
+          // Generate random characters for the line
+          const chars =
+            'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789{}[]<>()';
+          for (let i = 0; i < 20; i++) {
+            this.characters.push(
+              chars.charAt(Math.floor(Math.random() * chars.length))
+            );
+          }
+        }
+
+        update() {
+          this.y += this.speed;
+
+          // Reset when off screen
+          if (this.y > this.p.height + 100) {
+            this.reset();
+          }
+
+          // Randomly change characters
+          if (this.p.random(1) > 0.95) {
+            const index = Math.floor(
+              Math.random() * this.characters.length
+            );
+            const chars =
+              'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789{}[]<>()';
+            this.characters[index] = chars.charAt(
+              Math.floor(Math.random() * chars.length)
+            );
+          }
+        }
+
+        display() {
+          this.p.push();
+
+          // Draw each character with decreasing opacity
+          for (let i = 0; i < this.characters.length; i++) {
+            const charY = this.y - i * 15;
+            const alpha = this.p.map(i, 0, this.characters.length, 150, 0);
+
+            // Color gradient (teal to transparent)
+            this.p.fill(20, 184, 166, alpha);
+            this.p.noStroke();
+            this.p.textSize(14);
+            this.p.textAlign(this.p.CENTER, this.p.CENTER);
+            this.p.text(this.characters[i], this.x, charY);
+          }
+
+          this.p.pop();
+        }
+      }
+    });
+  });
+</script>
+
+<!-- Sendy Form Handler -->
+<script
+  is:inline
+  define:vars={{
+    formId: SENDY_LIST_ID,
+    apiKey: import.meta.env.PUBLIC_SENDY_API_KEY,
+  }}
+>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('programming-subscribe-form');
+
+    if (form) {
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const submitButton = form.querySelector('button[type="submit"]');
+        const btnText = submitButton.querySelector('.btn-text');
+
+        // Preparar datos para Sendy
+        const data = {
+          api_key: apiKey,
+          list: formId,
+          ...Object.fromEntries(formData),
+          boolean: 'true',
+        };
+
+        // Deshabilitar botón durante el envío
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.classList.add('loading');
+          if (btnText) btnText.textContent = 'Enviando...';
+        }
+
+        try {
+          const response = await fetch(
+            'https://sendy.todoconta.com/subscribe',
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+              },
+              body: new URLSearchParams(data),
+            }
+          );
+
+          const responseText = await response.text();
+
+          // Remover mensajes anteriores
+          form
+            .querySelectorAll('.success-message, .error-message')
+            .forEach(msg => msg.remove());
+
+          if (responseText === '1') {
+            // Éxito
+            const successMessage = document.createElement('div');
+            successMessage.className = 'success-message';
+            successMessage.innerHTML =
+              '<strong>¡Bienvenido a bordo!</strong> Revisa tu correo para comenzar tu viaje en programación.';
+            form.appendChild(successMessage);
+            form.reset();
+          } else if (responseText === 'Already subscribed.') {
+            // Ya suscrito
+            const infoMessage = document.createElement('div');
+            infoMessage.className = 'info-message';
+            infoMessage.innerHTML =
+              '<strong>Ya estás suscrito</strong> Revisa tu bandeja de entrada.';
+            form.appendChild(infoMessage);
+          } else {
+            // Error
+            const errorMessage = document.createElement('div');
+            errorMessage.className = 'error-message';
+            errorMessage.innerHTML = `<strong>Error:</strong> ${responseText}`;
+            form.appendChild(errorMessage);
+          }
+        } catch (error) {
+          console.error('Error subscribing user:', error);
+          const errorMessage = document.createElement('div');
+          errorMessage.className = 'error-message';
+          errorMessage.innerHTML =
+            '<strong>Error de conexión</strong> Por favor, intenta más tarde.';
+          form.appendChild(errorMessage);
+        } finally {
+          // Rehabilitar botón
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.classList.remove('loading');
+            if (btnText) btnText.textContent = 'Unirme a la Lista de Espera';
+          }
+        }
+      });
+    }
+  });
+</script>
+
+<!-- Countdown Timer Script -->
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Fecha de inicio del curso: 01 de diciembre de 2025 a las 00:00
+    const launchDate = new Date('2025-12-01T00:00:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = launchDate - now;
+
+      // Calcular días, horas, minutos y segundos
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Actualizar el DOM
+      const daysEl = document.getElementById('days');
+      const hoursEl = document.getElementById('hours');
+      const minutesEl = document.getElementById('minutes');
+      const secondsEl = document.getElementById('seconds');
+
+      if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
+      if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+      if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+      if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+
+      // Si el contador llega a cero
+      if (distance < 0) {
+        clearInterval(countdownInterval);
+        if (daysEl) daysEl.textContent = '00';
+        if (hoursEl) hoursEl.textContent = '00';
+        if (minutesEl) minutesEl.textContent = '00';
+        if (secondsEl) secondsEl.textContent = '00';
+      }
+    }
+
+    // Actualizar inmediatamente
+    updateCountdown();
+
+    // Actualizar cada segundo
+    const countdownInterval = setInterval(updateCountdown, 1000);
+  });
+</script>
+
+<style>
+  /* Hero Section */
+  .hero-programming {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  }
+
+  /* p5.js Canvas */
+  #p5-canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  /* Hero Content */
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: var(--space-20) 0;
+  }
+
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* Badge */
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: rgba(20, 184, 166, 0.1);
+    border: 1px solid rgba(20, 184, 166, 0.3);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--border-radius-full);
+    color: #5eead4;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    margin-bottom: var(--space-8);
+    backdrop-filter: blur(10px);
+  }
+
+  .badge-dot {
+    width: 8px;
+    height: 8px;
+    background: #14b8a6;
+    border-radius: 50%;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  /* Title */
+  .hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--color-white);
+    margin-bottom: var(--space-6);
+    font-family: var(--font-secondary);
+    letter-spacing: -0.02em;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #14b8a6 0%, #fb923c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Description */
+  .hero-description {
+    font-size: var(--font-size-lg);
+    line-height: 1.6;
+    color: #cbd5e1;
+    max-width: 700px;
+    margin: 0 auto var(--space-12);
+  }
+
+  /* Form Container */
+  .hero-form-container {
+    margin-bottom: var(--space-12);
+  }
+
+  .hero-form {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  .form-input {
+    padding: var(--space-4) var(--space-5);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-lg);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    color: var(--color-white);
+    font-size: var(--font-size-base);
+    font-family: var(--font-primary);
+    transition: all var(--transition-normal);
+  }
+
+  .form-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: #14b8a6;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.1);
+  }
+
+  .form-submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-8);
+    background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius-lg);
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    font-family: var(--font-secondary);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    white-space: nowrap;
+  }
+
+  .form-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(20, 184, 166, 0.3);
+  }
+
+  .form-submit-btn:active {
+    transform: translateY(0);
+  }
+
+  .form-submit-btn.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .btn-icon {
+    transition: transform var(--transition-normal);
+  }
+
+  .form-submit-btn:hover .btn-icon {
+    transform: translateX(4px);
+  }
+
+  .form-disclaimer {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    margin: 0;
+  }
+
+  /* Countdown */
+  .countdown-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: var(--space-8);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-2xl);
+    backdrop-filter: blur(10px);
+  }
+
+  .countdown-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+  }
+
+  .countdown-emoji {
+    font-size: 1.5rem;
+  }
+
+  .countdown-title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-white);
+  }
+
+  .countdown-timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+
+  .time-unit {
+    text-align: center;
+  }
+
+  .time-number {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: var(--color-white);
+    font-family: var(--font-secondary);
+    line-height: 1;
+    background: linear-gradient(135deg, #14b8a6 0%, #fb923c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(20, 184, 166, 0.3);
+  }
+
+  .time-label {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: var(--space-2);
+  }
+
+  .time-separator {
+    font-size: 2rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.3);
+    margin: 0 var(--space-1);
+  }
+
+  .countdown-date {
+    text-align: center;
+    font-size: var(--font-size-base);
+    color: #5eead4;
+    font-weight: 600;
+    padding: var(--space-3) var(--space-6);
+    background: rgba(20, 184, 166, 0.1);
+    border: 1px solid rgba(20, 184, 166, 0.2);
+    border-radius: var(--border-radius-lg);
+    display: inline-block;
+    width: 100%;
+  }
+
+  /* Messages */
+  .success-message,
+  .error-message,
+  .info-message {
+    padding: var(--space-4) var(--space-5);
+    border-radius: var(--border-radius-lg);
+    font-size: var(--font-size-base);
+    margin-top: var(--space-4);
+    backdrop-filter: blur(10px);
+    animation: slideDown 0.3s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .success-message {
+    background: rgba(20, 184, 166, 0.15);
+    border: 1px solid rgba(20, 184, 166, 0.3);
+    color: #5eead4;
+  }
+
+  .error-message {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #fca5a5;
+  }
+
+  .info-message {
+    background: rgba(251, 146, 60, 0.15);
+    border: 1px solid rgba(251, 146, 60, 0.3);
+    color: #fdba74;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero-content {
+      padding: var(--space-12) 0;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+      margin-bottom: var(--space-4);
+    }
+
+    .hero-description {
+      font-size: var(--font-size-base);
+      margin-bottom: var(--space-8);
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+    }
+
+    .form-submit-btn {
+      width: 100%;
+      padding: var(--space-4) var(--space-6);
+    }
+
+    .countdown-container {
+      padding: var(--space-6) var(--space-4);
+    }
+
+    .countdown-timer {
+      gap: var(--space-2);
+    }
+
+    .time-number {
+      font-size: 2rem;
+    }
+
+    .time-separator {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    .time-label {
+      font-size: var(--font-size-xs);
+    }
+
+    .countdown-date {
+      font-size: var(--font-size-sm);
+      padding: var(--space-2) var(--space-4);
+    }
+
+    .hero-badge {
+      font-size: var(--font-size-xs);
+      padding: var(--space-2) var(--space-3);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-description {
+      font-size: var(--font-size-sm);
+    }
+
+    .countdown-container {
+      padding: var(--space-4);
+    }
+
+    .countdown-title {
+      font-size: var(--font-size-base);
+    }
+
+    .countdown-timer {
+      gap: var(--space-1);
+    }
+
+    .time-number {
+      font-size: 1.75rem;
+    }
+
+    .time-separator {
+      font-size: 1.25rem;
+    }
+
+    .countdown-date {
+      font-size: var(--font-size-xs);
+    }
+  }
+</style>
