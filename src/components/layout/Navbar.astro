@@ -18,7 +18,9 @@ const { links, cta, showPhone = false } = Astro.props as Props;
 
 <header class="header">
   <nav class="nav container">
-    <a href="/" class="logo">Todoconta</a>
+    <a href="/" class="logo">
+      <span class="logo-text">Todoconta</span>
+    </a>
 
     <div class="nav-links">
       {
@@ -41,7 +43,7 @@ const { links, cta, showPhone = false } = Astro.props as Props;
       }
       {
         cta && (
-          <Button href={cta.link} variant="primary">
+          <Button href={cta.link} variant="primary" className="nav-btn">
             {cta.title}
           </Button>
         )
@@ -50,9 +52,129 @@ const { links, cta, showPhone = false } = Astro.props as Props;
   </nav>
 </header>
 
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border-light);
+    transition: all var(--transition-normal);
+  }
+
+  .header.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    transition: height var(--transition-normal);
+  }
+
+  .header.scrolled .nav {
+    height: 64px;
+  }
+
+  .logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .logo-text {
+    background: linear-gradient(
+      135deg,
+      var(--color-primary),
+      var(--color-primary-dark)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: var(--space-6);
+    align-items: center;
+  }
+
+  .nav-link {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    transition: color var(--transition-fast);
+    position: relative;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--color-primary);
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width var(--transition-normal);
+    border-radius: 2px;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+
+  .nav-cta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .phone-link {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+
+    .phone-link {
+      display: none;
+    }
+  }
+</style>
+
 <script>
-  // Mobile menu functionality
+  // Mobile menu functionality & Scroll effect
   document.addEventListener('DOMContentLoaded', () => {
+    const header = document.querySelector('.header');
+
+    // Scroll effect
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header?.classList.add('scrolled');
+      } else {
+        header?.classList.remove('scrolled');
+      }
+    });
+
     // Highlight active section in navigation
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
