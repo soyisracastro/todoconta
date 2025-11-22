@@ -2,7 +2,7 @@
 
 ---
 
-<section class="section section-alt" id="como-trabajo">
+<section class="section section-process" id="como-trabajo">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title fade-in-up">¿Cómo trabajo contigo?</h2>
@@ -13,39 +13,47 @@
     </div>
 
     <div class="process-steps">
-      <div class="process-step fade-in-up">
-        <div class="step-number">1</div>
-        <h3 class="step-title">Agenda Directamente Conmigo</h3>
+      <div class="process-step fade-in-up delay-100">
+        <div class="step-indicator">
+          <span class="step-number">1</span>
+        </div>
+        <h3 class="step-title">Agenda Directamente</h3>
         <p class="step-description">
           Selecciona el horario que mejor te convenga. Todas las citas las
-          atiendo personalmente de lunes a viernes, de 9am a 6pm.
+          atiendo personalmente de lunes a viernes.
         </p>
       </div>
 
-      <div class="process-step fade-in-up">
-        <div class="step-number">2</div>
+      <div class="process-step fade-in-up delay-200">
+        <div class="step-indicator">
+          <span class="step-number">2</span>
+        </div>
         <h3 class="step-title">Videollamada Personal</h3>
         <p class="step-description">
           Nos conectamos por videollamada donde analizo tu situación específica
-          como profesionista o empresario y resuelvo todas tus dudas.
+          y resuelvo todas tus dudas.
         </p>
       </div>
 
-      <div class="process-step fade-in-up">
-        <div class="step-number">3</div>
-        <h3 class="step-title">Soluciones Personalizadas</h3>
+      <div class="process-step fade-in-up delay-300">
+        <div class="step-indicator">
+          <span class="step-number">3</span>
+        </div>
+        <h3 class="step-title">Soluciones Reales</h3>
         <p class="step-description">
-          Te doy recomendaciones específicas para tu actividad: deducciones
-          permitidas, estrategias fiscales, optimización de RESICO, y más.
+          Te doy recomendaciones específicas: deducciones, estrategias fiscales,
+          y optimización de impuestos.
         </p>
       </div>
 
-      <div class="process-step fade-in-up">
-        <div class="step-number">4</div>
+      <div class="process-step fade-in-up delay-400">
+        <div class="step-indicator">
+          <span class="step-number">4</span>
+        </div>
         <h3 class="step-title">Reporte Detallado</h3>
         <p class="step-description">
-          Te envío un documento personalizado con todo lo que revisamos,
-          recomendaciones específicas y próximos pasos para tu situación.
+          Recibes un documento con todo lo revisado, recomendaciones y próximos
+          pasos claros.
         </p>
       </div>
     </div>
@@ -53,11 +61,17 @@
 </section>
 
 <style>
-  /* Process Steps */
+  .section-process {
+    background-color: var(--color-background-alt);
+    position: relative;
+  }
+
   .process-steps {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-8);
+    gap: var(--space-12);
+    position: relative;
+    padding-top: var(--space-8);
   }
 
   @media (min-width: 768px) {
@@ -69,55 +83,93 @@
   @media (min-width: 1024px) {
     .process-steps {
       grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-6);
+    }
+  }
+
+  /* Connecting Line */
+  @media (min-width: 1024px) {
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 60px;
+      left: 10%;
+      width: 80%;
+      height: 2px;
+      background: linear-gradient(
+        90deg,
+        var(--color-border-light) 0%,
+        var(--color-primary) 50%,
+        var(--color-border-light) 100%
+      );
+      z-index: 0;
+      opacity: 0.5;
     }
   }
 
   .process-step {
     text-align: center;
     position: relative;
+    z-index: 1;
+    padding: var(--space-4);
+    background: var(--color-white);
+    border-radius: var(--border-radius-xl);
+    border: 1px solid transparent;
+    transition: all var(--transition-normal);
   }
 
-  .process-step:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    top: 40px;
-    right: -60%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(to right, var(--color-primary), transparent);
-    display: none;
+  .process-step:hover {
+    border-color: var(--color-primary-light);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
   }
 
-  @media (min-width: 1024px) {
-    .process-step:not(:last-child)::after {
-      display: block;
-    }
-  }
-
-  .step-number {
-    width: 80px;
-    height: 80px;
-    background-color: var(--color-primary);
-    color: var(--color-white);
+  .step-indicator {
+    width: 64px;
+    height: 64px;
+    background: var(--color-white);
+    border: 2px solid var(--color-primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: var(--font-size-2xl);
-    font-weight: 700;
-    margin: 0 auto var(--space-4);
+    margin: 0 auto var(--space-6);
+    position: relative;
+    box-shadow: 0 0 0 8px var(--color-background-alt); /* Creates gap around line */
+    transition: all var(--transition-normal);
+  }
+
+  .process-step:hover .step-indicator {
+    background: var(--color-primary);
+    box-shadow:
+      0 0 0 8px var(--color-background-alt),
+      0 0 20px rgba(20, 184, 166, 0.4);
+    transform: scale(1.1);
+  }
+
+  .step-number {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    font-weight: 800;
+    color: var(--color-primary);
+    transition: color var(--transition-normal);
+  }
+
+  .process-step:hover .step-number {
+    color: var(--color-white);
   }
 
   .step-title {
-    font-family: var(--font-secondary);
+    font-family: var(--font-heading);
     font-size: var(--font-size-lg);
-    font-weight: 600;
-    margin-bottom: var(--space-2);
+    font-weight: 700;
+    margin-bottom: var(--space-3);
     color: var(--color-text-primary);
   }
 
   .step-description {
     color: var(--color-text-secondary);
     font-size: var(--font-size-sm);
+    line-height: 1.6;
   }
 </style>

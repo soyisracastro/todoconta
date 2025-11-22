@@ -11,13 +11,13 @@ const valueProps: ValueProp[] = [
   },
   {
     icon: '👤',
-    title: 'Atención uno a uno, sin intermediarios',
+    title: 'Atención uno a uno',
     description:
       'El experto que ves en la foto es con quien hablarás. Te doy soluciones específicas para tu caso, no respuestas genéricas.',
   },
   {
     icon: '💰',
-    title: 'Paga solo por lo que necesitas',
+    title: 'Sin plazos forzosos',
     description:
       'Sin mensualidades, sin contratos. Una inversión puntual para un problema específico.',
   },
@@ -29,31 +29,154 @@ const valueProps: ValueProp[] = [
   },
   {
     icon: '📈',
-    title: 'Experiencia enfocada en tu régimen fiscal',
+    title: 'Enfoque en RESICO',
     description:
       'Te ayudo a optimizar el RESICO y transicionar sin complicaciones.',
   },
   {
     icon: '💬',
-    title: 'Explicaciones sencillas, sin jerga fiscal',
+    title: 'Sin jerga fiscal',
     description:
       'Te explico todo de forma que lo entiendas y puedas tomar decisiones con confianza.',
   },
 ];
 ---
 
-<section class="section" id="beneficios">
+<section class="section section-benefits" id="beneficios">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title fade-in-up">
-        ¿Por qué elegir mi asesoría personalizada?
-      </h2>
+      <h2 class="section-title fade-in-up">¿Por qué elegir mi asesoría?</h2>
       <p class="section-subtitle fade-in-up">
         15+ años enfocado exclusivamente en profesionistas y empresarios. Te
-        atiendo personalmente para darte soluciones específicas a tu situación.
+        atiendo personalmente para darte soluciones específicas.
       </p>
     </div>
 
-    <ValuePropsItem valueProps={valueProps} />
+    <div class="benefits-grid">
+      {
+        valueProps.map((prop, index) => (
+          <div class={`benefit-card fade-in-up delay-${(index % 3) * 100}`}>
+            <div class="benefit-icon-wrapper">
+              <span class="benefit-icon">{prop.icon}</span>
+            </div>
+            <h3 class="benefit-title">{prop.title}</h3>
+            <p class="benefit-desc">{prop.description}</p>
+          </div>
+        ))
+      }
+    </div>
   </div>
 </section>
+
+<style>
+  .section-benefits {
+    background-color: #0f172a; /* Explicit dark navy */
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Override global section title for this dark section */
+  .section-benefits .section-title {
+    color: #ffffff;
+    background: linear-gradient(to right, #ffffff, #cbd5e1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .section-benefits .section-subtitle {
+    color: #cbd5e1;
+  }
+
+  /* Decorative background elements */
+  .section-benefits::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(
+      circle,
+      rgba(20, 184, 166, 0.1) 0%,
+      transparent 70%
+    );
+    border-radius: 50%;
+    z-index: 0;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (min-width: 768px) {
+    .benefits-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-8);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .benefits-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .benefit-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius-xl);
+    padding: var(--space-8);
+    transition: all var(--transition-normal);
+    height: 100%;
+    backdrop-filter: blur(10px);
+  }
+
+  .benefit-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-5px);
+    border-color: rgba(20, 184, 166, 0.3);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  }
+
+  .benefit-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background: rgba(20, 184, 166, 0.1);
+    border-radius: var(--border-radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-6);
+    transition: all var(--transition-normal);
+  }
+
+  .benefit-card:hover .benefit-icon-wrapper {
+    background: var(--color-primary);
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  .benefit-icon {
+    font-size: 2rem;
+  }
+
+  .benefit-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: var(--space-4);
+  }
+
+  .benefit-desc {
+    color: #cbd5e1;
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    margin: 0;
+  }
+</style>

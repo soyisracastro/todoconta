@@ -93,14 +93,8 @@ const { links, cta, showPhone = false } = Astro.props as Props;
   }
 
   .logo-text {
-    background: linear-gradient(
-      135deg,
-      var(--color-primary),
-      var(--color-primary-dark)
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #0f172a; /* Explicit dark navy */
+    font-weight: 800;
   }
 
   .nav-links {
