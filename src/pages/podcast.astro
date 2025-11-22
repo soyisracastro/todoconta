@@ -1,16 +1,18 @@
 ---
 import LandingLayout from '../layouts/LandingLayout.astro';
 
-const title = 'Podcast Todoconta | IA y Contabilidad';
+const title = 'Podcast Todoconta | Contabilidad, Fiscal e IA';
 const description =
-  'Únete a nuestro podcast y descubre cómo la inteligencia artificial está transformando la contabilidad. Consejos prácticos, casos de éxito y tendencias para contadores y empresarios.';
+  'El espacio donde contadores y empresarios mexicanos se mantienen actualizados en temas contables, fiscales y de inteligencia artificial. Analizamos reformas del SAT, CFDI, estímulos fiscales y cómo la IA transforma la profesión. Nuevos episodios cada semana.';
 const keywords = [
   'podcast contabilidad',
-  'inteligencia artificial',
+  'podcast fiscal México',
+  'SAT reformas',
+  'CFDI requisitos',
   'IA para contadores',
-  'automatización contable',
-  'tecnología contable',
-  'transformación digital',
+  'despachos contables',
+  'asesores fiscales México',
+  'código fiscal México',
 ];
 
 // ID de la lista de Sendy para el podcast
@@ -28,20 +30,19 @@ const SENDY_LIST_ID = 'Zz7h30YFf892fttb0wZexO892g';
           <!-- Badge -->
           <div class="hero-badge animate-fade-in-up">
             <span class="badge-dot"></span>
-            <span>Podcast Todoconta</span>
+            <span>Podcast</span>
           </div>
 
           <!-- Main Heading -->
           <h1 class="hero-title animate-fade-in-up delay-100">
-            <span class="text-gradient">IA y Contabilidad</span><br />
-            El Futuro es Ahora
+            Tu Fuente de <span class="text-gradient">Conocimiento Contable y Fiscal</span>
           </h1>
 
           <!-- Description -->
           <p class="hero-description animate-fade-in-up delay-200">
-            Descubre cómo la inteligencia artificial está revolucionando el mundo
-            contable. Conversaciones con expertos, casos reales y consejos prácticos
-            que puedes implementar hoy mismo.
+            El espacio donde contadores y empresarios mexicanos se mantienen actualizados.
+            Analizamos reformas del SAT, cambios al Código Fiscal, CFDI, estímulos fiscales
+            y cómo la IA está transformando la profesión.
           </p>
 
           <!-- Spotify Embed -->
@@ -61,11 +62,10 @@ const SENDY_LIST_ID = 'Zz7h30YFf892fttb0wZexO892g';
           <!-- Subscription Section -->
           <div class="subscription-section animate-fade-in-up delay-400">
             <h2 class="subscription-title">
-              🎙️ Suscríbete y recibe notificaciones de nuevos episodios
+              🎙️ Nuevos episodios cada semana
             </h2>
             <p class="subscription-description">
-              Únete a nuestra comunidad y recibe contenido exclusivo, adelantos
-              de episodios y recursos gratuitos directamente en tu correo.
+              Suscríbete para recibir los próximos episodios.
             </p>
 
             <!-- Subscription Form -->
@@ -74,61 +74,32 @@ const SENDY_LIST_ID = 'Zz7h30YFf892fttb0wZexO892g';
               id="podcast-subscribe-form"
               method="POST"
             >
-              <div class="form-grid">
-                <div class="form-group">
-                  <input
-                    type="text"
-                    name="name"
-                    class="form-input"
-                    placeholder="Tu nombre"
-                    required
-                  />
-                </div>
-
-                <div class="form-group">
-                  <input
-                    type="email"
-                    name="email"
-                    class="form-input"
-                    placeholder="Tu mejor correo"
-                    required
-                  />
-                </div>
-
-                <div class="form-group form-group-select">
-                  <select
-                    name="profile"
-                    class="form-select"
-                    required
+              <div class="form-row">
+                <input
+                  type="email"
+                  name="email"
+                  class="form-input"
+                  placeholder="Tu correo electrónico"
+                  required
+                />
+                <button type="submit" class="form-submit-btn">
+                  <span class="btn-text">Suscribirme</span>
+                  <svg
+                    class="btn-icon"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
                   >
-                    <option value="" disabled selected>Selecciona tu perfil</option>
-                    <option value="Contador">Contador</option>
-                    <option value="Empresario">Empresario</option>
-                    <option value="Entusiasta de IA">Entusiasta de IA</option>
-                  </select>
-                  <svg class="select-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="6 9 12 15 18 9"></polyline>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
-                </div>
+                </button>
               </div>
-
-              <button type="submit" class="form-submit-btn">
-                <span class="btn-text">Suscribirme al Podcast</span>
-                <svg
-                  class="btn-icon"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </button>
 
               <p class="form-disclaimer">
                 100% gratis. Sin spam. Cancela cuando quieras.
@@ -228,7 +199,7 @@ const SENDY_LIST_ID = 'Zz7h30YFf892fttb0wZexO892g';
           if (submitButton) {
             submitButton.disabled = false;
             submitButton.classList.remove('loading');
-            if (btnText) btnText.textContent = 'Suscribirme al Podcast';
+            if (btnText) btnText.textContent = 'Suscribirme';
           }
         }
       });
@@ -378,24 +349,14 @@ const SENDY_LIST_ID = 'Zz7h30YFf892fttb0wZexO892g';
     width: 100%;
   }
 
-  .form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-4);
-    margin-bottom: var(--space-4);
+  .form-row {
+    display: flex;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
   }
 
-  .form-group {
-    position: relative;
-  }
-
-  .form-group-select {
-    grid-column: 1 / -1;
-  }
-
-  .form-input,
-  .form-select {
-    width: 100%;
+  .form-input {
+    flex: 1;
     padding: var(--space-4) var(--space-5);
     border: 2px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--border-radius-lg);
@@ -407,38 +368,11 @@ const SENDY_LIST_ID = 'Zz7h30YFf892fttb0wZexO892g';
     transition: all var(--transition-normal);
   }
 
-  .form-select {
-    appearance: none;
-    cursor: pointer;
-    padding-right: var(--space-12);
-  }
-
-  .select-icon {
-    position: absolute;
-    right: var(--space-4);
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
-    color: rgba(255, 255, 255, 0.4);
-    transition: color var(--transition-normal);
-  }
-
-  .form-select:focus + .select-icon {
-    color: #14b8a6;
-  }
-
-  .form-input::placeholder,
-  .form-select option[disabled] {
+  .form-input::placeholder {
     color: rgba(255, 255, 255, 0.4);
   }
 
-  .form-select option {
-    background: #1e293b;
-    color: var(--color-white);
-  }
-
-  .form-input:focus,
-  .form-select:focus {
+  .form-input:focus {
     outline: none;
     border-color: #14b8a6;
     background: rgba(255, 255, 255, 0.08);
@@ -450,7 +384,6 @@ const SENDY_LIST_ID = 'Zz7h30YFf892fttb0wZexO892g';
     align-items: center;
     justify-content: center;
     gap: var(--space-2);
-    width: 100%;
     padding: var(--space-4) var(--space-8);
     background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
     color: var(--color-white);
@@ -461,7 +394,7 @@ const SENDY_LIST_ID = 'Zz7h30YFf892fttb0wZexO892g';
     font-family: var(--font-secondary);
     cursor: pointer;
     transition: all var(--transition-normal);
-    margin-bottom: var(--space-3);
+    white-space: nowrap;
   }
 
   .form-submit-btn:hover {
@@ -620,9 +553,12 @@ const SENDY_LIST_ID = 'Zz7h30YFf892fttb0wZexO892g';
       font-size: var(--font-size-xl);
     }
 
-    .form-grid {
-      grid-template-columns: 1fr;
-      gap: var(--space-3);
+    .form-row {
+      flex-direction: column;
+    }
+
+    .form-submit-btn {
+      width: 100%;
     }
 
     .benefits-grid {
