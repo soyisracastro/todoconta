@@ -54,7 +54,7 @@ const currentYear = new Date().getFullYear();
 <footer class="footer">
   <div class="container">
     <!-- Newsletter Section -->
-    <div class="footer-newsletter">
+    <div class="footer-newsletter glass-panel-dark">
       <div class="newsletter-content">
         <div class="newsletter-text">
           <h3>📬 Mantente Actualizado</h3>
@@ -75,7 +75,7 @@ const currentYear = new Date().getFullYear();
     <div class="footer-content">
       <!-- Company Info -->
       <div class="footer-section">
-        <h3>Todoconta</h3>
+        <h3 class="brand-title">Todoconta</h3>
         <p class="footer-description">
           Contador Público especializado en asesorías fiscales personalizadas
           para profesionistas y empresarios. Más de 15 años ayudando a optimizar
@@ -155,9 +155,26 @@ const currentYear = new Date().getFullYear();
 
 <style>
   .footer {
-    background: var(--color-text-primary);
+    background: #020617; /* Deepest navy */
     color: var(--color-white);
     padding: var(--space-20) 0 var(--space-8);
+    position: relative;
+  }
+
+  /* Top border gradient */
+  .footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-primary-dark),
+      transparent
+    );
   }
 
   .container {
@@ -168,12 +185,9 @@ const currentYear = new Date().getFullYear();
 
   /* Newsletter */
   .footer-newsletter {
-    background: var(--color-background);
-    color: var(--color-text-primary);
-    border-radius: var(--border-radius-xl);
     padding: var(--space-8);
     margin-bottom: var(--space-16);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-xl);
   }
 
   .newsletter-content {
@@ -184,17 +198,17 @@ const currentYear = new Date().getFullYear();
   }
 
   .newsletter-text h3 {
-    font-family: var(--font-secondary);
+    font-family: var(--font-heading);
     font-size: 1.5rem;
     font-weight: 700;
-    margin-top: var(--space-3);
-    margin-bottom: var(--space-3);
+    margin-bottom: var(--space-2);
+    color: var(--color-white);
   }
 
   .newsletter-text p {
     margin: 0;
-    font-size: 15px;
-    line-height: 1.6;
+    font-size: 1rem;
+    color: var(--color-hero-text-secondary);
   }
 
   /* Newsletter iframe */
@@ -205,18 +219,14 @@ const currentYear = new Date().getFullYear();
     height: 150px;
     overflow: hidden;
     border-radius: var(--border-radius-lg);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.2);
   }
 
   .newsletter-iframe {
     width: 100%;
     height: 100%;
     border: none;
-    border-radius: var(--border-radius-lg);
     background: transparent;
-    overflow: hidden;
   }
 
   /* Main Footer Content */
@@ -227,32 +237,31 @@ const currentYear = new Date().getFullYear();
     margin-bottom: var(--space-16);
   }
 
+  .brand-title {
+    font-size: 1.5rem !important;
+    background: linear-gradient(
+      135deg,
+      var(--color-white),
+      var(--color-primary)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
   .footer-section h3 {
-    font-family: var(--font-secondary);
+    font-family: var(--font-heading);
     font-size: 1.125rem;
     font-weight: 700;
     color: var(--color-white);
-    margin-bottom: var(--space-4);
-    position: relative;
-    padding-bottom: var(--space-2);
-  }
-
-  .footer-section h3::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 40px;
-    height: 2px;
-    background: var(--color-primary);
-    border-radius: 1px;
+    margin-bottom: var(--space-6);
   }
 
   .footer-description {
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--color-hero-text-secondary);
     line-height: 1.6;
     margin-bottom: var(--space-6);
-    font-size: 14px;
+    font-size: 0.95rem;
   }
 
   .footer-links {
@@ -262,11 +271,10 @@ const currentYear = new Date().getFullYear();
   }
 
   .footer-link {
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--color-hero-text-secondary);
     text-decoration: none;
     transition: all 0.2s ease;
-    padding: var(--space-1) 0;
-    font-size: 14px;
+    font-size: 0.95rem;
     display: flex;
     align-items: center;
   }
@@ -286,26 +294,28 @@ const currentYear = new Date().getFullYear();
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
-    background: rgba(255, 255, 255, 0.1);
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
     border-radius: var(--border-radius-lg);
     color: var(--color-white);
     text-decoration: none;
     font-size: 1.125rem;
     transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
   }
 
   .social-link:hover {
     background: var(--color-primary);
+    border-color: var(--color-primary);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(61, 64, 91, 0.3);
+    box-shadow: 0 0 15px rgba(20, 184, 166, 0.4);
   }
 
   /* Copyright Section */
   .footer-bottom {
     padding-top: var(--space-8);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -314,8 +324,8 @@ const currentYear = new Date().getFullYear();
   }
 
   .footer-copyright {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 14px;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
   }
 
   .footer-legal {
@@ -324,9 +334,9 @@ const currentYear = new Date().getFullYear();
   }
 
   .footer-legal a {
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--color-text-muted);
     text-decoration: none;
-    font-size: 14px;
+    font-size: 0.9rem;
     transition: color 0.2s ease;
   }
 
@@ -338,7 +348,7 @@ const currentYear = new Date().getFullYear();
   @media (max-width: 1024px) {
     .footer-content {
       grid-template-columns: 1fr 1fr;
-      gap: var(--space-6);
+      gap: var(--space-10);
     }
 
     .newsletter-content {
@@ -359,15 +369,9 @@ const currentYear = new Date().getFullYear();
       text-align: center;
     }
 
-    .footer-section h3::after {
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
     .footer-bottom {
       flex-direction: column;
       text-align: center;
-      gap: var(--space-4);
     }
 
     .footer-legal {
@@ -378,25 +382,13 @@ const currentYear = new Date().getFullYear();
       justify-content: center;
     }
 
+    .footer-link {
+      justify-content: center;
+    }
+
     .footer-link:hover {
       transform: none;
-    }
-
-    .newsletter-iframe-container {
-      height: 160px;
-      max-width: 100%;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .footer-legal {
-      flex-direction: column;
-      gap: var(--space-3);
-    }
-
-    .newsletter-iframe-container {
-      height: 180px;
-      margin: var(--space-4) auto;
+      color: var(--color-primary);
     }
   }
 </style>
