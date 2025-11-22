@@ -39,6 +39,7 @@ const stats = [
 
 <section class="hero hero-homepage" id="inicio">
   <div class="hero-background"></div>
+
   <div class="container">
     <div class="hero-content">
       <div class="hero-text">
@@ -46,7 +47,7 @@ const stats = [
         <p class="hero-subtitle fade-in-up" set:html={subtitle} />
 
         <div class="hero-cta fade-in-up">
-          <Button href={cta.link} variant="accent" size="xl">
+          <Button href={cta.link} variant="primary" size="xl">
             {cta.title}
           </Button>
           <Button href="#servicios" variant="outline" size="xl">
@@ -111,6 +112,8 @@ const stats = [
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--space-6);
+    position: relative;
+    z-index: 2;
   }
 
   .hero-content {
@@ -128,7 +131,7 @@ const stats = [
 
   /* Homepage variant styles */
   .hero-homepage {
-    background: var(--color-primary);
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     color: var(--color-white);
     padding: var(--space-24) 0 var(--space-32);
     position: relative;
@@ -138,17 +141,10 @@ const stats = [
   .hero-background {
     position: absolute;
     inset: 0;
-    background-image:
-      radial-gradient(
-        circle at 20% 30%,
-        rgba(255, 255, 255, 0.08) 0%,
-        transparent 25%
-      ),
-      radial-gradient(
-        circle at 80% 70%,
-        rgba(255, 255, 255, 0.08) 0%,
-        transparent 25%
-      );
+    background:
+      radial-gradient(circle at 20% 50%, rgba(20, 184, 166, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 40% 20%, rgba(251, 146, 60, 0.1) 0%, transparent 50%);
     z-index: 0;
   }
 
