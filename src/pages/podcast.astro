@@ -1,0 +1,600 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+
+const title = 'Podcast Todoconta | Contabilidad, Fiscal e IA';
+const description =
+  'El espacio donde contadores y empresarios mexicanos se mantienen actualizados en temas contables, fiscales y de inteligencia artificial. Analizamos reformas del SAT, CFDI, estímulos fiscales y cómo la IA transforma la profesión. Nuevos episodios cada semana.';
+const keywords = [
+  'podcast contabilidad',
+  'podcast fiscal México',
+  'SAT reformas',
+  'CFDI requisitos',
+  'IA para contadores',
+  'despachos contables',
+  'asesores fiscales México',
+  'código fiscal México',
+];
+
+// ID de la lista de Sendy para el podcast
+const SENDY_LIST_ID = 'Zz7h30YFf892fttb0wZexO892g';
+---
+
+<LandingLayout title={title} description={description} keywords={keywords}>
+  <!-- Hero Section -->
+  <section class="hero-podcast">
+    <div class="hero-background"></div>
+
+    <div class="hero-content">
+      <div class="container">
+        <div class="hero-inner">
+          <!-- Badge -->
+          <div class="hero-badge animate-fade-in-up">
+            <span class="badge-dot"></span>
+            <span>Podcast</span>
+          </div>
+
+          <!-- Main Heading -->
+          <h1 class="hero-title animate-fade-in-up delay-100">
+            Tu Fuente de <span class="text-gradient">Conocimiento Contable y Fiscal</span>
+          </h1>
+
+          <!-- Description -->
+          <p class="hero-description animate-fade-in-up delay-200">
+            El espacio donde contadores y empresarios mexicanos se mantienen actualizados.
+            Analizamos reformas del SAT, cambios al Código Fiscal, CFDI, estímulos fiscales
+            y cómo la IA está transformando la profesión.
+          </p>
+
+          <!-- Spotify Embed -->
+          <div class="spotify-container animate-fade-in-up delay-300">
+            <iframe
+              style="border-radius:12px"
+              src="https://open.spotify.com/embed/show/7nZmaTB85cyet1nHE2ERKT?utm_source=generator&theme=0"
+              width="100%"
+              height="352"
+              frameborder="0"
+              allowfullscreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
+          </div>
+
+          <!-- Subscription Section -->
+          <div class="subscription-section animate-fade-in-up delay-400">
+            <h2 class="subscription-title">
+              🎙️ Nuevos episodios cada semana
+            </h2>
+            <p class="subscription-description">
+              Suscríbete para recibir los próximos episodios.
+            </p>
+
+            <!-- Subscription Form -->
+            <form
+              class="subscription-form"
+              id="podcast-subscribe-form"
+              method="POST"
+            >
+              <div class="form-row">
+                <input
+                  type="email"
+                  name="email"
+                  class="form-input"
+                  placeholder="Tu correo electrónico"
+                  required
+                />
+                <button type="submit" class="form-submit-btn">
+                  <span class="btn-text">Suscribirme</span>
+                  <svg
+                    class="btn-icon"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </button>
+              </div>
+
+              <p class="form-disclaimer">
+                100% gratis. Sin spam. Cancela cuando quieras.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</LandingLayout>
+
+<!-- Sendy Form Handler -->
+<script
+  is:inline
+  define:vars={{
+    formId: SENDY_LIST_ID,
+    apiKey: import.meta.env.PUBLIC_SENDY_API_KEY,
+  }}
+>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('podcast-subscribe-form');
+
+    if (form) {
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const submitButton = form.querySelector('button[type="submit"]');
+        const btnText = submitButton.querySelector('.btn-text');
+
+        // Preparar datos para Sendy
+        const data = {
+          api_key: apiKey,
+          list: formId,
+          ...Object.fromEntries(formData),
+          boolean: 'true',
+        };
+
+        // Deshabilitar botón durante el envío
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.classList.add('loading');
+          if (btnText) btnText.textContent = 'Enviando...';
+        }
+
+        try {
+          const response = await fetch(
+            'https://sendy.todoconta.com/subscribe',
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+              },
+              body: new URLSearchParams(data),
+            }
+          );
+
+          const responseText = await response.text();
+
+          // Remover mensajes anteriores
+          form
+            .querySelectorAll('.success-message, .error-message, .info-message')
+            .forEach(msg => msg.remove());
+
+          if (responseText === '1') {
+            // Éxito
+            const successMessage = document.createElement('div');
+            successMessage.className = 'success-message';
+            successMessage.innerHTML =
+              '<strong>¡Bienvenido al podcast!</strong> 🎉 Revisa tu correo para confirmar tu suscripción.';
+            form.appendChild(successMessage);
+            form.reset();
+          } else if (responseText === 'Already subscribed.') {
+            // Ya suscrito
+            const infoMessage = document.createElement('div');
+            infoMessage.className = 'info-message';
+            infoMessage.innerHTML =
+              '<strong>Ya estás suscrito</strong> Revisa tu bandeja de entrada para no perderte ningún episodio.';
+            form.appendChild(infoMessage);
+          } else {
+            // Error
+            const errorMessage = document.createElement('div');
+            errorMessage.className = 'error-message';
+            errorMessage.innerHTML = `<strong>Error:</strong> ${responseText}`;
+            form.appendChild(errorMessage);
+          }
+        } catch (error) {
+          console.error('Error subscribing user:', error);
+          const errorMessage = document.createElement('div');
+          errorMessage.className = 'error-message';
+          errorMessage.innerHTML =
+            '<strong>Error de conexión</strong> Por favor, intenta más tarde.';
+          form.appendChild(errorMessage);
+        } finally {
+          // Rehabilitar botón
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.classList.remove('loading');
+            if (btnText) btnText.textContent = 'Suscribirme';
+          }
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+  /* Hero Section */
+  .hero-podcast {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  }
+
+  /* Hero Background with Gradient */
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background:
+      radial-gradient(circle at 20% 50%, rgba(20, 184, 166, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 40% 20%, rgba(251, 146, 60, 0.1) 0%, transparent 50%);
+  }
+
+  /* Hero Content */
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: var(--space-20) 0;
+  }
+
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* Badge */
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: rgba(20, 184, 166, 0.1);
+    border: 1px solid rgba(20, 184, 166, 0.3);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--border-radius-full);
+    color: #5eead4;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    margin-bottom: var(--space-8);
+    backdrop-filter: blur(10px);
+  }
+
+  .badge-dot {
+    width: 8px;
+    height: 8px;
+    background: #14b8a6;
+    border-radius: 50%;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  /* Title */
+  .hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--color-white);
+    margin-bottom: var(--space-6);
+    font-family: var(--font-secondary);
+    letter-spacing: -0.02em;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #14b8a6 0%, #8b5cf6 50%, #fb923c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Description */
+  .hero-description {
+    font-size: var(--font-size-lg);
+    line-height: 1.6;
+    color: #cbd5e1;
+    max-width: 700px;
+    margin: 0 auto var(--space-12);
+  }
+
+  /* Spotify Container */
+  .spotify-container {
+    max-width: 700px;
+    margin: 0 auto var(--space-16);
+    padding: var(--space-4);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-2xl);
+    backdrop-filter: blur(10px);
+  }
+
+  /* Subscription Section */
+  .subscription-section {
+    max-width: 700px;
+    margin: 0 auto var(--space-16);
+    padding: var(--space-10);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-2xl);
+    backdrop-filter: blur(10px);
+  }
+
+  .subscription-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: var(--space-4);
+    font-family: var(--font-secondary);
+  }
+
+  .subscription-description {
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin-bottom: var(--space-8);
+  }
+
+  /* Subscription Form */
+  .subscription-form {
+    width: 100%;
+  }
+
+  .form-row {
+    display: flex;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  .form-input {
+    flex: 1;
+    padding: var(--space-4) var(--space-5);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-lg);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    color: var(--color-white);
+    font-size: var(--font-size-base);
+    font-family: var(--font-primary);
+    transition: all var(--transition-normal);
+  }
+
+  .form-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: #14b8a6;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.1);
+  }
+
+  .form-submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-8);
+    background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius-lg);
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    font-family: var(--font-secondary);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    white-space: nowrap;
+  }
+
+  .form-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(20, 184, 166, 0.3);
+  }
+
+  .form-submit-btn:active {
+    transform: translateY(0);
+  }
+
+  .form-submit-btn.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .btn-icon {
+    transition: transform var(--transition-normal);
+  }
+
+  .form-submit-btn:hover .btn-icon {
+    transform: translateX(4px);
+  }
+
+  .form-disclaimer {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    margin: 0;
+  }
+
+  /* Messages */
+  .success-message,
+  .error-message,
+  .info-message {
+    padding: var(--space-4) var(--space-5);
+    border-radius: var(--border-radius-lg);
+    font-size: var(--font-size-base);
+    margin-top: var(--space-4);
+    backdrop-filter: blur(10px);
+    animation: slideDown 0.3s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .success-message {
+    background: rgba(20, 184, 166, 0.15);
+    border: 1px solid rgba(20, 184, 166, 0.3);
+    color: #5eead4;
+  }
+
+  .error-message {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #fca5a5;
+  }
+
+  .info-message {
+    background: rgba(251, 146, 60, 0.15);
+    border: 1px solid rgba(251, 146, 60, 0.3);
+    color: #fdba74;
+  }
+
+  /* Benefits Section */
+  .benefits-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: var(--space-8);
+  }
+
+  .benefits-title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: var(--space-8);
+    text-align: center;
+    font-family: var(--font-secondary);
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  .benefit-card {
+    padding: var(--space-6);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-xl);
+    backdrop-filter: blur(10px);
+    transition: all var(--transition-normal);
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(20, 184, 166, 0.3);
+    box-shadow: 0 10px 30px rgba(20, 184, 166, 0.2);
+  }
+
+  .benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .benefit-card h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-white);
+    margin-bottom: var(--space-2);
+    font-family: var(--font-secondary);
+  }
+
+  .benefit-card p {
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin: 0;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero-content {
+      padding: var(--space-12) 0;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+      margin-bottom: var(--space-4);
+    }
+
+    .hero-description {
+      font-size: var(--font-size-base);
+      margin-bottom: var(--space-8);
+    }
+
+    .spotify-container {
+      padding: var(--space-3);
+    }
+
+    .subscription-section {
+      padding: var(--space-6);
+    }
+
+    .subscription-title {
+      font-size: var(--font-size-xl);
+    }
+
+    .form-row {
+      flex-direction: column;
+    }
+
+    .form-submit-btn {
+      width: 100%;
+    }
+
+    .benefits-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+
+    .hero-badge {
+      font-size: var(--font-size-xs);
+      padding: var(--space-2) var(--space-3);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-description {
+      font-size: var(--font-size-sm);
+    }
+
+    .subscription-section {
+      padding: var(--space-4);
+    }
+
+    .subscription-title {
+      font-size: var(--font-size-lg);
+    }
+
+    .subscription-description {
+      font-size: var(--font-size-sm);
+    }
+
+    .benefit-card {
+      padding: var(--space-4);
+    }
+  }
+</style>
