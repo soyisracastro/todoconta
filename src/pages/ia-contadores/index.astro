@@ -1,0 +1,1647 @@
+---
+import LandingLayout from '@/layouts/LandingLayout.astro';
+import Button from '@/components/ui/Button.astro';
+
+const title = 'Masterclass GRATIS - Por Qué el 90% de los Contadores Usa IA de Forma Incorrecta';
+const description =
+  'Descubre el framework que te permitirá usar ChatGPT, Claude y Gemini 3 como estratega. 45 minutos que cambiarán tu perspectiva sobre IA.';
+const keywords = [
+  'masterclass IA contadores',
+  'ChatGPT para contadores',
+  'Claude AI',
+  'Gemini 3',
+  'IA para contabilidad',
+  'curso gratuito IA',
+  'webinar contadores',
+];
+
+// Configuration
+const REGISTRATION_URL = 'https://luma.com/wvnu1jjs';
+const EVENT_DATE = '4 de diciembre, 2025';
+const EVENT_TIME = '5:30 PM (CDMX)';
+const EVENT_DATETIME = '2025-12-04T17:30:00-06:00'; // ISO format for countdown
+const INSTRUCTOR_NAME = 'Israel Castro';
+const REGISTERED_COUNT = 15;
+const MAX_SPOTS = 50;
+
+// Testimonials - REPLACE WITH REAL DATA
+const testimonials = [
+  {
+    name: 'Nombre del Contador 1',
+    role: 'Contador Público, Ciudad',
+    avatar: '👤',
+    quote:
+      'Testimonio aquí. Describe cómo le ayudó el taller anterior, resultados específicos, tiempo ahorrado, etc.',
+    highlight: 'Resultado específico (ej: "Ahorré 15 horas por semana")',
+  },
+  {
+    name: 'Nombre del Contador 2',
+    role: 'Contador Público, Ciudad',
+    avatar: '👤',
+    quote:
+      'Testimonio aquí. Describe cómo le ayudó el taller anterior, resultados específicos, tiempo ahorrado, etc.',
+    highlight: 'Resultado específico (ej: "Aumenté mis ingresos 40%")',
+  },
+  {
+    name: 'Nombre del Contador 3',
+    role: 'Contador Público, Ciudad',
+    avatar: '👤',
+    quote:
+      'Testimonio aquí. Describe cómo le ayudó el taller anterior, resultados específicos, tiempo ahorrado, etc.',
+    highlight: 'Resultado específico (ej: "Automaticé el 70% de mi trabajo")',
+  },
+];
+---
+
+<LandingLayout title={title} description={description} keywords={keywords} showFooter={false}>
+  <!-- HERO: MASTERCLASS GRATUITA -->
+  <section class="hero">
+    <div class="hero-gradient-bg"></div>
+    <div class="floating-particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+
+    <div class="container">
+      <div class="badge">
+        <span class="badge-icon">🎁</span>
+        <span class="badge-text">MASTERCLASS GRATUITA</span>
+      </div>
+
+      <h1 class="title animate-on-scroll" data-animation="fade-in-up" data-delay="100">
+        "Por Qué el 90% de los Contadores<br />
+        <span class="gradient gradient-animated">Usa IA de Forma Incorrecta"</span>
+      </h1>
+
+      <p class="subtitle animate-on-scroll" data-animation="fade-in-up" data-delay="200">
+        Descubre el framework que te permitirá usar la inteligencia artificial como
+        <strong>estratega</strong>, no como usuario.
+      </p>
+
+      <!-- COUNTDOWN TIMER -->
+      <div class="countdown-container animate-on-scroll" data-animation="scale-in" data-delay="300">
+        <p class="countdown-label">🔥 La masterclass comienza en:</p>
+        <div class="countdown" id="countdown" data-event-date={EVENT_DATETIME}>
+          <div class="countdown-item">
+            <span class="countdown-number" id="days">00</span>
+            <span class="countdown-text">Días</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="hours">00</span>
+            <span class="countdown-text">Horas</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="minutes">00</span>
+            <span class="countdown-text">Min</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="seconds">00</span>
+            <span class="countdown-text">Seg</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="meta animate-on-scroll" data-animation="fade-in" data-delay="400">
+        <div class="meta-item">
+          <span class="icon">📅</span>
+          <span>{EVENT_DATE}</span>
+        </div>
+        <div class="meta-item">
+          <span class="icon">⏰</span>
+          <span>{EVENT_TIME}</span>
+        </div>
+      </div>
+
+      <div class="benefits animate-on-scroll" data-animation="fade-in-up" data-delay="500">
+        <div class="benefit">
+          <span class="icon">⏱️</span> 45 minutos que cambiarán tu perspectiva
+        </div>
+        <div class="benefit">
+          <span class="icon">💯</span> 100% GRATIS
+        </div>
+      </div>
+
+      <div class="cta-primary animate-on-scroll" data-animation="scale-in" data-delay="600">
+        <Button
+          href={REGISTRATION_URL}
+          variant="primary"
+          size="xl"
+          class="btn-gold btn-pulse"
+          data-track-event="cta_hero_click"
+        >
+          Regístrate GRATIS aquí
+        </Button>
+        <p class="social-proof">
+          👥 <span class="count-up" data-target={REGISTERED_COUNT}>0</span> contadores ya registrados
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LO QUE APRENDERÁS -->
+  <section class="learning">
+    <div class="container">
+      <div class="section-header animate-on-scroll" data-animation="fade-in-up">
+        <h2 class="section-title">En 45 minutos descubrirás:</h2>
+      </div>
+
+      <div class="learning-grid">
+        <div class="learning-item animate-on-scroll" data-animation="slide-in-left" data-delay="0">
+          <span class="check">✅</span>
+          <p>Los <strong>3 errores</strong> que cometen el 90% de contadores con IA</p>
+        </div>
+        <div class="learning-item animate-on-scroll" data-animation="slide-in-left" data-delay="100">
+          <span class="check">✅</span>
+          <p>El <strong>framework IA-First</strong> de 3 preguntas (funciona con cualquier IA)</p>
+        </div>
+        <div class="learning-item animate-on-scroll" data-animation="slide-in-left" data-delay="200">
+          <span class="check">✅</span>
+          <p>Por qué <strong>depender solo de ChatGPT</strong> te limita</p>
+        </div>
+        <div class="learning-item animate-on-scroll" data-animation="slide-in-left" data-delay="300">
+          <span class="check">✅</span>
+          <p>
+            <strong>Demo en vivo:</strong> Caso fiscal resuelto en 12 min (vs 2 horas tradicionales)
+          </p>
+        </div>
+        <div class="learning-item animate-on-scroll" data-animation="slide-in-left" data-delay="400">
+          <span class="check">✅</span>
+          <p>
+            <strong>Matriz de decisión:</strong> Cuándo usar ChatGPT, Claude o Gemini 3
+          </p>
+        </div>
+      </div>
+
+      <div class="bonus-badge animate-on-scroll" data-animation="scale-in" data-delay="500">
+        🎁 <strong>BONUS:</strong> Los asistentes recibirán acceso a recursos exclusivos y un descuento
+        especial.
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <!-- <section class="testimonials">
+    <div class="container">
+      <div class="section-header animate-on-scroll" data-animation="fade-in-up">
+        <h2 class="section-title">Lo que dicen contadores como tú</h2>
+        <p class="section-subtitle">Resultados reales de talleres anteriores</p>
+      </div>
+
+      <div class="testimonials-grid">
+        {
+          testimonials.map((testimonial, index) => (
+            <div
+              class="testimonial-card animate-on-scroll"
+              data-animation="fade-in-up"
+              data-delay={index * 150}
+            >
+              <div class="quote-icon">"</div>
+              <p class="testimonial-quote">{testimonial.quote}</p>
+              <div class="testimonial-highlight">{testimonial.highlight}</div>
+              <div class="testimonial-author">
+                <div class="author-avatar">{testimonial.avatar}</div>
+                <div class="author-info">
+                  <p class="author-name">{testimonial.name}</p>
+                  <p class="author-role">{testimonial.role}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>-->
+
+  <!-- PARA QUIÉN ES -->
+  <section class="audience">
+    <div class="container">
+      <div class="section-header animate-on-scroll" data-animation="fade-in-up">
+        <h2 class="section-title">✅ Esta masterclass ES para ti si:</h2>
+      </div>
+
+      <div class="audience-list">
+        <div class="audience-item animate-on-scroll" data-animation="slide-in-right" data-delay="0">
+          <span class="bullet">•</span>
+          <p>Eres <strong>contador público en México</strong></p>
+        </div>
+        <div
+          class="audience-item animate-on-scroll"
+          data-animation="slide-in-right"
+          data-delay="100"
+        >
+          <span class="bullet">•</span>
+          <p>Ya usas IA pero sientes que la aprovechas al <strong>10%</strong></p>
+        </div>
+        <div
+          class="audience-item animate-on-scroll"
+          data-animation="slide-in-right"
+          data-delay="200"
+        >
+          <span class="bullet">•</span>
+          <p>Te abruma la <strong>cantidad de herramientas</strong> que existen</p>
+        </div>
+        <div
+          class="audience-item animate-on-scroll"
+          data-animation="slide-in-right"
+          data-delay="300"
+        >
+          <span class="bullet">•</span>
+          <p>Quieres <strong>diferenciarte de la competencia</strong></p>
+        </div>
+        <div
+          class="audience-item animate-on-scroll"
+          data-animation="slide-in-right"
+          data-delay="400"
+        >
+          <span class="bullet">•</span>
+          <p>Buscas <strong>aumentar tus ingresos</strong> con IA</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUÉ GRATIS -->
+  <section class="why-free">
+    <div class="container">
+      <div class="section-header animate-on-scroll" data-animation="fade-in-up">
+        <h2 class="section-title">💡 ¿Por qué compartir esto sin costo?</h2>
+      </div>
+
+      <div class="why-content">
+        <p class="intro animate-on-scroll" data-animation="fade-in" data-delay="100">
+          Porque he visto cómo la mayoría de contadores usa IA de forma limitada:
+        </p>
+
+        <div class="problems">
+          <div class="problem animate-on-scroll" data-animation="slide-in-left" data-delay="0">
+            <span class="icon">❌</span>
+            <p>Solo ChatGPT gratis (sin saber que hay mejores opciones)</p>
+          </div>
+          <div class="problem animate-on-scroll" data-animation="slide-in-left" data-delay="100">
+            <span class="icon">❌</span>
+            <p>Prompts genéricos que dan respuestas mediocres</p>
+          </div>
+          <div class="problem animate-on-scroll" data-animation="slide-in-left" data-delay="200">
+            <span class="icon">❌</span>
+            <p>Sin estrategia para elegir la herramienta correcta</p>
+          </div>
+        </div>
+
+        <p class="mission animate-on-scroll" data-animation="fade-in-up" data-delay="300">
+          Mi misión es cambiar eso. Esta masterclass es el <strong>primer paso</strong> para desarrollar
+          tu Mentalidad IA-First.
+        </p>
+
+        <p class="decision animate-on-scroll" data-animation="scale-in" data-delay="400">
+          Después, <strong>tú decides</strong> si quieres profundizar más.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE EL INSTRUCTOR -->
+  <section class="instructor">
+    <div class="container">
+      <div class="section-header animate-on-scroll" data-animation="fade-in-up">
+        <h2 class="section-title">Sobre el Instructor</h2>
+      </div>
+
+      <div class="instructor-card animate-on-scroll" data-animation="scale-in" data-delay="200">
+        <img
+          src="/images/photo.png"
+          alt={INSTRUCTOR_NAME}
+          class="avatar"
+        />
+        <h3 class="name">{INSTRUCTOR_NAME}</h3>
+        <p class="role">Contador público y programador con 12+ años de experiencia</p>
+        <p class="credentials">Creador de TodoConta y Contadores IA</p>
+        <p class="bio">
+          He ayudado a <strong>cientos de contadores</strong> a integrar IA en sus prácticas, aumentando
+          ingresos y recuperando <strong>10-15 horas por semana</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <div class="section-header animate-on-scroll" data-animation="fade-in-up">
+        <h2 class="section-title">Preguntas Frecuentes</h2>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item animate-on-scroll" data-animation="fade-in-up" data-delay="0">
+          <summary class="faq-question">
+            ¿Necesito experiencia previa en IA?
+            <span class="arrow">▼</span>
+          </summary>
+          <div class="faq-answer">
+            <p>
+              No. Esta masterclass es para cualquier nivel. Ya sea que nunca hayas usado IA o que ya
+              uses ChatGPT ocasionalmente, encontrarás valor en el contenido.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item animate-on-scroll" data-animation="fade-in-up" data-delay="100">
+          <summary class="faq-question">
+            ¿Tendré que pagar por ChatGPT Plus, Claude Pro o Gemini Pro?
+            <span class="arrow">▼</span>
+          </summary>
+          <div class="faq-answer">
+            <p>
+              No. Te mostraré cómo aprovechar las versiones gratuitas de ChatGPT, Claude y Gemini 3.
+              Si ya tienes cuentas de pago, mejor aún, pero no son necesarias.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item animate-on-scroll" data-animation="fade-in-up" data-delay="200">
+          <summary class="faq-question">
+            ¿Quedará grabación?
+            <span class="arrow">▼</span>
+          </summary>
+          <div class="faq-answer">
+            <p>
+              Sí, los registrados recibirán el replay por 48 horas. Sin embargo, te recomiendo asistir
+              en vivo para participar en la sesión de preguntas y respuestas.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item animate-on-scroll" data-animation="fade-in-up" data-delay="300">
+          <summary class="faq-question">
+            ¿Habrá venta al final?
+            <span class="arrow">▼</span>
+          </summary>
+          <div class="faq-answer">
+            <p>
+              Te compartiré información sobre un <a href="/ia-contadores/reto-12-dias">reto de 12 días</a>, pero SIN presión. La
+              masterclass tiene valor por sí misma y no estás obligado a comprar nada.
+            </p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="stars-bg"></div>
+    <div class="container">
+      <h2 class="final-title animate-on-scroll" data-animation="fade-in-up">
+        No dejes pasar esta oportunidad
+      </h2>
+
+      <div class="final-cta animate-on-scroll" data-animation="scale-in" data-delay="200">
+        <Button
+          href={REGISTRATION_URL}
+          variant="primary"
+          size="xl"
+          class="btn-gold btn-pulse"
+          data-track-event="cta_final_click"
+        >
+          Reserva tu lugar GRATIS
+        </Button>
+
+        <div class="urgency">
+          <p class="spots animate-on-scroll" data-animation="fade-in" data-delay="400">
+            👥 Solo {MAX_SPOTS} lugares disponibles
+          </p>
+          <p class="date animate-on-scroll" data-animation="fade-in" data-delay="500">
+            ⏰ Próxima masterclass: {EVENT_DATE}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</LandingLayout>
+
+<style>
+  /* ========================================
+     VARIABLES Y GLOBALS
+     ======================================== */
+  :root {
+    --bg-dark: #0f0518;
+    --bg-darker: #000000;
+    --bg-card: rgba(255, 255, 255, 0.05);
+    --text-main: #ffffff;
+    --text-muted: #9ca3af;
+    --accent-purple: #a855f7;
+    --accent-gold: #eab308;
+    --color-success: #10b981;
+  }
+
+  section {
+    padding: var(--space-16) 0;
+    color: var(--text-main);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+  }
+
+  .section-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 800;
+    line-height: 1.2;
+    color: #ffffff !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    opacity: 1 !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background-clip: unset !important;
+  }
+
+  .section-subtitle {
+    font-size: var(--font-size-xl);
+    color: var(--text-muted);
+    margin-top: var(--space-4);
+  }
+
+  /* ========================================
+     ANIMATIONS
+     ======================================== */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 20px rgba(234, 179, 8, 0.3);
+    }
+    50% {
+      transform: scale(1.02);
+      box-shadow: 0 0 30px rgba(234, 179, 8, 0.5);
+    }
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes particleFloat {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    33% {
+      transform: translate(30px, -50px) rotate(120deg);
+    }
+    66% {
+      transform: translate(-20px, 20px) rotate(240deg);
+    }
+    100% {
+      transform: translate(0, 0) rotate(360deg);
+    }
+  }
+
+  /* Animation classes */
+  .animate-on-scroll {
+    opacity: 0;
+  }
+
+  .animate-on-scroll.animated {
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animated[data-animation='fade-in-up'] {
+    animation-name: fadeInUp;
+  }
+  .animated[data-animation='fade-in-down'] {
+    animation-name: fadeInDown;
+  }
+  .animated[data-animation='fade-in'] {
+    animation-name: fadeIn;
+  }
+  .animated[data-animation='slide-in-left'] {
+    animation-name: slideInLeft;
+  }
+  .animated[data-animation='slide-in-right'] {
+    animation-name: slideInRight;
+  }
+  .animated[data-animation='scale-in'] {
+    animation-name: scaleIn;
+  }
+
+  /* ========================================
+     HERO SECTION
+     ======================================== */
+  .hero {
+    background: linear-gradient(to bottom, #000000, #1e1b4b);
+    padding-top: var(--space-32);
+    padding-bottom: var(--space-20);
+    text-align: center;
+    position: relative;
+    border-radius: 0;
+  }
+
+  .hero-gradient-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at 50% 0%,
+      rgba(168, 85, 247, 0.2),
+      transparent 50%
+    );
+    pointer-events: none;
+  }
+
+  .floating-particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--accent-purple);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: particleFloat 15s infinite ease-in-out;
+  }
+
+  .particle:nth-child(1) {
+    top: 10%;
+    left: 20%;
+    animation-delay: 0s;
+  }
+  .particle:nth-child(2) {
+    top: 20%;
+    right: 30%;
+    animation-delay: 2s;
+  }
+  .particle:nth-child(3) {
+    top: 60%;
+    left: 10%;
+    animation-delay: 4s;
+  }
+  .particle:nth-child(4) {
+    top: 40%;
+    right: 20%;
+    animation-delay: 1s;
+  }
+  .particle:nth-child(5) {
+    bottom: 20%;
+    left: 50%;
+    animation-delay: 3s;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--border-radius-full);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: var(--space-8);
+    animation: float 3s infinite ease-in-out;
+    backdrop-filter: blur(10px);
+  }
+
+  .badge-text {
+    color: #e9d5ff;
+    font-weight: 500;
+    font-size: var(--font-size-sm);
+  }
+
+  .title {
+    font-size: var(--font-size-5xl);
+    font-weight: 800;
+    margin-bottom: var(--space-6);
+    line-height: 1.1;
+    color: #ffffff;
+    position: relative;
+    z-index: 1;
+  }
+
+  .gradient {
+    background: linear-gradient(to right, #60a5fa, #c084fc, #f472b6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+  }
+
+  .gradient-animated {
+    background: linear-gradient(
+      90deg,
+      #60a5fa,
+      #c084fc,
+      #f472b6,
+      #60a5fa,
+      #c084fc
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: gradientShift 5s linear infinite;
+    display: inline-block;
+  }
+
+  .subtitle {
+    font-size: var(--font-size-xl);
+    color: #e2e8f0;
+    max-width: 700px;
+    margin: 0 auto var(--space-8);
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Countdown Timer */
+  .countdown-container {
+    margin: var(--space-8) auto;
+    max-width: 600px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .countdown-label {
+    font-size: var(--font-size-lg);
+    color: var(--accent-gold);
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+    text-align: center;
+  }
+
+  .countdown {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .countdown-item {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-4);
+    min-width: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+    transition: all 0.3s ease;
+  }
+
+  .countdown-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .countdown-number {
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    color: var(--accent-gold);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+
+  .countdown-text {
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .countdown-separator {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--accent-purple);
+    margin: 0 var(--space-1);
+  }
+
+  .meta {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: rgba(0, 0, 0, 0.3);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--border-radius-lg);
+    color: #e2e8f0;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+  }
+
+  .meta-item:hover {
+    background: rgba(0, 0, 0, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .benefits {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-6);
+    margin-bottom: var(--space-10);
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  .benefit {
+    font-size: var(--font-size-lg);
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    transition: all 0.3s ease;
+  }
+
+  .benefit:hover {
+    color: var(--text-main);
+    transform: scale(1.05);
+  }
+
+  .cta-primary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-gold {
+    background: var(--accent-gold) !important;
+    color: black !important;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 0 20px rgba(234, 179, 8, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .btn-gold:hover {
+    transform: scale(1.05);
+    background: #facc15 !important;
+    box-shadow: 0 0 40px rgba(234, 179, 8, 0.6);
+  }
+
+  .btn-pulse {
+    animation: pulse 2s infinite;
+  }
+
+  .social-proof {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+  }
+
+  /* ========================================
+     LEARNING SECTION
+     ======================================== */
+  .learning {
+    background: var(--bg-dark);
+  }
+
+  .learning-grid {
+    max-width: 800px;
+    margin: 0 auto var(--space-8);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .learning-item {
+    display: flex;
+    gap: var(--space-3);
+    align-items: flex-start;
+    background: var(--bg-card);
+    padding: var(--space-4);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .learning-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(10px);
+    border-color: var(--accent-purple);
+  }
+
+  .learning-item .check {
+    font-size: var(--font-size-xl);
+    flex-shrink: 0;
+  }
+
+  .learning-item p {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    line-height: 1.6;
+  }
+
+  .bonus-badge {
+    background: linear-gradient(
+      to right,
+      rgba(168, 85, 247, 0.2),
+      rgba(234, 179, 8, 0.2)
+    );
+    padding: var(--space-4);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    text-align: center;
+    font-size: var(--font-size-lg);
+    max-width: 800px;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+  }
+
+  .bonus-badge:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(168, 85, 247, 0.3);
+  }
+
+  /* ========================================
+     TESTIMONIALS SECTION
+     ======================================== */
+  .testimonials {
+    background: linear-gradient(to bottom, var(--bg-dark), #1a0b2e);
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .testimonials-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .testimonial-card {
+    background: var(--bg-card);
+    padding: var(--space-6);
+    border-radius: var(--border-radius-xl);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-purple);
+    box-shadow: 0 20px 40px rgba(168, 85, 247, 0.3);
+  }
+
+  .quote-icon {
+    font-size: 60px;
+    color: var(--accent-purple);
+    opacity: 0.2;
+    line-height: 1;
+    margin-bottom: var(--space-2);
+  }
+
+  .testimonial-quote {
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: var(--space-4);
+  }
+
+  .testimonial-highlight {
+    background: rgba(168, 85, 247, 0.2);
+    color: var(--accent-purple);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--border-radius-lg);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+    text-align: center;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding-top: var(--space-4);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .author-avatar {
+    font-size: 40px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+  }
+
+  .author-name {
+    font-weight: 600;
+    margin: 0;
+    font-size: var(--font-size-base);
+  }
+
+  .author-role {
+    font-size: var(--font-size-sm);
+    color: var(--text-main);
+    margin: 0;
+  }
+
+  /* ========================================
+     AUDIENCE SECTION
+     ======================================== */
+  .audience {
+    background: #1a0b2e;
+  }
+
+  .audience-list {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .audience-item {
+    display: flex;
+    gap: var(--space-3);
+    align-items: flex-start;
+    font-size: var(--font-size-xl);
+    transition: all 0.3s ease;
+  }
+
+  .audience-item:hover {
+    transform: translateX(10px);
+  }
+
+  .audience-item .bullet {
+    color: var(--accent-purple);
+    font-size: var(--font-size-2xl);
+    flex-shrink: 0;
+  }
+
+  .audience-item p {
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* ========================================
+     WHY FREE SECTION
+     ======================================== */
+  .why-free {
+    background: var(--bg-dark);
+  }
+
+  .why-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .why-content .intro {
+    font-size: var(--font-size-xl);
+    text-align: center;
+    margin-bottom: var(--space-8);
+    color: var(--text-muted);
+  }
+
+  .problems {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+  }
+
+  .problem {
+    display: flex;
+    gap: var(--space-3);
+    align-items: flex-start;
+    background: var(--bg-card);
+    padding: var(--space-4);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .problem:hover {
+    transform: translateX(10px);
+    border-color: rgba(239, 68, 68, 0.6);
+  }
+
+  .problem .icon {
+    font-size: var(--font-size-xl);
+    flex-shrink: 0;
+  }
+
+  .problem p {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    line-height: 1.6;
+  }
+
+  .mission,
+  .decision {
+    font-size: var(--font-size-xl);
+    text-align: center;
+    line-height: 1.8;
+    margin-bottom: var(--space-4);
+  }
+
+  .mission {
+    color: var(--text-main);
+  }
+
+  .decision {
+    color: var(--accent-purple);
+    font-weight: 500;
+  }
+
+  /* ========================================
+     INSTRUCTOR SECTION
+     ======================================== */
+  .instructor {
+    background: linear-gradient(to bottom, var(--bg-dark), #1a0b2e);
+  }
+
+  .instructor-card {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    padding: var(--space-8);
+    border-radius: var(--border-radius-xl);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .instructor-card:hover {
+    border-color: var(--accent-purple);
+    box-shadow: 0 20px 60px rgba(168, 85, 247, 0.3);
+    transform: translateY(-5px);
+  }
+
+  .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto var(--space-4);
+    border: 3px solid var(--accent-gold);
+    box-shadow: 0 8px 24px rgba(234, 179, 8, 0.2);
+  }
+
+  .name {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+    color: var(--accent-gold)
+  }
+
+  .role,
+  .credentials {
+    font-size: var(--font-size-lg);
+    color: var(--text-muted);
+    margin-bottom: var(--space-2);
+  }
+
+  .bio {
+    font-size: var(--font-size-lg);
+    line-height: 1.6;
+    margin-top: var(--space-4);
+    color: var(--text-main);
+  }
+
+  /* ========================================
+     FAQ SECTION
+     ======================================== */
+  .faq {
+    background: #1a0b2e;
+  }
+
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .faq-item {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-xl);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item:hover {
+    border-color: var(--accent-purple);
+  }
+
+  .faq-question {
+    padding: var(--space-6);
+    font-weight: 600;
+    font-size: var(--font-size-lg);
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    user-select: none;
+    transition: all 0.3s ease;
+  }
+
+  .faq-question:hover {
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-answer {
+    padding: 0 var(--space-6) var(--space-6) var(--space-6);
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .faq-answer p {
+    margin: 0;
+  }
+
+  .faq-item[open] .faq-question {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .faq-item[open] .arrow {
+    transform: rotate(180deg);
+  }
+
+  .arrow {
+    transition: transform 0.3s ease;
+    color: var(--accent-purple);
+  }
+
+  /* ========================================
+     CTA FINAL SECTION
+     ======================================== */
+  .cta-final {
+    background: linear-gradient(180deg, #1a0b2e 0%, #0f0518 50%, #000000 100%);
+    text-align: center;
+    padding: var(--space-24) 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-final::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba(168, 85, 247, 0.15),
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  .stars-bg {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+      2px 2px at 20px 30px,
+      white,
+      transparent
+    ),
+      radial-gradient(2px 2px at 60px 70px, white, transparent),
+      radial-gradient(1px 1px at 50px 50px, white, transparent),
+      radial-gradient(1px 1px at 130px 80px, white, transparent),
+      radial-gradient(2px 2px at 90px 10px, white, transparent);
+    background-size: 200px 200px;
+    background-repeat: repeat;
+    opacity: 0.4;
+    animation: stars-drift 120s linear infinite;
+  }
+
+  @keyframes stars-drift {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-200px);
+    }
+  }
+
+  .final-title {
+    font-size: var(--font-size-4xl);
+    font-weight: 800;
+    margin-bottom: var(--space-10);
+    position: relative;
+    z-index: 1;
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .final-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-6);
+    position: relative;
+    z-index: 1;
+  }
+
+  .urgency {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    background: rgba(0, 0, 0, 0.4);
+    padding: var(--space-4) var(--space-6);
+    border-radius: var(--border-radius-xl);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(234, 179, 8, 0.2);
+  }
+
+  .spots,
+  .date {
+    font-size: var(--font-size-lg);
+    color: #ffffff;
+  }
+
+  .spots {
+    color: var(--accent-gold);
+    font-weight: 700;
+    font-size: var(--font-size-xl);
+  }
+
+  .date {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+  }
+
+  /* ========================================
+     RESPONSIVE
+     ======================================== */
+  @media (max-width: 768px) {
+    .title {
+      font-size: var(--font-size-3xl);
+    }
+
+    .subtitle {
+      font-size: var(--font-size-lg);
+    }
+
+    .section-title {
+      font-size: var(--font-size-2xl);
+    }
+
+    .final-title {
+      font-size: var(--font-size-2xl);
+    }
+
+    .learning-item p,
+    .audience-item,
+    .problem p {
+      font-size: var(--font-size-base);
+    }
+
+    .benefits {
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .countdown {
+      gap: var(--space-1);
+    }
+
+    .countdown-item {
+      min-width: 60px;
+      padding: var(--space-3);
+    }
+
+    .countdown-number {
+      font-size: var(--font-size-2xl);
+    }
+
+    .countdown-separator {
+      font-size: var(--font-size-xl);
+    }
+  }
+</style>
+
+<script>
+  // ========================================
+  // INTERSECTION OBSERVER - ANIMATIONS
+  // ========================================
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px',
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const delay = entry.target.getAttribute('data-delay') || 0;
+        setTimeout(() => {
+          entry.target.classList.add('animated');
+        }, parseInt(delay));
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+    observer.observe(el);
+  });
+
+  // ========================================
+  // COUNTDOWN TIMER
+  // ========================================
+  function updateCountdown() {
+    const countdownEl = document.getElementById('countdown');
+    if (!countdownEl) return;
+
+    const eventDate = new Date(countdownEl.getAttribute('data-event-date')).getTime();
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    if (distance < 0) {
+      countdownEl.innerHTML = '<p class="countdown-ended">¡La masterclass ha comenzado!</p>';
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+
+    if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
+    if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+    if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+    if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+  }
+
+  // Update countdown every second
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // ========================================
+  // COUNT UP ANIMATION
+  // ========================================
+  function animateCountUp(element: HTMLElement) {
+    const target = parseInt(element.getAttribute('data-target') || '0');
+    const duration = 2000;
+    const increment = target / (duration / 16);
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        element.textContent = String(target);
+        clearInterval(timer);
+      } else {
+        element.textContent = String(Math.floor(current));
+      }
+    }, 16);
+  }
+
+  const countUpObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && entry.target instanceof HTMLElement) {
+          animateCountUp(entry.target);
+          countUpObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  document.querySelectorAll('.count-up').forEach((el) => {
+    if (el instanceof HTMLElement) {
+      countUpObserver.observe(el);
+    }
+  });
+
+  // ========================================
+  // ANALYTICS TRACKING
+  // ========================================
+  function trackEvent(eventName: string, eventData = {}) {
+    // Google Analytics 4
+    if (typeof window !== 'undefined' && 'gtag' in window) {
+      (window as any).gtag('event', eventName, eventData);
+    }
+
+    // Plausible Analytics
+    if (typeof window !== 'undefined' && 'plausible' in window) {
+      (window as any).plausible(eventName, { props: eventData });
+    }
+
+    // Facebook Pixel
+    if (typeof window !== 'undefined' && 'fbq' in window) {
+      (window as any).fbq('track', eventName, eventData);
+    }
+
+    // Console log for debugging
+    console.log('Track Event:', eventName, eventData);
+  }
+
+  // Track CTA clicks
+  document.querySelectorAll('[data-track-event]').forEach((button) => {
+    button.addEventListener('click', (e) => {
+      const eventName = (e.currentTarget as HTMLElement).getAttribute('data-track-event');
+      if (eventName) {
+        trackEvent(eventName, {
+          button_location: eventName.includes('hero') ? 'hero' : 'footer',
+          button_text: (e.currentTarget as HTMLElement).textContent?.trim(),
+        });
+      }
+    });
+  });
+
+  // Track scroll depth
+  let maxScroll = 0;
+  const scrollMilestones = [25, 50, 75, 100];
+  const trackedMilestones = new Set<number>();
+
+  window.addEventListener('scroll', () => {
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
+
+    if (scrollPercent > maxScroll) {
+      maxScroll = scrollPercent;
+
+      scrollMilestones.forEach((milestone) => {
+        if (scrollPercent >= milestone && !trackedMilestones.has(milestone)) {
+          trackedMilestones.add(milestone);
+          trackEvent('scroll_depth', {
+            percent: milestone,
+          });
+        }
+      });
+    }
+  });
+
+  // Track FAQ interactions
+  document.querySelectorAll('.faq-item').forEach((item) => {
+    item.addEventListener('toggle', (e) => {
+      if ((e.target as HTMLDetailsElement).open) {
+        const question = item.querySelector('.faq-question')?.textContent?.trim();
+        trackEvent('faq_opened', {
+          question: question || 'unknown',
+        });
+      }
+    });
+  });
+
+  // Track time on page
+  let startTime = Date.now();
+  window.addEventListener('beforeunload', () => {
+    const timeOnPage = Math.round((Date.now() - startTime) / 1000);
+    trackEvent('time_on_page', {
+      seconds: timeOnPage,
+    });
+  });
+
+  // Track section visibility
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && entry.target instanceof HTMLElement) {
+          const sectionName =
+            entry.target.className.split(' ')[0] || 'unknown_section';
+          trackEvent('section_viewed', {
+            section: sectionName,
+          });
+          sectionObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  document.querySelectorAll('section').forEach((section) => {
+    sectionObserver.observe(section);
+  });
+</script>
