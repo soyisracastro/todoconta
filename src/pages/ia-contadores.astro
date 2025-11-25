@@ -16,7 +16,8 @@ const keywords = [
 ];
 
 // Configuration
-const REGISTRATION_URL = 'https://nas.io';
+const REGISTRATION_MASTERCLASS_URL = 'https://luma.com/wvnu1jjs';
+const REGISTRATION_CHALLENGE_URL = 'https://nas.io';
 const EARLY_BIRD_PRICE = '$2,497';
 const REGULAR_PRICE = '$2,997';
 const DISCOUNT_AMOUNT = '$500';
@@ -27,7 +28,97 @@ const EVENT_TIME = '6:00 PM - 7:00 PM (CDMX)';
 ---
 
 <LandingLayout title={title} description={description} keywords={keywords}>
-  <!-- SECCIÓN 1: HERO -->
+  <!-- SECCIÓN HERO: MASTERCLASS -->
+  <section class="masterclass-hero">
+    <div class="container hero-content text-center">
+      <div class="badge-container animate-fade-in-up">
+        <span class="badge-icon">🎁</span>
+        <span class="badge-text">MASTERCLASS GRATUITA</span>
+      </div>
+
+      <h1 class="hero-title animate-fade-in-up delay-100">
+        "Por Qué el 90% de los Contadores<br />
+        <span class="gradient-text">Usa IA de Forma Incorrecta"</span>
+      </h1>
+
+      <div class="hero-meta animate-fade-in-up delay-200">
+        <div class="meta-item">
+          <span class="icon">📅</span>
+          <span>4 de diciembre, 2025</span>
+        </div>
+        <div class="meta-item">
+          <span class="icon">⏰</span>
+          <span>5:30 PM (CDMX)</span>
+        </div>
+      </div>
+
+      <div class="masterclass-benefits animate-fade-in-up delay-300">
+        <div class="benefit-item">
+          <span class="icon">⏱️</span> 45 minutos que cambiarán tu perspectiva
+        </div>
+        <div class="benefit-item">
+          <span class="icon">💯</span> 100% GRATIS
+        </div>
+      </div>
+
+      <div class="learning-points animate-fade-in-up delay-300">
+        <p class="learning-title">Aprenderás:</p>
+        <ul class="learning-list">
+          <li>✅ El framework Mentalidad IA-First</li>
+          <li>✅ Por qué depender de ChatGPT solo es un error</li>
+          <li>✅ Demo en vivo: Caso fiscal resuelto en 12 min (vs 2 horas)</li>
+        </ul>
+      </div>
+
+      <div class="hero-cta animate-fade-in-up delay-400">
+        <Button
+          href={REGISTRATION_MASTERCLASS_URL}
+          variant="primary"
+          size="xl"
+          class="btn-glow"
+        >
+          Regístrate GRATIS aquí
+        </Button>
+        <p class="scroll-indicator">
+          👇 Scroll para conocer el Reto Completo de 12 Días
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN TRANSICIÓN -->
+  <section class="transition-section">
+    <div class="container text-center">
+      <h2 class="transition-title">
+        💡 ¿Te gustó lo que viste en la masterclass?
+      </h2>
+      <p class="transition-text">
+        Imagina profundizar en esto durante 12 días completos:
+      </p>
+
+      <div class="transition-grid">
+        <div class="transition-card">
+          <span class="icon">🤖</span>
+          <p>Dominio total de ChatGPT, Claude y Gemini 3</p>
+        </div>
+        <div class="transition-card">
+          <span class="icon">🇲🇽</span>
+          <p>Casos 100% reales para contadores mexicanos</p>
+        </div>
+        <div class="transition-card">
+          <span class="icon">💰</span>
+          <p>Plan de monetización para recuperar tu inversión en 30 días</p>
+        </div>
+      </div>
+
+      <div class="transition-cta">
+        <p class="arrow-down">👇</p>
+        <p class="cta-text">Conoce el Reto IA 12 Días</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3: HERO DEL RETO -->
   <section class="hero-section">
     <div class="hero-bg-overlay"></div>
     <div class="hero-blobs">
@@ -70,7 +161,7 @@ const EVENT_TIME = '6:00 PM - 7:00 PM (CDMX)';
 
       <div class="hero-cta animate-fade-in-up delay-400">
         <Button
-          href={REGISTRATION_URL}
+          href={REGISTRATION_CHALLENGE_URL}
           variant="primary"
           size="xl"
           class="btn-glow"
@@ -293,7 +384,7 @@ const EVENT_TIME = '6:00 PM - 7:00 PM (CDMX)';
               </div>
               <div class="mt-4">
                 <Button
-                  href={REGISTRATION_URL}
+                  href={REGISTRATION_CHALLENGE_URL}
                   variant="outline"
                   size="sm"
                   class="btn-gold-outline"
@@ -569,7 +660,7 @@ const EVENT_TIME = '6:00 PM - 7:00 PM (CDMX)';
 
         <div class="pricing-cta">
           <Button
-            href={REGISTRATION_URL}
+            href={REGISTRATION_CHALLENGE_URL}
             variant="primary"
             size="xl"
             class="btn-full btn-glow"
@@ -657,7 +748,7 @@ const EVENT_TIME = '6:00 PM - 7:00 PM (CDMX)';
 
       <div class="final-actions">
         <Button
-          href={REGISTRATION_URL}
+          href={REGISTRATION_CHALLENGE_URL}
           variant="primary"
           size="xl"
           class="btn-glow"
@@ -1459,6 +1550,124 @@ const EVENT_TIME = '6:00 PM - 7:00 PM (CDMX)';
     }
     .pricing-price .amount {
       font-size: var(--font-size-4xl);
+    }
+  }
+
+  /* Masterclass Hero */
+  .masterclass-hero {
+    background: linear-gradient(to bottom, #000000, #1e1b4b);
+    padding-top: var(--space-32);
+    padding-bottom: var(--space-20);
+    text-align: center;
+  }
+  .masterclass-benefits {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-6);
+    margin-bottom: var(--space-8);
+    flex-wrap: wrap;
+  }
+  .benefit-item {
+    font-size: var(--font-size-lg);
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  .learning-points {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-xl);
+    padding: var(--space-8);
+    max-width: 600px;
+    margin: 0 auto var(--space-10);
+    text-align: left;
+  }
+  .learning-title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    margin-bottom: var(--space-4);
+    color: var(--accent-gold);
+    text-align: center;
+  }
+  .learning-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .learning-list li {
+    margin-bottom: var(--space-3);
+    font-size: var(--font-size-lg);
+  }
+  .scroll-indicator {
+    margin-top: var(--space-6);
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+    animation: bounce 2s infinite;
+  }
+
+  /* Transition Section */
+  .transition-section {
+    background: var(--bg-dark);
+    padding: var(--space-16) 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .transition-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-4);
+    color: var(--text-main);
+  }
+  .transition-text {
+    font-size: var(--font-size-xl);
+    color: var(--text-muted);
+    margin-bottom: var(--space-10);
+  }
+  .transition-grid {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-6);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-10);
+  }
+  .transition-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: var(--space-6);
+    border-radius: var(--border-radius-lg);
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+  }
+  .transition-card .icon {
+    font-size: var(--font-size-3xl);
+  }
+  .transition-cta {
+    color: var(--accent-purple);
+    font-weight: 700;
+    font-size: var(--font-size-xl);
+  }
+  .arrow-down {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-2);
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
     }
   }
 </style>
