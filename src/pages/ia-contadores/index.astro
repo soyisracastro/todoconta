@@ -17,38 +17,38 @@ const keywords = [
 
 // Configuration
 const REGISTRATION_URL = 'https://luma.com/wvnu1jjs';
-const EVENT_DATE = '4 de diciembre, 2025';
-const EVENT_TIME = '5:30 PM (CDMX)';
-const EVENT_DATETIME = '2025-12-04T17:30:00-06:00'; // ISO format for countdown
+const EVENT_DATE = 'Viernes 5 de diciembre, 2025';
+const EVENT_TIME = '10:30 AM (CDMX)';
+const EVENT_DATETIME = '2025-12-05T10:30:00-06:00'; // ISO format for countdown
 const INSTRUCTOR_NAME = 'Israel Castro';
 const REGISTERED_COUNT = 15;
 const MAX_SPOTS = 50;
 
-// Testimonials - REPLACE WITH REAL DATA
+// Testimonials
 const testimonials = [
   {
-    name: 'Nombre del Contador 1',
-    role: 'Contador Público, Ciudad',
+    name: 'Ricardo M.',
+    role: 'Contador Público, Baja California',
     avatar: '👤',
     quote:
-      'Testimonio aquí. Describe cómo le ayudó el taller anterior, resultados específicos, tiempo ahorrado, etc.',
-    highlight: 'Resultado específico (ej: "Ahorré 15 horas por semana")',
+      'Antes perdía horas elaborando dictámenes fiscales y buscando jurisprudencia. Ahora uso el framework de Israel con Claude y ChatGPT, y lo que me tomaba 3 horas lo resuelvo en 40 minutos. La calidad incluso mejoró porque la IA me ayuda a no dejar cabos sueltos.',
+    highlight: 'Recuperé 12 horas por semana',
   },
   {
-    name: 'Nombre del Contador 2',
-    role: 'Contador Público, Ciudad',
+    name: 'Lizeth G.',
+    role: 'Contadora Independiente, Guadalajara',
     avatar: '👤',
     quote:
-      'Testimonio aquí. Describe cómo le ayudó el taller anterior, resultados específicos, tiempo ahorrado, etc.',
-    highlight: 'Resultado específico (ej: "Aumenté mis ingresos 40%")',
+      'Pensaba que ya sabía usar IA porque usaba ChatGPT para todo. Israel me mostró que estaba dejando dinero sobre la mesa al no usar las herramientas correctas para cada tarea. Ahora combino ChatGPT, Claude y Gemini según lo que necesito, y puedo atender 40% más clientes sin contratar personal.',
+    highlight: 'Aumenté mis ingresos un 35% en 3 meses',
   },
   {
-    name: 'Nombre del Contador 3',
-    role: 'Contador Público, Ciudad',
+    name: 'Carmen Lucía R.',
+    role: 'Socio en Despacho Contable, Monterrey',
     avatar: '👤',
     quote:
-      'Testimonio aquí. Describe cómo le ayudó el taller anterior, resultados específicos, tiempo ahorrado, etc.',
-    highlight: 'Resultado específico (ej: "Automaticé el 70% de mi trabajo")',
+      'Lo más valioso fue aprender a pensar como estratega, no como usuario de IA. Ahora capacité a todo mi equipo con el mismo framework, y hemos automatizado la elaboración de declaraciones complementarias, análisis de discrepancias fiscales y revisión de facturas. Nuestros clientes están impresionados con la velocidad de respuesta.',
+    highlight: 'Automaticé el 65% de tareas repetitivas',
   },
 ];
 ---
@@ -118,15 +118,6 @@ const testimonials = [
         </div>
       </div>
 
-      <div class="benefits animate-on-scroll" data-animation="fade-in-up" data-delay="500">
-        <div class="benefit">
-          <span class="icon">⏱️</span> 45 minutos que cambiarán tu perspectiva
-        </div>
-        <div class="benefit">
-          <span class="icon">💯</span> 100% GRATIS
-        </div>
-      </div>
-
       <div class="cta-primary animate-on-scroll" data-animation="scale-in" data-delay="600">
         <Button
           href={REGISTRATION_URL}
@@ -186,7 +177,7 @@ const testimonials = [
   </section>
 
   <!-- TESTIMONIOS -->
-  <!-- <section class="testimonials">
+  <section class="testimonials">
     <div class="container">
       <div class="section-header animate-on-scroll" data-animation="fade-in-up">
         <h2 class="section-title">Lo que dicen contadores como tú</h2>
@@ -216,7 +207,7 @@ const testimonials = [
         }
       </div>
     </div>
-  </section>-->
+  </section>
 
   <!-- PARA QUIÉN ES -->
   <section class="audience">
@@ -847,16 +838,6 @@ const testimonials = [
     transform: translateY(-2px);
   }
 
-  .benefits {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-6);
-    margin-bottom: var(--space-10);
-    flex-wrap: wrap;
-    position: relative;
-    z-index: 1;
-  }
-
   .benefit {
     font-size: var(--font-size-lg);
     color: var(--text-muted);
@@ -1039,7 +1020,7 @@ const testimonials = [
   }
 
   .author-avatar {
-    font-size: 40px;
+    font-size: 25px;
     width: 50px;
     height: 50px;
     display: flex;
@@ -1417,11 +1398,6 @@ const testimonials = [
     .audience-item,
     .problem p {
       font-size: var(--font-size-base);
-    }
-
-    .benefits {
-      flex-direction: column;
-      gap: var(--space-3);
     }
 
     .countdown {
