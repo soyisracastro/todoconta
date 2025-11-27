@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import OnlineAdvice from '../components/sections/OnlineAdvice.astro';
+import Footer from '../components/layout/Footer.astro';
+import Target from '../components/sections/Target.astro';
+import Benefits from '../components/sections/Benefits.astro';
+import Process from '../components/sections/Process.astro';
+import ServicesLink from '../components/sections/ServicesLink.astro';
+import AboutMe from '@/components/sections/AboutMe.astro';
+
+const menuLinks = [
+  { title: 'Cómo trabajo', url: '#como-trabajo' },
+  { title: 'Por qué conmigo', url: '#beneficios' },
+  { title: 'Quién soy', url: '#about-me' },
+  { title: '¿Es para ti?', url: '#para-quien' },
+  { title: 'Otros servicios', url: '#servicios-completos' },
+];
+
+const cta = {
+  title: 'Agendar asesoría',
+  link: 'https://wa.me/5215544753602?text=Hola,%20me%20gustaría%20agendar%20una%20asesoría',
+};
+---
+
+<Layout
+  title="Asesoría Fiscal Personalizada | Contador para Profesionistas y Empresarios - Todoconta"
+  description="Servicios contables integrales desde $3,500/mes. Asesorías fiscales online desde $1,200/hora. Tranquilidad fiscal garantizada para tu empresa."
+  keywords="asesoría fiscal, contador para profesionistas, contador para empresarios, asesoría fiscal online, RESICO, deducciones fiscales, trámites SAT, contador independiente, cómo pagar menos impuestos"
+>
+  <Navbar links={menuLinks} cta={cta} />
+  <OnlineAdvice cta={cta} />
+  <Target />
+  <Benefits />
+  <AboutMe />
+  <Process />
+  <ServicesLink />
+  <Footer />
+</Layout>

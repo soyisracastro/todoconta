@@ -113,7 +113,7 @@ trackMetaPixelEvent('CustomEvent', {
 import { trackMetaPixelConversion } from '../config/analytics';
 
 // Ejemplo: Tracking de compra
-trackMetaPixelConversion(1500, 'MXN'); // $1,500 MXN
+trackMetaPixelConversion(1200, 'MXN'); // $1,500 MXN
 ```
 
 #### Tracking de Leads
@@ -129,7 +129,7 @@ trackMetaPixelLead();
 import { trackMetaPixelInitiateCheckout } from '../config/analytics';
 
 // Ejemplo: Tracking de inicio de proceso de compra
-trackMetaPixelInitiateCheckout(1500, 'MXN');
+trackMetaPixelInitiateCheckout(1200, 'MXN');
 ```
 
 ## Eventos Recomendados para E-commerce
