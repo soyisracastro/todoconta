@@ -13,6 +13,9 @@ export default defineConfig({
 
   // Redirects configuration to maintain SEO during WordPress to Astro migration
   redirects: {
+    // Links page redirect (maintains social media compatibility)
+    '/links': '/',
+
     // Critical priority redirects
     '/cursos/taller-recuperar-devolucion-isr-rechazada/':
       'https://nas.io/todoconta/courses/luaw',
