@@ -22,33 +22,32 @@ const EVENT_TIME = '10:30 AM (CDMX)';
 const EVENT_DATETIME = '2025-12-05T10:30:00-06:00'; // ISO format for countdown
 const INSTRUCTOR_NAME = 'Israel Castro';
 const REGISTERED_COUNT = 15;
-const MAX_SPOTS = 50;
 
 // Testimonials
 const testimonials = [
   {
     name: 'Ricardo M.',
-    role: 'Contador Público, Baja California',
+    role: 'Contador con 8 años de experiencia, CDMX',
     avatar: '👤',
     quote:
-      'Antes perdía horas elaborando dictámenes fiscales y buscando jurisprudencia. Ahora uso el framework de Israel con Claude y ChatGPT, y lo que me tomaba 3 horas lo resuelvo en 40 minutos. La calidad incluso mejoró porque la IA me ayuda a no dejar cabos sueltos.',
-    highlight: 'Recuperé 12 horas por semana',
+      'Después de aplicar lo que aprendí en el taller completo, ahora combino Claude y ChatGPT estratégicamente para dictámenes fiscales. He reducido significativamente el tiempo sin comprometer calidad.',
+    highlight: 'Resultados del taller de 12 días',
   },
   {
     name: 'Lizeth G.',
-    role: 'Contadora Independiente, Guadalajara',
+    role: 'Despacho contable, Guadalajara',
     avatar: '👤',
     quote:
-      'Pensaba que ya sabía usar IA porque usaba ChatGPT para todo. Israel me mostró que estaba dejando dinero sobre la mesa al no usar las herramientas correctas para cada tarea. Ahora combino ChatGPT, Claude y Gemini según lo que necesito, y puedo atender 40% más clientes sin contratar personal.',
-    highlight: 'Aumenté mis ingresos un 35% en 3 meses',
+      'Después del taller, cambié mi forma de trabajar. Ahora uso la herramienta correcta para cada tarea y he podido aumentar mi capacidad de atención sin contratar más personal.',
+    highlight: 'Resultados del taller de 12 días',
   },
   {
     name: 'Carmen Lucía R.',
-    role: 'Socio en Despacho Contable, Monterrey',
+    role: 'Director de despacho con 5 contadores, Monterrey',
     avatar: '👤',
     quote:
-      'Lo más valioso fue aprender a pensar como estratega, no como usuario de IA. Ahora capacité a todo mi equipo con el mismo framework, y hemos automatizado la elaboración de declaraciones complementarias, análisis de discrepancias fiscales y revisión de facturas. Nuestros clientes están impresionados con la velocidad de respuesta.',
-    highlight: 'Automaticé el 65% de tareas repetitivas',
+      'Lo más valioso fue cambiar mi mentalidad sobre IA. Después del taller completo, implementé el framework con mi equipo, y ahora usamos IA como asistente inteligente en declaraciones complementarias y análisis de discrepancias.',
+    highlight: 'Resultados del taller de 12 días',
   },
 ];
 ---
@@ -77,7 +76,7 @@ const testimonials = [
       </h1>
 
       <p class="subtitle animate-on-scroll" data-animation="fade-in-up" data-delay="200">
-        Descubre el framework que te permitirá usar la inteligencia artificial como
+        Descubre el framework que te permitirá <strong>empezar a pensar</strong> con inteligencia artificial como
         <strong>estratega</strong>, no como usuario.
       </p>
 
@@ -311,10 +310,9 @@ const testimonials = [
         />
         <h3 class="name">{INSTRUCTOR_NAME}</h3>
         <p class="role">Contador público y programador con 12+ años de experiencia</p>
-        <p class="credentials">Creador de TodoConta y Contadores IA</p>
+        <p class="credentials">Creador de TodoConta</p>
         <p class="bio">
-          He ayudado a <strong>cientos de contadores</strong> a integrar IA en sus prácticas, aumentando
-          ingresos y recuperando <strong>10-15 horas por semana</strong>.
+          A través de mi plataforma, he trabajado con <strong>cientos de contadores mexicanos</strong> interesados en integrar IA. Los que implementan el framework reportan mejoras significativas en productividad y nuevas oportunidades de ingresos.
         </p>
       </div>
     </div>
@@ -403,11 +401,14 @@ const testimonials = [
         </Button>
 
         <div class="urgency">
-          <p class="spots animate-on-scroll" data-animation="fade-in" data-delay="400">
-            👥 Solo {MAX_SPOTS} lugares disponibles
+          <p class="date animate-on-scroll" data-animation="fade-in" data-delay="400">
+            ⏰ Próxima masterclass: {EVENT_DATE}
+          </p>
+          <p class="date animate-on-scroll" data-animation="fade-in" data-delay="450">
+            ⏰ {EVENT_TIME}
           </p>
           <p class="date animate-on-scroll" data-animation="fade-in" data-delay="500">
-            ⏰ Próxima masterclass: {EVENT_DATE}
+            📹 Quedará grabación disponible 48h
           </p>
         </div>
       </div>
