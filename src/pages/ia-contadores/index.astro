@@ -16,12 +16,17 @@ const keywords = [
 ];
 
 // Configuration
-const REGISTRATION_URL = 'https://luma.com/wvnu1jjs';
-const EVENT_DATE = 'Viernes 5 de diciembre, 2025';
-const EVENT_TIME = '10:30 AM (CDMX)';
-const EVENT_DATETIME = '2025-12-05T10:30:00-06:00'; // ISO format for countdown
 const INSTRUCTOR_NAME = 'Israel Castro';
-const REGISTERED_COUNT = 15;
+
+// CTA Button Text Options (randomly selected)
+const ctaOptions = [
+  '🎯 Reservar mi lugar',
+  '🚀 Quiero asistir',
+  '📚 Inscribirme gratis',
+  '✅ Asegurar mi espacio',
+  '👋 Apartar mi lugar',
+];
+const selectedCTA = ctaOptions[Math.floor(Math.random() * ctaOptions.length)];
 
 // Testimonials
 const testimonials = [
@@ -80,57 +85,47 @@ const testimonials = [
         <strong>estratega</strong>, no como usuario.
       </p>
 
-      <!-- COUNTDOWN TIMER -->
-      <div class="countdown-container animate-on-scroll" data-animation="scale-in" data-delay="300">
-        <p class="countdown-label">🔥 La masterclass comienza en:</p>
-        <div class="countdown" id="countdown" data-event-date={EVENT_DATETIME}>
-          <div class="countdown-item">
-            <span class="countdown-number" id="days">00</span>
-            <span class="countdown-text">Días</span>
-          </div>
-          <div class="countdown-separator">:</div>
-          <div class="countdown-item">
-            <span class="countdown-number" id="hours">00</span>
-            <span class="countdown-text">Horas</span>
-          </div>
-          <div class="countdown-separator">:</div>
-          <div class="countdown-item">
-            <span class="countdown-number" id="minutes">00</span>
-            <span class="countdown-text">Min</span>
-          </div>
-          <div class="countdown-separator">:</div>
-          <div class="countdown-item">
-            <span class="countdown-number" id="seconds">00</span>
-            <span class="countdown-text">Seg</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="meta animate-on-scroll" data-animation="fade-in" data-delay="400">
-        <div class="meta-item">
-          <span class="icon">📅</span>
-          <span>{EVENT_DATE}</span>
-        </div>
-        <div class="meta-item">
-          <span class="icon">⏰</span>
-          <span>{EVENT_TIME}</span>
-        </div>
-      </div>
-
-      <div class="cta-primary animate-on-scroll" data-animation="scale-in" data-delay="600">
+      <div class="cta-primary animate-on-scroll" data-animation="scale-in" data-delay="300">
         <Button
-          href={REGISTRATION_URL}
+          href="#eventos"
           variant="primary"
           size="xl"
-          class="btn-gold btn-pulse"
-          data-track-event="cta_hero_click"
+          class="btn-gold btn-pulse scroll-to-events"
+          data-track-event="cta_hero_scroll"
         >
-          Regístrate GRATIS aquí
+          {selectedCTA}
         </Button>
         <p class="social-proof">
-          👥 <span class="count-up" data-target={REGISTERED_COUNT}>0</span> contadores ya registrados
+          👥 Más de 120 contadores ya registrados
         </p>
       </div>
+    </div>
+  </section>
+
+  <!-- EVENTOS DISPONIBLES -->
+  <section class="events" id="eventos">
+    <div class="container">
+      <div class="section-header animate-on-scroll" data-animation="fade-in-up">
+        <h2 class="section-title">Elige tu fecha</h2>
+        <p class="section-subtitle">Selecciona el evento que mejor se ajuste a tu agenda</p>
+      </div>
+
+      <div class="iframe-container animate-on-scroll" data-animation="scale-in" data-delay="200">
+        <iframe
+          src="https://luma.com/embed/calendar/cal-ZzeY9AdlGzPYMmZ/events"
+          width="600"
+          height="450"
+          frameborder="0"
+          style="border: 1px solid #bfcbda88; border-radius: 4px;"
+          allowfullscreen=""
+          aria-hidden="false"
+          tabindex="0"
+        ></iframe>
+      </div>
+
+      <p class="events-note animate-on-scroll" data-animation="fade-in" data-delay="400">
+        💡 <strong>Tip:</strong> Si no puedes asistir en vivo, recibirás el replay por 48 horas
+      </p>
     </div>
   </section>
 
@@ -391,21 +386,21 @@ const testimonials = [
 
       <div class="final-cta animate-on-scroll" data-animation="scale-in" data-delay="200">
         <Button
-          href={REGISTRATION_URL}
+          href="#eventos"
           variant="primary"
           size="xl"
-          class="btn-gold btn-pulse"
-          data-track-event="cta_final_click"
+          class="btn-gold btn-pulse scroll-to-events"
+          data-track-event="cta_final_scroll"
         >
-          Reserva tu lugar GRATIS
+          {selectedCTA}
         </Button>
 
         <div class="urgency">
           <p class="date animate-on-scroll" data-animation="fade-in" data-delay="400">
-            ⏰ Próxima masterclass: {EVENT_DATE}
+            ⏰ Nuevas fechas disponibles
           </p>
           <p class="date animate-on-scroll" data-animation="fade-in" data-delay="450">
-            ⏰ {EVENT_TIME}
+            👥 Más de 120 contadores ya registrados
           </p>
           <p class="date animate-on-scroll" data-animation="fade-in" data-delay="500">
             📹 Quedará grabación disponible 48h
@@ -619,8 +614,9 @@ const testimonials = [
      ======================================== */
   .hero {
     background: linear-gradient(to bottom, #000000, #1e1b4b);
-    padding-top: var(--space-32);
-    padding-bottom: var(--space-20);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
     text-align: center;
     position: relative;
     border-radius: 0;
@@ -741,7 +737,7 @@ const testimonials = [
     font-size: var(--font-size-xl);
     color: #e2e8f0;
     max-width: 700px;
-    margin: 0 auto var(--space-8);
+    margin: 0 auto var(--space-16);
     line-height: 1.6;
     position: relative;
     z-index: 1;
@@ -887,6 +883,52 @@ const testimonials = [
   }
 
   /* ========================================
+     EVENTS SECTION
+     ======================================== */
+  .events {
+    background: linear-gradient(to bottom, #1e1b4b, var(--bg-dark));
+    padding: var(--space-20) 0;
+  }
+
+  .iframe-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: var(--space-8);
+  }
+
+  .iframe-container iframe {
+    max-width: 100%;
+    width: 600px;
+    height: 450px;
+    border: 1px solid rgba(168, 85, 247, 0.3) !important;
+    border-radius: var(--border-radius-xl) !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+  }
+
+  .iframe-container iframe:hover {
+    box-shadow: 0 20px 80px rgba(168, 85, 247, 0.6), 0 0 40px rgba(168, 85, 247, 0.3);
+    transform: translateY(-8px);
+  }
+
+  .events-note {
+    text-align: center;
+    margin-top: var(--space-8);
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.05);
+    padding: var(--space-4);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ========================================
      LEARNING SECTION
      ======================================== */
   .learning {
@@ -939,7 +981,7 @@ const testimonials = [
     border-radius: var(--border-radius-lg);
     border: 1px solid rgba(168, 85, 247, 0.3);
     text-align: center;
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-sm);
     max-width: 800px;
     margin: 0 auto;
     transition: all 0.3s ease;
@@ -1401,21 +1443,18 @@ const testimonials = [
       font-size: var(--font-size-base);
     }
 
-    .countdown {
-      gap: var(--space-1);
+    .iframe-container iframe {
+      width: 100%;
+      height: 600px;
     }
 
-    .countdown-item {
-      min-width: 60px;
-      padding: var(--space-3);
+    .events {
+      padding: var(--space-12) 0;
     }
 
-    .countdown-number {
-      font-size: var(--font-size-2xl);
-    }
-
-    .countdown-separator {
-      font-size: var(--font-size-xl);
+    .events-note {
+      font-size: var(--font-size-base);
+      margin-top: var(--space-6);
     }
   }
 </style>
@@ -1446,96 +1485,35 @@ const testimonials = [
   });
 
   // ========================================
-  // COUNTDOWN TIMER
+  // SMOOTH SCROLL TO EVENTS
   // ========================================
-  function updateCountdown() {
-    const countdownEl = document.getElementById('countdown');
-    if (!countdownEl) return;
-
-    const eventDate = new Date(countdownEl.getAttribute('data-event-date')).getTime();
-    const now = new Date().getTime();
-    const distance = eventDate - now;
-
-    if (distance < 0) {
-      countdownEl.innerHTML = '<p class="countdown-ended">¡La masterclass ha comenzado!</p>';
-      return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    const daysEl = document.getElementById('days');
-    const hoursEl = document.getElementById('hours');
-    const minutesEl = document.getElementById('minutes');
-    const secondsEl = document.getElementById('seconds');
-
-    if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
-    if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
-    if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
-    if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
-  }
-
-  // Update countdown every second
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-
-  // ========================================
-  // COUNT UP ANIMATION
-  // ========================================
-  function animateCountUp(element: HTMLElement) {
-    const target = parseInt(element.getAttribute('data-target') || '0');
-    const duration = 2000;
-    const increment = target / (duration / 16);
-    let current = 0;
-
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) {
-        element.textContent = String(target);
-        clearInterval(timer);
-      } else {
-        element.textContent = String(Math.floor(current));
+  document.querySelectorAll('.scroll-to-events').forEach((button) => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      const eventsSection = document.getElementById('eventos');
+      if (eventsSection) {
+        eventsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-    }, 16);
-  }
-
-  const countUpObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && entry.target instanceof HTMLElement) {
-          animateCountUp(entry.target);
-          countUpObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
-
-  document.querySelectorAll('.count-up').forEach((el) => {
-    if (el instanceof HTMLElement) {
-      countUpObserver.observe(el);
-    }
+    });
   });
 
   // ========================================
   // ANALYTICS TRACKING
   // ========================================
-  function trackEvent(eventName: string, eventData = {}) {
+  function trackEvent(eventName, eventData = {}) {
     // Google Analytics 4
     if (typeof window !== 'undefined' && 'gtag' in window) {
-      (window as any).gtag('event', eventName, eventData);
+      window.gtag('event', eventName, eventData);
     }
 
     // Plausible Analytics
     if (typeof window !== 'undefined' && 'plausible' in window) {
-      (window as any).plausible(eventName, { props: eventData });
+      window.plausible(eventName, { props: eventData });
     }
 
     // Facebook Pixel
     if (typeof window !== 'undefined' && 'fbq' in window) {
-      (window as any).fbq('track', eventName, eventData);
+      window.fbq('track', eventName, eventData);
     }
 
     // Console log for debugging
@@ -1545,11 +1523,11 @@ const testimonials = [
   // Track CTA clicks
   document.querySelectorAll('[data-track-event]').forEach((button) => {
     button.addEventListener('click', (e) => {
-      const eventName = (e.currentTarget as HTMLElement).getAttribute('data-track-event');
+      const eventName = e.currentTarget.getAttribute('data-track-event');
       if (eventName) {
         trackEvent(eventName, {
           button_location: eventName.includes('hero') ? 'hero' : 'footer',
-          button_text: (e.currentTarget as HTMLElement).textContent?.trim(),
+          button_text: e.currentTarget.textContent?.trim(),
         });
       }
     });
@@ -1558,7 +1536,7 @@ const testimonials = [
   // Track scroll depth
   let maxScroll = 0;
   const scrollMilestones = [25, 50, 75, 100];
-  const trackedMilestones = new Set<number>();
+  const trackedMilestones = new Set();
 
   window.addEventListener('scroll', () => {
     const windowHeight = window.innerHeight;
@@ -1582,8 +1560,8 @@ const testimonials = [
 
   // Track FAQ interactions
   document.querySelectorAll('.faq-item').forEach((item) => {
-    item.addEventListener('toggle', (e) => {
-      if ((e.target as HTMLDetailsElement).open) {
+    item.addEventListener('toggle', () => {
+      if (item.hasAttribute('open')) {
         const question = item.querySelector('.faq-question')?.textContent?.trim();
         trackEvent('faq_opened', {
           question: question || 'unknown',
@@ -1593,7 +1571,7 @@ const testimonials = [
   });
 
   // Track time on page
-  let startTime = Date.now();
+  const startTime = Date.now();
   window.addEventListener('beforeunload', () => {
     const timeOnPage = Math.round((Date.now() - startTime) / 1000);
     trackEvent('time_on_page', {
