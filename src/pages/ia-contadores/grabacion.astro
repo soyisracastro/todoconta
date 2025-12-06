@@ -2,7 +2,8 @@
 import LandingLayout from '@/layouts/LandingLayout.astro';
 import Button from '@/components/ui/Button.astro';
 
-const title = 'Masterclass Gratuita - Por Qué el 90% de los Contadores Usa IA de Forma Incorrecta';
+const title =
+  'Masterclass Gratuita - Por Qué el 90% de los Contadores Usa IA de Forma Incorrecta';
 const description =
   'Descubre la Mentalidad IA-First: cómo elegir ChatGPT, Claude o Gemini según cada tarea contable. Incluye recursos descargables y acceso a Perplexity Pro.';
 const keywords = [
@@ -19,8 +20,10 @@ const keywords = [
 const VIDEO_YOUTUBE_ID = 'BqsxObAj54A';
 const TUTORIAL_VIDEO_ID = 'VHI8UPMiRdw';
 const RETO_DETAILS_URL = '/ia-contadores/reto-12-dias';
-const CHECKOUT_URL = 'https://nas.io/checkout-global?communityId=67ab5a14d444670df4027cad&communityCode=TODOCONTA_CLUB&requestor=whatsappSignup&linkClicked=https%3A%2F%2Fnas.io%2Fportal%2Fchallenges%2Fmanage%3Fid%3D6932a1a7d7b7451ff09982cc&sourceInfoType=challenge&sourceInfoOrigin=6932a1a7d7b7451ff09982cc';
-const PDF_DOWNLOAD_LINK = 'https://s3.us-east-1.amazonaws.com/todoconta.com/uploads/Casos+pra%CC%81cticos_+3+flujos+hi%CC%81bridos+que+te+ahorrara%CC%81n+horas.pdf';
+const CHECKOUT_URL =
+  'https://nas.io/checkout-global?communityId=67ab5a14d444670df4027cad&communityCode=TODOCONTA_CLUB&requestor=whatsappSignup&linkClicked=https%3A%2F%2Fnas.io%2Fportal%2Fchallenges%2Fmanage%3Fid%3D6932a1a7d7b7451ff09982cc&sourceInfoType=challenge&sourceInfoOrigin=6932a1a7d7b7451ff09982cc';
+const PDF_DOWNLOAD_LINK =
+  'https://s3.us-east-1.amazonaws.com/todoconta.com/uploads/Casos+pra%CC%81cticos_+3+flujos+hi%CC%81bridos+que+te+ahorrara%CC%81n+horas.pdf';
 const PERPLEXITY_LINK = 'https://www.perplexity.ai/join/p/paypal-subscription';
 
 // Decision Matrix Data
@@ -33,7 +36,12 @@ const decisionMatrix = [
 ];
 ---
 
-<LandingLayout title={title} description={description} keywords={keywords} showFooter={false}>
+<LandingLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  showFooter={false}
+>
   <!-- HERO SECTION - VIDEO PRINCIPAL -->
   <section class="hero">
     <div class="hero-gradient-bg"></div>
@@ -43,32 +51,50 @@ const decisionMatrix = [
         <span class="badge-text">MASTERCLASS GRATUITA</span>
       </div>
 
-      <h1 class="title animate-on-scroll" data-animation="fade-in-up" data-delay="100">
+      <h1
+        class="title animate-on-scroll"
+        data-animation="fade-in-up"
+        data-delay="100"
+      >
         Por Qué el 90% de los Contadores<br />
-        <span class="gradient gradient-animated">Usa IA de Forma Incorrecta</span>
+        <span class="gradient gradient-animated"
+          >Usa IA de Forma Incorrecta</span
+        >
       </h1>
 
-      <p class="subtitle animate-on-scroll" data-animation="fade-in-up" data-delay="200">
-        Descubre la <strong>Mentalidad IA-First</strong>: cómo elegir ChatGPT, Claude o Gemini según cada tarea contable
+      <p
+        class="subtitle animate-on-scroll"
+        data-animation="fade-in-up"
+        data-delay="200"
+      >
+        Descubre la <strong>Mentalidad IA-First</strong>: cómo elegir ChatGPT,
+        Claude o Gemini según cada tarea contable
       </p>
 
-      <div class="video-container animate-on-scroll" data-animation="scale-in" data-delay="300">
+      <div
+        class="video-container animate-on-scroll"
+        data-animation="scale-in"
+        data-delay="300"
+      >
         <div class="video-wrapper">
           <iframe
             src={`https://www.youtube.com/embed/${VIDEO_YOUTUBE_ID}`}
             title="Masterclass: Por Qué el 90% de los Contadores Usa IA de Forma Incorrecta"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+            allowfullscreen></iframe>
         </div>
 
         <div class="video-meta">
           <span class="meta-item">⏱️ Duración: ~42 minutos</span>
-          <span class="meta-item">📅 Diciembre 2024</span>
+          <span class="meta-item">📅 Diciembre 2025</span>
         </div>
       </div>
 
-      <div class="learning-points animate-on-scroll" data-animation="fade-in-up" data-delay="400">
+      <div
+        class="learning-points animate-on-scroll"
+        data-animation="fade-in-up"
+        data-delay="400"
+      >
         <p class="points-title">En esta masterclass aprenderás:</p>
         <ul class="points-list">
           <li>✓ El error #1 que comete el 90% de contadores con IA</li>
@@ -89,12 +115,19 @@ const decisionMatrix = [
 
       <div class="resources-grid">
         <!-- Card 1: PDF Casos Prácticos -->
-        <div class="resource-card animate-on-scroll" data-animation="slide-in-left" data-delay="100">
+        <div
+          class="resource-card animate-on-scroll"
+          data-animation="slide-in-left"
+          data-delay="100"
+        >
           <div class="card-icon">📄</div>
           <div class="card-content">
-            <h3 class="card-title">Casos Prácticos + 10 Plantillas de Prompts</h3>
+            <h3 class="card-title">
+              Casos Prácticos + 10 Plantillas de Prompts
+            </h3>
             <p class="card-description">
-              Los 3 flujos híbridos completos que no alcanzamos a ver en la clase + matriz de decisión expandida
+              Los 3 flujos híbridos completos que no alcanzamos a ver en la
+              clase + matriz de decisión expandida
             </p>
             <ul class="card-list">
               <li>Caso 1: Viáticos al Extranjero (2h → 12 min)</li>
@@ -115,12 +148,17 @@ const decisionMatrix = [
         </div>
 
         <!-- Card 2: Perplexity Pro -->
-        <div class="resource-card animate-on-scroll" data-animation="slide-in-right" data-delay="200">
+        <div
+          class="resource-card animate-on-scroll"
+          data-animation="slide-in-right"
+          data-delay="200"
+        >
           <div class="card-icon">🎁</div>
           <div class="card-content">
             <h3 class="card-title">Perplexity Pro - 1 Año Gratis</h3>
             <p class="card-description">
-              La herramienta de búsqueda con IA más poderosa para investigación fiscal actualizada
+              La herramienta de búsqueda con IA más poderosa para investigación
+              fiscal actualizada
             </p>
             <ul class="card-list">
               <li>Búsquedas ilimitadas con fuentes citadas</li>
@@ -149,8 +187,9 @@ const decisionMatrix = [
         <p class="eyebrow">¿Quieres Profundizar?</p>
         <h2 class="bridge-title">Reto 12 Días: IA Aplicada para Contadores</h2>
         <p class="bridge-description">
-          Lo que viste hoy es solo el 10% de lo que cubrimos en el reto. En 12 sesiones prácticas (5-30 enero 2026)
-          dominarás ChatGPT, Claude, Gemini 3 + NotebookLM, Perplexity y flujos híbridos avanzados.
+          Lo que viste hoy es solo el 10% de lo que cubrimos en el reto. En 12
+          sesiones prácticas (5-30 enero 2026) dominarás ChatGPT, Claude, Gemini
+          3 + NotebookLM, Perplexity y flujos híbridos avanzados.
         </p>
 
         <div class="bridge-ctas">
@@ -175,7 +214,9 @@ const decisionMatrix = [
         </div>
 
         <p class="bridge-note">
-          Descuentos especiales disponibles | Usa código: <strong>GRABACION2025</strong>
+          Descuentos especiales disponibles | Usa código: <strong
+            >GRABACION2025</strong
+          >
         </p>
       </div>
     </div>
@@ -187,19 +228,23 @@ const decisionMatrix = [
       <div class="section-header animate-on-scroll" data-animation="fade-in-up">
         <h2 class="section-title">¿Primera vez usando Nas.io?</h2>
         <p class="section-subtitle">
-          Te muestro paso a paso cómo inscribirte al reto y aplicar tu código de descuento (2 minutos)
+          Te muestro paso a paso cómo inscribirte al reto y aplicar tu código de
+          descuento (2 minutos)
         </p>
       </div>
 
-      <div class="tutorial-video animate-on-scroll" data-animation="scale-in" data-delay="200">
+      <div
+        class="tutorial-video animate-on-scroll"
+        data-animation="scale-in"
+        data-delay="200"
+      >
         <div class="video-wrapper">
           <iframe
             src={`https://www.youtube.com/embed/${TUTORIAL_VIDEO_ID}`}
             title="Tutorial: Cómo inscribirse al Reto 12 Días"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
-            loading="lazy"
-          ></iframe>
+            loading="lazy"></iframe>
         </div>
       </div>
     </div>
@@ -212,7 +257,11 @@ const decisionMatrix = [
         <h2 class="section-title">Recordatorio: ¿Cuándo Usar Qué IA?</h2>
       </div>
 
-      <div class="matrix-table-wrapper animate-on-scroll" data-animation="fade-in-up" data-delay="200">
+      <div
+        class="matrix-table-wrapper animate-on-scroll"
+        data-animation="fade-in-up"
+        data-delay="200"
+      >
         <table class="matrix-table">
           <thead>
             <tr>
@@ -221,18 +270,25 @@ const decisionMatrix = [
             </tr>
           </thead>
           <tbody>
-            {decisionMatrix.map((row) => (
-              <tr>
-                <td>{row.task}</td>
-                <td class="best-ai">{row.bestAI}</td>
-              </tr>
-            ))}
+            {
+              decisionMatrix.map(row => (
+                <tr>
+                  <td>{row.task}</td>
+                  <td class="best-ai">{row.bestAI}</td>
+                </tr>
+              ))
+            }
           </tbody>
         </table>
       </div>
 
-      <p class="matrix-note animate-on-scroll" data-animation="fade-in" data-delay="400">
-        <strong>Nota:</strong> Matriz completa con 20+ casos en el PDF descargable ↑
+      <p
+        class="matrix-note animate-on-scroll"
+        data-animation="fade-in"
+        data-delay="400"
+      >
+        <strong>Nota:</strong> Matriz completa con 20+ casos en el PDF descargable
+        ↑
       </p>
     </div>
   </section>
@@ -247,7 +303,11 @@ const decisionMatrix = [
 
       <div class="final-options">
         <!-- Opción 1: Más Información -->
-        <div class="final-option animate-on-scroll" data-animation="slide-in-left" data-delay="200">
+        <div
+          class="final-option animate-on-scroll"
+          data-animation="slide-in-left"
+          data-delay="200"
+        >
           <div class="option-content">
             <h3 class="option-title">Quiero Más Información</h3>
             <p class="option-description">
@@ -266,7 +326,11 @@ const decisionMatrix = [
         </div>
 
         <!-- Opción 2: Inscripción Directa -->
-        <div class="final-option animate-on-scroll" data-animation="slide-in-right" data-delay="300">
+        <div
+          class="final-option animate-on-scroll"
+          data-animation="slide-in-right"
+          data-delay="300"
+        >
           <div class="option-content">
             <h3 class="option-title">Estoy Listo para Inscribirme</h3>
             <p class="option-description">
@@ -282,7 +346,9 @@ const decisionMatrix = [
               🚀 Reservar Mi Lugar
             </Button>
             <p class="option-note">
-              ¿Necesitas ayuda? <a href="mailto:israel@todoconta.com">Contáctanos</a>
+              ¿Necesitas ayuda? <a href="mailto:israel@todoconta.com"
+                >Contáctanos</a
+              >
             </p>
           </div>
         </div>
@@ -554,7 +620,9 @@ const decisionMatrix = [
     height: 0;
     overflow: hidden;
     border-radius: var(--border-radius-xl);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(168, 85, 247, 0.3);
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.5),
+      0 0 40px rgba(168, 85, 247, 0.3);
     border: 1px solid rgba(168, 85, 247, 0.3);
   }
 
@@ -906,11 +974,8 @@ const decisionMatrix = [
   .stars-bg {
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(
-      2px 2px at 20px 30px,
-      white,
-      transparent
-    ),
+    background-image:
+      radial-gradient(2px 2px at 20px 30px, white, transparent),
       radial-gradient(2px 2px at 60px 70px, white, transparent),
       radial-gradient(1px 1px at 50px 50px, white, transparent),
       radial-gradient(1px 1px at 130px 80px, white, transparent),
@@ -1054,8 +1119,8 @@ const decisionMatrix = [
     rootMargin: '0px 0px -50px 0px',
   };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
       if (entry.isIntersecting) {
         const delay = entry.target.getAttribute('data-delay') || 0;
         setTimeout(() => {
@@ -1066,7 +1131,7 @@ const decisionMatrix = [
     });
   }, observerOptions);
 
-  document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
     observer.observe(el);
   });
 
@@ -1094,9 +1159,11 @@ const decisionMatrix = [
   }
 
   // Track CTA clicks
-  document.querySelectorAll('[data-track-event]').forEach((button) => {
-    button.addEventListener('click', (e) => {
-      const eventName = (e.currentTarget as HTMLElement).getAttribute('data-track-event');
+  document.querySelectorAll('[data-track-event]').forEach(button => {
+    button.addEventListener('click', e => {
+      const eventName = (e.currentTarget as HTMLElement).getAttribute(
+        'data-track-event'
+      );
       if (eventName) {
         trackEvent(eventName, {
           button_text: (e.currentTarget as HTMLElement).textContent?.trim(),
@@ -1119,7 +1186,7 @@ const decisionMatrix = [
     if (scrollPercent > maxScroll) {
       maxScroll = scrollPercent;
 
-      scrollMilestones.forEach((milestone) => {
+      scrollMilestones.forEach(milestone => {
         if (scrollPercent >= milestone && !trackedMilestones.has(milestone)) {
           trackedMilestones.add(milestone);
           trackEvent('scroll_depth', {
@@ -1131,20 +1198,24 @@ const decisionMatrix = [
   });
 
   // Track resource downloads
-  document.querySelectorAll('[data-track-event^="download"]').forEach((button) => {
-    button.addEventListener('click', () => {
-      trackEvent('resource_download', {
-        resource_type: 'pdf',
+  document
+    .querySelectorAll('[data-track-event^="download"]')
+    .forEach(button => {
+      button.addEventListener('click', () => {
+        trackEvent('resource_download', {
+          resource_type: 'pdf',
+        });
       });
     });
-  });
 
   // Track Perplexity activation
-  document.querySelectorAll('[data-track-event="activate_perplexity"]').forEach((button) => {
-    button.addEventListener('click', () => {
-      trackEvent('perplexity_activation', {
-        source: 'recording_page',
+  document
+    .querySelectorAll('[data-track-event="activate_perplexity"]')
+    .forEach(button => {
+      button.addEventListener('click', () => {
+        trackEvent('perplexity_activation', {
+          source: 'recording_page',
+        });
       });
     });
-  });
 </script>
