@@ -18,8 +18,6 @@ const keywords = [
 
 // Configuration
 const RETO_DETAILS_URL = '/ia-contadores/reto-12-dias';
-const SENDY_ENDPOINT = ''; // TODO: Configure Sendy endpoint
-const THANK_YOU_PAGE = '/ia-contadores/recursos-gratis/gracias';
 ---
 
 <LandingLayout
@@ -1286,6 +1284,13 @@ const THANK_YOU_PAGE = '/ia-contadores/recursos-gratis/gracias';
 
 <script>
   // ========================================
+  // CONFIGURATION
+  // ========================================
+  const SENDY_ENDPOINT = 'https://sendy.todoconta.com/subscribe';
+  const SENDY_LIST_ID = 'vzn2EzpQzSnPJiEf4jR6Kg';
+  const THANK_YOU_PAGE = '/ia-contadores/recursos-gratis/gracias';
+
+  // ========================================
   // INTERSECTION OBSERVER - ANIMATIONS
   // ========================================
   const observerOptions = {
@@ -1354,33 +1359,47 @@ const THANK_YOU_PAGE = '/ia-contadores/recursos-gratis/gracias';
       submitButton.textContent = '⏳ Enviando...';
 
       try {
-        // TODO: Replace with actual Sendy endpoint
-        // For now, we'll simulate a successful submission
-        // and redirect to thank you page
+        // Preparar los datos para Sendy
+        const sendyData = new FormData();
+        sendyData.append('name', name);
+        sendyData.append('email', email);
+        sendyData.append('Challenge', challenge);
+        sendyData.append('Clients', clients);
+        sendyData.append('list', SENDY_LIST_ID);
+        sendyData.append('boolean', 'true');
 
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1500));
-
-        // Track conversion
-        trackEvent('lead_magnet_submit', {
-          email: email,
-          challenge: challenge,
-          clients: clients,
+        // Enviar a Sendy
+        const response = await fetch(SENDY_ENDPOINT, {
+          method: 'POST',
+          body: sendyData,
         });
 
-        // Show success message
-        showMessage(
-          '¡Perfecto! Revisa tu email para descargar los recursos.',
-          'success'
-        );
+        const result = await response.text();
 
-        // Reset form
-        form.reset();
+        if (result === '1' || result.includes('subscribed') || result.includes('Already subscribed')) {
+          // Track conversion
+          trackEvent('lead_magnet_submit', {
+            email: email,
+            challenge: challenge,
+            clients: clients,
+          });
 
-        // Redirect to thank you page after 2 seconds
-        setTimeout(() => {
-          window.location.href = '/ia-contadores/recursos-gratis/gracias';
-        }, 2000);
+          // Show success message
+          showMessage(
+            '¡Perfecto! Revisa tu email para descargar los recursos.',
+            'success'
+          );
+
+          // Reset form
+          form.reset();
+
+          // Redirect to thank you page after 2 seconds
+          setTimeout(() => {
+            window.location.href = THANK_YOU_PAGE;
+          }, 2000);
+        } else {
+          throw new Error('Subscription failed: ' + result);
+        }
       } catch (error) {
         console.error('Form submission error:', error);
         showMessage(
