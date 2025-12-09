@@ -1366,6 +1366,7 @@ const RETO_DETAILS_URL = '/ia-contadores/reto-12-dias';
         sendyData.append('Challenge', challenge);
         sendyData.append('Clients', clients);
         sendyData.append('list', SENDY_LIST_ID);
+        sendyData.append('api_key', import.meta.env.PUBLIC_SENDY_API_KEY);
         sendyData.append('boolean', 'true');
 
         // Enviar a Sendy
