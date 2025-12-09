@@ -57,17 +57,131 @@ const THANK_YOU_PAGE = '/ia-contadores/recursos-gratis/gracias';
         plantillas listas para usar
       </p>
 
-      <!-- PDF Mockup Placeholder -->
+      <!-- Scroll Indicator -->
       <div
-        class="hero-mockup animate-on-scroll"
-        data-animation="scale-in"
+        class="scroll-indicator animate-on-scroll"
+        data-animation="fade-in"
         data-delay="300"
       >
-        <div class="mockup-wrapper">
-          <div class="mockup-placeholder">
-            <div class="mockup-icon">📄</div>
-            <p class="mockup-text">Vista previa del PDF</p>
-            <p class="mockup-subtext">Casos Prácticos + Plantillas + Matriz</p>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M12 5v14M19 12l-7 7-7-7" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULARIO + MOCKUP SECTION -->
+  <section class="form-mockup-section">
+    <div class="container">
+      <!-- CONTENEDOR GRID: FORMULARIO + MOCKUP -->
+      <div class="hero-content-grid">
+        <!-- FORMULARIO DE DESCARGA -->
+        <div class="hero-form-container animate-on-scroll" data-animation="fade-in-up" data-delay="100">
+          <div class="form-container">
+            <h2 class="form-title">Descarga Tus Recursos Ahora</h2>
+            <p class="form-subtitle">
+              Ingresa tus datos y recibe el PDF inmediatamente en tu email
+            </p>
+
+            <form id="lead-magnet-form" class="lead-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name" class="form-label">Nombre</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="form-input"
+                    placeholder="Tu nombre completo"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="form-input"
+                    placeholder="tu@email.com"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="challenge" class="form-label">¿Cuál es tu MAYOR desafío actual con inteligencia artificial?</label>
+                <select
+                  id="challenge"
+                  name="challenge"
+                  class="form-select"
+                  required
+                >
+                  <option value="" disabled selected>Selecciona una opción</option>
+                  <option value="overwhelmed">No sé por dónde empezar / Me abruma</option>
+                  <option value="basic_use">Uso IA pero de forma muy básica</option>
+                  <option value="which_ai">No sé cuál IA usar para cada tarea</option>
+                  <option value="prompts">No logro que me dé respuestas útiles (prompts)</option>
+                  <option value="charge_more">Quiero cobrar más por mis servicios con IA</option>
+                  <option value="automate">Quiero automatizar tareas repetitivas</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="clients" class="form-label">¿Cuántos clientes contables manejas actualmente?</label>
+                <select
+                  id="clients"
+                  name="clients"
+                  class="form-select"
+                  required
+                >
+                  <option value="" disabled selected>Selecciona una opción</option>
+                  <option value="0-5">0-5 clientes (empezando)</option>
+                  <option value="6-15">6-15 clientes</option>
+                  <option value="16-30">16-30 clientes</option>
+                  <option value="31-50">31-50 clientes</option>
+                  <option value="51+">51+ clientes</option>
+                  <option value="corporate">Trabajo en corporativo / no tengo clientes directos</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn-submit" id="submit-button">
+                📥 Descargar Recursos Gratis
+              </button>
+
+              <p class="form-privacy">
+                🔒 No spam. Solo contenido de valor sobre IA para contadores.
+              </p>
+
+              <div id="form-message" class="form-message" style="display: none;">
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- PDF Mockup -->
+        <div
+          class="hero-mockup animate-on-scroll"
+          data-animation="scale-in"
+          data-delay="200"
+        >
+          <div class="mockup-wrapper">
+            <img
+              src="https://s3.us-east-1.amazonaws.com/todoconta.com/uploads/Casos+pra%CC%81cticos_+3+flujos+hi%CC%81bridos+que+te+ahorrara%CC%81n+horas.png"
+              alt="Casos prácticos: 3 flujos híbridos de IA para Contadores"
+              class="mockup-image"
+            />
           </div>
         </div>
       </div>
@@ -138,71 +252,6 @@ const THANK_YOU_PAGE = '/ia-contadores/recursos-gratis/gracias';
             <li>Ahorra tiempo eligiendo la IA correcta</li>
           </ul>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FORMULARIO DE DESCARGA -->
-  <section class="form-section">
-    <div class="container">
-      <div class="form-container animate-on-scroll" data-animation="fade-in-up">
-        <h2 class="form-title">Descarga Tus Recursos Ahora</h2>
-        <p class="form-subtitle">
-          Ingresa tus datos y recibe el PDF inmediatamente en tu email
-        </p>
-
-        <form id="lead-magnet-form" class="lead-form">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name" class="form-label">Nombre</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                class="form-input"
-                placeholder="Tu nombre completo"
-                required
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="email" class="form-label">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                class="form-input"
-                placeholder="tu@email.com"
-                required
-              />
-            </div>
-          </div>
-
-          <div class="form-group checkbox-group">
-            <label class="checkbox-label">
-              <input
-                type="checkbox"
-                name="reto_interest"
-                value="yes"
-                class="checkbox-input"
-              />
-              <span class="checkbox-text"
-                >Quiero recibir info sobre el Reto de 12 Días</span
-              >
-            </label>
-          </div>
-
-          <button type="submit" class="btn-submit" id="submit-button">
-            📥 Descargar Recursos Gratis
-          </button>
-
-          <p class="form-privacy">
-            🔒 No spam. Solo contenido de valor sobre IA para contadores.
-          </p>
-
-          <div id="form-message" class="form-message" style="display: none;">
-          </div>
-        </form>
       </div>
     </div>
   </section>
@@ -479,6 +528,26 @@ const THANK_YOU_PAGE = '/ia-contadores/recursos-gratis/gracias';
     }
   }
 
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(12px);
+    }
+  }
+
   .animate-on-scroll {
     opacity: 0;
   }
@@ -513,9 +582,22 @@ const THANK_YOU_PAGE = '/ia-contadores/recursos-gratis/gracias';
      ======================================== */
   .hero {
     background: linear-gradient(to bottom, #000000, #1e1b4b);
-    padding: var(--space-20) 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     position: relative;
+    border-radius: 0;
+    padding: var(--space-20) 0;
+  }
+
+  .hero .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-8);
   }
 
   .hero-gradient-bg {
@@ -539,7 +621,6 @@ const THANK_YOU_PAGE = '/ia-contadores/recursos-gratis/gracias';
     border: 1px solid rgba(255, 255, 255, 0.2);
     margin-bottom: var(--space-8);
     backdrop-filter: blur(10px);
-    animation: pulse 2s ease-in-out infinite;
   }
 
   .badge-icon {
@@ -594,57 +675,99 @@ const THANK_YOU_PAGE = '/ia-contadores/recursos-gratis/gracias';
     font-size: var(--font-size-xl);
     color: #e2e8f0;
     max-width: 700px;
-    margin: 0 auto var(--space-12);
+    margin: 0 auto;
     line-height: 1.6;
     position: relative;
     z-index: 1;
   }
 
+  .scroll-indicator {
+    margin-top: var(--space-12);
+    color: #e9d5ff;
+    cursor: pointer;
+    animation: bounce 3s ease-in-out infinite;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+
+  .scroll-indicator:hover {
+    opacity: 1;
+  }
+
+  .scroll-indicator svg {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .hero-content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-content-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-12);
+    }
+  }
+
   .hero-mockup {
+    width: 100%;
     max-width: 600px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
   }
 
+  @media (min-width: 1024px) {
+    .hero-content-grid .hero-mockup {
+      max-width: 100%;
+    }
+  }
+
   .mockup-wrapper {
     position: relative;
   }
 
-  .mockup-placeholder {
-    background: var(--bg-card);
-    border: 2px solid rgba(168, 85, 247, 0.3);
-    border-radius: var(--border-radius-xl);
-    padding: var(--space-16) var(--space-8);
-    text-align: center;
-    box-shadow:
-      0 20px 60px rgba(0, 0, 0, 0.5),
-      0 0 40px rgba(168, 85, 247, 0.3);
-    backdrop-filter: blur(10px);
+  .mockup-image {
+    width: 100%;
+    height: auto;
+    animation: float 6s ease-in-out infinite;
   }
 
-  .mockup-icon {
-    font-size: 80px;
-    margin-bottom: var(--space-4);
+  .hero-form-container {
+    width: 100%;
+    position: relative;
+    z-index: 1;
   }
 
-  .mockup-text {
-    font-size: var(--font-size-xl);
-    font-weight: 600;
-    color: var(--text-main);
-    margin-bottom: var(--space-2);
+  @media (min-width: 1024px) {
+    .hero-content-grid .hero-form-container {
+      order: 1;
+    }
+
+    .hero-content-grid .hero-mockup {
+      order: 2;
+    }
   }
 
-  .mockup-subtext {
-    font-size: var(--font-size-base);
-    color: var(--text-muted);
+  /* ========================================
+     FORM + MOCKUP SECTION
+     ======================================== */
+  .form-mockup-section {
+    background: linear-gradient(to bottom, #1e1b4b, var(--bg-dark));
+    padding: var(--space-20) 0;
   }
 
   /* ========================================
      FEATURES SECTION
      ======================================== */
   .features {
-    background: linear-gradient(to bottom, #1e1b4b, var(--bg-dark));
+    background: var(--bg-dark);
   }
 
   .features-grid {
@@ -722,35 +845,30 @@ const THANK_YOU_PAGE = '/ia-contadores/recursos-gratis/gracias';
   }
 
   /* ========================================
-     FORM SECTION
+     FORM STYLES
      ======================================== */
-  .form-section {
-    background: var(--bg-dark);
-    position: relative;
-  }
-
-  .form-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-      circle at 50% 50%,
-      rgba(20, 184, 166, 0.1),
-      transparent 70%
-    );
-    pointer-events: none;
-  }
-
   .form-container {
     max-width: 700px;
     margin: 0 auto;
     background: var(--bg-card);
-    border: 2px solid rgba(20, 184, 166, 0.3);
-    border-radius: var(--border-radius-2xl);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-xl);
     padding: var(--space-12);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
     position: relative;
     z-index: 1;
+  }
+
+  .form-container:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-purple);
+    box-shadow: 0 20px 40px rgba(168, 85, 247, 0.3);
+  }
+
+  @media (min-width: 1024px) {
+    .hero-content-grid .form-container {
+      max-width: 100%;
+    }
   }
 
   .form-title {
@@ -819,6 +937,29 @@ const THANK_YOU_PAGE = '/ia-contadores/recursos-gratis/gracias';
     color: var(--text-muted);
   }
 
+  .form-select {
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius-lg);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-main);
+    font-size: var(--font-size-base);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .form-select:focus {
+    outline: none;
+    border-color: var(--accent-teal);
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .form-select option {
+    background: var(--bg-dark);
+    color: var(--text-main);
+  }
+
   .checkbox-group {
     flex-direction: row;
     align-items: center;
@@ -845,20 +986,20 @@ const THANK_YOU_PAGE = '/ia-contadores/recursos-gratis/gracias';
 
   .btn-submit {
     padding: var(--space-4) var(--space-8);
-    background: var(--accent-teal);
-    color: white;
+    background: var(--accent-gold);
+    color: black;
     font-size: var(--font-size-lg);
     font-weight: 700;
     border: none;
     border-radius: var(--border-radius-lg);
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(20, 184, 166, 0.3);
+    box-shadow: 0 0 20px rgba(234, 179, 8, 0.3);
   }
 
   .btn-submit:hover {
-    background: #0d9488;
-    box-shadow: 0 6px 30px rgba(20, 184, 166, 0.5);
+    background: #facc15;
+    box-shadow: 0 0 40px rgba(234, 179, 8, 0.6);
     transform: translateY(-2px);
   }
 
@@ -1034,6 +1175,10 @@ const THANK_YOU_PAGE = '/ia-contadores/recursos-gratis/gracias';
      ======================================== */
   .cta-reto {
     background: linear-gradient(180deg, #1a0b2e 0%, #0f0518 50%, #000000 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: var(--space-24) 0;
     position: relative;
   }
@@ -1185,10 +1330,11 @@ const THANK_YOU_PAGE = '/ia-contadores/recursos-gratis/gracias';
       const formData = new FormData(form);
       const name = formData.get('name') as string;
       const email = formData.get('email') as string;
-      const retoInterest = formData.get('reto_interest') === 'yes';
+      const challenge = formData.get('challenge') as string;
+      const clients = formData.get('clients') as string;
 
       // Basic validation
-      if (!name || !email) {
+      if (!name || !email || !challenge || !clients) {
         showMessage(
           'Por favor completa todos los campos requeridos.',
           'error'
@@ -1218,7 +1364,8 @@ const THANK_YOU_PAGE = '/ia-contadores/recursos-gratis/gracias';
         // Track conversion
         trackEvent('lead_magnet_submit', {
           email: email,
-          reto_interest: retoInterest,
+          challenge: challenge,
+          clients: clients,
         });
 
         // Show success message
