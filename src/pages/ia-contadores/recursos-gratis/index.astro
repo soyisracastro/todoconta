@@ -1,0 +1,1471 @@
+---
+import LandingLayout from '@/layouts/LandingLayout.astro';
+import Button from '@/components/ui/Button.astro';
+
+const title =
+  'Descarga Gratis: 3 Casos Prácticos de IA para Contadores | TodoConta';
+const description =
+  'Los flujos completos que ahorran 6-10 horas semanales + 10 plantillas de prompts + matriz de decisión. Recursos gratuitos para contadores.';
+const keywords = [
+  'casos prácticos IA contadores',
+  'plantillas prompts contabilidad',
+  'ChatGPT para contadores',
+  'Claude AI contabilidad',
+  'matriz decisión IA',
+  'recursos gratuitos IA',
+  'prompts contadores',
+];
+
+// Configuration
+const RETO_DETAILS_URL = '/ia-contadores/reto-12-dias';
+const SENDY_ENDPOINT = ''; // TODO: Configure Sendy endpoint
+const THANK_YOU_PAGE = '/ia-contadores/recursos-gratis/gracias';
+---
+
+<LandingLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  showFooter={false}
+>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-gradient-bg"></div>
+    <div class="container">
+      <div class="badge animate-on-scroll" data-animation="fade-in-down">
+        <span class="badge-icon">🎁</span>
+        <span class="badge-text">RECURSOS GRATUITOS</span>
+      </div>
+
+      <h1
+        class="title animate-on-scroll"
+        data-animation="fade-in-up"
+        data-delay="100"
+      >
+        Descarga Gratis:<br />
+        <span class="gradient gradient-animated"
+          >3 Casos Prácticos de IA para Contadores</span
+        >
+      </h1>
+
+      <p
+        class="subtitle animate-on-scroll"
+        data-animation="fade-in-up"
+        data-delay="200"
+      >
+        Los flujos completos que ahorran <strong>6-10 horas semanales</strong> +
+        plantillas listas para usar
+      </p>
+
+      <!-- Scroll Indicator -->
+      <div
+        class="scroll-indicator animate-on-scroll"
+        data-animation="fade-in"
+        data-delay="300"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M12 5v14M19 12l-7 7-7-7" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULARIO + MOCKUP SECTION -->
+  <section class="form-mockup-section">
+    <div class="container">
+      <!-- CONTENEDOR GRID: FORMULARIO + MOCKUP -->
+      <div class="hero-content-grid">
+        <!-- FORMULARIO DE DESCARGA -->
+        <div class="hero-form-container animate-on-scroll" data-animation="fade-in-up" data-delay="100">
+          <div class="form-container">
+            <h2 class="form-title">Descarga Tus Recursos Ahora</h2>
+            <p class="form-subtitle">
+              Ingresa tus datos y recibe el PDF inmediatamente en tu email
+            </p>
+
+            <form id="lead-magnet-form" class="lead-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name" class="form-label">Nombre</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="form-input"
+                    placeholder="Tu nombre completo"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="form-input"
+                    placeholder="tu@email.com"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="challenge" class="form-label">¿Cuál es tu MAYOR desafío actual con inteligencia artificial?</label>
+                <select
+                  id="challenge"
+                  name="challenge"
+                  class="form-select"
+                  required
+                >
+                  <option value="" disabled selected>Selecciona una opción</option>
+                  <option value="overwhelmed">No sé por dónde empezar / Me abruma</option>
+                  <option value="basic_use">Uso IA pero de forma muy básica</option>
+                  <option value="which_ai">No sé cuál IA usar para cada tarea</option>
+                  <option value="prompts">No logro que me dé respuestas útiles (prompts)</option>
+                  <option value="charge_more">Quiero cobrar más por mis servicios con IA</option>
+                  <option value="automate">Quiero automatizar tareas repetitivas</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="clients" class="form-label">¿Cuántos clientes contables manejas actualmente?</label>
+                <select
+                  id="clients"
+                  name="clients"
+                  class="form-select"
+                  required
+                >
+                  <option value="" disabled selected>Selecciona una opción</option>
+                  <option value="0-5">0-5 clientes (empezando)</option>
+                  <option value="6-15">6-15 clientes</option>
+                  <option value="16-30">16-30 clientes</option>
+                  <option value="31-50">31-50 clientes</option>
+                  <option value="51+">51+ clientes</option>
+                  <option value="corporate">Trabajo en corporativo / no tengo clientes directos</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn-submit" id="submit-button">
+                📥 Descargar Recursos Gratis
+              </button>
+
+              <p class="form-privacy">
+                🔒 No spam. Solo contenido de valor sobre IA para contadores.
+              </p>
+
+              <div id="form-message" class="form-message" style="display: none;">
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- PDF Mockup -->
+        <div
+          class="hero-mockup animate-on-scroll"
+          data-animation="scale-in"
+          data-delay="200"
+        >
+          <div class="mockup-wrapper">
+            <img
+              src="https://s3.us-east-1.amazonaws.com/todoconta.com/uploads/Casos+pra%CC%81cticos_+3+flujos+hi%CC%81bridos+que+te+ahorrara%CC%81n+horas.png"
+              alt="Casos prácticos: 3 flujos híbridos de IA para Contadores"
+              class="mockup-image"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LO QUE VAS A RECIBIR -->
+  <section class="features">
+    <div class="container">
+      <div class="section-header animate-on-scroll" data-animation="fade-in-up">
+        <h2 class="section-title">📦 Lo Que Vas a Recibir</h2>
+      </div>
+
+      <div class="features-grid">
+        <!-- Columna 1: Casos Prácticos -->
+        <div
+          class="feature-card animate-on-scroll"
+          data-animation="fade-in-up"
+          data-delay="100"
+        >
+          <div class="card-icon">🔄</div>
+          <h3 class="card-title">2 Casos Prácticos Adicionales</h3>
+          <ul class="card-list">
+            <li>
+              <strong>Caso 2:</strong> Revisión CFDI Masiva
+              <span class="time-save">(500+ facturas en 15 min)</span>
+            </li>
+            <li>
+              <strong>Caso 3:</strong> Respuesta a Requerimiento SAT
+              <span class="time-save">(oficio legal en 10 min)</span>
+            </li>
+            <li>Flujos paso a paso con todos los prompts</li>
+            <li>Exactamente qué IA usar en cada paso</li>
+          </ul>
+        </div>
+
+        <!-- Columna 2: Plantillas de Prompts -->
+        <div
+          class="feature-card animate-on-scroll"
+          data-animation="fade-in-up"
+          data-delay="200"
+        >
+          <div class="card-icon">✨</div>
+          <h3 class="card-title">10 Plantillas de Prompts</h3>
+          <ul class="card-list">
+            <li>Estructura ROL + CONTEXTO + TAREA + FORMATO</li>
+            <li>Listas para copiar/pegar directo</li>
+            <li>
+              <strong>Casos incluidos:</strong> análisis financiero, emails, cálculos,
+              interpretación normativa
+            </li>
+            <li>Adaptables a tu práctica contable</li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: Matriz de Decisión -->
+        <div
+          class="feature-card animate-on-scroll"
+          data-animation="fade-in-up"
+          data-delay="300"
+        >
+          <div class="card-icon">🎯</div>
+          <h3 class="card-title">Matriz de Decisión</h3>
+          <ul class="card-list">
+            <li>¿Cuándo usar ChatGPT vs Claude vs Gemini?</li>
+            <li>20+ casos contables específicos</li>
+            <li>Tabla de referencia rápida</li>
+            <li>Ahorra tiempo eligiendo la IA correcta</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREVIEW DEL CONTENIDO -->
+  <section class="preview">
+    <div class="container">
+      <div class="section-header animate-on-scroll" data-animation="fade-in-up">
+        <h2 class="section-title">👀 Vista Previa del Contenido</h2>
+      </div>
+
+      <div class="preview-grid">
+        <!-- Screenshot 1: Caso Práctico -->
+        <div
+          class="preview-card animate-on-scroll"
+          data-animation="slide-in-left"
+          data-delay="100"
+        >
+          <div class="preview-placeholder">
+            <div class="preview-icon">📋</div>
+            <p class="preview-label">Ejemplo de Caso Práctico</p>
+          </div>
+          <p class="preview-caption">
+            Flujo completo con prompts y capturas de pantalla
+          </p>
+        </div>
+
+        <!-- Screenshot 2: Plantilla Prompt -->
+        <div
+          class="preview-card animate-on-scroll"
+          data-animation="scale-in"
+          data-delay="200"
+        >
+          <div class="preview-placeholder">
+            <div class="preview-icon">💬</div>
+            <p class="preview-label">Plantilla de Prompt</p>
+          </div>
+          <p class="preview-caption">
+            Estructura lista para copiar y personalizar
+          </p>
+        </div>
+
+        <!-- Screenshot 3: Matriz -->
+        <div
+          class="preview-card animate-on-scroll"
+          data-animation="slide-in-right"
+          data-delay="300"
+        >
+          <div class="preview-placeholder">
+            <div class="preview-icon">📊</div>
+            <p class="preview-label">Matriz de Decisión</p>
+          </div>
+          <p class="preview-caption">
+            Tabla completa con 20+ casos específicos
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF / TESTIMONIALS (Optional) -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header animate-on-scroll" data-animation="fade-in-up">
+        <h2 class="section-title">💬 Lo Que Dicen Otros Contadores</h2>
+      </div>
+
+      <div class="testimonials-grid">
+        <!-- Testimonial 1 - Placeholder -->
+        <div
+          class="testimonial-card animate-on-scroll"
+          data-animation="fade-in-up"
+          data-delay="100"
+        >
+          <p class="testimonial-text">
+            "Los casos prácticos me ahorraron horas de prueba y error. Ahora sé
+            exactamente qué IA usar para cada tarea."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">👤</div>
+            <div class="author-info">
+              <p class="author-name">María González</p>
+              <p class="author-role">Contadora Independiente</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 - Placeholder -->
+        <div
+          class="testimonial-card animate-on-scroll"
+          data-animation="fade-in-up"
+          data-delay="200"
+        >
+          <p class="testimonial-text">
+            "La matriz de decisión es oro puro. La tengo impresa en mi
+            escritorio como referencia rápida."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">👤</div>
+            <div class="author-info">
+              <p class="author-name">Carlos Ramírez</p>
+              <p class="author-role">Despacho Contable</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECUNDARIO - RETO -->
+  <section class="cta-reto">
+    <div class="container">
+      <div class="cta-content animate-on-scroll" data-animation="fade-in-up">
+        <p class="cta-eyebrow">¿Quieres Profundizar Más?</p>
+        <h2 class="cta-title">Únete al Reto de 12 Días</h2>
+        <p class="cta-description">
+          Si estos recursos te resultan útiles, imagina dominar ChatGPT, Claude,
+          Gemini 3, NotebookLM y Perplexity en 12 sesiones prácticas. Aprende
+          flujos híbridos avanzados que transformarán tu práctica contable.
+        </p>
+
+        <div class="cta-buttons">
+          <Button
+            href={RETO_DETAILS_URL}
+            variant="primary"
+            size="xl"
+            class="btn-cta btn-gold"
+            data-track-event="cta_reto_from_lead_magnet"
+          >
+            🚀 Conoce el Reto de 12 Días
+          </Button>
+        </div>
+
+        <p class="cta-note">Comienza el 5 de enero 2026 | Plazas limitadas</p>
+      </div>
+    </div>
+  </section>
+</LandingLayout>
+
+<style>
+  /* ========================================
+     VARIABLES Y GLOBALS
+     ======================================== */
+  :root {
+    --bg-dark: #0f0518;
+    --bg-darker: #000000;
+    --bg-card: rgba(255, 255, 255, 0.05);
+    --text-main: #ffffff;
+    --text-muted: #9ca3af;
+    --accent-purple: #a855f7;
+    --accent-gold: #eab308;
+    --accent-teal: #14b8a6;
+    --color-success: #10b981;
+    --color-error: #ef4444;
+  }
+
+  section {
+    padding: var(--space-16) 0;
+    color: var(--text-main);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+  }
+
+  .section-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 800;
+    line-height: 1.2;
+    color: #ffffff !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    opacity: 1 !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background-clip: unset !important;
+  }
+
+  /* ========================================
+     ANIMATIONS
+     ======================================== */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(12px);
+    }
+  }
+
+  .animate-on-scroll {
+    opacity: 0;
+  }
+
+  .animate-on-scroll.animated {
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animated[data-animation='fade-in-up'] {
+    animation-name: fadeInUp;
+  }
+  .animated[data-animation='fade-in-down'] {
+    animation-name: fadeInDown;
+  }
+  .animated[data-animation='fade-in'] {
+    animation-name: fadeIn;
+  }
+  .animated[data-animation='slide-in-left'] {
+    animation-name: slideInLeft;
+  }
+  .animated[data-animation='slide-in-right'] {
+    animation-name: slideInRight;
+  }
+  .animated[data-animation='scale-in'] {
+    animation-name: scaleIn;
+  }
+
+  /* ========================================
+     HERO SECTION
+     ======================================== */
+  .hero {
+    background: linear-gradient(to bottom, #000000, #1e1b4b);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    border-radius: 0;
+    padding: var(--space-20) 0;
+  }
+
+  .hero .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-8);
+  }
+
+  .hero-gradient-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at 50% 0%,
+      rgba(168, 85, 247, 0.2),
+      transparent 50%
+    );
+    pointer-events: none;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--border-radius-full);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: var(--space-8);
+    backdrop-filter: blur(10px);
+  }
+
+  .badge-icon {
+    font-size: var(--font-size-lg);
+  }
+
+  .badge-text {
+    color: #e9d5ff;
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.05em;
+  }
+
+  .title {
+    font-size: var(--font-size-5xl);
+    font-weight: 800;
+    margin-bottom: var(--space-6);
+    line-height: 1.1;
+    color: #ffffff;
+    position: relative;
+    z-index: 1;
+  }
+
+  .gradient {
+    background: linear-gradient(to right, #60a5fa, #c084fc, #f472b6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    display: inline-block;
+  }
+
+  .gradient-animated {
+    background: linear-gradient(
+      90deg,
+      #60a5fa,
+      #c084fc,
+      #f472b6,
+      #60a5fa,
+      #c084fc
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: gradientShift 5s linear infinite;
+    display: inline-block;
+  }
+
+  .subtitle {
+    font-size: var(--font-size-xl);
+    color: #e2e8f0;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+
+  .scroll-indicator {
+    margin-top: var(--space-12);
+    color: #e9d5ff;
+    cursor: pointer;
+    animation: bounce 3s ease-in-out infinite;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+
+  .scroll-indicator:hover {
+    opacity: 1;
+  }
+
+  .scroll-indicator svg {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .hero-content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-content-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-12);
+    }
+  }
+
+  .hero-mockup {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-content-grid .hero-mockup {
+      max-width: 100%;
+    }
+  }
+
+  .mockup-wrapper {
+    position: relative;
+  }
+
+  .mockup-image {
+    width: 100%;
+    height: auto;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .hero-form-container {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-content-grid .hero-form-container {
+      order: 1;
+    }
+
+    .hero-content-grid .hero-mockup {
+      order: 2;
+    }
+  }
+
+  /* ========================================
+     FORM + MOCKUP SECTION
+     ======================================== */
+  .form-mockup-section {
+    background: linear-gradient(to bottom, #1e1b4b, var(--bg-dark));
+    padding: var(--space-20) 0;
+  }
+
+  /* ========================================
+     FEATURES SECTION
+     ======================================== */
+  .features {
+    background: var(--bg-dark);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .features-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .feature-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-xl);
+    padding: var(--space-8);
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-purple);
+    box-shadow: 0 20px 40px rgba(168, 85, 247, 0.3);
+  }
+
+  .card-icon {
+    font-size: 60px;
+    margin-bottom: var(--space-4);
+  }
+
+  .card-title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    margin-bottom: var(--space-6);
+    color: var(--text-main);
+  }
+
+  .card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .card-list li {
+    font-size: var(--font-size-base);
+    color: var(--text-muted);
+    padding-left: var(--space-6);
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .card-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-teal);
+    font-weight: bold;
+  }
+
+  .time-save {
+    display: block;
+    color: var(--accent-gold);
+    font-size: var(--font-size-sm);
+    margin-top: var(--space-1);
+  }
+
+  /* ========================================
+     FORM STYLES
+     ======================================== */
+  .form-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-xl);
+    padding: var(--space-12);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+  }
+
+  .form-container:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-purple);
+    box-shadow: 0 20px 40px rgba(168, 85, 247, 0.3);
+  }
+
+  @media (min-width: 1024px) {
+    .hero-content-grid .form-container {
+      max-width: 100%;
+    }
+  }
+
+  .form-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: var(--space-3);
+    color: var(--text-main);
+  }
+
+  .form-subtitle {
+    font-size: var(--font-size-base);
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: var(--space-8);
+  }
+
+  .lead-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 640px) {
+    .form-row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .form-label {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--text-main);
+  }
+
+  .form-input {
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius-lg);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-main);
+    font-size: var(--font-size-base);
+    transition: all 0.3s ease;
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: var(--accent-teal);
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .form-input::placeholder {
+    color: var(--text-muted);
+  }
+
+  .form-select {
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius-lg);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-main);
+    font-size: var(--font-size-base);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .form-select:focus {
+    outline: none;
+    border-color: var(--accent-teal);
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .form-select option {
+    background: var(--bg-dark);
+    color: var(--text-main);
+  }
+
+  .checkbox-group {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    cursor: pointer;
+  }
+
+  .checkbox-input {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--accent-teal);
+  }
+
+  .checkbox-text {
+    font-size: var(--font-size-base);
+    color: var(--text-muted);
+  }
+
+  .btn-submit {
+    padding: var(--space-4) var(--space-8);
+    background: var(--accent-gold);
+    color: black;
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    border: none;
+    border-radius: var(--border-radius-lg);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(234, 179, 8, 0.3);
+  }
+
+  .btn-submit:hover {
+    background: #facc15;
+    box-shadow: 0 0 40px rgba(234, 179, 8, 0.6);
+    transform: translateY(-2px);
+  }
+
+  .btn-submit:active {
+    transform: translateY(0);
+  }
+
+  .btn-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .form-privacy {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    text-align: center;
+    margin: 0;
+  }
+
+  .form-message {
+    padding: var(--space-4);
+    border-radius: var(--border-radius-lg);
+    font-size: var(--font-size-base);
+    text-align: center;
+  }
+
+  .form-message.success {
+    background: rgba(16, 185, 129, 0.2);
+    border: 1px solid var(--color-success);
+    color: var(--color-success);
+  }
+
+  .form-message.error {
+    background: rgba(239, 68, 68, 0.2);
+    border: 1px solid var(--color-error);
+    color: var(--color-error);
+  }
+
+  /* ========================================
+     PREVIEW SECTION
+     ======================================== */
+  .preview {
+    background: linear-gradient(to bottom, var(--bg-dark), #1a0b2e);
+  }
+
+  .preview-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .preview-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .preview-card {
+    text-align: center;
+  }
+
+  .preview-placeholder {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-12) var(--space-6);
+    margin-bottom: var(--space-3);
+    transition: all 0.3s ease;
+  }
+
+  .preview-placeholder:hover {
+    border-color: var(--accent-purple);
+    box-shadow: 0 10px 30px rgba(168, 85, 247, 0.2);
+  }
+
+  .preview-icon {
+    font-size: 60px;
+    margin-bottom: var(--space-3);
+  }
+
+  .preview-label {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--text-main);
+  }
+
+  .preview-caption {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+  }
+
+  /* ========================================
+     TESTIMONIALS SECTION
+     ======================================== */
+  .testimonials {
+    background: #1a0b2e;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .testimonials-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .testimonial-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-xl);
+    padding: var(--space-8);
+    transition: all 0.3s ease;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-purple);
+    box-shadow: 0 10px 30px rgba(168, 85, 247, 0.2);
+  }
+
+  .testimonial-text {
+    font-size: var(--font-size-base);
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: var(--space-6);
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-xl);
+  }
+
+  .author-info {
+    flex: 1;
+  }
+
+  .author-name {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--text-main);
+    margin: 0 0 var(--space-1) 0;
+  }
+
+  .author-role {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  /* ========================================
+     CTA RETO SECTION
+     ======================================== */
+  .cta-reto {
+    background: linear-gradient(180deg, #1a0b2e 0%, #0f0518 50%, #000000 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-24) 0;
+    position: relative;
+  }
+
+  .cta-reto::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba(234, 179, 8, 0.15),
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  .cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-eyebrow {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-title {
+    font-size: var(--font-size-4xl);
+    font-weight: 800;
+    margin-bottom: var(--space-4);
+    color: #ffffff;
+  }
+
+  .cta-description {
+    font-size: var(--font-size-lg);
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: var(--space-8);
+  }
+
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--space-4);
+  }
+
+  .btn-cta {
+    min-width: 300px;
+  }
+
+  .btn-gold {
+    background: var(--accent-gold) !important;
+    color: black !important;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 0 20px rgba(234, 179, 8, 0.3);
+  }
+
+  .btn-gold:hover {
+    background: #facc15 !important;
+    box-shadow: 0 0 40px rgba(234, 179, 8, 0.6);
+  }
+
+  .cta-note {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+  }
+
+  /* ========================================
+     RESPONSIVE
+     ======================================== */
+  @media (max-width: 768px) {
+    .title {
+      font-size: var(--font-size-3xl);
+    }
+
+    .subtitle {
+      font-size: var(--font-size-lg);
+    }
+
+    .section-title {
+      font-size: var(--font-size-2xl);
+    }
+
+    .form-title {
+      font-size: var(--font-size-2xl);
+    }
+
+    .cta-title {
+      font-size: var(--font-size-2xl);
+    }
+
+    .btn-cta {
+      min-width: 250px;
+    }
+  }
+</style>
+
+<script>
+  // ========================================
+  // INTERSECTION OBSERVER - ANIMATIONS
+  // ========================================
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px',
+  };
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const delay = entry.target.getAttribute('data-delay') || 0;
+        setTimeout(() => {
+          entry.target.classList.add('animated');
+        }, parseInt(delay));
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    observer.observe(el);
+  });
+
+  // ========================================
+  // FORM HANDLING
+  // ========================================
+  const form = document.getElementById(
+    'lead-magnet-form'
+  ) as HTMLFormElement | null;
+  const submitButton = document.getElementById(
+    'submit-button'
+  ) as HTMLButtonElement | null;
+  const formMessage = document.getElementById(
+    'form-message'
+  ) as HTMLDivElement | null;
+
+  if (form && submitButton && formMessage) {
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+
+      // Get form data
+      const formData = new FormData(form);
+      const name = formData.get('name') as string;
+      const email = formData.get('email') as string;
+      const challenge = formData.get('challenge') as string;
+      const clients = formData.get('clients') as string;
+
+      // Basic validation
+      if (!name || !email || !challenge || !clients) {
+        showMessage(
+          'Por favor completa todos los campos requeridos.',
+          'error'
+        );
+        return;
+      }
+
+      // Email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        showMessage('Por favor ingresa un email válido.', 'error');
+        return;
+      }
+
+      // Disable submit button
+      submitButton.disabled = true;
+      submitButton.textContent = '⏳ Enviando...';
+
+      try {
+        // TODO: Replace with actual Sendy endpoint
+        // For now, we'll simulate a successful submission
+        // and redirect to thank you page
+
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 1500));
+
+        // Track conversion
+        trackEvent('lead_magnet_submit', {
+          email: email,
+          challenge: challenge,
+          clients: clients,
+        });
+
+        // Show success message
+        showMessage(
+          '¡Perfecto! Revisa tu email para descargar los recursos.',
+          'success'
+        );
+
+        // Reset form
+        form.reset();
+
+        // Redirect to thank you page after 2 seconds
+        setTimeout(() => {
+          window.location.href = '/ia-contadores/recursos-gratis/gracias';
+        }, 2000);
+      } catch (error) {
+        console.error('Form submission error:', error);
+        showMessage(
+          'Hubo un error al enviar el formulario. Por favor intenta nuevamente.',
+          'error'
+        );
+        submitButton.disabled = false;
+        submitButton.textContent = '📥 Descargar Recursos Gratis';
+      }
+    });
+  }
+
+  function showMessage(message: string, type: 'success' | 'error') {
+    if (!formMessage) return;
+
+    formMessage.textContent = message;
+    formMessage.className = `form-message ${type}`;
+    formMessage.style.display = 'block';
+
+    // Hide message after 5 seconds
+    setTimeout(() => {
+      formMessage.style.display = 'none';
+    }, 5000);
+  }
+
+  // ========================================
+  // ANALYTICS TRACKING
+  // ========================================
+  function trackEvent(eventName: string, eventData = {}) {
+    // Google Analytics 4
+    if (typeof window !== 'undefined' && 'gtag' in window) {
+      (window as any).gtag('event', eventName, eventData);
+    }
+
+    // Plausible Analytics
+    if (typeof window !== 'undefined' && 'plausible' in window) {
+      (window as any).plausible(eventName, { props: eventData });
+    }
+
+    // Facebook Pixel
+    if (typeof window !== 'undefined' && 'fbq' in window) {
+      (window as any).fbq('track', eventName, eventData);
+    }
+
+    // Console log for debugging
+    console.log('Track Event:', eventName, eventData);
+  }
+
+  // Track CTA clicks
+  document.querySelectorAll('[data-track-event]').forEach(button => {
+    button.addEventListener('click', e => {
+      const eventName = (e.currentTarget as HTMLElement).getAttribute(
+        'data-track-event'
+      );
+      if (eventName) {
+        trackEvent(eventName, {
+          button_text: (e.currentTarget as HTMLElement).textContent?.trim(),
+        });
+      }
+    });
+  });
+
+  // Track scroll depth
+  let maxScroll = 0;
+  const scrollMilestones = [25, 50, 75, 100];
+  const trackedMilestones = new Set<number>();
+
+  window.addEventListener('scroll', () => {
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
+
+    if (scrollPercent > maxScroll) {
+      maxScroll = scrollPercent;
+
+      scrollMilestones.forEach(milestone => {
+        if (scrollPercent >= milestone && !trackedMilestones.has(milestone)) {
+          trackedMilestones.add(milestone);
+          trackEvent('scroll_depth', {
+            percent: milestone,
+            page: 'recursos-gratis',
+          });
+        }
+      });
+    }
+  });
+</script>
