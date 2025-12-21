@@ -4,17 +4,20 @@ import Button from './Button.astro';
 export interface Props {
   title: string;
   description: string;
-  badge?: string;
-  price?: string | { min: string; max: string };
+  badge?: string | undefined;
+  price?: string | { min: string; max: string } | undefined;
   primaryCta: {
     text: string;
     url: string;
   };
-  secondaryCta?: {
-    text: string;
-    url: string;
-  } | null;
-  image?: string;
+  secondaryCta?:
+    | {
+        text: string;
+        url: string;
+      }
+    | null
+    | undefined;
+  image?: string | undefined;
 }
 
 const { title, description, badge, price, primaryCta, secondaryCta, image } =
@@ -60,11 +63,7 @@ const heroImage = image || defaultImage;
       </div>
 
       <div class="hero-image-container animate-fade-in-up delay-400">
-        <img
-          src={heroImage}
-          alt={title}
-          class="hero-image"
-        />
+        <img src={heroImage} alt={title} class="hero-image" />
       </div>
     </div>
   </div>

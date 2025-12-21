@@ -1,0 +1,101 @@
+---
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+export interface Props {
+  badge?: string | undefined;
+  title: string;
+  description: string;
+  faqs: FAQ[];
+  contactEmail?: string | undefined;
+}
+
+const {
+  badge = 'Soporte y Ayuda',
+  title,
+  description,
+  faqs,
+  contactEmail = 'soporte@todoconta.com',
+} = Astro.props;
+---
+
+<section
+  class="py-16 md:py-24 px-4 bg-slate-50 dark:bg-slate-950 flex justify-center"
+>
+  <div class="w-full max-w-3xl space-y-12">
+    <div class="text-center space-y-4">
+      {
+        badge && (
+          <span class="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary dark:text-green-400 uppercase tracking-wider">
+            {badge}
+          </span>
+        )
+      }
+      <h2
+        class="text-3xl md:text-4xl font-bold text-navy-blue dark:text-white tracking-tight"
+      >
+        {title}
+      </h2>
+      <p class="text-lg text-slate-600 dark:text-gray-400 max-w-xl mx-auto">
+        {description}
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      {
+        faqs.map(faq => (
+          <details class="group bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm open:ring-2 open:ring-primary/40 transition-all duration-300">
+            <summary class="flex w-full cursor-pointer list-none items-center justify-between p-6">
+              <h3 class="text-base font-semibold text-navy-blue dark:text-white pr-4">
+                {faq.question}
+              </h3>
+              <span class="material-symbols-outlined text-slate-400 transition-transform duration-300 group-open:rotate-180 group-open:text-primary dark:group-open:text-green-400">
+                expand_more
+              </span>
+            </summary>
+            <div class="px-6 pb-6 text-slate-600 dark:text-gray-400 leading-relaxed">
+              <p set:html={faq.answer} />
+            </div>
+          </details>
+        ))
+      }
+    </div>
+
+    <div class="text-center pt-8">
+      <p class="text-slate-600 dark:text-gray-400 mb-4">
+        ¿No encontraste lo que buscabas?
+      </p>
+      <a
+        class="inline-flex items-center gap-2 text-primary dark:text-green-400 font-semibold hover:underline decoration-2 underline-offset-4"
+        href={`mailto:${contactEmail}`}
+      >
+        <span class="material-symbols-outlined text-lg">mail</span>
+        Escríbenos a {contactEmail}
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  details > summary {
+    list-style: none;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+  details[open] summary ~ * {
+    animation: sweep 0.3s ease-in-out;
+  }
+  @keyframes sweep {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

@@ -4,13 +4,20 @@ export const prerender = true;
 import { getCollection } from 'astro:content';
 import LandingLayout from '../../layouts/LandingLayout.astro';
 import HeroProduct from '../../components/ui/HeroProduct.astro';
+import DigitalProductHero from '../../components/products/DigitalProductHero.astro';
+import DiotVisual from '../../components/products/visuals/DiotVisual.astro';
+import ProblemSection from '../../components/products/ProblemSection.astro';
+import FeaturesSection from '../../components/products/FeaturesSection.astro';
+import BenefitsSection from '../../components/products/BenefitsSection.astro';
+import ProductCTA from '../../components/products/ProductCTA.astro';
+import FinalCTA from '../../components/products/FinalCTA.astro';
+import FAQSection from '../../components/products/FAQSection.astro';
 import Features from '../../components/pages/landing/Features.astro';
 import Benefits from '../../components/pages/landing/Benefits.astro';
-import Pricing from '../../components/pages/landing/Pricing.astro';
 import PricingPlans from '../../components/pages/landing/PricingPlans.astro';
 import Demo from '../../components/pages/landing/Demo.astro';
 import FAQ from '../../components/ui/FAQ.astro';
-import BankTransfer from '../../components/ui/BankTransfer.astro';
+import PaymentSection from '../../components/products/PaymentSection.astro';
 
 // Genera rutas para cada producto
 export async function getStaticPaths() {
@@ -33,30 +40,19 @@ const {
   pricePeriod,
   badge,
   heroImage,
-  buyUrl,
   features,
   benefits,
   pricing,
   faqs,
   formId,
   plans,
+  problemSection,
+  featuresSection,
+  ctaSection,
+  benefitsSection,
+  finalCta,
+  faqSection,
 } = product.data;
-
-// Renderizar el contenido Markdown si existe
-let Content = null;
-const hasContent = product.body && product.body.trim().length > 0;
-if (hasContent) {
-  try {
-    const renderResult = await product.render();
-    Content = renderResult.Content;
-  } catch (error) {
-    console.error(
-      `Error rendering content for product ${product.slug}:`,
-      error
-    );
-    // Content remains null, so it won't render
-  }
-}
 
 // Calculate price display
 let priceDisplay = undefined;
@@ -106,26 +102,6 @@ const benefitsProps = {
   benefits,
 };
 
-// Props para pricing individual o múltiples planes
-const pricingProps = price
-  ? {
-      price,
-      features: pricing.features,
-      ctaUrl: buyUrl || '#pricing', // Fallback to pricing section
-      highlighted: true,
-      showBankTransferCta: true, // Mostrar CTA de transferencia bancaria
-      // Dynamic payment props when no buyUrl
-      ...(buyUrl
-        ? {}
-        : {
-            productId: product.slug,
-            planId: 'single',
-            isPaymentButton: true,
-          }),
-      ...(pricePeriod ? { pricePeriod } : {}),
-    }
-  : undefined;
-
 const pricingPlansProps = plans
   ? {
       title: 'Elige tu Licencia',
@@ -162,6 +138,19 @@ const hasValidPricing =
   pricing && pricing.features && Array.isArray(pricing.features) && price;
 const hasValidPlans = plans && Array.isArray(plans) && plans.length > 0;
 const hasValidFaqs = faqs && Array.isArray(faqs) && faqs.length > 0;
+
+const paymentProps = hasValidPricing
+  ? {
+      productTitle: title,
+      productVersion:
+        product.slug === 'plantilla-carga-batch-diot'
+          ? 'Versión 2.0 • Carga Batch Automatizada'
+          : undefined,
+      price: price as number,
+      features: pricing.features,
+      productId: product.slug,
+    }
+  : undefined;
 ---
 
 <LandingLayout
@@ -171,43 +160,40 @@ const hasValidFaqs = faqs && Array.isArray(faqs) && faqs.length > 0;
   {...heroImage && { ogImage: heroImage }}
 >
   <!-- Hero Section -->
-  <HeroProduct {...heroProps} />
-
-  <!-- Content Section (if available) -->
   {
-    hasContent && Content && (
-      <section class="py-24">
-        <div class="container mx-auto px-6">
-          <div class="prose prose-lg max-w-4xl mx-auto">
-            <Content />
-          </div>
-        </div>
-      </section>
+    product.slug === 'plantilla-carga-batch-diot' ? (
+      <>
+        <DigitalProductHero {...heroProps}>
+          <DiotVisual slot="visual" />
+        </DigitalProductHero>
+        {problemSection && <ProblemSection {...problemSection} />}
+        {featuresSection && <FeaturesSection {...featuresSection} />}
+        {ctaSection && <ProductCTA {...ctaSection} />}
+        {benefitsSection && <BenefitsSection {...benefitsSection} />}
+        {finalCta && <FinalCTA {...finalCta} />}
+        {faqSection && <FAQSection {...faqSection} />}
+        {paymentProps && <PaymentSection {...paymentProps} />}
+      </>
+    ) : (
+      <HeroProduct {...heroProps} />
+      <!-- Features Section -->
+      {hasValidFeatures && <Features {...featuresProps} />}
+    
+      <!-- Benefits Section -->
+      {hasValidBenefits && <Benefits {...benefitsProps} />}
+    
+      <!-- Pricing Section -->
+      {hasValidPricing && <PaymentSection {...paymentProps!} />}
+    
+      <!-- Pricing Plans Section (for products with multiple plans) -->
+      {hasValidPlans && <PricingPlans {...pricingPlansProps} />}
+    
+      <!-- Demo Section (if available) -->
+      {demoProps && <Demo {...demoProps} />}
+    
+      <!-- FAQ Section (if available) -->
+      {hasValidFaqs && !faqSection && <FAQ faqs={faqs} />}
     )
   }
 
-  <!-- Features Section -->
-  {hasValidFeatures && <Features {...featuresProps} />}
-
-  <!-- Benefits Section -->
-  {hasValidBenefits && <Benefits {...benefitsProps} />}
-
-  <!-- Pricing Section -->
-  {hasValidPricing && <Pricing {...pricingProps} />}
-
-  <!-- Pricing Plans Section (for products with multiple plans) -->
-  {hasValidPlans && <PricingPlans {...pricingPlansProps} />}
-
-  <!-- Demo Section (if available) -->
-  {demoProps && <Demo {...demoProps} />}
-
-  <!-- FAQ Section (if available) -->
-  {hasValidFaqs && <FAQ faqs={faqs} />}
-
-  <!-- Bank Transfer Section -->
-  <BankTransfer
-    productTitle={title}
-    productId={product.slug}
-    {...price && { productPrice: price }}
-  />
 </LandingLayout>

@@ -61,6 +61,79 @@ const productsCollection = defineCollection({
         activationInstructions: z.string().optional(),
       })
       .optional(),
+
+    // Problem section configuration
+    problemSection: z.object({
+      badge: z.string(),
+      title: z.string(),
+      highlightedWord: z.string().optional(),
+      descriptions: z.array(z.string()),
+      problems: z.array(z.object({
+        icon: z.string(),
+        title: z.string(),
+        description: z.string(),
+      })),
+    }).optional(),
+
+    // Features section configuration
+    featuresSection: z.object({
+      introBadge: z.string().optional(),
+      introTitle: z.string(),
+      introDescription: z.string(),
+      gridTitle: z.string(),
+      features: z.array(z.object({
+        icon: z.string(),
+        title: z.string(),
+        description: z.string(),
+      })),
+    }).optional(),
+
+    // CTA section configuration
+    ctaSection: z.object({
+      title: z.string(),
+      description: z.string(),
+      primaryCta: z.object({
+        text: z.string(),
+        url: z.string(),
+      }),
+      secondaryCta: z.object({
+        text: z.string(),
+        url: z.string(),
+      }).optional(),
+      footerNote: z.string().optional(),
+    }).optional(),
+
+    // Benefits section configuration
+    benefitsSection: z.object({
+      title: z.string(),
+      description: z.string(),
+      image: z.string(),
+      benefits: z.array(z.object({
+        title: z.string(),
+        description: z.string(),
+        highlight: z.string().optional(),
+      })),
+    }).optional(),
+
+    // Final CTA configuration
+    finalCta: z.object({
+      title: z.string(),
+      description: z.string(),
+      buttonText: z.string(),
+      buttonUrl: z.string(),
+    }).optional(),
+
+    // FAQ section configuration
+    faqSection: z.object({
+      badge: z.string().optional(),
+      title: z.string(),
+      description: z.string(),
+      contactEmail: z.string().optional(),
+      faqs: z.array(z.object({
+        question: z.string(),
+        answer: z.string(),
+      })),
+    }).optional(),
   }),
 });
 

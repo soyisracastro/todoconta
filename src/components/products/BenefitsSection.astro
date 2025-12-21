@@ -1,0 +1,115 @@
+---
+interface Benefit {
+  title: string;
+  description: string;
+  highlight?: string | undefined;
+}
+
+export interface Props {
+  title: string;
+  description: string;
+  image: string;
+  benefits: Benefit[];
+}
+
+const { title, description, image, benefits } = Astro.props;
+---
+
+<section
+  class="benefits-section py-16 md:py-24 px-4 bg-white dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800/50"
+>
+  <div class="max-w-[1080px] mx-auto">
+    <div class="benefits-grid-layout gap-12 lg:gap-16">
+      <!-- Left Column: Header & Image -->
+      <div
+        class="benefits-header-col flex flex-col gap-6 lg:sticky lg:top-32 h-fit"
+      >
+        <h2
+          class="text-3xl md:text-4xl font-black leading-tight tracking-tight text-navy-blue dark:text-white m-0"
+        >
+          {title}
+        </h2>
+        <p class="text-slate-500 dark:text-gray-400 text-lg leading-relaxed">
+          {description}
+        </p>
+        <div
+          class="hidden lg:block w-full h-[240px] rounded-2xl bg-slate-100 dark:bg-slate-800 mt-4 overflow-hidden relative shadow-inner"
+        >
+          <img
+            src={image}
+            alt={title}
+            class="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"
+          >
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Benefits List -->
+      <div class="benefits-list-col flex flex-col gap-8">
+        {
+          benefits.map((benefit, index) => (
+            <>
+              <div class="flex gap-6 group">
+                <div class="shrink-0 pt-1">
+                  <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                    <span
+                      class="material-symbols-outlined text-2xl filled-icon"
+                      style="font-variation-settings: 'FILL' 1;"
+                    >
+                      check_circle
+                    </span>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <h3 class="text-xl font-bold text-navy-blue dark:text-white group-hover:text-primary transition-colors m-0">
+                    {benefit.title}{' '}
+                    {benefit.highlight && (
+                      <span class="text-primary">{benefit.highlight}</span>
+                    )}
+                  </h3>
+                  <p class="text-slate-500 dark:text-gray-400 leading-relaxed">
+                    {benefit.description}
+                  </p>
+                </div>
+              </div>
+              {index < benefits.length - 1 && (
+                <div class="h-px w-full bg-slate-100 dark:bg-slate-800/50 ml-16" />
+              )}
+            </>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .benefits-grid-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  @media (min-width: 1024px) {
+    .benefits-grid-layout {
+      grid-template-columns: repeat(12, 1fr);
+    }
+    .benefits-header-col {
+      grid-column: span 5 / span 5;
+    }
+    .benefits-list-col {
+      grid-column: span 7 / span 7;
+    }
+  }
+
+  .filled-icon {
+    font-variation-settings:
+      'FILL' 1,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24;
+  }
+</style>

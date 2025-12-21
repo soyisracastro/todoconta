@@ -1,0 +1,362 @@
+---
+interface Props {
+  title?: string | undefined;
+  subtitle?: string | undefined;
+  productTitle: string;
+  productVersion?: string | undefined;
+  price: number;
+  currency?: string | undefined;
+  priceNote?: string | undefined;
+  features: string[];
+  bankInfo?:
+    | {
+        bank: string;
+        clabe: string;
+        beneficiary: string;
+        concept: string;
+      }
+    | undefined;
+  instructions?: string[] | undefined;
+  productId: string;
+  planId?: string | undefined;
+}
+
+const {
+  title = 'Adquiere tu licencia hoy',
+  subtitle = 'Pago 100% seguro y facturable. Acceso inmediato.',
+  productTitle,
+  productVersion,
+  price,
+  currency = 'MXN',
+  priceNote = 'pago único · IVA incluido',
+  features,
+  bankInfo = {
+    bank: 'BBVA Bancomer',
+    clabe: '012 266 02851186442 6',
+    beneficiary: 'Israel Castro Urieta',
+    concept: 'Tu Correo Electrónico',
+  },
+  instructions = [
+    'Copia la CLABE y realiza la transferencia desde tu banca móvil por la cantidad exacta ($399).',
+    'Toma una captura de pantalla de tu comprobante de pago exitoso.',
+    'Envía el comprobante y tus datos de facturación (si requieres factura) a nuestro WhatsApp.',
+    'Recibe tu archivo en tu correo en menos de 15 minutos.',
+  ],
+  productId,
+  planId = 'single',
+} = Astro.props;
+
+const formattedPrice = new Intl.NumberFormat('es-MX', {
+  style: 'currency',
+  currency: currency,
+  maximumFractionDigits: 0,
+})
+  .format(price)
+  .replace('$', '');
+---
+
+<section class="py-12 md:py-20 px-4 bg-slate-50 dark:bg-slate-950" id="pricing">
+  <div class="max-w-[1280px] mx-auto">
+    <div class="max-w-3xl mx-auto text-center mb-10 md:mb-14">
+      <h2
+        class="text-3xl md:text-4xl font-extrabold tracking-tight mb-4 text-navy-blue dark:text-white"
+      >
+        {title}
+      </h2>
+      <div
+        class="flex items-center justify-center gap-2 text-slate-500 dark:text-gray-400"
+      >
+        <span class="material-symbols-outlined text-primary text-xl"
+          >verified_user</span
+        >
+        <p class="text-base font-medium m-0">{subtitle}</p>
+      </div>
+    </div>
+
+    <div
+      class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto items-start"
+    >
+      <!-- Card Payment Column -->
+      <div
+        class="flex flex-col bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden h-full"
+      >
+        <div
+          class="p-6 md:p-8 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-white/5"
+        >
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <span
+                class="inline-block px-2.5 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wide mb-2"
+                >Más Popular</span
+              >
+              <h3 class="text-xl font-bold mb-1 text-navy-blue dark:text-white">
+                {productTitle}
+              </h3>
+              {
+                productVersion && (
+                  <p class="text-sm text-slate-500 dark:text-gray-400">
+                    {productVersion}
+                  </p>
+                )
+              }
+            </div>
+            <div
+              class="size-12 rounded-lg bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center border border-slate-100 dark:border-slate-800"
+            >
+              <span class="material-symbols-outlined text-3xl text-primary"
+                >description</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="px-6 md:px-8 py-6">
+          <div class="flex items-baseline gap-2 mb-6">
+            <span
+              class="text-5xl font-black tracking-tight text-navy-blue dark:text-white"
+              >${formattedPrice}</span
+            >
+            <div class="flex flex-col">
+              <span class="text-lg font-bold text-navy-blue dark:text-gray-200"
+                >{currency}</span
+              >
+              <span
+                class="text-xs font-medium text-slate-500 dark:text-gray-400"
+                >{priceNote}</span
+              >
+            </div>
+          </div>
+
+          <button
+            class="pricing-payment-btn group w-full h-14 bg-primary hover:bg-primary-dark active:scale-[0.99] transition-all rounded-xl flex items-center justify-center gap-2 text-white font-bold text-lg shadow-lg shadow-primary/20 mb-4"
+            data-product-id={productId}
+            data-plan-id={planId}
+            data-payment-button="true"
+          >
+            <span class="material-symbols-outlined">credit_card</span>
+            Pagar ahora con Tarjeta
+          </button>
+
+          <div
+            class="flex justify-center gap-3 mb-8 opacity-60 grayscale hover:grayscale-0 transition-all"
+          >
+            <img
+              alt="Visa Logo"
+              class="h-4 object-contain"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6Di6b_4JOjKqLIvnc5qtE4VXpaNjOqQCD9Yddm4JyBzhAlmNR5JaCfLszR8-0Aum8ivEkn6PwUE1QeIOudjUC0DJcR4SE-Bni4INb-oUN6JsxGzwsPt3PrIfxYwg2NJKkf_3uY0skZKP7uxttmsrkh-Pw6Mkq7rzhk59TymOx3nbvP51Ca2Df8MQMLC5JVmCKFZnuzpG_gkvUTUFwF0qeGPiGN3OKthkXw4vzgQXHtw4mt2RFB9MGKkowDGzlNzLtTblee1d7Lg"
+            />
+            <img
+              alt="Mastercard Logo"
+              class="h-4 object-contain"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuALzZ946kJvHaTah5yiOhJB3YoVfICo5hV_Z3YI1nzIShwrzzLpnm5-9Z-WD7deqlHurcl83SSsBfntWkbUQqq16kDA9K0gcBAZ23Jr-FozztnAd5g6qec2-6IdMSMRMUO7UUtoVKVUmtn4Gr_WvTcSwiSDRA6Cvi7dYWUdjZwAzDKhhHb_2EiUH-UoM1ddEA_A8BaVeNF10ux8ZE6twVkPTeYB5q6ZLoAMlLdgPZXhgPAM6Hsv8iWck_PdD3uaMPRGCnfUZmOxqQ"
+            />
+            <img
+              alt="Amex Logo"
+              class="h-4 object-contain"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtDT6VolNs3HcXO5x5XAgaPlso5_QRRCRF5aG2qJ09z--mXVauLogwGkyi7V5mNj9XRWEqnMIUuMAnAsYErbNuZ-9HylLSvDqdROE7W7-vzTVakkOsEfe4Ox_brSIm188otMEBxHmTwzRdH0xMEEq9KTbXSYAhQoV6cza9JGWDHMjIGxStwlrO8_FGQtNnp3ij64kPAVOVoETm-ig2YDxP4nge7M5ElAT75cbrBmhp7iW9yuNSCe2qWc1z-IEeKDLGnO4UwcOTFA"
+            />
+          </div>
+
+          <div class="space-y-4">
+            <p
+              class="text-sm font-semibold text-slate-500 dark:text-gray-400 uppercase tracking-wider"
+            >
+              Tu licencia incluye:
+            </p>
+            <ul class="space-y-3">
+              {
+                features.map(feature => (
+                  <li class="flex items-start gap-3 text-sm font-medium text-navy-blue dark:text-gray-200">
+                    <span class="material-symbols-outlined text-primary shrink-0">
+                      check_circle
+                    </span>
+                    <span>{feature}</span>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bank Transfer Column -->
+      <div
+        class="flex flex-col bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden h-full"
+      >
+        <div class="p-6 md:p-8 border-b border-slate-100 dark:border-slate-800">
+          <h3
+            class="text-lg font-bold flex items-center gap-2 text-navy-blue dark:text-white"
+          >
+            <span class="material-symbols-outlined text-slate-400"
+              >account_balance</span
+            >
+            Transferencia Bancaria (SPEI)
+          </h3>
+        </div>
+        <div class="p-6 md:p-8 flex flex-col h-full">
+          <div class="space-y-4 mb-8">
+            <!-- Banco -->
+            <div
+              class="bg-slate-50 dark:bg-white/5 p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-primary/30 transition-colors group/field"
+            >
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-xs font-semibold text-slate-500 uppercase"
+                  >Banco</span
+                >
+              </div>
+              <div class="flex justify-between items-center">
+                <span
+                  class="font-bold text-lg select-all text-navy-blue dark:text-white"
+                  >{bankInfo.bank}</span
+                >
+                <button
+                  class="text-primary hover:text-primary-dark p-1 rounded transition-colors copy-btn"
+                  data-copy={bankInfo.bank}
+                  title="Copiar"
+                >
+                  <span class="material-symbols-outlined text-xl"
+                    >content_copy</span
+                  >
+                </button>
+              </div>
+            </div>
+
+            <!-- CLABE -->
+            <div
+              class="bg-slate-50 dark:bg-white/5 p-4 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-primary/30 transition-colors group/field"
+            >
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-xs font-semibold text-slate-500 uppercase"
+                  >CLABE Interbancaria</span
+                >
+              </div>
+              <div class="flex justify-between items-center">
+                <span
+                  class="font-mono font-bold text-lg select-all tracking-wide text-navy-blue dark:text-white"
+                  >{bankInfo.clabe}</span
+                >
+                <button
+                  class="text-primary hover:text-primary-dark p-1 rounded transition-colors copy-btn"
+                  data-copy={bankInfo.clabe.replace(/\s/g, '')}
+                  title="Copiar"
+                >
+                  <span class="material-symbols-outlined text-xl"
+                    >content_copy</span
+                  >
+                </button>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div
+                class="bg-slate-50 dark:bg-white/5 p-3 rounded-xl border border-slate-100 dark:border-slate-800"
+              >
+                <div
+                  class="text-xs font-semibold text-slate-500 uppercase mb-1"
+                >
+                  Beneficiario
+                </div>
+                <div
+                  class="font-bold text-sm truncate text-navy-blue dark:text-white"
+                >
+                  {bankInfo.beneficiary}
+                </div>
+              </div>
+              <div
+                class="bg-slate-50 dark:bg-white/5 p-3 rounded-xl border border-slate-100 dark:border-slate-800"
+              >
+                <div
+                  class="text-xs font-semibold text-slate-500 uppercase mb-1"
+                >
+                  Concepto
+                </div>
+                <div class="font-bold text-sm text-navy-blue dark:text-white">
+                  {bankInfo.concept}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-auto">
+            <h4
+              class="text-sm font-bold mb-4 uppercase text-slate-500 tracking-wider"
+            >
+              Instrucciones de compra:
+            </h4>
+            <ol
+              class="space-y-4 relative border-l-2 border-slate-100 dark:border-slate-800 ml-3 pl-6"
+            >
+              {
+                instructions.map((step, index) => (
+                  <li class="relative">
+                    <span class="absolute -left-[31px] top-0 size-6 rounded-full bg-white dark:bg-slate-900 border-2 border-primary flex items-center justify-center text-xs font-bold text-navy-blue dark:text-white">
+                      {index + 1}
+                    </span>
+                    <p
+                      class="text-sm text-navy-blue dark:text-gray-200"
+                      set:html={step.replace(
+                        /\$(\d+)/g,
+                        `<strong>$${formattedPrice}</strong>`
+                      )}
+                    />
+                  </li>
+                ))
+              }
+            </ol>
+            <a
+              class="mt-6 flex items-center justify-center gap-2 w-full py-3 rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors text-sm font-bold text-navy-blue dark:text-white group"
+              href={`https://wa.me/5217441050512?text=Hola,%20acabo%20de%20realizar%20la%20transferencia%20para%20${encodeURIComponent(productTitle)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span
+                class="size-5 rounded-full bg-[#25D366] text-white flex items-center justify-center"
+              >
+                <span class="material-symbols-outlined text-[14px]">send</span>
+              </span>
+              Enviar comprobante por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 text-center">
+      <p class="text-sm text-slate-500 dark:text-gray-500">
+        ¿Tienes dudas con el proceso de pago? Escríbenos a
+        <a
+          class="text-primary hover:underline font-medium"
+          href="mailto:soporte@todoconta.com">soporte@todoconta.com</a
+        >
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Copy to clipboard functionality
+  function initCopyButtons() {
+    const copyButtons = document.querySelectorAll('.copy-btn');
+    copyButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const text = button.getAttribute('data-copy');
+        if (text) {
+          navigator.clipboard.writeText(text).then(() => {
+            const icon = button.querySelector('.material-symbols-outlined');
+            if (icon) {
+              const originalIcon = icon.textContent;
+              icon.textContent = 'check';
+              button.classList.add('text-green-500');
+              setTimeout(() => {
+                icon.textContent = originalIcon;
+                button.classList.remove('text-green-500');
+              }, 2000);
+            }
+          });
+        }
+      });
+    });
+  }
+
+  initCopyButtons();
+  document.addEventListener('astro:after-swap', initCopyButtons);
+</script>

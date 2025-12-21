@@ -9,9 +9,9 @@ import '../styles/animations.css';
 export interface Props {
   title: string;
   description: string;
-  keywords?: string[];
-  ogImage?: string;
-  showFooter?: boolean;
+  keywords?: string[] | undefined;
+  ogImage?: string | undefined;
+  showFooter?: boolean | undefined;
 }
 
 const {
@@ -45,6 +45,10 @@ const {
       rel="stylesheet"
       media="print"
       onload="this.media='all'"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
     />
 
     <!-- Open Graph / Social Media -->

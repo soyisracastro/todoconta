@@ -1,0 +1,202 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  badge?: string | undefined;
+  price?: string | { min: string; max: string } | undefined;
+  primaryCta: {
+    text: string;
+    url: string;
+  };
+  secondaryCta?:
+    | {
+        text: string;
+        url: string;
+      }
+    | null
+    | undefined;
+  image?: string | undefined;
+}
+
+const { title, description, badge, price, primaryCta, secondaryCta, image } =
+  Astro.props;
+
+// Price formatting logic
+let priceText = '';
+
+if (typeof price === 'string') {
+  priceText = price;
+} else if (price) {
+  priceText = `${price.min} - ${price.max}`;
+}
+---
+
+<section
+  class="relative overflow-hidden bg-white dark:bg-background-dark font-display"
+>
+  <!-- Background effects -->
+  <div
+    class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none"
+  >
+    <div
+      class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full glow-hero-top"
+    >
+    </div>
+    <div
+      class="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full glow-hero-bottom"
+    >
+    </div>
+  </div>
+
+  <div
+    class="max-w-[1280px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-24"
+  >
+    <div class="hero-grid-layout gap-12 lg:gap-20 items-center">
+      <!-- Left Column: Content -->
+      <div class="flex flex-col items-start space-y-6 w-full">
+        <!-- Breadcrumbs -->
+        <div
+          class="flex flex-wrap items-center gap-2 text-sm text-gray-500 dark:text-gray-400"
+        >
+          <a href="/" class="hover:text-primary transition-colors">Inicio</a>
+          <span class="material-symbols-outlined text-[12px]"
+            >chevron_right</span
+          >
+          <a href="/productos" class="hover:text-primary transition-colors"
+            >Herramientas</a
+          >
+          <span class="material-symbols-outlined text-[12px]"
+            >chevron_right</span
+          >
+          <span class="text-navy-blue dark:text-gray-100 font-medium"
+            >{title}</span
+          >
+        </div>
+
+        {
+          badge && (
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary dark:text-green-300 text-xs font-bold uppercase tracking-wider">
+              <span class="material-symbols-outlined text-sm">verified</span>
+              {badge}
+            </div>
+          )
+        }
+
+        <h1
+          class="font-extrabold text-navy-blue dark:text-white leading-[1.1] tracking-tight hero-title"
+        >
+          <span class="text-primary">{title}</span>
+        </h1>
+
+        {
+          price && (
+            <div class="flex flex-col gap-1">
+              <div class="flex items-baseline gap-2">
+                <span class="text-3xl sm:text-4xl font-bold text-navy-blue dark:text-white">
+                  {priceText}
+                </span>
+              </div>
+            </div>
+          )
+        }
+
+        <p
+          class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-lg"
+        >
+          {description}
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-2">
+          <a
+            href={primaryCta.url}
+            class="group relative flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-xl text-lg font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 w-full sm:w-auto overflow-hidden"
+          >
+            <div
+              class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer"
+            >
+            </div>
+            <span>{primaryCta.text}</span>
+            <span class="material-symbols-outlined">bolt</span>
+          </a>
+          {
+            secondaryCta && (
+              <a
+                href={secondaryCta.url}
+                class="flex items-center justify-center gap-2 bg-white border border-gray-200 hover:bg-gray-50 text-navy-blue px-8 py-4 rounded-xl text-lg font-bold shadow-sm hover:shadow transition-all duration-200 w-full sm:w-auto"
+              >
+                <span>{secondaryCta.text}</span>
+              </a>
+            )
+          }
+        </div>
+
+        <div
+          class="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400"
+        >
+          <div class="flex items-center gap-1">
+            <span
+              class="material-symbols-outlined text-lg text-primary dark:text-green-400"
+              >download</span
+            >
+            <span>Descarga inmediata</span>
+          </div>
+          <span class="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-600"
+          ></span>
+          <div class="flex items-center gap-1">
+            <span
+              class="material-symbols-outlined text-lg text-primary dark:text-green-400"
+              >license</span
+            >
+            <span>Licencia de por vida</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Visual -->
+      <div class="w-full">
+        <slot name="visual">
+          <!-- Default visual if no slot provided -->
+          <div class="relative w-full flex justify-center lg:justify-end">
+            {
+              image && (
+                <img
+                  src={image}
+                  alt={title}
+                  class="rounded-2xl shadow-2xl max-w-full h-auto"
+                />
+              )
+            }
+          </div>
+        </slot>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-grid-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .hero-title {
+    font-size: clamp(2.25rem, 6vw, 3.75rem);
+  }
+
+  @media (min-width: 768px) {
+    .hero-grid-layout {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .glow-hero-top {
+    background-color: rgba(29, 111, 66, 0.05);
+    filter: blur(100px);
+  }
+
+  .glow-hero-bottom {
+    background-color: rgba(30, 58, 138, 0.05);
+    filter: blur(100px);
+  }
+</style>
