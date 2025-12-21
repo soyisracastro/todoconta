@@ -12,6 +12,7 @@ export interface Props {
   keywords?: string[] | undefined;
   ogImage?: string | undefined;
   showFooter?: boolean | undefined;
+  category?: 'excel' | 'software' | 'service' | undefined;
 }
 
 const {
@@ -20,6 +21,7 @@ const {
   keywords = [],
   ogImage = '/images/og-default.jpg',
   showFooter = true,
+  category = 'software',
 } = Astro.props;
 ---
 
@@ -146,7 +148,12 @@ const {
       })}
     />
   </head>
-  <body>
+  <body
+    class:list={[
+      'min-h-screen bg-background font-body text-text-secondary antialiased transition-colors duration-300',
+      `theme-${category}`,
+    ]}
+  >
     <!-- Email Modal -->
     <div id="email-modal" class="email-modal">
       <div class="modal-backdrop" id="modal-backdrop"></div>

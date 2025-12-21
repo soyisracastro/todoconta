@@ -52,6 +52,7 @@ const {
   benefitsSection,
   finalCta,
   faqSection,
+  category,
 } = product.data;
 
 // Calculate price display
@@ -157,6 +158,7 @@ const paymentProps = hasValidPricing
   title={title}
   description={description}
   keywords={keywords}
+  category={category}
   {...heroImage && { ogImage: heroImage }}
 >
   <!-- Hero Section -->

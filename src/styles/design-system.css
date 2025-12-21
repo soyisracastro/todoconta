@@ -6,8 +6,20 @@
   --color-secondary: #0f172a;
   /* Deep Navy for backgrounds/text */
   --color-secondary-light: #1e293b;
+}
 
-  /* Backgrounds */
+/* Theme Overrides */
+.theme-excel {
+  --color-primary: #1D6F42;
+  --color-primary-dark: #145231;
+}
+
+.theme-software {
+  --color-primary: #0f172a;
+  --color-primary-dark: #020617;
+}
+
+:root {
   --color-background: #f8fafc;
   /* Very light blue-grey */
   --color-background-alt: #ffffff;

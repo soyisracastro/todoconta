@@ -9,6 +9,7 @@ const productsCollection = defineCollection({
     badge: z.string().optional(),
     heroImage: z.string().optional(),
     buyUrl: z.string().optional(),
+    category: z.enum(['excel', 'software', 'service']).default('software'),
 
     // Planes de precios opcionales (para productos con múltiples opciones)
     plans: z
