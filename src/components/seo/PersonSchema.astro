@@ -1,0 +1,81 @@
+---
+/**
+ * PersonSchema Component
+ *
+ * Schema de Person para schema.org
+ * Este componente se usa específicamente en la página home para marcar
+ * a Israel Castro como persona profesional.
+ *
+ * Ayuda a aparecer en Knowledge Graph y búsquedas de personas.
+ *
+ * @component
+ */
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Israel Castro Urieta',
+  alternateName: 'Israel Castro',
+  url: 'https://todoconta.com',
+  image: 'https://todoconta.com/images/photo.png',
+
+  // Información profesional
+  jobTitle: 'Contador Público Certificado',
+  description:
+    'Contador y asesor fiscal especializado en profesionistas y empresarios. Experto en RESICO, optimización fiscal y cumplimiento del SAT con más de 15 años de experiencia.',
+
+  // Organización
+  worksFor: {
+    '@type': 'Organization',
+    name: 'TodoConta',
+    url: 'https://todoconta.com',
+  },
+
+  // Redes sociales y presencia online
+  sameAs: [
+    'https://www.facebook.com/todoconta',
+    'https://www.youtube.com/@todoconta',
+    'https://www.instagram.com/todoconta',
+    'https://www.tiktok.com/@todoconta',
+    'https://www.linkedin.com/in/isca/',
+  ],
+
+  // Áreas de conocimiento
+  knowsAbout: [
+    'Contabilidad fiscal México',
+    'RESICO - Régimen Simplificado de Confianza',
+    'Asesoría tributaria',
+    'SAT México',
+    'Declaraciones fiscales',
+    'Optimización fiscal',
+    'Deducciones fiscales',
+    'Cumplimiento fiscal',
+    'Inteligencia Artificial para contadores',
+    'Automatización contable',
+  ],
+
+  // Ubicación
+  homeLocation: {
+    '@type': 'Place',
+    address: {
+      '@type': 'PostalAddress',
+      addressCountry: 'MX',
+      addressRegion: 'Guerrero',
+    },
+  },
+
+  // Idiomas
+  knowsLanguage: {
+    '@type': 'Language',
+    name: 'Spanish',
+  },
+
+  // Nacionalidad
+  nationality: {
+    '@type': 'Country',
+    name: 'México',
+  },
+};
+---
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />

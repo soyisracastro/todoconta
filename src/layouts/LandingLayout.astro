@@ -6,6 +6,10 @@ import '../styles/landing.css';
 import '../styles/global.css';
 import '../styles/animations.css';
 
+// Importar componentes SEO
+import BaseSEO from '../components/seo/BaseSEO.astro';
+import OrganizationSchema from '../components/seo/OrganizationSchema.astro';
+
 export interface Props {
   title: string;
   description: string;
@@ -28,18 +32,24 @@ const {
 <!doctype html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
 
-    <!-- Keywords -->
-    {
-      keywords.length > 0 && (
-        <meta name="keywords" content={keywords.join(', ')} />
-      )
-    }
+    <!-- SEO Meta Tags -->
+    <BaseSEO
+      title={title}
+      description={description}
+      keywords={keywords}
+      ogImage={ogImage}
+    />
+
+    <!-- Schema.org Organization -->
+    <OrganizationSchema />
+
+    <!-- Slot para schemas adicionales específicos de página -->
+    <slot name="head" />
+
+    <title>{title} | Todoconta</title>
 
     <!-- Google Fonts -->
     <link
@@ -52,19 +62,6 @@ const {
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url} />
-    <meta property="og:image" content={new URL(ogImage, Astro.url)} />
-
-    <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(ogImage, Astro.url)} />
 
     <!-- Google Analytics -->
     <script
@@ -127,26 +124,11 @@ const {
     >
     <!-- End Meta Pixel Code -->
 
-    <!-- Estructura JSON-LD para SEO -->
-    <script
-      is:inline
-      type="application/ld+json"
-      set:html={JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Product',
-        name: title,
-        description: description,
-        brand: {
-          '@type': 'Brand',
-          name: 'Todoconta',
-        },
-        offers: {
-          '@type': 'Offer',
-          priceCurrency: 'MXN',
-          availability: 'https://schema.org/InStock',
-        },
-      })}
-    />
+    <!--
+      TODO: Product schema removido temporalmente (causaba error en home page)
+      Será movido a un componente ProductSEO.astro dedicado en Fase 2
+      que se inyectará solo en páginas de productos usando slot="head"
+    -->
   </head>
   <body
     class:list={[

@@ -1,0 +1,97 @@
+---
+/**
+ * BaseSEO Component
+ *
+ * Componente centralizado para gestionar todos los meta tags SEO básicos.
+ * Incluye: meta tags básicos, Open Graph, Twitter Cards, y canonical URL.
+ *
+ * @component
+ */
+
+export interface Props {
+  /** Título de la página (sin incluir "| Todoconta") */
+  title: string;
+
+  /** Descripción de la página (150-160 caracteres recomendado) */
+  description: string;
+
+  /** Keywords - puede ser array o string separado por comas */
+  keywords?: string[] | string;
+
+  /** URL de la imagen para Open Graph (1200x630px recomendado) */
+  ogImage?: string;
+
+  /** Tipo de contenido para Open Graph */
+  ogType?: 'website' | 'article' | 'product' | 'profile';
+
+  /** URL canónica - si no se provee, usa Astro.url */
+  canonicalURL?: string | URL;
+
+  /** Autor de la página/artículo */
+  author?: string;
+
+  /** Nombre del sitio para Open Graph */
+  siteName?: string;
+}
+
+const {
+  title,
+  description,
+  keywords,
+  ogImage = '/images/og-default.jpg',
+  ogType = 'website',
+  canonicalURL,
+  author = 'Israel Castro',
+  siteName = 'Todoconta',
+} = Astro.props;
+
+// Construir título completo
+const fullTitle = `${title} | ${siteName}`;
+
+// Normalizar keywords a string
+const keywordsString = Array.isArray(keywords)
+  ? keywords.join(', ')
+  : keywords;
+
+// Canonical URL - usar el proporcionado o el actual
+const canonical = canonicalURL
+  ? (typeof canonicalURL === 'string' ? canonicalURL : canonicalURL.href)
+  : Astro.url.href;
+
+// Open Graph image - convertir a URL absoluta
+const ogImageURL = ogImage.startsWith('http')
+  ? ogImage
+  : new URL(ogImage, Astro.site || Astro.url).href;
+---
+
+<!-- Meta tags básicos -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content={description} />
+{keywordsString && <meta name="keywords" content={keywordsString} />}
+{author && <meta name="author" content={author} />}
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonical} />
+
+<!-- Robots -->
+<meta name="robots" content="index, follow" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImageURL} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content="es_MX" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonical} />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageURL} />
+
+<!-- Theme color -->
+<meta name="theme-color" content="#0f172a" />

@@ -1,0 +1,113 @@
+---
+/**
+ * OrganizationSchema Component
+ *
+ * Schema de Organization para schema.org
+ * Este componente debe incluirse en el layout principal para que aparezca en todas las páginas.
+ * Ayuda a Google a entender la estructura de la organización, contacto, y redes sociales.
+ *
+ * @component
+ */
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'TodoConta',
+  alternateName: 'Todoconta - Servicios Contables',
+  url: 'https://todoconta.com',
+  logo: 'https://todoconta.com/images/logo-icon.svg',
+  description:
+    'Servicios contables y asesoría fiscal especializada para profesionistas y empresarios en México. Expertos en RESICO, optimización fiscal y cumplimiento del SAT.',
+
+  // Información de contacto
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+52-1-554-475-3602',
+    contactType: 'customer service',
+    email: 'contacto@todoconta.com',
+    areaServed: 'MX',
+    availableLanguage: ['es', 'Spanish'],
+    contactOption: 'TollFree',
+  },
+
+  // Dirección
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'MX',
+    addressRegion: 'Guerrero',
+    addressLocality: 'Acapulco',
+  },
+
+  // Redes sociales y presencia online
+  sameAs: [
+    'https://www.facebook.com/todoconta',
+    'https://www.youtube.com/@todoconta',
+    'https://www.instagram.com/todoconta',
+    'https://www.tiktok.com/@todoconta',
+    'https://www.linkedin.com/in/isca/',
+  ],
+
+  // Servicios ofrecidos
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Servicios Contables y Fiscales',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Asesoría Fiscal en Línea',
+          description: 'Asesoría personalizada para resolver dudas fiscales y optimizar tu situación tributaria',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Servicios Contables',
+          description: 'Contabilidad integral, declaraciones mensuales y cumplimiento fiscal',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Regularización Fiscal',
+          description: 'Ponemos al corriente tus obligaciones fiscales ante el SAT',
+        },
+      },
+    ],
+  },
+
+  // Áreas de especialización
+  knowsAbout: [
+    'Contabilidad fiscal México',
+    'RESICO - Régimen Simplificado de Confianza',
+    'Declaraciones fiscales',
+    'Optimización fiscal',
+    'Cumplimiento SAT',
+    'Asesoría tributaria',
+  ],
+
+  // Fundador
+  founder: {
+    '@type': 'Person',
+    name: 'Israel Castro Urieta',
+    jobTitle: 'Contador Público Certificado',
+  },
+
+  // Área de servicio
+  areaServed: {
+    '@type': 'Country',
+    name: 'México',
+  },
+
+  // Idiomas
+  availableLanguage: {
+    '@type': 'Language',
+    name: 'Spanish',
+  },
+};
+---
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
