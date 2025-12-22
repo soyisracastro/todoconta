@@ -35,7 +35,7 @@ const organizationSchema = {
     '@type': 'PostalAddress',
     addressCountry: 'MX',
     addressRegion: 'Guerrero',
-    addressLocality: 'Acapulco',
+    addressLocality: 'Pungarabato',
   },
 
   // Redes sociales y presencia online
@@ -57,7 +57,8 @@ const organizationSchema = {
         itemOffered: {
           '@type': 'Service',
           name: 'Asesoría Fiscal en Línea',
-          description: 'Asesoría personalizada para resolver dudas fiscales y optimizar tu situación tributaria',
+          description:
+            'Asesoría personalizada para resolver dudas fiscales y optimizar tu situación tributaria',
         },
       },
       {
@@ -65,7 +66,8 @@ const organizationSchema = {
         itemOffered: {
           '@type': 'Service',
           name: 'Servicios Contables',
-          description: 'Contabilidad integral, declaraciones mensuales y cumplimiento fiscal',
+          description:
+            'Contabilidad integral, declaraciones mensuales y cumplimiento fiscal',
         },
       },
       {
@@ -73,7 +75,8 @@ const organizationSchema = {
         itemOffered: {
           '@type': 'Service',
           name: 'Regularización Fiscal',
-          description: 'Ponemos al corriente tus obligaciones fiscales ante el SAT',
+          description:
+            'Ponemos al corriente tus obligaciones fiscales ante el SAT',
         },
       },
     ],
@@ -110,4 +113,8 @@ const organizationSchema = {
 };
 ---
 
-<script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(organizationSchema)}
+/>
