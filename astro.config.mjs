@@ -2,13 +2,39 @@
 import { defineConfig, envField } from 'astro/config';
 import netlify from '@astrojs/netlify';
 import tailwind from '@astrojs/tailwind';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
   // Output configuration for server-side rendering (required for API routes)
   output: 'server',
   adapter: netlify(),
-  integrations: [tailwind()],
+  integrations: [
+    tailwind(),
+    sitemap({
+      // Exclude thank you pages, error pages, and other non-indexable pages
+      filter: (page) =>
+        !page.includes('/gracias') &&
+        !page.includes('/404') &&
+        !page.includes('/aviso-legal') &&
+        !page.includes('/privacidad') &&
+        !page.includes('/terminos'),
+      // Customize URLs with priority and change frequency
+      customPages: [
+        // High priority pages
+        'https://todoconta.com/',
+        'https://todoconta.com/asesoria',
+        'https://todoconta.com/servicios',
+        'https://todoconta.com/productos',
+      ],
+      // Set default change frequency
+      changefreq: 'weekly',
+      // Set default priority
+      priority: 0.7,
+      // Set last modification date
+      lastmod: new Date(),
+    }),
+  ],
 
   // Site URL for SEO and sitemap generation
   site: 'https://todoconta.com',
