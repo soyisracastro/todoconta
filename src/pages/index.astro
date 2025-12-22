@@ -4,10 +4,11 @@ import ProfileHeader from '../components/ui/ProfileHeader.astro';
 import LinkButton from '../components/ui/LinkButton.astro';
 import SubstackWidget from '../components/ui/SubstackWidget.astro';
 import SEOContent from '../components/sections/SEOContent.astro';
+import PersonSchema from '../components/seo/PersonSchema.astro';
 ---
 
 <LandingLayout
-  title="Israel Castro - Contador y Asesor Fiscal | Todoconta"
+  title="Israel Castro - Contador y Asesor Fiscal"
   description="Asesorías fiscales personalizadas y servicios contables integrales. Experto en RESICO, deducciones fiscales y optimización de impuestos."
   keywords={[
     'contador',
@@ -20,6 +21,8 @@ import SEOContent from '../components/sections/SEOContent.astro';
   ]}
   showFooter={false}
 >
+  <!-- Schema.org Person para la home page -->
+  <PersonSchema slot="head" />
   <div class="linktree-container">
     <ProfileHeader
       name="Israel Castro"

@@ -5,6 +5,10 @@ import '../styles/design-system.css';
 import '../styles/global.css';
 import '../styles/animations.css';
 
+// Importar componentes SEO
+import BaseSEO from '../components/seo/BaseSEO.astro';
+import OrganizationSchema from '../components/seo/OrganizationSchema.astro';
+
 export interface Props {
   title: string;
   description: string;
@@ -17,13 +21,20 @@ const { title, description, keywords } = Astro.props;
 <!doctype html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
 
-    {keywords && <meta name="keywords" content={keywords} />}
+    <!-- SEO Meta Tags -->
+    <BaseSEO
+      title={title}
+      description={description}
+      keywords={keywords}
+    />
+
+    <!-- Schema.org Organization -->
+    <OrganizationSchema />
+
+    <title>{title} | Todoconta</title>
 
     <!-- Google Fonts: Outfit (Headings) & Inter (Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -32,13 +43,6 @@ const { title, description, keywords } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://todoconta.com" />
-    <meta property="og:image" content="https://todoconta.com/og-image.jpg" />
 
     <!-- Google Analytics -->
     <script
@@ -92,10 +96,6 @@ const { title, description, keywords } = Astro.props;
       /></noscript
     >
     <!-- End Meta Pixel Code -->
-
-    <!-- Security and theme metadatos -->
-    <meta name="theme-color" content="#0f172a" />
-    <meta name="robots" content="index, follow" />
   </head>
   <body>
     <slot />
