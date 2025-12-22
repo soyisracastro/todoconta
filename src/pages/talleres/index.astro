@@ -1,6 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import Button from '@/components/ui/Button.astro';
+import WorkshopsSEO from '@/components/seo/WorkshopsSEO.astro';
 
 // Datos estáticos de categorías de talleres (para mostrar incluso si el iframe no carga)
 const categoriasTalleres = [
@@ -54,6 +55,8 @@ const lumaProfileUrl = 'https://lu.ma/todoconta';
   title="Talleres y Capacitación | Todoconta"
   description="Calendario de talleres y capacitaciones especializadas en temas fiscales y contables. Cursos presenciales y virtuales con enfoque práctico para la optimización fiscal de tu empresa."
 >
+  <WorkshopsSEO slot="head" categories={categoriasTalleres} />
+
   <!-- Hero Section -->
   <section class="talleres-hero">
     <div class="container">

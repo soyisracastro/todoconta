@@ -3,6 +3,7 @@ import Layout from '@/layouts/Layout.astro';
 import Navbar from '@/components/layout/Navbar.astro';
 import Products from '@/components/sections/Products.astro';
 import MinimalFooter from '@/components/layout/MinimalFooter.astro';
+import ProductListSEO from '@/components/seo/ProductListSEO.astro';
 
 const cta = {
   title: 'Necesito ayuda',
@@ -14,6 +15,8 @@ const cta = {
   title="Todoconta - Productos de Software Contable"
   description="Descubre nuestras soluciones de software para contadores y empresas. Optimiza la gestión de nóminas y la descarga de XML desde el SAT."
 >
+  <ProductListSEO slot="head" />
+
   <Navbar cta={cta} />
   <Products />
   <MinimalFooter />
