@@ -1,8 +1,9 @@
 /* New Design System Variables - Modern & Elegant */
 :root {
-  /* Primary Colors - Excel Green */
-  --color-primary: #1D6F42;
-  --color-primary-dark: #145231;
+  /* Primary Colors - Blue */
+  --color-primary: #135bec;
+  --color-primary-dark: #0f4bc4;
+  --color-primary-hover: #0f4bc4;
   --color-secondary: #0f172a;
   /* Deep Navy for backgrounds/text */
   --color-secondary-light: #1e293b;

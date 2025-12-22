@@ -1,110 +1,95 @@
 ---
-import Button from '../ui/Button.astro';
+
 ---
 
-<section class="section services-cta" id="servicios-completos">
-  <div class="container">
-    <div class="cta-content fade-in-up">
-      <div class="cta-text">
-        <h3>¿Necesitas servicios contables completos?</h3>
-        <p>
-          Si además de asesoría puntual necesitas contabilidad mensual, nómina,
-          o declaraciones, ofrezco planes integrales desde <strong
-            >$3,500/mes</strong
+<section
+  class="w-full relative overflow-hidden bg-primary py-16 lg:py-24"
+  id="servicios-completos"
+>
+  <!-- Dot Pattern Background -->
+  <div
+    class="absolute inset-0 opacity-20 pointer-events-none"
+    style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 24px 24px;"
+  >
+  </div>
+
+  <div class="container mx-auto px-6 lg:px-12 relative z-10 max-w-7xl">
+    <div class="flex flex-col lg:flex-row items-center justify-between gap-10">
+      <!-- Left Column: Content -->
+      <div class="flex flex-col gap-6 text-left max-w-3xl animate-fade-in-up">
+        <!-- Badge -->
+        <div class="flex items-center gap-3">
+          <span
+            class="material-symbols-outlined text-white text-3xl font-variation-fill"
+            >verified</span
+          >
+          <span class="text-white font-bold text-xs tracking-widest uppercase"
+            >Planes Integrales</span
+          >
+        </div>
+
+        <!-- Headline -->
+        <h2
+          class="text-4xl md:text-5xl lg:text-6xl font-[900] text-white tracking-tight leading-[1.1]"
+        >
+          ¿Necesitas servicios contables completos?
+        </h2>
+
+        <!-- Subheadline -->
+        <p
+          class="text-white/90 text-xl lg:text-2xl font-medium leading-relaxed"
+        >
+          Si además de asesoría puntual necesitas contabilidad mensual... <br
+            class="hidden md:block"
+          />
+          ofrezco planes integrales desde <span
+            class="font-black border-b-2 border-white/60">$3,500/mes</span
           >.
         </p>
       </div>
-      <div class="cta-action">
-        <Button
+
+      <!-- Right Column: CTA -->
+      <div
+        class="flex-shrink-0 w-full lg:w-auto flex justify-start lg:justify-end animate-fade-in-up"
+      >
+        <a
           href="/servicios"
-          variant="primary"
-          size="lg"
-          className="animate-pulse-glow"
+          class="group flex items-center justify-center gap-3 px-8 py-4 bg-transparent border-2 border-white rounded-xl text-white font-bold text-lg transition-all duration-300 hover:bg-white hover:text-primary shadow-lg hover:shadow-white/20 whitespace-nowrap"
         >
-          Ver Servicios Completos
-        </Button>
+          <span>Ver Servicios Completos</span>
+          <span
+            class="material-symbols-outlined transition-transform group-hover:translate-x-1"
+            >arrow_forward</span
+          >
+        </a>
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  .services-cta {
-    padding: var(--space-16) 0;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    position: relative;
-    overflow: hidden;
+  section {
+    font-family: 'Manrope', sans-serif;
   }
 
-  /* Decorative background */
-  .services-cta::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(
-      rgba(255, 255, 255, 0.1) 1px,
-      transparent 1px
-    );
-    background-size: 20px 20px;
-    opacity: 0.1;
+  .font-variation-fill {
+    font-variation-settings:
+      'FILL' 1,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24;
   }
 
-  .cta-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    padding: var(--space-10);
-    border-radius: var(--border-radius-2xl);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: var(--shadow-xl);
-    gap: var(--space-8);
+  .animate-fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
   }
 
-  .cta-text {
-    flex: 1;
-  }
-
-  .cta-text h3 {
-    font-family: var(--font-heading);
-    font-size: var(--font-size-2xl);
-    font-weight: 700;
-    color: var(--color-white);
-    margin-bottom: var(--space-3);
-  }
-
-  .cta-text p {
-    color: var(--color-hero-text-secondary);
-    font-size: var(--font-size-lg);
-    margin: 0;
-    max-width: 600px;
-  }
-
-  .cta-text strong {
-    color: var(--color-primary);
-  }
-
-  .cta-action {
-    flex-shrink: 0;
-  }
-
-  @media (max-width: 768px) {
-    .cta-content {
-      flex-direction: column;
-      text-align: center;
-      padding: var(--space-8);
-    }
-
-    .cta-action {
-      width: 100%;
-    }
-
-    .cta-action :global(.btn) {
-      width: 100%;
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 </style>
