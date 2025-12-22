@@ -145,10 +145,10 @@ if (testimonials && testimonials.length > 0) {
 
   serviceSchema.aggregateRating = {
     '@type': 'AggregateRating',
-    ratingValue: averageRating.toFixed(1),
-    reviewCount: testimonials.length.toString(),
-    bestRating: '5',
-    worstRating: '1',
+    ratingValue: parseFloat(averageRating.toFixed(1)),
+    reviewCount: testimonials.length,
+    bestRating: 5,
+    worstRating: 1,
   };
 
   // Agregar reviews individuales
@@ -157,9 +157,9 @@ if (testimonials && testimonials.length > 0) {
       '@type': 'Review',
       reviewRating: {
         '@type': 'Rating',
-        ratingValue: (testimonial.rating || 5).toString(),
-        bestRating: '5',
-        worstRating: '1',
+        ratingValue: testimonial.rating || 5,
+        bestRating: 5,
+        worstRating: 1,
       },
       author: {
         '@type': 'Person',
