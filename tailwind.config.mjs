@@ -5,12 +5,12 @@ export default {
     theme: {
         extend: {
             colors: {
-                "primary": "#1D6F42", // Changed to Excel Green as requested
-                "primary-dark": "#145231",
+                "primary": "#135bec",
+                "primary-dark": "#0f4bc4",
+                "primary-hover": "#0f4bc4",
                 "excel-green": "#1D6F42",
-                "navy-blue": "#0F172A", // Added navy blue for text/backgrounds if needed
-                "smoke-gray": "#F3F4F6",
-                "background-light": "#F3F4F6", // Smoke gray background
+                "navy-blue": "#0F172A",
+                "background-light": "#F3F4F6",
                 "background-dark": "#102218",
                 "surface-light": "#ffffff",
                 "surface-dark": "#1a2c23",

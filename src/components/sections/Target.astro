@@ -2,195 +2,140 @@
 
 ---
 
-<section class="section section-target" id="para-quien">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="section-title fade-in-up">¿Este servicio es para ti?</h2>
-      <p class="section-subtitle fade-in-up">
+<section
+  class="relative overflow-hidden bg-white dark:bg-background-dark py-16 lg:py-24"
+  id="para-quien"
+>
+  <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+    <!-- Section Header -->
+    <div
+      class="text-center space-y-4 max-w-3xl mx-auto mb-16 animate-fade-in-up"
+    >
+      <h2
+        class="text-[#111814] dark:text-white text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-tight"
+      >
+        ¿Este servicio es para ti?
+      </h2>
+      <p
+        class="text-slate-600 dark:text-gray-300 text-lg md:text-xl font-medium leading-relaxed"
+      >
         Mi asesoría está especializada en personas físicas con actividades
-        empresariales y profesionales. Si eres profesionista independiente o
-        empresario, puedo ayudarte.
+        empresariales y profesionales.
       </p>
     </div>
 
-    <div class="target-grid">
-      <div class="target-card glass-panel fade-in-left">
-        <div class="card-icon">👨‍⚕️</div>
-        <h3>Profesionistas Independientes</h3>
-        <ul class="target-list">
-          <li>Médicos especialistas y generales</li>
-          <li>Abogados y despachos jurídicos</li>
-          <li>Consultores y asesores</li>
-          <li>Arquitectos e ingenieros</li>
-          <li>Contadores y auditores</li>
-          <li>Dentistas y especialistas de salud</li>
-          <li>Psicólogos y terapeutas</li>
-          <li>Cualquier actividad profesional</li>
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+      <!-- Card 1: Profesionistas -->
+      <div
+        class="group relative flex flex-col gap-8 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 p-10 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 animate-fade-in-up"
+      >
+        <div class="flex items-center gap-6">
+          <div
+            class="flex items-center justify-center size-16 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 transform group-hover:rotate-6"
+          >
+            <span class="material-symbols-outlined text-[36px]"
+              >business_center</span
+            >
+          </div>
+          <h3 class="text-3xl font-bold text-[#111814] dark:text-white">
+            Profesionistas
+          </h3>
+        </div>
+
+        <div class="h-px w-full bg-slate-100 dark:bg-slate-800"></div>
+
+        <ul class="flex flex-col gap-5">
+          {
+            [
+              'Médicos y Personal de Salud',
+              'Abogados y Notarios',
+              'Consultores de Negocios',
+              'Arquitectos e Ingenieros',
+              'Dentistas y Especialistas',
+            ].map(item => (
+              <li class="flex items-start gap-4 group/item">
+                <span class="material-symbols-outlined text-primary mt-1 shrink-0 font-bold transition-transform group-hover/item:scale-110">
+                  check_circle
+                </span>
+                <span class="text-slate-600 dark:text-gray-200 text-lg font-medium">
+                  {item}
+                </span>
+              </li>
+            ))
+          }
         </ul>
       </div>
 
-      <div class="target-card glass-panel fade-in-right">
-        <div class="card-icon">🏢</div>
-        <h3>Empresarios con Actividades Empresariales</h3>
-        <ul class="target-list">
-          <li>Comerciantes y retail</li>
-          <li>Prestadores de servicios</li>
-          <li>Manufactura y producción</li>
-          <li>Restaurantes y alimentos</li>
-          <li>Tecnología y software</li>
-          <li>Marketing y publicidad</li>
-          <li>Construcción y bienes raíces</li>
-          <li>Cualquier actividad empresarial</li>
+      <!-- Card 2: Empresarios -->
+      <div
+        class="group relative flex flex-col gap-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 p-8 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 animate-fade-in-up"
+        style="animation-delay: 0.2s;"
+      >
+        <div class="flex items-center gap-6">
+          <div
+            class="flex items-center justify-center size-16 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 transform group-hover:rotate-6"
+          >
+            <span class="material-symbols-outlined text-[36px]">storefront</span
+            >
+          </div>
+          <h3 class="text-3xl font-bold text-[#111814] dark:text-white">
+            Empresarios
+          </h3>
+        </div>
+
+        <div class="h-px w-full bg-slate-100 dark:bg-slate-800"></div>
+
+        <ul class="flex flex-col gap-5">
+          {
+            [
+              'Comerciantes (Retail y Mayoristas)',
+              'Empresas de Servicios',
+              'Manufactura y Producción',
+              'Sector Tecnológico y Software',
+              'Agencias de Marketing y Diseño',
+            ].map(item => (
+              <li class="flex items-start gap-4 group/item">
+                <span class="material-symbols-outlined text-primary mt-1 shrink-0 font-bold transition-transform group-hover/item:scale-110">
+                  check_circle
+                </span>
+                <span class="text-slate-600 dark:text-gray-200 text-lg font-medium">
+                  {item}
+                </span>
+              </li>
+            ))
+          }
         </ul>
       </div>
     </div>
 
+    <!-- Call to Action -->
     <div
-      class="target-card glass-panel fade-in-up delay-200"
-      style="max-width: 900px; margin: 0 auto;"
+      class="flex justify-center pt-12 animate-fade-in-up"
+      style="animation-delay: 0.4s;"
     >
-      <div class="card-header-center">
-        <div class="card-icon">❓</div>
-        <h3>Consultas más frecuentes que resuelvo:</h3>
-      </div>
-      <ul class="target-list faq-list">
-        <li>¿Me conviene seguir en RESICO o cambiar al régimen general?</li>
-        <li>¿Qué deducciones puedo aplicar en mi actividad específica?</li>
-        <li>¿Cómo optimizar mis declaraciones trimestrales y anuales?</li>
-        <li>¿Qué obligaciones tengo y cómo cumplirlas sin errores?</li>
-        <li>¿Cómo estructurar mis gastos para maximizar deducciones?</li>
-        <li>
-          ¿Cuándo y cómo hacer la transición de RESICO al régimen general?
-        </li>
-      </ul>
+      <p class="text-sm text-center text-slate-500 dark:text-gray-400 max-w-lg">
+        ¿No ves tu actividad aquí? <a
+          class="text-primary font-bold hover:text-primary-dark transition-colors no-underline border-b-2 border-primary/20 hover:border-primary"
+          href="#contacto">Contáctame</a
+        > para evaluar tu caso específico.
+      </p>
     </div>
   </div>
 </section>
 
 <style>
-  .section-target {
-    background-color: var(--color-background);
-    position: relative;
+  /* Animations logic is handled by global scripts but we can add local tweaks */
+  .animate-fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
   }
 
-  /* Add a subtle pattern background */
-  .section-target::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(var(--color-border) 1px, transparent 1px);
-    background-size: 30px 30px;
-    opacity: 0.3;
-    z-index: 0;
-  }
-
-  .container {
-    position: relative;
-    z-index: 1;
-  }
-
-  .target-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
-    margin-bottom: var(--space-12);
-  }
-
-  @media (min-width: 768px) {
-    .target-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  .target-card {
-    padding: var(--space-8);
-    border-radius: var(--border-radius-xl);
-    transition: all var(--transition-normal);
-    height: 100%;
-    background: var(--color-white);
-    border: 1px solid var(--color-border-light);
-    box-shadow: var(--shadow-md);
-  }
-
-  .target-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
-    border-color: var(--color-primary-light);
-  }
-
-  .card-icon {
-    font-size: 3rem;
-    margin-bottom: var(--space-4);
-    background: var(--color-background);
-    width: 80px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    box-shadow: var(--shadow-sm);
-  }
-
-  .target-card h3 {
-    font-family: var(--font-heading);
-    font-size: var(--font-size-xl);
-    font-weight: 700;
-    margin-bottom: var(--space-6);
-    color: var(--color-text-primary);
-  }
-
-  .card-header-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-bottom: var(--space-6);
-  }
-
-  .target-list {
-    list-style: none;
-  }
-
-  .target-list li {
-    padding: var(--space-2) 0;
-    color: var(--color-text-secondary);
-    font-size: var(--font-size-base);
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-3);
-    border-bottom: 1px solid var(--color-border-light);
-  }
-
-  .target-list li:last-child {
-    border-bottom: none;
-  }
-
-  .target-list li::before {
-    content: '✓';
-    color: var(--color-primary);
-    font-weight: 800;
-  }
-
-  .faq-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
-  }
-
-  @media (min-width: 768px) {
-    .faq-list {
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-x-8);
-    }
-
-    .faq-list li {
-      border-bottom: none;
-      background: var(--color-background);
-      padding: var(--space-4);
-      border-radius: var(--border-radius-lg);
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 </style>
