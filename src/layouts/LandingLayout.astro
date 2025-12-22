@@ -124,26 +124,11 @@ const {
     >
     <!-- End Meta Pixel Code -->
 
-    <!-- Estructura JSON-LD para SEO -->
-    <script
-      is:inline
-      type="application/ld+json"
-      set:html={JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Product',
-        name: title,
-        description: description,
-        brand: {
-          '@type': 'Brand',
-          name: 'Todoconta',
-        },
-        offers: {
-          '@type': 'Offer',
-          priceCurrency: 'MXN',
-          availability: 'https://schema.org/InStock',
-        },
-      })}
-    />
+    <!--
+      TODO: Product schema removido temporalmente (causaba error en home page)
+      Será movido a un componente ProductSEO.astro dedicado en Fase 2
+      que se inyectará solo en páginas de productos usando slot="head"
+    -->
   </head>
   <body
     class:list={[
