@@ -1,0 +1,90 @@
+---
+/**
+ * ProductListSEO Component
+ *
+ * ItemList schema for product listing pages
+ * Helps Google understand the collection of products and their organization
+ *
+ * @component
+ */
+
+import { getCollection } from 'astro:content';
+
+const products = await getCollection('products');
+
+// Construir ItemList Schema
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: products.map((product, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'Product',
+      name: product.data.title,
+      description: product.data.description,
+      url: `https://todoconta.com/producto/${product.slug}`,
+      ...(product.data.heroImage && { image: product.data.heroImage }),
+      ...(product.data.category && {
+        category: product.data.category === 'excel'
+          ? 'Plantillas Excel'
+          : product.data.category === 'software'
+          ? 'Software Contable'
+          : 'Servicios Digitales',
+      }),
+      // Agregar oferta si tiene precio único
+      ...(product.data.price && {
+        offers: {
+          '@type': 'Offer',
+          priceCurrency: 'MXN',
+          price: product.data.price,
+        },
+      }),
+      // Agregar AggregateOffer si tiene múltiples planes
+      ...(product.data.plans && product.data.plans.length > 0 && {
+        offers: {
+          '@type': 'AggregateOffer',
+          priceCurrency: 'MXN',
+          lowPrice: Math.min(...product.data.plans.map(p => p.price)),
+          highPrice: Math.max(...product.data.plans.map(p => p.price)),
+          offerCount: product.data.plans.length,
+        },
+      }),
+    },
+  })),
+};
+
+// BreadcrumbList Schema
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Inicio',
+      item: 'https://todoconta.com',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Productos',
+      item: 'https://todoconta.com/productos',
+    },
+  ],
+};
+---
+
+<!-- ItemList Schema -->
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(itemListSchema)}
+/>
+
+<!-- BreadcrumbList Schema -->
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(breadcrumbSchema)}
+/>

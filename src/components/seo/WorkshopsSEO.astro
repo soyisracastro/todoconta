@@ -1,0 +1,125 @@
+---
+/**
+ * WorkshopsSEO Component
+ *
+ * SEO schemas for workshops/training page:
+ * - EducationalOrganization schema
+ * - ItemList schema for workshop categories
+ * - Course schema for individual workshops
+ *
+ * @component
+ */
+
+export interface WorkshopCategory {
+  titulo: string;
+  descripcion: string;
+  talleres: string[];
+}
+
+export interface Props {
+  categories: WorkshopCategory[];
+}
+
+const { categories } = Astro.props;
+
+// EducationalOrganization Schema
+const educationalOrgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'EducationalOrganization',
+  name: 'TodoConta - Capacitación Fiscal y Contable',
+  description:
+    'Institución especializada en capacitación y actualización profesional en temas fiscales y contables para contadores y empresas en México.',
+  url: 'https://todoconta.com/talleres',
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'MX',
+    addressRegion: 'Guerrero',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+52-1-554-475-3602',
+    contactType: 'customer service',
+    email: 'talleres@todoconta.com',
+    areaServed: 'MX',
+    availableLanguage: 'Spanish',
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Catálogo de Talleres y Capacitaciones',
+    itemListElement: categories.map(category => ({
+      '@type': 'OfferCatalog',
+      name: category.titulo,
+      itemListElement: category.talleres.map(taller => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Course',
+          name: taller,
+          provider: {
+            '@type': 'EducationalOrganization',
+            name: 'TodoConta',
+          },
+          educationalLevel: 'Professional Development',
+          inLanguage: 'es-MX',
+        },
+      })),
+    })),
+  },
+};
+
+// ItemList Schema para categorías de talleres
+const categoryListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Categorías de Talleres Fiscales y Contables',
+  itemListElement: categories.map((category, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'Thing',
+      name: category.titulo,
+      description: category.descripcion,
+    },
+  })),
+};
+
+// BreadcrumbList Schema
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Inicio',
+      item: 'https://todoconta.com',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Talleres',
+      item: 'https://todoconta.com/talleres',
+    },
+  ],
+};
+---
+
+<!-- EducationalOrganization Schema -->
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(educationalOrgSchema)}
+/>
+
+<!-- Category ItemList Schema -->
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(categoryListSchema)}
+/>
+
+<!-- BreadcrumbList Schema -->
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(breadcrumbSchema)}
+/>
