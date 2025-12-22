@@ -3,6 +3,7 @@ export const prerender = true;
 // src/pages/servicios/[slug].astro
 import { getCollection } from 'astro:content';
 import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import ServiceSEO from '../../components/seo/ServiceSEO.astro';
 import Navbar from '../../components/layout/Navbar.astro';
 import Footer from '../../components/layout/Footer.astro';
 import FAQ from '../../components/ui/FAQ.astro';
@@ -39,6 +40,7 @@ const {
   relatedServices = [],
   faqs = [],
   testimonials = [],
+  seoKeywords = [],
 } = service.data;
 
 // Formatear el precio
@@ -74,7 +76,20 @@ if (relatedServices && relatedServices.length > 0) {
 }
 ---
 
-<ServiceLayout title={title} description={description}>
+<ServiceLayout title={title} description={description} keywords={seoKeywords}>
+  <!-- Service SEO Schemas -->
+  <ServiceSEO
+    slot="head"
+    name={title}
+    description={description}
+    price={price}
+    priceNote={priceNote}
+    deliveryTime={deliveryTime}
+    faqs={faqs}
+    testimonials={testimonials}
+    image={heroImage}
+  />
+
   <Navbar />
   <!-- Hero Section -->
   <section class="hero">
