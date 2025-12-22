@@ -18,6 +18,7 @@ import PricingPlans from '../../components/pages/landing/PricingPlans.astro';
 import Demo from '../../components/pages/landing/Demo.astro';
 import FAQ from '../../components/ui/FAQ.astro';
 import PaymentSection from '../../components/products/PaymentSection.astro';
+import ProductSEO from '../../components/seo/ProductSEO.astro';
 
 // Genera rutas para cada producto
 export async function getStaticPaths() {
@@ -152,6 +153,19 @@ const paymentProps = hasValidPricing
       productId: product.slug,
     }
   : undefined;
+
+// SEO data para ProductSEO
+const productSeoProps = {
+  name: title,
+  description: description,
+  url: new URL(`/producto/${product.slug}`, Astro.site || Astro.url).href,
+  ...(price && { price, pricePeriod }),
+  ...(plans && plans.length > 0 && { plans }),
+  category,
+  sku: product.slug.toUpperCase(),
+  ...(heroImage && { image: heroImage }),
+  ...(faqs && faqs.length > 0 && { faqs }),
+};
 ---
 
 <LandingLayout
@@ -161,6 +175,8 @@ const paymentProps = hasValidPricing
   category={category}
   {...heroImage && { ogImage: heroImage }}
 >
+  <ProductSEO slot="head" {...productSeoProps} />
+
   <!-- Hero Section -->
   {
     product.slug === 'plantilla-carga-batch-diot' ? (

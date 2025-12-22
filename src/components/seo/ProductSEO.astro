@@ -1,0 +1,257 @@
+---
+/**
+ * ProductSEO Component
+ *
+ * Complete SEO component for product pages with multiple schema types:
+ * - Product schema (with single price or multiple offers)
+ * - FAQPage schema (if FAQs exist)
+ * - BreadcrumbList schema
+ *
+ * @component
+ */
+
+export interface FAQ {
+  question: string;
+  answer: string;
+}
+
+export interface PricePlan {
+  title: string;
+  price: number;
+  pricePeriod?: string;
+  badge?: string;
+  description: string;
+  features: string[];
+}
+
+export interface Props {
+  /** Product name */
+  name: string;
+
+  /** Product description */
+  description: string;
+
+  /** Product URL */
+  url?: string;
+
+  /** Single product price (use this OR plans) */
+  price?: number;
+
+  /** Price period for single price (e.g., "mes", "año", "única") */
+  pricePeriod?: string;
+
+  /** Multiple price plans (use this OR price) */
+  plans?: PricePlan[];
+
+  /** Product category */
+  category?: 'excel' | 'software' | 'service';
+
+  /** Product SKU/ID */
+  sku?: string;
+
+  /** Product image URL */
+  image?: string;
+
+  /** FAQs array */
+  faqs?: FAQ[];
+
+  /** Brand name (defaults to TodoConta) */
+  brand?: string;
+
+  /** Availability status */
+  inStock?: boolean;
+}
+
+const {
+  name,
+  description,
+  url,
+  price,
+  pricePeriod = 'única',
+  plans = [],
+  category = 'software',
+  sku,
+  image,
+  faqs = [],
+  brand = 'TodoConta',
+  inStock = true,
+} = Astro.props;
+
+// Construir la URL completa del producto
+const productUrl =
+  url || new URL(Astro.url.pathname, Astro.site || Astro.url).href;
+
+// Construir URL de imagen completa
+const productImage = image
+  ? image.startsWith('http')
+    ? image
+    : new URL(image, Astro.site || Astro.url).href
+  : undefined;
+
+// Availability status
+const availability = inStock
+  ? 'https://schema.org/InStock'
+  : 'https://schema.org/OutOfStock';
+
+// --- Product Schema ---
+const productSchema: any = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: name,
+  description: description,
+  brand: {
+    '@type': 'Brand',
+    name: brand,
+  },
+  url: productUrl,
+};
+
+// Agregar imagen si existe
+if (productImage) {
+  productSchema.image = productImage;
+}
+
+// Agregar SKU si existe
+if (sku) {
+  productSchema.sku = sku;
+}
+
+// Agregar categoría
+if (category) {
+  productSchema.category = category === 'excel'
+    ? 'Plantillas Excel'
+    : category === 'software'
+    ? 'Software Contable'
+    : 'Servicios Digitales';
+}
+
+// Agregar ofertas (precio único o múltiples planes)
+if (price) {
+  // Producto con precio único
+  productSchema.offers = {
+    '@type': 'Offer',
+    url: productUrl,
+    priceCurrency: 'MXN',
+    price: price,
+    priceValidUntil: '2025-12-31',
+    availability: availability,
+    seller: {
+      '@type': 'Organization',
+      name: brand,
+    },
+  };
+
+  // Agregar validUntil para precio por período
+  if (pricePeriod && pricePeriod !== 'única') {
+    productSchema.offers.priceSpecification = {
+      '@type': 'UnitPriceSpecification',
+      price: price,
+      priceCurrency: 'MXN',
+      unitText: pricePeriod,
+    };
+  }
+} else if (plans && plans.length > 0) {
+  // Producto con múltiples planes - usar AggregateOffer
+  const minPrice = Math.min(...plans.map(p => p.price));
+  const maxPrice = Math.max(...plans.map(p => p.price));
+
+  productSchema.offers = {
+    '@type': 'AggregateOffer',
+    url: productUrl,
+    priceCurrency: 'MXN',
+    lowPrice: minPrice,
+    highPrice: maxPrice,
+    offerCount: plans.length,
+    availability: availability,
+    seller: {
+      '@type': 'Organization',
+      name: brand,
+    },
+    // Incluir ofertas individuales
+    offers: plans.map(plan => ({
+      '@type': 'Offer',
+      name: `${name} - ${plan.title}`,
+      price: plan.price,
+      priceCurrency: 'MXN',
+      availability: availability,
+      description: plan.description,
+      ...(plan.pricePeriod && {
+        priceSpecification: {
+          '@type': 'UnitPriceSpecification',
+          price: plan.price,
+          priceCurrency: 'MXN',
+          unitText: plan.pricePeriod,
+        },
+      }),
+    })),
+  };
+}
+
+// --- BreadcrumbList Schema ---
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Inicio',
+      item: 'https://todoconta.com',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Productos',
+      item: 'https://todoconta.com/productos',
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: name,
+      item: productUrl,
+    },
+  ],
+};
+
+// --- FAQPage Schema (solo si hay FAQs) ---
+let faqSchema = null;
+if (faqs && faqs.length > 0) {
+  faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+}
+---
+
+<!-- Product Schema -->
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(productSchema)}
+/>
+
+<!-- BreadcrumbList Schema -->
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(breadcrumbSchema)}
+/>
+
+<!-- FAQPage Schema (only if FAQs exist) -->
+{
+  faqSchema && (
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(faqSchema)}
+    />
+  )
+}
