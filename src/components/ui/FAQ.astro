@@ -1,13 +1,13 @@
 ---
 export interface Props {
-  title?: string;
-  subtitle?: string;
+  title?: string | undefined;
+  subtitle?: string | undefined;
   faqs: Array<{
     question: string;
     answer: string;
   }>;
-  variant?: 'default' | 'compact' | 'card';
-  autoOpenFirst?: boolean;
+  variant?: 'default' | 'compact' | 'card' | undefined;
+  autoOpenFirst?: boolean | undefined;
 }
 
 const {

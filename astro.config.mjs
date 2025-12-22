@@ -1,12 +1,14 @@
 // @ts-check
 import { defineConfig, envField } from 'astro/config';
 import netlify from '@astrojs/netlify';
+import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
   // Output configuration for server-side rendering (required for API routes)
   output: 'server',
   adapter: netlify(),
+  integrations: [tailwind()],
 
   // Site URL for SEO and sitemap generation
   site: 'https://todoconta.com',
