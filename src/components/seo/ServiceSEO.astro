@@ -1,0 +1,241 @@
+---
+/**
+ * ServiceSEO Component
+ *
+ * Complete SEO component for service pages with multiple schema types:
+ * - Service/ProfessionalService schema
+ * - FAQPage schema (if FAQs exist)
+ * - BreadcrumbList schema
+ * - AggregateRating schema (if testimonials exist)
+ *
+ * @component
+ */
+
+export interface FAQ {
+  question: string;
+  answer: string;
+}
+
+export interface Testimonial {
+  quote: string;
+  author: string;
+  position?: string;
+  company?: string;
+  rating?: number;
+}
+
+export interface Props {
+  /** Service name */
+  name: string;
+
+  /** Service description */
+  description: string;
+
+  /** Service URL */
+  url?: string;
+
+  /** Service price */
+  price?: number;
+
+  /** Price note (ej: "desde", "por hora") */
+  priceNote?: string;
+
+  /** Delivery/completion time */
+  deliveryTime?: string;
+
+  /** Service category */
+  category?: string;
+
+  /** FAQs array */
+  faqs?: FAQ[];
+
+  /** Testimonials array for rating aggregation */
+  testimonials?: Testimonial[];
+
+  /** Provider name (defaults to TodoConta) */
+  provider?: string;
+
+  /** Service image */
+  image?: string;
+}
+
+const {
+  name,
+  description,
+  url,
+  price,
+  priceNote = '',
+  deliveryTime,
+  category,
+  faqs = [],
+  testimonials = [],
+  provider = 'TodoConta',
+  image,
+} = Astro.props;
+
+// Construir la URL completa del servicio
+const serviceUrl =
+  url || new URL(Astro.url.pathname, Astro.site || Astro.url).href;
+
+// Construir el slug para breadcrumbs
+const pathParts = Astro.url.pathname.split('/').filter(Boolean);
+const serviceSlug = pathParts[pathParts.length - 1] || '';
+
+// --- Service Schema ---
+const serviceSchema: any = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: name,
+  description: description,
+  provider: {
+    '@type': 'Organization',
+    name: provider,
+    url: 'https://todoconta.com',
+  },
+  url: serviceUrl,
+  serviceType: category || 'Servicios Fiscales y Contables',
+  areaServed: {
+    '@type': 'Country',
+    name: 'México',
+  },
+};
+
+// Agregar imagen si existe
+if (image) {
+  serviceSchema.image = image.startsWith('http')
+    ? image
+    : new URL(image, Astro.site || Astro.url).href;
+}
+
+// Agregar oferta si hay precio
+if (price) {
+  serviceSchema.offers = {
+    '@type': 'Offer',
+    price: price.toString(),
+    priceCurrency: 'MXN',
+    availability: 'https://schema.org/InStock',
+  };
+
+  // Agregar nota de precio si existe
+  if (priceNote) {
+    serviceSchema.offers.priceSpecification = {
+      '@type': 'PriceSpecification',
+      price: price.toString(),
+      priceCurrency: 'MXN',
+    };
+  }
+}
+
+// Agregar tiempo de entrega si existe
+if (deliveryTime) {
+  serviceSchema.serviceOutput = {
+    '@type': 'Thing',
+    description: `Entrega en ${deliveryTime}`,
+  };
+}
+
+// Agregar AggregateRating si hay testimonials
+if (testimonials && testimonials.length > 0) {
+  // Calcular rating promedio
+  const ratingsWithValues = testimonials
+    .map(t => t.rating || 5)
+    .filter(r => r > 0);
+  const averageRating =
+    ratingsWithValues.reduce((sum, r) => sum + r, 0) / ratingsWithValues.length;
+
+  serviceSchema.aggregateRating = {
+    '@type': 'AggregateRating',
+    ratingValue: parseFloat(averageRating.toFixed(1)),
+    reviewCount: testimonials.length,
+    bestRating: 5,
+    worstRating: 1,
+  };
+
+  // Agregar reviews individuales
+  if (testimonials.length > 0) {
+    serviceSchema.review = testimonials.map(testimonial => ({
+      '@type': 'Review',
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: testimonial.rating || 5,
+        bestRating: 5,
+        worstRating: 1,
+      },
+      author: {
+        '@type': 'Person',
+        name: testimonial.author,
+        ...(testimonial.position && { jobTitle: testimonial.position }),
+      },
+      reviewBody: testimonial.quote,
+    }));
+  }
+}
+
+// --- BreadcrumbList Schema ---
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Inicio',
+      item: 'https://todoconta.com',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Servicios',
+      item: 'https://todoconta.com/servicios',
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: name,
+      item: serviceUrl,
+    },
+  ],
+};
+
+// --- FAQPage Schema (solo si hay FAQs) ---
+let faqSchema = null;
+if (faqs && faqs.length > 0) {
+  faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+}
+---
+
+<!-- Service Schema -->
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(serviceSchema)}
+/>
+
+<!-- BreadcrumbList Schema -->
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(breadcrumbSchema)}
+/>
+
+<!-- FAQPage Schema (only if FAQs exist) -->
+{
+  faqSchema && (
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(faqSchema)}
+    />
+  )
+}

@@ -8,6 +8,7 @@ import ValueProps from '../../components/sections/ValueProps.astro';
 import Stats from '../../components/sections/Stats.astro';
 import CTA from '@/components/ui/CTA.astro';
 import Footer from '../../components/layout/Footer.astro';
+import ServiceSEO from '../../components/seo/ServiceSEO.astro';
 
 const menuLinks = [
   { title: 'Planes', url: '#servicios' },
@@ -19,12 +20,81 @@ const cta = {
   title: 'Agendar consulta gratis',
   link: 'https://todoconta.com/agendar',
 };
+
+// SEO data para ServiceSEO
+const serviceData = {
+  name: 'Servicios Contables Integrales - Tranquilidad Fiscal Garantizada',
+  description: 'Servicios contables integrales desde $3,500/mes. Asesorías fiscales especializadas para tu empresa. Si no cumplimos, cubrimos las multas. 15+ años de experiencia con 98.5% de empresas sin multas fiscales.',
+  url: 'https://todoconta.com/servicios',
+  price: 3500,
+  priceNote: 'desde',
+  deliveryTime: 'Servicio mensual continuo',
+  category: 'Servicios Contables',
+  faqs: [
+    {
+      question: '¿Qué incluyen los servicios contables integrales?',
+      answer: 'Incluyen contabilidad mensual, declaraciones fiscales, nómina, asesoría fiscal permanente, representación ante el SAT, optimización de impuestos y garantía contra multas.'
+    },
+    {
+      question: '¿Cómo funciona la garantía contra multas?',
+      answer: 'Si recibes una multa del SAT por un error nuestro en el cumplimiento de tus obligaciones fiscales, nosotros cubrimos el costo de la multa. Aplican términos y condiciones.'
+    },
+    {
+      question: '¿Qué tipo de empresas atienden?',
+      answer: 'Atendemos profesionistas independientes, empresas bajo RESICO, personas morales del régimen general, y negocios de todos los tamaños que requieran servicios contables y fiscales profesionales.'
+    },
+    {
+      question: '¿Cuánto tiempo toma la implementación?',
+      answer: 'El proceso de onboarding toma entre 1-2 semanas. Una vez completado, comenzamos a gestionar todas tus obligaciones fiscales de manera continua y puntual.'
+    },
+    {
+      question: '¿Puedo cambiar de plan después?',
+      answer: 'Sí, puedes ajustar tu plan conforme crecen las necesidades de tu empresa. Evaluamos tu situación regularmente para asegurar que tengas el servicio adecuado.'
+    }
+  ],
+  testimonials: [
+    {
+      quote: 'Llevo 3 años con TodoConta y la tranquilidad fiscal que me dan no tiene precio. Nunca he tenido problemas con el SAT.',
+      author: 'Roberto Martínez',
+      position: 'Director',
+      company: 'Tech Solutions MX',
+      rating: 5
+    },
+    {
+      quote: 'El servicio es excelente. Israel y su equipo son muy profesionales y siempre están disponibles para resolver cualquier duda.',
+      author: 'Laura Sánchez',
+      position: 'CEO',
+      company: 'Innovare Consulting',
+      rating: 5
+    },
+    {
+      quote: 'Antes tenía problemas constantes con mis declaraciones. Desde que contraté a TodoConta, todo fluye perfecto. Muy recomendados.',
+      author: 'Miguel Ángel Torres',
+      position: 'Propietario',
+      company: 'Comercializadora del Pacífico',
+      rating: 5
+    }
+  ]
+};
 ---
 
 <Layout
   title="Todoconta - Servicios Contables y Asesorías Fiscales Especializadas"
   description="Servicios contables integrales desde $3,500/mes. Asesorías fiscales online desde $1,200/hora. Tranquilidad fiscal garantizada para tu empresa."
 >
+  <ServiceSEO
+    slot="head"
+    name={serviceData.name}
+    description={serviceData.description}
+    url={serviceData.url}
+    price={serviceData.price}
+    priceNote={serviceData.priceNote}
+    deliveryTime={serviceData.deliveryTime}
+    category={serviceData.category}
+    faqs={serviceData.faqs}
+    testimonials={serviceData.testimonials}
+  />
+
   <Navbar links={menuLinks} cta={cta} />
   <HeroService cta={cta} showStats={true} />
   <Services />
