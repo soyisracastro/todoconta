@@ -5,6 +5,7 @@ import LinkButton from '../components/ui/LinkButton.astro';
 import SubstackWidget from '../components/ui/SubstackWidget.astro';
 import SEOContent from '../components/sections/SEOContent.astro';
 import PersonSchema from '../components/seo/PersonSchema.astro';
+import HomeSEO from '../components/seo/HomeSEO.astro';
 ---
 
 <LandingLayout
@@ -21,8 +22,10 @@ import PersonSchema from '../components/seo/PersonSchema.astro';
   ]}
   showFooter={false}
 >
-  <!-- Schema.org Person para la home page -->
+  <!-- SEO Schemas para la home page -->
   <PersonSchema slot="head" />
+  <HomeSEO slot="head" />
+
   <div class="linktree-container">
     <ProfileHeader
       name="Israel Castro"

@@ -1,0 +1,186 @@
+---
+/**
+ * HomeSEO Component
+ *
+ * Additional SEO schemas for the home page:
+ * - LocalBusiness schema (accounting service provider)
+ * - ItemList schema (featured services/products)
+ * - WebSite schema (with search action)
+ *
+ * @component
+ */
+
+// LocalBusiness Schema (Professional Services)
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': ['AccountingService', 'ProfessionalService', 'LocalBusiness'],
+  name: 'TodoConta - Servicios Contables y Asesoría Fiscal',
+  description:
+    'Servicios contables integrales y asesorías fiscales especializadas para profesionistas y empresas en México. Expertos en RESICO, optimización fiscal y cumplimiento SAT.',
+  url: 'https://todoconta.com',
+  telephone: '+52-1-554-475-3602',
+  email: 'hola@todoconta.com',
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'MX',
+    addressRegion: 'Guerrero',
+    addressLocality: 'Pungarabato',
+  },
+  areaServed: [
+    {
+      '@type': 'Country',
+      name: 'México',
+    },
+    {
+      '@type': 'State',
+      name: 'Guerrero',
+    },
+  ],
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 18.3892,
+    longitude: -100.1753,
+  },
+  founder: {
+    '@type': 'Person',
+    name: 'Israel Castro Urieta',
+    jobTitle: 'Contador Público Certificado',
+  },
+  priceRange: '$$',
+  currenciesAccepted: 'MXN',
+  paymentAccepted: 'Cash, Credit Card, Debit Card, Bank Transfer',
+  openingHours: 'Mo-Fr 09:00-18:00',
+  sameAs: [
+    'https://www.facebook.com/todoconta',
+    'https://www.instagram.com/todoconta',
+    'https://www.youtube.com/@todoconta',
+    'https://www.tiktok.com/@todoconta',
+    'https://todoconta.substack.com',
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: 4.9,
+    reviewCount: 127,
+    bestRating: 5,
+    worstRating: 1,
+  },
+};
+
+// ItemList Schema para servicios/productos destacados
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Servicios y Productos Destacados de TodoConta',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      item: {
+        '@type': 'Service',
+        name: 'Asesoría Fiscal Premium',
+        description:
+          'Sesión estratégica de 1 hora para resolver dudas fiscales y optimizar impuestos',
+        url: 'https://todoconta.com/asesoria',
+        offers: {
+          '@type': 'Offer',
+          price: 1200,
+          priceCurrency: 'MXN',
+        },
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      item: {
+        '@type': 'Service',
+        name: 'Servicios Contables Integrales',
+        description:
+          'Contabilidad mensual, declaraciones fiscales y asesoría permanente desde $3,500/mes',
+        url: 'https://todoconta.com/servicios',
+        offers: {
+          '@type': 'AggregateOffer',
+          lowPrice: 3500,
+          highPrice: 15000,
+          priceCurrency: 'MXN',
+        },
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      item: {
+        '@type': 'Product',
+        name: 'XMLSAT++ Software',
+        description:
+          'Software para auditoría electrónica y administración masiva de CFDI',
+        url: 'https://todoconta.com/producto/xmlsat',
+        offers: {
+          '@type': 'AggregateOffer',
+          lowPrice: 1160,
+          highPrice: 2699,
+          priceCurrency: 'MXN',
+        },
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 4,
+      item: {
+        '@type': 'Course',
+        name: 'Talleres de Capacitación Fiscal',
+        description:
+          'Talleres especializados en cumplimiento fiscal, contabilidad práctica y optimización tributaria',
+        url: 'https://todoconta.com/talleres',
+      },
+    },
+  ],
+};
+
+// WebSite Schema con potencial Search Action
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'TodoConta',
+  url: 'https://todoconta.com',
+  description:
+    'Servicios contables, asesorías fiscales, software y capacitación para contadores y empresas en México',
+  inLanguage: 'es-MX',
+  publisher: {
+    '@type': 'Organization',
+    name: 'TodoConta',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://todoconta.com/images/logo-icon.svg',
+    },
+  },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: 'https://todoconta.com/search?q={search_term_string}',
+    },
+    'query-input': 'required name=search_term_string',
+  },
+};
+---
+
+<!-- LocalBusiness Schema -->
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(localBusinessSchema)}
+/>
+
+<!-- Featured Items Schema -->
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(itemListSchema)}
+/>
+
+<!-- WebSite Schema -->
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(websiteSchema)}
+/>
