@@ -1,0 +1,171 @@
+---
+interface Props {
+  className?: string;
+}
+
+const { className = '' } = Astro.props;
+---
+
+<section
+  id="hero"
+  class={`flex flex-col overflow-x-hidden relative pt-40 pb-16 px-4 ${className}`}
+>
+  <!-- Background Glow Effect (Dual tone for premium feel) -->
+  <div
+    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/25 rounded-full blur-[120px] opacity-70 pointer-events-none -z-10 animate-pulse"
+  >
+  </div>
+  <div
+    class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-secondary/20 rounded-full blur-[80px] pointer-events-none -z-10"
+  >
+  </div>
+
+  <div
+    class="max-w-4xl w-full mx-auto flex flex-col items-center text-center z-10"
+  >
+    <!-- Badge de Alerta -->
+    <div
+      class="mb-8 animate-on-scroll"
+      data-animation="fade-in-up"
+      data-delay="0"
+    >
+      <div
+        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50 border border-red-200 shadow-sm"
+      >
+        <span
+          class="text-xs sm:text-sm font-bold text-red-600 tracking-wide text-center"
+        >
+          📺 Masterclass Grabada - Acceso Inmediato
+        </span>
+      </div>
+    </div>
+
+    <!-- Título Principal -->
+    <div class="max-w-3xl mb-10 space-y-4">
+      <h1
+        class="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight text-text-main animate-on-scroll"
+        data-animation="fade-in-up"
+        data-delay="100"
+      >
+        ¿Gastas 2 Horas en lo que la <span class="text-gradient-ia">IA</span> Resuelve
+        <span class="text-gradient-ia">en 12 Minutos?</span>
+      </h1>
+      <p
+        class="text-lg md:text-xl text-text-muted font-base max-w-2xl mx-auto leading-relaxed animate-on-scroll"
+        data-animation="fade-in-up"
+        data-delay="200"
+      >
+        Aprende el framework IA-First para elegir la herramienta correcta según
+        la tarea. Incluye caso práctico real con todos los prompts: Análisis de
+        viáticos al extranjero (Perplexity → Claude → Gemini → ChatGPT).
+      </p>
+    </div>
+
+    <!-- Form CTA -->
+    <div
+      class="w-full max-w-md bg-white rounded-2xl shadow-card-ia border border-slate-100 p-6 sm:p-8 relative group animate-on-scroll"
+      data-animation="scale-in"
+      data-delay="300"
+    >
+      <div
+        class="absolute -inset-[1px] bg-gradient-to-r from-primary/30 to-secondary/30 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm -z-10"
+      >
+      </div>
+
+      <form
+        class="flex flex-col gap-4"
+        id="hero-form"
+        data-track-event="hero_form_submit"
+      >
+        <div class="w-full relative">
+          <label class="sr-only" for="email">Tu correo electrónico</label>
+          <input
+            class="w-full px-5 py-4 rounded-xl border border-slate-200 bg-slate-50 text-text-main placeholder-text-muted focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all h-[56px] text-base shadow-inner"
+            id="email"
+            name="email"
+            placeholder="Tu correo electrónico profesional"
+            required
+            type="email"
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="w-full relative overflow-hidden group/btn rounded-xl bg-gradient-to-r from-primary to-secondary p-0.5 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 active:scale-[0.98]"
+        >
+          <div
+            class="relative flex items-center justify-center gap-2 bg-transparent h-[52px] rounded-xl px-6 transition-colors"
+          >
+            <span class="text-white font-bold text-lg"
+              >Ver Clase Grabada Ahora 📺</span
+            >
+          </div>
+          <div
+            class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-20 group-hover/btn:animate-shine"
+          >
+          </div>
+        </button>
+
+        <div class="flex items-center justify-center gap-1.5 mt-2">
+          <span class="material-symbols-outlined text-sm text-green-600/70"
+            >lock</span
+          >
+          <p class="text-xs text-text-muted m-0">
+            Te enviaremos el enlace de acceso a tu correo. Sin spam.
+          </p>
+        </div>
+        <!-- Social Proof -->
+        <div class="flex items-center justify-center gap-3 pt-2">
+          <div class="flex -space-x-3 overflow-hidden">
+            <img
+              alt="Participante webinar 1"
+              class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover"
+              data-alt="Portrait of a woman smiling"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCL3bxbXHlsD53hOjgTtv1gpNRCTnZTtOGe7ZvtB-a9WmYzl2qvdgh0fItXHJrj-nryGgaNOGORHR-Bx33-08PMbExSGgegpItzxAUBOHyslYwW1wyDSaP8qPxSbkICFcjtPHVHZpLqKlxgKGGFO4B07YngJucYkHM73COI4wpxhZFjnFqSIP4LNuy1u3Dt52lVOj-RvBf2-eK_46-42Iim3pwCCEJQ1qGUctL_B8fzxEnNhNaiBUEgiZp7xBUBdLz176wAUY1s9Q"
+            />
+            <img
+              alt="Participante webinar 2"
+              class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover"
+              data-alt="Portrait of a man smiling"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmFKF5prYOhf0fUC81YyRDqyBUgL6xRve64Be0ekkgOFrn8euBgPrXqntCDuW_YokNdn2Ju0-foXHdQcQGaDgSt0cDVvQVt1YvU_lO2gUpbOnhh5XqSfNdJ1vbX3Y_zbAiVq2Dflh2y7AvtZlFa7GmiwF8QmK6fEgj3J3IqcpD78e6TW7hm4Iaxjf5NB1fFhD6BOH21du_B_XfMwpebDOkbjWmDWWN9IjjGQv-plvFLp6QJT_pMmrulnOW916zmYb0zzFGwLMzjQ"
+            />
+            <img
+              alt="Participante webinar 3"
+              class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover"
+              data-alt="Portrait of a man in a shirt"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ6VH0T_Hg3m9d-qVhrqD0V34m3_mqdovfdgafqgQVOWiurUABNY8AY6M1MoZ3xLfslmlMksJup44wq7L_e1U4Uh_JLkn4b5h20g8bXvIdIauUvgSBAb0U6VkHg9wU6GewPtFNBsEgbv6Qxz7Yq-Ej_7o2kao3s_RVP9aCpR3-FK8WwDdNcjSUqsO4vjHCThADM2a-O_kGO5nm6u-OzHIELD4inf0tQuGLpo67zk0J_HZ7y5mZYluZ6_HF6dfqdub8-TF8784S5Q"
+            />
+            <div
+              class="flex items-center justify-center h-8 w-8 rounded-full ring-2 ring-white bg-slate-100 text-[10px] font-bold text-slate-600"
+            >
+              +120
+            </div>
+          </div>
+          <p class="text-xs text-text-muted font-medium m-0">
+            contadores ya registrados
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Handle Hero Form Submit
+  const heroForm = document.getElementById('hero-form');
+  if (heroForm) {
+    heroForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const emailInput = heroForm.querySelector('#email');
+      if (emailInput instanceof HTMLInputElement && emailInput.value) {
+        // Track event (using global trackEvent function)
+        if (typeof window !== 'undefined' && 'trackEvent' in window) {
+          (window as any).trackEvent('hero_form_submit', {
+            email: emailInput.value,
+            form_location: 'hero',
+          });
+        }
+      }
+    });
+  }
+</script>

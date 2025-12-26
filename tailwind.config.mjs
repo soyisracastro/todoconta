@@ -5,18 +5,21 @@ export default {
     theme: {
         extend: {
             colors: {
-                "primary": "#135bec",
-                "primary-dark": "#0f4bc4",
-                "primary-hover": "#0f4bc4",
+                "primary": "var(--color-primary)",
+                "primary-dark": "var(--color-primary-dark)",
+                "primary-hover": "var(--color-primary-hover)",
+                "secondary": "var(--color-secondary)",
+                "text-main": "var(--color-text-primary)",
+                "text-muted": "var(--color-text-secondary)",
                 "excel-green": "#1D6F42",
                 "navy-blue": "#0F172A",
-                "background-light": "#F3F4F6",
-                "background-dark": "#102218",
-                "surface-light": "#ffffff",
-                "surface-dark": "#1a2c23",
+                "background-light": "var(--color-background)",
+                "background-dark": "var(--color-hero-background)",
+                "surface-light": "var(--color-surface)",
+                "surface-dark": "var(--color-hero-background-alt)",
             },
             fontFamily: {
-                "display": ["Inter", "sans-serif"],
+                "display": ["Manrope", "Inter", "sans-serif"],
                 "body": ["Inter", "sans-serif"],
             },
             keyframes: {

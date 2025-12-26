@@ -135,3 +135,65 @@
   --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-bounce: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
+
+/* IA Theme - Specific to ia-contadores pages */
+.theme-ia {
+  /* Colors for IA section */
+  --color-ia-primary: #2463eb;
+  --color-ia-secondary: #4f46e5;
+  --color-ia-bg-light: #f6f6f8;
+  --color-ia-bg-dark: #111621;
+  --color-ia-text-main: #111318;
+  --color-ia-text-muted: #616e89;
+
+  /* Override primary colors */
+  --color-primary: var(--color-ia-primary);
+  --color-secondary: var(--color-ia-secondary);
+  --color-background: var(--color-ia-bg-light);
+  --color-text-primary: var(--color-ia-text-main);
+  --color-text-secondary: var(--color-ia-text-muted);
+
+  /* Force Manrope for this theme */
+  --font-heading: 'Manrope', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+}
+
+/* Tech Background Pattern for IA pages */
+.tech-bg {
+  background-color: var(--color-ia-bg-light);
+  background-image:
+    radial-gradient(at 0% 0%, rgba(36, 99, 235, 0.03) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(79, 70, 229, 0.03) 0px, transparent 50%),
+    linear-gradient(rgba(229, 231, 235, 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(229, 231, 235, 0.5) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+  background-position: 0 0, 0 0, -1px -1px, -1px -1px;
+}
+
+/* IA Gradient Text */
+.text-gradient-ia {
+  background: linear-gradient(to right, #2463eb, #4f46e5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* IA Glow Effects */
+.glow-ia {
+  box-shadow: 0 0 20px -5px rgba(79, 70, 229, 0.3);
+}
+
+.shadow-card-ia {
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+}
+
+/* Shine Animation for IA Buttons */
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+
+.animate-shine {
+  animation: shine 1s;
+}
