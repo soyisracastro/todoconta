@@ -8,6 +8,7 @@ import IAWhyFree from '@/components/pages/ia-contadores/IAWhyFree.astro';
 import IAInstructor from '@/components/pages/ia-contadores/IAInstructor.astro';
 import IAFaq from '@/components/pages/ia-contadores/IAFaq.astro';
 import IAFinalCTA from '@/components/pages/ia-contadores/IAFinalCTA.astro';
+import MasterclassSEO from '@/components/seo/MasterclassSEO.astro';
 
 const title =
   'Masterclass GRATIS - Por Qué el 90% de los Contadores Usa IA de Forma Incorrecta';
@@ -31,6 +32,7 @@ const keywords = [
   showFooter={false}
   category="ia"
 >
+  <MasterclassSEO slot="head" />
   <IAHero />
   <IALearning />
   <IATestimonials />
