@@ -76,7 +76,12 @@ const { className = '' } = Astro.props;
         class="flex flex-col gap-4"
         id="hero-form"
         data-track-event="hero_form_submit"
+        action="https://sendy.todoconta.com/subscribe"
+        method="POST"
       >
+        <input type="hidden" name="list" value="vzn2EzpQzSnPJiEf4jR6Kg" />
+        <input type="hidden" name="boolean" value="true" />
+
         <div class="w-full relative">
           <label class="sr-only" for="email">Tu correo electrónico</label>
           <input
@@ -91,12 +96,13 @@ const { className = '' } = Astro.props;
 
         <button
           type="submit"
-          class="w-full relative overflow-hidden group/btn rounded-xl bg-gradient-to-r from-primary to-secondary p-0.5 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 active:scale-[0.98]"
+          id="hero-submit-btn"
+          class="w-full relative overflow-hidden group/btn rounded-xl bg-gradient-to-r from-primary to-secondary p-0.5 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
         >
           <div
             class="relative flex items-center justify-center gap-2 bg-transparent h-[52px] rounded-xl px-6 transition-colors"
           >
-            <span class="text-white font-bold text-lg"
+            <span class="text-white font-bold text-lg" id="hero-btn-text"
               >Ver Clase Grabada Ahora 📺</span
             >
           </div>
@@ -105,6 +111,12 @@ const { className = '' } = Astro.props;
           >
           </div>
         </button>
+
+        <div
+          id="form-message"
+          class="hidden text-xs text-center font-bold font-display px-4 py-2 rounded-lg"
+        >
+        </div>
 
         <div class="flex items-center justify-center gap-1.5 mt-2">
           <span class="material-symbols-outlined text-sm text-green-600/70"
@@ -150,20 +162,82 @@ const { className = '' } = Astro.props;
   </div>
 </section>
 
-<script>
-  // Handle Hero Form Submit
+<script is:inline define:vars={{ apiKey: import.meta.env.PUBLIC_SENDY_API_KEY }}
+>
   const heroForm = document.getElementById('hero-form');
-  if (heroForm) {
-    heroForm.addEventListener('submit', e => {
+  const submitBtn = document.getElementById('hero-submit-btn');
+  const btnText = document.getElementById('hero-btn-text');
+  const formMessage = document.getElementById('form-message');
+
+  if (heroForm && submitBtn) {
+    heroForm.addEventListener('submit', async e => {
       e.preventDefault();
+
       const emailInput = heroForm.querySelector('#email');
-      if (emailInput instanceof HTMLInputElement && emailInput.value) {
-        // Track event (using global trackEvent function)
-        if (typeof window !== 'undefined' && 'trackEvent' in window) {
-          (window as any).trackEvent('hero_form_submit', {
-            email: emailInput.value,
-            form_location: 'hero',
-          });
+      if (!(emailInput instanceof HTMLInputElement) || !emailInput.value)
+        return;
+
+      const emailValue = emailInput.value;
+
+      // Track event
+      if (typeof window !== 'undefined' && (window as any).trackEvent) {
+        (window as any).trackEvent('hero_form_submit', {
+          email: emailValue,
+          form_location: 'hero',
+        });
+      }
+
+      // UI state: Loading
+      if (submitBtn instanceof HTMLButtonElement) submitBtn.disabled = true;
+      if (btnText) btnText.textContent = 'Procesando...';
+      if (formMessage) formMessage.classList.add('hidden');
+
+      try {
+        const formData = new FormData(heroForm);
+
+        // Preparar datos para Sendy incluyendo la API Key
+        const data = {
+          api_key: apiKey,
+          ...Object.fromEntries(formData),
+        };
+
+        // Enviar a Sendy
+        await fetch(heroForm.getAttribute('action'), {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: new URLSearchParams(data),
+          mode: 'no-cors', // Cambiamos a no-cors porque Sendy no suele tener habilitado CORS
+        });
+
+        // Con no-cors no podemos leer la respuesta, pero si no hay error de red asumimos éxito
+        // y procedemos al redirect que pidió el usuario.
+
+        if (formMessage) {
+          formMessage.textContent = '¡Inscripción exitosa! Redirigiendo...';
+          formMessage.classList.remove('hidden', 'bg-red-50', 'text-red-600');
+          formMessage.classList.add('bg-green-50', 'text-green-600');
+        }
+
+        // Redirección
+        setTimeout(() => {
+          window.location.href = '/ia-contadores/grabacion';
+        }, 1000);
+      } catch (error) {
+        console.error('Sendy Error:', error);
+        if (submitBtn instanceof HTMLButtonElement) submitBtn.disabled = false;
+        if (btnText) btnText.textContent = 'Ver Clase Grabada Ahora 📺';
+
+        if (formMessage) {
+          formMessage.textContent =
+            'Hubo un error. Por favor intenta de nuevo.';
+          formMessage.classList.remove(
+            'hidden',
+            'bg-green-50',
+            'text-green-600'
+          );
+          formMessage.classList.add('bg-red-50', 'text-red-600');
         }
       }
     });
