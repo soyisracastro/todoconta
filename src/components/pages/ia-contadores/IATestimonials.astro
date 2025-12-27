@@ -1,0 +1,85 @@
+---
+interface Props {
+  className?: string;
+}
+
+const { className = '' } = Astro.props;
+
+const testimonials = [
+  {
+    name: 'Carlos M.',
+    role: 'Contador Auditor, CDMX',
+    avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB-eZvn7QTthu_Q9xL9rwaaDA8b5Du4FDPUmzLDMcR6G-JT2U_VKy999VkIzN_6sFvw-_gBRWrOn7kQwIGtFlzXP8rgKQYMPo_cTN60VJc_E92lfRfCPDypFucs4yWp2-Kbv7F4MO2D5EW7Ue_RyY0wmg_peF_1Vsa43Fl7LDPhBtSIRyQYCFwMlOSwGuqmLCa24-BTJtbHJHHQShwOkAIFtMXheqS2yfOUUoVyTJW30Jq46YTDo4nD_Z1Xn_jwZaONsywfdIPAPw',
+    quote: '"Después de aplicar lo que aprendí en el taller completo, ahora combino Claude y ChatGPT estratégicamente para dictámenes fiscales. He reducido significativamente el tiempo sin comprometer calidad."',
+    tag: 'Resultado del Taller'
+  },
+  {
+    name: 'Laura G.',
+    role: 'Asesora Fiscal, Monterrey',
+    avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCoyN6UVzGHuLhWFua9L0gBLlY9NXK3CCF3JqF68JEjQWky6Hc7xadR9zA6jMU5PHwFnxH43s4Io25RqMUUKd2GWgyzjVBO_iPFWOhK168Jq4f0OI56gD0__JjLWu9f1MFgEazzjo7X-8ksYqnL_NgpnbUB6EO_2rmPs_cvTves4-6_8cutWD9Jdndro8YtC0qrCuHS5HWt4b-RF0PW22jrM6XmABdtI2ASYcQZJlzBt2cjvUuQOYJIKaPyWNIXmXyU4glcnTToUQ',
+    quote: '"Después del taller, cambié mi forma de trabajar. Ahora uso la herramienta correcta para cada tarea y he podido aumentar mi capacidad de atención sin contratar más personal."',
+    tag: 'Resultado del Taller'
+  },
+  {
+    name: 'Ricardo R.',
+    role: 'Despacho contable, Guadalajara',
+    avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB-IQ0dO1dE3Cm3A1mu8MrJbqEhnI9k2lSVAF-Z6W-YocQG0Mz_Wa56QNa7zVFNw9XL_d4NruztfBPAvMF5FS2oGmDbUeBwiCjhkg_Zn9ZKXScfiXhLD_14gtpXJuePsvbaOyQnbHdHz8QYuSdan5_wlQVGitZNrYCPAvWzjkxKrMitHC6Oc0TBnx3NjTaQKT7jnBbNcyWeJHs8wKWbnu-eAeAuk88qFx8yDvkmBclsp2kjakTjl5dnviafSAxzZZbJtpUburpL1g',
+    quote: '"Lo más valioso fue cambiar mi mentalidad sobre IA. Después del taller completo, implementé el framework con mi equipo, y ahora usamos IA como asistente inteligente en declaraciones complementarias y análisis de discrepancias."',
+    tag: 'Resultado del Taller'
+  }
+];
+---
+
+<section class={`py-20 lg:py-24 bg-background-light px-4 font-display ${className}`}>
+  <div class="max-w-[1200px] mx-auto flex flex-col gap-12 lg:gap-16">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col items-center text-center animate-on-scroll" data-animation="fade-in-up">
+      <h2 class="text-text-main text-3xl md:text-4xl font-extrabold leading-tight tracking-tight mb-4 max-w-2xl">
+        Lo que dicen contadores como tú.
+      </h2>
+      <p class="text-text-muted text-base md:text-lg font-medium leading-relaxed max-w-2xl px-4">
+        Resultados reales de talleres anteriores.
+      </p>
+    </div>
+
+    <!-- Testimonials Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {testimonials.map((t, index) => (
+        <div 
+          class="flex flex-col h-full bg-white rounded-2xl border border-slate-100 p-6 lg:p-8 shadow-sm hover:shadow-card-ia hover:border-primary/20 transition-all duration-300 relative group animate-on-scroll"
+          data-animation="fade-in-up"
+          data-delay={index * 100}
+        >
+          <!-- Tag -->
+          <div class="absolute top-0 right-0 bg-[#EBE9FE] text-primary text-[10px] font-black px-4 py-2 rounded-bl-2xl uppercase tracking-widest">
+            {t.tag}
+          </div>
+
+          <div class="flex items-center gap-4 mb-5 mt-4">
+            <div 
+              class="rounded-full size-14 shadow-md border-2 border-white shrink-0 bg-center bg-cover bg-no-repeat"
+              style={`background-image: url("${t.avatar}")`}
+            >
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-text-main text-base font-extrabold truncate m-0 leading-tight">{t.name}</p>
+              <p class="text-text-muted text-xs font-bold truncate opacity-60 m-0 tracking-tight">{t.role}</p>
+            </div>
+          </div>
+
+          <!-- Stars -->
+          <div class="flex gap-0.5 mb-6 text-primary">
+            {[...Array(5)].map(() => (
+              <span class="material-symbols-outlined text-[22px] fill-[1] leading-none">star</span>
+            ))}
+          </div>
+
+          <p class="text-text-main text-sm md:text-base font-medium leading-relaxed flex-grow italic m-0">
+            {t.quote}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

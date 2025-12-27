@@ -1,0 +1,222 @@
+---
+/**
+ * MasterclassSEO Component
+ *
+ * SEO schemas for masterclass/educational content:
+ * - Course schema
+ * - EducationalEvent schema
+ * - FAQPage schema
+ * - BreadcrumbList schema
+ *
+ * @component
+ */
+
+// FAQs para la masterclass
+const faqs = [
+  {
+    question: '¿Necesito experiencia previa en IA?',
+    answer:
+      'No. Esta masterclass es para cualquier nivel. Ya sea que nunca hayas usado IA o que ya uses ChatGPT ocasionalmente, encontrarás valor en el contenido.',
+  },
+  {
+    question: '¿Tendré que pagar por ChatGPT Plus, Claude Pro o Gemini Pro?',
+    answer:
+      'No. Te mostraré cómo aprovechar las versiones gratuitas de ChatGPT, Claude y Gemini 3. Si ya tienes cuentas de pago, mejor aún, pero no son necesarias.',
+  },
+  {
+    question: '¿Quedará grabación?',
+    answer:
+      'Sí, los registrados recibirán el replay por 48 horas. Sin embargo, te recomiendo asistir en vivo para participar en la sesión de preguntas y respuestas.',
+  },
+  {
+    question: '¿Habrá venta al final?',
+    answer:
+      'Te compartiré información sobre un reto de 12 días, pero SIN presión. La masterclass tiene valor por sí misma y no estás obligado a comprar nada.',
+  },
+];
+
+// Course Schema
+const courseSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: 'Masterclass GRATIS - Por Qué el 90% de los Contadores Usa IA de Forma Incorrecta',
+  description:
+    'Descubre el framework que te permitirá usar ChatGPT, Claude y Gemini 3 como estratega. 45 minutos que cambiarán tu perspectiva sobre IA aplicada a contabilidad y servicios fiscales.',
+  provider: {
+    '@type': 'Organization',
+    name: 'TodoConta',
+    url: 'https://todoconta.com',
+  },
+  instructor: {
+    '@type': 'Person',
+    name: 'Israel Castro Urieta',
+    jobTitle: 'Contador Público Certificado',
+    description:
+      'Especialista en automatización contable con IA. 15+ años de experiencia en contabilidad fiscal.',
+  },
+  educationalLevel: 'Beginner to Advanced',
+  inLanguage: 'es-MX',
+  coursePrerequisites: 'Ninguno. No se requiere experiencia previa en IA.',
+  audience: {
+    '@type': 'EducationalAudience',
+    educationalRole: 'Profesional',
+    audienceType: [
+      'Contadores',
+      'Auditores',
+      'Asesores Fiscales',
+      'Estudiantes de Contaduría',
+      'Despachos Contables',
+    ],
+  },
+  about: [
+    {
+      '@type': 'Thing',
+      name: 'Inteligencia Artificial para Contabilidad',
+    },
+    {
+      '@type': 'Thing',
+      name: 'ChatGPT',
+    },
+    {
+      '@type': 'Thing',
+      name: 'Claude AI',
+    },
+    {
+      '@type': 'Thing',
+      name: 'Gemini 3',
+    },
+    {
+      '@type': 'Thing',
+      name: 'Automatización Contable',
+    },
+  ],
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'Online',
+    courseWorkload: 'PT45M',
+    instructor: {
+      '@type': 'Person',
+      name: 'Israel Castro Urieta',
+    },
+  },
+  offers: {
+    '@type': 'Offer',
+    price: 0,
+    priceCurrency: 'MXN',
+    availability: 'https://schema.org/InStock',
+    url: 'https://todoconta.com/ia-contadores',
+    category: 'Educación Profesional Continua',
+  },
+  timeRequired: 'PT45M',
+  teaches: [
+    'Framework para usar IA como estratega, no como asistente',
+    'Cómo usar ChatGPT, Claude y Gemini 3 para tareas contables complejas',
+    'Automatización de procesos contables con IA',
+    'Prompt engineering para contadores',
+    'Casos de uso prácticos en fiscalidad mexicana',
+  ],
+  isAccessibleForFree: true,
+};
+
+// EducationalEvent Schema (complementario)
+const educationalEventSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'EducationalEvent',
+  name: 'Masterclass: IA para Contadores - Framework Estratégico',
+  description:
+    'Webinar gratuito de 45 minutos sobre cómo usar IA (ChatGPT, Claude, Gemini) de forma estratégica en contabilidad y servicios fiscales.',
+  url: 'https://todoconta.com/ia-contadores',
+  eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+  eventStatus: 'https://schema.org/EventScheduled',
+  location: {
+    '@type': 'VirtualLocation',
+    url: 'https://todoconta.com/ia-contadores',
+  },
+  organizer: {
+    '@type': 'Organization',
+    name: 'TodoConta',
+    url: 'https://todoconta.com',
+  },
+  performer: {
+    '@type': 'Person',
+    name: 'Israel Castro Urieta',
+    jobTitle: 'Contador Público Certificado',
+  },
+  offers: {
+    '@type': 'Offer',
+    price: 0,
+    priceCurrency: 'MXN',
+    availability: 'https://schema.org/InStock',
+    url: 'https://todoconta.com/ia-contadores',
+    validFrom: '2024-01-01',
+  },
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Contadores, Auditores, Asesores Fiscales',
+  },
+  isAccessibleForFree: true,
+  inLanguage: 'es-MX',
+};
+
+// FAQPage Schema
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(faq => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+
+// BreadcrumbList Schema
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Inicio',
+      item: 'https://todoconta.com',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'IA para Contadores',
+      item: 'https://todoconta.com/ia-contadores',
+    },
+  ],
+};
+---
+
+<!-- Course Schema -->
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(courseSchema)}
+/>
+
+<!-- EducationalEvent Schema -->
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(educationalEventSchema)}
+/>
+
+<!-- FAQPage Schema -->
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(faqSchema)}
+/>
+
+<!-- BreadcrumbList Schema -->
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(breadcrumbSchema)}
+/>

@@ -1,0 +1,141 @@
+---
+interface Props {
+  className?: string;
+}
+
+const { className = '' } = Astro.props;
+
+const faqs = [
+  {
+    question: '¿Necesito experiencia previa en IA?',
+    answer:
+      'No. Este contenido es para contadores de cualquier nivel. Si nunca has usado IA o solo has probado ChatGPT ocasionalmente, los casos prácticos te mostrarán exactamente cómo aplicarlo desde mañana.',
+    icon: 'psychology',
+  },
+  {
+    question:
+      '¿Tengo que pagar por ChatGPT Plus, Claude Pro o Gemini Advanced?',
+    answer:
+      'No. Todos los casos prácticos funcionan con las versiones gratuitas. Si ya tienes cuentas de pago, aprovecharás mejor algunas funciones, pero no son necesarias para seguir el contenido.',
+    icon: 'payments',
+  },
+  {
+    question: '¿Qué incluye exactamente el registro?',
+    answer:
+      'Acceso inmediato a la masterclass grabada (caso práctico en 12 minutos + framework teórico) y un PDF descargable con 3 casos completos: viáticos al extranjero, revisión de 500+ CFDIs, y respuesta a requerimientos SAT. Incluye todos los prompts listos para copiar.',
+    icon: 'description',
+  },
+  {
+    question: '¿Me van a vender algo al final?',
+    answer:
+      'Sí, te mencionaré mi <a href="/ia-contadores/reto-12-dias" class="text-primary font-bold hover:underline">Reto de 12 Días</a> para quienes quieran profundizar. Pero este contenido tiene valor por sí mismo. No hay presión de compra ni tácticas de urgencia.',
+    icon: 'rocket_launch',
+  },
+];
+---
+
+<section class={`py-20 lg:py-32 px-4 sm:px-6 font-display ${className}`}>
+  <div class="w-full max-w-[800px] mx-auto flex flex-col gap-2">
+    <!-- Section Header -->
+    <div
+      class="text-center mb-12 animate-on-scroll"
+      data-animation="fade-in-up"
+    >
+      <span
+        class="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-[10px] font-black tracking-widest mb-4 uppercase"
+      >
+        Webinar Exclusivo
+      </span>
+      <h2
+        class="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight mb-3 text-text-main"
+      >
+        Preguntas Frecuentes
+      </h2>
+      <p
+        class="text-text-muted text-base font-medium leading-relaxed max-w-xl mx-auto"
+      >
+        Resuelve tus dudas antes de unirte a la revolución de la IA contable.
+      </p>
+    </div>
+
+    <!-- Accordions -->
+    <div class="flex flex-col gap-4">
+      {
+        faqs.map((faq, index) => (
+          <details
+            class="group rounded-2xl bg-white border border-slate-100 open:border-primary/30 shadow-sm transition-all duration-300 animate-on-scroll"
+            data-animation="fade-in-up"
+            data-delay={index * 100}
+          >
+            <summary class="flex cursor-pointer items-center justify-between gap-4 p-5 md:p-6 list-none select-none">
+              <div class="flex items-center gap-4">
+                <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-slate-50 text-slate-400 group-open:bg-primary group-open:text-white transition-all duration-300">
+                  <span class="material-symbols-outlined text-[22px]">
+                    {faq.icon}
+                  </span>
+                </span>
+                <p class="text-base font-bold text-text-main group-open:text-primary transition-colors pr-4 m-0">
+                  {faq.question}
+                </p>
+              </div>
+              <div class="text-slate-300 group-open:text-primary group-open:rotate-180 transition-transform duration-300 flex items-center">
+                <span class="material-symbols-outlined text-[24px]">
+                  expand_more
+                </span>
+              </div>
+            </summary>
+            <div class="px-6 pb-6 pt-0 md:pl-[5.25rem]">
+              <div
+                class="text-text-muted text-sm md:text-base leading-relaxed font-medium"
+                set:html={faq.answer}
+              />
+            </div>
+          </details>
+        ))
+      }
+    </div>
+
+    <!-- Contact Support Footer Card -->
+    <div
+      class="mt-12 animate-on-scroll"
+      data-animation="fade-in-up"
+      data-delay="400"
+    >
+      <div
+        class="bg-slate-50 border border-slate-100 rounded-[2rem] p-8 shadow-sm"
+      >
+        <div
+          class="flex flex-col md:flex-row items-center justify-center gap-6"
+        >
+          <div
+            class="flex items-center justify-center w-16 h-16 bg-white rounded-2xl text-primary shadow-sm border border-slate-100 rotate-3"
+          >
+            <span class="material-symbols-outlined text-3xl">support_agent</span
+            >
+          </div>
+          <div class="text-center md:text-left">
+            <p class="text-text-main font-extrabold text-lg m-0">
+              ¿Tienes más dudas?
+            </p>
+            <p class="text-text-muted text-sm mt-1 font-medium m-0">
+              Nuestro equipo está listo para ayudarte. Escríbenos a
+              <a
+                class="text-primary font-black hover:underline"
+                href="mailto:soporte@todoconta.com">soporte@todoconta.com</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  details > summary {
+    list-style: none;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

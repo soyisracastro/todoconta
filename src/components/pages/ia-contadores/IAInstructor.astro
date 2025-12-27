@@ -1,0 +1,173 @@
+---
+interface Props {
+  className?: string;
+}
+
+const { className = '' } = Astro.props;
+
+const INSTRUCTOR_NAME = 'Israel Castro';
+const INSTRUCTOR_IMAGE = '/images/photo.png';
+---
+
+<section
+  class={`py-20 lg:py-32 px-4 sm:px-6 lg:px-8 font-display ${className}`}
+>
+  <!-- Main Card Container -->
+  <div
+    class="mx-auto flex w-full max-w-5xl flex-col overflow-hidden rounded-[2rem] bg-white shadow-2xl shadow-slate-200/50 border border-slate-100 lg:flex-row animate-on-scroll"
+    data-animation="scale-in"
+  >
+    <!-- Left Column: Visual & Quick Actions -->
+    <div
+      class="relative flex w-full flex-col items-center justify-center bg-slate-50/50 p-8 lg:w-1/3 lg:border-r lg:border-slate-100"
+    >
+      <!-- Decorative background element -->
+      <div
+        class="absolute inset-0 bg-[radial-gradient(#3713ec_1px,transparent_1px)] [background-size:16px_16px] opacity-[0.03]"
+      >
+      </div>
+
+      <div class="relative z-10 flex flex-col items-center gap-6">
+        <!-- Profile Image with Primary Accent Ring -->
+        <div class="group relative">
+          <div
+            class="absolute -inset-2 rounded-full bg-gradient-to-r from-primary to-purple-600 opacity-20 blur transition duration-500 group-hover:opacity-40"
+          >
+          </div>
+          <div
+            class="h-48 w-48 rounded-full bg-cover bg-center bg-no-repeat shadow-2xl ring-4 ring-white relative z-10"
+            style={`background-image: url("${INSTRUCTOR_IMAGE}");`}
+          >
+          </div>
+          <!-- Verified Badge -->
+          <div
+            class="absolute bottom-2 right-2 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-primary shadow-xl ring-4 ring-slate-50"
+          >
+            <span class="material-symbols-outlined text-[24px] fill-[1]"
+              >verified</span
+            >
+          </div>
+        </div>
+
+        <!-- Social Actions -->
+        <div class="flex gap-4">
+          <a
+            class="group flex h-11 w-11 items-center justify-center rounded-xl bg-white text-slate-400 hover:bg-primary hover:text-white transition-all shadow-sm border border-slate-100"
+            href="#"
+          >
+            <span class="material-symbols-outlined text-[22px]">link</span>
+          </a>
+          <a
+            class="group flex h-11 w-11 items-center justify-center rounded-xl bg-white text-slate-400 hover:bg-primary hover:text-white transition-all shadow-sm border border-slate-100"
+            href="#"
+          >
+            <span class="material-symbols-outlined text-[22px]"
+              >alternate_email</span
+            >
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Biography & Credentials -->
+    <div class="flex flex-1 flex-col p-8 lg:p-12">
+      <!-- Header Section -->
+      <div class="mb-8">
+        <span
+          class="mb-3 inline-block rounded-full bg-primary/10 px-4 py-1 text-[10px] font-black uppercase tracking-widest text-primary border border-primary/10"
+        >
+          Sobre el Instructor
+        </span>
+        <h2
+          class="text-3xl font-extrabold tracking-tight text-text-main sm:text-4xl leading-tight"
+        >
+          {INSTRUCTOR_NAME}
+        </h2>
+        <p
+          class="mt-2 text-lg font-black text-primary sm:text-xl italic opacity-90"
+        >
+          Contador Público y Programador
+        </p>
+      </div>
+
+      <!-- Bio Body -->
+      <div
+        class="mb-10 max-w-none text-text-muted text-base md:text-lg leading-relaxed font-medium"
+      >
+        <p class="mb-4">
+          Israel es un experto pionero en la intersección de la contabilidad y
+          la tecnología. Como fundador de <strong class="text-text-main"
+            >TodoConta</strong
+          >, ha dedicado su carrera a automatizar procesos contables complejos
+          mediante el uso de Inteligencia Artificial.
+        </p>
+        <p>
+          Su doble formación le permite entender los dolores de cabeza fiscales
+          y traducirlos en soluciones de código eficientes. Su misión es clara:
+          ayudar a los contadores a perder el miedo a la tecnología y
+          convertirla en su mejor aliada.
+        </p>
+      </div>
+
+      <!-- Credentials / Description List -->
+      <div
+        class="grid gap-x-8 gap-y-6 border-t border-slate-100 pt-10 sm:grid-cols-2"
+      >
+        <div class="flex flex-col gap-2">
+          <div class="flex items-center gap-2 text-primary">
+            <span class="material-symbols-outlined text-[24px]"
+              >history_edu</span
+            >
+            <p
+              class="text-[10px] font-black uppercase tracking-widest opacity-70 leading-none"
+            >
+              Experiencia
+            </p>
+          </div>
+          <p class="text-base font-extrabold text-text-main">
+            12+ años en contabilidad mexicana (SAT, RESICO, CFDI)
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <div class="flex items-center gap-2 text-primary">
+            <span class="material-symbols-outlined text-[24px]">psychology</span
+            >
+            <p
+              class="text-[10px] font-black uppercase tracking-widest opacity-70 leading-none"
+            >
+              Especialidad
+            </p>
+          </div>
+          <p class="text-base font-extrabold text-text-main">
+            Flujos híbridos de IA para contadores
+          </p>
+        </div>
+
+        <div
+          class="col-span-full mt-4 rounded-2xl bg-slate-50 p-6 border border-slate-100/50"
+        >
+          <div class="flex items-start gap-4">
+            <div
+              class="mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-primary text-white shadow-lg shadow-primary/20 rotate-3"
+            >
+              <span class="material-symbols-outlined text-[20px]"
+                >rocket_launch</span
+              >
+            </div>
+            <div>
+              <p
+                class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1 leading-none"
+              >
+                Filosofía
+              </p>
+              <p class="text-base font-extrabold text-text-main m-0">
+                Empoderar a la próxima generación de contadores digitales.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

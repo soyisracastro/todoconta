@@ -1,0 +1,147 @@
+---
+interface Props {
+  className?: string;
+}
+
+const { className = '' } = Astro.props;
+
+const audienceItems = [
+  {
+    title: 'Contador con 0-5 Clientes',
+    description:
+      'Quieres crecer tu cartera sin contratar personal. Buscas herramientas que te ahorren horas en tareas repetitivas como análisis de viáticos, revisión de CFDIs o respuestas al SAT.',
+    icon: 'check_circle',
+  },
+  {
+    title: 'Contador Tradicional',
+    description:
+      'Sabes que la IA puede ayudarte pero no sabes por dónde empezar. Quieres ejemplos prácticos aplicables desde mañana, no teoría abstracta.',
+    icon: 'check_circle',
+  },
+  {
+    title: 'Quieres Diferenciarte',
+    description:
+      'Buscas ofrecer más valor a tus clientes actuales: pasar de "hacer declaraciones" a "asesoría estratégica blindada con análisis de riesgo"',
+    icon: 'check_circle',
+  },
+];
+---
+
+<section
+  class={`py-20 lg:py-32 px-4 md:px-8 lg:px-16 overflow-hidden ${className}`}
+>
+  <div
+    class="mx-auto grid w-full max-w-[1100px] grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20"
+  >
+    <!-- Left Column: Content -->
+    <div class="flex flex-col gap-8 order-2 lg:order-1">
+      <div
+        class="flex flex-col gap-4 text-left animate-on-scroll"
+        data-animation="fade-in-up"
+      >
+        <h2
+          class="text-3xl font-extrabold leading-tight tracking-tight text-text-main md:text-4xl lg:text-5xl font-display"
+        >
+          ✅ Esta masterclass <span class="text-primary italic">ES para ti</span
+          > si:
+        </h2>
+        <p class="text-lg font-medium text-text-muted">
+          Identifica si estás listo para dar el salto tecnológico en tu práctica
+          contable.
+        </p>
+      </div>
+
+      <!-- Checklist Items -->
+      <div class="flex flex-col gap-5">
+        {
+          audienceItems.map((item, index) => (
+            <div
+              class="flex gap-4 rounded-2xl bg-slate-50 p-5 transition-all hover:bg-slate-100/80 border border-transparent hover:border-primary/10 group animate-on-scroll"
+              data-animation="fade-in-up"
+              data-delay={index * 100}
+            >
+              <div class="flex-shrink-0 pt-1">
+                <span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform duration-300">
+                  {item.icon}
+                </span>
+              </div>
+              <div>
+                <h3 class="font-bold text-text-main text-lg leading-tight mb-1">
+                  {item.title}
+                </h3>
+                <p class="text-base text-text-muted leading-relaxed font-medium m-0">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div
+        class="pt-4 animate-on-scroll"
+        data-animation="fade-in-up"
+        data-delay="400"
+      >
+        <button
+          class="flex w-full md:w-auto items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold py-4 px-10 rounded-xl shadow-xl shadow-primary/25 transition-all hover:-translate-y-1 active:scale-95 group"
+        >
+          <span>Ver Masterclass Ahora</span>
+          <span
+            class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform"
+            >arrow_forward</span
+          >
+        </button>
+      </div>
+    </div>
+
+    <!-- Right Column: Abstract Illustration -->
+    <div
+      class="relative flex items-center justify-center order-1 lg:order-2 animate-on-scroll"
+      data-animation="scale-in"
+    >
+      <div
+        class="relative w-full overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-slate-100 to-slate-200 p-8 shadow-inner border border-white/50"
+      >
+        <!-- Background Decoration -->
+        <div
+          class="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl"
+        >
+        </div>
+        <div
+          class="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-secondary/10 blur-3xl"
+        >
+        </div>
+
+        <!-- Main Illustration Image -->
+        <div
+          class="aspect-[4/3] w-full bg-cover bg-center rounded-2xl shadow-2xl relative z-10 border border-white/20"
+          style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDEciYTWhoOsIT5VFGxYZnV5cbIiRygX3_V0u1XqA6W1DJMH2nM3605APslyn6Lf_zVjJIcZcNb8CMAKTZxypUntBDc1C1mOTYEdIMBvdfLT6YPMtHVveIabxlTOUut7s-EHdvcBWAP1ERzv7SGh84x3IN_fBO1zSZjt5E9YmVQZ58-xrtsr0oDybKGZ7YYF3875-PbdTjbBd7GdKIDzFnHIX3hjstCbUx1oWhPnpycMWfJbgSoAgNnbi0OMaCiSnIUJSBdlQef5Q');"
+        >
+        </div>
+      </div>
+
+      <!-- Floating Element Badge (Moved outside for better visibility/z-index) -->
+      <div
+        class="absolute bottom-12 -left-4 md:-left-8 flex items-center gap-3 rounded-2xl bg-white p-4 shadow-2xl border border-slate-100 animate-bounce z-40"
+        style="animation-duration: 4s;"
+      >
+        <div
+          class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50 text-green-600 shadow-sm"
+        >
+          <span class="material-symbols-outlined text-2xl">trending_up</span>
+        </div>
+        <div class="pr-2">
+          <p
+            class="text-[10px] uppercase tracking-widest font-black text-slate-400 mb-0.5"
+          >
+            Eficiencia
+          </p>
+          <p class="text-sm font-extrabold text-text-main whitespace-nowrap">
+            +45% Productividad
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
