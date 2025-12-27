@@ -164,10 +164,6 @@ const { className = '' } = Astro.props;
 
 <script is:inline define:vars={{ apiKey: import.meta.env.PUBLIC_SENDY_API_KEY }}
 >
-  // Debug inicial: Verificar que la variable llegó al script
-  console.log('🔍 Debug inicial - apiKey recibido:', apiKey);
-  console.log('🔍 Tipo de apiKey:', typeof apiKey);
-  console.log('🔍 Longitud de apiKey:', apiKey?.length);
   const heroForm = document.getElementById('hero-form');
   const submitBtn = document.getElementById('hero-submit-btn');
   const btnText = document.getElementById('hero-btn-text');
@@ -198,9 +194,6 @@ const { className = '' } = Astro.props;
 
       try {
         const formData = new FormData(heroForm);
-
-        // Debug: Verificar que apiKey existe
-        console.log('API Key disponible:', apiKey ? 'Sí' : 'No');
         if (!apiKey) {
           throw new Error('API Key no configurada');
         }
@@ -214,9 +207,6 @@ const { className = '' } = Astro.props;
           sendyParams.append(key, value);
         }
 
-        // Debug: Ver los parámetros que se enviarán
-        console.log('Parámetros a enviar:', sendyParams.toString());
-
         // Enviar a Sendy
         await fetch(heroForm.getAttribute('action'), {
           method: 'POST',
@@ -224,11 +214,8 @@ const { className = '' } = Astro.props;
             'Content-Type': 'application/x-www-form-urlencoded',
           },
           body: sendyParams,
-          mode: 'no-cors', // Cambiamos a no-cors porque Sendy no suele tener habilitado CORS
+          mode: 'no-cors',
         });
-
-        // Con no-cors no podemos leer la respuesta, pero si no hay error de red asumimos éxito
-        // y procedemos al redirect que pidió el usuario.
 
         if (formMessage) {
           formMessage.textContent = '¡Inscripción exitosa! Redirigiendo...';
