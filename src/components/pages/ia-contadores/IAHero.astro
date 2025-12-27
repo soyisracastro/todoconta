@@ -164,6 +164,10 @@ const { className = '' } = Astro.props;
 
 <script is:inline define:vars={{ apiKey: import.meta.env.PUBLIC_SENDY_API_KEY }}
 >
+  // Debug inicial: Verificar que la variable llegó al script
+  console.log('🔍 Debug inicial - apiKey recibido:', apiKey);
+  console.log('🔍 Tipo de apiKey:', typeof apiKey);
+  console.log('🔍 Longitud de apiKey:', apiKey?.length);
   const heroForm = document.getElementById('hero-form');
   const submitBtn = document.getElementById('hero-submit-btn');
   const btnText = document.getElementById('hero-btn-text');
@@ -180,8 +184,8 @@ const { className = '' } = Astro.props;
       const emailValue = emailInput.value;
 
       // Track event
-      if (typeof window !== 'undefined' && (window as any).trackEvent) {
-        (window as any).trackEvent('hero_form_submit', {
+      if (typeof window !== 'undefined' && window.trackEvent) {
+        window.trackEvent('hero_form_submit', {
           email: emailValue,
           form_location: 'hero',
         });
@@ -195,11 +199,23 @@ const { className = '' } = Astro.props;
       try {
         const formData = new FormData(heroForm);
 
+        // Debug: Verificar que apiKey existe
+        console.log('API Key disponible:', apiKey ? 'Sí' : 'No');
+        if (!apiKey) {
+          throw new Error('API Key no configurada');
+        }
+
         // Preparar datos para Sendy incluyendo la API Key
-        const data = {
-          api_key: apiKey,
-          ...Object.fromEntries(formData),
-        };
+        const sendyParams = new URLSearchParams();
+        sendyParams.append('api_key', apiKey);
+
+        // Agregar todos los campos del formulario
+        for (const [key, value] of formData.entries()) {
+          sendyParams.append(key, value);
+        }
+
+        // Debug: Ver los parámetros que se enviarán
+        console.log('Parámetros a enviar:', sendyParams.toString());
 
         // Enviar a Sendy
         await fetch(heroForm.getAttribute('action'), {
@@ -207,7 +223,7 @@ const { className = '' } = Astro.props;
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
           },
-          body: new URLSearchParams(data),
+          body: sendyParams,
           mode: 'no-cors', // Cambiamos a no-cors porque Sendy no suele tener habilitado CORS
         });
 
