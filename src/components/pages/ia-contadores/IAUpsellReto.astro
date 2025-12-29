@@ -1,0 +1,342 @@
+---
+interface Props {
+  checkoutUrl?: string;
+  couponCode?: string;
+  tutorialVideoId?: string;
+}
+
+const {
+  checkoutUrl = '#',
+  couponCode = 'GRABACION2025',
+  tutorialVideoId = 'VHI8UPMiRdw',
+} = Astro.props;
+
+const tools = [
+  { name: 'ChatGPT', icon: 'chat', color: '#10a37f' },
+  { name: 'Claude', icon: 'psychology', color: '#d97757' },
+  { name: 'Gemini 3', icon: 'auto_awesome', color: '#135bec' },
+  { name: 'NotebookLM', icon: 'menu_book', color: '#ca8a04' },
+  { name: 'Perplexity', icon: 'quiz', color: '#9333ea' },
+  { name: 'Flujos Híbridos', icon: 'route', color: '#4f46e5' },
+];
+---
+
+<section
+  class="relative w-full flex items-center justify-center py-20 px-4 md:px-8 overflow-hidden min-h-[800px]"
+>
+  <!-- Mesh Gradient Background Elements -->
+  <div class="absolute inset-0 bg-[#0f172a] overflow-hidden -z-10">
+    <div
+      class="absolute inset-0 bg-gradient-to-br from-blue-900 via-[#0f172a] to-slate-900 opacity-90"
+    >
+    </div>
+    <!-- Animated Blobs for Premium Mesh Effect -->
+    <div
+      class="absolute top-0 -left-4 w-96 h-96 bg-blue-600 rounded-full mix-blend-screen filter blur-[128px] opacity-20 animate-blob"
+    >
+    </div>
+    <div
+      class="absolute top-0 -right-4 w-96 h-96 bg-indigo-600 rounded-full mix-blend-screen filter blur-[128px] opacity-20 animate-blob animation-delay-2000"
+    >
+    </div>
+    <div
+      class="absolute -bottom-32 left-20 w-96 h-96 bg-blue-800 rounded-full mix-blend-screen filter blur-[128px] opacity-20 animate-blob animation-delay-4000"
+    >
+    </div>
+    <!-- Grid overlay for technical feel -->
+    <div
+      class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150"
+    >
+    </div>
+  </div>
+
+  <!-- Main Content Card (Glassmorphism) -->
+  <div
+    class="relative w-full max-w-[1024px] bg-white/95 dark:bg-[#111621]/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 dark:border-slate-700/50 overflow-hidden flex flex-col animate-on-scroll"
+    data-animation="fade-in-up"
+  >
+    <!-- Header Section -->
+    <div
+      class="pt-12 pb-8 px-6 md:px-20 text-center flex flex-col items-center"
+    >
+      <div
+        class="inline-flex items-center justify-center px-3 py-1 mb-6 rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 text-xs font-bold uppercase tracking-wider"
+      >
+        <span class="material-symbols-outlined text-[16px] mr-1">lock_open</span
+        >
+        Oportunidad VIP
+      </div>
+      <h2
+        class="text-[#0f172a] dark:text-white text-3xl md:text-5xl font-extrabold leading-tight tracking-tight mb-4 max-w-2xl"
+      >
+        ¿Quieres Profundizar?
+      </h2>
+      <p
+        class="text-gray-600 dark:text-slate-300 text-lg md:text-xl font-normal leading-relaxed max-w-3xl"
+      >
+        Lo que viste hoy es solo el 10% de lo que la IA puede hacer por tu
+        contabilidad. Únete al reto para dominar estas herramientas.
+      </p>
+    </div>
+
+    <!-- Mastery Grid Section -->
+    <div class="px-4 md:px-12 pb-12 w-full flex flex-col items-center">
+      <h3
+        class="text-xl md:text-2xl font-bold text-[#0f172a] dark:text-white mb-8 text-center"
+      >
+        En el reto de 12 días, dominarás:
+      </h3>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 w-full max-w-4xl"
+      >
+        {
+          tools.map(tool => (
+            <div class="group/tool flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-slate-800/40 border border-gray-100 dark:border-white/5 shadow-sm hover:shadow-md hover:border-[#135bec]/30 transition-all duration-300">
+              <div
+                class="size-10 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 group-hover/tool:scale-110"
+                style={`background-color: ${tool.color}15; color: ${tool.color};`}
+              >
+                <span class="material-symbols-outlined text-[24px]">
+                  {tool.icon}
+                </span>
+              </div>
+              <span class="text-[#0f172a] dark:text-slate-200 text-base md:text-lg font-bold">
+                {tool.name}
+              </span>
+            </div>
+          ))
+        }
+      </div>
+      <a
+        class="mt-8 px-6 py-3 border border-[#135bec] text-[#135bec] dark:border-[#135bec]/50 dark:text-[#135bec] hover:bg-[#135bec]/10 dark:hover:bg-[#135bec]/20 rounded-lg text-lg font-semibold transition-colors duration-200 ease-in-out no-underline"
+        href="/ia-contadores/reto-12-dias/"
+      >
+        Ver Detalles Completos del Reto
+      </a>
+    </div>
+
+    <!-- CTA Section -->
+    <div
+      class="bg-slate-50 dark:bg-[#0d121f] border-t border-gray-100 dark:border-white/5 px-6 py-10 md:py-16 flex flex-col items-center"
+    >
+      <h3
+        class="text-2xl md:text-3xl font-bold text-[#0f172a] dark:text-white mb-2 text-center"
+      >
+        ¡Asegura tu cupo en el Reto!
+      </h3>
+      <p class="text-gray-600 dark:text-slate-400 text-center max-w-lg mb-8">
+        Acceso completo al Reto de 12 Días con material descargable y soporte.
+      </p>
+
+      <!-- Coupon Display -->
+      <div class="flex flex-col items-center gap-2 mb-8 w-full max-w-sm">
+        <span
+          class="text-xs font-bold text-gray-500 dark:text-slate-400 uppercase tracking-widest"
+          >Código de descuento</span
+        >
+        <div
+          class="w-full flex items-center justify-between bg-white dark:bg-[#1e293b] border-2 border-dashed border-[#135bec]/30 rounded-xl p-3 pl-5 shadow-sm group hover:border-[#135bec] transition-all duration-300"
+        >
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-[#135bec]"
+              >local_activity</span
+            >
+            <span
+              id="coupon-text"
+              class="font-mono text-lg font-bold text-[#0f172a] dark:text-white tracking-widest select-all leading-none"
+              >{couponCode}</span
+            >
+          </div>
+          <button
+            id="copy-coupon-btn"
+            class="text-xs font-bold text-[#135bec] bg-[#135bec]/10 hover:bg-[#135bec]/20 px-3 py-1.5 rounded-lg transition-colors"
+          >
+            COPIAR
+          </button>
+        </div>
+      </div>
+
+      <!-- Primary CTA Button with Shine Effect -->
+      <a
+        href={checkoutUrl}
+        class="group relative flex w-full max-w-md cursor-pointer items-center justify-center overflow-hidden rounded-xl bg-[#135bec] h-14 md:h-16 px-8 shadow-xl shadow-blue-500/30 hover:shadow-blue-500/50 hover:-translate-y-0.5 transition-all duration-200 no-underline mb-8"
+        target="_blank"
+      >
+        <!-- Shine Effect -->
+        <div
+          class="absolute inset-0 -translate-x-full group-hover:animate-shimmer bg-gradient-to-r from-transparent via-white/25 to-transparent z-10"
+        >
+        </div>
+        <div class="relative z-20 flex items-center gap-3">
+          <span class="text-white text-lg font-bold tracking-tight"
+            >✅ Inscribirme al Reto con descuento</span
+          >
+        </div>
+      </a>
+
+      <!-- Tutorial Link -->
+      <div class="mt-4 text-center mb-8">
+        <p class="text-gray-600 dark:text-slate-400 text-sm">
+          ¿Primera vez en Nas.io?
+          <button
+            id="open-tutorial-btn"
+            class="inline-flex items-center text-[#135bec] hover:text-blue-700 font-bold transition-colors group cursor-pointer bg-transparent border-none p-0"
+          >
+            Mira este video
+            <span
+              class="material-symbols-outlined text-base ml-1 group-hover:translate-x-0.5 transition-transform"
+              >play_circle</span
+            >
+          </button>
+          para inscribirte sin problemas.
+        </p>
+      </div>
+
+      <p
+        class="text-sm text-gray-500 dark:text-slate-500 flex items-center gap-1"
+      >
+        <span class="material-symbols-outlined text-[16px]">verified_user</span>
+        Garantía de satisfacción de 7 días sin preguntas
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Tutorial Video Modal -->
+<div
+  id="tutorial-modal"
+  class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#0f172a]/90 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300"
+>
+  <div
+    class="relative w-full max-w-4xl bg-[#1e293b] rounded-2xl overflow-hidden shadow-2xl border border-white/10"
+  >
+    <!-- Close Button -->
+    <button
+      id="close-modal-btn"
+      class="absolute top-4 right-4 z-[110] size-10 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 transition-colors"
+    >
+      <span class="material-symbols-outlined">close</span>
+    </button>
+
+    <!-- Video Container -->
+    <div class="aspect-video w-full">
+      <iframe
+        id="tutorial-iframe"
+        class="w-full h-full"
+        src=""
+        title="Tutorial de Inscripción"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  /* Material Symbols Configuration */
+  .material-symbols-outlined {
+    font-variation-settings:
+      'FILL' 1,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24;
+  }
+</style>
+
+<script define:vars={{ tutorialVideoId }}>
+  // Copy coupon logic
+  const copyBtn = document.getElementById('copy-coupon-btn');
+  const couponText = document.getElementById('coupon-text');
+
+  if (copyBtn && couponText) {
+    copyBtn.addEventListener('click', () => {
+      const code = couponText.textContent || '';
+      navigator.clipboard.writeText(code);
+      const originalText = copyBtn.textContent;
+      copyBtn.textContent = '¡AHORRA $1,000 YA!';
+      setTimeout(() => {
+        copyBtn.textContent = originalText;
+      }, 2000);
+    });
+  }
+
+  // Modal logic
+  const modal = document.getElementById('tutorial-modal');
+  const openBtn = document.getElementById('open-tutorial-btn');
+  const closeBtn = document.getElementById('close-modal-btn');
+  const iframe = document.getElementById('tutorial-iframe');
+
+  if (modal && openBtn && closeBtn && iframe) {
+    openBtn.addEventListener('click', () => {
+      // Set iframe src with autoplay
+      iframe.src = `https://www.youtube.com/embed/${tutorialVideoId}?autoplay=1`;
+
+      // Show modal
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = 'hidden'; // Prevent scroll
+    });
+
+    const closeModal = () => {
+      // Hide modal
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = ''; // Restore scroll
+
+      // Reset iframe src
+      iframe.src = '';
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+
+    // Close on backdrop click
+    modal.addEventListener('click', e => {
+      if (e.target === modal) closeModal();
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && !modal.classList.contains('opacity-0')) {
+        closeModal();
+      }
+    });
+  }
+</script>
