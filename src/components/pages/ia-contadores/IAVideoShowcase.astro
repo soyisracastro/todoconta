@@ -1,0 +1,339 @@
+---
+interface Props {
+  videoId: string;
+}
+
+const { videoId } = Astro.props;
+---
+
+<section
+  id="video-showcase"
+  class="w-full flex flex-col items-center py-12 lg:py-24 px-4 bg-white dark:bg-[#0f172a] transition-colors duration-200"
+>
+  <div
+    class="layout-content-container flex flex-col max-w-[1120px] flex-1 w-full gap-8"
+  >
+    <div
+      class="w-full bg-[#0d121f] rounded-3xl overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] border border-white/10 relative isolate animate-on-scroll"
+      data-animation="fade-in-up"
+    >
+      <!-- Decorative Background Glare -->
+      <div
+        class="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[80%] h-[60%] bg-[#135bec]/20 blur-[120px] rounded-full pointer-events-none -z-10"
+      >
+      </div>
+
+      <div class="p-6 md:p-12 lg:p-16 flex flex-col items-center w-full">
+        <!-- Header Section -->
+        <div
+          class="flex flex-col items-center text-center space-y-6 mb-12 max-w-3xl"
+        >
+          <div
+            class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm"
+          >
+            <span class="material-symbols-outlined text-[#135bec] text-[20px]"
+              >videocam</span
+            >
+            <span
+              class="text-gray-300 text-xs font-bold uppercase tracking-wider"
+              >The Main Event</span
+            >
+          </div>
+          <h2
+            class="text-white text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight"
+          >
+            Mira el caso real: <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400"
+              >Análisis Fiscal en 12 Minutos.</span
+            >
+          </h2>
+        </div>
+
+        <!-- Video Player Mockup/Actual -->
+        <div class="w-full relative group" id="showcase-video-section">
+          <div
+            class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-[#135bec] rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"
+          >
+          </div>
+          <div
+            class="relative aspect-video w-full bg-slate-900 rounded-xl overflow-hidden shadow-2xl ring-1 ring-white/10"
+          >
+            <!-- Placeholder State -->
+            <div
+              id="showcase-video-placeholder"
+              class="absolute inset-0 z-20 flex items-center justify-center overflow-hidden cursor-pointer"
+            >
+              <div
+                class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_50%_50%,_#1e293b_0%,_#000000_100%)]"
+              >
+              </div>
+              <div
+                class="w-[120%] h-[120%] bg-cover bg-center opacity-40 blur-sm scale-105 group-hover:scale-100 transition-transform duration-700"
+                style={`background-image: url('https://img.youtube.com/vi/${videoId}/maxresdefault.jpg');`}
+              >
+              </div>
+
+              <!-- Floating Info Badge -->
+              <div
+                class="absolute top-4 left-4 md:top-6 md:left-6 z-20 max-w-[90%]"
+              >
+                <div
+                  class="flex items-center gap-3 bg-black/70 backdrop-blur-md border border-white/10 px-4 py-2.5 rounded-lg shadow-lg"
+                >
+                  <div class="relative flex h-3 w-3">
+                    <span
+                      class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"
+                    ></span>
+                    <span
+                      class="relative inline-flex rounded-full h-3 w-3 bg-red-500"
+                    ></span>
+                  </div>
+                  <div class="flex flex-col text-left">
+                    <span
+                      class="text-[10px] text-gray-400 uppercase font-bold tracking-wider leading-tight"
+                      >Caso Práctico</span
+                    >
+                    <span
+                      class="text-white font-semibold text-xs md:text-sm leading-tight"
+                      >Viáticos al Extranjero (Tradicional 2h → IA 12 min)</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Play Button -->
+              <div
+                class="absolute inset-0 flex items-center justify-center z-20"
+              >
+                <div
+                  class="group/play relative flex items-center justify-center"
+                >
+                  <div
+                    class="absolute w-20 h-20 md:w-28 md:h-28 bg-white/10 rounded-full animate-ping opacity-50"
+                  >
+                  </div>
+                  <div
+                    class="w-16 h-16 md:w-24 md:h-24 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/30 group-hover/play:bg-white/20 group-hover/play:scale-110 transition-all duration-300 shadow-[0_0_40px_rgba(19,91,236,0.4)]"
+                  >
+                    <div
+                      class="w-12 h-12 md:w-16 md:h-16 bg-[#135bec] rounded-full flex items-center justify-center shadow-lg"
+                    >
+                      <span
+                        class="material-symbols-outlined text-white text-[32px] md:text-[48px] ml-1"
+                        >play_arrow</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Fake Controls Bar (Visual only, revealed on hover) -->
+              <div
+                class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black via-black/60 to-transparent flex flex-col justify-end px-6 py-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <div
+                  class="w-full h-1 bg-white/20 rounded-full mb-4 cursor-pointer relative"
+                >
+                  <div
+                    class="absolute h-full w-[35%] bg-[#135bec] rounded-full"
+                  >
+                  </div>
+                  <div
+                    class="absolute h-3 w-3 bg-white rounded-full top-1/2 -translate-y-1/2 left-[35%] shadow shadow-black/50 transform scale-0 group-hover:scale-100 transition-transform"
+                  >
+                  </div>
+                </div>
+                <div class="flex items-center justify-between text-white">
+                  <div class="flex items-center gap-4">
+                    <span
+                      class="material-symbols-outlined cursor-pointer hover:text-[#135bec] transition-colors"
+                      >play_arrow</span
+                    >
+                    <span class="text-xs font-mono font-medium opacity-90"
+                      >04:12 / 12:05</span
+                    >
+                  </div>
+                  <div class="flex items-center gap-4">
+                    <span
+                      class="material-symbols-outlined text-[20px] cursor-pointer hover:text-[#135bec] transition-colors"
+                      >closed_caption</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-[20px] cursor-pointer hover:text-[#135bec] transition-colors"
+                      >settings</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-[20px] cursor-pointer hover:text-[#135bec] transition-colors"
+                      >fullscreen</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Actual Video Iframe -->
+            <iframe
+              id="showcase-youtube-video"
+              class="absolute inset-0 w-full h-full opacity-0 pointer-events-none transition-opacity duration-700 z-10"
+              src={`https://www.youtube.com/embed/${videoId}?autoplay=0`}
+              title="Caso Práctico: Análisis Fiscal en 12 Minutos"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Workflow Footer Section -->
+        <div
+          class="w-full mt-12 md:mt-16 animate-on-scroll"
+          data-animation="fade-in-up"
+          data-delay="200"
+        >
+          <div class="flex flex-col items-center">
+            <p
+              class="text-gray-400 text-sm font-semibold uppercase tracking-[0.2em] mb-8"
+            >
+              Flujo de Trabajo IA
+            </p>
+            <div class="w-full grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+              <!-- Connecting Line (Desktop) -->
+              <div
+                class="hidden md:block absolute top-[28px] left-[12%] right-[12%] h-[2px] bg-gradient-to-r from-[#135bec]/10 via-[#135bec]/40 to-[#135bec]/10 -z-0"
+              >
+              </div>
+
+              <!-- Workflow Step 1 -->
+              <div
+                class="relative flex flex-col items-center group/step text-center z-10"
+              >
+                <div
+                  class="size-14 rounded-xl bg-[#1e293b] border border-white/10 flex items-center justify-center shadow-lg group-hover/step:border-[#135bec]/50 group-hover/step:shadow-[0_0_20px_rgba(19,91,236,0.15)] transition-all duration-300 mb-4 bg-gradient-to-b from-white/5 to-transparent"
+                >
+                  <span
+                    class="material-symbols-outlined text-teal-400 text-[28px]"
+                    >travel_explore</span
+                  >
+                </div>
+                <h4 class="text-white font-bold text-lg mb-1">Perplexity</h4>
+                <span
+                  class="inline-block px-2.5 py-0.5 rounded text-[11px] font-medium bg-teal-500/10 text-teal-300 border border-teal-500/20"
+                  >Topes Legales</span
+                >
+                <span
+                  class="md:hidden material-symbols-outlined text-gray-600 mt-4"
+                  >arrow_downward</span
+                >
+              </div>
+
+              <!-- Workflow Step 2 -->
+              <div
+                class="relative flex flex-col items-center group/step text-center z-10"
+              >
+                <div
+                  class="size-14 rounded-xl bg-[#1e293b] border border-white/10 flex items-center justify-center shadow-lg group-hover/step:border-[#135bec]/50 group-hover/step:shadow-[0_0_20px_rgba(19,91,236,0.15)] transition-all duration-300 mb-4 bg-gradient-to-b from-white/5 to-transparent"
+                >
+                  <span
+                    class="material-symbols-outlined text-orange-400 text-[28px]"
+                    >policy</span
+                  >
+                </div>
+                <h4 class="text-white font-bold text-lg mb-1">Claude</h4>
+                <span
+                  class="inline-block px-2.5 py-0.5 rounded text-[11px] font-medium bg-orange-500/10 text-orange-300 border border-orange-500/20"
+                  >Análisis Riesgos</span
+                >
+                <span
+                  class="md:hidden material-symbols-outlined text-gray-600 mt-4"
+                  >arrow_downward</span
+                >
+              </div>
+
+              <!-- Workflow Step 3 -->
+              <div
+                class="relative flex flex-col items-center group/step text-center z-10"
+              >
+                <div
+                  class="size-14 rounded-xl bg-[#1e293b] border border-white/10 flex items-center justify-center shadow-lg group-hover/step:border-[#135bec]/50 group-hover/step:shadow-[0_0_20px_rgba(19,91,236,0.15)] transition-all duration-300 mb-4 bg-gradient-to-b from-white/5 to-transparent"
+                >
+                  <span
+                    class="material-symbols-outlined text-purple-400 text-[28px]"
+                    >table_view</span
+                  >
+                </div>
+                <h4 class="text-white font-bold text-lg mb-1">Gemini</h4>
+                <span
+                  class="inline-block px-2.5 py-0.5 rounded text-[11px] font-medium bg-purple-500/10 text-purple-300 border border-purple-500/20"
+                  >Estructura Tabla</span
+                >
+                <span
+                  class="md:hidden material-symbols-outlined text-gray-600 mt-4"
+                  >arrow_downward</span
+                >
+              </div>
+
+              <!-- Workflow Step 4 -->
+              <div
+                class="relative flex flex-col items-center group/step text-center z-10"
+              >
+                <div
+                  class="size-14 rounded-xl bg-[#1e293b] border border-white/10 flex items-center justify-center shadow-lg group-hover/step:border-[#135bec]/50 group-hover/step:shadow-[0_0_20px_rgba(19,91,236,0.15)] transition-all duration-300 mb-4 bg-gradient-to-b from-white/5 to-transparent"
+                >
+                  <span
+                    class="material-symbols-outlined text-green-400 text-[28px]"
+                    >mark_email_read</span
+                  >
+                </div>
+                <h4 class="text-white font-bold text-lg mb-1">ChatGPT</h4>
+                <span
+                  class="inline-block px-2.5 py-0.5 rounded text-[11px] font-medium bg-green-500/10 text-green-300 border border-green-500/20"
+                  >Redacción Email</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const videoPlaceholder = document.getElementById(
+    'showcase-video-placeholder'
+  );
+  const youtubeVideo = document.getElementById(
+    'showcase-youtube-video'
+  ) as HTMLIFrameElement;
+
+  if (videoPlaceholder && youtubeVideo) {
+    videoPlaceholder.addEventListener('click', () => {
+      // Hide placeholder
+      videoPlaceholder.classList.add('opacity-0', 'pointer-events-none');
+      videoPlaceholder.style.transition = 'opacity 0.5s ease-out';
+
+      // Show and play video
+      youtubeVideo.classList.remove('opacity-0', 'pointer-events-none');
+
+      // Update src to include autoplay=1
+      const currentSrc = youtubeVideo.getAttribute('src');
+      if (currentSrc) {
+        youtubeVideo.setAttribute(
+          'src',
+          currentSrc.replace('autoplay=0', 'autoplay=1')
+        );
+      }
+    });
+  }
+</script>
+
+<style>
+  /* Material Symbols Configuration */
+  .material-symbols-outlined {
+    font-variation-settings:
+      'FILL' 1,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24;
+  }
+</style>
