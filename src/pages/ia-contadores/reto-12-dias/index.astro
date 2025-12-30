@@ -12,6 +12,7 @@ import IARetoFAQ from '@/components/pages/ia-contadores/IARetoFAQ.astro';
 import IARetoInstructor from '@/components/pages/ia-contadores/IARetoInstructor.astro';
 import IARetoFinalCTA from '@/components/pages/ia-contadores/IARetoFinalCTA.astro';
 import IARetoMatrix from '@/components/pages/ia-contadores/IARetoMatrix.astro';
+import IARetoSchema from '@/components/pages/ia-contadores/IARetoSchema.astro';
 
 const title = 'Reto IA 12 Días - ChatGPT, Claude y Gemini 3 para Contadores';
 const description =
@@ -41,6 +42,13 @@ const INSTRUCTOR_NAME = 'Israel Castro';
   keywords={keywords}
   showFooter={false}
 >
+  <IARetoSchema
+    registrationUrl={REGISTRATION_CHALLENGE_URL}
+    price={EARLY_BIRD_PRICE}
+    deadline={EARLY_BIRD_DEADLINE}
+    instructorName={INSTRUCTOR_NAME}
+  />
+
   <IARetoHero registrationUrl={REGISTRATION_CHALLENGE_URL} />
   <IAProblemOpportunity registrationUrl={REGISTRATION_CHALLENGE_URL} />
 

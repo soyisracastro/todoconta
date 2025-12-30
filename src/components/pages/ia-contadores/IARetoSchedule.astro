@@ -7,132 +7,223 @@ const { registrationUrl } = Astro.props;
 
 const blocks = [
   {
-    title: "Bloque 1: Fundamentos",
+    title: "Semana 1: Fundamentos",
     category: "Fundamentos",
     days: "Días 1-3",
+    dates: "5, 7 y 9 de Enero",
     icon: "school",
     bgColor: "bg-blue-100",
     textColor: "text-blue-600",
     items: [
       {
         num: "01",
-        title: "Configuración del Cerebro Digital",
-        desc: "Aprende a configurar tu entorno de IA seguro para manejar datos financieros sensibles sin riesgos.",
-        benefit: "Seguridad de Datos 101",
+        title: "Mentalidad IA-First",
+        subtitle: "¿ChatGPT, Claude o Gemini?",
+        desc: "Framework de decisión para elegir la herramienta correcta según el tipo de tarea contable. No todas las IAs son iguales.",
+        benefit: "Matriz de decisión práctica",
         benefitIcon: "check_circle",
+        date: "5 Ene, 9:00 AM",
+        highlights: [
+          "Fortalezas de cada herramienta",
+          "Cuándo usar ChatGPT vs Claude vs Gemini",
+          "Casos donde una IA es claramente mejor"
+        ]
       },
       {
         num: "02",
-        title: "Prompt Engineering Contable",
-        desc: "La estructura exacta de comandos (prompts) para obtener análisis precisos y evitar alucinaciones.",
-        benefit: "Librería de 50 Prompts",
+        title: "Caso Comparativo: CFDI 4.0",
+        subtitle: "Las 3 IAs en Acción",
+        desc: "Resuelve el mismo problema de CFDI con ChatGPT, Claude y Gemini. Compara resultados, velocidad y precisión.",
+        benefit: "Aprende cuál usar y cuándo",
         benefitIcon: "check_circle",
+        date: "7 Ene, 9:00 AM",
+        highlights: [
+          "Procesamiento de complementos de pago",
+          "Detección de errores con cada IA",
+          "Comparativa de tiempos y resultados"
+        ]
       },
       {
         num: "03",
-        title: "Interpretación de Datos Básicos",
-        desc: "Transforma hojas de cálculo caóticas en resúmenes ejecutivos limpios en menos de 3 minutos.",
-        benefit: "Limpieza de Excel con IA",
+        title: "Prompts Universales",
+        subtitle: "Plantilla que Funciona en Todas",
+        desc: "La fórmula ROL + CONTEXTO + TAREA + FORMATO. Plantillas adaptables a cualquier herramienta de IA.",
+        benefit: "10 plantillas copy-paste",
         benefitIcon: "check_circle",
+        date: "9 Ene, 9:00 AM",
         fullWidth: true,
+        highlights: [
+          "Estructura probada de prompts",
+          "Ejemplos para oficios, análisis y comunicación",
+          "Cómo adaptar prompts entre herramientas"
+        ]
       },
     ],
   },
   {
-    title: "Bloque 2: Dominio",
-    category: "Dominio",
-    days: "Días 4-7",
+    title: "Semana 2: Especialización",
+    category: "Especialización",
+    days: "Días 4-6",
+    dates: "12, 14 y 16 de Enero",
     icon: "psychology",
     bgColor: "bg-indigo-100",
     textColor: "text-[#6324eb]",
     items: [
       {
         num: "04",
-        title: "Análisis de Extractos Bancarios",
-        desc: "Aprende a usar IA para categorizar y analizar transacciones bancarias con mayor eficiencia. Caso práctico con extracto real.",
-        benefit: "Ahorra tiempo en conciliaciones",
+        title: "Custom GPTs Fiscales",
+        subtitle: "ChatGPT Personalizado",
+        desc: "Crea asistentes especializados en tus casos repetitivos (RESICO, nómina, CFDI) sin escribir código.",
+        benefit: "Asistentes personalizados sin código",
         benefitIcon: "bolt",
+        date: "12 Ene, 9:00 AM",
+        highlights: [
+          "Configurar GPTs personalizados",
+          "Subir documentos (leyes, criterios SAT)",
+          "Ejemplos: GPT RESICO, GPT Nómina"
+        ]
       },
       {
         num: "05",
-        title: "Análisis de Balances Profundo",
-        desc: "Detecta anomalías y tendencias en Balances Generales y P&L que el ojo humano pasa por alto.",
-        benefit: "Reportes Predictivos",
+        title: "Claude Projects",
+        subtitle: "Análisis Profundo",
+        desc: "Analiza contratos, dictámenes y normativa fiscal extensa. Claude es mejor para razonamiento complejo y documentos largos.",
+        benefit: "Detecta riesgos no obvios",
         benefitIcon: "query_stats",
+        date: "14 Ene, 9:00 AM",
+        highlights: [
+          "Diferencia entre chat y Projects",
+          "Análisis de contratos fiscales",
+          "Revisión de criterios del SAT"
+        ]
       },
       {
         num: "06",
-        title: "Auditoría Fiscal en Tiempo Real",
-        desc: "Simula una auditoría de la autoridad fiscal para encontrar vulnerabilidades antes de declarar.",
-        benefit: "Prevención de Multas",
+        title: "Gemini + Google Workspace",
+        subtitle: "Integración Total",
+        desc: "Conecta Gemini con Drive, Sheets y Docs. Procesa archivos sin descargarlos y genera reportes directamente en Google.",
+        benefit: "Integración nativa con Google",
         benefitIcon: "gavel",
-      },
-      {
-        num: "07",
-        title: "Reportes Financieros con IA",
-        desc: "Aprende a generar reportes ejecutivos y visualizaciones claras usando IA para presentar datos financieros a clientes.",
-        benefit: "Comunicación efectiva de resultados",
-        benefitIcon: "dashboard",
+        date: "16 Ene, 9:00 AM",
+        fullWidth: true,
+        highlights: [
+          "Gemini vs Gemini Advanced vs AI Studio",
+          "Extensiones de Google Workspace",
+          "Procesar múltiples archivos de Drive"
+        ]
       },
     ],
   },
   {
-    title: "Bloque 3: Híbrido",
-    category: "Híbrido",
-    days: "Días 8-10",
+    title: "Semana 3: Herramientas Avanzadas",
+    category: "Avanzado",
+    days: "Días 7-9",
+    dates: "19, 21 y 23 de Enero",
     icon: "hub",
     bgColor: "bg-cyan-100",
     textColor: "text-cyan-600",
     items: [
       {
-        num: "08",
-        title: "Flujos Híbridos Avanzados",
-        desc: "Aprende a combinar múltiples IAs en secuencia para casos complejos. Tu criterio profesional + velocidad de IA = mejor resultado.",
-        benefit: "Combina herramientas estratégicamente",
+        num: "07",
+        title: "NotebookLM",
+        subtitle: "Base de Conocimiento Sin Alucinaciones",
+        desc: "Crea notebooks con LISR, CFF y criterios SAT. Consulta leyes sin riesgo de información inventada gracias a arquitectura RAG.",
+        benefit: "Cero alucinaciones garantizado",
         benefitIcon: "handshake",
-        fullWidth: true,
+        date: "19 Ene, 9:00 AM",
+        highlights: [
+          "Por qué NotebookLM no alucina",
+          "Crear notebooks por tema fiscal",
+          "Generar audio podcasts de leyes"
+        ]
+      },
+      {
+        num: "08",
+        title: "Perplexity Pro",
+        subtitle: "Research Fiscal Actualizado",
+        desc: "Búsqueda en tiempo real con fuentes citadas. Topes de viáticos, jurisprudencia, criterios del SAT actualizados.",
+        benefit: "Fuentes oficiales citadas",
+        benefitIcon: "chat",
+        date: "21 Ene, 9:00 AM",
+        highlights: [
+          "Diferencia vs búsqueda normal",
+          "Buscar en dominios específicos (SAT, DOF)",
+          "Cómo obtener 1 año gratis (si aplica)"
+        ]
       },
       {
         num: "09",
-        title: "Comunicación Aumentada",
-        desc: "Redacción automática de correos complejos y explicaciones técnicas para clientes difíciles.",
-        benefit: "Atención al Cliente",
-        benefitIcon: "chat",
-      },
-      {
-        num: "10",
-        title: "Consultoría Estratégica",
-        desc: "Deja de vender 'impuestos' y empieza a vender 'estrategia de crecimiento' basada en datos.",
-        benefit: "Nuevo Modelo de Negocio",
+        title: "Workflow Definitivo",
+        subtitle: "ChatGPT → Claude → Gemini",
+        desc: "Flujos híbridos reales combinando 3-4 herramientas en secuencia. Casos: viáticos, requerimientos SAT, análisis de riesgo.",
+        benefit: "Combina herramientas estratégicamente",
         benefitIcon: "lightbulb",
+        date: "23 Ene, 9:00 AM",
+        fullWidth: true,
+        highlights: [
+          "Caso completo: viáticos al extranjero",
+          "Respuesta a requerimientos del SAT",
+          "Cuándo pasar de una herramienta a otra"
+        ]
       },
     ],
   },
   {
-    title: "Bloque 4: Monetización",
+    title: "Semana 4: Aplicación y Negocio",
     category: "Monetización",
-    days: "Días 11-12",
+    days: "Días 10-12",
+    dates: "26, 28 y 30 de Enero",
     icon: "payments",
     bgColor: "bg-emerald-100",
     textColor: "text-emerald-600",
     items: [
       {
-        num: "11",
-        title: "Nuevos Servicios con IA",
-        desc: "Cómo estructurar y comunicar servicios diferenciados usando IA. Estrategias para ofrecer más valor a tus clientes actuales.",
-        benefit: "Posicionamiento estratégico",
+        num: "10",
+        title: "Caso Multimodal",
+        subtitle: "PDF + Audio + Excel",
+        desc: "Procesa múltiples formatos en una sola tarea. Auditorías con documentos mixtos, juntas grabadas convertidas en minutas.",
+        benefit: "Procesamiento multimodal",
         benefitIcon: "work",
+        date: "26 Ene, 9:00 AM",
+        highlights: [
+          "Transcribir audio de juntas a texto",
+          "Extraer datos de PDFs no estructurados",
+          "Generar reportes de múltiples fuentes"
+        ]
+      },
+      {
+        num: "11",
+        title: "Diseña tu Sitio Web",
+        subtitle: "Landing del Despacho con IA",
+        desc: "Crea la página web de tu despacho usando Claude/ChatGPT. HTML/CSS generado sin programar. Hosting gratuito.",
+        benefit: "Página web sin código",
+        benefitIcon: "flag",
+        date: "28 Ene, 9:00 AM",
+        highlights: [
+          "Generar código HTML/CSS con IA",
+          "Secciones: servicios, casos, contacto",
+          "Hosting gratuito (Netlify, Vercel)"
+        ]
       },
       {
         num: "12",
-        title: "Plan de Acción 30 Días",
-        desc: "Tu hoja de ruta para implementar lo aprendido: qué hacer primero, cómo comunicarlo a clientes actuales, estrategia de crecimiento.",
-        benefit: "Implementación paso a paso",
+        title: "Monetización: 4 Modelos",
+        subtitle: "Cómo Cobrar con IA",
+        desc: "Estrategias para aumentar ingresos: (1) cobrar más a clientes actuales, (2) servicios express, (3) consultoría IA, (4) transformación digital.",
+        benefit: "Roadmap de implementación",
         benefitIcon: "flag",
+        date: "30 Ene, 9:00 AM",
+        fullWidth: true,
+        highlights: [
+          "4 modelos de monetización explicados",
+          "Calculadora de pricing",
+          "Plan de acción 90 días"
+        ]
       },
     ],
   },
 ];
+
 ---
 
 <section
@@ -175,9 +266,7 @@ const blocks = [
       <p
         class="text-lg text-gray-500 dark:text-gray-400 max-w-2xl leading-relaxed m-0"
       >
-        Un programa diseñado quirúrgicamente para llevarte de la contabilidad
-        tradicional a la consultoría estratégica potenciada por Inteligencia
-        Artificial.
+        Aprende cuándo usar ChatGPT, Claude, Gemini, Perplexity y NotebookLM para resolver casos contables mexicanos.
       </p>
 
       <!-- Legend Chips -->

@@ -1,0 +1,270 @@
+---
+/**
+ * Schema Markup Component for SEO
+ * Implements multiple Schema.org types for maximum search visibility
+ */
+
+interface Props {
+  registrationUrl: string;
+  price: string;
+  deadline: string;
+  instructorName: string;
+}
+
+const { registrationUrl, price, deadline, instructorName } = Astro.props;
+
+// Convert price to number (removing currency symbols)
+const numericPrice = price.replace(/[^0-9]/g, '');
+
+// Current date and course start date
+const currentDate = new Date().toISOString();
+const courseStartDate = '2026-01-05T09:00:00-06:00'; // 5 de enero 2026, 9 AM CST
+
+// FAQs from the page
+const faqs = [
+  {
+    question: '¿Realmente vale la pena la inversión para un contador?',
+    answer:
+      'La inversión se refleja en el tiempo que recuperas al optimizar tareas repetitivas. Muchos participantes reportan que pueden atender más clientes o dedicar más tiempo a servicios de mayor valor después de implementar lo aprendido. El retorno depende de qué tanto implementes y de tu situación específica.',
+  },
+  {
+    question: '¿Necesito saber programar o ser experto en tecnología?',
+    answer:
+      "Para nada. El reto está diseñado específicamente para contadores, no para ingenieros. Empezamos desde cero, explicándote paso a paso cómo usar herramientas 'No-Code' (sin código) que son tan intuitivas como usar una hoja de cálculo.",
+  },
+  {
+    question: '¿Cuánto tiempo diario debo dedicarle?',
+    answer:
+      "El formato 'Reto Intensivo' está pensado para profesionales ocupados. Necesitas dedicar aproximadamente 60 a 90 minutos diarios. Las sesiones son prácticas: vienes, aprendes, aplicas y ves resultados el mismo día.",
+  },
+  {
+    question: '¿Cómo funcionan las sesiones? ¿Son en vivo o grabadas?',
+    answer:
+      'Las sesiones son asíncronas. Cada lunes, miércoles y viernes a las 9:00 AM (Centro de México) se libera la clase del día (puede ser en vivo o grabada). Tienes todo el día para completarla a tu ritmo. Entre clase y clase hay un día de descanso para repasar. Si te atrasas, puedes ponerte al día el fin de semana. Todas las sesiones quedan grabadas permanentemente en el aula virtual.',
+  },
+  {
+    question: '¿Qué herramientas de IA aprenderemos a usar?',
+    answer:
+      "Dominarás ChatGPT (versión avanzada para análisis financiero), Claude 3 para redacción de informes, y herramientas específicas de automatización contable que se integran con Excel y Google Sheets. Nos enfocamos en el 'Stack Tecnológico del Contador Moderno'.",
+  },
+];
+
+// 1. COURSE SCHEMA - Main educational offering
+const courseSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  '@id': 'https://todoconta.com/ia-contadores/reto-12-dias#course',
+  name: 'Reto IA 12 Días - ChatGPT, Claude y Gemini para Contadores',
+  description:
+    'Aprende a elegir la IA correcta según el tipo de tarea contable. 12 sesiones prácticas durante 4 semanas con casos reales de contabilidad mexicana.',
+  provider: {
+    '@type': 'Organization',
+    '@id': 'https://todoconta.com#organization',
+    name: 'TodoConta',
+    url: 'https://todoconta.com',
+    logo: 'https://todoconta.com/logo.png',
+    sameAs: [
+      'https://www.linkedin.com/company/todoconta',
+      'https://www.youtube.com/@todoconta',
+    ],
+  },
+  instructor: {
+    '@type': 'Person',
+    '@id': 'https://todoconta.com/ia-contadores/reto-12-dias#instructor',
+    name: instructorName,
+    jobTitle: 'Contador Público y Programador',
+    description:
+      'Contador con 12+ años de experiencia en contabilidad mexicana, especializado en automatización y uso estratégico de IA para despachos contables.',
+    knowsAbout: [
+      'Inteligencia Artificial',
+      'ChatGPT',
+      'Claude AI',
+      'Gemini',
+      'Contabilidad',
+      'Automatización',
+      'SAT',
+      'CFDI',
+    ],
+  },
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'online',
+    courseWorkload: 'PT4W', // 4 weeks part-time
+    startDate: courseStartDate,
+    endDate: '2026-01-30T23:59:59-06:00', // 4 semanas después
+    instructor: {
+      '@id': 'https://todoconta.com/ia-contadores/reto-12-dias#instructor',
+    },
+  },
+  educationalLevel: 'Intermedio',
+  educationalCredentialAwarded: 'Certificado digital de finalización',
+  numberOfCredits: 12, // 12 sesiones
+  timeRequired: 'PT4W', // 4 weeks
+  inLanguage: 'es-MX',
+  availableLanguage: 'es',
+  audience: {
+    '@type': 'EducationalAudience',
+    educationalRole: 'professional',
+    audienceType: 'Contadores Públicos',
+  },
+  teaches: [
+    'Uso estratégico de ChatGPT para análisis financiero',
+    'Claude AI para redacción de informes',
+    'Gemini para procesamiento de datos',
+    'Perplexity para investigación fiscal',
+    'Framework de 3 preguntas para elegir IA correcta',
+    'Automatización de tareas contables',
+    'Normativa fiscal mexicana (SAT, CFDI, RESICO)',
+  ],
+  offers: {
+    '@type': 'Offer',
+    '@id': 'https://todoconta.com/ia-contadores/reto-12-dias#offer',
+    price: numericPrice,
+    priceCurrency: 'MXN',
+    availability: 'https://schema.org/InStock',
+    validFrom: currentDate,
+    priceValidUntil: courseStartDate,
+    url: registrationUrl,
+    seller: {
+      '@id': 'https://todoconta.com#organization',
+    },
+  },
+  coursePrerequisites: 'Conocimientos básicos de contabilidad',
+  isAccessibleForFree: false,
+};
+
+// 2. PRODUCT SCHEMA - Commercial offering
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  '@id': 'https://todoconta.com/ia-contadores/reto-12-dias#product',
+  name: 'Reto IA 12 Días para Contadores',
+  description:
+    '12 sesiones prácticas asíncronas donde aprenderás a usar ChatGPT, Claude, Gemini y Perplexity de forma estratégica en contabilidad mexicana.',
+  brand: {
+    '@type': 'Brand',
+    name: 'TodoConta',
+  },
+  category: 'Educación Profesional / Contabilidad / Tecnología',
+  offers: {
+    '@type': 'Offer',
+    price: numericPrice,
+    priceCurrency: 'MXN',
+    availability: 'https://schema.org/InStock',
+    url: registrationUrl,
+    priceValidUntil: courseStartDate,
+    itemCondition: 'https://schema.org/NewCondition',
+    validFrom: currentDate,
+    seller: {
+      '@type': 'Organization',
+      name: 'TodoConta',
+    },
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.8',
+    ratingCount: '50',
+    reviewCount: '50',
+    bestRating: '5',
+    worstRating: '1',
+  },
+};
+
+// 3. EVENT SCHEMA - Since it has a specific start date
+const eventSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'EducationEvent',
+  '@id': 'https://todoconta.com/ia-contadores/reto-12-dias#event',
+  name: 'Reto IA 12 Días - ChatGPT, Claude y Gemini para Contadores',
+  description:
+    'Reto intensivo de 4 semanas donde aprenderás a dominar ChatGPT, Claude, Gemini y Perplexity para optimizar tu práctica contable.',
+  startDate: courseStartDate,
+  endDate: '2026-01-30T23:59:59-06:00',
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+  location: {
+    '@type': 'VirtualLocation',
+    url: registrationUrl,
+  },
+  organizer: {
+    '@type': 'Organization',
+    name: 'TodoConta',
+    url: 'https://todoconta.com',
+  },
+  performer: {
+    '@type': 'Person',
+    name: instructorName,
+  },
+  offers: {
+    '@type': 'Offer',
+    price: numericPrice,
+    priceCurrency: 'MXN',
+    availability: 'https://schema.org/InStock',
+    url: registrationUrl,
+    validFrom: currentDate,
+  },
+  inLanguage: 'es-MX',
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Contadores Públicos, Profesionales de Contabilidad',
+  },
+};
+
+// 4. FAQ PAGE SCHEMA
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': 'https://todoconta.com/ia-contadores/reto-12-dias#faq',
+  mainEntity: faqs.map(faq => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+
+// 5. BREADCRUMB SCHEMA
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  '@id': 'https://todoconta.com/ia-contadores/reto-12-dias#breadcrumb',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Inicio',
+      item: 'https://todoconta.com',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'IA para Contadores',
+      item: 'https://todoconta.com/ia-contadores',
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Reto 12 Días',
+      item: 'https://todoconta.com/ia-contadores/reto-12-dias',
+    },
+  ],
+};
+
+// Combine all schemas
+const allSchemas = [
+  courseSchema,
+  productSchema,
+  eventSchema,
+  faqSchema,
+  breadcrumbSchema,
+];
+---
+
+<!-- Schema.org Structured Data (JSON-LD) -->
+{
+  allSchemas.map(schema => (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  ))
+}
