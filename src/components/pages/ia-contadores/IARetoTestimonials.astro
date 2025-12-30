@@ -1,0 +1,125 @@
+---
+interface Testimonial {
+  name: string;
+  role: string;
+  avatar: string;
+  quote: string;
+  highlight: string;
+}
+
+interface Props {
+  testimonials?: Testimonial[];
+}
+
+const defaultTestimonials: Testimonial[] = [
+  {
+    name: 'Ricardo M.',
+    role: 'Contador con 8 años de experiencia, CDMX',
+    avatar: '👤',
+    quote:
+      'Después de aplicar lo que aprendí en el reto, ahora combino Claude y ChatGPT estratégicamente para dictámenes fiscales. He reducido significativamente el tiempo sin comprometer calidad.',
+    highlight: 'Resultados del reto anterior',
+  },
+  {
+    name: 'Lizeth G.',
+    role: 'Despacho contable, Guadalajara',
+    avatar: '👤',
+    quote:
+      'Después del reto, cambié mi forma de trabajar. Ahora uso la herramienta correcta para cada tarea y he podido aumentar mi capacidad de atención sin contratar más personal.',
+    highlight: 'Resultados del reto anterior',
+  },
+  {
+    name: 'Carmen Lucía R.',
+    role: 'Director de despacho con 5 contadores, Monterrey',
+    avatar: '👤',
+    quote:
+      'Lo más valioso fue cambiar mi mentalidad sobre IA. Implementé el framework con mi equipo, y ahora usamos IA como asistente inteligente en declaraciones complementarias y análisis de discrepancias.',
+    highlight: 'Resultados del reto anterior',
+  },
+];
+
+const { testimonials = defaultTestimonials } = Astro.props;
+---
+
+<section
+  class="relative flex flex-col items-center justify-center py-20 bg-[#f8fbff] dark:bg-[#161121] overflow-hidden"
+>
+  <div class="container mx-auto px-4 md:px-6 relative z-10">
+    <!-- Section Header -->
+    <div
+      class="flex flex-col items-center text-center max-w-3xl mx-auto mb-16 animate-on-scroll"
+      data-animation="fade-in-up"
+    >
+      <h2
+        class="text-[#111118] dark:text-white text-3xl md:text-5xl font-extrabold leading-tight tracking-tight pb-3 font-display m-0"
+      >
+        Lo que dicen contadores como tú
+      </h2>
+      <p
+        class="text-gray-500 dark:text-gray-400 text-lg md:text-xl font-medium leading-normal max-w-2xl mt-4 m-0"
+      >
+        Resultados reales de ediciones anteriores
+      </p>
+    </div>
+
+    <!-- Testimonials Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 items-stretch">
+      {
+        testimonials.map((testimonial, index) => (
+          <div
+            class="group flex flex-col h-full bg-white dark:bg-white/5 rounded-3xl p-8 shadow-xl shadow-gray-200/50 dark:shadow-none border border-gray-100 dark:border-white/10 hover:shadow-2xl hover:shadow-[#6324eb]/10 hover:-translate-y-1 transition-all duration-300 animate-on-scroll"
+            data-animation="fade-in-up"
+            data-delay={index * 150}
+          >
+            <div class="flex flex-col flex-1">
+              <span class="material-symbols-outlined text-[#6324eb] text-5xl mb-6 opacity-40 group-hover:opacity-100 transition-opacity duration-300">
+                format_quote
+              </span>
+              <p class="text-[#111118] dark:text-gray-200 text-lg md:text-xl italic leading-relaxed font-body m-0 mb-8 flex-1">
+                "{testimonial.quote}"
+              </p>
+            </div>
+
+            <div class="border-t border-gray-100 dark:border-white/10 pt-8 mt-auto">
+              <div class="flex items-center gap-4 mb-6">
+                <div class="w-14 h-14 rounded-2xl bg-[#6324eb]/10 dark:bg-[#6324eb]/20 flex items-center justify-center shrink-0 text-[#6324eb]">
+                  <span class="material-symbols-outlined text-3xl">
+                    {testimonial.avatar === '👤'
+                      ? 'person'
+                      : testimonial.avatar}
+                  </span>
+                </div>
+                <div class="text-left">
+                  <p class="text-[#111118] dark:text-white font-black text-xl leading-tight m-0 font-display">
+                    {testimonial.name}
+                  </p>
+                  <p class="text-gray-500 dark:text-gray-400 text-sm font-bold mt-1.5 m-0 leading-tight">
+                    {testimonial.role}
+                  </p>
+                </div>
+              </div>
+
+              <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#6324eb]/5 dark:bg-[#6324eb]/20 border border-[#6324eb]/10 dark:border-[#6324eb]/30 w-full justify-center">
+                <span class="material-symbols-outlined text-[#6324eb] text-lg font-bold">
+                  verified
+                </span>
+                <span class="text-[#6324eb] text-[10px] md:text-xs font-black uppercase tracking-widest font-display">
+                  {testimonial.highlight}
+                </span>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .font-display {
+    font-family: 'Space Grotesk Variable', 'Space Grotesk', sans-serif;
+  }
+  .font-body {
+    font-family: 'Noto Sans Variable', 'Noto Sans', sans-serif;
+  }
+</style>

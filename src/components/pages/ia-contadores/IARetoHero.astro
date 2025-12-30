@@ -1,0 +1,250 @@
+---
+interface Props {
+  registrationUrl: string;
+}
+
+const { registrationUrl } = Astro.props;
+---
+
+<section
+  class="relative flex flex-col items-center justify-center pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-white dark:bg-[#161121]"
+>
+  <!-- Background Decor -->
+  <div
+    class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-[1400px] pointer-events-none z-0"
+  >
+    <div
+      class="absolute top-20 left-[10%] w-[500px] h-[500px] bg-[#6324eb]/5 rounded-full blur-3xl dark:bg-[#6324eb]/10 mix-blend-multiply dark:mix-blend-screen"
+    >
+    </div>
+    <div
+      class="absolute top-40 right-[10%] w-[400px] h-[400px] bg-blue-400/5 rounded-full blur-3xl dark:bg-blue-500/10 mix-blend-multiply dark:mix-blend-screen"
+    >
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4 sm:px-6 relative z-10">
+    <div class="flex flex-col items-center text-center max-w-5xl mx-auto">
+      <!-- Animated Badge -->
+      <div class="mb-8 animate-on-scroll" data-animation="fade-in-up">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#6324eb]/10 border border-[#6324eb]/20 text-[#6324eb] dark:text-white dark:bg-[#6324eb]/20 dark:border-[#6324eb]/30 shadow-sm transition-transform hover:scale-105 cursor-default"
+        >
+          <span class="relative flex h-2 w-2">
+            <span
+              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"
+            ></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"
+            ></span>
+          </span>
+          <span
+            class="text-xs sm:text-sm font-bold tracking-wide uppercase font-display"
+            >Reto Intensivo — Inicia 5 de Enero</span
+          >
+        </div>
+      </div>
+
+      <!-- H1 Headline -->
+      <h1
+        class="text-5xl sm:text-6xl lg:text-7xl font-black text-[#111827] dark:text-white leading-[1.1] tracking-tight mb-6 max-w-4xl animate-on-scroll font-display"
+        data-animation="fade-in-up"
+        data-delay="100"
+      >
+        Aprende a Elegir la <br class="hidden sm:block" />
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-[#6324eb] to-[#2563EB]"
+          >IA Correcta</span
+        > para Cada Tarea Contable
+      </h1>
+
+      <!-- Subheadline -->
+      <p
+        class="text-lg sm:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl mb-10 font-medium animate-on-scroll"
+        data-animation="fade-in-up"
+        data-delay="200"
+      >
+        12 días de casos prácticos con ChatGPT, Claude, Gemini y Perplexity.
+        Aprende a pensar con mentalidad IA-First, no solo a copiar prompts.
+      </p>
+
+      <!-- CTA Area -->
+      <div
+        class="flex flex-col sm:flex-row items-center gap-6 mb-16 w-full sm:w-auto animate-on-scroll"
+        data-animation="scale-in"
+        data-delay="300"
+      >
+        <a
+          href={registrationUrl}
+          target="_blank"
+          class="inline-flex items-center justify-center w-full sm:w-auto min-w-[280px] rounded-xl bg-[#2563EB] py-5 px-8 text-white text-xl font-black leading-none hover:bg-blue-700 hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-blue-500/25 no-underline font-display group"
+          data-track-event="cta_hero_click"
+        >
+          Inscribirme ahora
+          <span
+            class="material-symbols-outlined ml-2 group-hover:translate-x-1 transition-transform font-bold"
+            >arrow_forward</span
+          >
+        </a>
+
+        <div
+          class="flex items-center gap-3 text-sm font-medium text-gray-500 dark:text-gray-400"
+        >
+          <div class="flex -space-x-2">
+            <div
+              class="w-8 h-8 rounded-full border-2 border-white dark:border-[#161121] bg-gray-200 overflow-hidden"
+            >
+              <img
+                alt="User avatar"
+                class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVxNvb8QdpZdSZf9r83x7AuFcpXmEjjbUP3VmLSypy7t_rP3ah9srXcNiafax1pTIP2KbE9sT9RsH-igm3J-Nk3seBYKnW4O8fnWVRXL5W4btK8h625HcuGi4IifXH3FH6GyxQHcJ6-MgysSsWH6T1UeC_rjhr-KBGWQ9tHmNU8zAeNKIo5EDkmtzf0ar5AGQZ3inUQ1guNQXSHgdxpGKQJfsJkXe5LR6TqeXvIjLn4w5t2bKCg4JAIaChBlDies_tklgWwY-yoA"
+              />
+            </div>
+            <div
+              class="w-8 h-8 rounded-full border-2 border-white dark:border-[#161121] bg-gray-200 overflow-hidden"
+            >
+              <img
+                alt="User avatar"
+                class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUyOx1HCYV-brvPKFYkayy1_ysHOWVS5MrEvhFmxawMEim2IdAUd1QoXEKuOENEzh_AM2tBQsI82g_Y-uj8WVFenyRJYU2H8DMLd-VIQvmBW6bB80-KGzW__7DZnYsVxQAsQLbBk_jZDci2TmsqXe8NfGFnaULbUQncj6Ae8rTDQJZyTzmiLgd3Y2qbHVyB2UE8-H0Tgkx6UWpnabdu74k1DNGz5UUOvpLUWEnbcicaVcInkzSx-NI-z0mXSKvC_BdZTmtpNBWmw"
+              />
+            </div>
+            <div
+              class="w-8 h-8 rounded-full border-2 border-white dark:border-[#161121] bg-gray-200 overflow-hidden flex items-center justify-center text-[10px] bg-[#6324eb] text-white font-bold"
+            >
+              +40
+            </div>
+          </div>
+          <p class="m-0 font-medium">Plazas limitadas</p>
+        </div>
+      </div>
+
+      <!-- 3D Abstract Visual -->
+      <div
+        class="relative w-full max-w-[900px] mt-2 group animate-on-scroll perspective-1000"
+        data-animation="scale-in"
+        data-delay="400"
+      >
+        <!-- Glow behind image -->
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent z-10 h-20 bottom-0 dark:from-[#161121]"
+        >
+        </div>
+
+        <div class="relative z-0 animate-float">
+          <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-[#6324eb]/20 via-blue-500/20 to-purple-500/20 blur-[80px] rounded-full pointer-events-none"
+          >
+          </div>
+
+          <!-- Main Visual Image -->
+          <img
+            alt="Abstract 3D shapes evolving from simple cube to complex geometry with blue and purple lighting"
+            class="w-full h-auto object-contain rounded-2xl drop-shadow-2xl opacity-90 hover:opacity-100 transition-opacity duration-700 block dark:hidden mix-blend-darken"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA60GsInvKFj7eaLGvk9eJcS6HjKwEJDDp7Z6ZQbcjn01WKnLneuir_73WIOpSMRIeuc0OqNrYAbFGm0EKk-79UM-5Ct0pGFCSHZbcDu89MjuEYfTIPrUi7I6dU5sZVjYcd5pYlQmojoJo5JA-1NY0Qa7XB6grZ9IjnYrSWgr8ycAUDA1ip-iwH7YfE93dP4U5qpeL9b9YHZDX1SGq61SItT6woxzpigaYNvHzVCduVjd7tHQR3Bvut_6WOyb-Lkqx-oJOS3zUibQ"
+          />
+
+          <!-- Dark Mode Image Variant -->
+          <img
+            alt="Abstract glowing 3D crystal structure representing digital evolution"
+            class="w-full h-auto object-contain rounded-2xl drop-shadow-2xl hidden dark:block"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXOXd_HlCwmWTXPVy4KlDpZYFvt1CvY6t6wFRXCq-7abmf1t9Al4j5Zjng2cKfcMb6m_eAQefntNih6sylw90BuPRKANkkzJu37VZHao7HUswTl3HVjEnA5nIkkHvi9SzXwjGylJ-V5PtkhSx8GcSKHeQtjOW_Zq8IBOpkR7bQLxgPu_XviqoxxeJkMYHpOG8tEvxxj7ioVMkJqqQJEOqEVMhovpKy1SGZ1yVDA1OdXysU1rTGfdXddXsVLHfVfTQsMo8I9qd3MA"
+          />
+        </div>
+
+        <!-- Floating Feature Cards (Decor) -->
+        <div
+          class="absolute top-1/4 -left-4 lg:-left-12 bg-white dark:bg-gray-800/90 backdrop-blur p-4 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 animate-bounce-4s hidden md:block"
+        >
+          <div class="flex items-center gap-3">
+            <div
+              class="size-10 flex-shrink-0 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-[#2563EB] dark:text-blue-300"
+            >
+              <span class="material-symbols-outlined">psychology</span>
+            </div>
+            <div class="text-left">
+              <p class="m-0 text-xs text-gray-400 font-semibold uppercase">
+                Habilidad
+              </p>
+              <p class="m-0 text-sm font-bold text-gray-900 dark:text-white">
+                Mentalidad IA-First
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="absolute bottom-1/4 -right-4 lg:-right-12 bg-white dark:bg-gray-800/90 backdrop-blur p-4 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 animate-bounce-5s hidden md:block"
+        >
+          <div class="flex items-center gap-3">
+            <div
+              class="size-10 flex-shrink-0 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-[#6324eb] dark:text-purple-300"
+            >
+              <span class="material-symbols-outlined">check_circle</span>
+            </div>
+            <div class="text-left">
+              <p class="m-0 text-xs text-gray-400 font-semibold uppercase">
+                Contenido
+              </p>
+              <p class="m-0 text-sm font-bold text-gray-900 dark:text-white">
+                20+ Casos Reales Mexicanos
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Social Proof Strip -->
+<section
+  class="w-full border-y border-gray-100 dark:border-white/5 bg-gray-50/50 dark:bg-white/5 py-10"
+>
+  <div class="container mx-auto px-6">
+    <p
+      class="m-0 text-center text-sm font-semibold text-gray-400 uppercase tracking-widest mb-8 font-display"
+    >
+      Contadores de empresas líderes ya están dentro
+    </p>
+    <div
+      class="flex flex-wrap justify-center items-center gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500"
+    >
+      <h3
+        class="text-xl font-bold text-gray-400 flex items-center gap-2 font-display"
+      >
+        <span class="material-symbols-outlined">account_balance</span>
+        FinTech Corp
+      </h3>
+      <h3
+        class="text-xl font-bold text-gray-400 flex items-center gap-2 font-display"
+      >
+        <span class="material-symbols-outlined">paid</span> AuditGlobal
+      </h3>
+      <h3
+        class="text-xl font-bold text-gray-400 flex items-center gap-2 font-display"
+      >
+        <span class="material-symbols-outlined">calculate</span> TaxFlow
+      </h3>
+      <h3
+        class="text-xl font-bold text-gray-400 flex items-center gap-2 font-display"
+      >
+        <span class="material-symbols-outlined">trending_up</span>
+        GrowthPartners
+      </h3>
+    </div>
+  </div>
+</section>
+
+<style>
+  .font-display {
+    font-family: 'Space Grotesk Variable', 'Space Grotesk', sans-serif;
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24;
+  }
+</style>

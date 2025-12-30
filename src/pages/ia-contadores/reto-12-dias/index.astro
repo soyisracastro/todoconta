@@ -1,6 +1,17 @@
 ---
 import LandingLayout from '@/layouts/LandingLayout.astro';
-import Button from '@/components/ui/Button.astro';
+import IARetoHero from '@/components/pages/ia-contadores/IARetoHero.astro';
+import IAProblemOpportunity from '@/components/pages/ia-contadores/IAProblemOpportunity.astro';
+import IARetoDifferentiation from '@/components/pages/ia-contadores/IARetoDifferentiation.astro';
+import IARetoSchedule from '@/components/pages/ia-contadores/IARetoSchedule.astro';
+import IARetoTestimonials from '@/components/pages/ia-contadores/IARetoTestimonials.astro';
+import IARetoIncludes from '@/components/pages/ia-contadores/IARetoIncludes.astro';
+import IARetoAudience from '@/components/pages/ia-contadores/IARetoAudience.astro';
+import IARetoPricing from '@/components/pages/ia-contadores/IARetoPricing.astro';
+import IARetoFAQ from '@/components/pages/ia-contadores/IARetoFAQ.astro';
+import IARetoInstructor from '@/components/pages/ia-contadores/IARetoInstructor.astro';
+import IARetoFinalCTA from '@/components/pages/ia-contadores/IARetoFinalCTA.astro';
+import IARetoMatrix from '@/components/pages/ia-contadores/IARetoMatrix.astro';
 
 const title = 'Reto IA 12 Días - ChatGPT, Claude y Gemini 3 para Contadores';
 const description =
@@ -16,819 +27,54 @@ const keywords = [
 ];
 
 // Configuration
-const REGISTRATION_CHALLENGE_URL = 'https://nas.io/checkout-global?communityId=67ab5a14d444670df4027cad&communityCode=TODOCONTA_CLUB&requestor=whatsappSignup&linkClicked=https%3A%2F%2Fnas.io%2Fportal%2Fchallenges%2Fmanage%3Fid%3D6932a1a7d7b7451ff09982cc&sourceInfoType=challenge&sourceInfoOrigin=6932a1a7d7b7451ff09982cc';
+const REGISTRATION_CHALLENGE_URL =
+  'https://nas.io/checkout-global?communityId=67ab5a14d444670df4027cad&communityCode=TODOCONTA_CLUB&requestor=whatsappSignup&linkClicked=https%3A%2F%2Fnas.io%2Fportal%2Fchallenges%2Fmanage%3Fid%3D6932a1a7d7b7451ff09982cc&sourceInfoType=challenge&sourceInfoOrigin=6932a1a7d7b7451ff09982cc';
 const EARLY_BIRD_PRICE = '$2,997';
 const EARLY_BIRD_DEADLINE = '5 de enero 2026';
 
 const INSTRUCTOR_NAME = 'Israel Castro';
-
-// Testimonials from previous editions
-const testimonials = [
-  {
-    name: 'Ricardo M.',
-    role: 'Contador con 8 años de experiencia, CDMX',
-    avatar: '👤',
-    quote:
-      'Después de aplicar lo que aprendí en el reto, ahora combino Claude y ChatGPT estratégicamente para dictámenes fiscales. He reducido significativamente el tiempo sin comprometer calidad.',
-    highlight: 'Resultados del reto anterior',
-  },
-  {
-    name: 'Lizeth G.',
-    role: 'Despacho contable, Guadalajara',
-    avatar: '👤',
-    quote:
-      'Después del reto, cambié mi forma de trabajar. Ahora uso la herramienta correcta para cada tarea y he podido aumentar mi capacidad de atención sin contratar más personal.',
-    highlight: 'Resultados del reto anterior',
-  },
-  {
-    name: 'Carmen Lucía R.',
-    role: 'Director de despacho con 5 contadores, Monterrey',
-    avatar: '👤',
-    quote:
-      'Lo más valioso fue cambiar mi mentalidad sobre IA. Implementé el framework con mi equipo, y ahora usamos IA como asistente inteligente en declaraciones complementarias y análisis de discrepancias.',
-    highlight: 'Resultados del reto anterior',
-  },
-];
 ---
 
-<LandingLayout title={title} description={description} keywords={keywords} showFooter={false}>
-  <!-- SECCIÓN 1: HERO DEL RETO -->
-  <section class="hero-section">
-    <div class="hero-gradient-bg"></div>
-    <div class="floating-particles">
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-    </div>
-    <div class="hero-bg-overlay"></div>
-    <div class="hero-blobs">
-      <div class="blob blob-purple"></div>
-      <div class="blob blob-blue"></div>
-    </div>
+<LandingLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  showFooter={false}
+>
+  <IARetoHero registrationUrl={REGISTRATION_CHALLENGE_URL} />
+  <IAProblemOpportunity registrationUrl={REGISTRATION_CHALLENGE_URL} />
 
-    <div class="container hero-content">
-      <div class="badge-container">
-        <span class="badge-icon">🔥</span>
-        <span class="badge-text"
-          >Reto 12 días para transformar tu mentalidad contable</span
-        >
-      </div>
+  <IARetoDifferentiation />
 
-      <h1 class="hero-title animate-on-scroll" data-animation="fade-in-up" data-delay="100">
-        Piensa con <span class="gradient-text">IA como Estratega</span>,<br /> No
-        como Usuario
-      </h1>
+  <IARetoMatrix />
 
-      <p class="hero-subtitle animate-on-scroll" data-animation="fade-in-up" data-delay="200">
-        El reto donde desarrollas la mentalidad que te mantendrá relevante sin
-        importar cuál IA sea la más potente. Aprende a pensar, no solo a usar
-      </p>
+  <IARetoSchedule registrationUrl={REGISTRATION_CHALLENGE_URL} />
 
-      <div class="hero-cta animate-on-scroll" data-animation="scale-in" data-delay="400">
-        <Button
-          href={REGISTRATION_CHALLENGE_URL}
-          variant="primary"
-          size="xl"
-          class="btn-glow btn-pulse"
-          data-track-event="cta_hero_click"
-        >
-          Inscribirme ahora
-        </Button>
-      </div>
-    </div>
-  </section>
+  <IARetoTestimonials />
 
-  <!-- SECCIÓN 2: PROBLEMA/OPORTUNIDAD -->
-  <section class="problem-section">
-    <div class="container">
-      <div class="section-header animate-on-scroll" data-animation="fade-in-up">
-        <h2 class="section-title">
-          La IA ya está aquí. <span class="text-highlight"
-            >Los contadores que la dominen liderarán.</span
-          >
-        </h2>
-      </div>
+  <IARetoIncludes registrationUrl={REGISTRATION_CHALLENGE_URL} />
 
-      <div class="grid-3-cols">
-        <!-- El Problema -->
-        <div class="card card-problem animate-on-scroll" data-animation="fade-in-up" data-delay="0">
-          <div class="card-icon icon-red">⚠️</div>
-          <h3 class="card-title">El Problema</h3>
-          <p class="card-text">
-            La mayoría usa ChatGPT gratis y no sabe que existen herramientas más
-            potentes. Se quedan estancados con respuestas genéricas y
-            alucinaciones.
-          </p>
-        </div>
+  <IARetoInstructor name={INSTRUCTOR_NAME} />
 
-        <!-- La Oportunidad -->
-        <div class="card card-opportunity animate-on-scroll" data-animation="fade-in-up" data-delay="150">
-          <div class="new-badge">NUEVO</div>
-          <div class="card-icon icon-purple">🚀</div>
-          <h3 class="card-title">La Oportunidad</h3>
-          <p class="card-text">
-            Gemini 3 salió hace unas semanas. Dominarlo AHORA te da una ventaja
-            competitiva de 6-12 meses sobre el resto del mercado.
-          </p>
-        </div>
+  <IARetoAudience registrationUrl={REGISTRATION_CHALLENGE_URL} />
 
-        <!-- El Resultado -->
-        <div class="card card-result animate-on-scroll" data-animation="fade-in-up" data-delay="300">
-          <div class="card-icon icon-green">💰</div>
-          <h3 class="card-title">El Resultado</h3>
-          <p class="card-text">
-            Los "Contadores IA" cobran 2-3x más por sus servicios y recuperan
-            10-15 horas a la semana automatizando lo operativo.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <IARetoPricing
+    registrationUrl={REGISTRATION_CHALLENGE_URL}
+    price={EARLY_BIRD_PRICE}
+    deadline={EARLY_BIRD_DEADLINE}
+  />
 
-  <!-- SECCIÓN 3: POR QUÉ ES DIFERENTE -->
-  <section class="difference-section">
-    <div class="container">
-      <div class="section-header animate-on-scroll" data-animation="fade-in-up">
-        <h2 class="section-title">¿Por qué este reto es diferente?</h2>
-      </div>
+  <IARetoFAQ registrationUrl={REGISTRATION_CHALLENGE_URL} />
 
-      <div class="grid-4-cols">
-        <div class="feature-box animate-on-scroll" data-animation="scale-in" data-delay="0">
-          <div class="feature-emoji">🤖</div>
-          <h3 class="feature-title">No es solo ChatGPT</h3>
-          <p class="feature-text">
-            Dominarás el trío de poder: ChatGPT + Claude + Gemini 3 (lo más
-            reciente en tecnología).
-          </p>
-        </div>
-        <div class="feature-box animate-on-scroll" data-animation="scale-in" data-delay="100">
-          <div class="feature-emoji">🧠</div>
-          <h3 class="feature-title">Mentalidad IA-First</h3>
-          <p class="feature-text">
-            Aprenderás a pensar estratégicamente para resolver problemas
-            complejos, no solo a meter prompts.
-          </p>
-        </div>
-        <div class="feature-box animate-on-scroll" data-animation="scale-in" data-delay="200">
-          <div class="feature-emoji">🇲🇽</div>
-          <h3 class="feature-title">Casos 100% Reales</h3>
-          <p class="feature-text">
-            Ejemplos tropicalizados: SAT, CFDI, RESICO, nóminas y leyes
-            mexicanas.
-          </p>
-        </div>
-        <div class="feature-box animate-on-scroll" data-animation="scale-in" data-delay="300">
-          <div class="feature-emoji">💸</div>
-          <h3 class="feature-title">Monetización Práctica</h3>
-          <p class="feature-text">
-            Incluye un plan de acción de 30 días para que generes ingresos extra
-            con lo aprendido.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECCIÓN 4: LOS 12 DÍAS DEL RETO -->
-  <section class="timeline-section">
-    <div class="container">
-      <div class="section-header animate-on-scroll" data-animation="fade-in-up">
-        <h2 class="section-title">12 Días de Transformación Total</h2>
-        <p class="section-subtitle">
-          Un viaje paso a paso para dominar la Inteligencia Artificial
-        </p>
-      </div>
-
-      <div class="timeline-container">
-        <!-- Bloque 1 -->
-        <div class="timeline-block block-purple animate-on-scroll" data-animation="slide-in-left" data-delay="0">
-          <div class="block-header">
-            <h3>Bloque 1: Fundamentos (Días 1-3)</h3>
-          </div>
-          <div class="block-content grid-3-cols">
-            <div class="day-item">
-              <span class="day-label">Día 1</span>
-              <h4>Mentalidad IA-First</h4>
-              <p>Comparativa estratégica de las 3 IAs y cómo elegir.</p>
-            </div>
-            <div class="day-item">
-              <span class="day-label">Día 2</span>
-              <h4>El Trío en Acción</h4>
-              <p>
-                Resolvemos el mismo caso contable con 3 soluciones distintas.
-              </p>
-            </div>
-            <div class="day-item">
-              <span class="day-label">Día 3</span>
-              <h4>Prompts Universales</h4>
-              <p>Estructuras maestras que funcionan en cualquier modelo.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bloque 2 -->
-        <div class="timeline-block block-blue animate-on-scroll" data-animation="slide-in-right" data-delay="150">
-          <div class="block-header">
-            <h3>Bloque 2: Dominio Individual (Días 4-6)</h3>
-          </div>
-          <div class="block-content grid-3-cols">
-            <div class="day-item">
-              <span class="day-label">Día 4</span>
-              <h4>ChatGPT Deep Dive</h4>
-              <p>Creación de GPTs personalizados para tu despacho.</p>
-            </div>
-            <div class="day-item">
-              <span class="day-label">Día 5</span>
-              <h4>Claude Deep Dive</h4>
-              <p>Uso de Projects y análisis profundo de documentos.</p>
-            </div>
-            <div class="day-item">
-              <span class="day-label">Día 6</span>
-              <h4>Gemini 3 Deep Dive</h4>
-              <p>Dominando las Gemas y AI Studio de Google.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bloque 3 -->
-        <div class="timeline-block block-indigo animate-on-scroll" data-animation="slide-in-left" data-delay="300">
-          <div class="block-header">
-            <h3>Bloque 3: Ecosistema Híbrido (Días 7-9)</h3>
-          </div>
-          <div class="block-content grid-3-cols">
-            <div class="day-item">
-              <span class="day-label">Día 7</span>
-              <h4>NotebookLM 2.0</h4>
-              <p>Fuentes grounded para eliminar alucinaciones.</p>
-            </div>
-            <div class="day-item">
-              <span class="day-label">Día 8</span>
-              <h4>Perplexity Pro</h4>
-              <p>Research fiscal avanzado y búsqueda en tiempo real.</p>
-            </div>
-            <div class="day-item">
-              <span class="day-label">Día 9</span>
-              <h4>Flujos Híbridos</h4>
-              <p>Cómo hacer que las 3 IAs trabajen juntas en un workflow.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bloque 4 & 5 -->
-        <div class="grid-2-cols">
-          <div class="timeline-block block-pink animate-on-scroll" data-animation="scale-in" data-delay="0">
-            <div class="block-header">
-              <h3>Bloque 4: Casos Avanzados</h3>
-            </div>
-            <div class="block-content">
-              <div class="day-item mb-4">
-                <span class="day-label">Día 10</span>
-                <h4>Caso Multimodal Real</h4>
-                <p>Procesando PDF + Voz + Excel simultáneamente.</p>
-              </div>
-              <div class="day-item">
-                <span class="day-label">Día 11</span>
-                <h4>Google Antigravity</h4>
-                <p>Creación de páginas web y herramientas simples con IA.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="timeline-block block-gold animate-on-scroll" data-animation="scale-in" data-delay="150">
-            <div class="block-header">
-              <h3>Bloque 5: Monetización</h3>
-            </div>
-            <div class="block-content flex-center">
-              <div class="day-item">
-                <span class="day-label">Día 12</span>
-                <h4>El Plan de Negocio</h4>
-                <p>
-                  4 modelos probados de monetización + Tu plan de acción de 30
-                  días para recuperar la inversión.
-                </p>
-              </div>              
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="timeline-cta animate-on-scroll" data-animation="fade-in-up" data-delay="400">
-        <Button
-          href={REGISTRATION_CHALLENGE_URL}
-          variant="outline"
-          size="xl"
-          class="btn-gold-outline-large scroll-to-pricing"
-          data-track-event="cta_timeline_scroll"
-        >
-          Ver precio y registrarme
-        </Button>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECCIÓN 5: TESTIMONIOS -->
-  <section class="testimonials">
-    <div class="container">
-      <div class="section-header animate-on-scroll" data-animation="fade-in-up">
-        <h2 class="section-title">Lo que dicen contadores como tú</h2>
-        <p class="section-subtitle">Resultados reales de ediciones anteriores</p>
-      </div>
-
-      <div class="testimonials-grid">
-        {
-          testimonials.map((testimonial, index) => (
-            <div
-              class="testimonial-card animate-on-scroll"
-              data-animation="fade-in-up"
-              data-delay={index * 150}
-            >
-              <div class="quote-icon">"</div>
-              <p class="testimonial-quote">{testimonial.quote}</p>
-              <div class="testimonial-highlight">{testimonial.highlight}</div>
-              <div class="testimonial-author">
-                <div class="author-avatar">{testimonial.avatar}</div>
-                <div class="author-info">
-                  <p class="author-name">{testimonial.name}</p>
-                  <p class="author-role">{testimonial.role}</p>
-                </div>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- SECCIÓN 6: QUÉ INCLUYE -->
-  <section class="included-section">
-    <div class="container">
-      <div class="section-header animate-on-scroll" data-animation="fade-in-up">
-        <h2 class="section-title">Todo lo que necesitas en un solo lugar</h2>
-        <p class="section-subtitle">
-          Sin ventas adicionales ni costos ocultos.
-        </p>
-      </div>
-
-      <div class="grid-2-cols included-grid">
-        <!-- Columna 1 -->
-        <div class="included-col animate-on-scroll" data-animation="slide-in-left" data-delay="0">
-          <div class="included-group">
-            <h3 class="group-title">Contenido Completo</h3>
-            <ul class="check-list">
-              <li>
-                <span class="check-icon">✅</span>
-                <span
-                  ><strong>12 sesiones en vivo</strong> (45-60 min c/u) con Q&A al
-                  final</span
-                >
-              </li>
-              <li>
-                <span class="check-icon">✅</span>
-                <span
-                  >Acceso <strong>ILIMITADO</strong> a las grabaciones de por vida</span
-                >
-              </li>
-              <li>
-                <span class="check-icon">✅</span>
-                <span>Transcripciones y resúmenes de todas las sesiones</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="included-group">
-            <h3 class="group-title">Materiales de Trabajo</h3>
-            <ul class="check-list">
-              <li>
-                <span class="check-icon">✅</span>
-                <span
-                  ><strong>Matriz de decisión:</strong> ¿Cuál IA usar para qué tarea?</span
-                >
-              </li>
-              <li>
-                <span class="check-icon">✅</span>
-                <span
-                  >Biblioteca de <strong>20+ prompts</strong> probados y listos para
-                  copiar</span
-                >
-              </li>
-              <li>
-                <span class="check-icon">✅</span>
-                <span
-                  >10 asistentes pre-configurados (GPTs, Gemas, Projects)</span
-                >
-              </li>
-              <li>
-                <span class="check-icon">✅</span>
-                <span
-                  >Plantillas de workflows híbridos y guía de Google Workspace</span
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Columna 2 -->
-        <div class="included-col animate-on-scroll" data-animation="slide-in-right" data-delay="150">
-          <div class="included-group">
-            <h3 class="group-title">Soporte y Comunidad</h3>
-            <ul class="check-list">
-              <li>
-                <span class="check-icon">✅</span>
-                <span>Grupo privado de WhatsApp para networking</span>
-              </li>
-              <li>
-                <span class="check-icon">✅</span>
-                <span
-                  ><strong>60 días de soporte</strong> por email y WhatsApp</span
-                >
-              </li>
-              <li>
-                <span class="check-icon">✅</span>
-                <span>3 meses de actualizaciones gratuitas del contenido</span>
-              </li>
-              <li>
-                <span class="check-icon">✅</span>
-                <span>Sesión extra de Q&A grupal (30 de enero)</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="bonus-card">
-            <h4 class="bonus-title">🎁 Bonus Especial</h4>
-            <p class="bonus-text">
-              Acceso anticipado a nuestra base de conocimientos "Contador IA"
-              con tutoriales en video de herramientas emergentes.
-            </p>
-            <div class="bonus-value">
-              Valorado en $1,500 MXN (Incluido GRATIS)
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECCIÓN 7: MATRIZ DE DECISIÓN PREVIEW -->
-  <section class="matrix-section">
-    <div class="container">
-      <div class="section-header animate-on-scroll" data-animation="fade-in-up">
-        <h2 class="section-title">Aprende a elegir tu arma</h2>
-        <p class="section-subtitle">
-          ¿Cuándo usar ChatGPT, Claude o Gemini 3? Te enseñaremos a decidir.
-        </p>
-      </div>
-
-      <div class="matrix-container animate-on-scroll" data-animation="scale-in" data-delay="200">
-        <div class="table-responsive">
-          <table class="matrix-table">
-            <thead>
-              <tr>
-                <th>Tarea Contable</th>
-                <th class="text-center text-green">ChatGPT 4o</th>
-                <th class="text-center text-orange">Claude 3.5</th>
-                <th class="text-center text-blue">Gemini 3</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Redacción rápida de correos</td>
-                <td class="text-center">⭐⭐⭐⭐⭐</td>
-                <td class="text-center">⭐⭐⭐⭐</td>
-                <td class="text-center">⭐⭐⭐</td>
-              </tr>
-              <tr>
-                <td>Análisis profundo de contratos</td>
-                <td class="text-center">⭐⭐⭐</td>
-                <td class="text-center">⭐⭐⭐⭐⭐</td>
-                <td class="text-center">⭐⭐⭐⭐</td>
-              </tr>
-              <tr>
-                <td>Procesamiento de PDFs (OCR)</td>
-                <td class="text-center">⭐⭐</td>
-                <td class="text-center">⭐⭐⭐</td>
-                <td class="text-center">⭐⭐⭐⭐⭐</td>
-              </tr>
-              <tr>
-                <td>Integración Google Workspace</td>
-                <td class="text-center">⭐</td>
-                <td class="text-center">⭐</td>
-                <td class="text-center">⭐⭐⭐⭐⭐</td>
-              </tr>
-              <tr>
-                <td>Casos multimodales (Video/Audio)</td>
-                <td class="text-center">⭐⭐⭐⭐</td>
-                <td class="text-center">⭐⭐</td>
-                <td class="text-center">⭐⭐⭐⭐⭐</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="matrix-note">
-          * Esta es SOLO una muestra. En el reto recibirás la matriz completa
-          con 20+ casos de uso detallados.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECCIÓN 8: SOBRE EL INSTRUCTOR -->
-  <section class="instructor">
-    <div class="container">
-      <div class="section-header animate-on-scroll" data-animation="fade-in-up">
-        <h2 class="section-title">Sobre el Instructor</h2>
-      </div>
-
-      <div class="instructor-card animate-on-scroll" data-animation="scale-in" data-delay="200">
-        <img
-          src="/images/photo.png"
-          alt={INSTRUCTOR_NAME}
-          class="avatar"
-        />
-        <h3 class="name">{INSTRUCTOR_NAME}</h3>
-        <p class="role">Contador público y programador con 12+ años de experiencia</p>
-        <p class="credentials">Creador de TodoConta</p>
-        <p class="bio">
-          A través de mi plataforma, he trabajado con <strong>cientos de contadores mexicanos</strong> interesados en integrar IA. Los que implementan el framework reportan mejoras significativas en productividad y nuevas oportunidades de ingresos.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECCIÓN 9: PARA QUIÉN ES -->
-  <section class="audience-section">
-    <div class="container">
-      <div class="grid-2-cols audience-grid">
-        <!-- Es para ti -->
-        <div class="audience-card card-yes animate-on-scroll" data-animation="slide-in-left" data-delay="0">
-          <h3 class="audience-title title-yes">
-            <span class="icon">✅</span> Es para ti si:
-          </h3>
-          <ul class="audience-list">
-            <li>Eres contador público y quieres aumentar tus ingresos.</li>
-            <li>Ya usas IA pero sientes que la usas de forma muy básica.</li>
-            <li>Quieres diferenciarte de la competencia que cobra barato.</li>
-            <li>
-              Buscas automatizar tareas repetitivas para tener más tiempo libre.
-            </li>
-            <li>Quieres ofrecer servicios premium de consultoría.</li>
-          </ul>
-        </div>
-
-        <!-- NO es para ti -->
-        <div class="audience-card card-no animate-on-scroll" data-animation="slide-in-right" data-delay="150">
-          <h3 class="audience-title title-no">
-            <span class="icon">❌</span> NO es para ti si:
-          </h3>
-          <ul class="audience-list">
-            <li>Buscas fórmulas mágicas para hacerte rico sin esfuerzo.</li>
-            <li>
-              No tienes tiempo ni disposición para practicar lo aprendido.
-            </li>
-            <li>Solo quieres "ver qué tal" sin comprometerte.</li>
-            <li>Esperas que la IA haga todo tu trabajo sin supervisión.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECCIÓN 10: PRICING -->
-  <section class="pricing-section-dark" id="pricing">
-    <div class="pricing-bg-glow"></div>
-    <div class="container">
-      <div class="pricing-card-dark animate-on-scroll" data-animation="scale-in" data-delay="200">
-        <div class="pricing-header">
-          <h3>UN SOLO PLAN</h3>
-          <p>Todo incluido. Sin restricciones.</p>
-        </div>
-
-        <div class="pricing-price">
-          <div class="current-price">
-            <span class="amount">{EARLY_BIRD_PRICE}</span>
-            <span class="currency">MXN</span>
-          </div>
-          <p class="start-date">
-            Inicia el {EARLY_BIRD_DEADLINE}
-          </p>
-        </div>
-
-        <div class="pricing-features">
-          <div class="feature-row">
-            <span class="check">✓</span>
-            <span>Acceso a las 12 sesiones en vivo</span>
-          </div>
-          <div class="feature-row">
-            <span class="check">✓</span>
-            <span>Grabaciones ilimitadas de por vida</span>
-          </div>
-          <div class="feature-row">
-            <span class="check">✓</span>
-            <span>Pack de 20+ Prompts y Asistentes</span>
-          </div>
-          <div class="feature-row">
-            <span class="check">✓</span>
-            <span>Certificado de finalización</span>
-          </div>
-          <div class="feature-row">
-            <span class="check">✓</span>
-            <span>Soporte por 60 días</span>
-          </div>
-        </div>
-
-        <div class="pricing-cta">
-          <Button
-            href={REGISTRATION_CHALLENGE_URL}
-            variant="primary"
-            size="xl"
-            class="btn-full btn-glow"
-            data-track-event="cta_pricing_click"
-          >
-            Inscribirme ahora
-          </Button>
-          <p class="guarantee-text">
-            Garantía de 30 días: Si sientes que no es para ti, te devolvemos el
-            100%.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECCIÓN 11: FAQ -->
-  <section class="faq-section-dark">
-    <div class="container max-w-md">
-      <div class="section-header animate-on-scroll" data-animation="fade-in-up">
-        <h2 class="section-title">Preguntas Frecuentes</h2>
-      </div>
-
-      <div class="faq-list">
-        <details class="faq-item animate-on-scroll" data-animation="fade-in-up" data-delay="0">
-          <summary class="faq-question">
-            ¿Necesito experiencia previa en IA?
-            <span class="arrow">▼</span>
-          </summary>
-          <div class="faq-answer">
-            No, el reto está diseñado para llevarte desde cero hasta un nivel
-            avanzado. Explicamos todos los conceptos sin tecnicismos complejos.
-          </div>
-        </details>
-
-        <details class="faq-item animate-on-scroll" data-animation="fade-in-up" data-delay="100">
-          <summary class="faq-question">
-            ¿Necesito pagar por ChatGPT Plus, Claude Pro o Gemini Advanced?
-            <span class="arrow">▼</span>
-          </summary>
-          <div class="faq-answer">
-            No es obligatorio. Puedes tomar el curso con las versiones
-            gratuitas. Sin embargo, para sacar el máximo provecho profesional,
-            recomendamos tener al menos una suscripción activa durante el mes
-            del reto.
-          </div>
-        </details>
-
-        <details class="faq-item animate-on-scroll" data-animation="fade-in-up" data-delay="200">
-          <summary class="faq-question">
-            ¿Qué pasa si no puedo asistir en vivo?
-            <span class="arrow">▼</span>
-          </summary>
-          <div class="faq-answer">
-            Tendrás acceso a las grabaciones de todas las sesiones en nuestra
-            plataforma, disponibles menos de 24 horas después de cada clase. El
-            acceso es ilimitado y de por vida.
-          </div>
-        </details>
-
-        <details class="faq-item animate-on-scroll" data-animation="fade-in-up" data-delay="300">
-          <summary class="faq-question">
-            ¿Cuánto tiempo me tomará ver resultados?
-            <span class="arrow">▼</span>
-          </summary>
-          <div class="faq-answer">
-            Nuestros alumnos suelen reportar ahorros de tiempo desde la primera
-            semana. La generación de ingresos extra depende de tu
-            implementación, pero el plan de monetización está diseñado para
-            ejecutarse en 30 días.
-          </div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECCIÓN 12: LLAMADO FINAL -->
-  <section class="final-cta">
-    <div class="container">
-      <h2 class="final-title animate-on-scroll" data-animation="fade-in-up">
-        No dejes pasar esta oportunidad
-      </h2>
-      <p class="final-text animate-on-scroll" data-animation="fade-in-up" data-delay="100">
-        En 12 meses habrá dos tipos de contadores: los que dominan IA y los que
-        compiten por precio. <br />
-        <strong>¿De qué lado quieres estar?</strong>
-      </p>
-
-      <div class="final-actions animate-on-scroll" data-animation="scale-in" data-delay="200">
-        <Button
-          href={REGISTRATION_CHALLENGE_URL}
-          variant="primary"
-          size="xl"
-          class="btn-glow btn-pulse"
-          data-track-event="cta_final_click"
-        >
-          Reservar mi lugar ahora
-        </Button>
-        <p class="final-note">
-          Inicia el {EARLY_BIRD_DEADLINE}
-        </p>
-      </div>
-    </div>
-  </section>
+  <IARetoFinalCTA
+    registrationUrl={REGISTRATION_CHALLENGE_URL}
+    deadline={EARLY_BIRD_DEADLINE}
+  />
 </LandingLayout>
 
-<style>
-  /* Dark Theme Variables for this page only */
-  :root {
-    --bg-dark: #0f0518;
-    --bg-darker: #000000;
-    --bg-card: rgba(255, 255, 255, 0.05);
-    --text-main: #ffffff;
-    --text-muted: #9ca3af;
-    --accent-purple: #a855f7;
-    --accent-blue: #3b82f6;
-    --accent-gold: #eab308;
-    --color-success: #10b981;
-  }
-
-  /* Global Styles for this page */
-  section {
-    padding: var(--space-16) 0;
-    color: var(--text-main);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--space-4);
-  }
-
-  .max-w-md {
-    max-width: 800px;
-  }
-
-  /* Utilities */
-  .grid-2-cols {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
-  }
-  .grid-3-cols {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-  }
-  .grid-4-cols {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-  }
-
-  @media (min-width: 768px) {
-    .grid-2-cols {
-      grid-template-columns: 1fr 1fr;
-    }
-    .grid-3-cols {
-      grid-template-columns: repeat(3, 1fr);
-    }
-    .grid-4-cols {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-
-  .section-header {
-    text-align: center;
-    margin-bottom: var(--space-12);
-  }
-  .section-title {
-    font-size: var(--font-size-4xl);
-    font-weight: 700;
-    margin-bottom: var(--space-4);
-    line-height: 1.2;
-    color: var(--text-main);
-    -webkit-text-fill-color: unset;
-  }
-  .section-subtitle {
-    font-size: var(--font-size-xl);
-    color: var(--text-muted);
-  }
-  .text-highlight {
-    color: var(--accent-purple);
-  }
-
+<style is:global>
   /* ========================================
-     ANIMATIONS
+     ANIMATIONS & GLOBAL UTILITIES
      ======================================== */
   @keyframes fadeInUp {
     from {
@@ -858,6 +104,28 @@ const testimonials = [
     }
     to {
       opacity: 1;
+    }
+  }
+
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
     }
   }
 
@@ -904,46 +172,15 @@ const testimonials = [
     }
   }
 
-  @keyframes pulse {
-    0%,
-    100% {
-      transform: scale(1);
-      box-shadow: 0 0 20px rgba(234, 179, 8, 0.3);
+  @keyframes shine {
+    from {
+      left: -100%;
     }
-    50% {
-      transform: scale(1.02);
-      box-shadow: 0 0 30px rgba(234, 179, 8, 0.5);
+    to {
+      left: 100%;
     }
   }
 
-  @keyframes gradientShift {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
-  @keyframes particleFloat {
-    0% {
-      transform: translate(0, 0) rotate(0deg);
-    }
-    33% {
-      transform: translate(30px, -50px) rotate(120deg);
-    }
-    66% {
-      transform: translate(-20px, 20px) rotate(240deg);
-    }
-    100% {
-      transform: translate(0, 0) rotate(360deg);
-    }
-  }
-
-  /* Animation classes */
   .animate-on-scroll {
     opacity: 0;
   }
@@ -963,6 +200,12 @@ const testimonials = [
   .animated[data-animation='fade-in'] {
     animation-name: fadeIn;
   }
+  .animated[data-animation='fade-in-left'] {
+    animation-name: fadeInLeft;
+  }
+  .animated[data-animation='fade-in-right'] {
+    animation-name: fadeInRight;
+  }
   .animated[data-animation='slide-in-left'] {
     animation-name: slideInLeft;
   }
@@ -973,1014 +216,39 @@ const testimonials = [
     animation-name: scaleIn;
   }
 
-  /* Hero Section */
-  .hero-section {
-    position: relative;
-    background: linear-gradient(
-      to bottom,
-      var(--bg-darker),
-      #1a0b2e,
-      var(--bg-dark)
-    );
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding-top: var(--space-32);
-    padding-bottom: var(--space-20);
-    text-align: center;
+  /* Delay utilities */
+  .animated[data-delay='100'] {
+    animation-delay: 100ms;
   }
-
-  .hero-gradient-bg {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-      circle at 50% 0%,
-      rgba(168, 85, 247, 0.2),
-      transparent 50%
-    );
-    pointer-events: none;
+  .animated[data-delay='200'] {
+    animation-delay: 200ms;
   }
-
-  .floating-particles {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
+  .animated[data-delay='300'] {
+    animation-delay: 300ms;
   }
-
-  .particle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: var(--accent-purple);
-    border-radius: 50%;
-    opacity: 0.3;
-    animation: particleFloat 15s infinite ease-in-out;
+  .animated[data-delay='400'] {
+    animation-delay: 400ms;
   }
-
-  .particle:nth-child(1) {
-    top: 10%;
-    left: 20%;
-    animation-delay: 0s;
-  }
-  .particle:nth-child(2) {
-    top: 20%;
-    right: 30%;
-    animation-delay: 2s;
-  }
-  .particle:nth-child(3) {
-    top: 60%;
-    left: 10%;
-    animation-delay: 4s;
-  }
-  .particle:nth-child(4) {
-    top: 40%;
-    right: 20%;
-    animation-delay: 1s;
-  }
-  .particle:nth-child(5) {
-    bottom: 20%;
-    left: 50%;
-    animation-delay: 3s;
-  }
-
-  .hero-bg-overlay {
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(
-      circle at 1px 1px,
-      rgba(255, 255, 255, 0.1) 1px,
-      transparent 0
-    );
-    background-size: 40px 40px;
-    opacity: 0.2;
-  }
-
-  .hero-blobs .blob {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.3;
-  }
-  .blob-purple {
-    top: 10%;
-    right: 0;
-    background: var(--accent-purple);
-  }
-  .blob-blue {
-    bottom: 0;
-    left: 0;
-    background: var(--accent-blue);
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 10;
-  }
-
-  .badge-container {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    background: rgba(255, 255, 255, 0.1);
-    padding: var(--space-2) var(--space-4);
-    border-radius: var(--border-radius-full);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    margin-bottom: var(--space-8);
-    animation: float 3s infinite ease-in-out;
-    backdrop-filter: blur(10px);
-  }
-  .badge-text {
-    color: #e9d5ff;
-    font-weight: 500;
-    font-size: var(--font-size-sm);
-  }
-
-  .hero-title {
-    font-size: var(--font-size-6xl);
-    font-weight: 800;
-    margin-bottom: var(--space-6);
-    line-height: 1.1;
-    color: #ffffff;
-  }
-  .gradient-text {
-    background: linear-gradient(
-      90deg,
-      #60a5fa,
-      #c084fc,
-      #f472b6,
-      #60a5fa,
-      #c084fc
-    );
-    background-size: 200% auto;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    animation: gradientShift 5s linear infinite;
-    display: inline-block;
-  }
-
-  .hero-subtitle {
-    font-size: var(--font-size-2xl);
-    color: #e2e8f0;
-    max-width: 800px;
-    margin: 0 auto var(--space-8);
-  }
-
-  .hero-meta {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-4);
-    margin-bottom: var(--space-12);
-    flex-wrap: wrap;
-  }
-  .meta-item {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    background: rgba(0, 0, 0, 0.3);
-    padding: var(--space-2) var(--space-4);
-    border-radius: var(--border-radius-lg);
-    color: #e2e8f0;
-    backdrop-filter: blur(4px);
-    transition: all 0.3s ease;
-  }
-
-  .meta-item:hover {
-    background: rgba(0, 0, 0, 0.5);
-    transform: translateY(-2px);
-  }
-
-  .hero-cta {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-4);
-  }
-
-  .final-actions .btn-glow,
-  .hero-cta .btn-glow {
-    background: var(--accent-gold);
-    color: black;
-    font-weight: bold;
-    border: none;
-    box-shadow: 0 0 20px rgba(234, 179, 8, 0.3);
-  }
-  .final-actions .btn-glow:hover,
-  .hero-cta .btn-glow:hover {
-    transform: scale(1.05);
-    background: #facc15;
-  }
-
-  .btn-pulse {
-    animation: pulse 2s infinite;
-  }
-
-  /* Problem Section */
-  .problem-section {
-    background: var(--bg-dark);
-  }
-  .card {
-    background: var(--bg-card);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: var(--space-8);
-    border-radius: var(--border-radius-xl);
-    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
-  }
-  .card:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.1);
-  }
-
-  .card-icon {
-    font-size: var(--font-size-4xl);
-    margin-bottom: var(--space-6);
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
-  }
-  .card-title {
-    font-size: var(--font-size-xl);
-    font-weight: 700;
-    margin-bottom: var(--space-4);
-    color: var(--text-main);
-  }
-  .card-text {
-    color: var(--text-muted);
-    line-height: 1.6;
-  }
-
-  .card-opportunity {
-    border-color: rgba(168, 85, 247, 0.3);
-    position: relative;
-    overflow: hidden;
-  }
-  .new-badge {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: var(--accent-purple);
-    font-size: var(--font-size-xs);
-    font-weight: bold;
-    padding: var(--space-1) var(--space-3);
-    border-bottom-left-radius: var(--border-radius-lg);
-  }
-
-  /* Difference Section */
-  .difference-section {
-    background: linear-gradient(to bottom, var(--bg-dark), #1a0b2e);
-  }
-  .feature-box {
-    background: var(--bg-card);
-    padding: var(--space-6);
-    border-radius: var(--border-radius-xl);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-  }
-  .feature-box:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-purple);
-  }
-  .feature-emoji {
-    font-size: var(--font-size-4xl);
-    margin-bottom: var(--space-4);
-  }
-  .feature-title {
-    font-size: var(--font-size-lg);
-    font-weight: 700;
-    margin-bottom: var(--space-2);
-    color: var(--text-main);
-  }
-  .feature-text {
-    font-size: var(--font-size-sm);
-    color: var(--text-muted);
-  }
-
-  /* Timeline Section */
-  .timeline-section {
-    background: #1a0b2e;
-  }
-  .timeline-block {
-    background: var(--bg-card);
-    border-radius: var(--border-radius-xl);
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    margin-bottom: var(--space-8);
-    transition: all 0.3s ease;
-  }
-  .timeline-block:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  }
-  .block-header {
-    padding: var(--space-6);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  .block-header h3 {
-    font-size: var(--font-size-xl);
-    font-weight: 700;
-    margin: 0;
-    color: inherit;
-  }
-
-  .block-purple .block-header {
-    background: rgba(168, 85, 247, 0.3);
-  }
-  .block-purple .block-header h3 {
-    color: #e9d5ff;
-  }
-  .block-blue .block-header {
-    background: rgba(59, 130, 246, 0.3);
-  }
-  .block-blue .block-header h3 {
-    color: #bfdbfe;
-  }
-  .block-indigo .block-header {
-    background: rgba(99, 102, 241, 0.3);
-  }
-  .block-indigo .block-header h3 {
-    color: #c7d2fe;
-  }
-  .block-pink .block-header {
-    background: rgba(236, 72, 153, 0.3);
-  }
-  .block-pink .block-header h3 {
-    color: #fbcfe8;
-  }
-  .block-gold .block-header {
-    background: rgba(234, 179, 8, 0.3);
-  }
-  .block-gold .block-header h3 {
-    color: #fef08a;
-  }
-
-  .block-content {
-    padding: var(--space-6);
-  }
-  .day-item {
-    margin-bottom: var(--space-4);
-  }
-  .day-label {
-    font-size: var(--font-size-xs);
-    font-weight: bold;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: var(--space-1);
-  }
-  .day-item h4 {
-    font-weight: 700;
-    margin: 0 0 var(--space-2) 0;
-    color: var(--text-main);
-  }
-  .day-item p {
-    font-size: var(--font-size-sm);
-    color: var(--text-muted);
-    margin: 0;
-  }
-
-  .flex-center {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-  }
-  .btn-gold-outline {
-    border-color: var(--accent-gold);
-    color: var(--accent-gold);
-    width: 100%;
-  }
-  .btn-gold-outline:hover {
-    background: var(--accent-gold);
-    color: black;
-  }
-
-  .timeline-cta {
-    margin-top: var(--space-12);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .btn-gold-outline-large {
-    border: 2px solid var(--accent-gold);
-    color: var(--accent-gold);
-    background: transparent;
-    padding: var(--space-4) var(--space-8);
-    font-size: var(--font-size-lg);
-    font-weight: 600;
-    border-radius: var(--border-radius-full);
-    transition: all 0.3s ease;
-    box-shadow: 0 0 20px rgba(234, 179, 8, 0.2);
-    min-width: 300px;
-  }
-  .btn-gold-outline-large:hover {
-    background: var(--accent-gold);
-    color: var(--bg-darker);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(234, 179, 8, 0.4);
-  }
-
-  /* Testimonials Section */
-  .testimonials {
-    background: linear-gradient(to bottom, var(--bg-dark), #1a0b2e);
-  }
-
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  @media (min-width: 768px) {
-    .testimonials-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  .testimonial-card {
-    background: var(--bg-card);
-    padding: var(--space-6);
-    border-radius: var(--border-radius-xl);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    position: relative;
-    transition: all 0.3s ease;
-  }
-
-  .testimonial-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--accent-purple);
-    box-shadow: 0 20px 40px rgba(168, 85, 247, 0.3);
-  }
-
-  .quote-icon {
-    font-size: 60px;
-    color: var(--accent-purple);
-    opacity: 0.2;
-    line-height: 1;
-    margin-bottom: var(--space-2);
-  }
-
-  .testimonial-quote {
-    font-size: var(--font-size-base);
-    line-height: 1.6;
-    color: var(--text-muted);
-    margin-bottom: var(--space-4);
-  }
-
-  .testimonial-highlight {
-    background: rgba(168, 85, 247, 0.2);
-    color: var(--accent-purple);
-    padding: var(--space-2) var(--space-3);
-    border-radius: var(--border-radius-lg);
-    font-size: var(--font-size-sm);
-    font-weight: 600;
-    margin-bottom: var(--space-4);
-    text-align: center;
-  }
-
-  .testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    padding-top: var(--space-4);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .author-avatar {
-    font-size: 25px;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 50%;
-  }
-
-  .author-name {
-    font-weight: 600;
-    margin: 0;
-    font-size: var(--font-size-base);
-  }
-
-  .author-role {
-    font-size: var(--font-size-sm);
-    color: var(--text-main);
-    margin: 0;
-  }
-
-  /* Included Section */
-  .included-section {
-    background: var(--bg-dark);
-  }
-  .group-title {
-    font-size: var(--font-size-xl);
-    font-weight: 700;
-    color: var(--accent-purple);
-    margin-bottom: var(--space-6);
-    border-bottom: 1px solid rgba(168, 85, 247, 0.3);
-    padding-bottom: var(--space-2);
-  }
-  .check-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .check-list li {
-    display: flex;
-    gap: var(--space-3);
-    margin-bottom: var(--space-4);
-  }
-  .check-icon {
-    color: var(--color-success);
-  }
-
-  .included-group {
-    margin-bottom: var(--space-8);
-  }
-
-  .bonus-card {
-    background: linear-gradient(
-      to bottom right,
-      rgba(168, 85, 247, 0.2),
-      rgba(59, 130, 246, 0.2)
-    );
-    padding: var(--space-6);
-    border-radius: var(--border-radius-xl);
-    border: 1px solid rgba(168, 85, 247, 0.3);
-    margin-top: var(--space-8);
-  }
-  .bonus-title {
-    font-weight: 700;
-    margin-bottom: var(--space-2);
-    color: var(--text-main);
-  }
-  .bonus-text {
-    font-size: var(--font-size-sm);
-    color: var(--text-muted);
-    margin-bottom: var(--space-4);
-  }
-  .bonus-value {
-    font-size: var(--font-size-xs);
-    color: #d8b4fe;
-    font-family: var(--font-mono);
-  }
-
-  /* Matrix Section */
-  .matrix-section {
-    background: linear-gradient(to bottom, var(--bg-dark), #1a0b2e);
-  }
-  .matrix-container {
-    background: var(--bg-card);
-    border-radius: var(--border-radius-xl);
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: var(--shadow-2xl);
-  }
-  .table-responsive {
-    overflow-x: auto;
-  }
-  .matrix-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
-  }
-  .matrix-table th {
-    padding: var(--space-4);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.05);
-  }
-  .matrix-table td {
-    padding: var(--space-4);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    color: var(--text-muted);
-  }
-  .matrix-table tr:hover td {
-    background: rgba(255, 255, 255, 0.05);
-  }
-  .text-center {
-    text-align: center;
-  }
-  .text-green {
-    color: var(--color-success);
-  }
-  .text-orange {
-    color: var(--color-warning);
-  }
-  .text-blue {
-    color: var(--accent-blue);
-  }
-  .matrix-note {
-    padding: var(--space-4);
-    text-align: center;
-    font-size: var(--font-size-sm);
-    color: var(--text-muted);
-    font-style: italic;
-    background: rgba(255, 255, 255, 0.02);
-  }
-
-  /* Instructor Section */
-  .instructor {
-    background: linear-gradient(to bottom, var(--bg-dark), #1a0b2e);
-  }
-
-  .instructor-card {
-    max-width: 600px;
-    margin: 0 auto;
-    background: var(--bg-card);
-    padding: var(--space-8);
-    border-radius: var(--border-radius-xl);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: center;
-    transition: all 0.3s ease;
-  }
-
-  .instructor-card:hover {
-    border-color: var(--accent-purple);
-    box-shadow: 0 20px 60px rgba(168, 85, 247, 0.3);
-    transform: translateY(-5px);
-  }
-
-  .avatar {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 0 auto var(--space-4);
-    border: 3px solid var(--accent-gold);
-    box-shadow: 0 8px 24px rgba(234, 179, 8, 0.2);
-  }
-
-  .name {
-    font-size: var(--font-size-2xl);
-    font-weight: 700;
-    margin-bottom: var(--space-2);
-    color: var(--accent-gold);
-  }
-
-  .role,
-  .credentials {
-    font-size: var(--font-size-lg);
-    color: var(--text-muted);
-    margin-bottom: var(--space-2);
-  }
-
-  .bio {
-    font-size: var(--font-size-lg);
-    line-height: 1.6;
-    margin-top: var(--space-4);
-    color: var(--text-main);
-  }
-
-  /* Audience Section */
-  .audience-section {
-    background: var(--bg-dark);
-  }
-  .audience-card {
-    padding: var(--space-8);
-    border-radius: var(--border-radius-xl);
-    border: 1px solid transparent;
-    transition: all 0.3s ease;
-  }
-  .audience-card:hover {
-    transform: translateY(-5px);
-  }
-  .card-yes {
-    background: rgba(16, 185, 129, 0.1);
-    border-color: rgba(16, 185, 129, 0.3);
-  }
-  .card-no {
-    background: rgba(239, 68, 68, 0.1);
-    border-color: rgba(239, 68, 68, 0.3);
-  }
-
-  .audience-title {
-    font-size: var(--font-size-2xl);
-    font-weight: 700;
-    margin-bottom: var(--space-6);
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-  }
-  .title-yes {
-    color: var(--color-success);
-  }
-  .title-no {
-    color: var(--color-error);
-  }
-
-  .audience-list {
-    list-style: none;
-    padding: 0;
-  }
-  .audience-list li {
-    position: relative;
-    padding-left: var(--space-6);
-    margin-bottom: var(--space-4);
-    color: var(--text-muted);
-  }
-  .audience-list li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 8px;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-  }
-  .card-yes li::before {
-    background: var(--color-success);
-  }
-  .card-no li::before {
-    background: var(--color-error);
-  }
-
-  /* Pricing Section */
-  .pricing-section-dark {
-    background: linear-gradient(to bottom, #1a0b2e, #000000);
-    position: relative;
-    overflow: hidden;
-  }
-  .pricing-bg-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px;
-    height: 600px;
-    background: rgba(168, 85, 247, 0.1);
-    border-radius: 50%;
-    filter: blur(100px);
-    pointer-events: none;
-  }
-
-  .pricing-card-dark {
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(168, 85, 247, 0.5);
-    border-radius: var(--border-radius-2xl);
-    overflow: hidden;
-    max-width: 500px;
-    margin: 0 auto;
-    box-shadow: 0 0 50px rgba(168, 85, 247, 0.2);
-    position: relative;
-    z-index: 10;
-  }
-
-  .pricing-header {
-    background: linear-gradient(to right, #581c87, #1e3a8a);
-    padding: var(--space-8);
-    text-align: center;
-    position: relative;
-  }
-  .pricing-header h3 {
-    font-size: var(--font-size-2xl);
-    font-weight: 700;
-    margin: 0 0 var(--space-2) 0;
-    color: var(--text-main);
-  }
-  .pricing-header p {
-    color: #e9d5ff;
-    font-size: var(--font-size-sm);
-    margin: 0;
-  }
-
-  .pricing-price {
-    padding: var(--space-8);
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  .current-price {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-2);
-    margin-bottom: var(--space-2);
-  }
-  .amount {
-    font-size: var(--font-size-5xl);
-    font-weight: 700;
-  }
-  .currency {
-    font-size: var(--font-size-xl);
-    color: var(--text-muted);
-  }
-  .start-date {
-    color: var(--accent-purple);
-    font-weight: 500;
-  }
-
-  .pricing-features {
-    padding: var(--space-8);
-  }
-  .feature-row {
-    display: flex;
-    gap: var(--space-3);
-    margin-bottom: var(--space-4);
-    color: var(--text-muted);
-  }
-  .feature-row .check {
-    color: var(--accent-purple);
-    background: rgba(168, 85, 247, 0.2);
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    font-size: 12px;
-  }
-
-  .pricing-cta {
-    padding: var(--space-8);
-    padding-top: 0;
-  }
-  .btn-full {
-    width: 100%;
-    justify-content: center;
-    background: linear-gradient(
-      to right,
-      var(--accent-purple),
-      var(--accent-blue)
-    );
-    border: none;
-  }
-  .guarantee-text {
-    text-align: center;
-    font-size: var(--font-size-xs);
-    color: var(--text-muted);
-    margin-top: var(--space-4);
-  }
-
-  /* FAQ Section */
-  .faq-section-dark {
-    background: var(--bg-dark);
-  }
-  .faq-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-  }
-  .faq-item {
-    background: var(--bg-card);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--border-radius-xl);
-    overflow: hidden;
-    transition: all 0.3s ease;
-  }
-  .faq-item:hover {
-    border-color: var(--accent-purple);
-  }
-  .faq-question {
-    padding: var(--space-6);
-    font-weight: 500;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
-    color: #ffffff;
-    transition: all 0.3s ease;
-  }
-  .faq-question:hover {
-    background: rgba(255, 255, 255, 0.03);
-  }
-  .faq-question::-webkit-details-marker {
-    display: none;
-  }
-  .faq-answer {
-    padding: 0 var(--space-6) var(--space-6) var(--space-6);
-    color: var(--text-muted);
-    line-height: 1.6;
-  }
-  .faq-item[open] .faq-question {
-    background: rgba(255, 255, 255, 0.05);
-  }
-  .faq-item[open] .arrow {
-    transform: rotate(180deg);
-  }
-  .arrow {
-    transition: transform 0.3s ease;
-    color: var(--accent-purple);
-  }
-
-  /* Final CTA */
-  .final-cta {
-    background: var(--bg-darker);
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    padding: var(--space-24) 0;
-  }
-
-  .final-cta::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(
-      to right,
-      transparent,
-      rgba(168, 85, 247, 0.5),
-      transparent
-    );
-  }
-
-  .final-cta::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 800px;
-    height: 800px;
-    background: radial-gradient(
-      circle,
-      rgba(168, 85, 247, 0.15),
-      transparent 70%
-    );
-    pointer-events: none;
-  }
-
-  .final-cta .container {
-    position: relative;
-    z-index: 10;
-  }
-
-  .final-title {
-    font-size: var(--font-size-5xl);
-    font-weight: 700;
-    margin-bottom: var(--space-6);
-    color: var(--text-main);
-  }
-  .final-text {
-    font-size: var(--font-size-xl);
-    color: var(--text-muted);
-    max-width: 700px;
-    margin: 0 auto var(--space-10);
-    line-height: 1.6;
-  }
-  .final-text strong {
-    color: var(--accent-purple);
-    font-weight: 600;
-  }
-  .final-actions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-4);
-  }
-  .final-note {
-    color: var(--accent-gold);
-    font-weight: 600;
-    font-size: var(--font-size-lg);
-  }
-
-  /* Mobile Adjustments */
-  @media (max-width: 768px) {
-    .hero-title {
-      font-size: var(--font-size-4xl);
-    }
-    .hero-subtitle {
-      font-size: var(--font-size-lg);
-    }
-    .section-title {
-      font-size: var(--font-size-3xl);
-    }
-    .final-title {
-      font-size: var(--font-size-3xl);
-    }
-    .pricing-price .amount {
-      font-size: var(--font-size-4xl);
-    }
+  .animated[data-delay='500'] {
+    animation-delay: 500ms;
   }
 </style>
 
 <script>
   // @ts-nocheck
-  // ========================================
-  // INTERSECTION OBSERVER - ANIMATIONS
-  // ========================================
+  /**
+   * INTERSECTION OBSERVER - ANIMATIONS
+   * Triggers animations when sections enter the viewport
+   */
   const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px',
   };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
       if (entry.isIntersecting) {
+        // We use the data-delay attribute to stagger animations
         const delay = entry.target.getAttribute('data-delay') || '0';
         setTimeout(() => {
           entry.target.classList.add('animated');
@@ -1990,87 +258,43 @@ const testimonials = [
     });
   }, observerOptions);
 
-  document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
     observer.observe(el);
   });
 
-  // ========================================
-  // SMOOTH SCROLL TO SECTIONS
-  // ========================================
-  document.querySelectorAll('.scroll-to-pricing').forEach((button) => {
-    button.addEventListener('click', (e) => {
-      e.preventDefault();
-      const pricingSection = document.getElementById('pricing');
-      if (pricingSection) {
-        pricingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-
-  // ========================================
-  // ANALYTICS TRACKING
-  // ========================================
+  /**
+   * ANALYTICS TRACKING
+   * Simple wrapper for multi-platform event tracking
+   */
   function trackEvent(eventName, eventData = {}) {
-    // Google Analytics 4
+    // GA4
     if (typeof window !== 'undefined' && 'gtag' in window) {
       window.gtag('event', eventName, eventData);
     }
-
-    // Plausible Analytics
+    // Plausible
     if (typeof window !== 'undefined' && 'plausible' in window) {
       window.plausible(eventName, { props: eventData });
-    }
-
-    // Facebook Pixel
-    if (typeof window !== 'undefined' && 'fbq' in window) {
-      window.fbq('track', eventName, eventData);
     }
   }
 
   // Track CTA clicks
-  document.querySelectorAll('[data-track-event]').forEach((button) => {
-    button.addEventListener('click', (e) => {
+  document.querySelectorAll('[data-track-event]').forEach(button => {
+    button.addEventListener('click', e => {
       const target = e.currentTarget;
       const eventName = target?.getAttribute('data-track-event');
       if (eventName && target) {
         trackEvent(eventName, {
-          button_location: eventName.includes('hero') ? 'hero' : eventName.includes('pricing') ? 'pricing' : 'other',
           button_text: target.textContent?.trim() || '',
         });
       }
     });
   });
 
-  // Track scroll depth
-  let maxScroll = 0;
-  const scrollMilestones = [25, 50, 75, 100];
-  const trackedMilestones = new Set();
-
-  window.addEventListener('scroll', () => {
-    const windowHeight = window.innerHeight;
-    const documentHeight = document.documentElement.scrollHeight;
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
-
-    if (scrollPercent > maxScroll) {
-      maxScroll = scrollPercent;
-
-      scrollMilestones.forEach((milestone) => {
-        if (scrollPercent >= milestone && !trackedMilestones.has(milestone)) {
-          trackedMilestones.add(milestone);
-          trackEvent('scroll_depth', {
-            percent: milestone,
-          });
-        }
-      });
-    }
-  });
-
-  // Track FAQ interactions
-  document.querySelectorAll('.faq-item').forEach((item) => {
+  // Track FAQ interactions (Updated for <details> components)
+  document.querySelectorAll('details').forEach(item => {
     item.addEventListener('toggle', () => {
       if (item.hasAttribute('open')) {
-        const question = item.querySelector('.faq-question')?.textContent?.trim();
+        const question = item.querySelector('h3')?.textContent?.trim();
         trackEvent('faq_opened', {
           question: question || 'unknown',
         });
@@ -2078,25 +302,13 @@ const testimonials = [
     });
   });
 
-  // Track time on page
-  const startTime = Date.now();
-  window.addEventListener('beforeunload', () => {
-    const timeOnPage = Math.round((Date.now() - startTime) / 1000);
-    trackEvent('time_on_page', {
-      seconds: timeOnPage,
-    });
-  });
-
   // Track section visibility
   const sectionObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
+    entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting && entry.target instanceof HTMLElement) {
-          const sectionName =
-            entry.target.className.split(' ')[0] || 'unknown_section';
-          trackEvent('section_viewed', {
-            section: sectionName,
-          });
+          const sectionId = entry.target.id || 'unnamed_section';
+          trackEvent('section_viewed', { section: sectionId });
           sectionObserver.unobserve(entry.target);
         }
       });
@@ -2104,7 +316,7 @@ const testimonials = [
     { threshold: 0.5 }
   );
 
-  document.querySelectorAll('section').forEach((section) => {
+  document.querySelectorAll('section').forEach(section => {
     sectionObserver.observe(section);
   });
 </script>

@@ -1,0 +1,139 @@
+---
+interface Props {
+  registrationUrl: string;
+  price?: string;
+  deadline?: string;
+}
+
+const {
+  registrationUrl,
+  price = '$2,997',
+  deadline = '5 de enero 2026',
+} = Astro.props;
+
+const features = [
+  '12 sesiones prácticas (4 semanas)',
+  'Acceso permanente a todas las grabaciones',
+  'Biblioteca de 50+ prompts para contadores',
+  'Matriz de decisión con 20+ casos de uso',
+  'Grupo de WhatsApp durante el reto',
+  'Certificado digital de finalización',
+];
+---
+
+<section
+  class="relative flex flex-col items-center justify-center py-24 px-4 overflow-hidden bg-[#111118] dark:bg-[#0f172a]"
+  id="pricing"
+>
+  <!-- Background Decor (Inspired by IARetoSchedule CTA) -->
+  <div
+    class="absolute top-0 right-0 -mr-32 -mt-32 w-[600px] h-[600px] bg-[#6324eb]/10 rounded-full blur-[120px]"
+  >
+  </div>
+  <div
+    class="absolute bottom-0 left-0 -ml-32 -mb-32 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[120px]"
+  >
+  </div>
+
+  <div class="container mx-auto relative z-10 flex flex-col items-center">
+    <!-- Main Pricing Card -->
+    <div
+      class="relative w-full max-w-[520px] rounded-3xl bg-white border border-white/10 p-8 md:p-12 shadow-2xl shadow-black/50 animate-on-scroll"
+      data-animation="scale-in"
+    >
+      <!-- Card Header -->
+      <div class="flex flex-col items-center text-center gap-2 mb-8">
+        <span
+          class="text-[#6324eb] text-sm font-black tracking-[0.2em] uppercase font-display"
+          >Inversión</span
+        >
+        <div class="flex flex-col items-center">
+          <h2
+            class="text-[#111827] text-6xl md:text-7xl font-black tracking-tighter mt-4 mb-2 font-display m-0"
+          >
+            {price}
+            <span
+              class="text-3xl font-bold text-gray-400 align-top mt-2 inline-block ml-1"
+              >MXN</span
+            >
+          </h2>
+          <p class="text-gray-500 font-bold text-lg m-0">
+            Pago único. Acceso a grabaciones sin límite de tiempo.
+          </p>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="h-px w-full bg-gray-100 mb-8"></div>
+
+      <!-- Features List -->
+      <ul class="flex flex-col gap-4 mb-10 p-0">
+        {
+          features.map(feature => (
+            <li class="flex items-start gap-4 list-none m-0">
+              <div class="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-[#6324eb]/10 mt-1">
+                <span class="material-symbols-outlined text-[#6324eb] text-[18px] font-bold">
+                  check
+                </span>
+              </div>
+              <span class="text-gray-700 text-base md:text-lg leading-tight font-bold font-display text-left">
+                {feature}
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+
+      <!-- CTA Section -->
+      <div class="flex flex-col gap-6">
+        <a
+          href={registrationUrl}
+          target="_blank"
+          class="inline-flex items-center justify-center w-full rounded-xl bg-[#2563EB] py-5 px-6 text-white text-xl font-black leading-none hover:bg-blue-700 hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-blue-500/25 no-underline font-display group"
+        >
+          Inscribirme ahora
+          <span
+            class="material-symbols-outlined ml-2 group-hover:translate-x-1 transition-transform font-bold"
+            >arrow_forward</span
+          >
+        </a>
+
+        <!-- Date Note -->
+        <p class="text-center text-sm font-bold text-gray-500 m-0">
+          Inicia el <span class="text-[#6324eb]">{deadline}</span>
+        </p>
+
+        <!-- Guarantee Badge -->
+        <div
+          class="flex items-center justify-center gap-4 py-3 px-5 rounded-2xl bg-gray-50 border border-gray-100"
+        >
+          <span class="material-symbols-outlined text-emerald-500 text-[32px]">
+            verified_user
+          </span>
+          <div class="flex flex-col text-left">
+            <span class="text-[#111827] text-sm font-black leading-tight"
+              >Garantía de satisfacción de 30 días</span
+            >
+            <span class="text-gray-500 text-xs leading-tight font-medium"
+              >Si no te encanta, te devolvemos el 100%</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Secure Payment Note -->
+      <div
+        class="mt-8 flex justify-center items-center gap-2 text-gray-400 text-xs font-bold uppercase tracking-widest"
+      >
+        <span class="material-symbols-outlined text-[14px]">lock</span>
+        <span>Pago 100% seguro y encriptado</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .font-display {
+    font-family: 'Space Grotesk Variable', 'Space Grotesk', sans-serif;
+  }
+</style>
