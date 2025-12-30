@@ -59,59 +59,145 @@ const tools = [
     <div
       class="pt-12 pb-8 px-6 md:px-20 text-center flex flex-col items-center"
     >
-      <div
-        class="inline-flex items-center justify-center px-3 py-1 mb-6 rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 text-xs font-bold uppercase tracking-wider"
-      >
-        <span class="material-symbols-outlined text-[16px] mr-1">lock_open</span
-        >
-        Oportunidad VIP
-      </div>
       <h2
         class="text-[#0f172a] dark:text-white text-3xl md:text-5xl font-extrabold leading-tight tracking-tight mb-4 max-w-2xl"
       >
-        ¿Quieres Profundizar?
+        ¿Quieres Profundizar con Más Casos Prácticos?
       </h2>
       <p
         class="text-gray-600 dark:text-slate-300 text-lg md:text-xl font-normal leading-relaxed max-w-3xl"
       >
-        Lo que viste hoy es solo el 10% de lo que la IA puede hacer por tu
-        contabilidad. Únete al reto para dominar estas herramientas.
+        En esta masterclass viste 1 caso resuelto en 12 minutos. En el Reto de
+        12 Días trabajamos con casos específicos de contabilidad mexicana.
       </p>
     </div>
 
     <!-- Mastery Grid Section -->
     <div class="px-4 md:px-12 pb-12 w-full flex flex-col items-center">
       <h3
-        class="text-xl md:text-2xl font-bold text-[#0f172a] dark:text-white mb-8 text-center"
+        class="text-xl md:text-2xl font-bold text-[#0f172a] dark:text-white mb-6 text-center"
       >
-        En el reto de 12 días, dominarás:
+        El Reto de 12 Días incluye:
       </h3>
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 w-full max-w-4xl"
-      >
-        {
-          tools.map(tool => (
-            <div class="group/tool flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-slate-800/40 border border-gray-100 dark:border-white/5 shadow-sm hover:shadow-md hover:border-[#135bec]/30 transition-all duration-300">
-              <div
-                class="size-10 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 group-hover/tool:scale-110"
-                style={`background-color: ${tool.color}15; color: ${tool.color};`}
+
+      <div class="w-full max-w-4xl mb-8">
+        <!-- Two Column Grid for Desktop, Stacked on Mobile -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <!-- 12 sesiones prácticas -->
+          <div
+            class="bg-white dark:bg-slate-800/40 rounded-xl p-6 border border-gray-100 dark:border-white/5"
+          >
+            <h4
+              class="text-lg font-bold text-[#0f172a] dark:text-white mb-3 flex items-center gap-2"
+            >
+              <span class="material-symbols-outlined text-[#135bec]"
+                >calendar_today</span
               >
-                <span class="material-symbols-outlined text-[24px]">
-                  {tool.icon}
-                </span>
-              </div>
-              <span class="text-[#0f172a] dark:text-slate-200 text-base md:text-lg font-bold">
-                {tool.name}
-              </span>
+              12 sesiones prácticas (4 semanas)
+            </h4>
+            <div class="space-y-3">
+              {
+                tools.map(tool => (
+                  <div class="flex items-center gap-3 text-sm text-gray-600 dark:text-slate-300">
+                    <span
+                      class="material-symbols-outlined text-[18px]"
+                      style={`color: ${tool.color};`}
+                    >
+                      {tool.icon}
+                    </span>
+                    <span>
+                      {tool.name === 'Flujos Híbridos'
+                        ? tool.name +
+                          ' avanzados (4-5 herramientas en secuencia)'
+                        : tool.name + ' para contadores'}
+                    </span>
+                  </div>
+                ))
+              }
             </div>
-          ))
-        }
+          </div>
+
+          <!-- Casos reales mexicanos -->
+          <div
+            class="bg-white dark:bg-slate-800/40 rounded-xl p-6 border border-gray-100 dark:border-white/5"
+          >
+            <h4
+              class="text-lg font-bold text-[#0f172a] dark:text-white mb-3 flex items-center gap-2"
+            >
+              <span class="material-symbols-outlined text-[#135bec]"
+                >folder</span
+              >
+              Casos reales mexicanos
+            </h4>
+            <ul class="space-y-2 text-sm text-gray-600 dark:text-slate-300">
+              <li class="flex items-start gap-2">
+                <span
+                  class="material-symbols-outlined text-[18px] text-[#135bec] mt-0.5"
+                  >check_circle</span
+                >
+                <span>Dictámenes fiscales</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span
+                  class="material-symbols-outlined text-[18px] text-[#135bec] mt-0.5"
+                  >check_circle</span
+                >
+                <span>Análisis de riesgo SAT</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span
+                  class="material-symbols-outlined text-[18px] text-[#135bec] mt-0.5"
+                  >check_circle</span
+                >
+                <span>Respuestas a requerimientos</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span
+                  class="material-symbols-outlined text-[18px] text-[#135bec] mt-0.5"
+                  >check_circle</span
+                >
+                <span>Revisión masiva de facturas</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span
+                  class="material-symbols-outlined text-[18px] text-[#135bec] mt-0.5"
+                  >check_circle</span
+                >
+                <span>Cálculos comparativos de regímenes</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span
+                  class="material-symbols-outlined text-[18px] text-[#135bec] mt-0.5"
+                  >check_circle</span
+                >
+                <span>Y más escenarios del día a día</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Para quién es -->
+        <div
+          class="bg-slate-50 dark:bg-slate-900/40 rounded-xl p-6 border border-gray-100 dark:border-white/5"
+        >
+          <p class="text-sm text-gray-600 dark:text-slate-300 text-center m-0">
+            <span
+              class="material-symbols-outlined text-[18px] text-[#135bec] align-middle mr-1"
+              >target</span
+            >
+            <strong
+              >Para contadores con 0-5 clientes que quieren escalar sin
+              contratar</strong
+            >
+          </p>
+        </div>
       </div>
+
       <a
-        class="mt-8 px-6 py-3 border border-[#135bec] text-[#135bec] dark:border-[#135bec]/50 dark:text-[#135bec] hover:bg-[#135bec]/10 dark:hover:bg-[#135bec]/20 rounded-lg text-lg font-semibold transition-colors duration-200 ease-in-out no-underline"
+        class="px-6 py-3 border border-[#135bec] text-[#135bec] dark:border-[#135bec]/50 dark:text-[#135bec] hover:bg-[#135bec]/10 dark:hover:bg-[#135bec]/20 rounded-lg text-lg font-semibold transition-colors duration-200 ease-in-out no-underline"
         href="/ia-contadores/reto-12-dias/"
       >
-        Ver Detalles Completos del Reto
+        Ver Programa Completo del Reto
       </a>
     </div>
 
@@ -120,19 +206,16 @@ const tools = [
       class="bg-slate-50 dark:bg-[#0d121f] border-t border-gray-100 dark:border-white/5 px-6 py-10 md:py-16 flex flex-col items-center"
     >
       <h3
-        class="text-2xl md:text-3xl font-bold text-[#0f172a] dark:text-white mb-2 text-center"
+        class="text-2xl md:text-3xl font-bold text-[#0f172a] dark:text-white mb-6 text-center"
       >
-        ¡Asegura tu cupo en el Reto!
+        Inscríbete al Reto de 12 Días
       </h3>
-      <p class="text-gray-600 dark:text-slate-400 text-center max-w-lg mb-8">
-        Acceso completo al Reto de 12 Días con material descargable y soporte.
-      </p>
 
       <!-- Coupon Display -->
       <div class="flex flex-col items-center gap-2 mb-8 w-full max-w-sm">
         <span
           class="text-xs font-bold text-gray-500 dark:text-slate-400 uppercase tracking-widest"
-          >Código de descuento</span
+          >Código de descuento disponible</span
         >
         <div
           class="w-full flex items-center justify-between bg-white dark:bg-[#1e293b] border-2 border-dashed border-[#135bec]/30 rounded-xl p-3 pl-5 shadow-sm group hover:border-[#135bec] transition-all duration-300"
@@ -169,7 +252,7 @@ const tools = [
         </div>
         <div class="relative z-20 flex items-center gap-3">
           <span class="text-white text-lg font-bold tracking-tight"
-            >✅ Inscribirme al Reto con descuento</span
+            >Inscribirme con Descuento</span
           >
         </div>
       </a>

@@ -6,11 +6,11 @@ interface Props {
 const { pdfUrl = '#' } = Astro.props;
 
 const benefits = [
-  'Caso 1: Análisis de víaticos al extranjero',
-  'Caso 2: Automatización de CFDI 4.0',
-  'Caso 3: Respuesta a Requerimientos del SAT',
-  '10 Plantillas de Prompts Copy-Paste',
-  'Matríz de decisión: ¿Cuándo usar qué IA?',
+  'Caso 1: Viáticos al extranjero',
+  'Caso 2: Revisión de 500+ CFDIs masiva',
+  'Caso 3: Respuesta a requerimientos del SAT',
+  'Plantilla de prompts estructurados',
+  'Matriz de decisión expandida: Cuándo usar cada IA',
 ];
 ---
 
@@ -26,10 +26,11 @@ const benefits = [
       <h2
         class="text-[#0f172a] dark:text-white text-3xl md:text-4xl font-extrabold leading-tight tracking-tight"
       >
-        No te vayas con las manos vacías.
+        Descarga el Material Completo
       </h2>
       <p class="text-gray-600 dark:text-gray-400 text-lg font-medium">
-        Descarga la guía definitiva de Prompts para Contadores.
+        Además del video, recibe el documento con los 3 casos prácticos
+        completos y la matriz de decisión.
       </p>
     </div>
 
@@ -68,10 +69,10 @@ const benefits = [
               </div>
               <span
                 class="text-white text-[10px] font-bold uppercase tracking-wider mb-1"
-                >Guía PDF</span
+                >Documento PDF</span
               >
               <span class="text-white text-base font-bold leading-tight"
-                >Casos Prácticos AI</span
+                >18 páginas</span
               >
             </div>
           </div>
@@ -84,16 +85,15 @@ const benefits = [
           <span
             class="inline-flex items-center gap-1.5 rounded-full bg-[#135bec]/10 px-3 py-1 text-xs font-bold text-[#135bec] uppercase tracking-wide"
           >
-            <span class="material-symbols-outlined text-[16px]">star</span>
-            Bonus Exclusivo
+            <span class="material-symbols-outlined text-[16px]"
+              >description</span
+            >
+            Documento PDF - 18 páginas
           </span>
         </div>
-        <h3 class="text-2xl font-bold text-[#0f172a] dark:text-white mb-2">
-          Lo que incluye este recurso gratuito:
+        <h3 class="text-2xl font-bold text-[#0f172a] dark:text-white mb-6">
+          Lo que incluye:
         </h3>
-        <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">
-          Optimiza tu despacho hoy mismo con ejemplos reales y probados.
-        </p>
         <ul class="flex flex-col gap-3 mb-8">
           {
             benefits.map(benefit => (
@@ -115,12 +115,13 @@ const benefits = [
           <span class="material-symbols-outlined group-hover/btn:animate-bounce"
             >download</span
           >
-          <span class="text-base font-bold">Descargar PDF con Prompts</span>
+          <span class="text-base font-bold">Descargar PDF Ahora</span>
         </a>
         <p
           class="mt-4 text-xs text-gray-500 dark:text-gray-500 text-center md:text-left"
         >
-          🔒 Acceso instantáneo. No requiere tarjeta de crédito.
+          El documento se enviará automáticamente a tu correo junto con el
+          enlace del video.
         </p>
       </div>
     </div>
