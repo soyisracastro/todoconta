@@ -6,10 +6,10 @@ interface Props {
 const { pdfUrl = '#' } = Astro.props;
 
 const benefits = [
-  'Caso 1: Viáticos al extranjero (paso a paso con prompts)',
+  'Caso 1: Viáticos al extranjero',
   'Caso 2: Revisión de 500+ CFDIs masiva',
   'Caso 3: Respuesta a requerimientos del SAT',
-  'Plantilla de prompts estructurados (Rol + Contexto + Tarea + Formato)',
+  'Plantilla de prompts estructurados',
   'Matriz de decisión expandida: Cuándo usar cada IA',
 ];
 ---
@@ -85,7 +85,9 @@ const benefits = [
           <span
             class="inline-flex items-center gap-1.5 rounded-full bg-[#135bec]/10 px-3 py-1 text-xs font-bold text-[#135bec] uppercase tracking-wide"
           >
-            <span class="material-symbols-outlined text-[16px]">description</span>
+            <span class="material-symbols-outlined text-[16px]"
+              >description</span
+            >
             Documento PDF - 18 páginas
           </span>
         </div>
@@ -118,8 +120,8 @@ const benefits = [
         <p
           class="mt-4 text-xs text-gray-500 dark:text-gray-500 text-center md:text-left"
         >
-          El documento se enviará automáticamente a tu correo junto con
-          el enlace del video.
+          El documento se enviará automáticamente a tu correo junto con el
+          enlace del video.
         </p>
       </div>
     </div>
