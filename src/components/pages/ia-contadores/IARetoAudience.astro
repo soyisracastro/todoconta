@@ -271,18 +271,11 @@ const { registrationUrl } = Astro.props;
       <a
         href={registrationUrl}
         target="_blank"
-        class="relative group flex items-center justify-center overflow-hidden rounded-xl bg-[#6324eb] px-10 py-5 text-white shadow-xl hover:shadow-[#6324eb]/30 hover:-translate-y-1 transition-all duration-300 no-underline"
+        class="inline-flex items-center justify-center w-full max-w-[450px] rounded-xl bg-[#2563EB] py-5 px-6 text-white text-xl font-black leading-none hover:bg-blue-700 hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-blue-500/25 no-underline font-display group"
       >
-        <!-- Shimmer effect -->
-        <div
-          class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shine-button transition-transform duration-1000"
-        >
-        </div>
-        <span class="text-xl font-black tracking-tight mr-3 font-display"
-          >Sí, soy el contador ideal - Aplicar Ahora</span
-        >
+        Inscribirme ahora - Perfil Ideal
         <span
-          class="material-symbols-outlined text-2xl group-hover:translate-x-1 transition-transform"
+          class="material-symbols-outlined ml-2 group-hover:translate-x-1 transition-transform font-bold"
           >arrow_forward</span
         >
       </a>

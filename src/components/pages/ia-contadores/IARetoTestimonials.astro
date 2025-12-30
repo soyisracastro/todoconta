@@ -8,10 +8,37 @@ interface Testimonial {
 }
 
 interface Props {
-  testimonials: Testimonial[];
+  testimonials?: Testimonial[];
 }
 
-const { testimonials } = Astro.props;
+const defaultTestimonials: Testimonial[] = [
+  {
+    name: 'Ricardo M.',
+    role: 'Contador con 8 años de experiencia, CDMX',
+    avatar: '👤',
+    quote:
+      'Después de aplicar lo que aprendí en el reto, ahora combino Claude y ChatGPT estratégicamente para dictámenes fiscales. He reducido significativamente el tiempo sin comprometer calidad.',
+    highlight: 'Resultados del reto anterior',
+  },
+  {
+    name: 'Lizeth G.',
+    role: 'Despacho contable, Guadalajara',
+    avatar: '👤',
+    quote:
+      'Después del reto, cambié mi forma de trabajar. Ahora uso la herramienta correcta para cada tarea y he podido aumentar mi capacidad de atención sin contratar más personal.',
+    highlight: 'Resultados del reto anterior',
+  },
+  {
+    name: 'Carmen Lucía R.',
+    role: 'Director de despacho con 5 contadores, Monterrey',
+    avatar: '👤',
+    quote:
+      'Lo más valioso fue cambiar mi mentalidad sobre IA. Implementé el framework con mi equipo, y ahora usamos IA como asistente inteligente en declaraciones complementarias y análisis de discrepancias.',
+    highlight: 'Resultados del reto anterior',
+  },
+];
+
+const { testimonials = defaultTestimonials } = Astro.props;
 ---
 
 <section
