@@ -1,0 +1,273 @@
+---
+interface Props {
+  registrationUrl: string;
+}
+
+const { registrationUrl } = Astro.props;
+---
+
+<section
+  class="flex flex-col items-center justify-center py-12 lg:py-20 px-4 lg:px-20 relative overflow-hidden bg-white dark:bg-[#161121]"
+>
+  <!-- Background Decor -->
+  <div
+    class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none"
+  >
+    <div
+      class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#6324eb]/5 rounded-full blur-[120px]"
+    >
+    </div>
+    <div
+      class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#2563EB]/5 rounded-full blur-[120px]"
+    >
+    </div>
+  </div>
+
+  <div class="max-w-[1200px] w-full flex flex-col gap-12">
+    <!-- Header -->
+    <div
+      class="flex flex-col items-center text-center gap-4 max-w-3xl mx-auto animate-on-scroll"
+      data-animation="fade-in-up"
+    >
+      <span
+        class="text-[#6324eb] font-bold tracking-wider text-xs uppercase bg-[#6324eb]/10 px-3 py-1 rounded-full font-display"
+        >Antes vs. Después</span
+      >
+      <h2
+        class="text-[#111118] dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.15] tracking-tight font-display"
+      >
+        Contador Tradicional vs. <br class="md:hidden" /><span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-[#6324eb] to-[#2563EB]"
+          >Contador IA: Tu Decisión.</span
+        >
+      </h2>
+      <p
+        class="text-gray-500 dark:text-gray-400 text-lg max-w-2xl leading-relaxed m-0"
+      >
+        La industria está cambiando. Descubre por qué el modelo tradicional está
+        en crisis y cómo la IA te posiciona en la cima.
+      </p>
+    </div>
+
+    <!-- Main Opportunity Card -->
+    <div
+      class="group relative flex flex-col bg-white dark:bg-[#1e1a2d] border-2 border-[#6324eb] rounded-2xl p-6 lg:p-8 shadow-2xl shadow-[#6324eb]/20 z-10 w-full mb-8 animate-on-scroll"
+      data-animation="scale-in"
+    >
+      <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+        <div
+          class="bg-gradient-to-r from-[#6324eb] to-[#2563EB] text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg tracking-wide uppercase flex items-center gap-1 whitespace-nowrap"
+        >
+          <span class="material-symbols-outlined text-[16px]">verified</span>
+          NUEVO: GEMINI 3
+        </div>
+      </div>
+
+      <div
+        class="flex flex-col md:flex-row items-start md:items-center gap-6 mt-4 md:mt-2"
+      >
+        <div class="flex items-center gap-3 shrink-0">
+          <div
+            class="size-12 rounded-full bg-[#6324eb]/10 text-[#6324eb] flex items-center justify-center"
+          >
+            <span class="material-symbols-outlined text-[28px]"
+              >auto_awesome</span
+            >
+          </div>
+          <h3
+            class="text-[#6324eb] dark:text-[#a78bfa] font-bold text-lg md:text-xl font-display m-0"
+          >
+            La Oportunidad
+          </h3>
+        </div>
+
+        <div class="flex-1 text-left">
+          <p
+            class="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white leading-tight mb-2 font-display m-0"
+          >
+            IA con Gemini 3
+          </p>
+          <p
+            class="text-gray-600 dark:text-gray-300 font-medium leading-relaxed m-0"
+          >
+            Automatización total. Análisis predictivo en segundos. Sé el piloto
+            de la IA, no el mecánico de los datos.
+          </p>
+        </div>
+
+        <div class="md:ml-auto w-full md:w-auto mt-4 md:mt-0">
+          <a
+            href={registrationUrl}
+            target="_blank"
+            class="w-full md:w-auto flex items-center justify-center gap-2 rounded-lg h-12 px-6 bg-[#6324eb] hover:bg-[#521dc5] text-white text-base font-bold leading-normal tracking-[0.015em] shadow-lg shadow-[#6324eb]/25 transition-all active:scale-95 no-underline font-display"
+          >
+            <span>Únete a la Revolución</span>
+            <span class="material-symbols-outlined text-[20px]"
+              >arrow_forward</span
+            >
+          </a>
+        </div>
+      </div>
+
+      <ul
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-3 gap-x-6 mt-6 border-t border-gray-100 dark:border-white/10 pt-6 list-none p-0"
+      >
+        <li class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-[#6324eb] text-[20px]"
+            >check_circle</span
+          >
+          <span class="text-gray-700 dark:text-gray-300 text-sm font-bold"
+            >Automatización del 90% de tareas</span
+          >
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-[#6324eb] text-[20px]"
+            >check_circle</span
+          >
+          <span class="text-gray-700 dark:text-gray-300 text-sm font-bold"
+            >Reportes predictivos al instante</span
+          >
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-[#6324eb] text-[20px]"
+            >check_circle</span
+          >
+          <span class="text-gray-700 dark:text-gray-300 text-sm font-bold"
+            >Diferenciación inmediata</span
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!-- Problem & Result Grid -->
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch relative"
+    >
+      <!-- El Problema -->
+      <div
+        class="group relative flex flex-col bg-[#F9FAFB] dark:bg-white/5 border border-red-200 dark:border-red-900/30 rounded-2xl p-6 lg:p-8 h-full transition-transform hover:-translate-y-1 duration-300 animate-on-scroll"
+        data-animation="fade-in-left"
+      >
+        <div class="flex items-center gap-3 mb-6">
+          <div
+            class="size-10 rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 flex items-center justify-center shrink-0"
+          >
+            <span class="material-symbols-outlined text-[24px]">warning</span>
+          </div>
+          <h3
+            class="text-gray-900 dark:text-white font-bold text-lg font-display m-0"
+          >
+            El Problema
+          </h3>
+        </div>
+        <div class="mb-4 text-left">
+          <p
+            class="text-2xl font-bold text-gray-800 dark:text-white leading-tight mb-2 font-display m-0"
+          >
+            Contabilidad Tradicional
+          </p>
+          <div class="h-1 w-12 bg-red-400 rounded-full"></div>
+        </div>
+        <ul class="flex flex-col gap-4 mt-2 text-left list-none p-0">
+          <li class="flex items-start gap-3">
+            <span
+              class="material-symbols-outlined text-red-400 mt-0.5 text-[20px]"
+              >close</span
+            >
+            <span
+              class="text-gray-600 dark:text-gray-400 text-sm font-medium leading-relaxed"
+              >Pasas horas en tareas manuales repetitivas.</span
+            >
+          </li>
+          <li class="flex items-start gap-3">
+            <span
+              class="material-symbols-outlined text-red-400 mt-0.5 text-[20px]"
+              >close</span
+            >
+            <span
+              class="text-gray-600 dark:text-gray-400 text-sm font-medium leading-relaxed"
+              >Cometes errores que exigen re-procesos costosos.</span
+            >
+          </li>
+          <li class="flex items-start gap-3">
+            <span
+              class="material-symbols-outlined text-red-400 mt-0.5 text-[20px]"
+              >close</span
+            >
+            <span
+              class="text-gray-600 dark:text-gray-400 text-sm font-medium leading-relaxed"
+              >Tus clientes te ven como un gasto necesario.</span
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- El Resultado -->
+      <div
+        class="group relative flex flex-col bg-[#F0FDF4] dark:bg-white/5 border border-emerald-200 dark:border-emerald-900/30 rounded-2xl p-6 lg:p-8 h-full transition-transform hover:-translate-y-1 duration-300 animate-on-scroll"
+        data-animation="fade-in-right"
+      >
+        <div class="flex items-center gap-3 mb-6">
+          <div
+            class="size-10 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0"
+          >
+            <span class="material-symbols-outlined text-[24px]"
+              >monetization_on</span
+            >
+          </div>
+          <h3
+            class="text-gray-900 dark:text-white font-bold text-lg font-display m-0"
+          >
+            El Resultado
+          </h3>
+        </div>
+        <div class="mb-4 text-left">
+          <p
+            class="text-2xl font-bold text-gray-800 dark:text-white leading-tight mb-2 font-display m-0"
+          >
+            Rentabilidad High-Ticket
+          </p>
+          <div class="h-1 w-12 bg-emerald-400 rounded-full"></div>
+        </div>
+        <ul class="flex flex-col gap-4 mt-2 text-left list-none p-0">
+          <li class="flex items-start gap-3">
+            <span
+              class="material-symbols-outlined text-emerald-500 mt-0.5 text-[20px]"
+              >trending_up</span
+            >
+            <span
+              class="text-gray-600 dark:text-gray-400 text-sm font-medium leading-relaxed"
+              >Reduces tu carga operativa un 70%.</span
+            >
+          </li>
+          <li class="flex items-start gap-3">
+            <span
+              class="material-symbols-outlined text-emerald-500 mt-0.5 text-[20px]"
+              >trending_up</span
+            >
+            <span
+              class="text-gray-600 dark:text-gray-400 text-sm font-medium leading-relaxed"
+              >Cobras por valor de asesoría, no por horas.</span
+            >
+          </li>
+          <li class="flex items-start gap-3">
+            <span
+              class="material-symbols-outlined text-emerald-500 mt-0.5 text-[20px]"
+              >trending_up</span
+            >
+            <span
+              class="text-gray-600 dark:text-gray-400 text-sm font-medium leading-relaxed"
+              >Escalas tu firma sin más personal operativo.</span
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .font-display {
+    font-family: 'Space Grotesk Variable', 'Space Grotesk', sans-serif;
+  }
+</style>

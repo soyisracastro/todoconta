@@ -1,0 +1,315 @@
+---
+interface Props {
+  registrationUrl: string;
+}
+
+const { registrationUrl } = Astro.props;
+---
+
+<section
+  class="relative flex flex-col items-center justify-center py-20 bg-white dark:bg-[#0f172a] overflow-hidden"
+>
+  <!-- Background Decor -->
+  <div
+    class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none"
+  >
+    <div
+      class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-[#6324eb]/5 rounded-full blur-3xl dark:bg-[#6324eb]/10"
+    >
+    </div>
+    <div
+      class="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#2563EB]/5 rounded-full blur-3xl dark:bg-[#2563EB]/10"
+    >
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4 md:px-6 relative z-10">
+    <!-- Section Header -->
+    <div
+      class="flex flex-col items-center text-center max-w-3xl mx-auto mb-16 animate-on-scroll"
+      data-animation="fade-in-up"
+    >
+      <span
+        class="px-3 py-1 mb-6 rounded-full bg-[#6324eb]/10 text-[#6324eb] text-sm font-bold tracking-wide uppercase font-display"
+      >
+        Filtro de Admisión
+      </span>
+      <h2
+        class="text-[#111118] dark:text-white text-3xl md:text-5xl font-extrabold leading-tight tracking-tight mb-6 font-display m-0"
+      >
+        ¿Para quién es este Reto Intensivo?
+      </h2>
+      <p
+        class="text-gray-500 dark:text-gray-400 text-lg md:text-xl max-w-2xl leading-relaxed m-0"
+      >
+        Este programa es exclusivo y de alto nivel. Asegúrate de estar en el
+        lugar correcto antes de aplicar.
+      </p>
+    </div>
+
+    <!-- Filter Cards Container -->
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-stretch max-w-6xl mx-auto"
+    >
+      <!-- Card: YES (Ideal Profile) -->
+      <div
+        class="relative group flex flex-col bg-emerald-50/50 dark:bg-emerald-900/10 border border-emerald-100 dark:border-emerald-900/30 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 animate-on-scroll"
+        data-animation="slide-in-left"
+      >
+        <!-- Card Header -->
+        <div
+          class="p-8 pb-4 border-b border-emerald-100/50 dark:border-emerald-900/20"
+        >
+          <div class="flex items-center gap-4 mb-2">
+            <div
+              class="w-12 h-12 rounded-2xl bg-white dark:bg-emerald-500/20 flex items-center justify-center shadow-sm"
+            >
+              <span
+                class="material-symbols-outlined text-[#2563EB] text-3xl font-bold"
+                style="font-variation-settings: 'FILL' 1;">check_circle</span
+              >
+            </div>
+            <div class="flex flex-col text-left">
+              <h3
+                class="text-2xl font-bold text-emerald-900 dark:text-emerald-400 font-display m-0 leading-tight"
+              >
+                SÍ es para ti
+              </h3>
+              <p
+                class="text-emerald-700 dark:text-emerald-500/80 font-bold text-sm uppercase tracking-wide m-0"
+              >
+                Perfil Ideal
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Card Body -->
+        <div class="p-8 pt-6 flex-grow">
+          <ul class="space-y-6">
+            <li class="flex items-start gap-4">
+              <div
+                class="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center"
+              >
+                <span
+                  class="material-symbols-outlined text-white text-sm font-black"
+                  >check</span
+                >
+              </div>
+              <span
+                class="text-[#111827] dark:text-white/90 font-medium leading-relaxed text-left"
+              >
+                Contadores que quieren <strong
+                  >automatizar tareas repetitivas</strong
+                > y liberar horas de su semana.
+              </span>
+            </li>
+            <li class="flex items-start gap-4">
+              <div
+                class="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center"
+              >
+                <span
+                  class="material-symbols-outlined text-white text-sm font-black"
+                  >check</span
+                >
+              </div>
+              <span
+                class="text-[#111827] dark:text-white/90 font-medium leading-relaxed text-left"
+              >
+                Profesionales listos para <strong
+                  >invertir en su futuro tecnológico</strong
+                > y dejar atrás el papel.
+              </span>
+            </li>
+            <li class="flex items-start gap-4">
+              <div
+                class="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center"
+              >
+                <span
+                  class="material-symbols-outlined text-white text-sm font-black"
+                  >check</span
+                >
+              </div>
+              <span
+                class="text-[#111827] dark:text-white/90 font-medium leading-relaxed text-left"
+              >
+                Despachos que buscan <strong>escalar agresivamente</strong> sin la
+                necesidad de contratar más personal fijo.
+              </span>
+            </li>
+            <li class="flex items-start gap-4">
+              <div
+                class="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center"
+              >
+                <span
+                  class="material-symbols-outlined text-white text-sm font-black"
+                  >check</span
+                >
+              </div>
+              <span
+                class="text-[#111827] dark:text-white/90 font-medium leading-relaxed text-left"
+              >
+                Quienes valoran la <strong>eficiencia, la innovación</strong> y quieren
+                ser líderes en su sector.
+              </span>
+            </li>
+          </ul>
+        </div>
+        <!-- Decorative gradient at bottom -->
+        <div class="h-1.5 w-full bg-gradient-to-r from-[#6324eb] to-[#2563EB]">
+        </div>
+      </div>
+
+      <!-- Card: NO (Avoid If) -->
+      <div
+        class="relative flex flex-col bg-rose-50/50 dark:bg-rose-900/10 border border-rose-100 dark:border-rose-900/30 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 animate-on-scroll"
+        data-animation="slide-in-right"
+      >
+        <!-- Card Header -->
+        <div
+          class="p-8 pb-4 border-b border-rose-100/50 dark:border-rose-900/20"
+        >
+          <div class="flex items-center gap-4 mb-2">
+            <div
+              class="w-12 h-12 rounded-2xl bg-white dark:bg-rose-500/20 flex items-center justify-center shadow-sm"
+            >
+              <span
+                class="material-symbols-outlined text-rose-500 text-3xl font-bold"
+                style="font-variation-settings: 'FILL' 1;">cancel</span
+              >
+            </div>
+            <div class="flex flex-col text-left">
+              <h3
+                class="text-2xl font-bold text-rose-900 dark:text-rose-400 font-display m-0 leading-tight"
+              >
+                NO es para ti
+              </h3>
+              <p
+                class="text-rose-700 dark:text-rose-500/80 font-bold text-sm uppercase tracking-wide m-0"
+              >
+                Evitar si...
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Card Body -->
+        <div class="p-8 pt-6 flex-grow">
+          <ul class="space-y-6">
+            <li class="flex items-start gap-4">
+              <div
+                class="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-rose-400 flex items-center justify-center"
+              >
+                <span
+                  class="material-symbols-outlined text-white text-sm font-black"
+                  >close</span
+                >
+              </div>
+              <span
+                class="text-[#4b5563] dark:text-gray-400 font-normal leading-relaxed text-left"
+              >
+                Quienes buscan soluciones mágicas o "hacerse rico rápido" sin
+                esfuerzo real.
+              </span>
+            </li>
+            <li class="flex items-start gap-4">
+              <div
+                class="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-rose-400 flex items-center justify-center"
+              >
+                <span
+                  class="material-symbols-outlined text-white text-sm font-black"
+                  >close</span
+                >
+              </div>
+              <span
+                class="text-[#4b5563] dark:text-gray-400 font-normal leading-relaxed text-left"
+              >
+                Personas que se <strong>resisten activamente</strong> a aprender
+                nuevas tecnologías o software.
+              </span>
+            </li>
+            <li class="flex items-start gap-4">
+              <div
+                class="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-rose-400 flex items-center justify-center"
+              >
+                <span
+                  class="material-symbols-outlined text-white text-sm font-black"
+                  >close</span
+                >
+              </div>
+              <span
+                class="text-[#4b5563] dark:text-gray-400 font-normal leading-relaxed text-left"
+              >
+                Contadores que están 100% conformes con sus procesos manuales
+                actuales y no desean cambiar.
+              </span>
+            </li>
+            <li class="flex items-start gap-4">
+              <div
+                class="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-rose-400 flex items-center justify-center"
+              >
+                <span
+                  class="material-symbols-outlined text-white text-sm font-black"
+                  >close</span
+                >
+              </div>
+              <span
+                class="text-[#4b5563] dark:text-gray-400 font-normal leading-relaxed text-left"
+              >
+                Quienes no pueden dedicar al menos <strong>1 hora diaria</strong
+                > de enfoque durante los 12 días del reto.
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div
+      class="flex flex-col items-center justify-center pt-16 group animate-on-scroll"
+      data-animation="fade-in-up"
+    >
+      <a
+        href={registrationUrl}
+        target="_blank"
+        class="relative group flex items-center justify-center overflow-hidden rounded-xl bg-[#6324eb] px-10 py-5 text-white shadow-xl hover:shadow-[#6324eb]/30 hover:-translate-y-1 transition-all duration-300 no-underline"
+      >
+        <!-- Shimmer effect -->
+        <div
+          class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shine-button transition-transform duration-1000"
+        >
+        </div>
+        <span class="text-xl font-black tracking-tight mr-3 font-display"
+          >Sí, soy el contador ideal - Aplicar Ahora</span
+        >
+        <span
+          class="material-symbols-outlined text-2xl group-hover:translate-x-1 transition-transform"
+          >arrow_forward</span
+        >
+      </a>
+      <p
+        class="mt-6 text-sm text-gray-500 dark:text-gray-400 flex items-center gap-2 font-medium m-0 leading-none"
+      >
+        <span class="material-symbols-outlined text-base text-[#6324eb]"
+          >lock</span
+        >
+        Garantía de Satisfacción de 30 días incluida
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .font-display {
+    font-family: 'Space Grotesk Variable', 'Space Grotesk', sans-serif;
+  }
+
+  @keyframes shine-button {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .animate-shine-button {
+    animation: shine-button 2s infinite;
+  }
+</style>

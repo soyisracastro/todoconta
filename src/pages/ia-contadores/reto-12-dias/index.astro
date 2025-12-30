@@ -1,6 +1,17 @@
 ---
 import LandingLayout from '@/layouts/LandingLayout.astro';
-import Button from '@/components/ui/Button.astro';
+import IARetoHero from '@/components/pages/ia-contadores/IARetoHero.astro';
+import IAProblemOpportunity from '@/components/pages/ia-contadores/IAProblemOpportunity.astro';
+import IARetoDifferentiation from '@/components/pages/ia-contadores/IARetoDifferentiation.astro';
+import IARetoSchedule from '@/components/pages/ia-contadores/IARetoSchedule.astro';
+import IARetoTestimonials from '@/components/pages/ia-contadores/IARetoTestimonials.astro';
+import IARetoIncludes from '@/components/pages/ia-contadores/IARetoIncludes.astro';
+import IARetoAudience from '@/components/pages/ia-contadores/IARetoAudience.astro';
+import IARetoPricing from '@/components/pages/ia-contadores/IARetoPricing.astro';
+import IARetoFAQ from '@/components/pages/ia-contadores/IARetoFAQ.astro';
+import IARetoInstructor from '@/components/pages/ia-contadores/IARetoInstructor.astro';
+import IARetoFinalCTA from '@/components/pages/ia-contadores/IARetoFinalCTA.astro';
+import IARetoMatrix from '@/components/pages/ia-contadores/IARetoMatrix.astro';
 
 const title = 'Reto IA 12 Días - ChatGPT, Claude y Gemini 3 para Contadores';
 const description =
@@ -16,7 +27,8 @@ const keywords = [
 ];
 
 // Configuration
-const REGISTRATION_CHALLENGE_URL = 'https://nas.io/checkout-global?communityId=67ab5a14d444670df4027cad&communityCode=TODOCONTA_CLUB&requestor=whatsappSignup&linkClicked=https%3A%2F%2Fnas.io%2Fportal%2Fchallenges%2Fmanage%3Fid%3D6932a1a7d7b7451ff09982cc&sourceInfoType=challenge&sourceInfoOrigin=6932a1a7d7b7451ff09982cc';
+const REGISTRATION_CHALLENGE_URL =
+  'https://nas.io/checkout-global?communityId=67ab5a14d444670df4027cad&communityCode=TODOCONTA_CLUB&requestor=whatsappSignup&linkClicked=https%3A%2F%2Fnas.io%2Fportal%2Fchallenges%2Fmanage%3Fid%3D6932a1a7d7b7451ff09982cc&sourceInfoType=challenge&sourceInfoOrigin=6932a1a7d7b7451ff09982cc';
 const EARLY_BIRD_PRICE = '$2,997';
 const EARLY_BIRD_DEADLINE = '5 de enero 2026';
 
@@ -51,699 +63,41 @@ const testimonials = [
 ];
 ---
 
-<LandingLayout title={title} description={description} keywords={keywords} showFooter={false}>
-  <!-- SECCIÓN 1: HERO DEL RETO -->
-  <section class="hero-section">
-    <div class="hero-gradient-bg"></div>
-    <div class="floating-particles">
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-    </div>
-    <div class="hero-bg-overlay"></div>
-    <div class="hero-blobs">
-      <div class="blob blob-purple"></div>
-      <div class="blob blob-blue"></div>
-    </div>
+<LandingLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  showFooter={false}
+>
+  <IARetoHero registrationUrl={REGISTRATION_CHALLENGE_URL} />
+  <IAProblemOpportunity registrationUrl={REGISTRATION_CHALLENGE_URL} />
 
-    <div class="container hero-content">
-      <div class="badge-container">
-        <span class="badge-icon">🔥</span>
-        <span class="badge-text"
-          >Reto 12 días para transformar tu mentalidad contable</span
-        >
-      </div>
+  <IARetoDifferentiation />
 
-      <h1 class="hero-title animate-on-scroll" data-animation="fade-in-up" data-delay="100">
-        Piensa con <span class="gradient-text">IA como Estratega</span>,<br /> No
-        como Usuario
-      </h1>
+  <IARetoSchedule registrationUrl={REGISTRATION_CHALLENGE_URL} />
 
-      <p class="hero-subtitle animate-on-scroll" data-animation="fade-in-up" data-delay="200">
-        El reto donde desarrollas la mentalidad que te mantendrá relevante sin
-        importar cuál IA sea la más potente. Aprende a pensar, no solo a usar
-      </p>
+  <IARetoTestimonials testimonials={testimonials} />
 
-      <div class="hero-cta animate-on-scroll" data-animation="scale-in" data-delay="400">
-        <Button
-          href={REGISTRATION_CHALLENGE_URL}
-          variant="primary"
-          size="xl"
-          class="btn-glow btn-pulse"
-          data-track-event="cta_hero_click"
-        >
-          Inscribirme ahora
-        </Button>
-      </div>
-    </div>
-  </section>
+  <IARetoIncludes registrationUrl={REGISTRATION_CHALLENGE_URL} />
 
-  <!-- SECCIÓN 2: PROBLEMA/OPORTUNIDAD -->
-  <section class="problem-section">
-    <div class="container">
-      <div class="section-header animate-on-scroll" data-animation="fade-in-up">
-        <h2 class="section-title">
-          La IA ya está aquí. <span class="text-highlight"
-            >Los contadores que la dominen liderarán.</span
-          >
-        </h2>
-      </div>
+  <IARetoMatrix />
 
-      <div class="grid-3-cols">
-        <!-- El Problema -->
-        <div class="card card-problem animate-on-scroll" data-animation="fade-in-up" data-delay="0">
-          <div class="card-icon icon-red">⚠️</div>
-          <h3 class="card-title">El Problema</h3>
-          <p class="card-text">
-            La mayoría usa ChatGPT gratis y no sabe que existen herramientas más
-            potentes. Se quedan estancados con respuestas genéricas y
-            alucinaciones.
-          </p>
-        </div>
+  <IARetoInstructor name={INSTRUCTOR_NAME} />
 
-        <!-- La Oportunidad -->
-        <div class="card card-opportunity animate-on-scroll" data-animation="fade-in-up" data-delay="150">
-          <div class="new-badge">NUEVO</div>
-          <div class="card-icon icon-purple">🚀</div>
-          <h3 class="card-title">La Oportunidad</h3>
-          <p class="card-text">
-            Gemini 3 salió hace unas semanas. Dominarlo AHORA te da una ventaja
-            competitiva de 6-12 meses sobre el resto del mercado.
-          </p>
-        </div>
+  <IARetoAudience registrationUrl={REGISTRATION_CHALLENGE_URL} />
 
-        <!-- El Resultado -->
-        <div class="card card-result animate-on-scroll" data-animation="fade-in-up" data-delay="300">
-          <div class="card-icon icon-green">💰</div>
-          <h3 class="card-title">El Resultado</h3>
-          <p class="card-text">
-            Los "Contadores IA" cobran 2-3x más por sus servicios y recuperan
-            10-15 horas a la semana automatizando lo operativo.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <IARetoPricing
+    registrationUrl={REGISTRATION_CHALLENGE_URL}
+    price={EARLY_BIRD_PRICE}
+    deadline={EARLY_BIRD_DEADLINE}
+  />
 
-  <!-- SECCIÓN 3: POR QUÉ ES DIFERENTE -->
-  <section class="difference-section">
-    <div class="container">
-      <div class="section-header animate-on-scroll" data-animation="fade-in-up">
-        <h2 class="section-title">¿Por qué este reto es diferente?</h2>
-      </div>
+  <IARetoFAQ registrationUrl={REGISTRATION_CHALLENGE_URL} />
 
-      <div class="grid-4-cols">
-        <div class="feature-box animate-on-scroll" data-animation="scale-in" data-delay="0">
-          <div class="feature-emoji">🤖</div>
-          <h3 class="feature-title">No es solo ChatGPT</h3>
-          <p class="feature-text">
-            Dominarás el trío de poder: ChatGPT + Claude + Gemini 3 (lo más
-            reciente en tecnología).
-          </p>
-        </div>
-        <div class="feature-box animate-on-scroll" data-animation="scale-in" data-delay="100">
-          <div class="feature-emoji">🧠</div>
-          <h3 class="feature-title">Mentalidad IA-First</h3>
-          <p class="feature-text">
-            Aprenderás a pensar estratégicamente para resolver problemas
-            complejos, no solo a meter prompts.
-          </p>
-        </div>
-        <div class="feature-box animate-on-scroll" data-animation="scale-in" data-delay="200">
-          <div class="feature-emoji">🇲🇽</div>
-          <h3 class="feature-title">Casos 100% Reales</h3>
-          <p class="feature-text">
-            Ejemplos tropicalizados: SAT, CFDI, RESICO, nóminas y leyes
-            mexicanas.
-          </p>
-        </div>
-        <div class="feature-box animate-on-scroll" data-animation="scale-in" data-delay="300">
-          <div class="feature-emoji">💸</div>
-          <h3 class="feature-title">Monetización Práctica</h3>
-          <p class="feature-text">
-            Incluye un plan de acción de 30 días para que generes ingresos extra
-            con lo aprendido.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECCIÓN 4: LOS 12 DÍAS DEL RETO -->
-  <section class="timeline-section">
-    <div class="container">
-      <div class="section-header animate-on-scroll" data-animation="fade-in-up">
-        <h2 class="section-title">12 Días de Transformación Total</h2>
-        <p class="section-subtitle">
-          Un viaje paso a paso para dominar la Inteligencia Artificial
-        </p>
-      </div>
-
-      <div class="timeline-container">
-        <!-- Bloque 1 -->
-        <div class="timeline-block block-purple animate-on-scroll" data-animation="slide-in-left" data-delay="0">
-          <div class="block-header">
-            <h3>Bloque 1: Fundamentos (Días 1-3)</h3>
-          </div>
-          <div class="block-content grid-3-cols">
-            <div class="day-item">
-              <span class="day-label">Día 1</span>
-              <h4>Mentalidad IA-First</h4>
-              <p>Comparativa estratégica de las 3 IAs y cómo elegir.</p>
-            </div>
-            <div class="day-item">
-              <span class="day-label">Día 2</span>
-              <h4>El Trío en Acción</h4>
-              <p>
-                Resolvemos el mismo caso contable con 3 soluciones distintas.
-              </p>
-            </div>
-            <div class="day-item">
-              <span class="day-label">Día 3</span>
-              <h4>Prompts Universales</h4>
-              <p>Estructuras maestras que funcionan en cualquier modelo.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bloque 2 -->
-        <div class="timeline-block block-blue animate-on-scroll" data-animation="slide-in-right" data-delay="150">
-          <div class="block-header">
-            <h3>Bloque 2: Dominio Individual (Días 4-6)</h3>
-          </div>
-          <div class="block-content grid-3-cols">
-            <div class="day-item">
-              <span class="day-label">Día 4</span>
-              <h4>ChatGPT Deep Dive</h4>
-              <p>Creación de GPTs personalizados para tu despacho.</p>
-            </div>
-            <div class="day-item">
-              <span class="day-label">Día 5</span>
-              <h4>Claude Deep Dive</h4>
-              <p>Uso de Projects y análisis profundo de documentos.</p>
-            </div>
-            <div class="day-item">
-              <span class="day-label">Día 6</span>
-              <h4>Gemini 3 Deep Dive</h4>
-              <p>Dominando las Gemas y AI Studio de Google.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bloque 3 -->
-        <div class="timeline-block block-indigo animate-on-scroll" data-animation="slide-in-left" data-delay="300">
-          <div class="block-header">
-            <h3>Bloque 3: Ecosistema Híbrido (Días 7-9)</h3>
-          </div>
-          <div class="block-content grid-3-cols">
-            <div class="day-item">
-              <span class="day-label">Día 7</span>
-              <h4>NotebookLM 2.0</h4>
-              <p>Fuentes grounded para eliminar alucinaciones.</p>
-            </div>
-            <div class="day-item">
-              <span class="day-label">Día 8</span>
-              <h4>Perplexity Pro</h4>
-              <p>Research fiscal avanzado y búsqueda en tiempo real.</p>
-            </div>
-            <div class="day-item">
-              <span class="day-label">Día 9</span>
-              <h4>Flujos Híbridos</h4>
-              <p>Cómo hacer que las 3 IAs trabajen juntas en un workflow.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bloque 4 & 5 -->
-        <div class="grid-2-cols">
-          <div class="timeline-block block-pink animate-on-scroll" data-animation="scale-in" data-delay="0">
-            <div class="block-header">
-              <h3>Bloque 4: Casos Avanzados</h3>
-            </div>
-            <div class="block-content">
-              <div class="day-item mb-4">
-                <span class="day-label">Día 10</span>
-                <h4>Caso Multimodal Real</h4>
-                <p>Procesando PDF + Voz + Excel simultáneamente.</p>
-              </div>
-              <div class="day-item">
-                <span class="day-label">Día 11</span>
-                <h4>Google Antigravity</h4>
-                <p>Creación de páginas web y herramientas simples con IA.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="timeline-block block-gold animate-on-scroll" data-animation="scale-in" data-delay="150">
-            <div class="block-header">
-              <h3>Bloque 5: Monetización</h3>
-            </div>
-            <div class="block-content flex-center">
-              <div class="day-item">
-                <span class="day-label">Día 12</span>
-                <h4>El Plan de Negocio</h4>
-                <p>
-                  4 modelos probados de monetización + Tu plan de acción de 30
-                  días para recuperar la inversión.
-                </p>
-              </div>              
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="timeline-cta animate-on-scroll" data-animation="fade-in-up" data-delay="400">
-        <Button
-          href={REGISTRATION_CHALLENGE_URL}
-          variant="outline"
-          size="xl"
-          class="btn-gold-outline-large scroll-to-pricing"
-          data-track-event="cta_timeline_scroll"
-        >
-          Ver precio y registrarme
-        </Button>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECCIÓN 5: TESTIMONIOS -->
-  <section class="testimonials">
-    <div class="container">
-      <div class="section-header animate-on-scroll" data-animation="fade-in-up">
-        <h2 class="section-title">Lo que dicen contadores como tú</h2>
-        <p class="section-subtitle">Resultados reales de ediciones anteriores</p>
-      </div>
-
-      <div class="testimonials-grid">
-        {
-          testimonials.map((testimonial, index) => (
-            <div
-              class="testimonial-card animate-on-scroll"
-              data-animation="fade-in-up"
-              data-delay={index * 150}
-            >
-              <div class="quote-icon">"</div>
-              <p class="testimonial-quote">{testimonial.quote}</p>
-              <div class="testimonial-highlight">{testimonial.highlight}</div>
-              <div class="testimonial-author">
-                <div class="author-avatar">{testimonial.avatar}</div>
-                <div class="author-info">
-                  <p class="author-name">{testimonial.name}</p>
-                  <p class="author-role">{testimonial.role}</p>
-                </div>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- SECCIÓN 6: QUÉ INCLUYE -->
-  <section class="included-section">
-    <div class="container">
-      <div class="section-header animate-on-scroll" data-animation="fade-in-up">
-        <h2 class="section-title">Todo lo que necesitas en un solo lugar</h2>
-        <p class="section-subtitle">
-          Sin ventas adicionales ni costos ocultos.
-        </p>
-      </div>
-
-      <div class="grid-2-cols included-grid">
-        <!-- Columna 1 -->
-        <div class="included-col animate-on-scroll" data-animation="slide-in-left" data-delay="0">
-          <div class="included-group">
-            <h3 class="group-title">Contenido Completo</h3>
-            <ul class="check-list">
-              <li>
-                <span class="check-icon">✅</span>
-                <span
-                  ><strong>12 sesiones en vivo</strong> (45-60 min c/u) con Q&A al
-                  final</span
-                >
-              </li>
-              <li>
-                <span class="check-icon">✅</span>
-                <span
-                  >Acceso <strong>ILIMITADO</strong> a las grabaciones de por vida</span
-                >
-              </li>
-              <li>
-                <span class="check-icon">✅</span>
-                <span>Transcripciones y resúmenes de todas las sesiones</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="included-group">
-            <h3 class="group-title">Materiales de Trabajo</h3>
-            <ul class="check-list">
-              <li>
-                <span class="check-icon">✅</span>
-                <span
-                  ><strong>Matriz de decisión:</strong> ¿Cuál IA usar para qué tarea?</span
-                >
-              </li>
-              <li>
-                <span class="check-icon">✅</span>
-                <span
-                  >Biblioteca de <strong>20+ prompts</strong> probados y listos para
-                  copiar</span
-                >
-              </li>
-              <li>
-                <span class="check-icon">✅</span>
-                <span
-                  >10 asistentes pre-configurados (GPTs, Gemas, Projects)</span
-                >
-              </li>
-              <li>
-                <span class="check-icon">✅</span>
-                <span
-                  >Plantillas de workflows híbridos y guía de Google Workspace</span
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Columna 2 -->
-        <div class="included-col animate-on-scroll" data-animation="slide-in-right" data-delay="150">
-          <div class="included-group">
-            <h3 class="group-title">Soporte y Comunidad</h3>
-            <ul class="check-list">
-              <li>
-                <span class="check-icon">✅</span>
-                <span>Grupo privado de WhatsApp para networking</span>
-              </li>
-              <li>
-                <span class="check-icon">✅</span>
-                <span
-                  ><strong>60 días de soporte</strong> por email y WhatsApp</span
-                >
-              </li>
-              <li>
-                <span class="check-icon">✅</span>
-                <span>3 meses de actualizaciones gratuitas del contenido</span>
-              </li>
-              <li>
-                <span class="check-icon">✅</span>
-                <span>Sesión extra de Q&A grupal (30 de enero)</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="bonus-card">
-            <h4 class="bonus-title">🎁 Bonus Especial</h4>
-            <p class="bonus-text">
-              Acceso anticipado a nuestra base de conocimientos "Contador IA"
-              con tutoriales en video de herramientas emergentes.
-            </p>
-            <div class="bonus-value">
-              Valorado en $1,500 MXN (Incluido GRATIS)
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECCIÓN 7: MATRIZ DE DECISIÓN PREVIEW -->
-  <section class="matrix-section">
-    <div class="container">
-      <div class="section-header animate-on-scroll" data-animation="fade-in-up">
-        <h2 class="section-title">Aprende a elegir tu arma</h2>
-        <p class="section-subtitle">
-          ¿Cuándo usar ChatGPT, Claude o Gemini 3? Te enseñaremos a decidir.
-        </p>
-      </div>
-
-      <div class="matrix-container animate-on-scroll" data-animation="scale-in" data-delay="200">
-        <div class="table-responsive">
-          <table class="matrix-table">
-            <thead>
-              <tr>
-                <th>Tarea Contable</th>
-                <th class="text-center text-green">ChatGPT 4o</th>
-                <th class="text-center text-orange">Claude 3.5</th>
-                <th class="text-center text-blue">Gemini 3</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Redacción rápida de correos</td>
-                <td class="text-center">⭐⭐⭐⭐⭐</td>
-                <td class="text-center">⭐⭐⭐⭐</td>
-                <td class="text-center">⭐⭐⭐</td>
-              </tr>
-              <tr>
-                <td>Análisis profundo de contratos</td>
-                <td class="text-center">⭐⭐⭐</td>
-                <td class="text-center">⭐⭐⭐⭐⭐</td>
-                <td class="text-center">⭐⭐⭐⭐</td>
-              </tr>
-              <tr>
-                <td>Procesamiento de PDFs (OCR)</td>
-                <td class="text-center">⭐⭐</td>
-                <td class="text-center">⭐⭐⭐</td>
-                <td class="text-center">⭐⭐⭐⭐⭐</td>
-              </tr>
-              <tr>
-                <td>Integración Google Workspace</td>
-                <td class="text-center">⭐</td>
-                <td class="text-center">⭐</td>
-                <td class="text-center">⭐⭐⭐⭐⭐</td>
-              </tr>
-              <tr>
-                <td>Casos multimodales (Video/Audio)</td>
-                <td class="text-center">⭐⭐⭐⭐</td>
-                <td class="text-center">⭐⭐</td>
-                <td class="text-center">⭐⭐⭐⭐⭐</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="matrix-note">
-          * Esta es SOLO una muestra. En el reto recibirás la matriz completa
-          con 20+ casos de uso detallados.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECCIÓN 8: SOBRE EL INSTRUCTOR -->
-  <section class="instructor">
-    <div class="container">
-      <div class="section-header animate-on-scroll" data-animation="fade-in-up">
-        <h2 class="section-title">Sobre el Instructor</h2>
-      </div>
-
-      <div class="instructor-card animate-on-scroll" data-animation="scale-in" data-delay="200">
-        <img
-          src="/images/photo.png"
-          alt={INSTRUCTOR_NAME}
-          class="avatar"
-        />
-        <h3 class="name">{INSTRUCTOR_NAME}</h3>
-        <p class="role">Contador público y programador con 12+ años de experiencia</p>
-        <p class="credentials">Creador de TodoConta</p>
-        <p class="bio">
-          A través de mi plataforma, he trabajado con <strong>cientos de contadores mexicanos</strong> interesados en integrar IA. Los que implementan el framework reportan mejoras significativas en productividad y nuevas oportunidades de ingresos.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECCIÓN 9: PARA QUIÉN ES -->
-  <section class="audience-section">
-    <div class="container">
-      <div class="grid-2-cols audience-grid">
-        <!-- Es para ti -->
-        <div class="audience-card card-yes animate-on-scroll" data-animation="slide-in-left" data-delay="0">
-          <h3 class="audience-title title-yes">
-            <span class="icon">✅</span> Es para ti si:
-          </h3>
-          <ul class="audience-list">
-            <li>Eres contador público y quieres aumentar tus ingresos.</li>
-            <li>Ya usas IA pero sientes que la usas de forma muy básica.</li>
-            <li>Quieres diferenciarte de la competencia que cobra barato.</li>
-            <li>
-              Buscas automatizar tareas repetitivas para tener más tiempo libre.
-            </li>
-            <li>Quieres ofrecer servicios premium de consultoría.</li>
-          </ul>
-        </div>
-
-        <!-- NO es para ti -->
-        <div class="audience-card card-no animate-on-scroll" data-animation="slide-in-right" data-delay="150">
-          <h3 class="audience-title title-no">
-            <span class="icon">❌</span> NO es para ti si:
-          </h3>
-          <ul class="audience-list">
-            <li>Buscas fórmulas mágicas para hacerte rico sin esfuerzo.</li>
-            <li>
-              No tienes tiempo ni disposición para practicar lo aprendido.
-            </li>
-            <li>Solo quieres "ver qué tal" sin comprometerte.</li>
-            <li>Esperas que la IA haga todo tu trabajo sin supervisión.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECCIÓN 10: PRICING -->
-  <section class="pricing-section-dark" id="pricing">
-    <div class="pricing-bg-glow"></div>
-    <div class="container">
-      <div class="pricing-card-dark animate-on-scroll" data-animation="scale-in" data-delay="200">
-        <div class="pricing-header">
-          <h3>UN SOLO PLAN</h3>
-          <p>Todo incluido. Sin restricciones.</p>
-        </div>
-
-        <div class="pricing-price">
-          <div class="current-price">
-            <span class="amount">{EARLY_BIRD_PRICE}</span>
-            <span class="currency">MXN</span>
-          </div>
-          <p class="start-date">
-            Inicia el {EARLY_BIRD_DEADLINE}
-          </p>
-        </div>
-
-        <div class="pricing-features">
-          <div class="feature-row">
-            <span class="check">✓</span>
-            <span>Acceso a las 12 sesiones en vivo</span>
-          </div>
-          <div class="feature-row">
-            <span class="check">✓</span>
-            <span>Grabaciones ilimitadas de por vida</span>
-          </div>
-          <div class="feature-row">
-            <span class="check">✓</span>
-            <span>Pack de 20+ Prompts y Asistentes</span>
-          </div>
-          <div class="feature-row">
-            <span class="check">✓</span>
-            <span>Certificado de finalización</span>
-          </div>
-          <div class="feature-row">
-            <span class="check">✓</span>
-            <span>Soporte por 60 días</span>
-          </div>
-        </div>
-
-        <div class="pricing-cta">
-          <Button
-            href={REGISTRATION_CHALLENGE_URL}
-            variant="primary"
-            size="xl"
-            class="btn-full btn-glow"
-            data-track-event="cta_pricing_click"
-          >
-            Inscribirme ahora
-          </Button>
-          <p class="guarantee-text">
-            Garantía de 30 días: Si sientes que no es para ti, te devolvemos el
-            100%.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECCIÓN 11: FAQ -->
-  <section class="faq-section-dark">
-    <div class="container max-w-md">
-      <div class="section-header animate-on-scroll" data-animation="fade-in-up">
-        <h2 class="section-title">Preguntas Frecuentes</h2>
-      </div>
-
-      <div class="faq-list">
-        <details class="faq-item animate-on-scroll" data-animation="fade-in-up" data-delay="0">
-          <summary class="faq-question">
-            ¿Necesito experiencia previa en IA?
-            <span class="arrow">▼</span>
-          </summary>
-          <div class="faq-answer">
-            No, el reto está diseñado para llevarte desde cero hasta un nivel
-            avanzado. Explicamos todos los conceptos sin tecnicismos complejos.
-          </div>
-        </details>
-
-        <details class="faq-item animate-on-scroll" data-animation="fade-in-up" data-delay="100">
-          <summary class="faq-question">
-            ¿Necesito pagar por ChatGPT Plus, Claude Pro o Gemini Advanced?
-            <span class="arrow">▼</span>
-          </summary>
-          <div class="faq-answer">
-            No es obligatorio. Puedes tomar el curso con las versiones
-            gratuitas. Sin embargo, para sacar el máximo provecho profesional,
-            recomendamos tener al menos una suscripción activa durante el mes
-            del reto.
-          </div>
-        </details>
-
-        <details class="faq-item animate-on-scroll" data-animation="fade-in-up" data-delay="200">
-          <summary class="faq-question">
-            ¿Qué pasa si no puedo asistir en vivo?
-            <span class="arrow">▼</span>
-          </summary>
-          <div class="faq-answer">
-            Tendrás acceso a las grabaciones de todas las sesiones en nuestra
-            plataforma, disponibles menos de 24 horas después de cada clase. El
-            acceso es ilimitado y de por vida.
-          </div>
-        </details>
-
-        <details class="faq-item animate-on-scroll" data-animation="fade-in-up" data-delay="300">
-          <summary class="faq-question">
-            ¿Cuánto tiempo me tomará ver resultados?
-            <span class="arrow">▼</span>
-          </summary>
-          <div class="faq-answer">
-            Nuestros alumnos suelen reportar ahorros de tiempo desde la primera
-            semana. La generación de ingresos extra depende de tu
-            implementación, pero el plan de monetización está diseñado para
-            ejecutarse en 30 días.
-          </div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECCIÓN 12: LLAMADO FINAL -->
-  <section class="final-cta">
-    <div class="container">
-      <h2 class="final-title animate-on-scroll" data-animation="fade-in-up">
-        No dejes pasar esta oportunidad
-      </h2>
-      <p class="final-text animate-on-scroll" data-animation="fade-in-up" data-delay="100">
-        En 12 meses habrá dos tipos de contadores: los que dominan IA y los que
-        compiten por precio. <br />
-        <strong>¿De qué lado quieres estar?</strong>
-      </p>
-
-      <div class="final-actions animate-on-scroll" data-animation="scale-in" data-delay="200">
-        <Button
-          href={REGISTRATION_CHALLENGE_URL}
-          variant="primary"
-          size="xl"
-          class="btn-glow btn-pulse"
-          data-track-event="cta_final_click"
-        >
-          Reservar mi lugar ahora
-        </Button>
-        <p class="final-note">
-          Inicia el {EARLY_BIRD_DEADLINE}
-        </p>
-      </div>
-    </div>
-  </section>
+  <IARetoFinalCTA
+    registrationUrl={REGISTRATION_CHALLENGE_URL}
+    deadline={EARLY_BIRD_DEADLINE}
+  />
 </LandingLayout>
 
 <style>
@@ -1188,7 +542,10 @@ const testimonials = [
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: var(--space-8);
     border-radius: var(--border-radius-xl);
-    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      background 0.3s ease,
+      border-color 0.3s ease;
   }
   .card:hover {
     transform: translateY(-5px);
@@ -1978,8 +1335,8 @@ const testimonials = [
     rootMargin: '0px 0px -50px 0px',
   };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
       if (entry.isIntersecting) {
         const delay = entry.target.getAttribute('data-delay') || '0';
         setTimeout(() => {
@@ -1990,15 +1347,15 @@ const testimonials = [
     });
   }, observerOptions);
 
-  document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
     observer.observe(el);
   });
 
   // ========================================
   // SMOOTH SCROLL TO SECTIONS
   // ========================================
-  document.querySelectorAll('.scroll-to-pricing').forEach((button) => {
-    button.addEventListener('click', (e) => {
+  document.querySelectorAll('.scroll-to-pricing').forEach(button => {
+    button.addEventListener('click', e => {
       e.preventDefault();
       const pricingSection = document.getElementById('pricing');
       if (pricingSection) {
@@ -2028,13 +1385,17 @@ const testimonials = [
   }
 
   // Track CTA clicks
-  document.querySelectorAll('[data-track-event]').forEach((button) => {
-    button.addEventListener('click', (e) => {
+  document.querySelectorAll('[data-track-event]').forEach(button => {
+    button.addEventListener('click', e => {
       const target = e.currentTarget;
       const eventName = target?.getAttribute('data-track-event');
       if (eventName && target) {
         trackEvent(eventName, {
-          button_location: eventName.includes('hero') ? 'hero' : eventName.includes('pricing') ? 'pricing' : 'other',
+          button_location: eventName.includes('hero')
+            ? 'hero'
+            : eventName.includes('pricing')
+              ? 'pricing'
+              : 'other',
           button_text: target.textContent?.trim() || '',
         });
       }
@@ -2055,7 +1416,7 @@ const testimonials = [
     if (scrollPercent > maxScroll) {
       maxScroll = scrollPercent;
 
-      scrollMilestones.forEach((milestone) => {
+      scrollMilestones.forEach(milestone => {
         if (scrollPercent >= milestone && !trackedMilestones.has(milestone)) {
           trackedMilestones.add(milestone);
           trackEvent('scroll_depth', {
@@ -2067,10 +1428,12 @@ const testimonials = [
   });
 
   // Track FAQ interactions
-  document.querySelectorAll('.faq-item').forEach((item) => {
+  document.querySelectorAll('.faq-item').forEach(item => {
     item.addEventListener('toggle', () => {
       if (item.hasAttribute('open')) {
-        const question = item.querySelector('.faq-question')?.textContent?.trim();
+        const question = item
+          .querySelector('.faq-question')
+          ?.textContent?.trim();
         trackEvent('faq_opened', {
           question: question || 'unknown',
         });
@@ -2089,8 +1452,8 @@ const testimonials = [
 
   // Track section visibility
   const sectionObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
+    entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting && entry.target instanceof HTMLElement) {
           const sectionName =
             entry.target.className.split(' ')[0] || 'unknown_section';
@@ -2104,7 +1467,7 @@ const testimonials = [
     { threshold: 0.5 }
   );
 
-  document.querySelectorAll('section').forEach((section) => {
+  document.querySelectorAll('section').forEach(section => {
     sectionObserver.observe(section);
   });
 </script>

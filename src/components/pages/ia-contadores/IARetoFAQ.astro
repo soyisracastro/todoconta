@@ -1,0 +1,166 @@
+---
+interface Props {
+  registrationUrl: string;
+}
+
+const { registrationUrl } = Astro.props;
+
+const faqs = [
+  {
+    question: '¿Realmente vale la pena la inversión para un contador?',
+    answer:
+      'Absolutamente. El retorno de inversión se refleja en la automatización de tareas repetitivas (como captura de datos y conciliaciones), permitiéndote facturar más servicios de alto valor en menos tiempo. Nuestros alumnos recuperan su inversión en promedio a los 20 días de implementar las primeras herramientas.',
+  },
+  {
+    question: '¿Necesito saber programar o ser experto en tecnología?',
+    answer:
+      "Para nada. El reto está diseñado específicamente para contadores, no para ingenieros. Empezamos desde cero, explicándote paso a paso cómo usar herramientas 'No-Code' (sin código) que son tan intuitivas como usar una hoja de cálculo.",
+  },
+  {
+    question: '¿Cuánto tiempo diario debo dedicarle?',
+    answer:
+      "El formato 'Reto Intensivo' está pensado para profesionales ocupados. Necesitas dedicar aproximadamente 60 a 90 minutos diarios. Las sesiones son prácticas: vienes, aprendes, aplicas y ves resultados el mismo día.",
+  },
+  {
+    question: '¿Tendré acceso a las grabaciones si me pierdo una sesión?',
+    answer:
+      'Sí, tendrás acceso de por vida a la plataforma del curso donde subimos las grabaciones en alta definición 24 horas después de cada sesión en vivo, junto con los recursos descargables y prompts utilizados.',
+  },
+  {
+    question: '¿Qué herramientas de IA aprenderemos a usar?',
+    answer:
+      "Dominarás ChatGPT (versión avanzada para análisis financiero), Claude 3 para redacción de informes, y herramientas específicas de automatización contable que se integran con Excel y Google Sheets. Nos enfocamos en el 'Stack Tecnológico del Contador Moderno'.",
+  },
+];
+---
+
+<section
+  class="flex flex-col items-center justify-center py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#0f172a]"
+>
+  <div class="w-full max-w-[800px] flex flex-col gap-12">
+    <!-- Section Header -->
+    <div
+      class="text-center space-y-4 animate-on-scroll"
+      data-animation="fade-in-up"
+    >
+      <h2
+        class="text-[#111118] dark:text-white text-3xl md:text-5xl font-extrabold leading-tight tracking-tight font-display m-0"
+      >
+        ¿Tienes dudas sobre el Reto TodoConta AI?
+      </h2>
+      <p
+        class="text-gray-500 dark:text-gray-400 text-lg font-medium leading-relaxed max-w-2xl mx-auto m-0"
+      >
+        Resolvemos las inquietudes más comunes para que tomes la mejor decisión
+        para tu carrera profesional y tu despacho.
+      </p>
+    </div>
+
+    <!-- Accordions -->
+    <div class="flex flex-col gap-4 w-full">
+      {
+        faqs.map((faq, index) => (
+          <details
+            class="group rounded-2xl border border-gray-100 dark:border-white/5 bg-white dark:bg-white/5 open:bg-gray-50/50 dark:open:bg-white/10 transition-all duration-300 open:shadow-xl open:shadow-[#6324eb]/5 animate-on-scroll"
+            data-animation="fade-in-up"
+            data-delay={index * 100}
+            open={index === 0}
+          >
+            <summary class="flex w-full cursor-pointer items-center justify-between gap-4 p-6 select-none list-none [&::-webkit-details-marker]:hidden">
+              <h3 class="text-[#111118] dark:text-white text-lg md:text-xl font-bold leading-tight group-hover:text-[#6324eb] transition-colors font-display m-0 text-left">
+                {faq.question}
+              </h3>
+              <div class="text-gray-400 group-hover:text-[#6324eb] transition-transform duration-300 group-open:rotate-180 flex items-center shrink-0">
+                <span class="material-symbols-outlined text-2xl font-bold">
+                  expand_more
+                </span>
+              </div>
+            </summary>
+            <div class="px-6 pb-6 pt-0">
+              <p class="text-gray-600 dark:text-gray-400 text-base md:text-lg font-medium leading-relaxed m-0 text-left">
+                {faq.answer}
+              </p>
+            </div>
+          </details>
+        ))
+      }
+    </div>
+
+    <!-- Action Panel (Support) -->
+    <div
+      class="w-full mt-4 animate-on-scroll"
+      data-animation="scale-in"
+      data-delay="500"
+    >
+      <div
+        class="flex flex-col md:flex-row items-center justify-between gap-8 rounded-3xl border border-gray-100 dark:border-white/5 bg-gray-50/50 dark:bg-white/5 p-8 md:p-10 text-center md:text-left shadow-sm"
+      >
+        <div class="flex flex-col gap-2">
+          <h4
+            class="text-[#111118] dark:text-white text-xl font-bold leading-tight font-display m-0"
+          >
+            ¿No encuentras tu respuesta?
+          </h4>
+          <p
+            class="text-gray-500 dark:text-gray-400 text-base font-medium leading-normal m-0"
+          >
+            Nuestro equipo de soporte está listo para ayudarte con cualquier
+            duda específica.
+          </p>
+        </div>
+        <a
+          class="group flex shrink-0 items-center justify-center gap-3 rounded-xl bg-white dark:bg-white/10 border border-gray-200 dark:border-white/20 px-8 py-4 text-base font-bold text-[#111118] dark:text-white transition-all hover:border-[#6324eb] hover:text-[#6324eb] shadow-sm hover:shadow-lg no-underline font-display"
+          href="https://wa.me/your-number"
+          target="_blank"
+        >
+          <span>Contactar por WhatsApp</span>
+          <span
+            class="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1"
+            >chat</span
+          >
+        </a>
+      </div>
+    </div>
+
+    <!-- Final CTA Section -->
+    <div
+      class="flex flex-col items-center justify-center pt-8 gap-6 animate-on-scroll"
+      data-animation="fade-in-up"
+      data-delay="600"
+    >
+      <p
+        class="text-center text-sm font-black text-gray-400 dark:text-gray-500 uppercase tracking-[0.2em] m-0"
+      >
+        ¿Listo para transformar tu práctica contable?
+      </p>
+      <a
+        href={registrationUrl}
+        target="_blank"
+        class="group relative flex w-full md:w-auto min-w-[320px] cursor-pointer items-center justify-center overflow-hidden rounded-2xl h-16 px-10 bg-[#6324eb] text-white text-xl font-black shadow-xl shadow-[#6324eb]/30 hover:shadow-[#6324eb]/50 hover:-translate-y-1 transition-all no-underline font-display"
+      >
+        <span class="mr-3">Unirme al Reto Ahora</span>
+        <span
+          class="material-symbols-outlined text-2xl transition-transform group-hover:translate-x-1 font-bold"
+          >arrow_forward</span
+        >
+        <!-- Button Shine -->
+        <div
+          class="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-1000 ease-in-out"
+        >
+        </div>
+      </a>
+      <p
+        class="text-xs text-gray-400 dark:text-gray-500 text-center max-w-sm m-0 font-medium"
+      >
+        Garantía de devolución del 100% durante los primeros 7 días del reto si
+        no estás satisfecho.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .font-display {
+    font-family: 'Space Grotesk Variable', 'Space Grotesk', sans-serif;
+  }
+</style>
