@@ -1,0 +1,201 @@
+---
+interface Props {
+  pdfDownloadLink?: string;
+  retoDetailsUrl?: string;
+}
+
+const {
+  pdfDownloadLink = 'https://s3.us-east-1.amazonaws.com/todoconta.com/uploads/Casos+pra%CC%81cticos_+3+flujos+hi%CC%81bridos+que+te+ahorrara%CC%81n+horas.pdf',
+  retoDetailsUrl = '/ia-contadores/reto-12-dias',
+} = Astro.props;
+---
+
+<!-- Main Hero Section -->
+<section
+  class="relative min-h-[90vh] flex items-center justify-center py-20 px-6 overflow-hidden bg-white"
+>
+  <!-- Grid Background Pattern (as seen in design) -->
+  <div
+    class="absolute inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"
+  >
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path
+            d="M 40 0 L 0 0 0 40"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"></path>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)"></rect>
+    </svg>
+  </div>
+
+  <!-- Radial gradients for depth -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div
+      class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-blue-50 dark:bg-blue-900/10 rounded-full blur-[120px] opacity-60"
+    >
+    </div>
+  </div>
+
+  <div
+    class="w-full max-w-4xl flex flex-col items-center text-center gap-10 relative z-10"
+  >
+    <!-- Hero Icon: Simple and clean as in design -->
+    <div class="animate-on-scroll" data-animation="scale-in">
+      <div
+        class="flex items-center justify-center size-24 md:size-28 rounded-full bg-blue-100 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border-[8px] border-blue-50 dark:border-blue-500/5 shadow-xl"
+      >
+        <span class="material-symbols-outlined text-5xl md:text-6xl font-bold"
+          >check_circle</span
+        >
+      </div>
+    </div>
+
+    <!-- Headlines: Optimized for the "Stacked" look -->
+    <div class="space-y-4 max-w-2xl mx-auto">
+      <h1
+        class="text-slate-900 dark:text-white tracking-tight text-4xl md:text-5xl lg:text-7xl font-black leading-[1.1] font-display animate-on-scroll"
+        data-animation="fade-in-up"
+      >
+        ¡Perfecto! <span class="text-blue-600 dark:text-blue-500"
+          >Ya Casi Está</span
+        >
+      </h1>
+      <p
+        class="text-slate-500 dark:text-slate-400 text-base md:text-lg font-medium leading-relaxed max-w-xl mx-auto animate-on-scroll"
+        data-animation="fade-in-up"
+        data-delay="100"
+      >
+        Hemos enviado un email a tu bandeja de entrada con el PDF de alto valor.
+        Debería llegar en unos segundos.
+      </p>
+    </div>
+
+    <!-- Progress Card: White, high-shadow, clean -->
+    <div
+      class="w-full max-w-[480px] bg-white dark:bg-[#1a202e] rounded-3xl p-8 md:p-10 shadow-[0_20px_50px_-12px_rgba(37,99,235,0.12)] border border-slate-100 dark:border-white/5 animate-on-scroll"
+      data-animation="fade-in-up"
+      data-delay="200"
+    >
+      <div class="flex flex-col gap-8">
+        <!-- Progress Header -->
+        <div class="flex justify-between items-center">
+          <div
+            class="flex items-center gap-2.5 text-blue-600 dark:text-blue-400"
+          >
+            <span
+              class="material-symbols-outlined text-xl animate-spin font-black"
+              >sync</span
+            >
+            <span class="text-xs font-black uppercase tracking-[0.15em]"
+              >Envío en progreso...</span
+            >
+          </div>
+          <div
+            class="bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 px-3 py-1 rounded-full text-xs font-black border border-blue-100 dark:border-blue-500/20"
+          >
+            90%
+          </div>
+        </div>
+
+        <!-- Progress Bar: Two-tone blue as in Image 1 -->
+        <div
+          class="rounded-full bg-blue-50 dark:bg-white/5 h-3.5 overflow-hidden"
+        >
+          <div
+            class="h-full rounded-full bg-blue-600 relative w-[90%] shadow-[0_0_20px_rgba(37,99,235,0.3)]"
+          >
+            <!-- Shimmer effect -->
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent w-full shimmer-animation"
+            >
+            </div>
+          </div>
+        </div>
+
+        <!-- Meta/Warning Card: Low contrast light card inside -->
+        <div
+          class="bg-slate-50 dark:bg-blue-900/5 rounded-2xl p-6 border border-slate-100 dark:border-white/5 space-y-5"
+        >
+          <div class="flex items-start gap-3">
+            <span
+              class="material-symbols-outlined text-blue-500 text-xl font-bold"
+              >info</span
+            >
+            <p
+              class="text-slate-600 dark:text-slate-400 text-sm font-semibold text-left leading-relaxed"
+            >
+              ¿No lo recibes? Revisa tu carpeta de <span
+                class="text-slate-900 dark:text-white">Spam</span
+              > o
+              <span class="text-slate-900 dark:text-white">Promociones</span> por
+              si acaso.
+            </p>
+          </div>
+
+          <!-- Backup Download: Subtle Link -->
+          <div
+            class="pt-5 border-t border-slate-200 dark:border-white/5 flex flex-col items-center"
+          >
+            <p
+              class="text-[10px] uppercase font-black tracking-widest text-slate-400 mb-3"
+            >
+              ¿No llegó el email?
+            </p>
+            <a
+              href={pdfDownloadLink}
+              class="flex items-center gap-2 text-blue-600 dark:text-blue-400 text-sm font-black hover:opacity-80 transition-opacity"
+              data-track-event="direct_download_backup"
+            >
+              <span class="material-symbols-outlined text-base"
+                >download_for_offline</span
+              >
+              Descargar Directamente Aquí
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Action Pill: Perfectly matches design -->
+    <div class="animate-on-scroll" data-animation="scale-in" data-delay="300">
+      <a
+        href={retoDetailsUrl}
+        class="inline-flex items-center gap-3 px-8 h-14 bg-slate-50 dark:bg-white/5 hover:bg-white dark:hover:bg-white/10 rounded-full border border-slate-200 dark:border-white/10 shadow-lg hover:shadow-xl transition-all duration-300 group no-underline"
+      >
+        <span
+          class="material-symbols-outlined text-blue-600 dark:text-blue-400 text-2xl group-hover:rotate-12 transition-transform"
+          >sell</span
+        >
+        <span
+          class="text-slate-900 dark:text-white text-base font-extrabold font-display"
+          >Mientras esperas, mira esto</span
+        >
+        <span
+          class="material-symbols-outlined text-slate-900 dark:text-white text-xl group-hover:translate-x-1 transition-transform"
+          >arrow_forward</span
+        >
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .shimmer-animation {
+    animation: shimmer 2s infinite;
+    transform: translateX(-100%);
+  }
+
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .font-display {
+    font-family: 'Manrope', sans-serif;
+  }
+</style>
