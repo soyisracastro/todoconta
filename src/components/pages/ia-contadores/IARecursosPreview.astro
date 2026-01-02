@@ -1,0 +1,120 @@
+---
+
+---
+
+<div
+  class="flex flex-col gap-6 w-full animate-on-scroll"
+  data-animation="fade-in-up"
+>
+  <h3
+    class="text-[#111118] dark:text-white text-xl font-black leading-tight px-1 font-display m-0"
+  >
+    Vista Previa
+  </h3>
+
+  <div class="grid grid-cols-3 gap-4">
+    <!-- Thumbnail 1: Case Study -->
+    <div
+      class="group relative aspect-[3/4] bg-white dark:bg-white/5 rounded-2xl shadow-sm border border-gray-100 dark:border-white/10 overflow-hidden cursor-pointer hover:shadow-xl transition-all duration-500 hover:-translate-y-1"
+    >
+      <div class="absolute top-0 w-full h-2 bg-blue-600"></div>
+      <div class="p-3 pt-6 flex flex-col gap-2">
+        <div class="h-2 w-3/4 bg-gray-200 dark:bg-gray-700 rounded-full mb-1">
+        </div>
+        <div class="h-1.5 w-full bg-gray-100 dark:bg-gray-800 rounded-full">
+        </div>
+        <div class="h-1.5 w-5/6 bg-gray-100 dark:bg-gray-800 rounded-full">
+        </div>
+        <div
+          class="h-1.5 w-full bg-gray-100 dark:bg-gray-800 rounded-full filter blur-[1px]"
+        >
+        </div>
+        <div
+          class="h-1.5 w-4/5 bg-gray-100 dark:bg-gray-800 rounded-full filter blur-[1px]"
+        >
+        </div>
+      </div>
+      <!-- Overlay Icon -->
+      <div
+        class="absolute inset-0 flex items-center justify-center bg-blue-600/0 group-hover:bg-blue-600/5 transition-colors"
+      >
+        <span
+          class="material-symbols-outlined text-blue-600 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 font-bold"
+          >visibility</span
+        >
+      </div>
+    </div>
+
+    <!-- Thumbnail 2: Tool Matrix -->
+    <div
+      class="group relative aspect-[3/4] bg-white dark:bg-white/5 rounded-2xl shadow-sm border border-gray-100 dark:border-white/10 overflow-hidden cursor-pointer hover:shadow-xl transition-all duration-500 hover:-translate-y-1"
+    >
+      <div class="absolute top-0 w-full h-2 bg-indigo-600"></div>
+      <div class="p-3 pt-6 flex flex-col gap-2">
+        <div class="h-2 w-1/2 bg-gray-200 dark:bg-gray-700 rounded-full mb-2">
+        </div>
+        <div
+          class="h-20 w-full bg-indigo-50 dark:bg-indigo-900/20 rounded-xl border border-indigo-100 dark:border-indigo-800/30 flex items-center justify-center"
+        >
+          <span
+            class="material-symbols-outlined text-indigo-300 dark:text-indigo-700 text-3xl font-bold"
+            >bar_chart</span
+          >
+        </div>
+      </div>
+      <div
+        class="absolute inset-0 flex items-center justify-center bg-indigo-600/0 group-hover:bg-indigo-600/5 transition-colors"
+      >
+        <span
+          class="material-symbols-outlined text-indigo-600 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 font-bold"
+          >visibility</span
+        >
+      </div>
+    </div>
+
+    <!-- Thumbnail 3: Prompts -->
+    <div
+      class="group relative aspect-[3/4] bg-white dark:bg-white/5 rounded-2xl shadow-sm border border-gray-100 dark:border-white/10 overflow-hidden cursor-pointer hover:shadow-xl transition-all duration-500 hover:-translate-y-1"
+    >
+      <div class="absolute top-0 w-full h-2 bg-cyan-500"></div>
+      <div class="p-3 pt-6 flex flex-col gap-2">
+        <div class="h-2 w-2/3 bg-gray-200 dark:bg-gray-700 rounded-full mb-2">
+        </div>
+        <div class="space-y-2 mt-1">
+          <div class="flex gap-2 items-center">
+            <div class="size-2 rounded-full bg-emerald-400"></div><div
+              class="h-1.5 w-full bg-gray-100 dark:bg-gray-800 rounded-full blur-[0.5px]"
+            >
+            </div>
+          </div>
+          <div class="flex gap-2 items-center">
+            <div class="size-2 rounded-full bg-emerald-400"></div><div
+              class="h-1.5 w-3/4 bg-gray-100 dark:bg-gray-800 rounded-full blur-[0.5px]"
+            >
+            </div>
+          </div>
+          <div class="flex gap-2 items-center">
+            <div class="size-2 rounded-full bg-emerald-400"></div><div
+              class="h-1.5 w-5/6 bg-gray-100 dark:bg-gray-800 rounded-full blur-[0.5px]"
+            >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="absolute inset-0 flex items-center justify-center bg-cyan-500/0 group-hover:bg-cyan-500/5 transition-colors"
+      >
+        <span
+          class="material-symbols-outlined text-cyan-600 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 font-bold"
+          >visibility</span
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .font-display {
+    font-family: 'Space Grotesk Variable', 'Space Grotesk', sans-serif;
+  }
+</style>

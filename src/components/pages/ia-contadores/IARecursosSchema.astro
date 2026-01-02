@@ -1,0 +1,236 @@
+---
+/**
+ * Schema Markup Component for SEO - Recursos Gratis Page
+ * Implements multiple Schema.org types for lead magnet landing page
+ */
+
+// Current date
+const currentDate = new Date().toISOString();
+
+// 1. WEBPAGE SCHEMA - Main page type
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': 'https://todoconta.com/ia-contadores/recursos-gratis#webpage',
+  name: 'Descarga Gratis: 3 Casos Prácticos de IA para Contadores',
+  description:
+    'Los flujos completos que ahorran 6-10 horas semanales + 10 plantillas de prompts + matriz de decisión. Recursos gratuitos para contadores.',
+  url: 'https://todoconta.com/ia-contadores/recursos-gratis',
+  inLanguage: 'es-MX',
+  isPartOf: {
+    '@type': 'WebSite',
+    '@id': 'https://todoconta.com#website',
+    name: 'TodoConta',
+    url: 'https://todoconta.com',
+  },
+  about: {
+    '@type': 'Thing',
+    name: 'Inteligencia Artificial para Contadores',
+  },
+  primaryImageOfPage: {
+    '@type': 'ImageObject',
+    url: 'https://todoconta.com/images/recursos-ia-contadores.jpg',
+  },
+};
+
+// 2. OFFER CATALOG SCHEMA - Free resources offered
+const offerCatalogSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'OfferCatalog',
+  '@id': 'https://todoconta.com/ia-contadores/recursos-gratis#offercatalog',
+  name: 'Recursos Gratuitos de IA para Contadores',
+  description: 'Paquete completo de recursos para empezar a usar IA en contabilidad',
+  itemListElement: [
+    {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'DigitalDocument',
+        name: '3 Casos Prácticos de IA para Contadores',
+        description:
+          'Flujos completos paso a paso para análisis de extractos bancarios, auditoría de gastos y preparación de reportes financieros.',
+        about: 'Inteligencia Artificial aplicada a contabilidad mexicana',
+        inLanguage: 'es-MX',
+      },
+      price: '0',
+      priceCurrency: 'MXN',
+      availability: 'https://schema.org/InStock',
+      url: 'https://todoconta.com/ia-contadores/recursos-gratis',
+    },
+    {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'DigitalDocument',
+        name: '10 Plantillas de Prompts para Contadores',
+        description:
+          'Prompts listos para usar en ChatGPT, Claude y Gemini para tareas contables comunes.',
+        about: 'Prompt engineering para contabilidad',
+        inLanguage: 'es-MX',
+      },
+      price: '0',
+      priceCurrency: 'MXN',
+      availability: 'https://schema.org/InStock',
+      url: 'https://todoconta.com/ia-contadores/recursos-gratis',
+    },
+    {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'DigitalDocument',
+        name: 'Matriz de Decisión: ¿Qué IA usar?',
+        description:
+          'Framework para elegir entre ChatGPT, Claude, Gemini o Perplexity según el tipo de tarea contable.',
+        about: 'Selección de herramientas de IA',
+        inLanguage: 'es-MX',
+      },
+      price: '0',
+      priceCurrency: 'MXN',
+      availability: 'https://schema.org/InStock',
+      url: 'https://todoconta.com/ia-contadores/recursos-gratis',
+    },
+  ],
+};
+
+// 3. LEARNING RESOURCE SCHEMA - Educational content
+const learningResourceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LearningResource',
+  '@id': 'https://todoconta.com/ia-contadores/recursos-gratis#learningresource',
+  name: 'Casos Prácticos de IA para Contadores',
+  description:
+    'Recursos educativos gratuitos para aprender a usar ChatGPT, Claude y Gemini en contabilidad mexicana.',
+  educationalLevel: 'Principiante a Intermedio',
+  learningResourceType: 'Caso de Estudio',
+  inLanguage: 'es-MX',
+  isAccessibleForFree: true,
+  provider: {
+    '@type': 'Organization',
+    '@id': 'https://todoconta.com#organization',
+    name: 'TodoConta',
+    url: 'https://todoconta.com',
+  },
+  audience: {
+    '@type': 'EducationalAudience',
+    educationalRole: 'professional',
+    audienceType: 'Contadores Públicos',
+  },
+  teaches: [
+    'Uso de ChatGPT para análisis financiero',
+    'Claude AI para redacción de informes contables',
+    'Gemini para procesamiento de documentos',
+    'Framework de selección de IA según tarea',
+    'Prompt engineering para contabilidad',
+  ],
+  about: [
+    {
+      '@type': 'Thing',
+      name: 'Inteligencia Artificial',
+    },
+    {
+      '@type': 'Thing',
+      name: 'Contabilidad',
+    },
+    {
+      '@type': 'Thing',
+      name: 'Automatización',
+    },
+  ],
+};
+
+// 4. HOWTO SCHEMA - Step by step guide
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  '@id': 'https://todoconta.com/ia-contadores/recursos-gratis#howto',
+  name: 'Cómo usar IA para optimizar tu práctica contable',
+  description:
+    'Guía paso a paso para implementar inteligencia artificial en tareas contables diarias.',
+  estimatedCost: {
+    '@type': 'MonetaryAmount',
+    currency: 'MXN',
+    value: '0',
+  },
+  totalTime: 'PT30M',
+  tool: [
+    {
+      '@type': 'HowToTool',
+      name: 'ChatGPT',
+    },
+    {
+      '@type': 'HowToTool',
+      name: 'Claude AI',
+    },
+    {
+      '@type': 'HowToTool',
+      name: 'Gemini',
+    },
+  ],
+  step: [
+    {
+      '@type': 'HowToStep',
+      position: 1,
+      name: 'Descarga los recursos gratuitos',
+      text: 'Ingresa tu email y descarga los 3 casos prácticos, plantillas de prompts y matriz de decisión.',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 2,
+      name: 'Identifica tu caso de uso',
+      text: 'Revisa la matriz de decisión para elegir qué IA usar según tu tarea contable específica.',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 3,
+      name: 'Aplica las plantillas de prompts',
+      text: 'Usa los prompts pre-diseñados adaptándolos a tus datos y situación específica.',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 4,
+      name: 'Implementa en casos reales',
+      text: 'Sigue los flujos completos de los 3 casos prácticos con tus propios clientes.',
+    },
+  ],
+};
+
+// 5. BREADCRUMB SCHEMA
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  '@id': 'https://todoconta.com/ia-contadores/recursos-gratis#breadcrumb',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Inicio',
+      item: 'https://todoconta.com',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'IA para Contadores',
+      item: 'https://todoconta.com/ia-contadores',
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Recursos Gratis',
+      item: 'https://todoconta.com/ia-contadores/recursos-gratis',
+    },
+  ],
+};
+
+// Combine all schemas
+const allSchemas = [
+  webPageSchema,
+  offerCatalogSchema,
+  learningResourceSchema,
+  howToSchema,
+  breadcrumbSchema,
+];
+---
+
+<!-- Schema.org Structured Data (JSON-LD) -->
+{
+  allSchemas.map(schema => (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  ))
+}

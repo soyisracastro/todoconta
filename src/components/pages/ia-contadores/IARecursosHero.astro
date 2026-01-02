@@ -1,0 +1,54 @@
+---
+interface Props {
+  badge?: string;
+  title?: string;
+  subtitle?: string;
+}
+
+const {
+  badge = '🎁 RECURSOS GRATUITOS',
+  title = 'Descarga Gratis: 3 Casos Prácticos de IA para Contadores',
+  subtitle = 'Los flujos completos que ahorran 6-10 horas semanales + plantillas listas para usar.',
+} = Astro.props;
+---
+
+<div
+  class="flex flex-col gap-6 items-start w-full max-w-[720px] mx-auto lg:mx-0"
+>
+  <!-- Pill Badge -->
+  <div class="animate-on-scroll" data-animation="fade-in-down">
+    <div
+      class="inline-flex h-8 items-center justify-center gap-x-2 rounded-full bg-blue-500/10 dark:bg-blue-400/10 pl-3 pr-4 border border-blue-500/20 dark:border-blue-400/20"
+    >
+      <span
+        class="text-blue-600 dark:text-blue-400 text-xs font-black leading-normal tracking-widest font-display uppercase"
+      >
+        {badge}
+      </span>
+    </div>
+  </div>
+
+  <!-- Headline & Subhead -->
+  <div
+    class="flex flex-col gap-5 animate-on-scroll"
+    data-animation="fade-in-up"
+    data-delay="100"
+  >
+    <h1
+      class="text-[#111118] dark:text-white text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight font-display m-0"
+    >
+      {title}
+    </h1>
+    <p
+      class="text-gray-600 dark:text-gray-300 text-lg md:text-xl font-medium leading-relaxed max-w-[90%] m-0"
+    >
+      {subtitle}
+    </p>
+  </div>
+</div>
+
+<style>
+  .font-display {
+    font-family: 'Space Grotesk Variable', 'Space Grotesk', sans-serif;
+  }
+</style>
