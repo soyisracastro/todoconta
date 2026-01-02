@@ -1,0 +1,77 @@
+---
+const testimonials = [
+  {
+    name: 'Laura M.',
+    role: 'Contadora Senior',
+    text: 'Directo al grano. Las plantillas de prompts me ahorraron horas de investigación la primera semana.',
+    avatar:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuBns0l2VOX7W2hceWM-cfA46rVmpK5v8gZDA6Crzqv-5B1dVYrMn4G-Pkr4CWizOh6uXLAa8VmFraChEjcZdonM38Q5m4SfUc98K9YgOJgTM4oGODxpX85aciqULYhixV06S_0jrkHRuoV1ed2tJm9U8JFyLGuwCxnpcCHJ4LCkA7JWsTzKe0aEN5vb8ySwLMEXba82MBB7gzlTDkQWbQG1wR6bPx8BfuD-i7BVCl5IBqlZLmqZFROshdwXxoAuBwp68NQiwVy6SQ',
+  },
+  {
+    name: 'Carlos R.',
+    role: 'Auditor Fiscal',
+    text: 'La matriz de decisión fue clave para elegir nuestro software contable. Muy recomendado.',
+    avatar:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuDmnXMZX44ZnaFuSVJhwc_CmFNbPW-gdZEENQoIzIjRUB8mw99t3aXeSI4N1cJSrbOFvnc8eKWB0rWwVpDYLcKBrZretE-kEXSlHR4jip9kfmIo_ODWMxZP5-eh97RCckEud3UC5Dm_wpR4gsvceKwjf6cLehrOMO8tpsyaRDNutaG4_puBpeh5IiQ5mq5xYbI8NkNUYTua9zyb2D4TCLmgeeTuSNHIkYyuou7uKq_-Fy7NFY5GS9kaI_HGWed0snd7W1zwmXSZJw',
+  },
+];
+---
+
+<div
+  class="flex flex-col gap-6 w-full animate-on-scroll"
+  data-animation="fade-in-up"
+  data-delay="100"
+>
+  <h3
+    class="text-[#111118] dark:text-white text-xl font-black leading-tight px-1 font-display m-0"
+  >
+    Lo que dicen tus colegas
+  </h3>
+
+  <div class="flex flex-col gap-4">
+    {
+      testimonials.map(t => (
+        <div class="bg-white dark:bg-white/5 p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-white/10 hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-1 text-amber-400 mb-3">
+            {[1, 2, 3, 4, 5].map(() => (
+              <span
+                class="material-symbols-outlined text-[18px]"
+                style="font-variation-settings: 'FILL' 1;"
+              >
+                star
+              </span>
+            ))}
+          </div>
+
+          <p class="text-gray-700 dark:text-gray-300 text-base font-medium leading-relaxed mb-4 m-0 italic">
+            "{t.text}"
+          </p>
+
+          <div class="flex items-center gap-3">
+            <div class="size-10 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden border border-gray-100 dark:border-white/10">
+              <img
+                src={t.avatar}
+                alt={t.name}
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="text-left">
+              <p class="text-xs font-black text-gray-900 dark:text-white m-0 font-display uppercase tracking-wider">
+                {t.name}
+              </p>
+              <p class="text-[10px] font-bold text-gray-500 dark:text-gray-400 m-0 uppercase tracking-tight">
+                {t.role}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .font-display {
+    font-family: 'Space Grotesk Variable', 'Space Grotesk', sans-serif;
+  }
+</style>
