@@ -1,5 +1,7 @@
 ---
 // Importar los estilos globales
+// ⚠️ IMPORTANTE: tokens.css DEBE importarse PRIMERO
+import '../styles/tokens.css'; // 🎨 Design System tokens
 import '../styles/reset.css';
 import '../styles/design-system.css';
 import '../styles/global.css';
@@ -33,11 +35,13 @@ const { title, description, keywords, category = 'software' } = Astro.props;
 
     <title>{title} | Todoconta</title>
 
-    <!-- Google Fonts: Outfit (Headings) & Inter (Body) -->
+    <!-- Preconnect para Google Fonts (Performance) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Fonts: Inter (body) + Space Grotesk (display) -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
 

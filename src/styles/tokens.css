@@ -1,0 +1,458 @@
+/**
+ * ============================================
+ * DESIGN TOKENS - TODOCONTA DESIGN SYSTEM
+ * ============================================
+ *
+ * Este archivo es la fuente única de verdad para todos los valores de diseño.
+ * Todos los componentes deben usar estas variables CSS en lugar de valores hardcodeados.
+ *
+ * Última actualización: 2 de enero de 2026
+ * Versión: 1.0.0
+ *
+ * Decisiones tomadas:
+ * - Tipografía: Space Grotesk Variable (display) + Inter (body)
+ * - Colores: Sistema dual (Azul institucional + Púrpura IA + Verde Excel)
+ * - Enfoque: Migración gradual
+ */
+
+:root {
+  /* ============================================
+     TIPOGRAFÍA - FAMILIAS
+     ============================================ */
+
+  /**
+   * Fuente Display/Headings
+   * Uso: Títulos, headings (h1-h6), números grandes, CTAs prominentes
+   */
+  --font-display: 'Space Grotesk Variable', 'Space Grotesk', sans-serif;
+
+  /**
+   * Fuente Body/Texto
+   * Uso: Párrafos, descripciones, formularios, UI text
+   */
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /**
+   * Fuente Monoespaciada
+   * Uso: Code snippets, datos técnicos
+   */
+  --font-mono: 'SF Mono', 'Monaco', 'Cascadia Code', 'Courier New', monospace;
+
+  /* ============================================
+     TIPOGRAFÍA - TAMAÑOS
+     ============================================ */
+
+  /* Mobile-first: Estos son los tamaños base */
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem; /* 16px - Base */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.25rem; /* 20px */
+  --text-2xl: 1.5rem; /* 24px */
+  --text-3xl: 1.875rem; /* 30px */
+  --text-4xl: 2.25rem; /* 36px */
+  --text-5xl: 3rem; /* 48px */
+  --text-6xl: 3.75rem; /* 60px */
+  --text-7xl: 4.5rem; /* 72px */
+
+  /* ============================================
+     TIPOGRAFÍA - PESOS
+     ============================================ */
+
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+  --font-black: 900;
+
+  /* ============================================
+     TIPOGRAFÍA - LINE HEIGHTS
+     ============================================ */
+
+  --leading-none: 1;
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+
+  /* ============================================
+     TIPOGRAFÍA - LETTER SPACING
+     ============================================ */
+
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+  --tracking-super-wide: 0.2em; /* Para badges uppercase */
+
+  /* ============================================
+     COLORES - PALETA BASE
+     ============================================ */
+
+  /* ──────────────────────────────────────────
+     AZUL INSTITUCIONAL (Marca general)
+     ────────────────────────────────────────── */
+  --color-brand-blue-50: #eff6ff;
+  --color-brand-blue-100: #dbeafe;
+  --color-brand-blue-200: #bfdbfe;
+  --color-brand-blue-300: #93c5fd;
+  --color-brand-blue-400: #60a5fa;
+  --color-brand-blue-500: #135bec; /* Principal */
+  --color-brand-blue-600: #0f4bc4;
+  --color-brand-blue-700: #0a3a9c;
+  --color-brand-blue-800: #072a74;
+  --color-brand-blue-900: #041a4c;
+
+  /* ──────────────────────────────────────────
+     PÚRPURA IA (Productos de inteligencia artificial)
+     ────────────────────────────────────────── */
+  --color-brand-purple-50: #faf5ff;
+  --color-brand-purple-100: #f3e8ff;
+  --color-brand-purple-200: #e9d5ff;
+  --color-brand-purple-300: #d8b4fe;
+  --color-brand-purple-400: #c084fc;
+  --color-brand-purple-500: #6324eb; /* Principal */
+  --color-brand-purple-600: #5219d4;
+  --color-brand-purple-700: #4114b3;
+  --color-brand-purple-800: #310f92;
+  --color-brand-purple-900: #200a71;
+
+  /* ──────────────────────────────────────────
+     VERDE EXCEL (Productos Excel)
+     ────────────────────────────────────────── */
+  --color-brand-green-50: #f0fdf4;
+  --color-brand-green-100: #dcfce7;
+  --color-brand-green-200: #bbf7d0;
+  --color-brand-green-300: #86efac;
+  --color-brand-green-400: #4ade80;
+  --color-brand-green-500: #1d6f42; /* Principal */
+  --color-brand-green-600: #145231;
+  --color-brand-green-700: #0f3a23;
+  --color-brand-green-800: #0a2819;
+  --color-brand-green-900: #051610;
+
+  /* ──────────────────────────────────────────
+     GRISES NEUTRALES
+     ────────────────────────────────────────── */
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  --color-gray-950: #030712;
+
+  /* ──────────────────────────────────────────
+     OSCUROS PROFUNDOS (Dark mode backgrounds)
+     ────────────────────────────────────────── */
+  --color-dark-800: #1e1a2d;
+  --color-dark-900: #111118;
+  --color-dark-950: #0f0518;
+  --color-dark-975: #111022; /* Usado en gradientes IA */
+
+  /* ──────────────────────────────────────────
+     COLORES SEMÁNTICOS
+     ────────────────────────────────────────── */
+  --color-success-light: #d1fae5;
+  --color-success: #10b981;
+  --color-success-dark: #059669;
+
+  --color-warning-light: #fef3c7;
+  --color-warning: #f59e0b;
+  --color-warning-dark: #d97706;
+
+  --color-error-light: #fee2e2;
+  --color-error: #ef4444;
+  --color-error-dark: #dc2626;
+
+  --color-info-light: #dbeafe;
+  --color-info: #3b82f6;
+  --color-info-dark: #2563eb;
+
+  /* ──────────────────────────────────────────
+     COLORES ACENTOS ADICIONALES
+     ────────────────────────────────────────── */
+  --color-cyan-400: #22d3ee;
+  --color-cyan-500: #06b6d4;
+  --color-cyan-600: #0891b2;
+
+  --color-emerald-400: #34d399;
+  --color-emerald-500: #10b981;
+  --color-emerald-600: #059669;
+
+  --color-amber-300: #fcd34d;
+  --color-amber-400: #fbbf24;
+  --color-amber-500: #f59e0b;
+
+  /* ============================================
+     COLORES - APLICACIONES (Light Mode)
+     ============================================ */
+
+  /* Color primario por defecto (Azul institucional) */
+  --color-primary: var(--color-brand-blue-500);
+  --color-primary-hover: var(--color-brand-blue-600);
+  --color-primary-light: rgba(19, 91, 236, 0.1);
+  --color-primary-glow: rgba(19, 91, 236, 0.3);
+
+  /* Backgrounds */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --bg-accent: #eff6ff;
+
+  /* Textos */
+  --text-primary: var(--color-gray-900);
+  --text-secondary: var(--color-gray-600);
+  --text-tertiary: var(--color-gray-500);
+  --text-muted: var(--color-gray-400);
+  --text-inverse: #ffffff;
+
+  /* Bordes */
+  --border-light: var(--color-gray-100);
+  --border-medium: var(--color-gray-200);
+  --border-dark: var(--color-gray-300);
+
+  /* Hero sections (oscuro) */
+  --hero-bg: #0f172a;
+  --hero-bg-alt: #1e293b;
+  --hero-text: #ffffff;
+  --hero-text-muted: #cbd5e1;
+
+  /* ============================================
+     ESPACIADO (Sistema de 4px)
+     ============================================ */
+
+  --space-0: 0;
+  --space-px: 1px;
+  --space-0-5: 0.125rem; /* 2px */
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem; /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem; /* 16px */
+  --space-5: 1.25rem; /* 20px */
+  --space-6: 1.5rem; /* 24px */
+  --space-7: 1.75rem; /* 28px */
+  --space-8: 2rem; /* 32px */
+  --space-9: 2.25rem; /* 36px */
+  --space-10: 2.5rem; /* 40px */
+  --space-11: 2.75rem; /* 44px */
+  --space-12: 3rem; /* 48px */
+  --space-14: 3.5rem; /* 56px */
+  --space-16: 4rem; /* 64px */
+  --space-20: 5rem; /* 80px */
+  --space-24: 6rem; /* 96px */
+  --space-28: 7rem; /* 112px */
+  --space-32: 8rem; /* 128px */
+  --space-36: 9rem; /* 144px */
+  --space-40: 10rem; /* 160px */
+
+  /* ============================================
+     BORDES - RADIUS
+     ============================================ */
+
+  --radius-none: 0;
+  --radius-sm: 0.375rem; /* 6px */
+  --radius-md: 0.5rem; /* 8px */
+  --radius-lg: 0.75rem; /* 12px */
+  --radius-xl: 1rem; /* 16px */
+  --radius-2xl: 1.5rem; /* 24px */
+  --radius-3xl: 2rem; /* 32px */
+  --radius-full: 9999px;
+
+  /* ============================================
+     SOMBRAS
+     ============================================ */
+
+  /* Sombras neutrales */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
+  /* Sombras de color (para cards/componentes específicos) */
+  --shadow-blue-md: 0 10px 30px -5px rgba(19, 91, 236, 0.25);
+  --shadow-blue-lg: 0 20px 40px -10px rgba(19, 91, 236, 0.3);
+  --shadow-purple-md: 0 10px 30px -5px rgba(99, 36, 235, 0.25);
+  --shadow-purple-lg: 0 20px 40px -10px rgba(99, 36, 235, 0.3);
+  --shadow-green-md: 0 10px 30px -5px rgba(29, 111, 66, 0.25);
+
+  /* Sombra custom usada en componentes IA */
+  --shadow-purple-soft: 0 30px 60px -12px rgba(99, 36, 235, 0.12);
+
+  /* ============================================
+     TRANSICIONES
+     ============================================ */
+
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* ============================================
+     Z-INDEX SCALE
+     ============================================ */
+
+  --z-base: 0;
+  --z-dropdown: 1000;
+  --z-sticky: 1100;
+  --z-fixed: 1200;
+  --z-modal-backdrop: 1300;
+  --z-modal: 1400;
+  --z-popover: 1500;
+  --z-tooltip: 1600;
+
+  /* ============================================
+     GRADIENTES PREDEFINIDOS
+     ============================================ */
+
+  /* Gradiente Púrpura-Azul (IA Reto) */
+  --gradient-purple-blue: linear-gradient(to right, var(--color-brand-purple-500), #2563eb);
+
+  /* Gradiente Púrpura-Cian */
+  --gradient-purple-cyan: linear-gradient(to right, var(--color-brand-purple-500), var(--color-cyan-500));
+
+  /* Gradiente oscuro para headers */
+  --gradient-dark-purple: linear-gradient(to right, var(--color-dark-975), var(--color-brand-purple-500));
+
+  /* ============================================
+     EFECTOS ESPECIALES
+     ============================================ */
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  --glass-blur: 12px;
+
+  /* Glassmorphism dark */
+  --glass-dark-bg: rgba(15, 23, 42, 0.6);
+  --glass-dark-border: rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   TEMAS POR CATEGORÍA DE PRODUCTO
+   ============================================ */
+
+/**
+ * Tema IA - Productos de inteligencia artificial
+ * Usado en: /ia-contadores/*
+ */
+.theme-ia {
+  --color-primary: var(--color-brand-purple-500);
+  --color-primary-hover: var(--color-brand-purple-600);
+  --color-primary-light: rgba(99, 36, 235, 0.1);
+  --color-primary-glow: rgba(99, 36, 235, 0.3);
+}
+
+/**
+ * Tema Excel - Productos de Excel
+ * Usado en: /productos/excel/*
+ */
+.theme-excel {
+  --color-primary: var(--color-brand-green-500);
+  --color-primary-hover: var(--color-brand-green-600);
+  --color-primary-light: rgba(29, 111, 66, 0.1);
+  --color-primary-glow: rgba(29, 111, 66, 0.3);
+}
+
+/**
+ * Tema Software - Productos de software
+ * Usado en: /productos/software/*
+ */
+.theme-software {
+  --color-primary: var(--color-gray-900);
+  --color-primary-hover: var(--color-gray-950);
+  --color-primary-light: rgba(17, 24, 39, 0.1);
+  --color-primary-glow: rgba(17, 24, 39, 0.3);
+}
+
+/* ============================================
+   DARK MODE
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Backgrounds */
+    --bg-primary: var(--color-dark-900);
+    --bg-secondary: var(--color-dark-950);
+    --bg-tertiary: var(--color-gray-900);
+    --bg-accent: var(--color-dark-800);
+
+    /* Textos */
+    --text-primary: #ffffff;
+    --text-secondary: var(--color-gray-400);
+    --text-tertiary: var(--color-gray-500);
+    --text-muted: var(--color-gray-600);
+    --text-inverse: var(--color-gray-900);
+
+    /* Bordes */
+    --border-light: rgba(255, 255, 255, 0.1);
+    --border-medium: rgba(255, 255, 255, 0.15);
+    --border-dark: rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* ============================================
+   UTILIDADES DE COMPATIBILIDAD
+   ============================================ */
+
+/**
+ * Estas variables mantienen compatibilidad con código legacy
+ * durante la migración. Se eliminarán en versiones futuras.
+ *
+ * @deprecated Usar las variables --color-* en su lugar
+ */
+:root {
+  /* Legacy compatibility */
+  --color-background: var(--bg-primary);
+  --color-background-alt: var(--bg-secondary);
+  --color-surface: var(--bg-primary);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border-medium);
+  --color-border-light: var(--border-light);
+
+  /* Font sizes legacy */
+  --font-size-xs: var(--text-xs);
+  --font-size-sm: var(--text-sm);
+  --font-size-base: var(--text-base);
+  --font-size-lg: var(--text-lg);
+  --font-size-xl: var(--text-xl);
+  --font-size-2xl: var(--text-2xl);
+  --font-size-3xl: var(--text-3xl);
+  --font-size-4xl: var(--text-4xl);
+  --font-size-5xl: var(--text-5xl);
+  --font-size-6xl: var(--text-6xl);
+  --font-size-7xl: var(--text-7xl);
+
+  /* Weights legacy */
+  --font-weight-normal: var(--font-normal);
+  --font-weight-medium: var(--font-medium);
+  --font-weight-semibold: var(--font-semibold);
+  --font-weight-bold: var(--font-bold);
+  --font-weight-extrabold: var(--font-extrabold);
+
+  /* Spacing legacy */
+  --border-radius-sm: var(--radius-sm);
+  --border-radius-md: var(--radius-md);
+  --border-radius-lg: var(--radius-lg);
+  --border-radius-xl: var(--radius-xl);
+  --border-radius-2xl: var(--radius-2xl);
+  --border-radius-full: var(--radius-full);
+
+  /* Transitions legacy */
+  --transition-fast: var(--transition-fast);
+  --transition-normal: var(--transition-base);
+  --transition-slow: var(--transition-slow);
+}

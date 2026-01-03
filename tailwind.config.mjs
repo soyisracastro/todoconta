@@ -19,7 +19,7 @@ export default {
                 "surface-dark": "var(--color-hero-background-alt)",
             },
             fontFamily: {
-                "display": ["Manrope", "Inter", "sans-serif"],
+                "display": ["Space Grotesk Variable", "Space Grotesk", "Inter", "sans-serif"],
                 "body": ["Inter", "sans-serif"],
             },
             keyframes: {

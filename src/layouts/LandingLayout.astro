@@ -1,5 +1,7 @@
 ---
 // src/layouts/LandingLayout.astro
+// ⚠️ IMPORTANTE: tokens.css DEBE importarse PRIMERO
+import '../styles/tokens.css'; // 🎨 Design System tokens
 import '../styles/reset.css';
 import '../styles/design-system.css';
 import '../styles/landing.css';
@@ -52,13 +54,19 @@ const {
 
     <title>{title} | Todoconta</title>
 
-    <!-- Google Fonts -->
+    <!-- Preconnect para Google Fonts (Performance) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Fonts: Inter (body) + Space Grotesk (display) -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@200..800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
       media="print"
       onload="this.media='all'"
     />
+
+    <!-- Material Symbols (iconos) -->
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
       rel="stylesheet"
