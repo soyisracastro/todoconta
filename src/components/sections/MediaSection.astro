@@ -1,0 +1,102 @@
+---
+// src/components/sections/MediaSection.astro
+---
+
+<div class="flex flex-col gap-8">
+  <h2 class="text-2xl font-bold text-gray-900">Aprende y Mantente al Día</h2>
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <!-- Block 1: Cursos (Large) -->
+    <div
+      class="lg:col-span-2 bg-white rounded-2xl p-8 flex flex-col justify-between shadow-sm border border-gray-100 relative overflow-hidden group"
+    >
+      <div
+        class="absolute inset-0 opacity-[0.03] z-0"
+        style="background-image: radial-gradient(circle at 2px 2px, var(--color-primary) 1px, transparent 0); background-size: 24px 24px;"
+      >
+      </div>
+      <div
+        class="absolute inset-0 opacity-5 bg-[url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center"
+      >
+      </div>
+      <div class="relative z-10 flex flex-col h-full">
+        <div class="flex-1">
+          <div class="p-3 bg-primary/10 rounded-xl text-primary mb-4 w-fit">
+            <span class="material-symbols-outlined text-4xl">school</span>
+          </div>
+          <h3 class="text-3xl font-bold text-gray-900 mb-3">
+            Cursos y Talleres Prácticos
+          </h3>
+          <p class="text-gray-600 text-lg leading-relaxed mb-6">
+            Domina temas clave como Cierre Fiscal, Nómina Digital y más.
+          </p>
+        </div>
+        <div
+          class="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-auto"
+        >
+          <a
+            href="https://nas.io/todoconta/products?product=COURSE&COURSE=&tab="
+            target="_blank"
+            class="bg-primary text-white hover:bg-blue-700 font-bold py-3 px-6 rounded-lg shadow-sm transition-all flex items-center gap-2"
+          >
+            Explorar Catálogo
+            <span class="material-symbols-outlined text-lg">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column Stack -->
+    <div class="lg:col-span-1 flex flex-col gap-6">
+      <!-- Podcast Card -->
+      <a
+        href="/podcast"
+        class="bg-[#F3F4F6] p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col gap-4 h-full justify-between hover:shadow-md transition-all hover:scale-[1.02] group"
+      >
+        <div class="flex items-center gap-4">
+          <div
+            class="p-3 bg-gray-200 rounded-xl text-gray-700 group-hover:bg-primary group-hover:text-white transition-colors"
+          >
+            <span class="material-symbols-outlined text-2xl">waves</span>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900">Podcast TodoConta</h3>
+        </div>
+        <p class="text-sm text-gray-600 flex-1">
+          Escucha las últimas novedades fiscales y consejos para tu negocio
+          mientras conduces.
+        </p>
+        <div
+          class="mt-auto text-primary font-semibold text-sm flex items-center gap-1 w-fit"
+        >
+          Escuchar Episodios
+          <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+        </div>
+      </a>
+
+      <!-- Blog Card -->
+      <a
+        href="https://blog.todoconta.com"
+        target="_blank"
+        class="bg-[#FFEDD5] p-6 rounded-2xl shadow-sm border border-orange-100 flex flex-col gap-4 h-full justify-between hover:shadow-md transition-all hover:scale-[1.02] group"
+      >
+        <div class="flex items-center gap-4">
+          <div
+            class="p-3 bg-orange-100 rounded-xl text-orange-700 group-hover:bg-orange-600 group-hover:text-white transition-colors"
+          >
+            <span class="material-symbols-outlined text-2xl">article</span>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900">Blog Fiscal</h3>
+        </div>
+        <p class="text-sm text-gray-700 flex-1">
+          Análisis profundo y reformas, mantente siempre un paso adelante en tu
+          estrategia fiscal.
+        </p>
+        <div
+          class="mt-auto font-bold text-primary flex items-center gap-1 w-fit"
+        >
+          Leer en Substack
+          <span class="material-symbols-outlined text-sm">open_in_new</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
